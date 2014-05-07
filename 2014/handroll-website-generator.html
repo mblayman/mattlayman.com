@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' href='/screen.css'>
+  <link rel='stylesheet' href='/pygments.css'>
+  <title>handroll: A Simple Website Generator - mblayman.github.io</title>
+  <meta name='viewport' content='width=device-width' />
+</head>
+<body>
+  <h1>handroll: A Simple Website Generator</h1>
+  <h5>By <a href="/">Matt Layman</a> on May 4, 2014</h5>
+<p>Simplicity. That was my goal after studying <a href="http://david.heinemeierhansson.com/">DHH's personal
+website</a>. I wanted a simple website that
+had all the feeling of something handcrafted, but I didn't want to write all
+my HTML by hand. I looked at the website generators out there like
+<a href="http://blog.getpelican.com/">Pelican</a> (which is pretty great if you want
+blogging software), but they didn't fit my use case. I wanted complete control.
+Is that too much to ask? No. So I scratched my own itch and wrote some new
+software. I called it <strong>handroll</strong>. Let me show an example:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>handroll site mblayman.github.io
+</pre></div>
+
+
+<p>My source content is in the <code>site</code> directory. The output will be stored in my
+<code>mblayman.github.io</code> git repository so I can easily publish my work to
+<a href="http://mblayman.github.io">http://mblayman.github.io</a>. handroll copies all the
+content of <code>site</code> to <code>mblayman.github.io</code>. When it finds a Markdown file
+(<code>*.md</code>), it generates HTML and combines it with <code>template.html</code> from the root
+of the site directory. The first line of the Markdown file is passed to the
+template as <code>title</code> and the generated HTML of the remainder of the file is
+passed as <code>content</code>. If the template was:</p>
+<div class="codehilite"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;title&gt;</span>${title}<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>${title}<span class="nt">&lt;/h1&gt;</span>
+  ${content}
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+
+<p>And <code>index.md</code> was:</p>
+<div class="codehilite"><pre><span class="n">A</span> <span class="n">Sample</span> <span class="n">Site</span> <span class="n">Title</span>
+
+<span class="cp">## Another heading</span>
+
+<span class="n">This</span> <span class="n">is</span> <span class="n">text</span> <span class="n">in</span> <span class="n">the</span> <span class="n">body</span>
+</pre></div>
+
+
+<p>Then the resulting <code>index.html</code> would be:</p>
+<div class="codehilite"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;title&gt;</span>A Sample Site Title<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>A Sample Site Title<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;h2&gt;</span>Another heading<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;p&gt;</span>This is text in the body.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+<span class="c">&lt;!-- handrolled for excellence --&gt;</span>
+</pre></div>
+
+
+<p>You can get handroll by installing it the standard Python way:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>pip install handroll
+</pre></div>
+
+
+<p>I am doing development of handroll on
+<a href="https://github.com/mblayman/handroll">GitHub</a>.</p>
+</body>
+</html>
+<!-- handrolled for excellence -->

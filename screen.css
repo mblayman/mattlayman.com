@@ -1,5 +1,5 @@
 body {
-  background-color: #fff0e6;
+  background-color: #f2fcff;
   color: #000547;
   font-family: Helvetica, Georgia, sans-serif;
   margin: 50px auto;
@@ -25,6 +25,14 @@ a:visited {
 a:hover {
   color: #f28300;
   border-bottom: 1px dotted #cca77a;
+}
+
+div.codehilite { padding-left: 20px; }
+
+img#me {
+  border-radius: 100px;
+  float: right;
+  margin-left: 10px;
 }
 
 @media screen and (max-width: 650px) {
