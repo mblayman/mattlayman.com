@@ -22,6 +22,12 @@ a:visited {
   border-bottom: 1px dotted #a4a3d4;
 }
 
+footer p a:visited {
+  color: #cc6e00;
+  text-decoration: none;
+  border-bottom: 1px solid #cca77a;
+}
+
 a:hover {
   color: #f28300;
   border-bottom: 1px dotted #cca77a;
@@ -34,6 +40,20 @@ img#me {
   float: right;
   margin-left: 10px;
 }
+
+img.book {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  border-top: 1px solid #cc6e00;
+  font-size: smaller;
+  text-align: center;
+}
+
+footer p img { vertical-align: middle; }
 
 @media screen and (max-width: 650px) {
   body {
