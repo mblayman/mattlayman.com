@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' href='/screen.css'>
+  <link rel='stylesheet' href='/pygments.css'>
+  <title>When you're feeling all TAPped out - mblayman.github.io</title>
+  <meta name='viewport' content='width=device-width' />
+</head>
+<body>
+  <h1>When you're feeling all TAPped out</h1>
+<h5>By <a href="/">Matt Layman</a> on September 4, 2013</h5>
+<p><img class='book' src='tap.png'></p>
+<p>Good software practices say you should do automated testing, but what do you do
+when you work in an environment that can't get good test tools? Use a simple
+testing protocol like TAP.</p>
+<p>TAP is the <em>Test Anything Protocol</em>. The protocol is so simple that you could
+probably write code to make TAP output in minutes. It is a line based protocol
+which means that any language that has some sort of print method can generate
+TAP. That's basically all software languages in common use.</p>
+<p>I could provide the rules, but an example would be easier.</p>
+<div class="codehilite"><pre><span class="cp"># This is a comment because it starts with a hash symbol.</span>
+<span class="n">ok</span> <span class="mi">1</span> <span class="n">Something</span> <span class="n">passed</span> <span class="n">here</span><span class="p">.</span>
+<span class="n">not</span> <span class="n">ok</span> <span class="mi">2</span> <span class="n">Whoops</span><span class="p">,</span> <span class="n">there</span> <span class="n">was</span> <span class="n">a</span> <span class="n">failure</span><span class="p">.</span>
+<span class="n">When</span> <span class="n">there</span> <span class="n">is</span> <span class="n">a</span> <span class="n">line</span> <span class="n">that</span> <span class="n">TAP</span> <span class="n">does</span> <span class="n">not</span> <span class="n">understand</span> <span class="p">(</span><span class="n">like</span> <span class="n">this</span> <span class="n">one</span><span class="p">),</span> <span class="n">it</span> <span class="n">will</span> <span class="n">skip</span> <span class="n">it</span><span class="p">.</span>
+<span class="cp"># TAP files should have a plan in the format of &quot;1..&lt;some number of tests&gt;&quot;.</span>
+<span class="mf">1..2</span>
+</pre></div>
+
+
+<p>The key to the protocol is <code>ok</code> and <code>not ok</code>. When lines start with one of
+these two phrases, TAP readers will interpret it as a pass or failure. Besides
+the test number, everything else on the line is extra. Toss in how many tests
+were run and you have fully functional TAP output. We can prove it with
+Perl's aptly name <code>prove</code> tool.</p>
+<div class="codehilite"><pre>matt@eden:~<span class="nv">$ </span>prove sample.tap
+sample.tap .. Failed 1/2 subtests
+
+Test Summary Report
+-------------------
+sample.tap <span class="o">(</span>Wstat: 0 Tests: 2 Failed: 1<span class="o">)</span>
+  Failed <span class="nb">test</span>:  2
+<span class="nv">Files</span><span class="o">=</span>1, <span class="nv">Tests</span><span class="o">=</span>2,  0 wallclock secs <span class="o">(</span> 0.01 usr +  0.00 <span class="nv">sys</span> <span class="o">=</span>  0.01 CPU<span class="o">)</span>
+Result: FAIL
+</pre></div>
+
+
+<p>Once you have some TAP results from your awesome homegrown test suite, you can
+get them into a TAP reader like the <a href="https://wiki.jenkins-ci.org/display/JENKINS/TAP+Plugin">Jenkins
+plugin</a> or a specific
+tool like <a href="http://tapper.github.io/Tapper/">Tapper</a>.</p>
+<p>There are some additional features that I did not discuss here (like TODO
+tracking). See the <a href="http://testanything.org/">TAP website</a> for more details.
+More adventurous individuals can check out the specifics by looking at the de
+facto parser, <a href="http://search.cpan.org/~ovid/Test-Harness-3.28/lib/TAP/Parser.pm">TAP::Parser</a>, on Perl's CPAN.</p>
+  <br>
+  <footer>
+    <p><img alt='Creative Commons Attribution 4.0 International License'
+      src='/cc.png'> <a href='/'> Matt Layman</a>, 2014</p>
+  </footer>
+</body>
+</html>
+<!-- handrolled for excellence -->
