@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='/screen.css'>
+  <link rel='stylesheet' href='/pygments.css'>
+  <title>Test your packaging - mblayman.github.io</title>
+  <meta name='viewport' content='width=device-width' />
+</head>
+<body>
+  <h1>Test your packaging</h1>
+<h5>By <a href="/">Matt Layman</a> on December 15, 2013</h5>
+<p><img class='book' src='travis.png'></p>
+<p>Software development is a process rife with errors. We generally call them
+bugs, but that's so developers don't feel as bad for messing up. It's much
+easier to say "oh, that's just a bug" instead of "oh, that's an error."</p>
+<p>I made an error not too long ago. In fact, it was an egregious one. The
+software that I released for MarkWiki had broken packaging. This means <strong><em>it
+was completely broken for anyone who attempted to install it</em></strong>. Oops. Because
+of that, I likely lost the confidence of many people who were willing to
+install it. According to download statistics, over 300 hundred people probably
+saw my mistake immediately as MarkWiki crashed the moment they tried to run it.</p>
+<p>The mistake was completely avoidable. All I needed to do was run the test suite
+against an installed version, and the error would have smacked me in the face
+like it did for the 300 other people.</p>
+<p>When someone kindly <a href="https://github.com/mblayman/markwiki/issues/13">pointed out the error via
+GitHub</a>, I decided I should fix
+the problem to avoid such future embarrassment. The solution to this packaging
+issue comes via <a href="https://travis-ci.org/">Travis CI</a>,
+<a href="http://tox.readthedocs.org/en/latest/">Tox</a>, and
+<a href="http://virtualenv.readthedocs.org/en/latest/">virtualenv</a>. Travis is a service
+for doing automated builds using "Continuous Integration." All this means is
+that every source commit to GitHub will trigger Travis to build MarkWiki and
+run the tests. The automated build is run inside a virtual environment with
+virtualenv so that each build is isolated (i.e., stuff from one build can't
+leak into another and affect the build process). Finally, I used Tox. Tox is
+neat because it is designed to do testing against <em>installed</em> packages (sounds
+appropriate for me, right?).</p>
+<p>The process looks something like this:</p>
+<ol>
+<li>I finish a feature for MarkWiki and push it to GitHub.</li>
+<li>GitHub tells Travis about the change.</li>
+<li>Travis creates a virtual environment and calls Tox.</li>
+<li>Tox builds a MarkWiki package, downloads all the dependencies, and runs the
+   tests.</li>
+<li>Travis emails me if something fails.</li>
+</ol>
+<p>The configuration in my repository was super simple. And the Travis CI team
+has great documentation for how to connect GitHub and their service.</p>
+<p>I needed to add two files to my repository: <strong>.travis.yml</strong> and <strong>tox.ini</strong>.
+The entire files are listed below. First, the Travis file:</p>
+<div class="codehilite"><pre><span class="l-Scalar-Plain">language</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">python</span>
+<span class="l-Scalar-Plain">env</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">TOX_ENV=py27</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">TOX_ENV=py26</span>
+<span class="l-Scalar-Plain">install</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">pip install tox</span>
+<span class="l-Scalar-Plain">script</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tox -e $TOX_ENV</span>
+</pre></div>
+
+
+<p>Second, the Tox file:</p>
+<div class="codehilite"><pre><span class="k">[tox]</span>
+<span class="na">envlist</span> <span class="o">=</span> <span class="s">py26, py27</span>
+
+<span class="k">[testenv]</span>
+<span class="na">deps</span> <span class="o">=</span> <span class="s">nose</span>
+<span class="s">       coverage</span>
+<span class="na">commands</span> <span class="o">=</span> <span class="s">nosetests --with-coverage --cover-package=markwiki</span>
+</pre></div>
+
+
+<p>The setup is simple and future embarrassment is minimized. So, <strong>test your
+packages!</strong></p>
+  <br>
+  <footer>
+    <p><img alt='Creative Commons Attribution 4.0 International License'
+      src='/cc.png'> <a href='/'> Matt Layman</a>, 2014</p>
+  </footer>
+</body>
+</html>
+<!-- handrolled for excellence -->
