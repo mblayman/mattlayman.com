@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">Matt Layman's Writings</title>
+  <id>http://mblayman.github.io/feed.xml</id>
+  <updated>2014-06-01T00:00:00Z</updated>
+  <link href="http://mblayman.github.io/archive.html" />
+  <link href="http://mblayman.github.io/archive.html" rel="self" />
+  <author>
+    <name>Matt Layman</name>
+  </author>
+  <generator>Werkzeug</generator>
+  <entry>
+    <title type="text">handroll 1.1 released</title>
+    <id>http://mblayman.github.io/2014/handroll-1-1-released.html</id>
+    <updated>2014-06-01T00:00:00Z</updated>
+    <link href="http://mblayman.github.io/2014/handroll-1-1-released.html" />
+    <summary type="html">A release announcement for handroll 1.1</summary>
+  </entry>
+  <entry>
+    <title type="text">handroll: a simple website generator</title>
+    <id>http://mblayman.github.io/2014/handroll-website-generator.html</id>
+    <updated>2014-05-04T12:00:00Z</updated>
+    <link href="http://mblayman.github.io/2014/handroll-website-generator.html" />
+    <summary type="html">Introduction of handroll website generator tool</summary>
+  </entry>
+  <entry>
+    <title type="text">tappity tap TAP tappy</title>
+    <id>http://mblayman.github.io/2014/tappy.html</id>
+    <updated>2014-03-17T12:00:00Z</updated>
+    <link href="http://mblayman.github.io/2014/tappy.html" />
+    <summary type="html">Introduction of TAP tools for Python</summary>
+  </entry>
+  <entry>
+    <title type="text">Advanced Rails</title>
+    <id>http://mblayman.github.io/2014/advanced-rails.html</id>
+    <updated>2014-02-23T00:00:00Z</updated>
+    <link href="http://mblayman.github.io/2014/advanced-rails.html" />
+    <summary type="html">A book review of 'Advanced Rails'</summary>
+  </entry>
+</feed>
+<!-- handrolled for excellence -->
