@@ -1,8 +1,15 @@
 body {
-  background-color: #f2fcff;
+  background-color: #4ca3bd;
+  background-image: url('triangular.png');
   color: #000547;
   font-family: Helvetica, Georgia, sans-serif;
+}
+
+div#container {
+  background-color: #f2fcff;
+  border: 1px solid #cca77a;
   margin: 50px auto;
+  padding: 20px;
   width: 650px;
 }
 
@@ -59,10 +66,14 @@ footer p img { vertical-align: middle; }
 
 @media screen and (max-width: 650px) {
   body {
-    margin: 10px auto;
-    padding: 0 20px 0 20px;
-    width: auto;
+    margin: 0;
+  }
+
+  div#container {
+    margin: 15px auto;
+    padding: 1px 20px 10px 20px;
     word-wrap: break-word;
+    width: auto;
   }
 
   body h1 {
