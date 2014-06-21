@@ -70,6 +70,7 @@ footer p img { vertical-align: middle; }
   }
 
   div#container {
+    border: 0px;
     margin: 15px auto;
     padding: 1px 20px 10px 20px;
     word-wrap: break-word;
