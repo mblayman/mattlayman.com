@@ -2,15 +2,20 @@ body {
   background-color: #4ca3bd;
   background-image: url('triangular.png');
   color: #000547;
-  font-family: Helvetica, Georgia, sans-serif;
+  font-family: 'Lora', Georgia, serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cabin', Helvetica, sans-serif;
+  font-weight: 600;
 }
 
 div#container {
   background-color: #f2fcff;
   border: 1px solid #cca77a;
   margin: 50px auto;
-  padding: 20px;
-  width: 650px;
+  padding: 45px 90px;
+  width: 575px;
 }
 
 body h1 {
