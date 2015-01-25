@@ -73,6 +73,23 @@ footer {
 
 footer p img { vertical-align: middle; }
 
+table { border-collapse: collapse; }
+thead { border-bottom: 1px solid #cc6e00; }
+td { text-align: center; }
+
+
+svg { border: 1px solid #dedede; }
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.area {
+  fill: #4ca3bd;
+}
+
 @media screen and (max-width: 650px) {
   body {
     margin: 0;
