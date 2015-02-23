@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='/screen.css'>
+  <link href='http://fonts.googleapis.com/css?family=Cabin:600|Lora'
+    rel='stylesheet' type='text/css'>
+  <title>A complete guide to i18n in Python - mblayman.github.io</title>
+  <meta name='viewport' content='width=device-width' />
+  <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
+    type='atom+xml'>
+</head>
+<body>
+<div id='container'>
+  <h1>A complete guide to i18n in Python</h1>
+<h5>By <a href='/'>Matt Layman</a> on February 23, 2015</h5>
+<p>This is a start to finish guide showing how to do internationalization (i18n)
+for a Python application. When I added i18n to <a href="http://handroll.github.io/">handroll</a>, I struggled to
+find clear advice for supporting other languages. This is one opinionated
+view explaining how I got there.</p>
+<p><img class='book' src='translation.png'></p>
+<p>Table of Contents:</p>
+<ul>
+<li><a href="#marking">Marking strings</a></li>
+<li><a href="#extracting">Extracting the master list</a></li>
+<li><a href="#pot2po">Getting translations for other languages</a></li>
+<li><a href="#packaging">Packaging it together</a></li>
+<li><a href="#testing">Testing out the package</a></li>
+<li><a href="#questions">Questions?</a></li>
+</ul>
+<h2>Overview</h2>
+<p>To internationalize code, you have to treat user text strings in a certain
+way. All text strings must be wrapped with a special function call. This
+special function marks the strings as something that needs translation.
+Once all the strings are marked, i18n tools can scan your code to make
+a master list of everything. With the master list available, translators
+can produce a list of translated strings for each desired language. The
+translated strings are added back to the Python code and it's all
+bundled up into a nice translated final product. Then you may want
+to <a href="/2013/test-your-packaging.html">test that out</a>.</p>
+<p>That's a lot of stuff, but I'll explain each part of that process in detail.
+For the purposes of this guide, all of my example code will refer to the
+<code>handroll</code> package. If this is your Python code, replace <code>handroll</code> with
+the name of your top level Python package.</p>
+<p><a id='marking'></a></p>
+<h2>Marking strings</h2>
+<p>The special function that I mentioned in the overview looks like
+<code>_('Hello World')</code>. This function comes from the <code>gettext</code> module.
+Python uses GNU gettext to do translation so let's look at the handroll
+code that creates the <code>_</code> function in <code>handroll/i18n.py</code>.</p>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">gettext</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">localedir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)),</span> <span class="s">&#39;locale&#39;</span><span class="p">)</span>
+<span class="n">translate</span> <span class="o">=</span> <span class="n">gettext</span><span class="o">.</span><span class="n">translation</span><span class="p">(</span><span class="s">&#39;handroll&#39;</span><span class="p">,</span> <span class="n">localedir</span><span class="p">,</span> <span class="n">fallback</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">translate</span><span class="o">.</span><span class="n">gettext</span>
+</pre></div>
+
+
+<p>This little chunk of code makes a translation object using a <code>locale</code>
+directory as the source of translated strings. Your <code>locale</code> directory
+doesn't exist yet, but it is where your application will look for
+translations at run time. From the translation object, I made an <code>_</code>
+alias for <code>translate.gettext</code>. This underscore is not particularly
+special, however, it is the conventional name of this function that is
+used by the Python community.</p>
+<p>I hope there is enough here now to understand what will happen at run
+time. The important idea is that <code>'Hello World'</code> acts like a key.
+When the code executes, that "key" will be used to look in the locale
+data to find a matching translation. The return value of <code>_</code> will
+be the translated string or the original if the translation is
+missing.</p>
+<h3><code>_</code> and <code>format</code> strings</h3>
+<p>One weirdness that you will quickly encounter if you use <code>format</code>
+for your strings is where to close the <code>_</code> parentheses. Here is an
+example to make it clear.</p>
+<div class="codehilite"><pre><span class="n">_</span><span class="p">(</span><span class="s">&#39;Close the underscore function first. A {number}&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+
+
+<p><a id='extracting'></a></p>
+<h2>Extracting the master list</h2>
+<p>With all strings marked with <code>_()</code>, it is time to extract them into
+a master list. Gettext refers to this master list as the <code>Portable
+Object Template</code> (<code>POT</code>) file. To generate the POT file, I turned
+to a tool called <a href="http://babel.pocoo.org/">Babel</a>. Babel is designed to help
+developers handle i18n issues in a wide variety of ways. It's cool
+with a lot of features, but for this guide, I'll focus on its
+gettext support.</p>
+<p>Babel extends a <code>setup.py</code> file with new commands. (Python packaging
+is out of scope for this guide so if <code>setup.py</code> is completely foreign
+to you, please check out <a href="https://docs.python.org/2/distutils/introduction.html">Distributing Python Modules</a>
+for more information.)</p>
+<p>To generate a POT file, run <code>python setup.py extract_messages</code>. You
+will need some settings similar to:</p>
+<div class="codehilite"><pre><span class="k">[extract_messages]</span>
+<span class="na">input_dirs</span> <span class="o">=</span> <span class="s">handroll</span>
+<span class="na">output_file</span> <span class="o">=</span> <span class="s">handroll/locale/handroll.pot</span>
+</pre></div>
+
+
+<p><a id='pot2po'></a></p>
+<h2>Getting translations for other languages</h2>
+<p>Now that you have generated a POT file, you are ready to get translated
+versions of your strings. Remember that the <em>T</em> in POT is for <em>template</em>.
+The translated files are called PO files, and translators use the POT file
+as a starting point to generate their PO file. Doing translation by
+manually creating the PO file is possible, but it is tedious.
+At this point, I turned to a service called <a href="https://www.transifex.com/">Transifex</a>.</p>
+<p>Transifex is focused on making translation easy. It's free for
+open source projects and really easy to use. I set up a project
+for handroll, configured Transifex to "watch" the POT file for
+changes, and translators can easily translate all the strings in
+the project. Transifex has an API that enabled me to pull PO files
+back into the repository whenever I needed. The script is a little
+too long to put in this post, but you can <a href="https://github.com/handroll/handroll/blob/master/transifex.py">look at it on GitHub</a>.</p>
+<p>One important thing that the script does is store PO files in a
+specific structure in the <code>locale</code> directory. Gettext expects an
+order like <code>&lt;language&gt;/LC_MESSAGES/handroll.po</code>.</p>
+<p><a id='packaging'></a></p>
+<h2>Packaging it together</h2>
+<p>After the translated PO files are in place, it is time to package
+your translation data. The setup process includes extra data in
+<code>MANIFEST.in</code>. Add a line similar to the one below to ensure all
+<code>locale</code> data is put into the package archive.</p>
+<p><code>recursive-include handroll/locale *</code></p>
+<p>So far I've lied a little bit for clarity in explanation. Gettext
+does not use PO files directly for looking up translations. The
+truth is that the PO file must be compiled into a binary Machine
+Object (MO) file (for faster speed). Again, we can turn to Babel
+for help. Babel has a <code>compile_catalog</code> command that can compile
+PO into MO. You can run it with <code>python setup.py compile_catalog</code>.</p>
+<p>It will need settings like:</p>
+<div class="codehilite"><pre><span class="k">[compile_catalog]</span>
+<span class="na">domain</span> <span class="o">=</span> <span class="s">handroll</span>
+<span class="na">directory</span> <span class="o">=</span> <span class="s">handroll/locale</span>
+</pre></div>
+
+
+<p>Because translations will not work without MO files, I extended
+<code>setup.py</code> so that the <code>sdist</code> command will always run
+<code>compile_catalog</code>.</p>
+<div class="codehilite"><pre><span class="kn">from</span> <span class="nn">setuptools.command.sdist</span> <span class="kn">import</span> <span class="n">sdist</span>
+
+
+<span class="k">class</span> <span class="nc">Sdist</span><span class="p">(</span><span class="n">sdist</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Custom ``sdist`` command to ensure that mo files are always created.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">run_command</span><span class="p">(</span><span class="s">&#39;compile_catalog&#39;</span><span class="p">)</span>
+        <span class="c"># sdist is an old style class so super cannot be used.</span>
+        <span class="n">sdist</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+
+
+<p>If you do this, don't forget to add <code>cmdclass={'sdist': Sdist}</code> and
+<code>setup_requires=['Babel']</code> in your <code>setup</code> call.</p>
+<p>At this point, running <code>python setup.py sdist</code> should create a
+tarball with translations for your project. You're almost done!</p>
+<p><a id='testing'></a></p>
+<h2>Testing out the package</h2>
+<p>Testing translations is not easy. If you go the extra mile, you can
+know that people from all different cultures can enjoy your software.
+But translation testing is not easy because you need tests that run
+every string in your code. For handroll, that meant I had to get to
+100% test coverage to get those really strange corner cases.</p>
+<p>The reason to test is that incorrectly translated strings can destroy
+your code. If you have a format string like
+<code>_('Hello {name}!').format(name='Johnny')</code> and a translator makes a
+mistake like <code>'¡Hola {nombre}!'</code>, then that code would break for Spanish
+users.</p>
+<div class="codehilite"><pre><span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;¡Hola {nombre}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;Johnny&#39;</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">KeyError</span>: <span class="n">&#39;nombre&#39;</span>
+</pre></div>
+
+
+<p>To test out these strings, you need two things: MO files and the
+<code>LANGUAGE</code> environment variable. Let's assume you use the
+<a href="https://nose.readthedocs.org/en/latest/">nose</a> test runner. To test out your Spanish support, you
+can run:</p>
+<div class="codehilite"><pre><span class="nv">$ LANGUAGE</span><span class="o">=</span>es nosetests
+..................................
+----------------------------------------------------------------------
+Ran 34 tests in 1.440s
+
+OK
+</pre></div>
+
+
+<p>In whatever continuous integration system you use, run your unit
+tests through each language you support to give yourself some
+confidence that translations have not broken the software. The
+<a href="https://github.com/handroll/handroll/blob/master/tox.ini">handroll tox.ini</a> provides an example to compare against.
+<a href="https://tox.readthedocs.org/en/latest/">Tox</a> is awesome for this kind of stuff.</p>
+<p><a id='questions'></a></p>
+<h2>Questions?</h2>
+<p>In this guide, I did my best to document all that I did to
+internationalize my project. I hope that all the concrete details
+help you see how to translate your own project. If something is
+missing or broken, let me know and I'll be glad to update the post.</p>
+<p>If you have any questions about what I did, please drop me a note.
+I'm <a href="https://twitter.com/mblayman">@mblayman</a> on Twitter.</p>
+  <br>
+  <footer>
+    <p><img alt='Creative Commons Attribution 4.0 International License'
+      src='/cc.png' width='80' height='15'> <a href='/'> Matt Layman</a>,
+      2015</p>
+  </footer>
+</div>
+</body>
+</html><!-- handrolled for excellence -->
