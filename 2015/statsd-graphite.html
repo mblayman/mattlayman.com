@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='/screen.css'>
+  <link href='http://fonts.googleapis.com/css?family=Cabin:600|Lora'
+    rel='stylesheet' type='text/css'>
+  <title>Toying with Statsd and Graphite - mblayman.github.io</title>
+  <meta name='viewport' content='width=device-width' />
+  <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
+    type='atom+xml'>
+</head>
+<body>
+<div id='container'>
+  <h1>Toying with Statsd and Graphite</h1>
+<h5>By <a href='/'>Matt Layman</a> on March 1, 2015</h5>
+<p><img class='book' src='graph.png'></p>
+<p>The graphing bug bit me.</p>
+<p>I am currently enjoying the backlog of the <a href="http://giantrobots.fm/">Giant
+Robots podcast</a>. One of the subjects that Giant
+Robots often covers is measuring user behavior. You can only know what
+your users want if you a) talk to them or b) observe them. There are
+many services for observing users like <a href="http://newrelic.com/">New Relic</a>, <a href="http://www.google.com/analytics/">Google Analytics</a>,
+or <a href="https://mixpanel.com/">Mixpanel</a> that offer a lot of value, but this post is about
+going your own way with Statsd and Graphite.</p>
+<p>When I did some hunting for how to measure behavior on your own, I ran
+into <a href="https://github.com/etsy/statsd/">Statsd</a> from Etsy. Statsd is a minimal server that listens
+for data input over a UDP port. Because UDP is a connectionless protocol
+(it's a fire and forget model of messaging), UDP messages are very fast
+to send. Applications use a Statsd client and send messages about
+various measures. For instance, an application could
+increment a counter for each request received to figure out the amount
+of traffic.</p>
+<p>Statsd is good at aggregating metric data, but it is not intended to
+store or display the data. Enter <a href="http://graphite.readthedocs.org/en/latest/">Graphite</a>. Graphite is a web
+application that can display time based graphs (exactly the kind of
+data Statsd spits out) and store time based data in a specialized
+database. Statsd and Graphite make an excellent pair.</p>
+<p>I explored these tools by following some of the advice in a
+<a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-tracking-statistics-with-graphite-statsd-and-collectd">DigitalOcean tutorial</a>. First, I set up Vagrant to use a virtual
+machine for Graphite. The VM uses Ubuntu 14.04.</p>
+<div class="codehilite"><pre><span class="nv">$ </span>vagrant init ubuntu/trusty64
+</pre></div>
+
+
+<p>The <code>Vagrantfile</code> only needs a couple of changes to forward
+ports from the guest to the host.</p>
+<div class="codehilite"><pre>  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;forwarded_port&quot;</span><span class="p">,</span> <span class="ss">guest</span><span class="p">:</span> <span class="mi">2003</span><span class="p">,</span> <span class="ss">host</span><span class="p">:</span> <span class="mi">2003</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;forwarded_port&quot;</span><span class="p">,</span> <span class="ss">guest</span><span class="p">:</span> <span class="mi">8000</span><span class="p">,</span> <span class="ss">host</span><span class="p">:</span> <span class="mi">8000</span>
+</pre></div>
+
+
+<p>In the VM, I followed the tutorial directions to configure Graphite.
+Since I was only testing out these tools, I did not bother to set
+up Apache. Graphite's web application is a Django app so the
+<code>graphite-manage</code> command line tool that comes with the Ubuntu
+package is really a renamed Django <code>manage.py</code> file. It was easy
+to test with the built in Django development server. Note: it
+is important to use <code>0.0.0.0</code> as the address instead of <code>localhost</code>
+or else the host VM will not be able to access the web app.</p>
+<div class="codehilite"><pre><span class="nv">$ </span>sudo graphite-manage syncdb
+<span class="nv">$ </span>sudo graphite-manage runserver 0.0.0.0:8000
+</pre></div>
+
+
+<p>In a browser on the host, I could visit <code>http://localhost:8000</code> to
+access the web app (because of the port forwarding from the Vagrant
+setup). Now the VM was listening on port 2003 for incoming data and
+able to display the results in the web app. Awesome.</p>
+<p>Next, I set up Statsd. I already had NodeJS installed on my host
+machine (which also happens to be an Ubuntu 14.04 OS) so I did not
+bother to configure another VM. To set up Statsd, you clone the
+GitHub repository, set some configuration settings, and fire up
+NodeJS.</p>
+<div class="codehilite"><pre><span class="nv">$ </span>git clone git@github.com:etsy/statsd.git
+</pre></div>
+
+
+<p>Here was my configuration file.</p>
+<div class="codehilite"><pre><span class="p">{</span>
+  <span class="nx">graphitePort</span><span class="o">:</span> <span class="mi">2003</span><span class="p">,</span>
+  <span class="nx">graphiteHost</span><span class="o">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+  <span class="nx">port</span><span class="o">:</span> <span class="mi">8125</span><span class="p">,</span>
+  <span class="nx">backends</span><span class="o">:</span> <span class="p">[</span> <span class="s2">&quot;./backends/graphite&quot;</span> <span class="p">],</span>
+  <span class="nx">graphite</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">legacyNamespace</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Finally, to start Statsd:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>node stats.js exampleConfig.js
+</pre></div>
+
+
+<p>After all that configuration, I could execute a basic command to create
+a metric in Graphite. The protocol is specific to Statsd, but there are
+plenty of language specific clients that help abstract away the details.
+<a href="http://statsd.readthedocs.org/en/latest/">Python statsd</a> looks like the front runner for my language of
+choice.</p>
+<div class="codehilite"><pre><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;sample.gauge:14|g&quot;</span> | nc -u -w0 127.0.0.1 8125
+</pre></div>
+
+
+<p>That was a lot of work to see a <code>y = 14</code> graph in Graphite, but it's not
+a lot of work if you consider what can be done with this pipeline on
+a production website. The UDP nature of Statsd means that any layer
+in a large site (e.g., application servers, caching servers) can
+collect data with very minimal overhead. Graphite provides a very
+powerful set of graphing tools to display and analyze that data. I
+think that the tag team of Statsd and Graphite makes a great toolbox
+for monitoring a web system. I bet Etsy agrees.</p>
+<p>If you want to chat about this with me, I'm <a href="https://twitter.com/mblayman">@mblayman</a> on Twitter.</p>
+  <br>
+  <footer>
+    <p><img alt='Creative Commons Attribution 4.0 International License'
+      src='/cc.png' width='80' height='15'> <a href='/'> Matt Layman</a>,
+      2015</p>
+  </footer>
+</div>
+</body>
+</html><!-- handrolled for excellence -->
