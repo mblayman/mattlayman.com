@@ -11,7 +11,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 div#container {
-  background-color: #f2fcff;
+  background-color: white;
   border: 1px solid #cca77a;
   margin: 50px auto;
   padding: 45px 90px;
@@ -24,6 +24,12 @@ body h1 {
 }
 
 p { line-height: 1.75em; }
+p.byline {
+  font-size: small;
+  font-style: italic;
+}
+
+pre { padding: 1em 0; }
 
 a {
   color: #cc6e00;
