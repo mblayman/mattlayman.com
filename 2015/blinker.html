@@ -17,7 +17,7 @@
 <p><img class='book' src='blinker.png'></p>
 <p>I started using <a href="https://pythonhosted.org/blinker/">blinker</a> for <a href="http://handroll.github.io/">handroll</a>.
 Blinker is a signal generation library for broadcasting events.
-The library let's signalers send messages
+The library lets signalers send messages
 to connected receiver functions.
 I will explain how I convinced Blinker to talk to objects
 instead of pure Python functions.</p>
@@ -58,7 +58,7 @@ Why?
 This is necessary
 because Blinker can't pass <code>self</code> to receiver functions.
 <code>handle_frobnicated</code> acts as a <a href="http://en.wikipedia.org/wiki/Closure_%28computer_programming%29">closure</a> on <code>self</code>
-which let's the signal call the instance method.</p>
+which lets the signal call the instance method.</p>
 <div class="codehilite"><pre>        <span class="bp">self</span><span class="o">.</span><span class="n">handle_frobnicated</span> <span class="o">=</span> <span class="n">handle_frobnicated</span>
 </pre></div>
 
