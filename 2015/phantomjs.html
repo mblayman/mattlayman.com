@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='/screen.css'>
+  <link href='http://fonts.googleapis.com/css?family=Cabin:600|Lora'
+    rel='stylesheet' type='text/css'>
+  <title>Inject JavaScript with PhantomJS to inspect websites - mattlayman.com</title>
+  <meta name='viewport' content='width=device-width' />
+  <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
+    type='atom+xml'>
+</head>
+<body>
+<div id='container'>
+  <h1>Inject JavaScript with PhantomJS to inspect websites</h1>
+<p class='byline'>By <a href='/'>Matt Layman</a> on March 24, 2015</p>
+<p><img class='book' src='phantomjs.png'></p>
+<p>How can you inspect the source of a website with a script?
+You can download the page,
+parse it with a library like <a href="http://lxml.de/">lxml</a>,
+and extract what you're looking for.
+<em>But what if the page is mostly made from JavaScript?</em>
+There may not be much HTML to parse.
+Most of the page might be generated on the DOM dynamically.
+If this is the kind of page
+that you want to scan,
+a tool like lxml will not help much.</p>
+<p>Another option is <a href="http://phantomjs.org/">PhantomJS</a>.
+PhantomJS is a "headless" web browser.
+That means that it is a browser that has no GUI.
+PhantomJS is exactly the kind of tool that you want
+for exploring very dynamic webpages
+from a script.</p>
+<p>Let's look at an example.</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">page</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;webpage&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">();</span>
+<span class="nx">page</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;http://www.mattlayman.com&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="nx">page</span><span class="p">.</span><span class="nx">injectJs</span><span class="p">(</span><span class="s1">&#39;scan.js&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="nx">page</span><span class="p">.</span><span class="nx">evaluate</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">getResults</span><span class="p">();</span>
+    <span class="p">});</span>
+    <span class="c1">// Do something with the results from scan.js.</span>
+    <span class="nx">phantom</span><span class="p">.</span><span class="nx">exit</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>This little script opens <code>http://www.mattlayman.com</code>.
+When the page is loaded,
+the script injects a file named <code>scan.js</code>.
+This file contains whatever code you want.
+Maybe it is a bunch of <a href="https://jquery.com/">jQuery</a> to process the DOM.
+<code>scan.js</code> exists in the context of the page
+so it can access whatever data is needed.
+Then the script calls <code>evaluate</code> to invoke <code>getResults</code>.
+<code>getResults</code> is an imaginary method
+in <code>scan.js</code>.
+Data is transferred
+from the context of the website
+to the context of the PhantomJS script.
+With the scanning code done,
+you can do anything with the results.</p>
+<p>PhantomJS makes it painless to get into a website,
+inspect the content of the site
+by looking at the DOM,
+and process the data
+to your heart's content.
+This is a brief introduction,
+but I hope it gives you a flavor
+of what a headless browser like PhantomJS can do.</p>
+<p>If you want to chat about this with me, I'm <a href="https://twitter.com/mblayman">@mblayman</a> on Twitter.</p>
+  <br>
+  <footer>
+    <p><img alt='Creative Commons Attribution 4.0 International License'
+      src='/cc.png' width='80' height='15'> <a href='/'> Matt Layman</a>,
+      2015</p>
+  </footer>
+</div>
+</body>
+</html><!-- handrolled for excellence -->
