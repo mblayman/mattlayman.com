@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='/screen.css'>
+  <link href='http://fonts.googleapis.com/css?family=Cabin:600|Lora'
+    rel='stylesheet' type='text/css'>
+  <title>Oh, my shell? Oh My Zsh - mattlayman.com</title>
+  <meta name='viewport' content='width=device-width' />
+  <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
+    type='atom+xml'>
+</head>
+<body>
+<div id='container'>
+  <h1>Oh, my shell? Oh My Zsh</h1>
+<p class='byline'>By <a href='/'>Matt Layman</a> on May 28, 2015</p>
+<p><img class='book' src='omz.png'></p>
+<p>Do you ever think about what program is running your terminal?
+For a long time,
+I knew the answer for most Linux / OS X systems was <a href="http://www.gnu.org/software/bash/">bash</a>,
+a <a href="http://en.wikipedia.org/wiki/Shell_%28computing%29">shell</a> program.
+<em>But what else is available?</em></p>
+<p>Aside from the occasional script,
+I didn't pay much attention to bash.
+bash helped me get around my computer
+and autocomplete stuff,
+and that felt like enough.
+This was <strong>profoundly</strong> shortsighted.</p>
+<p>Heavy command line users should think about their shell.
+I finally devoted time to shell research,
+and I became a <a href="http://www.zsh.org/">Zsh</a> convert.</p>
+<p>Zsh is the power user's weapon of choice.
+It has an amazing <a href="http://www.slideshare.net/jaguardesignstudio/why-zsh-is-cooler-than-your-shell-16194692">set of features</a> that go far beyond bash.
+For example, <code>cd ~/p/h</code> followed by a tab
+will quickly expand to <code>cd ~/projects/handroll/</code>
+on my computer.
+Zsh is smart enough to determine what you mean
+when you want to change directories
+so you can type fewer characters.</p>
+<p>On top of Zsh being awesome, it also has some great tools
+to extend its awesomeness.
+One popular tool for the shell is <a href="http://ohmyz.sh/">Oh My Zsh</a>.
+OMZ offers many plugins and themes that make Zsh excel even more.
+I've added the <code>git</code> and <code>virtualenvwrapper</code> plugins to my setup,
+and they've already been a huge boon.
+There are hundreds more.</p>
+<p>Want to try out Zsh? Go for it with these commands:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>sudo apt-get install zsh
+<span class="nv">$ </span>chsh -s /bin/zsh <span class="c"># Change shell to zsh.</span>
+<span class="nv">$ </span>curl -L <span class="se">\</span>
+    https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh <span class="p">|</span> sh
+</pre></div>
+
+
+<p>If you want to chat about this with me, I'm <a href="https://twitter.com/mblayman">@mblayman</a> on Twitter.</p>
+  <br>
+  <footer>
+    <p><img alt='Creative Commons Attribution 4.0 International License'
+      src='/cc.png' width='80' height='15'> <a href='/'> Matt Layman</a>,
+      2015</p>
+  </footer>
+</div>
+</body>
+</html><!-- handrolled for excellence -->
