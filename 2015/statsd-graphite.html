@@ -99,7 +99,7 @@ a metric in Graphite. The protocol is specific to Statsd, but there are
 plenty of language specific clients that help abstract away the details.
 <a href="http://statsd.readthedocs.org/en/latest/">Python statsd</a> looks like the front runner for my language of
 choice.</p>
-<div class="codehilite"><pre><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;sample.gauge:14|g&quot;</span> | nc -u -w0 127.0.0.1 8125
+<div class="codehilite"><pre><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;sample.gauge:14|g&quot;</span> <span class="p">|</span> nc -u -w0 127.0.0.1 8125
 </pre></div>
 
 

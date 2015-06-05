@@ -17,7 +17,7 @@ TAP. That's basically all software languages in common use.
 
 I could provide the rules, but an example would be easier.
 
-```
+```tap
 # This is a comment because it starts with a hash symbol.
 ok 1 Something passed here.
 not ok 2 Whoops, there was a failure.
