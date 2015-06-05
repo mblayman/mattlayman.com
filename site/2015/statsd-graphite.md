@@ -126,7 +126,3 @@ collect data with very minimal overhead. Graphite provides a very
 powerful set of graphing tools to display and analyze that data. I
 think that the tag team of Statsd and Graphite makes a great toolbox
 for monitoring a web system. I bet Etsy agrees.
-
-If you want to chat about this with me, I'm [@mblayman][tw] on Twitter.
-
-[tw]: https://twitter.com/mblayman

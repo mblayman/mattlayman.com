@@ -57,7 +57,3 @@ $ chsh -s /bin/zsh # Change shell to zsh.
 $ curl -L \
     https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 ```
-
-If you want to chat about this with me, I'm [@mblayman][tw] on Twitter.
-
-[tw]: https://twitter.com/mblayman

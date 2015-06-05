@@ -119,7 +119,3 @@ rather than function views.
 [cbv]: https://docs.djangoproject.com/en/1.7/topics/class-based-views/intro/
 
 You can [check out the full example in all its glory.](blink_object.py)
-If you want to chat about this with me,
-I'm [@mblayman][tw] on Twitter.
-
-[tw]: https://twitter.com/mblayman

@@ -69,7 +69,3 @@ to your heart's content.
 This is a brief introduction,
 but I hope it gives you a flavor
 of what a headless browser like PhantomJS can do.
-
-If you want to chat about this with me, I'm [@mblayman][tw] on Twitter.
-
-[tw]: https://twitter.com/mblayman
