@@ -16,7 +16,7 @@ Protocol](http://testanything.org/) (TAP).
 `TAPTestRunner` that behaves just like the standard library `TextTestRunner`
 or with a [nose](https://nose.readthedocs.org/en/latest/) plugin.
 
-tappy popped into existence because I work in very heterogeneous programming
+tappy popped into existence because I work in a very heterogeneous programming
 environment at work. The details of that work won't excite the average reader,
 but the job consists of C++, Python, Perl, and plenty of shell scripts. All
 of these languages have various tests to report status and each testing
