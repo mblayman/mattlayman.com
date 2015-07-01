@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: Oh, my shell? Oh My Zsh
+date: 2015-05-28T08:00:00Z
+summary: Change from bash to Zsh and reap some amazing benefits
 template: writing.j2
-date: May 28, 2015
+
 ---
 <img class='book' src='omz.png'>
 

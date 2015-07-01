@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: Connect Python objects to blinker signals
+date: 2015-03-18T23:00:00Z
+summary: How to connect Python objects to blinker signals
 template: writing.j2
-date: March 18, 2015
+
 ---
 <img class='book' src='blinker.png'>
 

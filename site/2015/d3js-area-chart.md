@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: A "simple" D3.js area chart
+date: 2015-01-24T12:00:00Z
+summary: A step-by-step walkthrough of a D3.js area chart
 template: writing.j2
-date: January 24, 2015
+
 ---
 Let's take:
 

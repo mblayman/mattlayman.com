@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: Inject JavaScript with PhantomJS to inspect websites
+date: 2015-03-24T23:00:00Z
+summary: Learn how to extract data from the web via PhantomJS scripts
 template: writing.j2
-date: March 24, 2015
+
 ---
 <img class='book' src='phantomjs.png'>
 
