@@ -10,77 +10,77 @@
   </author>
   <generator>Werkzeug</generator>
   <entry>
-    <title type="text">Oh, my shell? Oh My Zsh</title>
+    <title type="html">Oh, my shell? Oh My Zsh</title>
     <id>http://www.mattlayman.com/2015/oh-my-zsh.html</id>
     <updated>2015-05-28T08:00:00Z</updated>
     <link href="http://www.mattlayman.com/2015/oh-my-zsh.html" />
     <summary type="html">Change from bash to Zsh and reap some amazing benefits</summary>
   </entry>
   <entry>
-    <title type="text">Inject JavaScript with PhantomJS to inspect websites</title>
+    <title type="html">Inject JavaScript with PhantomJS to inspect websites</title>
     <id>http://www.mattlayman.com/2015/phantomjs.html</id>
     <updated>2015-03-24T23:00:00Z</updated>
     <link href="http://www.mattlayman.com/2015/phantomjs.html" />
     <summary type="html">Learn how to extract data from the web via PhantomJS scripts</summary>
   </entry>
   <entry>
-    <title type="text">Connect Python objects to blinker signals</title>
+    <title type="html">Connect Python objects to blinker signals</title>
     <id>http://www.mattlayman.com/2015/blinker.html</id>
     <updated>2015-03-18T23:00:00Z</updated>
     <link href="http://www.mattlayman.com/2015/blinker.html" />
     <summary type="html">How to connect Python objects to blinker signals</summary>
   </entry>
   <entry>
-    <title type="text">Toying with Statsd and Graphite</title>
+    <title type="html">Toying with Statsd and Graphite</title>
     <id>http://www.mattlayman.com/2015/statsd-graphite.html</id>
     <updated>2015-03-01T12:00:00Z</updated>
     <link href="http://www.mattlayman.com/2015/statsd-graphite.html" />
     <summary type="html">My experience with setting up and exploring Statsd and Graphite</summary>
   </entry>
   <entry>
-    <title type="text">A complete guide to i18n in Python</title>
+    <title type="html">A complete guide to i18n in Python</title>
     <id>http://www.mattlayman.com/2015/i18n.html</id>
     <updated>2015-02-23T12:00:00Z</updated>
     <link href="http://www.mattlayman.com/2015/i18n.html" />
     <summary type="html">A complete detailed guide to explain how to internationalize Python code</summary>
   </entry>
   <entry>
-    <title type="text">A 'simple' D3.js area chart</title>
+    <title type="html">A &quot;simple&quot; D3.js area chart</title>
     <id>http://www.mattlayman.com/2015/d3js-area-chart.html</id>
     <updated>2015-01-24T12:00:00Z</updated>
     <link href="http://www.mattlayman.com/2015/d3js-area-chart.html" />
     <summary type="html">A step-by-step walkthrough of a D3.js area chart</summary>
   </entry>
   <entry>
-    <title type="text">Laziness is motivating</title>
+    <title type="html">Laziness is motivating</title>
     <id>http://www.mattlayman.com/2014/laziness.html</id>
     <updated>2014-07-01T12:00:00Z</updated>
     <link href="http://www.mattlayman.com/2014/laziness.html" />
     <summary type="html">Considering laziness as a motivator for making good tools</summary>
   </entry>
   <entry>
-    <title type="text">handroll 1.1 released</title>
+    <title type="html">handroll 1.1 released</title>
     <id>http://www.mattlayman.com/2014/handroll-1-1-released.html</id>
     <updated>2014-06-01T00:00:00Z</updated>
     <link href="http://www.mattlayman.com/2014/handroll-1-1-released.html" />
     <summary type="html">A release announcement for handroll 1.1</summary>
   </entry>
   <entry>
-    <title type="text">handroll: a simple website generator</title>
+    <title type="html">handroll: a simple website generator</title>
     <id>http://www.mattlayman.com/2014/handroll-website-generator.html</id>
     <updated>2014-05-04T12:00:00Z</updated>
     <link href="http://www.mattlayman.com/2014/handroll-website-generator.html" />
     <summary type="html">Introduction of handroll website generator tool</summary>
   </entry>
   <entry>
-    <title type="text">tappity tap TAP tappy</title>
+    <title type="html">tappity tap TAP tappy</title>
     <id>http://www.mattlayman.com/2014/tappy.html</id>
     <updated>2014-03-17T12:00:00Z</updated>
     <link href="http://www.mattlayman.com/2014/tappy.html" />
     <summary type="html">Introduction of TAP tools for Python</summary>
   </entry>
   <entry>
-    <title type="text">Advanced Rails</title>
+    <title type="html">Advanced Rails</title>
     <id>http://www.mattlayman.com/2014/advanced-rails.html</id>
     <updated>2014-02-23T00:00:00Z</updated>
     <link href="http://www.mattlayman.com/2014/advanced-rails.html" />
