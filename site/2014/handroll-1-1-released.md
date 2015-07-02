@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: handroll 1.1 released
+date: 2014-06-01T00:00:00Z
+summary: A release announcement for handroll 1.1
 template: writing.j2
-date: June 1, 2014
+
 ---
 I have released the 1.1 version of my static website generator. This version
 contains quite a few new features which are documented in the [release

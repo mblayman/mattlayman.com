@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: tappity tap TAP tappy
+date: 2014-03-17T12:00:00Z
+summary: Introduction of TAP tools for Python
 template: writing.j2
-date: March 17, 2014
+
 ---
 <img class='book' src='tap.jpg'>
 

@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: Advanced Rails
+date: 2014-02-23T00:00:00Z
+summary: A book review of 'Advanced Rails'
 template: writing.j2
-date: February 23, 2014
+
 ---
 <img class='book' src='advanced-rails.jpg'>
 

@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: "handroll: a simple website generator"
+date: 2014-05-04T12:00:00Z
+summary: Introduction of handroll website generator tool
 template: writing.j2
-date: May 4, 2014
+
 ---
 Simplicity. That was my goal after studying [DHH's personal
 website](http://david.heinemeierhansson.com/). I wanted a simple website that

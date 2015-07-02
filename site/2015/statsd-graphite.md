@@ -3,7 +3,7 @@
 blog: True
 title: Toying with Statsd and Graphite
 date: 2015-03-01T12:00:00Z
-summary: My experience with setting up and exploring Statsd and Graphit
+summary: My experience with setting up and exploring Statsd and Graphite
 template: writing.j2
 
 ---

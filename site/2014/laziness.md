@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: Laziness is motivating
+date: 2014-07-01T12:00:00Z
+summary: Considering laziness as a motivator for making good tools
 template: writing.j2
-date: July 1, 2014
+
 ---
 <img class='book' src='larry.jpg'>
 
