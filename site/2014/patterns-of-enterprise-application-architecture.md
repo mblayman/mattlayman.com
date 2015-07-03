@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: Patterns of Enterprise Application Architecture
+date: 2014-01-14T12:00:00Z
+summary: A review of "Patterns of Enterprise Application Architecture"
 template: writing.j2
-date: January 14, 2014
+
 ---
 <img class='book' src='eaa.jpg'>
 
