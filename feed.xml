@@ -86,5 +86,12 @@
     <link href="http://www.mattlayman.com/2014/advanced-rails.html" />
     <summary type="html">A book review of 'Advanced Rails'</summary>
   </entry>
+  <entry>
+    <title type="html">Patterns of Enterprise Application Architecture</title>
+    <id>http://www.mattlayman.com/2014/patterns-of-enterprise-application-architecture.html</id>
+    <updated>2014-01-14T12:00:00Z</updated>
+    <link href="http://www.mattlayman.com/2014/patterns-of-enterprise-application-architecture.html" />
+    <summary type="html">A review of &quot;Patterns of Enterprise Application Architecture&quot;</summary>
+  </entry>
 </feed>
 <!-- handrolled for excellence -->
