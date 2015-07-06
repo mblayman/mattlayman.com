@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: When you're feeling all TAPped out
+date: 2013-09-04T12:00:00Z
+summary: An explanation of the Test Anything Protocol (TAP)
 template: writing.j2
-date: September 4, 2013
+
 ---
 <img class='book' src='tap.png'>
 
