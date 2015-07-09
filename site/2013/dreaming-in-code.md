@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: Dreaming in code
+date: 2013-11-08T12:00:00Z
+summary: A review of "Dreaming in Code"
 template: writing.j2
-date: November 8, 2013
+
 ---
 <img class='book' src='dreaming.jpg'>
 
