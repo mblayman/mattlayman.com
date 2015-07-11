@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: It's fun -> ok!
+date: 2013-08-05T12:00:00Z
+summary: A review of "learn you some Erlang for great good!"
 template: writing.j2
-date: August 5, 2013
+
 ---
 <img class='book' src='erlang.png'>
 
