@@ -93,5 +93,90 @@
     <link href="http://www.mattlayman.com/2014/patterns-of-enterprise-application-architecture.html" />
     <summary type="html">A review of &quot;Patterns of Enterprise Application Architecture&quot;</summary>
   </entry>
+  <entry>
+    <title type="html">Test your packaging</title>
+    <id>http://www.mattlayman.com/2013/test-your-packaging.html</id>
+    <updated>2013-12-15T12:00:00Z</updated>
+    <link href="http://www.mattlayman.com/2013/test-your-packaging.html" />
+    <summary type="html">Using Travis CI and Tox to test Python packaging</summary>
+  </entry>
+  <entry>
+    <title type="html">MarkWiki 1.3 released</title>
+    <id>http://www.mattlayman.com/2013/markwiki-1-3-released.html</id>
+    <updated>2013-12-08T12:00:00Z</updated>
+    <link href="http://www.mattlayman.com/2013/markwiki-1-3-released.html" />
+    <summary type="html">MarkWiki 1.3 release announcement</summary>
+  </entry>
+  <entry>
+    <title type="html">Ruby on Rails Tutorial</title>
+    <id>http://www.mattlayman.com/2013/ruby-on-rails-tutorial.html</id>
+    <updated>2013-12-07T12:00:00Z</updated>
+    <link href="http://www.mattlayman.com/2013/ruby-on-rails-tutorial.html" />
+    <summary type="html">A review of &quot;Ruby on Rails Tutorial&quot;</summary>
+  </entry>
+  <entry>
+    <title type="html">Dreaming in code</title>
+    <id>http://www.mattlayman.com/2013/dreaming-in-code.html</id>
+    <updated>2013-11-08T12:00:00Z</updated>
+    <link href="http://www.mattlayman.com/2013/dreaming-in-code.html" />
+    <summary type="html">A review of &quot;Dreaming in Code&quot;</summary>
+  </entry>
+  <entry>
+    <title type="html">MarkWiki 1.2 released... now actually somewhat useful</title>
+    <id>http://www.mattlayman.com/2013/markwiki-1-2-released.html</id>
+    <updated>2013-11-03T12:00:00Z</updated>
+    <link href="http://www.mattlayman.com/2013/markwiki-1-2-released.html" />
+    <summary type="html">MarkWiki 1.2 release announcement</summary>
+  </entry>
+  <entry>
+    <title type="html">Java: a bad choice for FOSS</title>
+    <id>http://www.mattlayman.com/2013/java-a-bad-choice-for-foss.html</id>
+    <updated>2013-10-14T12:00:00Z</updated>
+    <link href="http://www.mattlayman.com/2013/java-a-bad-choice-for-foss.html" />
+    <summary type="html">A description of the pain encountered with contributing to Java FOSS</summary>
+  </entry>
+  <entry>
+    <title type="html">ØMQ: A dynamic book with surprises</title>
+    <id>http://www.mattlayman.com/2013/zeromq.html</id>
+    <updated>2013-09-26T12:00:00Z</updated>
+    <link href="http://www.mattlayman.com/2013/zeromq.html" />
+    <summary type="html">A review of &quot;ZeroMQ&quot;</summary>
+  </entry>
+  <entry>
+    <title type="html">Office Zen</title>
+    <id>http://www.mattlayman.com/2013/office-zen.html</id>
+    <updated>2013-09-17T12:00:00Z</updated>
+    <link href="http://www.mattlayman.com/2013/office-zen.html" />
+    <summary type="html">A review of &quot;Peopleware&quot;</summary>
+  </entry>
+  <entry>
+    <title type="html">When you're feeling all TAPped out</title>
+    <id>http://www.mattlayman.com/2013/all-tapped-out.html</id>
+    <updated>2013-09-04T12:00:00Z</updated>
+    <link href="http://www.mattlayman.com/2013/all-tapped-out.html" />
+    <summary type="html">An explanation of the Test Anything Protocol (TAP)</summary>
+  </entry>
+  <entry>
+    <title type="html">A Layman's walk through Code</title>
+    <id>http://www.mattlayman.com/2013/a-laymans-walk-through-code.html</id>
+    <updated>2013-08-29T12:00:00Z</updated>
+    <link href="http://www.mattlayman.com/2013/a-laymans-walk-through-code.html" />
+    <summary type="html">A review of &quot;Code: The Hidden Language of Computer Hardware and Software&quot;
+</summary>
+  </entry>
+  <entry>
+    <title type="html">Should you cp from copywriters?</title>
+    <id>http://www.mattlayman.com/2013/should-you-cp-from-copywriters.html</id>
+    <updated>2013-08-19T12:00:00Z</updated>
+    <link href="http://www.mattlayman.com/2013/should-you-cp-from-copywriters.html" />
+    <summary type="html">A review of &quot;The Copywriter's Handbook&quot;</summary>
+  </entry>
+  <entry>
+    <title type="html">It's fun -&amp;gt; ok!</title>
+    <id>http://www.mattlayman.com/2013/its-fun-ok.html</id>
+    <updated>2013-08-05T12:00:00Z</updated>
+    <link href="http://www.mattlayman.com/2013/its-fun-ok.html" />
+    <summary type="html">A review of &quot;learn you some Erlang for great good!&quot;</summary>
+  </entry>
 </feed>
 <!-- handrolled for excellence -->

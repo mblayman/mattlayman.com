@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: False
 title: 'dotfiles: Hone your software tools'
+date: 2015-06-13T12:00:00Z
+summary: Why I am refining my development tools and why you should too
 template: writing.j2
-date: June 13, 2015
+
 ---
 <img class='book' src='axe.jpg'>
 

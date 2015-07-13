@@ -1,0 +1,9 @@
+{% extends 'base.j2' %}
+{% block title %}Writings{% endblock %}
+{% block content %}
+<p>My writing includes book reviews, news about my projects and other random
+musings. You can <a href="/feed.xml">subscribe</a> with your favorite feed reader.</p>
+<ul>
+{{ blog_list }}
+</ul>
+{% endblock %}

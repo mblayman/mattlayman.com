@@ -5,14 +5,14 @@
   <link rel='stylesheet' href='/screen.css'>
   <link href='http://fonts.googleapis.com/css?family=Cabin:600|Lora'
     rel='stylesheet' type='text/css'>
-  <title>{{ title }} - mattlayman.com</title>
+  <title>{% block title %}{{ title }}{% endblock %} - mattlayman.com</title>
   <meta name='viewport' content='width=device-width' />
   <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
     type='atom+xml'>
 </head>
 <body>
 <div id='container'>
-  <h1>{{ title }}</h1>
+  <h1>{{ self.title() }}</h1>
 {% block content %}{{ content }}
 {% endblock %}
   <br>
