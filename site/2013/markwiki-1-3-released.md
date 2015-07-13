@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: MarkWiki 1.3 released
+date: 2013-12-08T12:00:00Z
+summary: MarkWiki 1.3 release announcement
 template: writing.j2
-date: December 8, 2013
+
 ---
 <img class='book' src='allthethings.jpg'>
 

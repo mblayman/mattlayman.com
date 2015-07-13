@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: "ØMQ: A dynamic book with surprises"
+date: 2013-09-26T12:00:00Z
+summary: A review of "ZeroMQ"
 template: writing.j2
-date: September 26, 2013
+
 ---
 <img class='book' src='zeromq.jpg'>
 

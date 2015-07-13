@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: "Java: a bad choice for FOSS"
+date: 2013-10-14T12:00:00Z
+summary: A description of the pain encountered with contributing to Java FOSS
 template: writing.j2
-date: October 14, 2013
+
 ---
 <img class='book' src='java.jpg'>
 

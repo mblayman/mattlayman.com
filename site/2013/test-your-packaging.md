@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: Test your packaging
+date: 2013-12-15T12:00:00Z
+summary: Using Travis CI and Tox to test Python packaging
 template: writing.j2
-date: December 15, 2013
+
 ---
 <img class='book' src='travis.png'>
 

@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: Ruby on Rails Tutorial
+date: 2013-12-07T12:00:00Z
+summary: A review of "Ruby on Rails Tutorial"
 template: writing.j2
-date: December 7, 2013
+
 ---
 <img class='book' src='rorcover.jpg'>
 

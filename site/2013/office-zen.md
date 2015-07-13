@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: Office Zen
+date: 2013-09-17T12:00:00Z
+summary: A review of "Peopleware"
 template: writing.j2
-date: September 17, 2013
+
 ---
 <img class='book' src='peopleware.jpg'>
 

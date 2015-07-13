@@ -1,8 +1,11 @@
 %YAML 1.1
 ---
+blog: True
 title: Should you cp from copywriters?
+date: 2013-08-19T12:00:00Z
+summary: A review of "The Copywriter's Handbook"
 template: writing.j2
-date: August 19, 2013
+
 ---
 <img class='book' src='copywriter.jpg'>
 
