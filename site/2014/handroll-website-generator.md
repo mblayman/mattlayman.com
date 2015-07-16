@@ -29,7 +29,7 @@ of the site directory. The first line of the Markdown file is passed to the
 template as `title` and the generated HTML of the remainder of the file is
 passed as `content`. If the template was:
 
-```html
+```html+mako
 <!DOCTYPE html>
 <html>
 <head>
