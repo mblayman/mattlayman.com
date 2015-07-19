@@ -12,6 +12,10 @@ family](#family), and [go to church](#church).
 I also do typical stuff on the Internet. You can find me on
 [Google+](https://plus.google.com/+MattLayman/posts) or
 [Twitter](https://twitter.com/mblayman).
+If you are looking for my professional details,
+[Stack Overflow Careers](https://careers.stackoverflow.com/mattlayman) and
+[LinkedIn](https://www.linkedin.com/in/mattlayman)
+have more information.
 
 On occasion, [I write on various topics](/archive.html).
 
