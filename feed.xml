@@ -2,13 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">Matt Layman's Writings</title>
   <id>http://www.mattlayman.com/feed.xml</id>
-  <updated>2015-07-30T08:00:00Z</updated>
+  <updated>2015-09-03T04:00:00Z</updated>
   <link href="http://www.mattlayman.com/archive.html" />
   <link href="http://www.mattlayman.com/archive.html" rel="self" />
   <author>
     <name>Matt Layman</name>
   </author>
   <generator>Werkzeug</generator>
+  <entry>
+    <title type="html">Highlighting new file formats with Pygments</title>
+    <id>http://www.mattlayman.com/2015/pygments-lexer.html</id>
+    <updated>2015-09-03T04:00:00Z</updated>
+    <link href="http://www.mattlayman.com/2015/pygments-lexer.html" />
+    <summary type="html">Creating syntax highlighting for a new filetype using Pygments</summary>
+  </entry>
   <entry>
     <title type="html">Extending handroll for fun</title>
     <id>http://www.mattlayman.com/2015/extending-handroll.html</id>
