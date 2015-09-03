@@ -9,15 +9,18 @@ My name is Matt and I create software. I have a few [open source
 projects](#projects), [work at a startup](#work), [love my
 family](#family), and [go to church](#church).
 
-I also do typical stuff on the Internet. You can find me on
-[Google+](https://plus.google.com/+MattLayman/posts) or
-[Twitter](https://twitter.com/mblayman).
-If you are looking for my professional details,
-[Stack Overflow Careers](https://careers.stackoverflow.com/mattlayman) and
-[LinkedIn](https://www.linkedin.com/in/mattlayman)
-have more information.
-
 On occasion, [I write on various topics](/archive.html).
+
+<div class="icon-bar">
+<a class="icon" href="https://plus.google.com/+MattLayman/posts"
+   alt="Google+"><i class="fa fa-google-plus fa-2x"></i></a>
+<a class="icon" href="https://twitter.com/mblayman"
+   alt="Twitter"><i class="fa fa-twitter fa-2x"></i></a>
+<a class="icon" href="https://www.linkedin.com/in/mattlayman"
+   alt="LinkedIn"><i class="fa fa-linkedin fa-2x"></i></a>
+<a class="icon" href="https://careers.stackoverflow.com/mattlayman"
+   alt="Stack Overflow Careers"><i class="fa fa-stack-overflow fa-2x"></i></a>
+</div>
 
 <a name='projects'></a>
 ## Open Source
@@ -31,6 +34,17 @@ of my time is spent on projects of my own creation.
 similar to this one. When there is a limited range of material and a simple
 design, handroll generates a website easily. [Check it out on
 GitHub.](https://github.com/mblayman/handroll)
+
+### HTTPony
+
+I wrote [HTTPony](https://github.com/mblayman/httpony)
+as a way to inspect HTTP requests quickly.
+HTTPony is a web server
+that listens for HTTP requests
+and pretty prints all the request information
+to the terminal.
+It is a useful aide
+for developing web APIs.
 
 ### MarkWiki
 
