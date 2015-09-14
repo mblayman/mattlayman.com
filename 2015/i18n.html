@@ -35,10 +35,10 @@ special function marks the strings as something that needs translation.
 Once all the strings are marked, i18n tools can scan your code to make
 a master list of everything. With the master list available, translators
 can produce a list of translated strings for each desired language. The
-translated strings are added back to the Python code and it's all
+translated strings are added back to the Python code and it&rsquo;s all
 bundled up into a nice translated final product. Then you may want
 to <a href="/2013/test-your-packaging.html">test that out</a>.</p>
-<p>That's a lot of stuff, but I'll explain each part of that process in detail.
+<p>That&rsquo;s a lot of stuff, but I&rsquo;ll explain each part of that process in detail.
 For the purposes of this guide, all of my example code will refer to the
 <code>handroll</code> package. If this is your Python code, replace <code>handroll</code> with
 the name of your top level Python package.</p>
@@ -46,7 +46,7 @@ the name of your top level Python package.</p>
 <h2>Marking strings</h2>
 <p>The special function that I mentioned in the overview looks like
 <code>_('Hello World')</code>. This function comes from the <code>gettext</code> module.
-Python uses GNU gettext to do translation so let's look at the handroll
+Python uses GNU gettext to do translation so let&rsquo;s look at the handroll
 code that creates the <code>_</code> function in <code>handroll/i18n.py</code>.</p>
 <div class="codehilite"><pre><span class="kn">import</span> <span class="nn">gettext</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -59,14 +59,14 @@ code that creates the <code>_</code> function in <code>handroll/i18n.py</code>.<
 
 <p>This little chunk of code makes a translation object using a <code>locale</code>
 directory as the source of translated strings. Your <code>locale</code> directory
-doesn't exist yet, but it is where your application will look for
+doesn&rsquo;t exist yet, but it is where your application will look for
 translations at run time. From the translation object, I made an <code>_</code>
 alias for <code>translate.gettext</code>. This underscore is not particularly
 special, however, it is the conventional name of this function that is
 used by the Python community.</p>
 <p>I hope there is enough here now to understand what will happen at run
 time. The important idea is that <code>'Hello World'</code> acts like a key.
-When the code executes, that "key" will be used to look in the locale
+When the code executes, that &ldquo;key&rdquo; will be used to look in the locale
 data to find a matching translation. The return value of <code>_</code> will
 be the translated string or the original if the translation is
 missing.</p>
@@ -84,8 +84,8 @@ example to make it clear.</p>
 a master list. Gettext refers to this master list as the <code>Portable
 Object Template</code> (<code>POT</code>) file. To generate the POT file, I turned
 to a tool called <a href="http://babel.pocoo.org/">Babel</a>. Babel is designed to help
-developers handle i18n issues in a wide variety of ways. It's cool
-with a lot of features, but for this guide, I'll focus on its
+developers handle i18n issues in a wide variety of ways. It&rsquo;s cool
+with a lot of features, but for this guide, I&rsquo;ll focus on its
 gettext support.</p>
 <p>Babel extends a <code>setup.py</code> file with new commands. (Python packaging
 is out of scope for this guide so if <code>setup.py</code> is completely foreign
@@ -107,9 +107,9 @@ The translated files are called PO files, and translators use the POT file
 as a starting point to generate their PO file. Doing translation by
 manually creating the PO file is possible, but it is tedious.
 At this point, I turned to a service called <a href="https://www.transifex.com/">Transifex</a>.</p>
-<p>Transifex is focused on making translation easy. It's free for
+<p>Transifex is focused on making translation easy. It&rsquo;s free for
 open source projects and really easy to use. I set up a project
-for handroll, configured Transifex to "watch" the POT file for
+for handroll, configured Transifex to &ldquo;watch&rdquo; the POT file for
 changes, and translators can easily translate all the strings in
 the project. Transifex has an API that enabled me to pull PO files
 back into the repository whenever I needed. The script is a little
@@ -124,7 +124,7 @@ your translation data. The setup process includes extra data in
 <code>MANIFEST.in</code>. Add a line similar to the one below to ensure all
 <code>locale</code> data is put into the package archive.</p>
 <p><code>recursive-include handroll/locale *</code></p>
-<p>So far I've lied a little bit for clarity in explanation. Gettext
+<p>So far I&rsquo;ve lied a little bit for clarity in explanation. Gettext
 does not use PO files directly for looking up translations. The
 truth is that the PO file must be compiled into a binary Machine
 Object (MO) file (for faster speed). Again, we can turn to Babel
@@ -153,10 +153,10 @@ PO into MO. You can run it with <code>python setup.py compile_catalog</code>.</p
 </pre></div>
 
 
-<p>If you do this, don't forget to add <code>cmdclass={'sdist': Sdist}</code> and
+<p>If you do this, don&rsquo;t forget to add <code>cmdclass={'sdist': Sdist}</code> and
 <code>setup_requires=['Babel']</code> in your <code>setup</code> call.</p>
 <p>At this point, running <code>python setup.py sdist</code> should create a
-tarball with translations for your project. You're almost done!</p>
+tarball with translations for your project. You&rsquo;re almost done!</p>
 <p><a id='testing'></a></p>
 <h2>Testing out the package</h2>
 <p>Testing translations is not easy. If you go the extra mile, you can
@@ -180,7 +180,7 @@ users.</p>
 
 
 <p>To test out these strings, you need two things: MO files and the
-<code>LANGUAGE</code> environment variable. Let's assume you use the
+<code>LANGUAGE</code> environment variable. Let&rsquo;s assume you use the
 <a href="https://nose.readthedocs.org/en/latest/">nose</a> test runner. To test out your Spanish support, you
 can run:</p>
 <div class="codehilite"><pre><span class="nv">$ LANGUAGE</span><span class="o">=</span>es nosetests
@@ -202,7 +202,7 @@ confidence that translations have not broken the software. The
 <p>In this guide, I did my best to document all that I did to
 internationalize my project. I hope that all the concrete details
 help you see how to translate your own project. If something is
-missing or broken, let me know and I'll be glad to update the post.</p>
+missing or broken, let me know and I&rsquo;ll be glad to update the post.</p>
 <p>If you want to chat about this with me, I'm
   <a href="https://twitter.com/mblayman">@mblayman</a> on Twitter.</p>
   <br>

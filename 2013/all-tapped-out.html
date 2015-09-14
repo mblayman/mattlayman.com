@@ -16,12 +16,12 @@
 <p class='byline'>By <a href='/'>Matt Layman</a> on September 4, 2013</p>
 <p><img class='book' src='tap.png'></p>
 <p>Good software practices say you should do automated testing, but what do you do
-when you work in an environment that can't get good test tools? Use a simple
+when you work in an environment that can&rsquo;t get good test tools? Use a simple
 testing protocol like TAP.</p>
 <p>TAP is the <em>Test Anything Protocol</em>. The protocol is so simple that you could
 probably write code to make TAP output in minutes. It is a line based protocol
 which means that any language that has some sort of print method can generate
-TAP. That's basically all software languages in common use.</p>
+TAP. That&rsquo;s basically all software languages in common use.</p>
 <p>I could provide the rules, but an example would be easier.</p>
 <div class="codehilite"><pre><span class="c"># This is a comment because it starts with a hash symbol.</span>
 <span class="kr">ok</span> <span class="mi">1</span> Something passed here.
@@ -36,7 +36,7 @@ When there is a line that TAP does not understand (like this one), it will skip 
 these two phrases, TAP readers will interpret it as a pass or failure. Besides
 the test number, everything else on the line is extra. Toss in how many tests
 were run and you have fully functional TAP output. We can prove it with
-Perl's aptly name <code>prove</code> tool.</p>
+Perl&rsquo;s aptly name <code>prove</code> tool.</p>
 <div class="codehilite"><pre>matt@eden:~<span class="nv">$ </span>prove sample.tap
 sample.tap .. Failed 1/2 subtests
 
@@ -56,7 +56,7 @@ tool like <a href="http://tapper.github.io/Tapper/">Tapper</a>.</p>
 <p>There are some additional features that I did not discuss here (like TODO
 tracking). See the <a href="http://testanything.org/">TAP website</a> for more details.
 More adventurous individuals can check out the specifics by looking at the de
-facto parser, <a href="http://search.cpan.org/~ovid/Test-Harness-3.28/lib/TAP/Parser.pm">TAP::Parser</a>, on Perl's CPAN.</p>
+facto parser, <a href="http://search.cpan.org/~ovid/Test-Harness-3.28/lib/TAP/Parser.pm">TAP::Parser</a>, on Perl&rsquo;s CPAN.</p>
 <p>If you want to chat about this with me, I'm
   <a href="https://twitter.com/mblayman">@mblayman</a> on Twitter.</p>
   <br>

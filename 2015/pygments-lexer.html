@@ -20,13 +20,13 @@ and syntax highlighting code samples helps make software documentation pretty.
 For tappy,
 code samples can include Python
 or <a href="http://testanything.org/">Test Anything Protocol (TAP)</a> output.
-Unfortunately, the syntax highlighter for tappy's documentation, Pygments,
+Unfortunately, the syntax highlighter for tappy&rsquo;s documentation, Pygments,
 did not know how to highlight TAP.
 That smelled like a fun project to me.</p>
 <p>If you read the <a href="http://pygments.org/docs/">Pygments documentation</a>,
-eventually you'll learn that adding a new filetype
+eventually you&rsquo;ll learn that adding a new filetype
 means writing a new <a href="http://pygments.org/docs/lexerdevelopment/"><em>lexer</em></a>.</p>
-<p>A lexer's job is to parse data
+<p>A lexer&rsquo;s job is to parse data
 and break it into tokens.
 Tokens are the abstract objects that you might expect
 in a programming language.
@@ -36,7 +36,7 @@ those tokens can be passed to a formatter
 for stylizing output.
 For instance,
 a formatter might color every <code>Keyword</code> token green.</p>
-<p>Pygments' primary tool for creating new lexers
+<p>Pygments&rsquo; primary tool for creating new lexers
 is to use its <code>RegexLexer</code> and subclass it.
 With this lexer,
 you define a series of <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expressions</a>
@@ -49,7 +49,7 @@ Here is an example for TAP comments:</p>
 <p>TAP comments are lines that start with a hash character, <code>#</code>.
 The regular expression matches that pattern
 and pairs matching content to a <code>Comment</code> token.</p>
-<p>That's the core concept for the lexer,
+<p>That&rsquo;s the core concept for the lexer,
 but there is more fun to have!
 There is another layer within this parsing process.
 If everything could be matched with a set of regular expressions,
@@ -59,7 +59,7 @@ that change the meaning of the source data.
 A contrived example would be the <code>if</code> characters.
 In one context, <code>if</code> should be a <code>Keyword</code> token.
 In another context, <code>if</code> may be part of a <code>String</code> token like
-"<em>if</em> I exercise, then I can stay healthy."</p>
+&ldquo;<em>if</em> I exercise, then I can stay healthy.&rdquo;</p>
 <p>The <code>RegexLexer</code> allows developers to handle these context changes
 by providing a <a href="https://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29">stack</a>.
 When a regular expression matches a certain pattern,
@@ -71,14 +71,14 @@ that makes sense for that context.
 When the context ends,
 the stack is popped
 and the lexer goes back to working with the original regex patterns.</p>
-<p>If you're trying to absorb how this all works,
+<p>If you&rsquo;re trying to absorb how this all works,
 I think you should take a look at the <a href="https://github.com/mblayman/tappy/blob/master/tap/lexer.py">full source</a>
 of the <code>TAPLexer</code>.
 I took care to document it well,
 and you can see the context shifts
 as the lexer moves from <code>root</code> to <code>plan</code>
 or <code>root</code> to <code>test</code>.</p>
-<p>Now that you're equipped,
+<p>Now that you&rsquo;re equipped,
 go forth and make a new lexer of your own!
 Also, you can check out the <a href="http://pygments.org/docs/lexers/">huge array of lexers</a>
 already defined in the Pygments project

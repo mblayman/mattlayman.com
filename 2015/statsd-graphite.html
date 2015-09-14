@@ -26,7 +26,7 @@ going your own way with Statsd and Graphite.</p>
 <p>When I did some hunting for how to measure behavior on your own, I ran
 into <a href="https://github.com/etsy/statsd/">Statsd</a> from Etsy. Statsd is a minimal server that listens
 for data input over a UDP port. Because UDP is a connectionless protocol
-(it's a fire and forget model of messaging), UDP messages are very fast
+(it&rsquo;s a fire and forget model of messaging), UDP messages are very fast
 to send. Applications use a Statsd client and send messages about
 various measures. For instance, an application could
 increment a counter for each request received to figure out the amount
@@ -52,7 +52,7 @@ ports from the guest to the host.</p>
 
 <p>In the VM, I followed the tutorial directions to configure Graphite.
 Since I was only testing out these tools, I did not bother to set
-up Apache. Graphite's web application is a Django app so the
+up Apache. Graphite&rsquo;s web application is a Django app so the
 <code>graphite-manage</code> command line tool that comes with the Ubuntu
 package is really a renamed Django <code>manage.py</code> file. It was easy
 to test with the built in Django development server. Note: it
@@ -103,7 +103,7 @@ choice.</p>
 </pre></div>
 
 
-<p>That was a lot of work to see a <code>y = 14</code> graph in Graphite, but it's not
+<p>That was a lot of work to see a <code>y = 14</code> graph in Graphite, but it&rsquo;s not
 a lot of work if you consider what can be done with this pipeline on
 a production website. The UDP nature of Statsd means that any layer
 in a large site (e.g., application servers, caching servers) can

@@ -21,7 +21,7 @@ The library lets signalers send messages
 to connected receiver functions.
 I will explain how I convinced Blinker to talk to objects
 instead of pure Python functions.</p>
-<p>The example code is going to handle a "<a href="http://dictionary.reference.com/browse/frobnicate">frobnicated</a>" signal.
+<p>The example code is going to handle a &ldquo;<a href="http://dictionary.reference.com/browse/frobnicate">frobnicated</a>&rdquo; signal.
 Remember, the signal itself is not very important.</p>
 <div class="codehilite"><pre><span class="kn">import</span> <span class="nn">blinker</span>
 
@@ -56,7 +56,7 @@ that the signal will invoke,
 and delegates to <code>Receiver.on_frobnicated</code>.
 Why?
 This is necessary
-because Blinker can't pass <code>self</code> to receiver functions.
+because Blinker can&rsquo;t pass <code>self</code> to receiver functions.
 <code>handle_frobnicated</code> acts as a <a href="http://en.wikipedia.org/wiki/Closure_%28computer_programming%29">closure</a> on <code>self</code>
 which lets the signal call the instance method.</p>
 <div class="codehilite"><pre>        <span class="bp">self</span><span class="o">.</span><span class="n">handle_frobnicated</span> <span class="o">=</span> <span class="n">handle_frobnicated</span>
@@ -64,11 +64,11 @@ which lets the signal call the instance method.</p>
 
 
 <p>That seems like a strange line,
-doesn't it?
+doesn&rsquo;t it?
 Blinker does some funny stuff with references.
 Without storing the inner function,
 Blinker will delete a weak function reference
-and the inner function will no longer be among the signal's receivers.
+and the inner function will no longer be among the signal&rsquo;s receivers.
 I stared at the Blinker source code
 for a long time
 to figure that mystery out.</p>

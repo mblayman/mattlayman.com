@@ -14,7 +14,7 @@
 <div id='container'>
   <h1>A "simple" D3.js area chart</h1>
 <p class='byline'>By <a href='/'>Matt Layman</a> on January 24, 2015</p>
-<p>Let's take:</p>
+<p>Let&rsquo;s take:</p>
 <table>
   <thead>
     <tr><th>X</th><th>Y</th></tr>
@@ -32,15 +32,15 @@
 <p>D3.js is mindbending, and I find the examples on the D3.js wiki to be too
 little explanation with too much going on. In this example, I will show
 you how to make the simplest area chart I could devise. If you want to
-jump straight to "the answer," see <a href="area.js">the complete JavaScript</a>.</p>
+jump straight to &ldquo;the answer,&rdquo; see <a href="area.js">the complete JavaScript</a>.</p>
 <p>D3.js is not a chart library. It is a chart <em>parts</em> library. The library feels
 like a mashup of SVG and data manipulation with some sugar sprinkled on top.
 While immensely flexible, the flexibility comes at the cost of complexity.
-Let's dive in.</p>
+Let&rsquo;s dive in.</p>
 <p>To build the chart, we need: data, an SVG container, margins, an X axis, a Y
 axis, the area shape itself, and some CSS to make it look pretty.</p>
 <h4>Data</h4>
-<p>We're not going to mess with TSV or CSV loaders or any of the callback stuff.
+<p>We&rsquo;re not going to mess with TSV or CSV loaders or any of the callback stuff.
 Here is the data, plain and simple.</p>
 <div class="codehilite"><pre><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">{</span> <span class="nx">x</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span> <span class="p">},</span>
@@ -52,7 +52,7 @@ Here is the data, plain and simple.</p>
 
 
 <h4>SVG</h4>
-<p>D3 uses SVG (Scalable Vector Graphics) to draw its shapes. It's possible to
+<p>D3 uses SVG (Scalable Vector Graphics) to draw its shapes. It&rsquo;s possible to
 create a new <code>&lt;svg&gt;</code> tag on the fly, but I added the following to the HTML
 source code.</p>
 <div class="codehilite"><pre><span class="nt">&lt;svg</span> <span class="na">id=</span><span class="s">&quot;area&quot;</span> <span class="nt">/&gt;</span>
@@ -110,7 +110,7 @@ that describes the shape. Each corresponds to an x position, an upper y
 position, <code>y1</code>, and a lower y position, <code>y0</code>. The odd thing here is that <code>y0</code>
 is set to the constant of <code>height</code>. This makes sense when you know that SVGs
 are positioned relative to the upper left corner of the graphic. Any distance
-"down" is a positive number, so a positive <code>height</code> means the bottom of the
+&ldquo;down&rdquo; is a positive number, so a positive <code>height</code> means the bottom of the
 graphic.</p>
 <div class="codehilite"><pre><span class="kd">var</span> <span class="nx">area</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">svg</span><span class="p">.</span><span class="nx">area</span><span class="p">()</span>
     <span class="p">.</span><span class="nx">x</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span> <span class="p">})</span>
@@ -157,10 +157,10 @@ the data into positions on the path in the SVG. It will result in:</p>
 </pre></div>
 
 
-<p>The last two sections adds the axes to the SVG. There isn't much to say
+<p>The last two sections adds the axes to the SVG. There isn&rsquo;t much to say
 about them.</p>
 <h4>Make it pretty</h4>
-<p>In "Putting it all together", I ignored the <code>.attr("class", "area")</code>
+<p>In &ldquo;Putting it all together&rdquo;, I ignored the <code>.attr("class", "area")</code>
 explanations. D3 can add any tag attributes with <code>attr()</code>. I added some
 <code>class</code> attributes so that the graph can be styled. SVG uses different
 properties than standard HTML tags, but the styling below gave

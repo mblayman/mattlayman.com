@@ -16,8 +16,8 @@
 <p class='byline'>By <a href='/'>Matt Layman</a> on December 15, 2013</p>
 <p><img class='book' src='travis.png'></p>
 <p>Software development is a process rife with errors. We generally call them
-bugs, but that's so developers don't feel as bad for messing up. It's much
-easier to say "oh, that's just a bug" instead of "oh, that's an error."</p>
+bugs, but that&rsquo;s so developers don&rsquo;t feel as bad for messing up. It&rsquo;s much
+easier to say &ldquo;oh, that&rsquo;s just a bug&rdquo; instead of &ldquo;oh, that&rsquo;s an error.&rdquo;</p>
 <p>I made an error not too long ago. In fact, it was an egregious one. The
 software that I released for MarkWiki had broken packaging. This means <strong><em>it
 was completely broken for anyone who attempted to install it</em></strong>. Oops. Because
@@ -33,10 +33,10 @@ the problem to avoid such future embarrassment. The solution to this packaging
 issue comes via <a href="https://travis-ci.org/">Travis CI</a>,
 <a href="http://tox.readthedocs.org/en/latest/">Tox</a>, and
 <a href="http://virtualenv.readthedocs.org/en/latest/">virtualenv</a>. Travis is a service
-for doing automated builds using "Continuous Integration." All this means is
+for doing automated builds using &ldquo;Continuous Integration.&rdquo; All this means is
 that every source commit to GitHub will trigger Travis to build MarkWiki and
 run the tests. The automated build is run inside a virtual environment with
-virtualenv so that each build is isolated (i.e., stuff from one build can't
+virtualenv so that each build is isolated (i.e., stuff from one build can&rsquo;t
 leak into another and affect the build process). Finally, I used Tox. Tox is
 neat because it is designed to do testing against <em>installed</em> packages (sounds
 appropriate for me, right?).</p>

@@ -18,7 +18,7 @@
 <p>How can you inspect the source of a website with a script?
 You can download the page,
 parse it with a library like <a href="http://lxml.de/">lxml</a>,
-and extract what you're looking for.
+and extract what you&rsquo;re looking for.
 <em>But what if the page is mostly made from JavaScript?</em>
 There may not be much HTML to parse.
 Most of the page might be generated on the DOM dynamically.
@@ -26,12 +26,12 @@ If this is the kind of page
 that you want to scan,
 a tool like lxml will not help much.</p>
 <p>Another option is <a href="http://phantomjs.org/">PhantomJS</a>.
-PhantomJS is a "headless" web browser.
+PhantomJS is a &ldquo;headless&rdquo; web browser.
 That means that it is a browser that has no GUI.
 PhantomJS is exactly the kind of tool that you want
 for exploring very dynamic webpages
 from a script.</p>
-<p>Let's look at an example.</p>
+<p>Let&rsquo;s look at an example.</p>
 <div class="codehilite"><pre><span class="kd">var</span> <span class="nx">page</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;webpage&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">();</span>
 <span class="nx">page</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;http://www.mattlayman.com&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="nx">page</span><span class="p">.</span><span class="nx">injectJs</span><span class="p">(</span><span class="s1">&#39;scan.js&#39;</span><span class="p">)</span> <span class="p">{</span>
@@ -64,7 +64,7 @@ you can do anything with the results.</p>
 inspect the content of the site
 by looking at the DOM,
 and process the data
-to your heart's content.
+to your heart&rsquo;s content.
 This is a brief introduction,
 but I hope it gives you a flavor
 of what a headless browser like PhantomJS can do.</p>
