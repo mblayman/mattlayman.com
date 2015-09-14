@@ -53,12 +53,22 @@ footer p a:visited {
   border-bottom: 1px solid #cca77a;
 }
 
+a.icon {
+  color: #000547;
+  padding: 0.5em;
+}
+
 a:hover {
   color: #f28300;
   border-bottom: 1px dotted #cca77a;
 }
 
+a.icon {
+  border-bottom: 0px;
+}
+
 div.codehilite { padding-left: 20px; }
+div.icon-bar { margin: 2em; text-align: center; }
 
 img#me {
   border-radius: 100px;
