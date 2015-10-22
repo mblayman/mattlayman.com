@@ -23,7 +23,7 @@ body h1 {
   padding-left: 15px;
 }
 
-p { line-height: 1.75em; }
+p, li { line-height: 1.75em; }
 p.byline {
   font-size: small;
   font-style: italic;
