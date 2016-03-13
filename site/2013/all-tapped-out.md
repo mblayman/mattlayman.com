@@ -35,7 +35,7 @@ the test number, everything else on the line is extra. Toss in how many tests
 were run and you have fully functional TAP output. We can prove it with
 Perl's aptly name `prove` tool.
 
-```bash
+```console
 matt@eden:~$ prove sample.tap
 sample.tap .. Failed 1/2 subtests
 

@@ -27,6 +27,6 @@ because of lessons learned from other projects.
 You can download handroll from [PyPI](https://pypi.python.org/pypi/handroll) or
 install it with:
 
-```bash
+```console
 $ pip install handroll
 ```

@@ -24,7 +24,7 @@ probably write code to make TAP output in minutes. It is a line based protocol
 which means that any language that has some sort of print method can generate
 TAP. That&rsquo;s basically all software languages in common use.</p>
 <p>I could provide the rules, but an example would be easier.</p>
-<div class="codehilite"><pre><span class="c"># This is a comment because it starts with a hash symbol.</span>
+<div class="codehilite"><pre><span></span><span class="c"># This is a comment because it starts with a hash symbol.</span>
 <span class="kr">ok</span> <span class="mi">1</span> Something passed here.
 <span class="gr">not ok</span> <span class="mi">2</span> Whoops, there was a failure.
 When there is a line that TAP does not understand (like this one), it will skip it.
@@ -38,15 +38,15 @@ these two phrases, TAP readers will interpret it as a pass or failure. Besides
 the test number, everything else on the line is extra. Toss in how many tests
 were run and you have fully functional TAP output. We can prove it with
 Perl&rsquo;s aptly name <code>prove</code> tool.</p>
-<div class="codehilite"><pre>matt@eden:~<span class="nv">$ </span>prove sample.tap
-sample.tap .. Failed 1/2 subtests
+<div class="codehilite"><pre><span></span><span class="gp">matt@eden:~$</span> prove sample.tap
+<span class="go">sample.tap .. Failed 1/2 subtests</span>
 
-Test Summary Report
--------------------
-sample.tap <span class="o">(</span>Wstat: <span class="m">0</span> Tests: <span class="m">2</span> Failed: 1<span class="o">)</span>
-  Failed <span class="nb">test</span>:  2
-<span class="nv">Files</span><span class="o">=</span>1, <span class="nv">Tests</span><span class="o">=</span>2,  <span class="m">0</span> wallclock secs <span class="o">(</span> 0.01 usr +  0.00 <span class="nv">sys</span> <span class="o">=</span>  0.01 CPU<span class="o">)</span>
-Result: FAIL
+<span class="go">Test Summary Report</span>
+<span class="go">-------------------</span>
+<span class="go">sample.tap (Wstat: 0 Tests: 2 Failed: 1)</span>
+<span class="go">  Failed test:  2</span>
+<span class="go">Files=1, Tests=2,  0 wallclock secs ( 0.01 usr +  0.00 sys =  0.01 CPU)</span>
+<span class="go">Result: FAIL</span>
 </pre></div>
 
 

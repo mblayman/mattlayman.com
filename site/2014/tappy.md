@@ -41,6 +41,6 @@ or get tappy from [PyPI](https://pypi.python.org/pypi/tap.py). The `tappy` name
 was taken on PyPI by the "Tidal Analysis Program" so I had to use `tap.py`
 instead.
 
-```bash
+```console
 $ pip install tap.py
 ```

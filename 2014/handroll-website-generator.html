@@ -23,7 +23,7 @@ my HTML by hand. I looked at the website generators out there like
 blogging software), but they didn&rsquo;t fit my use case. I wanted complete control.
 Is that too much to ask? No. So I scratched my own itch and wrote some new
 software. I called it <strong>handroll</strong>. Let me show an example:</p>
-<div class="codehilite"><pre><span class="nv">$ </span>handroll site mblayman.github.io
+<div class="codehilite"><pre><span></span><span class="gp">$</span> handroll site mblayman.github.io
 </pre></div>
 
 
@@ -35,21 +35,21 @@ content of <code>site</code> to <code>mblayman.github.io</code>. When it finds a
 of the site directory. The first line of the Markdown file is passed to the
 template as <code>title</code> and the generated HTML of the remainder of the file is
 passed as <code>content</code>. If the template was:</p>
-<div class="codehilite"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-  <span class="nt">&lt;title&gt;</span><span class="cp">${</span><span class="n">title</span><span class="cp">}</span><span class="nt">&lt;/title&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-  <span class="nt">&lt;h1&gt;</span><span class="cp">${</span><span class="n">title</span><span class="cp">}</span><span class="nt">&lt;/h1&gt;</span>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span><span class="cp">${</span><span class="n">title</span><span class="cp">}</span><span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="cp">${</span><span class="n">title</span><span class="cp">}</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
   <span class="cp">${</span><span class="n">content</span><span class="cp">}</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 
 
 <p>And <code>index.md</code> was:</p>
-<div class="codehilite"><pre>A Sample Site Title
+<div class="codehilite"><pre><span></span>A Sample Site Title
 
 ## Another heading
 
@@ -58,23 +58,23 @@ This is text in the body
 
 
 <p>Then the resulting <code>index.html</code> would be:</p>
-<div class="codehilite"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-  <span class="nt">&lt;title&gt;</span>A Sample Site Title<span class="nt">&lt;/title&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-  <span class="nt">&lt;h1&gt;</span>A Sample Site Title<span class="nt">&lt;/h1&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Another heading<span class="nt">&lt;/h2&gt;</span>
-<span class="nt">&lt;p&gt;</span>This is text in the body.<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>A Sample Site Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>A Sample Site Title<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Another heading<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This is text in the body.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 <span class="c">&lt;!-- handrolled for excellence --&gt;</span>
 </pre></div>
 
 
 <p>You can get handroll by installing it the standard Python way:</p>
-<div class="codehilite"><pre><span class="nv">$ </span>pip install handroll
+<div class="codehilite"><pre><span></span><span class="gp">$</span> pip install handroll
 </pre></div>
 
 

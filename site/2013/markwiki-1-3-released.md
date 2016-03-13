@@ -26,7 +26,7 @@ notable features.
 
 You can install this version with:
 
-```bash
+```console
 $ pip install MarkWiki
 ```
 

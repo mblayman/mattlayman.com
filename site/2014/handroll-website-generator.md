@@ -16,7 +16,7 @@ blogging software), but they didn't fit my use case. I wanted complete control.
 Is that too much to ask? No. So I scratched my own itch and wrote some new
 software. I called it **handroll**. Let me show an example:
 
-```bash
+```console
 $ handroll site mblayman.github.io
 ```
 
@@ -71,7 +71,7 @@ Then the resulting `index.html` would be:
 
 You can get handroll by installing it the standard Python way:
 
-```bash
+```console
 $ pip install handroll
 ```
 

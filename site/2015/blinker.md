@@ -95,7 +95,7 @@ Notice that `frobnicated.send` has no need for `receiver`.
 The publisher is disconnected from subscriber at this stage.
 The final result looks like:
 
-```bash
+```console
 $ python blink_object.py
 Sender 0 hello
 Sender 1 hello

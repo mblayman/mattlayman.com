@@ -48,7 +48,7 @@ machine for Graphite. The VM uses Ubuntu 14.04.
 
 [do]: https://www.digitalocean.com/community/tutorials/an-introduction-to-tracking-statistics-with-graphite-statsd-and-collectd
 
-```bash
+```console
 $ vagrant init ubuntu/trusty64
 ```
 
@@ -69,7 +69,7 @@ to test with the built in Django development server. Note: it
 is important to use `0.0.0.0` as the address instead of `localhost`
 or else the host VM will not be able to access the web app.
 
-```bash
+```console
 $ sudo graphite-manage syncdb
 $ sudo graphite-manage runserver 0.0.0.0:8000
 ```
@@ -85,7 +85,7 @@ bother to configure another VM. To set up Statsd, you clone the
 GitHub repository, set some configuration settings, and fire up
 NodeJS.
 
-```bash
+```console
 $ git clone git@github.com:etsy/statsd.git
 ```
 
@@ -105,7 +105,7 @@ Here was my configuration file.
 
 Finally, to start Statsd:
 
-```bash
+```console
 $ node stats.js exampleConfig.js
 ```
 
@@ -117,7 +117,7 @@ choice.
 
 [ps]: http://statsd.readthedocs.org/en/latest/
 
-```bash
+```console
 $ echo "sample.gauge:14|g" | nc -u -w0 127.0.0.1 8125
 ```
 

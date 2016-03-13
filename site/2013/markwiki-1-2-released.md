@@ -27,6 +27,6 @@ the release are in the release notes.
 
 Or... if you're like me, you can play around with it:
 
-```bash
+```console
 $ pip install MarkWiki
 ```

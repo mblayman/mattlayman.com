@@ -54,7 +54,7 @@ There are hundreds more.
 
 Want to try out Zsh? Go for it with these commands:
 
-```bash
+```console
 $ sudo apt-get install zsh
 $ chsh -s /bin/zsh # Change shell to zsh.
 $ curl -L \

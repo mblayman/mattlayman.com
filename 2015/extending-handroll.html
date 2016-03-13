@@ -24,7 +24,7 @@ Our extension will make some noise on the console.</p>
 <p>Let&rsquo;s start with the code.
 <a href="obnoxious.py">Download the extension</a>
 to play with it yourself.</p>
-<div class="codehilite"><pre><span class="kn">from</span> <span class="nn">handroll.extensions.base</span> <span class="kn">import</span> <span class="n">Extension</span>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">handroll.extensions.base</span> <span class="kn">import</span> <span class="n">Extension</span>
 
 
 <span class="k">class</span> <span class="nc">ObnoxiousExtension</span><span class="p">(</span><span class="n">Extension</span><span class="p">):</span>
@@ -33,13 +33,13 @@ to play with it yourself.</p>
     <span class="n">handle_post_composition</span> <span class="o">=</span> <span class="bp">True</span>
 
     <span class="k">def</span> <span class="nf">on_pre_composition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">director</span><span class="p">):</span>
-        <span class="k">print</span> <span class="s">&#39;Let</span><span class="se">\&#39;</span><span class="s">s get this party started!&#39;</span>
+        <span class="k">print</span> <span class="s1">&#39;Let</span><span class="se">\&#39;</span><span class="s1">s get this party started!&#39;</span>
 
     <span class="k">def</span> <span class="nf">on_frontmatter_loaded</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source_file</span><span class="p">,</span> <span class="n">frontmatter</span><span class="p">):</span>
-        <span class="k">print</span> <span class="s">&#39;YO! Da front matter loaded.&#39;</span>
+        <span class="k">print</span> <span class="s1">&#39;YO! Da front matter loaded.&#39;</span>
 
     <span class="k">def</span> <span class="nf">on_post_composition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">director</span><span class="p">):</span>
-        <span class="k">print</span> <span class="s">&#39;Peace out, homeslice!&#39;</span>
+        <span class="k">print</span> <span class="s1">&#39;Peace out, homeslice!&#39;</span>
 </pre></div>
 
 
@@ -66,16 +66,16 @@ you need to hook it in using a setuptools entry point.
 I created a minimal <code>setup.py</code> file
 (which is also <a href="setup.py">available for download</a>)
 to show that setuptools configuration.</p>
-<div class="codehilite"><pre><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
 <span class="n">setup</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s">&#39;handroll-obnoxious&#39;</span><span class="p">,</span>
-    <span class="n">version</span><span class="o">=</span><span class="s">&#39;0.1&#39;</span><span class="p">,</span>
-    <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;handroll&#39;</span><span class="p">],</span>
-    <span class="n">py_modules</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;obnoxious&#39;</span><span class="p">],</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;handroll-obnoxious&#39;</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s1">&#39;0.1&#39;</span><span class="p">,</span>
+    <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;handroll&#39;</span><span class="p">],</span>
+    <span class="n">py_modules</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;obnoxious&#39;</span><span class="p">],</span>
     <span class="n">entry_points</span><span class="o">=</span><span class="p">{</span>
-        <span class="s">&#39;handroll.extensions&#39;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s">&#39;obnoxious = obnoxious:ObnoxiousExtension&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;handroll.extensions&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">&#39;obnoxious = obnoxious:ObnoxiousExtension&#39;</span><span class="p">,</span>
         <span class="p">]</span>
     <span class="p">},</span>
 <span class="p">)</span>
@@ -97,7 +97,7 @@ to the <code>[site]</code> section of your <code>handroll.conf</code>.
 While editing this post with the extension enabled,
 I got this output
 whenever I saved the source file.</p>
-<div class="codehilite"><pre>Let&#39;s get this party started!
+<div class="codehilite"><pre><span></span>Let&#39;s get this party started!
 YO! Da front matter loaded.
 Peace out, homeslice!
 </pre></div>
