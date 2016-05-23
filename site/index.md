@@ -62,7 +62,7 @@ at least do some of it. The [Test Anything Protocol
 (TAP)](http://testanything.org/) is a way to track those automated results. TAP
 is so simple that any language could create a TAP generator very quickly. I
 wrote a TAP generator for Python that hooks in with Python's `unittest` module.
-[Guess what? It's on GitHub.](https://github.com/mblayman/tappy)
+[Guess what? It's on GitHub.](https://github.com/python-tap/tappy)
 
 
 <a name='work'></a>
