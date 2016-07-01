@@ -27,33 +27,17 @@ On occasion, [I write on various topics](/archive.html).
 <a name='projects'></a>
 ## Open Source
 
-With my limited free time, I pursue my interest in open source software. Most
-of my time is spent on projects of my own creation.
+With my limited free time,
+I pursue my interest in open source software.
+Most of my time is spent on projects of my own creation,
+but I am prone to commit small features to lots of other projects.
 
 ### handroll
 
 [handroll](http://handroll.github.io) is a tool to help build websites
 similar to this one. When there is a limited range of material and a simple
 design, handroll generates a website easily. [Check it out on
-GitHub.](https://github.com/mblayman/handroll)
-
-### HTTPony
-
-I wrote [HTTPony](https://github.com/mblayman/httpony)
-as a way to inspect HTTP requests quickly.
-HTTPony is a web server
-that listens for HTTP requests
-and pretty prints all the request information
-to the terminal.
-It is a useful aide
-for developing web APIs.
-
-### MarkWiki
-
-I was stuck with a crummy wiki at my previous [work](#work)
-(\*cough\* SharePoint \*cough\*), so I tried my hand at creating a non-crummy
-one. The result is MarkWiki, a Markdown based wiki that is simple
-to set up. [It is on GitHub too.](https://github.com/mblayman/markwiki)
+GitHub.](https://github.com/handroll/handroll)
 
 ### tappy
 
