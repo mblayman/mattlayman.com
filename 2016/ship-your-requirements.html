@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='/screen.css'>
+  <link href='http://fonts.googleapis.com/css?family=Cabin:600|Lora'
+    rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <title>Ship your requirements.txt - mattlayman.com</title>
+  <meta name='viewport' content='width=device-width' />
+  <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
+    type='atom+xml'>
+</head>
+<body>
+<div id='container'>
+  <h1>Ship your requirements.txt</h1>
+<p class='byline'>By <a href='/'>Matt Layman</a> on July 1, 2016</p>
+<p><img class='book' src='python.png'></p>
+<p>Dependencies: they&rsquo;re always changing.</p>
+<p>Software is in such continuous flux.
+With this stream of change,
+maintainers can take a helpful step
+to inform users
+of dependency versions
+at the time of a release.
+By including a <code>requirements.txt</code> in a release,
+a maintainer can notify users
+of the state of the world
+when the package was released.</p>
+<p>Python packages
+(or &ldquo;distributions&rdquo; if you want to use the official term)
+set dependencies
+in the <code>setup.py</code> file.
+A rule of thumb is to exclude version numbers
+in <code>setup.py</code>
+to avoid causing conflicts between packages.
+If my package says it requires <code>requests==2.10.0</code>
+and your package says it requires <code>requests==2.9.2</code>,
+then users can run into trouble.
+Users who want to have to both my package and your package
+may run into trouble when installing.</p>
+<p>By including a <code>requirements.txt</code>
+when you release a Python package
+on PyPI,
+you can tell users
+&ldquo;Here are the versions of dependencies
+that I used
+when I declared my software fit for release.&rdquo;
+Many strange environments exist in the world
+and including your dependency versions
+in a separate file
+can help future software archeologists
+figure out how to make your software work
+in strange places.</p>
+<p>If you want to chat about this with me, I'm
+  <a href="https://twitter.com/mblayman">@mblayman</a> on Twitter.</p>
+  <br>
+  <footer>
+    <p><img alt='Creative Commons Attribution 4.0 International License'
+      src='/cc.png' width='80' height='15'> <a href='/'> Matt Layman</a>,
+      2016</p>
+  </footer>
+</div>
+</body>
+</html><!-- handrolled for excellence -->
