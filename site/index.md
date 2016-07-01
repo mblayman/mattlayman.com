@@ -14,8 +14,6 @@ On occasion, [I write on various topics](/archive.html).
 <div class="icon-bar">
 <a class="icon" href="https://twitter.com/mblayman"
    alt="Twitter"><i class="fa fa-twitter fa-2x"></i></a>
-<a class="icon" href="https://plus.google.com/+MattLayman/posts"
-   alt="Google+"><i class="fa fa-google-plus fa-2x"></i></a>
 <a class="icon" href="https://github.com/mblayman"
    alt="GitHub"><i class="fa fa-github fa-2x"></i></a>
 <a class="icon" href="https://www.linkedin.com/in/mattlayman"
