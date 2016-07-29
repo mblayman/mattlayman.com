@@ -46,7 +46,7 @@ The best ways to gain that experience is through practice and exposure.
 This is where I point you to the community.
 
 Your local Python user group (hi, [Python Frederick](https://www.meetup.com/python-frederick/)!),
-online Python communities like IRC,
+online Python communities like on IRC,
 and open source Python projects
 are excellent places to get exposure.
 You'll encounter people who can provide pointers
