@@ -23,17 +23,24 @@ body h1 {
   padding-left: 15px;
 }
 
-p, li { line-height: 1.75em; }
+p, li {
+  font-size: 18px;
+  line-height: 1.58em;
+}
+
 p.byline {
-  font-size: small;
+  font-size: 16px;
   font-style: italic;
 }
 
-pre { padding: 1em 0; }
+pre {
+  font-size: 14px;
+  padding: 1em 0;
+}
 
 code {
   background-color: #ffe7a1;
-  padding: 0.4em;
+  padding: 0.2em 0.3em;
 }
 
 a {
@@ -67,7 +74,6 @@ a.icon {
   border-bottom: 0px;
 }
 
-div.codehilite { padding-left: 20px; }
 div.icon-bar { margin: 2em; text-align: center; }
 
 img#me {
