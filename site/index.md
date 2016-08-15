@@ -5,9 +5,12 @@ template: base.j2
 ---
 <img id='me' src='/photo.jpg' width='120' height='120'>
 
-My name is Matt and I create software. I have a few [open source
-projects](#projects), [work at a startup](#work), [love my
-family](#family), and [go to church](#church).
+My name is Matt and I create software. I have a few
+[open source projects](#projects),
+[organize Python Frederick](https://www.meetup.com/python-frederick/),
+[work at a startup](#work),
+[love my family](#family),
+and [go to church](#church).
 
 On occasion, [I write on various topics](/archive.html).
 
