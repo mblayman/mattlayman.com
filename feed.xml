@@ -14,21 +14,21 @@
     <id>http://www.mattlayman.com/2016/readthrough-python-standard-library.html</id>
     <updated>2016-07-29T20:00:00Z</updated>
     <link href="http://www.mattlayman.com/2016/readthrough-python-standard-library.html" />
-    <summary type="html">What I learned about the Python standard library</summary>
+    <summary type="html">What I learned about the Python standard library and how you can apply those learnings to your own study.</summary>
   </entry>
   <entry>
     <title type="html">Ship your requirements.txt</title>
     <id>http://www.mattlayman.com/2016/ship-your-requirements.html</id>
     <updated>2016-07-01T12:00:00Z</updated>
     <link href="http://www.mattlayman.com/2016/ship-your-requirements.html" />
-    <summary type="html">Tell the world the versions of your dependencies when you release.</summary>
+    <summary type="html">Tell the world the versions of your dependencies when you release. Software is constantly moving so documenting your dependency versions can help future users know what worked.</summary>
   </entry>
   <entry>
     <title type="html">We're all ambidextrous</title>
     <id>http://www.mattlayman.com/2015/ambidextrous.html</id>
     <updated>2015-12-30T12:00:00Z</updated>
     <link href="http://www.mattlayman.com/2015/ambidextrous.html" />
-    <summary type="html">Our brains are amazingly flexible.</summary>
+    <summary type="html">Our brains are amazingly flexible. My trip to the dentist taught me a lesson about human behavior and abilities.</summary>
   </entry>
   <entry>
     <title type="html">dotfiles: Hone your software tools</title>

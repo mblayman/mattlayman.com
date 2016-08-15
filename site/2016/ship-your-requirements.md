@@ -3,7 +3,10 @@
 blog: True
 title: Ship your requirements.txt
 date: 2016-7-01T12:00:00Z
-summary: Tell the world the versions of your dependencies when you release.
+summary: >-
+  Tell the world the versions of your dependencies when you release.
+  Software is constantly moving so documenting your dependency versions
+  can help future users know what worked.
 template: writing.j2
 
 ---

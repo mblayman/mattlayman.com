@@ -3,7 +3,9 @@
 blog: True
 title: Reading through the Python standard library
 date: 2016-7-29T20:00:00Z
-summary: What I learned about the Python standard library
+summary: >-
+  What I learned about the Python standard library
+  and how you can apply those learnings to your own study.
 template: writing.j2
 
 ---

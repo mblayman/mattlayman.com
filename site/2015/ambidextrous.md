@@ -3,7 +3,10 @@
 blog: True
 title: "We're all ambidextrous"
 date: 2015-12-30T12:00:00Z
-summary: Our brains are amazingly flexible.
+summary: >-
+  Our brains are amazingly flexible.
+  My trip to the dentist taught me a lesson
+  about human behavior and abilities.
 template: writing.j2
 
 ---
