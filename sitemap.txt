@@ -27,6 +27,7 @@ http://www.mattlayman.com/2015/phantomjs.html
 http://www.mattlayman.com/2015/pygments-lexer.html
 http://www.mattlayman.com/2015/statsd-graphite.html
 http://www.mattlayman.com/2016/brunch.html
+http://www.mattlayman.com/2016/ember-segment.html
 http://www.mattlayman.com/2016/readthrough-python-standard-library.html
 http://www.mattlayman.com/2016/ship-your-requirements.html
 http://www.mattlayman.com/index.html
