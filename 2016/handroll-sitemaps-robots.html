@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='/screen.css'>
+  <link href='http://fonts.googleapis.com/css?family=Cabin:600|Lora'
+    rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <title>handroll, sitemaps, and robots.txt - mattlayman.com</title>
+  <meta name='viewport' content='width=device-width' />
+  <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
+    type='atom+xml'>
+</head>
+<body>
+<div id='container'>
+  <h1>handroll, sitemaps, and robots.txt</h1>
+<p class='byline'>By <a href='/'>Matt Layman</a> on December 26, 2016</p>
+<p><img class='book' src='robot.jpeg'></p>
+<p>Google <a href="https://www.google.com/webmasters/">webmaster tools</a> provide suggestions
+to improve your site ranking.
+The suggestions generally involve making it easier
+for their crawlers
+to find your content.
+One such suggestion is adding a
+<a href="https://www.sitemaps.org/index.html">sitemap</a>.
+<em>Adding a sitemap
+can increase your visibility
+on the internet.</em></p>
+<p>A sitemap is a listing
+of pages
+within your site.
+Web crawlers often work
+by starting at the root
+of your website
+(like <a href="#">https://example.com/</a>),
+and then navigating
+to each of the links
+on that page.
+The crawler will repeat the process
+until it can&rsquo;t find any more links.
+For a well-linked site,
+this process works well.
+Unfortunately,
+if you have a page that is not linked
+to other pages,
+the crawler will not know that it exists.
+The benefit of a sitemap
+is that you can inform the crawler
+about all your pages,
+whether they are linked well to other pages
+or not.</p>
+<p>handroll 3.1 includes a sitemap extension
+that will generate a sitemap for you automatically.
+To use it, add the following to your <code>handroll.conf</code>.</p>
+<div class="codehilite"><pre><span></span><span class="k">[site]</span>
+<span class="na">with_sitemap</span> <span class="o">=</span> <span class="s">True</span>
+</pre></div>
+
+
+<p>That&rsquo;s it!
+From now on,
+any of your HTML files will be included
+in a <code>sitemap.txt</code> file.
+Once you have a sitemap,
+you should inform web crawlers
+of its location.</p>
+<p>Conventionally, websites &ldquo;communicate&rdquo;
+with web crawlers
+via a <code>robots.txt</code> file.
+This file gives instructions
+of what a crawler should
+or should not crawl.
+It also happens to be the place
+where you can specify the location
+of a sitemap file.</p>
+<p><code>robots.txt</code> wants the full URL
+to the sitemap file
+so I used handroll&rsquo;s new Jinja 2 template composer
+to generate my file
+without hardcoding my domain.</p>
+<p>The whole file,
+named <code>robots.txt.j2</code>,
+looks like:</p>
+<div class="codehilite"><pre><span></span><span class="x">User-agent: *</span>
+<span class="x">Disallow:</span>
+<span class="x">Sitemap: </span><span class="cp">{{</span> <span class="nv">config.domain</span> <span class="cp">}}</span><span class="x">/sitemap.txt</span>
+</pre></div>
+
+
+<p>With one additional line
+in my configuration file
+and three lines
+in a template file,
+I made it easier
+for web crawlers
+to find everything I care about
+on my website.</p>
+<p>If you want to chat about this with me, I'm
+  <a href="https://twitter.com/mblayman">@mblayman</a> on Twitter.</p>
+  <br>
+  <footer>
+    <p><img alt='Creative Commons Attribution 4.0 International License'
+      src='/cc.png' width='80' height='15'> <a href='/'> Matt Layman</a>,
+      2016</p>
+  </footer>
+</div>
+</body>
+</html><!-- handrolled for excellence -->

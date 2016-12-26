@@ -2,13 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">Matt Layman's Writings</title>
   <id>http://www.mattlayman.com/feed.xml</id>
-  <updated>2016-12-20T13:00:00Z</updated>
+  <updated>2016-12-26T17:00:00Z</updated>
   <link href="http://www.mattlayman.com/archive.html" />
   <link href="http://www.mattlayman.com/archive.html" rel="self" />
   <author>
     <name>Matt Layman</name>
   </author>
   <generator>Werkzeug</generator>
+  <entry>
+    <title type="html">handroll, sitemaps, and robots.txt</title>
+    <id>http://www.mattlayman.com/2016/handroll-sitemaps-robots.html</id>
+    <updated>2016-12-26T17:00:00Z</updated>
+    <link href="http://www.mattlayman.com/2016/handroll-sitemaps-robots.html" />
+    <summary type="html">Make a sitemap that Google can find using new features available in handroll 3.1. In a few steps, you can improve the visiblity of your website to search engine crawlers.</summary>
+  </entry>
   <entry>
     <title type="html">Using Segment with Ember.js</title>
     <id>http://www.mattlayman.com/2016/ember-segment.html</id>
