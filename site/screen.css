@@ -119,6 +119,11 @@ svg { border: 1px solid #dedede; }
   fill: #4ca3bd;
 }
 
+.mv20 {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
 @media screen and (max-width: 650px) {
   body {
     margin: 0;

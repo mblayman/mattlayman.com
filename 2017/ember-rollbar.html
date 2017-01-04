@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='/screen.css'>
+  <link href='http://fonts.googleapis.com/css?family=Cabin:600|Lora'
+    rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <title>Monitor Ember app errors with Rollbar - mattlayman.com</title>
+  <meta name='viewport' content='width=device-width' />
+  <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
+    type='atom+xml'>
+</head>
+<body>
+<div id='container'>
+  <h1>Monitor Ember app errors with Rollbar</h1>
+<p class='byline'>By <a href='/'>Matt Layman</a> on January 3, 2017</p>
+<p><img class='book mv20' src='rollbar.jpeg'></p>
+<p>One fact that I&rsquo;ve come to accept
+as an experienced developer
+is that errors <em>will</em> happen.
+Guaranteed.
+The reasons for this situation
+are vast.
+Perhaps there are quirks
+in a browser you didn&rsquo;t test.
+Or perhaps the user did something
+that you didn&rsquo;t plan for.
+You can&rsquo;t anticipate every situation.
+Knowing that errors will happen means you have two choices.
+You can ignore this fact
+and let your users suffer
+(at the risk of losing them).
+Or,
+<strong>you can record these errors
+and fix them
+to improve your application.</strong>
+I recently set up Rollbar
+for <a href="https://www.collegeconductor.com/">College Conductor</a>
+and wanted to share my experience.</p>
+<p><a href="https://rollbar.com/">Rollbar</a>
+is a service
+that let&rsquo;s you record your errors
+<em>wherever</em> they happen.
+Error information is stored
+with your Rollbar account
+so you can examine a problem
+and decide how to fix it.</p>
+<p>If you&rsquo;re developing an Ember application,
+you can quickly integrate your app
+with Rollbar. Let&rsquo;s see how.
+Begin by installing an Ember CLI addon
+for Rollbar:</p>
+<div class="codehilite"><pre><span></span>$ ember install ember-cli-rollbar
+</pre></div>
+
+
+<p>Once the addon is installed,
+it needs to be configured
+to communicate
+with Rollbar.
+In your <code>config/environment.js</code> file,
+add a section like this:</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">ENV</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">rollbar</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">accessToken</span><span class="o">:</span> <span class="s1">&#39;your post_client_item token&#39;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>Rollbar has a few different tokens
+available on your access tokens settings page.
+The correct one to use with Ember
+is the <code>post_client_item</code> token.</p>
+<p>With that configuration done,
+you&rsquo;re ready to go!
+When the Ember app is not in <code>development</code> mode,
+errors will be reported to Rollbar.</p>
+<p>Good luck with your app.
+I hope this information helps you improve
+your project
+for your users.
+In a few mere weeks of use,
+Rollbar has already helped me
+track down a number of problems.
+I&rsquo;m sure it can do the same for you.</p>
+<p>If you want to chat about this with me, I'm
+  <a href="https://twitter.com/mblayman">@mblayman</a> on Twitter.</p>
+  <br>
+  <footer>
+    <p><img alt='Creative Commons Attribution 4.0 International License'
+      src='/cc.png' width='80' height='15'> <a href='/'> Matt Layman</a>,
+      2016</p>
+  </footer>
+</div>
+</body>
+</html><!-- handrolled for excellence -->
