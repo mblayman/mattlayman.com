@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='/screen.css'>
+  <link href='http://fonts.googleapis.com/css?family=Cabin:600|Lora'
+    rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <title>Sideload JSON API resources in Django - mattlayman.com</title>
+  <meta name='viewport' content='width=device-width' />
+  <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
+    type='atom+xml'>
+</head>
+<body>
+<div id='container'>
+  <h1>Sideload JSON API resources in Django</h1>
+<p class='byline'>By <a href='/'>Matt Layman</a> on January 10, 2017</p>
+<p><img class='book' src='jsonapi.png'></p>
+<p>I&rsquo;m a big proponent
+of using a framework
+to dramatically reduce the time required
+to make something useful.
+Occasionally,
+using a framework means that developers must <em>explore</em>
+to understand what is possible.
+This truth is even more evident
+when there are layers of extensions
+to achieve a desired result.
+For instance,
+<a href="https://www.collegeconductor.com/">College Conductor</a> is driving an
+<a href="http://emberjs.com/">EmberJS</a> app
+with a <a href="http://jsonapi.org/">JSON API</a>
+powered by <a href="https://www.djangoproject.com/">Django</a>.
+The API uses the excellent
+<a href="http://www.django-rest-framework.org/">Django REST Framework</a>
+and the <a href="http://django-rest-framework-json-api.readthedocs.io/en/stable/">DRF JSON API</a>
+extension
+to translate from vanilla DRF API serialized output
+to JSON API flavored output.
+In this post,
+<strong>I&rsquo;ll cover my exploration
+of the DRF JSON API source code
+to find out how to load extra model resources
+in a single API request.</strong></p>
+<p>The JSON API specification describes
+how to include extra resources
+in a
+<a href="http://jsonapi.org/format/#document-compound-documents">Compound Document</a>.
+Compound Documents are the mechanism
+to serialize extra resources
+with a single request.
+The benefit of doing this
+is saving at least one HTTP request
+(with all of its associated delay)
+and possibly more
+if the client app is inefficient
+with resource requests.
+Unfortunately,
+DRF JSON API does not explain
+how to make a Compound Document
+(a fact I hope to correct with this
+<a href="https://github.com/django-json-api/django-rest-framework-json-api/pull/308">Pull Request</a>).
+For now,
+that means that users must scour the source.
+What follows is an example
+that can save you from source code spelunking.</p>
+<p>Let&rsquo;s suppose that you would like to make a quest game.
+In your game,
+you have a quest
+and you send a knight
+on your quest.
+There is a very small amount
+of information
+about your knight
+so it would be great
+to send that data
+along with the quest.</p>
+<p>We can begin
+with the non-sideloaded versions
+of the two serializers.</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">rest_framework_json_api</span> <span class="kn">import</span> <span class="n">serializers</span>
+
+<span class="kn">from</span> <span class="nn">game.models</span> <span class="kn">import</span> <span class="n">Knight</span><span class="p">,</span> <span class="n">Quest</span>
+
+
+<span class="k">class</span> <span class="nc">KnightSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Knight</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;strength&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;dexterity&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;charisma&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">QuestSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Quest</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;title&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;reward&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;knight&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+</pre></div>
+
+
+<p>Let&rsquo;s assume that the <code>Quest.knight</code> is a foreign key
+to a <code>Knight</code>.
+In this version
+of our <code>QuestSerializer</code>,
+DRF JSON API will serialize the associated knight&rsquo;s ID
+without the data
+that we want.</p>
+<p>Now,
+we can transform the <code>QuestSerializer</code>
+in a couple of ways.
+First, the code:</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">QuestSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="n">included_serializers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;knight&#39;</span><span class="p">:</span> <span class="n">KnightSerializer</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Quest</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;title&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;reward&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;knight&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">JSONAPIMeta</span><span class="p">:</span>
+        <span class="n">included_resources</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;knight&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Hopefully,
+the two changes are hard to miss.
+This new serializer informs DRF JSON API
+of <em>what</em> we want the API to include
+via the <code>included_resources</code> meta attribute.
+We must also tell the serializer <em>how</em> to serialize the <code>knight</code>.
+The <em>how</em> is accomplished by the <code>included_serializers</code> dictionary.
+These settings are enough to make DRF JSON API
+include both the quest and knight data
+in a single request. Neat!</p>
+<p>Before we part,
+I must sadly note that this is how this should work
+<em>in theory</em>.
+There is currently a bug (<a href="https://github.com/django-json-api/django-rest-framework-json-api/issues/291">#291</a>)
+that is fixed by <a href="https://github.com/django-json-api/django-rest-framework-json-api/pull/307">Pull Request #307</a>.
+When that is merged and released,
+you&rsquo;ll be able to use sideloaded resources
+in your Django based JSON API.</p>
+<p>If you want to chat about this with me, I'm
+  <a href="https://twitter.com/mblayman">@mblayman</a> on Twitter.</p>
+  <br>
+  <footer>
+    <p><img alt='Creative Commons Attribution 4.0 International License'
+      src='/cc.png' width='80' height='15'> <a href='/'> Matt Layman</a>,
+      2016</p>
+  </footer>
+</div>
+</body>
+</html><!-- handrolled for excellence -->
