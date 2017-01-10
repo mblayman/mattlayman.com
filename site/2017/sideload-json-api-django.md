@@ -19,7 +19,7 @@ template: writing.j2
 
 I'm a big proponent
 of using a framework
-to dramatically reduce the time required
+to reduce the time required
 to make something useful.
 Occasionally,
 using a framework means that developers must *explore*
@@ -35,8 +35,8 @@ powered by [Django](https://www.djangoproject.com/).
 The API uses the excellent
 [Django REST Framework](http://www.django-rest-framework.org/)
 and the [DRF JSON API](http://django-rest-framework-json-api.readthedocs.io/en/stable/)
-extension
-to translate from vanilla DRF API serialized output
+extension.
+DRF JSON API translates from vanilla DRF API serialized output
 to JSON API flavored output.
 In this post,
 **I'll cover my exploration
@@ -46,11 +46,11 @@ in a single API request.**
 
 The JSON API specification describes
 how to include extra resources
-in a
+using a
 [Compound Document](http://jsonapi.org/format/#document-compound-documents).
 Compound Documents are the mechanism
 to serialize extra resources
-with a single request.
+*in a single request*.
 The benefit of doing this
 is saving at least one HTTP request
 (with all of its associated delay)
