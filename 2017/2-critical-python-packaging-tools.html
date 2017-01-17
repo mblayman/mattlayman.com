@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='/screen.css'>
+  <link href='http://fonts.googleapis.com/css?family=Cabin:600|Lora'
+    rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <title>2 Critical Python packaging tools - mattlayman.com</title>
+  <meta name='viewport' content='width=device-width' />
+  <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
+    type='atom+xml'>
+</head>
+<body>
+<div id='container'>
+  <h1>2 Critical Python packaging tools</h1>
+<p class='byline'>By <a href='/'>Matt Layman</a> on January 17, 2017</p>
+<p><img class='book' src='/images/python.png'></p>
+<p>At last week&rsquo;s
+<a href="https://www.meetup.com/python-frederick/">Python Frederick</a> meetup,
+I gave a talk
+on Python packaging.
+My aim was to cover how packaging works
+and how to build a basic package.
+Over the course
+of the talk,
+we used a couple of tools
+that I think are critical
+for releasing a Python package
+to PyPI.
+<em>I&rsquo;ll describe these tools
+and why I think they are critical</em>.</p>
+<h2>tox</h2>
+<p><a href="https://tox.readthedocs.io/en/latest/">tox</a>
+is a fantastic tool
+for <em>testing packaging</em>.
+With the <code>tox</code> command,
+a developer can build a package,
+install it into a virtual environment
+for a speific Python version,
+and run the package
+through its test suite.</p>
+<p>The short version of running tox looks like:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>tox -e py36
+</pre></div>
+
+
+<p>This command will run a package&rsquo;s test suite
+against Python 3.6.
+I love it
+when commands are that elegant.
+To make that possible,
+the developer must tell tox
+how to run the test suite.
+This configuration is done in a <code>tox.ini</code> file.
+A minimal file could look like:</p>
+<div class="codehilite"><pre><span class="k">[tox]</span>
+<span class="na">envlist</span> <span class="o">=</span> <span class="s">py36</span>
+
+<span class="k">[testenv]</span>
+<span class="na">commands</span> <span class="o">=</span> <span class="s">python -m unittest discover \</span>
+<span class="s">    -s {envsitepackagesdir}/whirlygig</span>
+</pre></div>
+
+
+<p>In this example,
+you would change <code>whirlygig</code>
+to the name
+of your project.
+This is enough information
+to inform tox
+about how to run your test suite.</p>
+<p>I find that using tox saves me
+from hard to catch packaging bugs
+(did you know those exist?)
+and is generally awesome
+for testing against multiple versions of Python.</p>
+<h2>twine</h2>
+<p><a href="https://pypi.python.org/pypi/twine">twine</a>
+is a critical tool
+in a packager&rsquo;s toolbelt
+for one reason:
+<em>it let&rsquo;s you upload to PyPI
+over HTTPS</em>.
+In contrast,
+<code>python setup.py upload</code> uses insecure HTTP
+for many versions of Python.</p>
+<p>Even though it seems silly,
+you need a separate package to upload securely
+over HTTPS.
+I presume there are good reasons
+for that requirement
+that I&rsquo;m unaware of.</p>
+<p><code>python setup.py sdist bdist_wheel</code>
+creates a <code>dist</code> directory
+with the packages to upload.
+You can perform your upload with:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>twine upload dist/*
+</pre></div>
+
+
+<h2>Summary</h2>
+<p>The Python ecosystem has excellent documentation
+about packaging at the
+<a href="https://packaging.python.org/">Python Packaging User Guide</a>.
+This post was meant to be a gentle introduction
+to a couple of very valuable tools
+when you want to work
+with packages.</p>
+<p>(Yes,
+I know a &ldquo;package&rdquo; is technically called a &ldquo;distribution&rdquo;
+in proper Python lingo,
+but I used the term as it is more broadly accepted
+among many programming languages.)</p>
+<p>If you want to chat about this with me, I'm
+  <a href="https://twitter.com/mblayman">@mblayman</a> on Twitter.</p>
+  <br>
+  <footer>
+    <p><img alt='Creative Commons Attribution 4.0 International License'
+      src='/cc.png' width='80' height='15'> <a href='/'> Matt Layman</a>,
+      2017</p>
+  </footer>
+</div>
+</body>
+</html><!-- handrolled for excellence -->
