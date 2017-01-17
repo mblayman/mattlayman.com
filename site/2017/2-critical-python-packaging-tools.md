@@ -36,7 +36,7 @@ for *testing packaging*.
 With the `tox` command,
 a developer can build a package,
 install it into a virtual environment
-for a speific Python version,
+for a specific Python version,
 and run the package
 through its test suite.
 
