@@ -3,7 +3,7 @@
 blog: True
 title: A Layman's walk through Code
 date: 2013-08-29T12:00:00Z
-summary: >
+summary: >-
     A review of "Code: The Hidden Language of Computer Hardware and Software"
 template: writing.j2
 
