@@ -33,5 +33,6 @@ http://www.mattlayman.com/2016/readthrough-python-standard-library.html
 http://www.mattlayman.com/2016/ship-your-requirements.html
 http://www.mattlayman.com/2017/2-critical-python-packaging-tools.html
 http://www.mattlayman.com/2017/ember-rollbar.html
+http://www.mattlayman.com/2017/necessity-of-software-abstraction.html
 http://www.mattlayman.com/2017/sideload-json-api-django.html
 http://www.mattlayman.com/index.html
