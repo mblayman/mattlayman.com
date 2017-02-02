@@ -9,6 +9,7 @@ summary: >-
   that your users encounter.
   Learn how you can add Rollbar
   into your application.
+image: rollbar.jpeg
 template: writing.j2
 
 ---

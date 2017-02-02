@@ -12,6 +12,7 @@ summary: >-
   of commonly paired models.
   We will explore the extra settings required
   to make that happen.
+image: jsonapi.png
 template: writing.j2
 
 ---

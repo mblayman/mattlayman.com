@@ -8,6 +8,7 @@ summary: >-
   Many tools can help you make a package,
   but I'll describe the tools
   that I think are the most important.
+image: /images/python.png
 template: writing.j2
 
 ---

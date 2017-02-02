@@ -13,6 +13,7 @@ summary: >-
   Since College Conductor uses JWT,
   making the service required some extra thought.
   Check out how it works!
+image: jwt.svg
 template: writing.j2
 
 ---
