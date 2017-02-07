@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='/screen.css'>
+  <link href='http://fonts.googleapis.com/css?family=Cabin:600|Lora:400,700'
+    rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <title>Rollbar monitoring of Celery in a Django app - mattlayman.com</title>
+  <meta name='viewport' content='width=device-width' />
+  <meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.mattlayman.com/2017/django-celery-rollbar.html" />
+<meta property="og:image" content="http://www.mattlayman.com/2017/rollbar.jpeg" />
+<meta property="og:title" content="Rollbar monitoring of Celery in a Django app" />
+<meta property="og:description" content="Rollbar provides some excellent middleware that makes setup a snap for a Django application. But what if you're running Celery with your Django application too? There are a few bumps in the road that I'll explain how to resolve." />
+  <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
+    type='atom+xml'>
+  <script src="//load.sumome.com/" data-sumo-site-id="bebd12621ec197c6697df2c9248f3a0e593a38b2eae32e10899930dae8668b9a" async="async"></script>
+</head>
+<body>
+<div id='container'>
+  <h1>Rollbar monitoring of Celery in a Django app</h1>
+<p class='byline'>By <a href='/'>Matt Layman</a> on February 7, 2017</p>
+<p><img class='book mv20' src='rollbar.jpeg'></p>
+<p>The last <a href="/2017/ember-rollbar.html">Rollbar post</a>
+that I made covered how to integrate Rollbar
+into your Ember application.
+As a reminder,
+<a href="https://rollbar.com/">Rollbar</a>
+is a service
+that let&rsquo;s you record your errors
+<em>wherever</em> they happen.
+In that original post,
+I didn&rsquo;t cover how to include Rollbar
+in a Django application
+because the Rollbar team does a great job
+of that
+in <a href="https://rollbar.com/docs/notifier/pyrollbar/">their own documentation</a>.
+<strong>But what happens when you want to do asynchronous task management
+with <a href="http://www.celeryproject.org/">Celery</a>
+in your Django app?</strong>
+I encountered some gotchas
+in making that work
+so I&rsquo;m going to describe what I learned here.</p>
+<p><a href="https://www.collegeconductor.com/">College Conductor</a>
+uses Celery
+to make sure
+that slow tasks
+like sending email
+do not happen
+in the web request.
+I still want the safety net
+of error reporting
+in my async tasks,
+but I discovered that my Celery workers
+were not sending errors to Rollbar.
+This initally surprised me because I was using the Django middleware
+in the Rollbar documentation.</p>
+<p>When I looked closely
+at the problem,
+I realized that it made perfect sense
+that Celery was not running Rollbar code.
+The Celery worker reads the Django settings
+to initialize its tasks,
+but it does not execute the Django middleware.
+Thus,
+the Rollbar configuration is skipped.
+After searching,
+I found <a href="https://github.com/rollbar/rollbar-celery-example">Rollbar&rsquo;s example code</a>
+for configuring a Celery worker
+and that is when I encountered my problem.
+The sample code and the Django middleware
+configure the <code>rollbar.BASE_DATA_HOOK</code> attribute,
+but they use different Python functions
+for the hook.
+Both the Celery worker and the Django application
+need access to the <code>Celery</code> app instance
+so I had to resolve how to have two different <code>BASE_DATA_HOOK</code> functions.</p>
+<p>The best solution I could devise
+was to do Celery specific configuration
+if a certain environment variable was set.</p>
+<p>In my Django settings file, I have the necessary <code>ROLLBAR</code> dictionary:</p>
+<div class="codehilite"><pre><span></span><span class="n">ROLLBAR</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;access_token&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;ROLLBAR_ACCESS_TOKEN&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;environment&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;ROLLBAR_ENVIRONMENT&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="n">BASE_DIR</span><span class="p">,</span>
+    <span class="s1">&#39;enabled&#39;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ROLLBAR_ENABLED&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)),</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>These settings, in combination with the Django middleware,
+make the Django application report errors to Rollbar.
+(Note: my Django app follows the
+<a href="https://12factor.net/">twelve factor app</a> design
+so all of the environment specific stuff
+like acccess tokens
+are injected as environment variables.
+It&rsquo;s a very powerful pattern.)</p>
+<p>Over in my <code>celery.py</code> module, the code looks like:</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">celery</span> <span class="kn">import</span> <span class="n">Celery</span>
+<span class="kn">from</span> <span class="nn">celery.signals</span> <span class="kn">import</span> <span class="n">task_failure</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span>
+    <span class="s1">&#39;DJANGO_SETTINGS_MODULE&#39;</span><span class="p">,</span> <span class="s1">&#39;conductor.settings.development&#39;</span><span class="p">)</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Celery</span><span class="p">(</span><span class="s1">&#39;conductor&#39;</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config_from_object</span><span class="p">(</span><span class="s1">&#39;django.conf:settings&#39;</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;CELERY&#39;</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">autodiscover_tasks</span><span class="p">()</span>
+
+<span class="hll"><span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CELERY_WORKER_RUNNING&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)):</span>
+</span>    <span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+    <span class="kn">import</span> <span class="nn">rollbar</span>
+    <span class="n">rollbar</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="o">**</span><span class="n">settings</span><span class="o">.</span><span class="n">ROLLBAR</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">celery_base_data_hook</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;framework&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;celery&#39;</span>
+
+    <span class="n">rollbar</span><span class="o">.</span><span class="n">BASE_DATA_HOOK</span> <span class="o">=</span> <span class="n">celery_base_data_hook</span>
+
+    <span class="nd">@task_failure.connect</span>
+    <span class="k">def</span> <span class="nf">handle_task_failure</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="n">rollbar</span><span class="o">.</span><span class="n">report_exc_info</span><span class="p">(</span><span class="n">extra_data</span><span class="o">=</span><span class="n">kw</span><span class="p">)</span>
+</pre></div>
+
+
+<p>The linchpin of this setup is the <code>CELERY_WORKER_RUNNING</code> environment variable.
+All the code within the <code>if</code> statement will look very similar
+to Rollbar&rsquo;s Celery example.
+In my configuration management tool,
+I add the <code>CELERY_WORKER_RUNNING</code> variable for the Celery worker
+and exclude it for the Django app.
+By doing this,
+the system is able to get the proper <code>BASE_DATA_HOOK</code>
+depending on the execution context.</p>
+<p>Without too much extra work,
+I managed to make my project send Django and Celery errors
+to Rollbar
+in a shared module.
+I hope this setup can help anyone else struggling
+to make the two contexts play nicely together.</p>
+<p>If you want to chat about this with me, I'm
+  <a href="https://twitter.com/mblayman">@mblayman</a> on Twitter.</p>
+  <br>
+  <footer>
+    <p><img alt='Creative Commons Attribution 4.0 International License'
+      src='/cc.png' width='80' height='15'> <a href='/'> Matt Layman</a>,
+      2017</p>
+  </footer>
+</div>
+</body>
+</html><!-- handrolled for excellence -->

@@ -2,13 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">Matt Layman's Writings</title>
   <id>http://www.mattlayman.com/feed.xml</id>
-  <updated>2017-01-31T12:00:00Z</updated>
+  <updated>2017-02-07T12:00:00Z</updated>
   <link href="http://www.mattlayman.com/archive.html" />
   <link href="http://www.mattlayman.com/archive.html" rel="self" />
   <author>
     <name>Matt Layman</name>
   </author>
   <generator>Werkzeug</generator>
+  <entry>
+    <title type="html">Rollbar monitoring of Celery in a Django app</title>
+    <id>http://www.mattlayman.com/2017/django-celery-rollbar.html</id>
+    <updated>2017-02-07T12:00:00Z</updated>
+    <link href="http://www.mattlayman.com/2017/django-celery-rollbar.html" />
+    <summary type="html">Rollbar provides some excellent middleware that makes setup a snap for a Django application. But what if you're running Celery with your Django application too? There are a few bumps in the road that I'll explain how to resolve.</summary>
+  </entry>
   <entry>
     <title type="html">A currentUser service for Ember with JWT</title>
     <id>http://www.mattlayman.com/2017/current-user-jwt.html</id>
