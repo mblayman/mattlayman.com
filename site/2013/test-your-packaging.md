@@ -5,6 +5,7 @@ title: Test your packaging
 date: 2013-12-15T12:00:00Z
 summary: Using Travis CI and Tox to test Python packaging
 template: writing.j2
+image: travis.png
 
 ---
 <img class='book' src='travis.png'>
