@@ -3,8 +3,12 @@
 blog: True
 title: Laziness is motivating
 date: 2014-07-01T12:00:00Z
-summary: Considering laziness as a motivator for making good tools
+summary: >-
+  Laziness is a motivator for making good tools.
+  By optimizing in ways that allow developers to be lazy,
+  you can make tools that are more desirable to use.
 template: writing.j2
+image: larry.jpg
 
 ---
 <img class='book' src='larry.jpg'>
@@ -28,7 +32,7 @@ lazy by using them. So, for command line tools, I have some rules of thumb:
 
 1.  **The optional flags had better be optional.** Seriously. I've had to work
     on projects where the amount of flags passed into the tool rivaled
-    the complexity of an airplane's cockpit dashboard. You won't win any
+    the complexity of an airplane cockpit's dashboard. You won't win any
     friends by making a monster interface. If your tool is complex, you
     can manage it by following the convention in the industry of using
     sub-commands (e.g., git, svn, pip, apt-get).
