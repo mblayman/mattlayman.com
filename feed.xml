@@ -168,7 +168,7 @@
     <id>http://www.mattlayman.com/2015/d3js-area-chart.html</id>
     <updated>2015-01-24T12:00:00Z</updated>
     <link href="http://www.mattlayman.com/2015/d3js-area-chart.html" />
-    <summary type="html">A step-by-step walkthrough of a D3.js area chart</summary>
+    <summary type="html">A step-by-step walkthrough of a D3.js area chart. This post covers each piece needed to create an area chart from a list of JavaScript data.</summary>
   </entry>
   <entry>
     <title type="html">Laziness is motivating</title>
