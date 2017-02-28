@@ -37,6 +37,7 @@ http://www.mattlayman.com/2017/current-user-jwt.html
 http://www.mattlayman.com/2017/django-celery-rollbar.html
 http://www.mattlayman.com/2017/ember-rollbar.html
 http://www.mattlayman.com/2017/necessity-of-software-abstraction.html
+http://www.mattlayman.com/2017/open-graph-twitter-plugins.html
 http://www.mattlayman.com/2017/postgres-search-django.html
 http://www.mattlayman.com/2017/sideload-json-api-django.html
 http://www.mattlayman.com/index.html
