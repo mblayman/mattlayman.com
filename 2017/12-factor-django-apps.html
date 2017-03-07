@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='/screen.css'>
+  <link href='http://fonts.googleapis.com/css?family=Cabin:600|Lora:400,700'
+    rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <title>12-factor Django apps - mattlayman.com</title>
+  <meta name='viewport' content='width=device-width' />
+  <meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.mattlayman.com/2017/12-factor-django-apps.html" />
+<meta property="og:image" content="http://www.mattlayman.com/2017/django.png" />
+<meta property="og:title" content="12-factor Django apps" />
+<meta property="og:description" content="Twelve-factor applications are a pattern that can be applied to web applications for making deployment easier. Learn what a twelve-factor app is and some things to consider when applying the pattern to Django applications." />
+  <meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@mblayman" />
+<meta name="twitter:image" content="http://www.mattlayman.com/2017/django.png" />
+<meta name="twitter:title" content="12-factor Django apps" />
+<meta name="twitter:description" content="Twelve-factor applications are a pattern that can be applied to web applications for making deployment easier. Learn what a twelve-factor app is and some things to consider when applying the pattern to Django applications." />
+  <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
+    type='atom+xml'>
+  <script src="//load.sumome.com/" data-sumo-site-id="bebd12621ec197c6697df2c9248f3a0e593a38b2eae32e10899930dae8668b9a" async="async"></script>
+</head>
+<body>
+<div id='container'>
+  <h1>12-factor Django apps</h1>
+<p class='byline'>By <a href='/'>Matt Layman</a> on March 7, 2017</p>
+<p><img class='book mv20' src='django.png'></p>
+<p>Deployment of web applications
+has many considerations.
+Most web applications must handle sensitive data.
+To handle increased traffic,
+the app should be scalable.
+If a crash occurs
+in the app,
+no data should be lost.
+These are only a few things
+that need to be considered.
+<em>Twelve-factor applications address a lot
+of these issues,
+and I&rsquo;ll show how to make a Django web application
+behave as a twelve-factor app.</em></p>
+<p>The <a href="https://12factor.net/">twelve-factor application</a> methodology
+is a pattern popularized by <a href="https://www.heroku.com/">Heroku</a>
+with an aim
+to handle many of the biggest considerations
+in web application deployment.
+Twelve-factor applications operate differently
+from a more traditional web application.
+In a traditional environment,
+the state of the system
+is often baked in
+to the deployed software.
+This state could include information
+like:</p>
+<ul>
+<li>database connections</li>
+<li>routes to other services such as Memcached</li>
+<li>tokens to connect with external services like Stripe</li>
+</ul>
+<p>Including this kind of data
+in the web application
+reduces its flexibility
+and is potentially unsafe
+as it essentially stores secrets
+in the app.</p>
+<p>In contrast,
+a twelve-factor app is <strong>stateless</strong>.
+All state and configuration that can change dynamically
+is injected via environment variables.
+By pushing the environment settings
+to environment variables,
+a twelve-factor app can be deployed
+to a variety of environments
+merely by changing settings.
+Do you want to deploy your app to a staging environment
+and a production environment?
+Change the environment variables
+and your app is now configured for the new setting!</p>
+<p>The decoupling of state from function
+unlocks a number of new possibilities.</p>
+<ul>
+<li>With great ease,
+  a team can scale their application horizontally
+  by increasing the number of application servers
+  to handle additional load.</li>
+<li>Apps can migrate to new environments quickly.
+  Because the applications are stateless,
+  they can be discarded in an old environment
+  and provisioned again in a new environment
+  without losing data.</li>
+</ul>
+<p>There are other benefits documented
+on the twelve-factor app website
+and I strongly suggest that you read it
+to see some of the other ideas
+for these kinds of applications.</p>
+<h2>12-factor and Django</h2>
+<p>I&rsquo;ve worked on a few Django apps
+in my career.
+These apps have mostly <em>not</em> been twelve-factor apps,
+but my latest project,
+<a href="https://www.collegeconductor.com/">College Conductor</a>,
+uses the twelve-factor app pattern.
+A Django app requires very little extra work
+to make it a twelve-factor app.
+The biggest change comes to the Django <code>settings.py</code> file.</p>
+<p>Python exposes environment variables
+through the <code>os.environ</code> dictionary.
+Using a twelve-factor Django app means
+wiring the environment variables to the Django settings.</p>
+<p>For instance,
+the <code>SECRET_KEY</code> setting should not be checked into source control.
+The <code>SECRET_KEY</code> can be set like:</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;SECRET_KEY&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>This is boring code
+<em>at its finest</em>.
+The cool part about this code
+is how it declares its intent.
+By not providing a default value,
+the app will fail to start
+unless the <code>SECRET_KEY</code> environment variable is defined.
+This is an oddly good quality.
+Since the variable is required,
+it forces the deployment environment
+to be complete.
+When all the dynamic configuration is set this way,
+you can have high confidence
+that you have all the necessary configuration.</p>
+<p>Twelve-factor apps are not without downsides.
+Because everything must be declared in environment variables,
+the standard <code>./manage.py runserver</code> will not work immediately.
+In fact,
+any <code>./manage.py</code> command will fail to function
+without some configuation.
+To fix this,
+I use <a href="https://honcho.readthedocs.io/en/latest/">Honcho</a>,
+a Python port of <a href="http://ddollar.github.com/foreman">Foreman</a>.
+Honcho provides tools for working
+on twelve-factor apps.
+With Honcho,
+users define a <code>Procfile</code>
+to determine which commands to run
+to start an environment.
+Here&rsquo;s an example:</p>
+<div class="codehilite"><pre><span></span>web: python manage.py runserver
+</pre></div>
+
+
+<p>When this file is defined,
+you can run <code>honcho start</code>
+to launch the commands.
+Even though this seems as likely to break as before,
+Honcho takes an extra step of looking
+for environment variables
+set in a <code>.env</code> file.
+The <code>.env</code> file uses a format like:</p>
+<div class="codehilite"><pre><span></span><span class="na">SECRET_KEY</span><span class="o">=</span><span class="s">&#39;itsasecrettoeverybody&#39;</span>
+</pre></div>
+
+
+<p>For any variable set
+in the file,
+that variable is loaded
+as an environment variable.</p>
+<p>Honcho also includes a <code>run</code> command
+for one-off commands.
+This command does the same loading of <code>.env</code>
+as the <code>start</code> command.</p>
+<div class="codehilite"><pre><span></span>$ honcho run python manage.py migrate
+</pre></div>
+
+
+<p>Even though twelve-factor apps require extra work,
+I believe that the benefits
+that come from using them are very valuable.
+With the <code>os</code> module
+and an extra tool,
+you can quickly produce a working twelve-factor Django app
+for your environment.
+If you do,
+I hope you see the same benefits
+that I&rsquo;ve seen.</p>
+<p>If you want to chat about this with me, I'm
+  <a href="https://twitter.com/mblayman">@mblayman</a> on Twitter.</p>
+  <br>
+  <footer>
+    <p><img alt='Creative Commons Attribution 4.0 International License'
+      src='/cc.png' width='80' height='15'> <a href='/'> Matt Layman</a>,
+      2017</p>
+  </footer>
+</div>
+</body>
+</html><!-- handrolled for excellence -->
