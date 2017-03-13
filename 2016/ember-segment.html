@@ -46,7 +46,7 @@ an Ember addon that provides an Ember
 <a href="https://guides.emberjs.com/v2.1.0/applications/services/">service</a>
 to communicate with Segment.
 The first thing I did was install the addon with:</p>
-<div class="codehilite"><pre><span></span>$ ember install ember-cli-segment
+<div class="codehilite"><pre><span class="nv">$ </span>ember install ember-cli-segment
 </pre></div>
 
 
@@ -69,7 +69,7 @@ in the product.</p>
 to the app&rsquo;s configuration. The result
 in my <code>environment.js</code> file
 was something like:</p>
-<div class="codehilite"><pre><span></span><span class="nx">ENV</span><span class="p">[</span><span class="s1">&#39;segment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+<div class="codehilite"><pre><span class="nx">ENV</span><span class="p">[</span><span class="s1">&#39;segment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">WRITE_KEY</span><span class="o">:</span> <span class="s1">&#39;my_segment_write_key&#39;</span>
 <span class="p">}</span>
 </pre></div>
@@ -91,7 +91,7 @@ At this stage in my product development,
 including the account username
 is all the extra data I want.</p>
 <p>My code in <code>app/application/route.js</code> looks like:</p>
-<div class="codehilite"><pre><span></span><span class="nx">identifyUser</span><span class="p">()</span> <span class="p">{</span>
+<div class="codehilite"><pre><span class="nx">identifyUser</span><span class="p">()</span> <span class="p">{</span>
   <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;currentUser.user&#39;</span><span class="p">);</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;segment&#39;</span><span class="p">).</span><span class="nx">identifyUser</span><span class="p">(</span>
@@ -127,5 +127,15 @@ of service integration.</p>
       2017</p>
   </footer>
 </div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-93541554-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
 </body>
 </html><!-- handrolled for excellence -->

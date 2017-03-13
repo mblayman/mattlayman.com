@@ -65,18 +65,18 @@ appropriate for me, right?).</p>
 has great documentation for how to connect GitHub and their service.</p>
 <p>I needed to add two files to my repository: <strong>.travis.yml</strong> and <strong>tox.ini</strong>.
 The entire files are listed below. First, the Travis file:</p>
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="l l-Scalar l-Scalar-Plain">env</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TOX_ENV=py27</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TOX_ENV=py26</span>
-<span class="l l-Scalar l-Scalar-Plain">install</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install tox</span>
-<span class="l l-Scalar l-Scalar-Plain">script</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tox -e $TOX_ENV</span>
+<div class="codehilite"><pre><span class="l-Scalar-Plain">language</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">python</span>
+<span class="l-Scalar-Plain">env</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">TOX_ENV=py27</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">TOX_ENV=py26</span>
+<span class="l-Scalar-Plain">install</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">pip install tox</span>
+<span class="l-Scalar-Plain">script</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tox -e $TOX_ENV</span>
 </pre></div>
 
 
 <p>Second, the Tox file:</p>
-<div class="codehilite"><pre><span></span><span class="k">[tox]</span>
+<div class="codehilite"><pre><span class="k">[tox]</span>
 <span class="na">envlist</span> <span class="o">=</span> <span class="s">py26, py27</span>
 
 <span class="k">[testenv]</span>
@@ -97,5 +97,15 @@ packages!</strong></p>
       2017</p>
   </footer>
 </div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-93541554-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
 </body>
 </html><!-- handrolled for excellence -->

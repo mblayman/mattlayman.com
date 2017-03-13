@@ -35,7 +35,7 @@ probably write code to make TAP output in minutes. It is a line based protocol
 which means that any language that has some sort of print method can generate
 TAP. That&rsquo;s basically all software languages in common use.</p>
 <p>I could provide the rules, but an example would be easier.</p>
-<div class="codehilite"><pre><span></span><span class="c"># This is a comment because it starts with a hash symbol.</span>
+<div class="codehilite"><pre><span class="c"># This is a comment because it starts with a hash symbol.</span>
 <span class="kr">ok</span> <span class="mi">1</span> Something passed here.
 <span class="gr">not ok</span> <span class="mi">2</span> Whoops, there was a failure.
 When there is a line that TAP does not understand (like this one), it will skip it.
@@ -49,7 +49,7 @@ these two phrases, TAP readers will interpret it as a pass or failure. Besides
 the test number, everything else on the line is extra. Toss in how many tests
 were run and you have fully functional TAP output. We can prove it with
 Perl&rsquo;s aptly name <code>prove</code> tool.</p>
-<div class="codehilite"><pre><span></span><span class="gp">matt@eden:~$</span> prove sample.tap
+<div class="codehilite"><pre><span class="gp">matt@eden:~$</span> prove sample.tap
 <span class="go">sample.tap .. Failed 1/2 subtests</span>
 
 <span class="go">Test Summary Report</span>
@@ -78,5 +78,15 @@ facto parser, <a href="http://search.cpan.org/~ovid/Test-Harness-3.28/lib/TAP/Pa
       2017</p>
   </footer>
 </div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-93541554-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
 </body>
 </html><!-- handrolled for excellence -->
