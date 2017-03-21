@@ -41,5 +41,6 @@ http://www.mattlayman.com/2017/necessity-of-software-abstraction.html
 http://www.mattlayman.com/2017/open-graph-twitter-plugins.html
 http://www.mattlayman.com/2017/postgres-search-django.html
 http://www.mattlayman.com/2017/pragmatic-programmer-revisited.html
+http://www.mattlayman.com/2017/semantic-ui-ember.html
 http://www.mattlayman.com/2017/sideload-json-api-django.html
 http://www.mattlayman.com/index.html

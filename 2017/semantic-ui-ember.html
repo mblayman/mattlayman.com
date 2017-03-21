@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='/screen.css'>
+  <link href='http://fonts.googleapis.com/css?family=Cabin:600|Lora:400,700'
+    rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <title>Semantic UI in Ember - mattlayman.com</title>
+  <meta name='viewport' content='width=device-width' />
+  <meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.mattlayman.com/2017/semantic-ui-ember.html" />
+<meta property="og:image" content="http://www.mattlayman.com/2017/ember.png" />
+<meta property="og:title" content="Semantic UI in Ember" />
+<meta property="og:description" content="Semantic UI is a popular styling framework for websites. I integrated Semantic UI in my Ember app and had an interesting experience with the process. I explain a bit of what I learned from that experience." />
+  <meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@mblayman" />
+<meta name="twitter:image" content="http://www.mattlayman.com/2017/ember.png" />
+<meta name="twitter:title" content="Semantic UI in Ember" />
+<meta name="twitter:description" content="Semantic UI is a popular styling framework for websites. I integrated Semantic UI in my Ember app and had an interesting experience with the process. I explain a bit of what I learned from that experience." />
+  <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
+    type='atom+xml'>
+  <script src="//load.sumome.com/" data-sumo-site-id="bebd12621ec197c6697df2c9248f3a0e593a38b2eae32e10899930dae8668b9a" async="async"></script>
+</head>
+<body>
+<div id='container'>
+  <h1>Semantic UI in Ember</h1>
+<p class='byline'>By <a href='/'>Matt Layman</a> on March 21, 2017</p>
+<p><img class='book' src='ember.png'></p>
+<p>For my SaaS app,
+<a href="https://www.collegeconductor.com/">College Conductor</a>,
+I made the choice to use
+<a href="http://emberjs.com/">Ember</a>
+to power the frontend web client.
+I also decided to use
+<a href="https://semantic-ui.com/">Semantic UI</a>
+as the UI toolkit
+to build the look and feel
+of the site.
+Integrating the two projects
+into a single product
+proved to be harder than I anticipated.
+Let&rsquo;s look at why that happened.</p>
+<p>My first decision when evaluating Semantic UI
+led me to consider
+if a viable Ember add-on existed.
+The official Semantic UI project
+points to
+<a href="http://semantic-org.github.io/Semantic-UI-Ember/#/modules">Semantic-UI-Ember</a>
+as the default answer
+for working with Semantic
+in Ember.
+Ultimately,
+I concluded that the add-on wasn&rsquo;t right
+for me.
+Semantic-UI-Ember wraps many of Semantic&rsquo;s elements and views
+into Ember components.
+While I appreciate what they are trying to do,
+I didn&rsquo;t really like that my project would always lag
+behind the latest Semantic UI releases,
+and that there was a whole extra layer of API
+to learn.
+The thought of bouncing between two different sets
+of documentation
+for my UI toolkit
+did not appeal to me
+at all.</p>
+<p>After I ruled out Semantic-UI-Ember,
+I decided to integrate the toolkit myself.
+Semantic has packages that are available
+via <a href="https://www.npmjs.com/">npm</a>
+in a variety of flavors.
+Semantic is built with the
+<a href="http://lesscss.org/">Less</a> CSS preprocessor.
+My goal was to make sure
+that I could work with the Less-based files
+and integrate into Ember&rsquo;s toolchain.
+Because of that goal,
+I chose the <code>semantic-ui-less</code> package.
+This package offers all of the Semantic files
+without its normal
+<a href="http://gulpjs.com/">Gulp</a> build process.
+My logic was that Ember&rsquo;s Less integration
+could build my Semantic theme
+and be a seamless part
+of my development workflow.
+<em>Reality was not so kind.</em></p>
+<p>The biggest problem that I experienced
+with <code>semantic-ui-less</code>
+related to the project&rsquo;s expectations
+about file locations.
+The Less files from the package were stored
+in the <code>node_modules</code> directory of my project.
+Ember&rsquo;s tooling could handle this location,
+but Semantic itself did not fare well.
+I had a devilish time trying to convince Semantic
+of the location of my theme.
+Even when it did find the theme,
+the paths weren&rsquo;t quite right
+for Semantic to use its overriding mechanism properly.
+The fallout of that
+was that I had to directly modify the theme
+to get the styling that I wanted.
+I felt stuck with a mediocre integration.
+To make matters worse,
+the Ember development server would sometimes throw errors
+when I changed a Less file.
+I&rsquo;d have to restart the development server
+and lose the benefit of having it integrated.</p>
+<p>I finally decided to keep my use of Semantic separate
+from my Ember toolchain.
+By switching to the <code>semantic-ui</code> package,
+I could get the Gulp toolchain
+that the project expects.
+My Semantic files get stored
+in my app&rsquo;s <code>vendor</code> directory
+and I set the Ember configuration
+to pull in Semantic&rsquo;s built version.
+Making this switch resulted
+in a less integrated experience,
+but it dramatically simplified working with the two projects.</p>
+<p>My lesson with this process
+is to be wary of immediately trying to integrate two technologies,
+especially when you&rsquo;re not experienced with <em>either</em>
+when you start.
+By keeping the projects separated,
+I now have additional complexity
+in my deployment process.
+Thankfully, my Ansible scripts can readily handle that
+so I&rsquo;m ok with the tradeoff.
+This whole experience is an example
+of where I failed to follow some sage advice,
+<em><a href="http://wiki.c2.com/?DoTheSimplestThingThatCouldPossiblyWork">do the simplest thing that could possibly work</a></em>.</p>
+<p>If you want to chat about this with me, I'm
+  <a href="https://twitter.com/mblayman">@mblayman</a> on Twitter.</p>
+  <br>
+  <footer>
+    <p><img alt='Creative Commons Attribution 4.0 International License'
+      src='/cc.png' width='80' height='15'> <a href='/'> Matt Layman</a>,
+      2017</p>
+  </footer>
+</div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-93541554-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</body>
+</html><!-- handrolled for excellence -->
