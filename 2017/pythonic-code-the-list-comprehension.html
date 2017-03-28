@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='/screen.css'>
+  <link href='http://fonts.googleapis.com/css?family=Cabin:600|Lora:400,700'
+    rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <title>Pythonic code: the list comprehension - mattlayman.com</title>
+  <meta name='viewport' content='width=device-width' />
+  <meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.mattlayman.com/2017/pythonic-code-the-list-comprehension.html" />
+<meta property="og:image" content="http://www.mattlayman.com/images/python.png" />
+<meta property="og:title" content="Pythonic code: the list comprehension" />
+<meta property="og:description" content="In this series of posts, I'm going to examine common design patterns in Python that make Python code feel 'Pythonic.' This first post will cover list comprehensions, a powerful way to build a Python list data structure." />
+  <meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@mblayman" />
+<meta name="twitter:image" content="http://www.mattlayman.com/images/python.png" />
+<meta name="twitter:title" content="Pythonic code: the list comprehension" />
+<meta name="twitter:description" content="In this series of posts, I'm going to examine common design patterns in Python that make Python code feel 'Pythonic.' This first post will cover list comprehensions, a powerful way to build a Python list data structure." />
+  <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
+    type='atom+xml'>
+  <script src="//load.sumome.com/" data-sumo-site-id="bebd12621ec197c6697df2c9248f3a0e593a38b2eae32e10899930dae8668b9a" async="async"></script>
+</head>
+<body>
+<div id='container'>
+  <h1>Pythonic code: the list comprehension</h1>
+<p class='byline'>By <a href='/'>Matt Layman</a> on March 28, 2017</p>
+<p><img class='book' src='/images/python.png'></p>
+<p>At the next
+<a href="https://www.meetup.com/python-frederick/">Python Frederick</a> meetup,
+I&rsquo;m going to speak
+about &ldquo;Pythonic&rdquo; code.
+Pythonic code is code
+that fits well
+with the design
+of the Python language.
+Some people might call this <em>idiomatic</em> Python.
+These design patterns give Python some
+of its elegant feeling.
+Since I&rsquo;m going to do an entire talk
+on Pythonic code,
+I&rsquo;ve decided to put together a series
+of posts
+that will explore some of the patterns
+in greater depth.</p>
+<p>To start,
+let&rsquo;s talk about <em>list comprehensions</em>.</p>
+<h2>List comprehensions</h2>
+<p>A list is one of Python&rsquo;s core data structures.
+Along with its buddies,
+dictionaries and tuples,
+you can get a ton of amazing stuff done
+with the language.</p>
+<div class="codehilite"><pre><span></span><span class="c1"># A list example</span>
+<span class="n">some_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+
+<p>You can learn a lot about lists
+by reading the
+<a href="https://docs.python.org/3/tutorial/datastructures.html">Python tutorial on data structures</a>,
+but this post will cover one of the list&rsquo;s more iconic features,
+list comprehensions.</p>
+<p>If you are working
+with a list of data,
+you may eventually want to modify it.
+Let&rsquo;s work with some numbers.
+What would you do if you want to double your values?</p>
+<p>Here&rsquo;s a first attempt:</p>
+<div class="codehilite"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">doubled</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+    <span class="n">doubled</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">number</span><span class="p">)</span>
+</pre></div>
+
+
+<p>This works,
+but it manages to feel a bit clunky.
+A list comprehension is a way
+to build a new list
+with a more compact syntax.</p>
+<p>Let&rsquo;s make our doubled list with a list comprehension.</p>
+<div class="codehilite"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">doubled</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">number</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">]</span>
+</pre></div>
+
+
+<p>With a list comprehension,
+the <code>for</code> loop has moved <em>inside</em> the list&rsquo;s constructor syntax
+(i.e., <code>[]</code>).
+We saved two lines of code
+and avoided the explicit use of <code>append</code>.
+I think we can confidently say that the code is cleaner.</p>
+<p>If that&rsquo;s all that list comprehensions could do,
+it would a nice little syntax addition,
+but might feel like a parlor trick.
+Thankfully,
+list comprehensions can do more.
+They can also <em>filter</em>
+if they are provided
+with a predicate.
+For instance,
+maybe you want odd numbers
+instead of doubled values.
+For that, you&rsquo;d write:</p>
+<div class="codehilite"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">odds</span> <span class="o">=</span> <span class="p">[</span><span class="n">number</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span> <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+
+<p>This example uses <code>range</code> to create a list of numbers
+from <code>0</code> to <code>9</code>.
+The list comprehension builds the <code>odds</code> list
+and only includes <code>number</code>
+when it is odd
+(<code>number % 2 != 0</code> checks that a number is odd).</p>
+<p>One more feature
+of list comprehensions
+that is probably less used
+is the ability
+to use multiple <code>for</code> loops.</p>
+<p>Imagine that you need a list of coordinate pairs
+in an x/y plane.
+Instead of writing nested <code>for</code> loops, like so:</p>
+<div class="codehilite"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ys</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">pairs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">ys</span><span class="p">:</span>
+        <span class="n">pairs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+</pre></div>
+
+
+<p>You can write the more concise version.</p>
+<div class="codehilite"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ys</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span>
+                <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">ys</span><span class="p">]</span>
+</pre></div>
+
+
+<p>We&rsquo;ve covered a few key attributes list comprehensions.</p>
+<ol>
+<li>They&rsquo;re a concise way to build new lists.</li>
+<li>They enable elegant filtering.</li>
+<li>They permit nested looping in a clear style.</li>
+</ol>
+<p>List comprehensions are a fantastic way to clean up your loops.
+Once you start using them,
+you&rsquo;ll be on your way to writing more Pythonic code.</p>
+<p>If you want to chat about this with me, I'm
+  <a href="https://twitter.com/mblayman">@mblayman</a> on Twitter.</p>
+  <br>
+  <footer>
+    <p><img alt='Creative Commons Attribution 4.0 International License'
+      src='/cc.png' width='80' height='15'> <a href='/'> Matt Layman</a>,
+      2017</p>
+  </footer>
+</div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-93541554-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</body>
+</html><!-- handrolled for excellence -->
