@@ -42,6 +42,7 @@ http://www.mattlayman.com/2017/open-graph-twitter-plugins.html
 http://www.mattlayman.com/2017/postgres-search-django.html
 http://www.mattlayman.com/2017/pragmatic-programmer-revisited.html
 http://www.mattlayman.com/2017/pythonic-code-the-list-comprehension.html
+http://www.mattlayman.com/2017/pythonic-code-the-with-statement.html
 http://www.mattlayman.com/2017/semantic-ui-ember.html
 http://www.mattlayman.com/2017/sideload-json-api-django.html
 http://www.mattlayman.com/index.html

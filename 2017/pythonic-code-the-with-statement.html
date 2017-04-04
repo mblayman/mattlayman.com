@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='/screen.css'>
+  <link href='http://fonts.googleapis.com/css?family=Cabin:600|Lora:400,700'
+    rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <title>Pythonic code: the with statement - mattlayman.com</title>
+  <meta name='viewport' content='width=device-width' />
+  <meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.mattlayman.com/2017/pythonic-code-the-with-statement.html" />
+<meta property="og:image" content="http://www.mattlayman.com/images/python.png" />
+<meta property="og:title" content="Pythonic code: the with statement" />
+<meta property="og:description" content="In this series of posts, I'm going to examine common design patterns in Python that make Python code feel 'Pythonic.' This second post covers Python's with statement, a syntax to elegantly handle code that requires set up and tear down." />
+  <meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@mblayman" />
+<meta name="twitter:image" content="http://www.mattlayman.com/images/python.png" />
+<meta name="twitter:title" content="Pythonic code: the with statement" />
+<meta name="twitter:description" content="In this series of posts, I'm going to examine common design patterns in Python that make Python code feel 'Pythonic.' This second post covers Python's with statement, a syntax to elegantly handle code that requires set up and tear down." />
+  <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
+    type='atom+xml'>
+  <script src="//load.sumome.com/" data-sumo-site-id="bebd12621ec197c6697df2c9248f3a0e593a38b2eae32e10899930dae8668b9a" async="async"></script>
+</head>
+<body>
+<div id='container'>
+  <h1>Pythonic code: the with statement</h1>
+<p class='byline'>By <a href='/'>Matt Layman</a> on April 4, 2017</p>
+<p><img class='book' src='/images/python.png'></p>
+<p>This post continues a series
+on &ldquo;Pythonic&rdquo; code.
+Pythonic code is code
+that fits well
+with the design
+of the Python language.
+Previously,
+I wrote about
+<a href="/2017/pythonic-code-the-list-comprehension.html">list comprehensions</a>
+as a powerful way to manipulate Python&rsquo;s list data structure.
+This post will cover the <code>with</code> statement.</p>
+<h2>The <code>with</code> statement</h2>
+<p>One task that you are likely to encounter
+while programming Python
+is the need to open a file.
+That file might contain tables of data
+or pictures of kittens.
+Whatever you find yourself doing,
+you&rsquo;ll come across the <code>open</code> function.
+Let&rsquo;s work through a thought experiment
+which can help explain why you should use <code>with</code>.</p>
+<p>If you&rsquo;re brand new to Python,
+you might open a file like so:</p>
+<div class="codehilite"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;kitteh.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+<span class="n">cat_pic</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="c1"># Do other stuff with the cat picture.</span>
+</pre></div>
+
+
+<p>After speaking with a friend
+with more Python experience than you,
+you learn that you&rsquo;re supposed to close files
+or else the operating system will eventually run into trouble
+(because it can only track a limited number of open files).
+You rewrite your code:</p>
+<div class="codehilite"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;kitteh.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+<span class="n">cat_pic</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="c1"># Do other stuff with the cat picture.</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Then you learn that errors can happen.
+Being a good developer,
+you attempt to handle any errors.</p>
+<div class="codehilite"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;kitteh.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+    <span class="n">cat_pic</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="c1"># Do other stuff with the cat picture.</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;oops, something went wrong.&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Your friend tells you that you&rsquo;ve added a bug.
+What?
+How could that be?
+She tells you
+that an error can happen
+before the file is closed.
+You go read more Python documentation
+and learn about <code>finally</code>.
+The code is reworked again to look like:</p>
+<div class="codehilite"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;kitteh.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+    <span class="n">cat_pic</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="c1"># Do other stuff with the cat picture.</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;oops, something went wrong.&#39;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<p>This code is not stellar.
+If you had to write 200 lines
+of extra code
+for &ldquo;doing other stuff,&rdquo;
+then there is a lot of distance
+between opening and closing the file.
+Viewed another way,
+there is a lot space
+between setting something up
+and tearing it down later.</p>
+<p>This is a perfect place to use <code>with</code>.
+Let&rsquo;s restate the code with the <code>with</code> statement.</p>
+<div class="codehilite"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;kitteh.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">cat_pic</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Do other stuff with the cat picture.</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;oops, something went wrong.&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>At first,
+you might be suspect
+of this code.
+Where did the <code>close</code> call go?
+The <code>with</code> statement used an extra concept
+called a
+<a href="https://docs.python.org/3/reference/datamodel.html#context-managers">context manager</a>.
+Context managers are designed
+to handle setup and tear down
+for anything that needs it.
+A context manager is some code
+that implements an <code>__enter__</code> and <code>__exit__</code> method.</p>
+<p>When <code>open</code> is used with a <code>with</code> statement,
+a special context manager is called.
+After the scope of the <code>with</code> block passes
+(i.e., reading the file content into <code>cat_pic</code>),
+the interpreter will execute an <code>__exit__</code>
+method on the context manager.
+The <code>open</code> context manager will close the file
+in <code>__exit__</code>.
+All of this work is neatly tucked away
+from the developer.
+You have the guarantee
+that the file gets closed
+and do not have to do that work
+on your own.</p>
+<p>The <code>open</code> context manager is probably the most common usage
+of the <code>with</code> statement.
+Other uses of <code>with</code> can include threading locks,
+timers,
+or even nicer interfaces for unit testing exceptions.
+Finally,
+Python let&rsquo;s you create your own context managers.
+Check out <a href="https://docs.python.org/3/library/contextlib.html">contextlib</a>
+for more info.
+I&rsquo;ve included this example to give you a quick idea in action.</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nd">@contextmanager</span>
+<span class="o">...</span> <span class="k">def</span> <span class="nf">praise</span><span class="p">():</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;You can do it.&#39;</span><span class="p">)</span>
+<span class="o">...</span>     <span class="k">yield</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;You made it.&#39;</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="n">praise</span><span class="p">():</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;I am trying to code.&#39;</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="n">You</span> <span class="n">can</span> <span class="n">do</span> <span class="n">it</span><span class="o">.</span>
+<span class="n">I</span> <span class="n">am</span> <span class="n">trying</span> <span class="n">to</span> <span class="n">code</span><span class="o">.</span>
+<span class="n">You</span> <span class="n">made</span> <span class="n">it</span><span class="o">.</span>
+</pre></div>
+
+
+<p>The <code>with</code> statement is another valuable tool
+for your Python programmer toolbelt.
+The key thing to remember is that it can help you clean up any code
+where you need to set things up
+or tear things down.</p>
+<p>If you want to chat about this with me, I'm
+  <a href="https://twitter.com/mblayman">@mblayman</a> on Twitter.</p>
+  <br>
+  <footer>
+    <p><img alt='Creative Commons Attribution 4.0 International License'
+      src='/cc.png' width='80' height='15'> <a href='/'> Matt Layman</a>,
+      2017</p>
+  </footer>
+</div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-93541554-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</body>
+</html><!-- handrolled for excellence -->
