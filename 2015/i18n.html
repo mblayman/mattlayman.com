@@ -12,12 +12,12 @@
 <meta property="og:url" content="http://www.mattlayman.com/2015/i18n.html" />
 <meta property="og:image" content="http://www.mattlayman.com/images/og.jpeg" />
 <meta property="og:title" content="A complete guide to i18n in Python" />
-<meta property="og:description" content="A complete detailed guide to explain how to internationalize Python code" />
+<meta property="og:description" content="The world speak far more than English. To broaden the reach of application, developers should internationalize the text to other lanauages to reach a bigger audience. This is a complete detailed guide to explain how to internationalize Python code." />
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@mblayman" />
 <meta name="twitter:image" content="http://www.mattlayman.com/images/og.jpeg" />
 <meta name="twitter:title" content="A complete guide to i18n in Python" />
-<meta name="twitter:description" content="A complete detailed guide to explain how to internationalize Python code" />
+<meta name="twitter:description" content="The world speak far more than English. To broaden the reach of application, developers should internationalize the text to other lanauages to reach a bigger audience. This is a complete detailed guide to explain how to internationalize Python code." />
   <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
     type='atom+xml'>
   <script src="//load.sumome.com/" data-sumo-site-id="bebd12621ec197c6697df2c9248f3a0e593a38b2eae32e10899930dae8668b9a" async="async"></script>
@@ -60,11 +60,11 @@ the name of your top level Python package.</p>
 <code>_('Hello World')</code>. This function comes from the <code>gettext</code> module.
 Python uses GNU gettext to do translation so let&rsquo;s look at the handroll
 code that creates the <code>_</code> function in <code>handroll/i18n.py</code>.</p>
-<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">gettext</span>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">gettext</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
-<span class="n">localedir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)),</span> <span class="s">&#39;locale&#39;</span><span class="p">)</span>
-<span class="n">translate</span> <span class="o">=</span> <span class="n">gettext</span><span class="o">.</span><span class="n">translation</span><span class="p">(</span><span class="s">&#39;handroll&#39;</span><span class="p">,</span> <span class="n">localedir</span><span class="p">,</span> <span class="n">fallback</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">localedir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)),</span> <span class="s1">&#39;locale&#39;</span><span class="p">)</span>
+<span class="n">translate</span> <span class="o">=</span> <span class="n">gettext</span><span class="o">.</span><span class="n">translation</span><span class="p">(</span><span class="s1">&#39;handroll&#39;</span><span class="p">,</span> <span class="n">localedir</span><span class="p">,</span> <span class="n">fallback</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">_</span> <span class="o">=</span> <span class="n">translate</span><span class="o">.</span><span class="n">gettext</span>
 </pre></div>
 
@@ -86,7 +86,7 @@ missing.</p>
 <p>One weirdness that you will quickly encounter if you use <code>format</code>
 for your strings is where to close the <code>_</code> parentheses. Here is an
 example to make it clear.</p>
-<div class="codehilite"><pre><span class="n">_</span><span class="p">(</span><span class="s">&#39;Close the underscore function first. A {number}&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;Close the underscore function first. A {number}&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 </pre></div>
 
 
@@ -105,7 +105,7 @@ to you, please check out <a href="https://docs.python.org/2/distutils/introducti
 for more information.)</p>
 <p>To generate a POT file, run <code>python setup.py extract_messages</code>. You
 will need some settings similar to:</p>
-<div class="codehilite"><pre><span class="k">[extract_messages]</span>
+<div class="codehilite"><pre><span></span><span class="k">[extract_messages]</span>
 <span class="na">input_dirs</span> <span class="o">=</span> <span class="s">handroll</span>
 <span class="na">output_file</span> <span class="o">=</span> <span class="s">handroll/locale/handroll.pot</span>
 </pre></div>
@@ -143,7 +143,7 @@ Object (MO) file (for faster speed). Again, we can turn to Babel
 for help. Babel has a <code>compile_catalog</code> command that can compile
 PO into MO. You can run it with <code>python setup.py compile_catalog</code>.</p>
 <p>It will need settings like:</p>
-<div class="codehilite"><pre><span class="k">[compile_catalog]</span>
+<div class="codehilite"><pre><span></span><span class="k">[compile_catalog]</span>
 <span class="na">domain</span> <span class="o">=</span> <span class="s">handroll</span>
 <span class="na">directory</span> <span class="o">=</span> <span class="s">handroll/locale</span>
 </pre></div>
@@ -152,15 +152,15 @@ PO into MO. You can run it with <code>python setup.py compile_catalog</code>.</p
 <p>Because translations will not work without MO files, I extended
 <code>setup.py</code> so that the <code>sdist</code> command will always run
 <code>compile_catalog</code>.</p>
-<div class="codehilite"><pre><span class="kn">from</span> <span class="nn">setuptools.command.sdist</span> <span class="kn">import</span> <span class="n">sdist</span>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools.command.sdist</span> <span class="kn">import</span> <span class="n">sdist</span>
 
 
 <span class="k">class</span> <span class="nc">Sdist</span><span class="p">(</span><span class="n">sdist</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Custom ``sdist`` command to ensure that mo files are always created.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">run_command</span><span class="p">(</span><span class="s">&#39;compile_catalog&#39;</span><span class="p">)</span>
-        <span class="c"># sdist is an old style class so super cannot be used.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">run_command</span><span class="p">(</span><span class="s1">&#39;compile_catalog&#39;</span><span class="p">)</span>
+        <span class="c1"># sdist is an old style class so super cannot be used.</span>
         <span class="n">sdist</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 </pre></div>
 
@@ -181,10 +181,7 @@ your code. If you have a format string like
 <code>_('Hello {name}!').format(name='Johnny')</code> and a translator makes a
 mistake like <code>'¡Hola {nombre}!'</code>, then that code would break for Spanish
 users.</p>
-<div class="codehilite"><pre><span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;¡Hola {nombre}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;Johnny&#39;</span><span class="p">)</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">KeyError</span>: <span class="n">&#39;nombre&#39;</span>
+<div class="codehilite"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;¡Hola {nombre}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Johnny&#39;</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
 <span class="gr">KeyError</span>: <span class="n">&#39;nombre&#39;</span>
@@ -195,7 +192,7 @@ users.</p>
 <code>LANGUAGE</code> environment variable. Let&rsquo;s assume you use the
 <a href="https://nose.readthedocs.org/en/latest/">nose</a> test runner. To test out your Spanish support, you
 can run:</p>
-<div class="codehilite"><pre><span class="gp">$</span> <span class="nv">LANGUAGE</span><span class="o">=</span>es nosetests
+<div class="codehilite"><pre><span></span><span class="gp">$</span> <span class="nv">LANGUAGE</span><span class="o">=</span>es nosetests
 <span class="go">..................................</span>
 <span class="go">----------------------------------------------------------------------</span>
 <span class="go">Ran 34 tests in 1.440s</span>

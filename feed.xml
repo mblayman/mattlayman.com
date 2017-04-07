@@ -203,7 +203,7 @@
     <id>http://www.mattlayman.com/2015/i18n.html</id>
     <updated>2015-02-23T12:00:00Z</updated>
     <link href="http://www.mattlayman.com/2015/i18n.html" />
-    <summary type="html">A complete detailed guide to explain how to internationalize Python code</summary>
+    <summary type="html">The world speak far more than English. To broaden the reach of application, developers should internationalize the text to other lanauages to reach a bigger audience. This is a complete detailed guide to explain how to internationalize Python code.</summary>
   </entry>
   <entry>
     <title type="html">A &amp;#8220;simple&amp;#8221; D3.js area chart</title>
