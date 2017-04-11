@@ -28,6 +28,10 @@ My previous post looked at the
 and simplifying setup and tear down code.
 This third post will examine the `property` decorator.
 
+1. [The list comprehension](/2017/pythonic-code-the-list-comprehension.html)
+2. [The with statement](/2017/pythonic-code-the-with-statement.html)
+3. The property decorator
+
 ## The `property` decorator
 
 If you've ever taken a class

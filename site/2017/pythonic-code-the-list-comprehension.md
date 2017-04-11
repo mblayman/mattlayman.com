@@ -37,6 +37,10 @@ in greater depth.
 To start,
 let's talk about *list comprehensions*.
 
+1. The list comprehension
+2. [The with statement](/2017/pythonic-code-the-with-statement.html)
+3. [The property decorator](/2017/pythonic-code-the-property-decorator.html)
+
 ## List comprehensions
 
 A list is one of Python's core data structures.

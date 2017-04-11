@@ -29,6 +29,10 @@ I wrote about
 as a powerful way to manipulate Python's list data structure.
 This post will cover the `with` statement.
 
+1. [The list comprehension](/2017/pythonic-code-the-list-comprehension.html)
+2. The with statement
+3. [The property decorator](/2017/pythonic-code-the-property-decorator.html)
+
 ## The `with` statement
 
 One task that you are likely to encounter
