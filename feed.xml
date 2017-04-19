@@ -203,7 +203,7 @@
     <id>http://www.mattlayman.com/2015/statsd-graphite.html</id>
     <updated>2015-03-01T12:00:00Z</updated>
     <link href="http://www.mattlayman.com/2015/statsd-graphite.html" />
-    <summary type="html">My experience with setting up and exploring Statsd and Graphite</summary>
+    <summary type="html">In this post, I describe my experience with setting up Statsd and Graphite. Statsd and Graphite work together to make custom monitoring of your web services a snap to get going.</summary>
   </entry>
   <entry>
     <title type="html">A complete guide to i18n in Python</title>

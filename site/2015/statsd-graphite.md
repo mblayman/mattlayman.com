@@ -3,8 +3,16 @@
 blog: True
 title: Toying with Statsd and Graphite
 date: 2015-03-01T12:00:00Z
-summary: My experience with setting up and exploring Statsd and Graphite
+summary: >-
+  In this post,
+  I describe my experience
+  with setting up Statsd and Graphite.
+  Statsd and Graphite work together
+  to make custom monitoring
+  of your web services
+  a snap to get going.
 template: writing.j2
+image: graph.png
 
 ---
 <img class='book' src='graph.png'>
