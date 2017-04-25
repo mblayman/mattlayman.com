@@ -32,6 +32,7 @@ This post will cover the `with` statement.
 1. [The list comprehension](/2017/pythonic-code-the-list-comprehension.html)
 2. The with statement
 3. [The property decorator](/2017/pythonic-code-the-property-decorator.html)
+4. [Built-in functions](/2017/pythonic-code-built-in-functions.html)
 
 ## The `with` statement
 

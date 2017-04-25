@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='/screen.css'>
+  <link href='http://fonts.googleapis.com/css?family=Cabin:600|Lora:400,700'
+    rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <title>Pythonic code: built-in functions - mattlayman.com</title>
+  <meta name='viewport' content='width=device-width' />
+  <meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.mattlayman.com/2017/pythonic-code-built-in-functions.html" />
+<meta property="og:image" content="http://www.mattlayman.com/images/python.png" />
+<meta property="og:title" content="Pythonic code: built-in functions" />
+<meta property="og:description" content="In this series of posts, I'm going to examine common design patterns in Python that make Python code feel 'Pythonic.' This fourth post turns our attention to the built-in functions and the power of knowing what is immediately at your fingertips." />
+  <meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@mblayman" />
+<meta name="twitter:image" content="http://www.mattlayman.com/images/python.png" />
+<meta name="twitter:title" content="Pythonic code: built-in functions" />
+<meta name="twitter:description" content="In this series of posts, I'm going to examine common design patterns in Python that make Python code feel 'Pythonic.' This fourth post turns our attention to the built-in functions and the power of knowing what is immediately at your fingertips." />
+  <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
+    type='atom+xml'>
+  <script src="//load.sumome.com/" data-sumo-site-id="bebd12621ec197c6697df2c9248f3a0e593a38b2eae32e10899930dae8668b9a" async="async"></script>
+</head>
+<body>
+<div id='container'>
+  <h1>Pythonic code: built-in functions</h1>
+<p class='byline'>By <a href='/'>Matt Layman</a> on April 24, 2017</p>
+<p><img class='book' src='/images/python.png'></p>
+<p>This post continues a series
+on &ldquo;Pythonic&rdquo; code.
+Pythonic code is code
+that fits well
+with the design
+of the Python language.
+The last post examined the
+<a href="/2017/pythonic-code-the-property-decorator.html">property decorator</a>
+as a technique to make beautiful classes.
+This fourth post will dive into Python&rsquo;s built-in functions.</p>
+<ol>
+<li><a href="/2017/pythonic-code-the-list-comprehension.html">The list comprehension</a></li>
+<li><a href="/2017/pythonic-code-the-with-statement.html">The with statement</a></li>
+<li><a href="/2017/pythonic-code-the-property-decorator.html">The property decorator</a></li>
+<li>Built-in functions</li>
+</ol>
+<h2>Built-in functions</h2>
+<p>A couple of years ago,
+I made a challenge for myself
+to read through all of Python&rsquo;s standard library.
+Today,
+I would generally suggest that people <strong>don&rsquo;t</strong> do that
+(for reasons I documented
+in a <a href="/2016/readthrough-python-standard-library.html">blog post about the readthrough experience</a>).</p>
+<p>Even with that caution,
+there <strong>is</strong> some documentation
+that you <em>absolutely</em> should read:
+<a href="https://docs.python.org/3/library/functions.html">the built-in functions reference</a>.</p>
+<p>The built-in functions are the set
+of functions that do not need to be imported.
+They are globally available
+in any Python source file.
+As of this writing
+(with Python 3.6.1 documentation),
+the set includes 68 functions.
+Some of these functions are extremely common
+and well known to proficient Python programmers
+like <code>len</code> and <code>open</code>.
+If you want to move
+from proficient to expert,
+using a majority
+of these functions
+will make your Python code far more Pythonic.</p>
+<p>I&rsquo;m going to describe a few of my favorites
+to give you an idea
+of what is available.
+Once you look at these examples,
+I&rsquo;d really encourage you to read
+the built-in function reference
+so you can discover your own favorites!</p>
+<p>Let&rsquo;s look at these:</p>
+<ul>
+<li><code>any</code></li>
+<li><code>enumerate</code></li>
+<li><code>print</code></li>
+<li><code>range</code></li>
+<li><code>sorted</code></li>
+</ul>
+<h2><code>any</code></h2>
+<p>The <code>any</code> function takes a list
+and returns <code>True</code>
+if anything in the list evaluates to <code>True</code>.
+This is a useful function
+for reducing a bunch
+of boolean checks
+into a single value.
+I think I&rsquo;ve used <code>any</code> most often in cases
+where I&rsquo;m checking permissions
+or other business rules.</p>
+<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">checks</span> <span class="o">=</span> <span class="p">[</span><span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">status</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">checks</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">status</span>
+<span class="bp">True</span>
+</pre></div>
+
+
+<h2><code>enumerate</code></h2>
+<p>If you ever have a loop
+and you also need an incrementing counter
+for the body of your loop,
+then <code>enumerate</code> is your friend.
+The function can return pairs
+that contain an index
+and the value
+in the list.
+You can also set a <code>start</code> keyword argument
+to modify the starting value of your index.</p>
+<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;apple&#39;</span><span class="p">,</span> <span class="s">&#39;orange&#39;</span><span class="p">,</span> <span class="s">&#39;kiwi&#39;</span><span class="p">,</span> <span class="s">&#39;pear&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fruits</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">fruit</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;apple&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;orange&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">&#39;kiwi&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s">&#39;pear&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h2><code>print</code></h2>
+<p>The humble <code>print</code> statement became a <code>print</code> function
+in Python 3.
+There are plenty
+of grumpy Python 2 developers
+whose muscle memory
+prevent them from typing the function correctly
+(I&rsquo;m often one of them),
+but the <code>print</code> function is pretty great.
+By making <code>print</code> a function instead of a keyword,
+developers gets all the great benefits
+that come from using Python functions.
+For example,
+the <code>print</code> function adds a lot of clarity
+for writing to a different file stream
+by using the <code>file</code> keyword argument
+rather than the odd <code>print &gt;&gt; sys.stderr 'help me'</code> style.</p>
+<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">&#39;Hello World&#39;</span><span class="p">)</span>
+<span class="n">Hello</span> <span class="n">World</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">sys</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">&#39;An error&#39;</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+<span class="n">An</span> <span class="n">error</span>
+</pre></div>
+
+
+<h2><code>range</code></h2>
+<p><code>range</code> is great for producing lists of values.
+I don&rsquo;t have much to say about it.
+This one is fairly self-explanatory. :)</p>
+<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+</pre></div>
+
+
+<h2><code>sorted</code></h2>
+<p>Lists in Python have an included <code>sort</code> method.
+The downside of this method is that this list will be sorted
+in place.
+If you don&rsquo;t like that behavior,
+you can get a new list
+by passing your original list
+through the <code>sorted</code> function.
+This function also has the ability
+to take a <code>key</code> function
+that will decide how things are sorted.
+Have a list of colors that you wanted sorted
+into a rainbow?
+That&rsquo;s entirely possible
+if you&rsquo;re <code>key</code> function knows how to sort colors
+that way.</p>
+<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ordered</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ordered</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">numbers</span>
+<span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">numbers</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">numbers</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+
+<h2>So much more!</h2>
+<p>Covering five example functions doesn&rsquo;t even reach 10%
+of what Python has built in to the core.
+I believe your code will be way better
+if you can learn some of these functions
+and how to apply them regularly
+as you make new things.</p>
+<p>Be sure to
+<a href="https://docs.python.org/3/library/functions.html">check out the docs</a>
+to boost your skill set,
+and check back in next time
+when I illuminate
+how cool the standard library is.</p>
+<p>If you want to chat about this with me, I'm
+  <a href="https://twitter.com/mblayman">@mblayman</a> on Twitter.</p>
+  <br>
+  <footer>
+    <p><img alt='Creative Commons Attribution 4.0 International License'
+      src='/cc.png' width='80' height='15'> <a href='/'> Matt Layman</a>,
+      2017</p>
+  </footer>
+</div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-93541554-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</body>
+</html><!-- handrolled for excellence -->

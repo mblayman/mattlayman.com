@@ -50,6 +50,7 @@ let&rsquo;s talk about <em>list comprehensions</em>.</p>
 <li>The list comprehension</li>
 <li><a href="/2017/pythonic-code-the-with-statement.html">The with statement</a></li>
 <li><a href="/2017/pythonic-code-the-property-decorator.html">The property decorator</a></li>
+<li><a href="/2017/pythonic-code-built-in-functions.html">Built-in functions</a></li>
 </ol>
 <h2>List comprehensions</h2>
 <p>A list is one of Python&rsquo;s core data structures.
@@ -57,7 +58,7 @@ Along with its buddies,
 dictionaries and tuples,
 you can get a ton of amazing stuff done
 with the language.</p>
-<div class="codehilite"><pre><span></span><span class="c1"># A list example</span>
+<div class="codehilite"><pre><span class="c"># A list example</span>
 <span class="n">some_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 </pre></div>
 
@@ -73,7 +74,7 @@ you may eventually want to modify it.
 Let&rsquo;s work with some numbers.
 What would you do if you want to double your values?</p>
 <p>Here&rsquo;s a first attempt:</p>
-<div class="codehilite"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<div class="codehilite"><pre><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="n">doubled</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
     <span class="n">doubled</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">number</span><span class="p">)</span>
@@ -86,7 +87,7 @@ A list comprehension is a way
 to build a new list
 with a more compact syntax.</p>
 <p>Let&rsquo;s make our doubled list with a list comprehension.</p>
-<div class="codehilite"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<div class="codehilite"><pre><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="n">doubled</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">number</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">]</span>
 </pre></div>
 
@@ -109,7 +110,7 @@ For instance,
 maybe you want odd numbers
 instead of doubled values.
 For that, you&rsquo;d write:</p>
-<div class="codehilite"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="codehilite"><pre><span class="n">numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">odds</span> <span class="o">=</span> <span class="p">[</span><span class="n">number</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span> <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
 
@@ -128,7 +129,7 @@ to use multiple <code>for</code> loops.</p>
 <p>Imagine that you need a list of coordinate pairs
 in an x/y plane.
 Instead of writing nested <code>for</code> loops, like so:</p>
-<div class="codehilite"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="codehilite"><pre><span class="n">xs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">ys</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">pairs</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">:</span>
@@ -138,7 +139,7 @@ Instead of writing nested <code>for</code> loops, like so:</p>
 
 
 <p>You can write the more concise version.</p>
-<div class="codehilite"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="codehilite"><pre><span class="n">xs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">ys</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span>
                 <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">ys</span><span class="p">]</span>
