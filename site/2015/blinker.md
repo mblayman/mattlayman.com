@@ -3,8 +3,15 @@
 blog: True
 title: Connect Python objects to blinker signals
 date: 2015-03-18T23:00:00Z
-summary: How to connect Python objects to blinker signals
+summary: >-
+  Do you need a way to trigger some Python code
+  to run when a certain event happens?
+  Blinker is a Python package
+  that makes this kind of feature possible
+  with something called signals.
+  Learn how to connect Python objects to blinker signals.
 template: writing.j2
+image: blinker.png
 
 ---
 <img class='book' src='blinker.png'>

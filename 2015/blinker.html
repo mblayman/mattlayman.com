@@ -10,14 +10,14 @@
   <meta name='viewport' content='width=device-width' />
   <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.mattlayman.com/2015/blinker.html" />
-<meta property="og:image" content="http://www.mattlayman.com/images/og.jpeg" />
+<meta property="og:image" content="http://www.mattlayman.com/2015/blinker.png" />
 <meta property="og:title" content="Connect Python objects to blinker signals" />
-<meta property="og:description" content="How to connect Python objects to blinker signals" />
+<meta property="og:description" content="Do you need a way to trigger some Python code to run when a certain event happens? Blinker is a Python package that makes this kind of feature possible with something called signals. Learn how to connect Python objects to blinker signals." />
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@mblayman" />
-<meta name="twitter:image" content="http://www.mattlayman.com/images/og.jpeg" />
+<meta name="twitter:image" content="http://www.mattlayman.com/2015/blinker.png" />
 <meta name="twitter:title" content="Connect Python objects to blinker signals" />
-<meta name="twitter:description" content="How to connect Python objects to blinker signals" />
+<meta name="twitter:description" content="Do you need a way to trigger some Python code to run when a certain event happens? Blinker is a Python package that makes this kind of feature possible with something called signals. Learn how to connect Python objects to blinker signals." />
   <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
     type='atom+xml'>
   <script src="//load.sumome.com/" data-sumo-site-id="bebd12621ec197c6697df2c9248f3a0e593a38b2eae32e10899930dae8668b9a" async="async"></script>
@@ -35,9 +35,9 @@ I will explain how I convinced Blinker to talk to objects
 instead of pure Python functions.</p>
 <p>The example code is going to handle a &ldquo;<a href="http://dictionary.reference.com/browse/frobnicate">frobnicated</a>&rdquo; signal.
 Remember, the signal itself is not very important.</p>
-<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">blinker</span>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">blinker</span>
 
-<span class="n">frobnicated</span> <span class="o">=</span> <span class="n">blinker</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="s">&#39;frobnicated&#39;</span><span class="p">)</span>
+<span class="n">frobnicated</span> <span class="o">=</span> <span class="n">blinker</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="s1">&#39;frobnicated&#39;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -47,7 +47,7 @@ you might put all your signals in a single module.
 <a href="https://github.com/getpelican/pelican/blob/master/pelican/signals.py">Pelican</a> does this nicely.
 Grouping all your signals in one place
 gives signal consumers a clear view of what is available.</p>
-<div class="codehilite"><pre><span class="k">class</span> <span class="nc">Receiver</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Receiver</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">handle_frobnicated</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -56,7 +56,7 @@ gives signal consumers a clear view of what is available.</p>
         <span class="n">frobnicated</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">handle_frobnicated</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">on_frobnicated</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">print</span> <span class="n">sender</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;message&#39;</span><span class="p">]</span>
+        <span class="k">print</span> <span class="n">sender</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span>
 </pre></div>
 
 
@@ -71,7 +71,7 @@ This is necessary
 because Blinker can&rsquo;t pass <code>self</code> to receiver functions.
 <code>handle_frobnicated</code> acts as a <a href="http://en.wikipedia.org/wiki/Closure_%28computer_programming%29">closure</a> on <code>self</code>
 which lets the signal call the instance method.</p>
-<div class="codehilite"><pre>        <span class="bp">self</span><span class="o">.</span><span class="n">handle_frobnicated</span> <span class="o">=</span> <span class="n">handle_frobnicated</span>
+<div class="codehilite"><pre><span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">handle_frobnicated</span> <span class="o">=</span> <span class="n">handle_frobnicated</span>
 </pre></div>
 
 
@@ -86,10 +86,10 @@ for a long time
 to figure that mystery out.</p>
 <p>The last line in <code>__init__</code> connects the signal to the inner function.
 The receiver is ready to handle <code>frobnicated</code> events.</p>
-<div class="codehilite"><pre><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">receiver</span> <span class="o">=</span> <span class="n">Receiver</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-        <span class="n">frobnicated</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&#39;Sender </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s">&#39;hello&#39;</span><span class="p">)</span>
+        <span class="n">frobnicated</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;Sender </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -97,7 +97,7 @@ The receiver is ready to handle <code>frobnicated</code> events.</p>
 Notice that <code>frobnicated.send</code> has no need for <code>receiver</code>.
 The publisher is disconnected from subscriber at this stage.
 The final result looks like:</p>
-<div class="codehilite"><pre><span class="gp">$</span> python blink_object.py
+<div class="codehilite"><pre><span></span><span class="gp">$</span> python blink_object.py
 <span class="go">Sender 0 hello</span>
 <span class="go">Sender 1 hello</span>
 <span class="go">Sender 2 hello</span>

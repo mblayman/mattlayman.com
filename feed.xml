@@ -203,7 +203,7 @@
     <id>http://www.mattlayman.com/2015/blinker.html</id>
     <updated>2015-03-18T23:00:00Z</updated>
     <link href="http://www.mattlayman.com/2015/blinker.html" />
-    <summary type="html">How to connect Python objects to blinker signals</summary>
+    <summary type="html">Do you need a way to trigger some Python code to run when a certain event happens? Blinker is a Python package that makes this kind of feature possible with something called signals. Learn how to connect Python objects to blinker signals.</summary>
   </entry>
   <entry>
     <title type="html">Toying with Statsd and Graphite</title>
