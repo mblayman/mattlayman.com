@@ -45,6 +45,7 @@ http://www.mattlayman.com/2017/pythonic-code-built-in-functions.html
 http://www.mattlayman.com/2017/pythonic-code-the-list-comprehension.html
 http://www.mattlayman.com/2017/pythonic-code-the-property-decorator.html
 http://www.mattlayman.com/2017/pythonic-code-the-with-statement.html
+http://www.mattlayman.com/2017/pythonic-code-using-standard-library.html
 http://www.mattlayman.com/2017/semantic-ui-ember.html
 http://www.mattlayman.com/2017/sideload-json-api-django.html
 http://www.mattlayman.com/index.html

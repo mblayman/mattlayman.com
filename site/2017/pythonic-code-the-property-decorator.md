@@ -32,6 +32,7 @@ This third post will examine the `property` decorator.
 2. [The with statement](/2017/pythonic-code-the-with-statement.html)
 3. The property decorator
 4. [Built-in functions](/2017/pythonic-code-built-in-functions.html)
+5. [Using the standard library](/2017/pythonic-code-using-standard-library.html)
 
 ## The `property` decorator
 

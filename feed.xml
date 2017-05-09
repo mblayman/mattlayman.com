@@ -2,13 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">Matt Layman's Writings</title>
   <id>http://www.mattlayman.com/feed.xml</id>
-  <updated>2017-04-24T12:00:00Z</updated>
+  <updated>2017-05-09T12:00:00Z</updated>
   <link href="http://www.mattlayman.com/archive.html" />
   <link href="http://www.mattlayman.com/archive.html" rel="self" />
   <author>
     <name>Matt Layman</name>
   </author>
   <generator>Werkzeug</generator>
+  <entry>
+    <title type="html">Pythonic code: using the standard library</title>
+    <id>http://www.mattlayman.com/2017/pythonic-code-using-standard-library.html</id>
+    <updated>2017-05-09T12:00:00Z</updated>
+    <link href="http://www.mattlayman.com/2017/pythonic-code-using-standard-library.html" />
+    <summary type="html">In this series of posts, I'm going to examine common design patterns in Python that make Python code feel &quot;Pythonic.&quot; The fifth post peeks at Python's standard library and how the &quot;batteries included&quot; mindset can make developers super productive with no setup.</summary>
+  </entry>
   <entry>
     <title type="html">Pythonic code: built-in functions</title>
     <id>http://www.mattlayman.com/2017/pythonic-code-built-in-functions.html</id>
@@ -157,7 +164,7 @@
     <summary type="html">Tell the world the versions of your dependencies when you release. Software is constantly moving so documenting your dependency versions can help future users know what worked.</summary>
   </entry>
   <entry>
-    <title type="html">We&amp;#8217;re all ambidextrous</title>
+    <title type="html">We&amp;#x27;re all ambidextrous</title>
     <id>http://www.mattlayman.com/2015/ambidextrous.html</id>
     <updated>2015-12-30T12:00:00Z</updated>
     <link href="http://www.mattlayman.com/2015/ambidextrous.html" />
@@ -220,7 +227,7 @@
     <summary type="html">The world speaks far more than English. To broaden the reach of an application, developers should internationalize the text to other languages to reach a bigger audience. This is a complete detailed guide to explain how to internationalize Python code.</summary>
   </entry>
   <entry>
-    <title type="html">A &amp;#8220;simple&amp;#8221; D3.js area chart</title>
+    <title type="html">A &amp;quot;simple&amp;quot; D3.js area chart</title>
     <id>http://www.mattlayman.com/2015/d3js-area-chart.html</id>
     <updated>2015-01-24T12:00:00Z</updated>
     <link href="http://www.mattlayman.com/2015/d3js-area-chart.html" />
@@ -325,14 +332,14 @@
     <summary type="html">A review of &quot;Peopleware&quot;</summary>
   </entry>
   <entry>
-    <title type="html">When you&amp;#8217;re feeling all TAPped out</title>
+    <title type="html">When you&amp;#x27;re feeling all TAPped out</title>
     <id>http://www.mattlayman.com/2013/all-tapped-out.html</id>
     <updated>2013-09-04T12:00:00Z</updated>
     <link href="http://www.mattlayman.com/2013/all-tapped-out.html" />
     <summary type="html">An explanation of the Test Anything Protocol (TAP)</summary>
   </entry>
   <entry>
-    <title type="html">A Layman&amp;#8217;s walk through Code</title>
+    <title type="html">A Layman&amp;#x27;s walk through Code</title>
     <id>http://www.mattlayman.com/2013/a-laymans-walk-through-code.html</id>
     <updated>2013-08-29T12:00:00Z</updated>
     <link href="http://www.mattlayman.com/2013/a-laymans-walk-through-code.html" />
@@ -346,7 +353,7 @@
     <summary type="html">A review of &quot;The Copywriter's Handbook&quot;</summary>
   </entry>
   <entry>
-    <title type="html">It&amp;#8217;s fun -&amp;gt; ok!</title>
+    <title type="html">It&amp;#x27;s fun -&amp;gt; ok!</title>
     <id>http://www.mattlayman.com/2013/its-fun-ok.html</id>
     <updated>2013-08-05T12:00:00Z</updated>
     <link href="http://www.mattlayman.com/2013/its-fun-ok.html" />
