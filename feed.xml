@@ -203,7 +203,7 @@
     <id>http://www.mattlayman.com/2015/phantomjs.html</id>
     <updated>2015-03-24T23:00:00Z</updated>
     <link href="http://www.mattlayman.com/2015/phantomjs.html" />
-    <summary type="html">Learn how to extract data from the web via PhantomJS scripts</summary>
+    <summary type="html">What if you could interact with the JavaScript of another website by adding your code to the page? PhantomJS, a &quot;headless&quot; web browser, has the ability to do exactly that. In this post, you will learn how to extract data from the web via PhantomJS scripts.</summary>
   </entry>
   <entry>
     <title type="html">Connect Python objects to blinker signals</title>

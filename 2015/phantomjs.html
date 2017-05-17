@@ -10,14 +10,14 @@
   <meta name='viewport' content='width=device-width' />
   <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.mattlayman.com/2015/phantomjs.html" />
-<meta property="og:image" content="http://www.mattlayman.com/images/og.jpeg" />
+<meta property="og:image" content="http://www.mattlayman.com/2015/phantomjs.png" />
 <meta property="og:title" content="Inject JavaScript with PhantomJS to inspect websites" />
-<meta property="og:description" content="Learn how to extract data from the web via PhantomJS scripts" />
+<meta property="og:description" content="What if you could interact with the JavaScript of another website by adding your code to the page? PhantomJS, a 'headless' web browser, has the ability to do exactly that. In this post, you will learn how to extract data from the web via PhantomJS scripts." />
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@mblayman" />
-<meta name="twitter:image" content="http://www.mattlayman.com/images/og.jpeg" />
+<meta name="twitter:image" content="http://www.mattlayman.com/2015/phantomjs.png" />
 <meta name="twitter:title" content="Inject JavaScript with PhantomJS to inspect websites" />
-<meta name="twitter:description" content="Learn how to extract data from the web via PhantomJS scripts" />
+<meta name="twitter:description" content="What if you could interact with the JavaScript of another website by adding your code to the page? PhantomJS, a 'headless' web browser, has the ability to do exactly that. In this post, you will learn how to extract data from the web via PhantomJS scripts." />
   <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
     type='atom+xml'>
   <script src="//load.sumome.com/" data-sumo-site-id="bebd12621ec197c6697df2c9248f3a0e593a38b2eae32e10899930dae8668b9a" async="async"></script>
@@ -44,7 +44,7 @@ PhantomJS is exactly the kind of tool that you want
 for exploring very dynamic webpages
 from a script.</p>
 <p>Let&rsquo;s look at an example.</p>
-<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">page</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;webpage&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">();</span>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">page</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;webpage&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">();</span>
 <span class="nx">page</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;http://www.mattlayman.com&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="nx">page</span><span class="p">.</span><span class="nx">injectJs</span><span class="p">(</span><span class="s1">&#39;scan.js&#39;</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="nx">page</span><span class="p">.</span><span class="nx">evaluate</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>

@@ -3,8 +3,18 @@
 blog: True
 title: Inject JavaScript with PhantomJS to inspect websites
 date: 2015-03-24T23:00:00Z
-summary: Learn how to extract data from the web via PhantomJS scripts
+summary: >-
+  What if you could interact with the JavaScript
+  of another website
+  by adding your code
+  to the page?
+  PhantomJS,
+  a "headless" web browser,
+  has the ability to do exactly that.
+  In this post,
+  you will learn how to extract data from the web via PhantomJS scripts.
 template: writing.j2
+image: phantomjs.png
 
 ---
 <img class='book' src='phantomjs.png'>
