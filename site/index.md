@@ -3,7 +3,9 @@
 title: Matt Layman
 template: base.j2
 ---
+<div id='me-wrapper'>
 <img id='me' src='/photo.jpg' width='120' height='120'>
+</div>
 
 I'm Matt,
 a software creator.

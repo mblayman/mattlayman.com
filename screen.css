@@ -3,6 +3,8 @@ body {
   background-image: url('images/noise.png');
   color: #000547;
   font-family: 'Lora', Georgia, serif;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -13,9 +15,11 @@ h1, h2, h3, h4, h5, h6 {
 div#container {
   background-color: white;
   border: 1px solid #cca77a;
-  margin: 50px auto;
+  margin: 0px auto;
   padding: 45px 90px;
   width: 600px;
+  border-top: 0px;
+  border-bottom: 0px;
 }
 
 body h1 {
@@ -146,10 +150,24 @@ svg { border: 1px solid #dedede; }
     padding-left: 0px;
   }
 
+  div#me-wrapper {
+    width: 100%;
+  }
+
+  img#me {
+    display: block;
+    float: none;
+    margin: 0 auto;
+  }
+
   img.book {
     height: auto;
     max-width: 100%;
     width: auto;
+  }
+
+  pre {
+    overflow: hidden;
   }
 }
 
