@@ -24,8 +24,9 @@ body h1 {
 }
 
 p, li {
-  font-size: 18px;
-  line-height: 1.58em;
+  font-size: 1.1em;
+  line-height: 1.55em;
+  hyphens: auto;
 }
 
 p.byline {
@@ -35,7 +36,10 @@ p.byline {
 
 pre {
   font-size: 14px;
-  padding: 1em 0;
+  padding: 1em 0.4em;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  background-color: #fcfcfc;
 }
 
 code {

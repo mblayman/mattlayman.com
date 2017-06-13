@@ -43,6 +43,7 @@ http://www.mattlayman.com/2017/open-graph-twitter-plugins.html
 http://www.mattlayman.com/2017/postgres-search-django.html
 http://www.mattlayman.com/2017/pragmatic-programmer-revisited.html
 http://www.mattlayman.com/2017/pythonic-code-built-in-functions.html
+http://www.mattlayman.com/2017/pythonic-code-leveraging-packages.html
 http://www.mattlayman.com/2017/pythonic-code-the-list-comprehension.html
 http://www.mattlayman.com/2017/pythonic-code-the-property-decorator.html
 http://www.mattlayman.com/2017/pythonic-code-the-with-statement.html

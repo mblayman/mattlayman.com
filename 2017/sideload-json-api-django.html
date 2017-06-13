@@ -22,7 +22,7 @@
     type='atom+xml'>
   <script src="//load.sumome.com/" data-sumo-site-id="bebd12621ec197c6697df2c9248f3a0e593a38b2eae32e10899930dae8668b9a" async="async"></script>
 </head>
-<body>
+<body lang='en'>
 <div id='container'>
   <h1>Sideload JSON API resources in Django</h1>
 <p class='byline'>By <a href='/'>Matt Layman</a> on January 10, 2017</p>
@@ -89,7 +89,7 @@ along with the quest.</p>
 <p>We can begin
 with the non-sideloaded versions
 of the two serializers.</p>
-<div class="codehilite"><pre><span class="kn">from</span> <span class="nn">rest_framework_json_api</span> <span class="kn">import</span> <span class="n">serializers</span>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">rest_framework_json_api</span> <span class="kn">import</span> <span class="n">serializers</span>
 
 <span class="kn">from</span> <span class="nn">game.models</span> <span class="kn">import</span> <span class="n">Knight</span><span class="p">,</span> <span class="n">Quest</span>
 
@@ -98,11 +98,11 @@ of the two serializers.</p>
     <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
         <span class="n">model</span> <span class="o">=</span> <span class="n">Knight</span>
         <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="s">&#39;id&#39;</span><span class="p">,</span>
-            <span class="s">&#39;name&#39;</span><span class="p">,</span>
-            <span class="s">&#39;strength&#39;</span><span class="p">,</span>
-            <span class="s">&#39;dexterity&#39;</span><span class="p">,</span>
-            <span class="s">&#39;charisma&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;strength&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;dexterity&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;charisma&#39;</span><span class="p">,</span>
         <span class="p">)</span>
 
 
@@ -110,10 +110,10 @@ of the two serializers.</p>
     <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
         <span class="n">model</span> <span class="o">=</span> <span class="n">Quest</span>
         <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="s">&#39;id&#39;</span><span class="p">,</span>
-            <span class="s">&#39;title&#39;</span><span class="p">,</span>
-            <span class="s">&#39;reward&#39;</span><span class="p">,</span>
-            <span class="s">&#39;knight&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;title&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;reward&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;knight&#39;</span><span class="p">,</span>
         <span class="p">)</span>
 </pre></div>
 
@@ -129,22 +129,22 @@ that we want.</p>
 we can transform the <code>QuestSerializer</code>
 in a couple of ways.
 First, the code:</p>
-<div class="codehilite"><pre><span class="k">class</span> <span class="nc">QuestSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">QuestSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
     <span class="n">included_serializers</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s">&#39;knight&#39;</span><span class="p">:</span> <span class="n">KnightSerializer</span><span class="p">,</span>
+        <span class="s1">&#39;knight&#39;</span><span class="p">:</span> <span class="n">KnightSerializer</span><span class="p">,</span>
     <span class="p">}</span>
 
     <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
         <span class="n">model</span> <span class="o">=</span> <span class="n">Quest</span>
         <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="s">&#39;id&#39;</span><span class="p">,</span>
-            <span class="s">&#39;title&#39;</span><span class="p">,</span>
-            <span class="s">&#39;reward&#39;</span><span class="p">,</span>
-            <span class="s">&#39;knight&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;title&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;reward&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;knight&#39;</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="k">class</span> <span class="nc">JSONAPIMeta</span><span class="p">:</span>
-        <span class="n">included_resources</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;knight&#39;</span><span class="p">]</span>
+        <span class="n">included_resources</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;knight&#39;</span><span class="p">]</span>
 </pre></div>
 
 

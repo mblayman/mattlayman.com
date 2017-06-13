@@ -22,7 +22,7 @@
     type='atom+xml'>
   <script src="//load.sumome.com/" data-sumo-site-id="bebd12621ec197c6697df2c9248f3a0e593a38b2eae32e10899930dae8668b9a" async="async"></script>
 </head>
-<body>
+<body lang='en'>
 <div id='container'>
   <h1>Toying with Statsd and Graphite</h1>
 <p class='byline'>By <a href='/'>Matt Layman</a> on March 1, 2015</p>
@@ -51,13 +51,13 @@ database. Statsd and Graphite make an excellent pair.</p>
 <p>I explored these tools by following some of the advice in a
 <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-tracking-statistics-with-graphite-statsd-and-collectd">DigitalOcean tutorial</a>. First, I set up Vagrant to use a virtual
 machine for Graphite. The VM uses Ubuntu 14.04.</p>
-<div class="codehilite"><pre><span class="gp">$</span> vagrant init ubuntu/trusty64
+<div class="codehilite"><pre><span></span><span class="gp">$</span> vagrant init ubuntu/trusty64
 </pre></div>
 
 
 <p>The <code>Vagrantfile</code> only needs a couple of changes to forward
 ports from the guest to the host.</p>
-<div class="codehilite"><pre>  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;forwarded_port&quot;</span><span class="p">,</span> <span class="ss">guest</span><span class="p">:</span> <span class="mi">2003</span><span class="p">,</span> <span class="ss">host</span><span class="p">:</span> <span class="mi">2003</span>
+<div class="codehilite"><pre><span></span>  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;forwarded_port&quot;</span><span class="p">,</span> <span class="ss">guest</span><span class="p">:</span> <span class="mi">2003</span><span class="p">,</span> <span class="ss">host</span><span class="p">:</span> <span class="mi">2003</span>
   <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;forwarded_port&quot;</span><span class="p">,</span> <span class="ss">guest</span><span class="p">:</span> <span class="mi">8000</span><span class="p">,</span> <span class="ss">host</span><span class="p">:</span> <span class="mi">8000</span>
 </pre></div>
 
@@ -70,7 +70,7 @@ package is really a renamed Django <code>manage.py</code> file. It was easy
 to test with the built in Django development server. Note: it
 is important to use <code>0.0.0.0</code> as the address instead of <code>localhost</code>
 or else the host VM will not be able to access the web app.</p>
-<div class="codehilite"><pre><span class="gp">$</span> sudo graphite-manage syncdb
+<div class="codehilite"><pre><span></span><span class="gp">$</span> sudo graphite-manage syncdb
 <span class="gp">$</span> sudo graphite-manage runserver 0.0.0.0:8000
 </pre></div>
 
@@ -84,12 +84,12 @@ machine (which also happens to be an Ubuntu 14.04 OS) so I did not
 bother to configure another VM. To set up Statsd, you clone the
 GitHub repository, set some configuration settings, and fire up
 NodeJS.</p>
-<div class="codehilite"><pre><span class="gp">$</span> git clone git@github.com:etsy/statsd.git
+<div class="codehilite"><pre><span></span><span class="gp">$</span> git clone git@github.com:etsy/statsd.git
 </pre></div>
 
 
 <p>Here was my configuration file.</p>
-<div class="codehilite"><pre><span class="p">{</span>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
   <span class="nx">graphitePort</span><span class="o">:</span> <span class="mi">2003</span><span class="p">,</span>
   <span class="nx">graphiteHost</span><span class="o">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
   <span class="nx">port</span><span class="o">:</span> <span class="mi">8125</span><span class="p">,</span>
@@ -102,7 +102,7 @@ NodeJS.</p>
 
 
 <p>Finally, to start Statsd:</p>
-<div class="codehilite"><pre><span class="gp">$</span> node stats.js exampleConfig.js
+<div class="codehilite"><pre><span></span><span class="gp">$</span> node stats.js exampleConfig.js
 </pre></div>
 
 
@@ -111,7 +111,7 @@ a metric in Graphite. The protocol is specific to Statsd, but there are
 plenty of language specific clients that help abstract away the details.
 <a href="http://statsd.readthedocs.org/en/latest/">Python statsd</a> looks like the front runner for my language of
 choice.</p>
-<div class="codehilite"><pre><span class="gp">$</span> <span class="nb">echo</span> <span class="s2">&quot;sample.gauge:14|g&quot;</span> <span class="p">|</span> nc -u -w0 127.0.0.1 8125
+<div class="codehilite"><pre><span></span><span class="gp">$</span> <span class="nb">echo</span> <span class="s2">&quot;sample.gauge:14|g&quot;</span> <span class="p">|</span> nc -u -w0 127.0.0.1 8125
 </pre></div>
 
 

@@ -22,7 +22,7 @@
     type='atom+xml'>
   <script src="//load.sumome.com/" data-sumo-site-id="bebd12621ec197c6697df2c9248f3a0e593a38b2eae32e10899930dae8668b9a" async="async"></script>
 </head>
-<body>
+<body lang='en'>
 <div id='container'>
   <h1>2 Critical Python packaging tools</h1>
 <p class='byline'>By <a href='/'>Matt Layman</a> on January 17, 2017</p>
@@ -52,7 +52,7 @@ for a specific Python version,
 and run the package
 through its test suite.</p>
 <p>The short version of running tox looks like:</p>
-<div class="codehilite"><pre><span class="nv">$ </span>tox -e py36
+<div class="codehilite"><pre><span></span>$ tox -e py36
 </pre></div>
 
 
@@ -65,7 +65,7 @@ the developer must tell tox
 how to run the test suite.
 This configuration is done in a <code>tox.ini</code> file.
 A minimal file could look like:</p>
-<div class="codehilite"><pre><span class="k">[tox]</span>
+<div class="codehilite"><pre><span></span><span class="k">[tox]</span>
 <span class="na">envlist</span> <span class="o">=</span> <span class="s">py36</span>
 
 <span class="k">[testenv]</span>
@@ -106,7 +106,7 @@ that I&rsquo;m unaware of.</p>
 creates a <code>dist</code> directory
 with the packages to upload.
 You can perform your upload with:</p>
-<div class="codehilite"><pre><span class="nv">$ </span>twine upload dist/*
+<div class="codehilite"><pre><span></span>$ twine upload dist/*
 </pre></div>
 
 

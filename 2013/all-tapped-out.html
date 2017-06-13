@@ -6,25 +6,25 @@
   <link href='http://fonts.googleapis.com/css?family=Cabin:600|Lora:400,700'
     rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  <title>When you're feeling all TAPped out - mattlayman.com</title>
+  <title>When you&#x27;re feeling all TAPped out - mattlayman.com</title>
   <meta name='viewport' content='width=device-width' />
   <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.mattlayman.com/2013/all-tapped-out.html" />
 <meta property="og:image" content="http://www.mattlayman.com/images/og.jpeg" />
-<meta property="og:title" content="When you're feeling all TAPped out" />
+<meta property="og:title" content="When you&#x27;re feeling all TAPped out" />
 <meta property="og:description" content="An explanation of the Test Anything Protocol (TAP)" />
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@mblayman" />
 <meta name="twitter:image" content="http://www.mattlayman.com/images/og.jpeg" />
-<meta name="twitter:title" content="When you're feeling all TAPped out" />
+<meta name="twitter:title" content="When you&#x27;re feeling all TAPped out" />
 <meta name="twitter:description" content="An explanation of the Test Anything Protocol (TAP)" />
   <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
     type='atom+xml'>
   <script src="//load.sumome.com/" data-sumo-site-id="bebd12621ec197c6697df2c9248f3a0e593a38b2eae32e10899930dae8668b9a" async="async"></script>
 </head>
-<body>
+<body lang='en'>
 <div id='container'>
-  <h1>When you're feeling all TAPped out</h1>
+  <h1>When you&#x27;re feeling all TAPped out</h1>
 <p class='byline'>By <a href='/'>Matt Layman</a> on September 4, 2013</p>
 <p><img class='book' src='tap.png'></p>
 <p>Good software practices say you should do automated testing, but what do you do
@@ -35,7 +35,7 @@ probably write code to make TAP output in minutes. It is a line based protocol
 which means that any language that has some sort of print method can generate
 TAP. That&rsquo;s basically all software languages in common use.</p>
 <p>I could provide the rules, but an example would be easier.</p>
-<div class="codehilite"><pre><span class="c"># This is a comment because it starts with a hash symbol.</span>
+<div class="codehilite"><pre><span></span><span class="c"># This is a comment because it starts with a hash symbol.</span>
 <span class="kr">ok</span> <span class="mi">1</span> Something passed here.
 <span class="gr">not ok</span> <span class="mi">2</span> Whoops, there was a failure.
 When there is a line that TAP does not understand (like this one), it will skip it.
@@ -49,7 +49,7 @@ these two phrases, TAP readers will interpret it as a pass or failure. Besides
 the test number, everything else on the line is extra. Toss in how many tests
 were run and you have fully functional TAP output. We can prove it with
 Perl&rsquo;s aptly name <code>prove</code> tool.</p>
-<div class="codehilite"><pre><span class="gp">matt@eden:~$</span> prove sample.tap
+<div class="codehilite"><pre><span></span><span class="gp">matt@eden:~$</span> prove sample.tap
 <span class="go">sample.tap .. Failed 1/2 subtests</span>
 
 <span class="go">Test Summary Report</span>

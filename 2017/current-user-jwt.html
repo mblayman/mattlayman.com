@@ -22,7 +22,7 @@
     type='atom+xml'>
   <script src="//load.sumome.com/" data-sumo-site-id="bebd12621ec197c6697df2c9248f3a0e593a38b2eae32e10899930dae8668b9a" async="async"></script>
 </head>
-<body>
+<body lang='en'>
 <div id='container'>
   <h1>A currentUser service for Ember with JWT</h1>
 <p class='byline'>By <a href='/'>Matt Layman</a> on January 31, 2017</p>
@@ -69,14 +69,14 @@ to extract information
 from the <code>session</code> service provided
 by Ember Simple Auth.</p>
 <p>Generating a service to start is one command away:</p>
-<div class="codehilite"><pre><span class="nv">$ </span>ember generate service current-user
+<div class="codehilite"><pre><span></span>$ ember generate service current-user
 </pre></div>
 
 
 <p>We can begin by looking
 at the code
 in the Ember Simple Auth guide.</p>
-<div class="codehilite"><pre><span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">&#39;ember&#39;</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">&#39;ember&#39;</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="p">{</span> <span class="nx">inject</span><span class="o">:</span> <span class="p">{</span> <span class="nx">service</span> <span class="p">},</span> <span class="nx">isEmpty</span><span class="p">,</span> <span class="nx">RSVP</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">;</span>
 
@@ -106,7 +106,7 @@ the data stored in the session is an encoded token.
 The service needs to get the user ID
 and it&rsquo;s not easily accessible.
 That leads to code like:</p>
-<div class="codehilite"><pre><span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">&#39;ember&#39;</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">&#39;ember&#39;</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="p">{</span> <span class="nx">inject</span><span class="o">:</span> <span class="p">{</span> <span class="nx">service</span> <span class="p">},</span> <span class="nx">isEmpty</span><span class="p">,</span> <span class="nx">RSVP</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">;</span>
 
@@ -148,7 +148,7 @@ a method to get the authenticator
 so I opted to create an instance myself
 and invoke its <code>getTokenData</code> method.</p>
 <p>The result looks like:</p>
-<div class="codehilite"><pre><span class="kr">import</span> <span class="nx">JWT</span> <span class="nx">from</span> <span class="s1">&#39;ember-simple-auth-token/authenticators/jwt&#39;</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="nx">JWT</span> <span class="nx">from</span> <span class="s1">&#39;ember-simple-auth-token/authenticators/jwt&#39;</span><span class="p">;</span>
 
 <span class="o">&lt;</span><span class="nx">snip</span><span class="o">&gt;</span>
 

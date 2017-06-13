@@ -34,6 +34,7 @@ This fourth post will dive into Python's built-in functions.
 3. [The property decorator](/2017/pythonic-code-the-property-decorator.html)
 4. Built-in functions
 5. [Using the standard library](/2017/pythonic-code-using-standard-library.html)
+6. [Leveraging packages](/2017/pythonic-code-leveraging-packages.html)
 
 ## Built-in functions
 

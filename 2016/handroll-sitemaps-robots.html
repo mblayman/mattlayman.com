@@ -22,7 +22,7 @@
     type='atom+xml'>
   <script src="//load.sumome.com/" data-sumo-site-id="bebd12621ec197c6697df2c9248f3a0e593a38b2eae32e10899930dae8668b9a" async="async"></script>
 </head>
-<body>
+<body lang='en'>
 <div id='container'>
   <h1>handroll, sitemaps, and robots.txt</h1>
 <p class='byline'>By <a href='/'>Matt Layman</a> on December 26, 2016</p>
@@ -63,7 +63,7 @@ or not.</p>
 <p>handroll 3.1 includes a sitemap extension
 that will generate a sitemap for you automatically.
 To use it, add the following to your <code>handroll.conf</code>.</p>
-<div class="codehilite"><pre><span class="k">[site]</span>
+<div class="codehilite"><pre><span></span><span class="k">[site]</span>
 <span class="na">with_sitemap</span> <span class="o">=</span> <span class="s">True</span>
 </pre></div>
 
@@ -92,7 +92,7 @@ without hardcoding my domain.</p>
 <p>The whole file,
 named <code>robots.txt.j2</code>,
 looks like:</p>
-<div class="codehilite"><pre><span class="x">User-agent: *</span>
+<div class="codehilite"><pre><span></span><span class="x">User-agent: *</span>
 <span class="x">Disallow:</span>
 <span class="x">Sitemap: </span><span class="cp">{{</span> <span class="nv">config.domain</span> <span class="cp">}}</span><span class="x">/sitemap.txt</span>
 </pre></div>
