@@ -1,6 +1,6 @@
 body {
   background-color: #4ca3bd;
-  background-image: url('triangular.png');
+  background-image: url('images/noise.png');
   color: #000547;
   font-family: 'Lora', Georgia, serif;
 }
@@ -15,7 +15,7 @@ div#container {
   border: 1px solid #cca77a;
   margin: 50px auto;
   padding: 45px 90px;
-  width: 575px;
+  width: 600px;
 }
 
 body h1 {
