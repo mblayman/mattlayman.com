@@ -5,14 +5,20 @@ template: base.j2
 ---
 <img id='me' src='/photo.jpg' width='120' height='120'>
 
-My name is Matt and I create software. I have a few
+I'm Matt,
+a software creator.
+I have a few
 [open source projects](#projects),
-[organize Python Frederick](https://www.meetup.com/python-frederick/),
+[organize Python Frederick](#frederick),
 [work at a startup](#work),
 [love my family](#family),
 and [go to church](#church).
 
-On occasion, [I write on various topics](/archive.html).
+I like to write on technology topics
+with a focus on Python.
+You can check out
+my [writings](/archive.html)
+if you're inclined.
 
 <div class="icon-bar">
 <a class="icon" href="https://twitter.com/mblayman"
@@ -28,10 +34,26 @@ On occasion, [I write on various topics](/archive.html).
 <a name='projects'></a>
 ## Open Source
 
-With my limited free time,
-I pursue my interest in open source software.
-Most of my time is spent on projects of my own creation,
-but I am prone to commit small features to lots of other projects.
+I enjoy spending time
+on many open source projects.
+Some are my own.
+Some are the work of many.
+All are fun.
+
+### Django REST Framework JSON API
+
+In 2017,
+I picked up the torch
+as the maintainer
+of the [Django REST Framework JSON API](https://github.com/django-json-api/django-rest-framework-json-api)
+package.
+This package translates
+Django REST Framework API output
+into the [JSON API](http://jsonapi.org/) format.
+I use this project
+for [College Conductor](https://www.collegeconductor.com/)
+to seamlessly communicate
+with my [Ember](https://emberjs.com/) frontend.
 
 ### handroll
 
@@ -42,13 +64,44 @@ GitHub.](https://github.com/handroll/handroll)
 
 ### tappy
 
-Automated software testing is generally useful and enlightened programmers will
-at least do some of it. The [Test Anything Protocol
-(TAP)](http://testanything.org/) is a way to track those automated results. TAP
-is so simple that any language could create a TAP generator very quickly. I
-wrote a TAP generator for Python that hooks in with Python's `unittest` module.
-[Guess what? It's on GitHub.](https://github.com/python-tap/tappy)
+Automated software testing is generally useful,
+and the [Test Anything Protocol (TAP)](http://testanything.org/)
+is a way to track those automated results.
+I wrote
+[a set of TAP generators for Python](https://github.com/python-tap)
+that hook in with Python's testing ecosystem.
+The core project is called `tappy`.
 
+<a name='frederick'></a>
+## Frederick Technology
+
+Frederick is a lovely small city
+to the Northwest
+of Washington, D.C.
+When my family committed to staying
+in Frederick,
+I involved myself
+in the technology scene
+to find community
+and foster a love of technology
+among my fellow citizens.
+
+* I started
+  [Python Frederick](https://www.meetup.com/python-frederick/)
+  in 2015
+  and continue to organize it
+  (with some fantastic co-organizers).
+* I helped coordinate the city's first
+  [Hackathon](http://www.hackfrederick.com/).
+* Through my efforts
+  on a team of tech volunteers,
+  we earned Frederick a finalist spot
+  in Amazon's [2017 City on a Cloud Innovation Challenge](https://aws.amazon.com/stateandlocal/cityonacloud/2017finalists/).
+
+I care deeply about the place I now call home,
+and I push hard to make sure
+that its citizens have the opportunity to learn
+about technology.
 
 <a name='work'></a>
 ## Work
