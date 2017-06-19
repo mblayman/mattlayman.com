@@ -210,7 +210,7 @@
     <id>http://www.mattlayman.com/2015/oh-my-zsh.html</id>
     <updated>2015-05-28T08:00:00Z</updated>
     <link href="http://www.mattlayman.com/2015/oh-my-zsh.html" />
-    <summary type="html">Change from bash to Zsh and reap some amazing benefits</summary>
+    <summary type="html">If you spend a lot of time on a Linux or Mac terminal, you may be familiar with bash, the shell program that your terminal uses by default. In this post, we will look at Zsh, an alternative shell, and some of the amazing benefits that it can offer over bash.</summary>
   </entry>
   <entry>
     <title type="html">Inject JavaScript with PhantomJS to inspect websites</title>

@@ -3,8 +3,18 @@
 blog: True
 title: Oh, my shell? Oh My Zsh
 date: 2015-05-28T08:00:00Z
-summary: Change from bash to Zsh and reap some amazing benefits
+summary: >-
+  If you spend a lot of time on a Linux or Mac terminal,
+  you may be familiar with bash,
+  the shell program that your terminal uses
+  by default.
+  In this post,
+  we will look at Zsh,
+  an alternative shell,
+  and some of the amazing benefits
+  that it can offer over bash.
 template: writing.j2
+image: omz.png
 
 ---
 <img class='book' src='omz.png'>
