@@ -51,4 +51,5 @@ http://www.mattlayman.com/2017/pythonic-code-the-with-statement.html
 http://www.mattlayman.com/2017/pythonic-code-using-standard-library.html
 http://www.mattlayman.com/2017/semantic-ui-ember.html
 http://www.mattlayman.com/2017/sideload-json-api-django.html
+http://www.mattlayman.com/2017/using-pipfile-for-fun-and-profit.html
 http://www.mattlayman.com/index.html
