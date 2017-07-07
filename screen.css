@@ -136,6 +136,52 @@ svg { border: 1px solid #dedede; }
   margin-top: 20px;
 }
 
+.posts {
+  position: relative;
+  min-height: 200px;
+}
+
+.posts a {
+  border-bottom: none;
+  color: #cc6e00;
+  text-transform: uppercase;
+  hyphens: none;
+}
+.posts a:hover {
+  color: #f28300;
+  border-bottom: 1px dotted #cca77a;
+}
+.next-post .next-post-link {
+  text-align: right;
+}
+
+.previous-post {
+  position: absolute;
+  left: 0;
+  width: 48%;
+  overflow: hidden;
+  max-height: 200px;
+  min-height: 200px;
+}
+
+.next-post {
+  position: absolute;
+  right: 0;
+  width: 48%;
+  overflow: hidden;
+  max-height: 200px;
+  min-height: 200px;
+}
+
+.post-fade {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+
 @media screen and (max-width: 650px) {
   body {
     margin: 0;
@@ -172,6 +218,18 @@ svg { border: 1px solid #dedede; }
 
   pre {
     overflow: hidden;
+  }
+
+  .previous-post {
+    position: relative;
+    width: 100%;
+  }
+  .next-post {
+    position: relative;
+    width: 100%;
+  }
+  .next-post .next-post-link {
+    text-align: left;
   }
 }
 
