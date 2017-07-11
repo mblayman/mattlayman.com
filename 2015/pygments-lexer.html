@@ -12,12 +12,12 @@
 <meta property="og:url" content="http://www.mattlayman.com/2015/pygments-lexer.html" />
 <meta property="og:image" content="http://www.mattlayman.com/images/og.jpeg" />
 <meta property="og:title" content="Highlighting new file formats with Pygments" />
-<meta property="og:description" content="Creating syntax highlighting for a new filetype using Pygments" />
+<meta property="og:description" content="How do text editors and other tools make code look pleasant with colors? We'll explore ways to colorize code by looking at Pygments, a 'syntax highlighter,' and how the tool does its job." />
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@mblayman" />
 <meta name="twitter:image" content="http://www.mattlayman.com/images/og.jpeg" />
 <meta name="twitter:title" content="Highlighting new file formats with Pygments" />
-<meta name="twitter:description" content="Creating syntax highlighting for a new filetype using Pygments" />
+<meta name="twitter:description" content="How do text editors and other tools make code look pleasant with colors? We'll explore ways to colorize code by looking at Pygments, a 'syntax highlighter,' and how the tool does its job." />
   <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
     type='atom+xml'>
   <script src="//load.sumome.com/" data-sumo-site-id="bebd12621ec197c6697df2c9248f3a0e593a38b2eae32e10899930dae8668b9a" async="async"></script>
@@ -27,7 +27,7 @@
   <h1>Highlighting new file formats with Pygments</h1>
 <p class='byline'>By <a href='/'>Matt Layman</a> on September 3, 2015</p>
 <p><img class='book' src='pygments.png'></p>
-<p>I want pretty documentation for my <a href="http://tappy.readthedocs.org/en/latest/">tappy</a> project
+<p>I want pretty documentation for my <a href="http://tappy.readthedocs.org/en/latest/">tappy</a> project,
 and syntax highlighting code samples helps make software documentation pretty.
 For tappy,
 code samples can include Python
@@ -84,8 +84,13 @@ When the context ends,
 the stack is popped
 and the lexer goes back to working with the original regex patterns.</p>
 <p>If you&rsquo;re trying to absorb how this all works,
-I think you should take a look at the <a href="https://github.com/mblayman/tappy/blob/master/tap/lexer.py">full source</a>
-of the <code>TAPLexer</code>.
+I think you should take a look at the <a href="https://bitbucket.org/birkenfeld/pygments-main/src/7941677dc77d4f2bf0bbd6140ade85a9454b8b80/pygments/lexers/testing.py?at=default&amp;fileviewer=file-view-default">full source</a>
+of the <code>TAPLexer</code>
+<em>(Update: this lexer was merged
+into Pygments
+so the code now lives
+in the Pygments code
+instead of tappy)</em>.
 I took care to document it well,
 and you can see the context shifts
 as the lexer moves from <code>root</code> to <code>plan</code>

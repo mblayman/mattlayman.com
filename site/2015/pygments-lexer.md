@@ -3,13 +3,19 @@
 blog: True
 title: Highlighting new file formats with Pygments
 date: 2015-09-03T04:00:00Z
-summary: Creating syntax highlighting for a new filetype using Pygments
+summary: >-
+  How do text editors and other tools make code look pleasant
+  with colors?
+  We'll explore ways to colorize code
+  by looking at Pygments,
+  a "syntax highlighter,"
+  and how the tool does its job.
 template: writing.j2
 
 ---
 <img class='book' src='pygments.png'>
 
-I want pretty documentation for my [tappy][tappy] project
+I want pretty documentation for my [tappy][tappy] project,
 and syntax highlighting code samples helps make software documentation pretty.
 For tappy,
 code samples can include Python
@@ -84,13 +90,18 @@ and the lexer goes back to working with the original regex patterns.
 
 If you're trying to absorb how this all works,
 I think you should take a look at the [full source][taplexer]
-of the `TAPLexer`.
+of the `TAPLexer`
+*(Update: this lexer was merged
+into Pygments
+so the code now lives
+in the Pygments code
+instead of tappy)*.
 I took care to document it well,
 and you can see the context shifts
 as the lexer moves from `root` to `plan`
 or `root` to `test`.
 
-[taplexer]: https://github.com/mblayman/tappy/blob/master/tap/lexer.py
+[taplexer]: https://bitbucket.org/birkenfeld/pygments-main/src/7941677dc77d4f2bf0bbd6140ade85a9454b8b80/pygments/lexers/testing.py?at=default&fileviewer=file-view-default
 
 Now that you're equipped,
 go forth and make a new lexer of your own!

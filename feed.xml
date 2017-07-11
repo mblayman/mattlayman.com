@@ -210,7 +210,7 @@
     <id>http://www.mattlayman.com/2015/pygments-lexer.html</id>
     <updated>2015-09-03T04:00:00Z</updated>
     <link href="http://www.mattlayman.com/2015/pygments-lexer.html" />
-    <summary type="html">Creating syntax highlighting for a new filetype using Pygments</summary>
+    <summary type="html">How do text editors and other tools make code look pleasant with colors? We'll explore ways to colorize code by looking at Pygments, a &quot;syntax highlighter,&quot; and how the tool does its job.</summary>
   </entry>
   <entry>
     <title type="html">Extending handroll for fun</title>
