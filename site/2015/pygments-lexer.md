@@ -10,6 +10,7 @@ summary: >-
   by looking at Pygments,
   a "syntax highlighter,"
   and how the tool does its job.
+image: pygments.png
 template: writing.j2
 
 ---
