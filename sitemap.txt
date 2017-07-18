@@ -40,6 +40,7 @@ http://www.mattlayman.com/2017/django-celery-rollbar.html
 http://www.mattlayman.com/2017/ember-rollbar.html
 http://www.mattlayman.com/2017/feature-flags-and-waffles.html
 http://www.mattlayman.com/2017/necessity-of-software-abstraction.html
+http://www.mattlayman.com/2017/no-nitpicking-code-reviews.html
 http://www.mattlayman.com/2017/open-graph-twitter-plugins.html
 http://www.mattlayman.com/2017/postgres-search-django.html
 http://www.mattlayman.com/2017/pragmatic-programmer-revisited.html
