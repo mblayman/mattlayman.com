@@ -210,7 +210,7 @@
     <id>http://www.mattlayman.com/2015/dotfiles.html</id>
     <updated>2015-10-22T12:00:00Z</updated>
     <link href="http://www.mattlayman.com/2015/dotfiles.html" />
-    <summary type="html">Why I am refining my development tools and why you should too</summary>
+    <summary type="html">Carpenters, painters, illustrators, and many other craftspeople collect tools over the years as their experience and skills grow. These tools help produce better work. Similarly, developers can create their own personal toolbox to perfect their craft. In this post, you can learn ways to manage your toolbox.</summary>
   </entry>
   <entry>
     <title type="html">Highlighting new file formats with Pygments</title>

@@ -3,7 +3,19 @@
 blog: True
 title: 'dotfiles: Hone your software tools'
 date: 2015-10-22T12:00:00Z
-summary: Why I am refining my development tools and why you should too
+summary: >-
+  Carpenters, painters, illustrators, and many other craftspeople
+  collect tools
+  over the years
+  as their experience
+  and skills grow.
+  These tools help produce better work.
+  Similarly,
+  developers can create their own personal toolbox
+  to perfect their craft.
+  In this post,
+  you can learn ways to manage your toolbox.
+image: axe.jpg
 template: writing.j2
 
 ---
@@ -17,7 +29,7 @@ and last a lifetime.
 If you give them attention,
 they will serve you well.
 
-Our primary tools as software craftsmen are
+Our primary tools as software craftspeople are
 text editors,
 shells,
 and version control systems.
@@ -46,7 +58,7 @@ that are available to you.
 
 *How do I start taking advantage of these files?*,
 you might ask.
-Look at how other craftsmen do it.
+Look at how others do it.
 [http://dotfiles.github.io/](http://dotfiles.github.io/)
 is a great resource to start.
 This site contains plenty of example user repositories
