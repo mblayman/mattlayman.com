@@ -1,4 +1,4 @@
 [build]
-  base = "."
-  publish = "."
-  commmand = "handroll -f build site"
+  base = "site"
+  publish = "publish"
+  commmand = "handroll -f build"
