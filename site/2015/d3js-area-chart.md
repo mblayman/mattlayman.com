@@ -204,5 +204,5 @@ In this post, I covered the basics of making an area chart. In future posts,
 I will explain how to use other types of data and how to make stacked
 area charts. Stay tuned!
 
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src='area.js'></script>
