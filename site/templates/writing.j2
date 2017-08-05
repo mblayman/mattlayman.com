@@ -9,7 +9,7 @@
   {% if post.next %}
     <div class="next-post">
       <p class="next-post-link">
-        <a href="{{ post.next.route }}">
+        <a href="{{ post.next.url }}">
           Next &rarr;
           <br>
           {{ post.next.title }}
@@ -25,7 +25,7 @@
   {% if post.previous %}
     <div class="previous-post">
       <p>
-        <a href="{{ post.previous.route }}">
+        <a href="{{ post.previous.url }}">
           &larr; Previous
           <br>
           {{ post.previous.title }}
