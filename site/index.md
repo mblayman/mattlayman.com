@@ -19,7 +19,7 @@ and [go to church](#church).
 I like to write on technology topics
 with a focus on Python.
 You can check out
-my [writings](/archive.html)
+my [writings](https://www.mattlayman.com/archive.html)
 if you're inclined.
 
 <div class="icon-bar">
