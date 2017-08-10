@@ -8,7 +8,7 @@ summary: >-
   to manage software package dependencies.
   The Python Packaging Authority proposed a new standard format
   called a Pipfile.
-  This post includes the Python Frederick presentation
+  This post includes the Python Frederick video presentation
   about Pipfiles
   that I presented
   in August 2017.
