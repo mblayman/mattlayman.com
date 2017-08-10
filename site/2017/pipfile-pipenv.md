@@ -35,3 +35,6 @@ for the first time
 at Python Frederick,
 and I posted it to YouTube
 for your enjoyment.
+
+The presentation material is available
+in the [Python Frederick talks repository](https://github.com/python-frederick/talks/tree/master/2017-08-pipfile).
