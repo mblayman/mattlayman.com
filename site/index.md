@@ -10,8 +10,8 @@ template: base.j2
 I'm Matt,
 a software creator.
 I have a few
-[open source projects](#projects),
 [organize Python Frederick](#frederick),
+[open source projects](#projects),
 [work at a startup](#work),
 [love my family](#family),
 and [go to church](#church).
@@ -32,6 +32,37 @@ if you're inclined.
 <a class="icon" href="https://careers.stackoverflow.com/mattlayman"
    alt="Stack Overflow Careers"><i class="fa fa-stack-overflow fa-2x"></i></a>
 </div>
+
+<a name='frederick'></a>
+## Frederick Technology
+
+Frederick is a lovely small city
+to the Northwest
+of Washington, D.C.
+When my family committed to staying
+in Frederick,
+I involved myself
+in the technology scene
+to find community
+and foster a love of technology
+among my fellow citizens.
+
+* I started
+  [Python Frederick](https://www.meetup.com/python-frederick/)
+  in 2015
+  and continue to organize it
+  (with some fantastic co-organizers).
+* I helped coordinate the city's first
+  [Hackathon](http://www.hackfrederick.com/).
+* Through my efforts
+  on a team of tech volunteers,
+  we earned Frederick a finalist spot
+  in Amazon's [2017 City on a Cloud Innovation Challenge](https://aws.amazon.com/stateandlocal/cityonacloud/2017finalists/).
+
+I care deeply about the place I now call home,
+and I push hard to make sure
+that its citizens have the opportunity to learn
+about technology.
 
 <a name='projects'></a>
 ## Open Source
@@ -73,37 +104,6 @@ I wrote
 [a set of TAP generators for Python](https://github.com/python-tap)
 that hook in with Python's testing ecosystem.
 The core project is called `tappy`.
-
-<a name='frederick'></a>
-## Frederick Technology
-
-Frederick is a lovely small city
-to the Northwest
-of Washington, D.C.
-When my family committed to staying
-in Frederick,
-I involved myself
-in the technology scene
-to find community
-and foster a love of technology
-among my fellow citizens.
-
-* I started
-  [Python Frederick](https://www.meetup.com/python-frederick/)
-  in 2015
-  and continue to organize it
-  (with some fantastic co-organizers).
-* I helped coordinate the city's first
-  [Hackathon](http://www.hackfrederick.com/).
-* Through my efforts
-  on a team of tech volunteers,
-  we earned Frederick a finalist spot
-  in Amazon's [2017 City on a Cloud Innovation Challenge](https://aws.amazon.com/stateandlocal/cityonacloud/2017finalists/).
-
-I care deeply about the place I now call home,
-and I push hard to make sure
-that its citizens have the opportunity to learn
-about technology.
 
 <a name='work'></a>
 ## Work
