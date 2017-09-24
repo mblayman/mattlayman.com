@@ -9,9 +9,9 @@ template: base.j2
 
 I'm Matt,
 a software creator.
-I have a few
+I
 [organize Python Frederick](#frederick),
-[open source projects](#projects),
+have a few [open source projects](#projects),
 [work at a startup](#work),
 [love my family](#family),
 and [go to church](#church).
