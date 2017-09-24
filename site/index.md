@@ -48,7 +48,7 @@ and foster a love of technology
 among my fellow citizens.
 
 * I started
-  [Python Frederick](https://www.meetup.com/python-frederick/)
+  [Python Frederick](https://www.pythonfrederick.org/)
   in 2015
   and continue to organize it
   (with some fantastic co-organizers).
