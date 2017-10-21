@@ -24,6 +24,14 @@ of each of these tools.
 The video is available on YouTube
 for you to view.
 
+These were the 5 web frameworks that we compared:
+
+* [API Star](https://github.com/encode/apistar)
+* [Falcon](http://falconframework.org/)
+* [Flask](http://flask.pocoo.org/)
+* [Django](https://www.djangoproject.com/)
+* [Pyramid](https://docs.pylonsproject.org/projects/pyramid/en/latest/)
+
 The presentation material is available
 in the [Python Frederick talks repository](https://github.com/python-frederick/talks/tree/master/2017-10-web-frameworks).
 
