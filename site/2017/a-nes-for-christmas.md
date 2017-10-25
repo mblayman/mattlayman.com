@@ -33,17 +33,17 @@ a *Nintendo Entertainment System*.
 Twenty seven years later,
 I still recall the shock and joy
 of unwrapping the Nintendo,
-with its included organge zapper light gun
+with its included orange zapper light gun
 and the Super Mario Bros./Duck Hunt combination cartridge.
 My grandmother surprised even my parents,
 who were not super keen on the idea
-of me owning a video game system at the time.
+of my owning a video game system at the time.
 
 The memories I have of childhood are deeply entwined
 with that console.
 
 I played Mario relentlessly.
-My little seven year old hands wrapped around
+My little seven-year-old hands wrapped around
 that rectangular controller,
 mastering jump timings
 and racing through level after level
