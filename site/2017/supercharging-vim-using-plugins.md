@@ -11,7 +11,7 @@ summary: >-
   you can supercharge Vim
   by extending it with plugins.
   This blog series will show how to get the most out of Vim.
-image: nes.jpg
+image: vim.png
 template: writing.j2
 
 ---
