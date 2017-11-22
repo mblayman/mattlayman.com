@@ -57,7 +57,7 @@ but it doesn't provide a lot of features
 to *manage* those plugins.
 
 To install and manage Vim plugins,
-you'll need a Vim package manager.
+you'll need a Vim plugin manager.
 There are a few options like
 [Pathogen](https://github.com/tpope/vim-pathogen),
 [Vundle](https://github.com/VundleVim/Vundle.vim),
@@ -69,7 +69,7 @@ so that's the tool I'll describe here.
 ### Bootstrapping
 
 There is an interesting challenge
-of getting started when adding a package manager.
+of getting started when adding a package/plugin manager.
 Programming languages
 and development ecosystems now often include management tools
 such as `pip` or `npm`,
