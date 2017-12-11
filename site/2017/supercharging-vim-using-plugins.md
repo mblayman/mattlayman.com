@@ -50,6 +50,13 @@ that have supercharged the way I work.
 I hope it will inspire you
 to make your own work experience better.
 
+If you dig this,
+check out other posts
+in the series.
+
+1. Using plugins
+2. [Instant testing](/2017/supercharging-vim-instant-testing.html)
+
 ## Managing plugins
 
 Vim has a built-in way to use plugins,

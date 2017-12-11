@@ -182,6 +182,10 @@ svg { border: 1px solid #dedede; }
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
 }
 
+.text-center {
+  text-align: center;
+}
+
 @media screen and (max-width: 650px) {
   body {
     margin: 0;
