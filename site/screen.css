@@ -86,10 +86,9 @@ a.icon {
 div.icon-bar { margin: 2em; text-align: center; }
 
 img#me {
-  border-radius: 100px;
+  border-radius: 15%;
   float: right;
-  margin-left: 10px;
-  margin-bottom: 20px;
+  margin: 0 2em 20px 2em;
 }
 
 img.book {
@@ -202,6 +201,7 @@ svg { border: 1px solid #dedede; }
   body h1 {
     border-left: 0px;
     padding-left: 0px;
+    text-align: center;
   }
 
   div#me-wrapper {

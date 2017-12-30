@@ -4,7 +4,7 @@ title: Matt Layman
 template: base.j2
 ---
 <div id='me-wrapper'>
-<img id='me' src='/photo.jpg' width='120' height='120'>
+<img id='me' src='images/me.jpg' width='120' height='120'>
 </div>
 
 I'm Matt,
@@ -16,11 +16,9 @@ have a few [open source projects](#projects),
 [love my family](#family),
 and [go to church](#church).
 
-I like to write on technology topics
+I like to
+[write on technology topics](https://www.mattlayman.com/archive.html)
 with a focus on Python.
-You can check out
-my [writings](https://www.mattlayman.com/archive.html)
-if you're inclined.
 
 <div class="icon-bar">
 <a class="icon" href="https://twitter.com/mblayman"
@@ -39,12 +37,10 @@ if you're inclined.
 Frederick is a lovely small city
 to the Northwest
 of Washington, D.C.
-When my family committed to staying
-in Frederick,
-I involved myself
+I'm involved
 in the technology scene
 to find community
-and foster a love of technology
+and foster a love of tech
 among my fellow citizens.
 
 * I started
@@ -59,7 +55,7 @@ among my fellow citizens.
   we earned Frederick a finalist spot
   in Amazon's [2017 City on a Cloud Innovation Challenge](https://aws.amazon.com/stateandlocal/cityonacloud/2017finalists/).
 
-I care deeply about the place I now call home,
+I care deeply about my home,
 and I push hard to make sure
 that its citizens have the opportunity to learn
 about technology.
@@ -110,29 +106,35 @@ The core project is called `tappy`.
 
 <img class='book' src='storybird.png' width='60' height='60'>
 
-I work at [Storybird](https://storybird.com). Storybird makes it possible for
-people to share creative stories through book and poetry writing. I am a
-software engineer with the opportunity to make Storybird an even better place
-to share stories. I get to write Python every day and help make the Internet
-more awesome.
+I work at [Storybird](https://storybird.com).
+Storybird makes it possible for people to share creative stories
+through book and poetry writing.
+I am the lead software engineer
+with the opportunity to make Storybird an even better place to share stories.
+I get to write Python and JavaScript every day
+and help make the internet more awesome.
 
 <img class='book' src='lm.png' width='302' height='62'>
 
-[Lockheed Martin](http://lockheedmartin.com/) was my employer. While there, I
-worked on a wide range of products. You might have heard of some of them, like
-[GPS](http://en.wikipedia.org/wiki/Global_Positioning_System#Control_segment)
-or [satellite phones](http://www.iridium.com/about/iridiumnext.aspx). I also
-gained experience with Modeling and Simulation software, web applications, and
-complex configuration management implementations.
+[Lockheed Martin](http://lockheedmartin.com/) was my employer.
+While there, I worked on a wide range of products.
+You might have heard of some of them,
+like [GPS](http://en.wikipedia.org/wiki/Global_Positioning_System#Control_segment)
+or [satellite phones](http://www.iridium.com/about/iridiumnext.aspx).
+I also gained experience with Modeling and Simulation software,
+web applications,
+and complex configuration management implementations.
 
 <a name='family'></a>
 ## Family
 
-I am a family man. I consider myself blessed to have a loving wife, Elease, and
-two great kids, Mark and Faye. My children are very young so my life is a
+I am a family man.
+I consider myself blessed to have a loving wife, Elease, and
+two great kids, Mark and Faye.
+My children are young so my life is a
 little hectic, but that's perfectly fine with me.
 
-<img class='book' src='family.jpg' width='450' height='338'>
+<img class='book' src='images/family.jpg' width='450' height='303'>
 
 <a name='church'></a>
 ## Church
