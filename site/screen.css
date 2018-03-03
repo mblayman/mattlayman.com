@@ -16,14 +16,31 @@ div#container {
   background-color: white;
   border: 1px solid #cca77a;
   margin: 0px auto;
-  padding: 45px 90px;
+  padding: 25px 90px;
   width: 600px;
   border-top: 0px;
   border-bottom: 0px;
 }
 
+div#container nav {
+  border-bottom: 1px solid #eee;
+  padding: .5em 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+div#container nav a {
+  color: #f28300;
+  border-right: 1px solid #eee;
+  margin-bottom: .25em;
+  padding: .1em .5em .5em;
+  text-decoration: none;
+}
+div#container nav :last-child {
+  border-right: none;
+}
+
 body h1 {
-  border-left: 2px #cc6e00 solid;
+  border-left: 2px #f28300 solid;
   padding-left: 15px;
 }
 
@@ -31,11 +48,6 @@ p, li {
   font-size: 1.1em;
   line-height: 1.55em;
   hyphens: auto;
-}
-
-p.byline {
-  font-size: 16px;
-  font-style: italic;
 }
 
 pre {
@@ -53,20 +65,8 @@ code {
 }
 
 a {
-  color: #cc6e00;
+  color: #f28300;
   text-decoration: none;
-  border-bottom: 1px solid #cca77a;
-}
-
-a:visited {
-  color: #61607d;
-  border-bottom: 1px dotted #a4a3d4;
-}
-
-footer p a:visited {
-  color: #cc6e00;
-  text-decoration: none;
-  border-bottom: 1px solid #cca77a;
 }
 
 a.icon {
@@ -76,7 +76,7 @@ a.icon {
 
 a:hover {
   color: #f28300;
-  border-bottom: 1px dotted #cca77a;
+  border-bottom: 1px solid #f28300;
 }
 
 a.icon {
@@ -100,13 +100,13 @@ img.book {
 
 blockquote {
   font-style: italic;
-  border-left: 2px #cc6e00 solid;
+  border-left: 2px #f28300 solid;
   margin-left: 0;
   padding-left: 1em;
 }
 
 footer {
-  border-top: 1px solid #cc6e00;
+  border-top: 1px solid #f28300;
   font-size: smaller;
   text-align: center;
 }
@@ -114,7 +114,7 @@ footer {
 footer p img { vertical-align: middle; }
 
 table { border-collapse: collapse; }
-thead { border-bottom: 1px solid #cc6e00; }
+thead { border-bottom: 1px solid #f28300; }
 td { text-align: center; }
 
 
@@ -142,7 +142,7 @@ svg { border: 1px solid #dedede; }
 
 .posts a {
   border-bottom: none;
-  color: #cc6e00;
+  color: #f28300;
   text-transform: uppercase;
   hyphens: none;
 }
