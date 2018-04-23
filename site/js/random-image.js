@@ -1,6 +1,6 @@
 var width = window.innerWidth;
 // Account for the button height.
-var height = window.innerHeight - 40;
+var height = window.innerHeight - 120;
 var midX = Math.floor(width / 2);
 var midY = Math.floor(height / 2);
 
