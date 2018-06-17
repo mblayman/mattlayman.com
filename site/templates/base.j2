@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <title>{% block title %}{{ title }}{% endblock %} - mattlayman.com</title>
   <meta name='viewport' content='width=device-width' />
+  {% if metadata_description %}
+  <meta name="description" content="{{ metadata_description }}" />
+  {% endif %}
   {{ open_graph_metadata }}
   {{ twitter_metadata }}
   <link rel='alternate' href='/feed.xml' title="Matt Layman's Writings"
@@ -26,9 +29,15 @@
 {% endblock %}
   <br>
   <footer>
-    <p><img alt='Creative Commons Attribution 4.0 International License'
-      src='/cc.png' width='80' height='15'> <a href='/'> Matt Layman</a>,
-      2018</p>
+    <p>
+      &copy; 2013&ndash;2018 Matt Layman
+      &middot;
+      <a href="https://twitter.com/mblayman">Twitter</a>
+      &middot;
+      <a href="https://github.com/mblayman">GitHub</a>
+      &middot;
+      <a href="https://www.youtube.com/channel/UCA-ORpF9LEgECmkP3nvVLXQ/featured">YouTube</a>
+    </p>
   </footer>
 </div>
   <script>

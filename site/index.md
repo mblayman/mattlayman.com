@@ -2,19 +2,24 @@
 ---
 title: Matt Layman
 template: base.j2
+metadata_description: >-
+  Matt Layman is a software engineer from Frederick, MD.
+  He is an open source software maintainer
+  and advocate for the Python programming language.
+
 ---
 <div id='me-wrapper'>
-<img id='me' src='images/me.jpg' width='120' height='120'>
+<img id='me' src='images/me.jpg' width='200' height='200'>
 </div>
 
 I'm Matt,
-a software creator.
-I
-[organize Python Frederick](#frederick),
-have a few [open source projects](#projects),
-[work at a startup](#work),
-[love my family](#family),
-and [go to church](#church).
+a software creator. Here are things I do:
+
+* Run [Full Health Developer](#fullhealth).
+* Organize [Python Frederick](#frederick).
+* Have a few [open source projects](#projects).
+* Work at [Storybird](#work).
+* Love my [family](#family) and go to [church](#church).
 
 I like to
 [write on technology topics](https://www.mattlayman.com/archive.html)
@@ -22,14 +27,30 @@ with a focus on Python.
 
 <div class="icon-bar">
 <a class="icon" href="https://twitter.com/mblayman"
+   target="_blank"
    alt="Twitter"><i class="fa fa-twitter fa-2x"></i></a>
 <a class="icon" href="https://github.com/mblayman"
+   target="_blank"
    alt="GitHub"><i class="fa fa-github fa-2x"></i></a>
 <a class="icon" href="https://www.linkedin.com/in/mattlayman"
+   target="_blank"
    alt="LinkedIn"><i class="fa fa-linkedin fa-2x"></i></a>
 <a class="icon" href="https://careers.stackoverflow.com/mattlayman"
+   target="_blank"
    alt="Stack Overflow Careers"><i class="fa fa-stack-overflow fa-2x"></i></a>
 </div>
+
+<a name='fullhealth'></a>
+## Full Health Developer
+
+I run [Full Health Developer](https://fullhealthdeveloper.com/).
+Full Health Developer is a website
+with a mission to help developers
+improve their physical and mental health.
+
+I research topics that are relevant to software developers
+and deliver that information in long form articles.
+The site covers topics like focus, repetitive stress injury, and nutrition.
 
 <a name='frederick'></a>
 ## Frederick Technology
@@ -79,17 +100,6 @@ package.
 This package translates
 Django REST Framework API output
 into the [JSON API](http://jsonapi.org/) format.
-I use this project
-for [College Conductor](https://www.collegeconductor.com/)
-to seamlessly communicate
-with my [Ember](https://emberjs.com/) frontend.
-
-### handroll
-
-[handroll](http://handroll.github.io) is a tool to help build websites
-similar to this one. When there is a limited range of material and a simple
-design, handroll generates a website easily. [Check it out on
-GitHub.](https://github.com/handroll/handroll)
 
 ### tappy
 

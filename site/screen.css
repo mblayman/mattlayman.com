@@ -50,6 +50,13 @@ p, li {
   hyphens: auto;
 }
 
+ul {
+  padding-left: 1.8em;
+}
+li {
+  padding-left: 0.3em;
+}
+
 pre {
   font-size: 14px;
   padding: 1em 0.4em;
@@ -86,7 +93,7 @@ a.icon {
 div.icon-bar { margin: 2em; text-align: center; }
 
 img#me {
-  border-radius: 15%;
+  border-radius: 100%;
   float: right;
   margin: 0 2em 20px 2em;
 }
