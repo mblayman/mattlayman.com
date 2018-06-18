@@ -1,4 +1,11 @@
 {% extends 'base.j2' %}
+
+{% block head %}
+  <meta name="description" content="{{ post.summary }}" />
+  {{ open_graph_metadata }}
+  {{ twitter_metadata }}
+{% endblock %}
+
 {% block content %}
 {{ content }}
 <p>If you want to chat about this with me, I'm
