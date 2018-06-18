@@ -30,13 +30,9 @@ div#container nav {
 }
 div#container nav a {
   color: #f28300;
-  border-right: 1px solid #eee;
   margin-bottom: .25em;
   padding: .1em .5em .5em;
   text-decoration: none;
-}
-div#container nav :last-child {
-  border-right: none;
 }
 
 body h1 {
