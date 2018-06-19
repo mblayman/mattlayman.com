@@ -9,7 +9,7 @@ summary: >-
   with their physical and mental health,
   is now live.
   I explain why this new site exists.
-image: running.jpg
+image: fhd.png
 template: writing.j2
 
 ---
