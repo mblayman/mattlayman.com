@@ -1,9 +1,7 @@
-%YAML 1.1
 ---
-blog: True
 title: Doing code review
-date: 2017-12-23T12:00:00Z
-summary: >-
+date: 2017-12-23
+description: >-
   How can you start code reviews
   on your team?
   Your team might have questions
@@ -11,12 +9,10 @@ summary: >-
   I shared my thoughts
   as someone who has done regular code reviews
   for years.
-image: code-review.png
-template: writing.j2
+image: img/2017/code-review.png
+type: post
 
 ---
-
-<img class='book mv20' src='code-review.png'>
 
 > How do you do code reviews?
 
