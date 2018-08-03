@@ -1,9 +1,7 @@
-%YAML 1.1
 ---
-blog: True
 title: Data science in Python
-date: 2017-12-19T12:00:00Z
-summary: >-
+date: 2017-12-19
+description: >-
   How do you get into the rich field
   of data science
   and the array of tools
@@ -14,8 +12,8 @@ summary: >-
   The talk,
   from the December 2017 Python Frederick monthly event,
   is full of goodies to check out.
-image: /images/python.png
-template: writing.j2
+image: img/python.png
+type: post
 
 ---
 
