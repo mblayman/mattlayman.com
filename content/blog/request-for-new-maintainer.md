@@ -1,8 +1,6 @@
-%YAML 1.1
 ---
-blog: True
 title: RFNM - Request For New Maintainer
-date: 2018-5-15T12:00:00Z
+date: 2018-05-15
 summary: >-
   What do you do
   when you know
@@ -12,12 +10,10 @@ summary: >-
   by requesting help
   from the community.
   This post will discuss one way to request that help.
-image: rfnm.jpg
-template: writing.j2
+image: img/2018/rfnm.jpg
+type: post
 
 ---
-
-<img class='book' src='rfnm.jpg' alt="Request For New Maintainer">
 
 The Pull Requests piled up.
 Each new PR added to the weight reminding me
