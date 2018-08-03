@@ -1,20 +1,16 @@
-%YAML 1.1
 ---
-blog: True
 title: Developer Health Survey
-date: 2018-2-05T12:00:00Z
-summary: >-
+date: 2018-02-05
+description: >-
   Software developers face physical and mental health issues
   that arise from creative yet sedentary work.
   If you are a developer,
   can you help me identify our community's biggest issues
   by answering a few questions?
-image: running.jpg
-template: writing.j2
+image: img/2018/running.jpg
+type: post
 
 ---
-
-<img class='book' src='running.jpg' alt="Exercise picture from Curtis MacNewton on Unsplash">
 
 I'll cut to the chase on this:
 

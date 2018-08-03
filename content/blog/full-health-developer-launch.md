@@ -1,6 +1,6 @@
 ---
 title: Full Health Developer Launch
-date: "2018-06-18"
+date: 2018-06-18
 description: >-
   Full Health Developer,
   a website devoted to helping developers

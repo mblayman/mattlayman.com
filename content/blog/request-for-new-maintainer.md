@@ -1,7 +1,8 @@
 ---
 title: RFNM - Request For New Maintainer
+slug: request-for-new-maintainer
 date: 2018-05-15
-summary: >-
+description: >-
   What do you do
   when you know
   that you are no longer a good maintainer
