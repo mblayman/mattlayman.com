@@ -1,7 +1,7 @@
 baseURL = "https://www.mattlayman.com/"
 languageCode = "en-us"
 title = "Matt Layman"
-theme = "casper-two"
+theme = "hugo-casper-two"
 canonifyURLs = true
 # enableRobotsTXT = true # generate robots.txt?
 # googleAnalytics
