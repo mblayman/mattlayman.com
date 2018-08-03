@@ -1,9 +1,40 @@
-baseURL = "http://www.mattlayman.com/"
+baseURL = "https://www.mattlayman.com/"
 languageCode = "en-us"
 title = "Matt Layman"
 theme = "casper-two"
+canonifyURLs = true
+# enableRobotsTXT = true # generate robots.txt?
+# googleAnalytics
 
 [params]
     title = "Matt Layman"
     subtitle = "A software creator"
+    copyright = "© 2013–2018 Matt Layman"
+    cover = "img/paint.jpg"
     description = "Matt Layman is a software engineer from Frederick, MD. He is an open source software maintainer and advocate for the Python programming language."
+
+    twitterName = "mblayman"
+    fbName = "matthewlayman"
+    githubName = "mblayman"
+    linkedinName = "mattlayman"
+
+    author = "Matt Layman"
+    authorAvatar = "img/me.jpg"
+    authorLocation = "Frederick, MD"
+    authorWebsite = "https://www.mattlayman.com"
+    authorDescription = "Matt Layman is a software engineer from Frederick, MD. He is an open source software maintainer and advocate for the Python programming language."
+
+    singleViewStyle = "casper"
+
+[permalinks]
+    blog = "/blog/:year/:slug/"
+
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 200
+
+[[menu.main]]
+    name = "About"
+    url = "/"
+    weight = 100
