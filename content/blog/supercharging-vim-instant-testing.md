@@ -1,9 +1,7 @@
-%YAML 1.1
 ---
-blog: True
 title: "Supercharging Vim: Instant testing"
-date: 2017-12-10T12:00:00Z
-summary: >-
+date: 2017-12-10
+description: >-
   Automated tests are extremely valuable
   when writing code.
   The faster you can get feedback
@@ -14,12 +12,10 @@ summary: >-
   in your Vim editor
   and finish the job
   in record time.
-image: vim.png
-template: writing.j2
+image: img/2017/vim.png
+type: post
 
 ---
-
-<img class='book' src='vim.png'>
 
 > How do you know that your code works?
 
