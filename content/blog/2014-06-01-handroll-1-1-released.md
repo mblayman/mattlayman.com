@@ -1,10 +1,7 @@
-%YAML 1.1
 ---
-blog: True
 title: handroll 1.1 released
-date: 2014-06-01T00:00:00Z
-summary: A release announcement for handroll 1.1
-template: writing.j2
+description: A release announcement for handroll 1.1
+type: post
 
 ---
 I have released the 1.1 version of my static website generator. This version

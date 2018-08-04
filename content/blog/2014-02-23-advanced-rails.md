@@ -1,14 +1,10 @@
-%YAML 1.1
 ---
-blog: True
 title: Advanced Rails
-date: 2014-02-23T00:00:00Z
-summary: A book review of 'Advanced Rails'
-template: writing.j2
+description: A book review of 'Advanced Rails'
+image: img/2014/advanced-rails.jpg
+type: post
 
 ---
-<img class='book' src='advanced-rails.jpg'>
-
 Technology books are more like milk than wine. They don't get better with age.
 Brad Ediger's *[Advanced
 Rails](http://www.amazon.com/Advanced-Rails-Brad-Ediger/dp/0596510322)* is

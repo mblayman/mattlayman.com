@@ -1,14 +1,10 @@
-%YAML 1.1
 ---
-blog: True
 title: Patterns of Enterprise Application Architecture
-date: 2014-01-14T12:00:00Z
-summary: A review of "Patterns of Enterprise Application Architecture"
-template: writing.j2
+description: A review of "Patterns of Enterprise Application Architecture"
+image: img/2014/eaa.jpg
+type: post
 
 ---
-<img class='book' src='eaa.jpg'>
-
 *Active Record*. *Unit of Work*. You may have heard of these before. They are
 software patterns adopted by popular projects like [Ruby on
 Rails](http://rubyonrails.org/) or [SQLAlchemy](http://www.sqlalchemy.org/).

@@ -40,5 +40,15 @@ paginate = 6
 
 [[menu.main]]
     name = "About"
-    url = "/"
+    url = "/about/"
     weight = 100
+
+[[menu.main]]
+    name = "Categories"
+    url = "/categories/"
+    weight = 99
+
+[[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 98
