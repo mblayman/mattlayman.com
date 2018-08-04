@@ -1,21 +1,16 @@
-%YAML 1.1
 ---
-blog: True
 title: Highlighting new file formats with Pygments
-date: 2015-09-03T04:00:00Z
-summary: >-
+description: >-
   How do text editors and other tools make code look pleasant
   with colors?
   We'll explore ways to colorize code
   by looking at Pygments,
   a "syntax highlighter,"
   and how the tool does its job.
-image: pygments.png
-template: writing.j2
+image: img/2015/pygments.png
+type: post
 
 ---
-<img class='book' src='pygments.png'>
-
 I want pretty documentation for my [tappy][tappy] project,
 and syntax highlighting code samples helps make software documentation pretty.
 For tappy,

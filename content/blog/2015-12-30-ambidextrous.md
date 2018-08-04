@@ -1,17 +1,13 @@
-%YAML 1.1
 ---
-blog: True
 title: "We're all ambidextrous"
-date: 2015-12-30T12:00:00Z
-summary: >-
+description: >-
   Our brains are amazingly flexible.
   My trip to the dentist taught me a lesson
   about human behavior and abilities.
-template: writing.j2
+image: img/2015/toothbrush.jpg
+type: post
 
 ---
-<img class='book' src='toothbrush.jpg'>
-
 *Your brain is far more elastic
 than you give it credit for.*
 

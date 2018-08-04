@@ -1,13 +1,10 @@
-%YAML 1.1
 ---
-blog: True
 title: A "simple" D3.js area chart
-date: 2015-01-24T12:00:00Z
-summary: >-
+description: >-
   A step-by-step walkthrough of a D3.js area chart.
   This post covers each piece needed to create an area chart
   from a list of JavaScript data.
-template: writing.j2
+type: post
 
 ---
 Let's take:

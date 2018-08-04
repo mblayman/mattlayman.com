@@ -1,14 +1,10 @@
-%YAML 1.1
 ---
-blog: True
 title: Extending handroll for fun
-date: 2015-07-30T08:00:00Z
-summary: Show how to create an entire handroll extension from scratch
-template: writing.j2
+description: Show how to create an entire handroll extension from scratch
+image: img/2015/outlet.jpg
+type: post
 
 ---
-<img class='book' src='outlet.jpg'>
-
 I released handroll 2.0 with a shiny new extension interface.
 This post will make a new extension from soup to nuts
 to demonstrate the ease of such a task.

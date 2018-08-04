@@ -1,9 +1,6 @@
-%YAML 1.1
 ---
-blog: True
 title: Toying with Statsd and Graphite
-date: 2015-03-01T12:00:00Z
-summary: >-
+description: >-
   In this post,
   I describe my experience
   with setting up Statsd and Graphite.
@@ -11,12 +8,10 @@ summary: >-
   to make custom monitoring
   of your web services
   a snap to get going.
-template: writing.j2
-image: graph.png
+image: img/2015/graph.png
+type: post
 
 ---
-<img class='book' src='graph.png'>
-
 The graphing bug bit me.
 
 I am currently enjoying the backlog of the [Giant

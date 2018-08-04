@@ -1,9 +1,6 @@
-%YAML 1.1
 ---
-blog: True
 title: Inject JavaScript with PhantomJS to inspect websites
-date: 2015-03-24T23:00:00Z
-summary: >-
+description: >-
   What if you could interact with the JavaScript
   of another website
   by adding your code
@@ -13,12 +10,10 @@ summary: >-
   has the ability to do exactly that.
   In this post,
   you will learn how to extract data from the web via PhantomJS scripts.
-template: writing.j2
-image: phantomjs.png
+image: img/2015/phantomjs.png
+type: post
 
 ---
-<img class='book' src='phantomjs.png'>
-
 How can you inspect the source of a website with a script?
 You can download the page,
 parse it with a library like [lxml][lx],
