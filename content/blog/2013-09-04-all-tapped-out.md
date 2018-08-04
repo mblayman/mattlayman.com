@@ -1,14 +1,10 @@
-%YAML 1.1
 ---
-blog: True
 title: When you're feeling all TAPped out
-date: 2013-09-04T12:00:00Z
-summary: An explanation of the Test Anything Protocol (TAP)
-template: writing.j2
+description: An explanation of the Test Anything Protocol (TAP)
+image: img/2013/tap.png
+type: post
 
 ---
-<img class='book' src='tap.png'>
-
 Good software practices say you should do automated testing, but what do you do
 when you work in an environment that can't get good test tools? Use a simple
 testing protocol like TAP.

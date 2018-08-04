@@ -1,14 +1,10 @@
-%YAML 1.1
 ---
-blog: True
 title: Ruby on Rails Tutorial
-date: 2013-12-07T12:00:00Z
-summary: A review of "Ruby on Rails Tutorial"
-template: writing.j2
+description: A review of "Ruby on Rails Tutorial"
+image: img/2013/rorcover.jpg
+type: post
 
 ---
-<img class='book' src='rorcover.jpg'>
-
 If you don't know Ruby on Rails (RoR), this book *will* help you learn how to
 develop a Rails web application.
 

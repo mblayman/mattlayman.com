@@ -1,14 +1,10 @@
-%YAML 1.1
 ---
-blog: True
 title: "Java: a bad choice for FOSS"
-date: 2013-10-14T12:00:00Z
-summary: A description of the pain encountered with contributing to Java FOSS
-template: writing.j2
+description: A description of the pain encountered with contributing to Java FOSS
+image: img/2013/java.jpg
+type: post
 
 ---
-<img class='book' src='java.jpg'>
-
 805MB. That's how much I had to download before I could even attempt to
 contribute to an open source Java project.
 

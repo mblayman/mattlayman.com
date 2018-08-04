@@ -1,14 +1,10 @@
-%YAML 1.1
 ---
-blog: True
 title: MarkWiki 1.3 released
-date: 2013-12-08T12:00:00Z
-summary: MarkWiki 1.3 release announcement
-template: writing.j2
+description: MarkWiki 1.3 release announcement
+image: img/2013/allthethings.jpg
+type: post
 
 ---
-<img class='book' src='allthethings.jpg'>
-
 MarkWiki 1.3 is now packaged and uploaded to
 [PyPI](https://pypi.python.org/pypi/MarkWiki). This release includes two
 notable features.

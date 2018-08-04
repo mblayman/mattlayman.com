@@ -1,15 +1,10 @@
-%YAML 1.1
 ---
-blog: True
 title: Test your packaging
-date: 2013-12-15T12:00:00Z
-summary: Using Travis CI and Tox to test Python packaging
-template: writing.j2
-image: travis.png
+description: Using Travis CI and Tox to test Python packaging
+image: img/2013/travis.png
+type: post
 
 ---
-<img class='book' src='travis.png'>
-
 Software development is a process rife with errors. We generally call them
 bugs, but that's so developers don't feel as bad for messing up. It's much
 easier to say "oh, that's just a bug" instead of "oh, that's an error."

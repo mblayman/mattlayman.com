@@ -1,10 +1,7 @@
-%YAML 1.1
 ---
-blog: True
 title: MarkWiki 1.2 released... now actually somewhat useful
-date: 2013-11-03T12:00:00Z
-summary: MarkWiki 1.2 release announcement
-template: writing.j2
+description: MarkWiki 1.2 release announcement
+type: post
 
 ---
 My pet project, MarkWiki, has reached a point of maturity where other people

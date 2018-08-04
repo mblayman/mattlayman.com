@@ -1,15 +1,11 @@
-%YAML 1.1
 ---
-blog: True
 title: A Layman's walk through Code
-date: 2013-08-29T12:00:00Z
-summary: >-
+description: >-
     A review of "Code: The Hidden Language of Computer Hardware and Software"
-template: writing.j2
+image: img/2013/code.jpg
+type: post
 
 ---
-<img class='book' src='code.jpg'>
-
 I went to a university for four years to learn how a computer works from power
 plug to screen. *Code: The Hidden Language of Computer Hardware and Software*
 teaches much of what I learned at school.

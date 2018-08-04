@@ -1,14 +1,10 @@
-%YAML 1.1
 ---
-blog: True
 title: Should you cp from copywriters?
-date: 2013-08-19T12:00:00Z
-summary: A review of "The Copywriter's Handbook"
-template: writing.j2
+description: A review of "The Copywriter's Handbook"
+image: img/2013/copywriter.jpg
+type: post
 
 ---
-<img class='book' src='copywriter.jpg'>
-
 Spend any time on the Internet looking at software information and you will
 find bad writing. Many software developers fail to write well. Or
 interestingly. Or persuasively. What should we do as a software community?

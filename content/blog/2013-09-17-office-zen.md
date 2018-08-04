@@ -1,14 +1,10 @@
-%YAML 1.1
 ---
-blog: True
 title: Office Zen
-date: 2013-09-17T12:00:00Z
-summary: A review of "Peopleware"
-template: writing.j2
+description: A review of "Peopleware"
+image: img/2013/peopleware.jpg
+type: post
 
 ---
-<img class='book' src='peopleware.jpg'>
-
 For developers who need to get things done, the work environment is often a
 frustrating place. Many workers experience constant interruption from meetings,
 coworkers, telephone calls, email alerts, IM pop-up windows, etc. These

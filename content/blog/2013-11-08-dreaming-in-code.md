@@ -1,14 +1,10 @@
-%YAML 1.1
 ---
-blog: True
 title: Dreaming in code
-date: 2013-11-08T12:00:00Z
-summary: A review of "Dreaming in Code"
-template: writing.j2
+description: A review of "Dreaming in Code"
+image: img/2013/dreaming.jpg
+type: post
 
 ---
-<img class='book' src='dreaming.jpg'>
-
 Until a couple of months ago, Chandler was just a character from *Friends* for
 me. I had never heard of an open source project called Chandler or the type of
 product that Chandler was trying to be: a Personal Information Manager. But
