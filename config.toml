@@ -6,6 +6,7 @@ canonifyURLs = true
 enableRobotsTXT = true
 # googleAnalytics
 paginate = 6
+pygmentsCodeFences = true
 
 [frontmatter]
     date = [":filename", ":default"]
