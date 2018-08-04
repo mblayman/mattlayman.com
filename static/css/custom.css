@@ -1,0 +1,33 @@
+img#me {
+  border-radius: 100%;
+}
+
+.about-banner {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.flex-right {
+  margin-left: auto;
+}
+
+@media screen and (max-width: 650px) {
+  div#me-wrapper {
+    width: 100%;
+  }
+
+  img#me {
+    display: block;
+    margin: 0 auto 1em;
+    width: auto;
+  }
+
+  .about-banner {
+    flex-direction: column-reverse;
+  }
+  .post-full-content img.about-image {
+    margin: 1em auto;
+    width: auto;
+  }
+}

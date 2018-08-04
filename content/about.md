@@ -6,42 +6,29 @@ description: >-
   and advocate for the Python programming language.
 
 ---
-<div id='me-wrapper'>
-<img id='me' src='/img/me.jpg' width='200' height='200'>
-</div>
+<div class="about-banner">
+  <div>
+    <p>I’m Matt, a software creator. Here are things I do:</p>
 
-I'm Matt,
-a software creator. Here are things I do:
-
-* Run [Full Health Developer](#fullhealth).
-* Organize [Python Frederick](#frederick).
-* Have a few [open source projects](#projects).
-* Work at [Storybird](#work).
-* Love my [family](#family) and go to [church](#church).
-
-I like to
-[write on technology topics](https://www.mattlayman.com/archive.html)
-with a focus on Python.
-
-<div class="icon-bar">
-<a class="icon" href="https://twitter.com/mblayman"
-   target="_blank"
-   alt="Twitter"><i class="fa fa-twitter fa-2x"></i></a>
-<a class="icon" href="https://github.com/mblayman"
-   target="_blank"
-   alt="GitHub"><i class="fa fa-github fa-2x"></i></a>
-<a class="icon" href="https://www.linkedin.com/in/mattlayman"
-   target="_blank"
-   alt="LinkedIn"><i class="fa fa-linkedin fa-2x"></i></a>
-<a class="icon" href="https://careers.stackoverflow.com/mattlayman"
-   target="_blank"
-   alt="Stack Overflow Careers"><i class="fa fa-stack-overflow fa-2x"></i></a>
+    <p>
+      <ul>
+        <li>Run <a href="#fullhealth">Full Health Developer</a>.</li>
+        <li>Organize <a href="#frederick">Python Frederick</a>.</li>
+        <li>Have a few <a href="#projects">open source projects</a>.</li>
+        <li>Work at <a href="#work">Doctor on Demand</a>.</li>
+        <li>Love my <a href="#family">family</a> and go to <a href="#church">church</a>.</li>
+      </ul>
+    </p>
+  </div>
+  <div id='me-wrapper'>
+    <img id='me' src='/img/me.jpg' width='250' height='250'>
+  </div>
 </div>
 
 <a name='fullhealth'></a>
 ## Full Health Developer
 
-I run [Full Health Developer](https://fullhealthdeveloper.com/).
+I run <a href="https://fullhealthdeveloper.com/" target="_blank">Full Health Developer</a>.
 Full Health Developer is a website
 with a mission to help developers
 improve their physical and mental health.
@@ -63,16 +50,16 @@ and foster a love of tech
 among my fellow citizens.
 
 * I started
-  [Python Frederick](https://www.pythonfrederick.org/)
+  <a href="https://www.pythonfrederick.org/" target="_blank">Python Frederick</a>
   in 2015
   and continue to organize it
   (with some fantastic co-organizers).
 * I helped coordinate the city's first
-  [Hackathon](http://www.hackfrederick.com/).
+  <a href="https://www.hackfrederick.com/" target="_blank">Hackathon</a>.
 * Through my efforts
   on a team of tech volunteers,
   we earned Frederick a finalist spot
-  in Amazon's [2017 City on a Cloud Innovation Challenge](https://aws.amazon.com/stateandlocal/cityonacloud/2017finalists/).
+  in Amazon's <a href="https://aws.amazon.com/stateandlocal/cityonacloud/2017finalists/" target="_blank">2017 City on a Cloud Innovation Challenge</a>.
 
 I care deeply about my home,
 and I push hard to make sure
@@ -93,42 +80,42 @@ All are fun.
 In 2017,
 I picked up the torch
 as the maintainer
-of the [Django REST Framework JSON API](https://github.com/django-json-api/django-rest-framework-json-api)
+of the <a href="https://github.com/django-json-api/django-rest-framework-json-api" target="_blank">Django REST Framework JSON API</a>
 package.
 This package translates
 Django REST Framework API output
-into the [JSON API](http://jsonapi.org/) format.
+into the <a href="http://jsonapi.org/" target="_blank">JSON API</a> format.
 
 ### tappy
 
 Automated software testing is generally useful,
-and the [Test Anything Protocol (TAP)](http://testanything.org/)
+and the <a href="http://testanything.org/" target="_blank">Test Anything Protocol (TAP)</a>
 is a way to track those automated results.
 I wrote
-[a set of TAP generators for Python](https://github.com/python-tap)
+<a href="https://github.com/python-tap" target="_blank">a set of TAP generators for Python</a>
 that hook in with Python's testing ecosystem.
 The core project is called `tappy`.
 
 <a name='work'></a>
 ## Work
 
-<img class='book' src='storybird.png' width='60' height='60'>
+<img class='about-image' src='/about/storybird.gif'>
 
-I work at [Storybird](https://storybird.com).
+I worked at <a href="https://storybird.com" target="_blank">Storybird</a>.
 Storybird makes it possible for people to share creative stories
 through book and poetry writing.
-I am the lead software engineer
+I was the lead software engineer
 with the opportunity to make Storybird an even better place to share stories.
-I get to write Python and JavaScript every day
+I got to write Python and JavaScript every day
 and help make the internet more awesome.
 
-<img class='book' src='lm.png' width='302' height='62'>
+<img class='about-image' src='/about/lm.png' width='302' height='62'>
 
-[Lockheed Martin](http://lockheedmartin.com/) was my employer.
+<a href="https://lockheedmartin.com/" target="_blank">Lockheed Martin</a> was my employer.
 While there, I worked on a wide range of products.
 You might have heard of some of them,
-like [GPS](http://en.wikipedia.org/wiki/Global_Positioning_System#Control_segment)
-or [satellite phones](http://www.iridium.com/about/iridiumnext.aspx).
+like <a href="https://en.wikipedia.org/wiki/Global_Positioning_System#Control_segment" target="_blank">GPS</a>
+or <a href="https://www.iridium.com/network/iridium-next/" target="_blank">satellite phones</a>.
 I also gained experience with Modeling and Simulation software,
 web applications,
 and complex configuration management implementations.
@@ -142,11 +129,11 @@ two great kids, Mark and Faye.
 My children are young so my life is a
 little hectic, but that's perfectly fine with me.
 
-<img class='book' src='images/family.jpg' width='450' height='303'>
+<img class='about-image' src='/about/family.jpg' width='450' height='303'>
 
 <a name='church'></a>
 ## Church
 
-I am a Christian, and I attend [New Hope OPC](http://newhopeopc.org/). My hope
-is that my faith reflects on all of my behavior, and that I show kindness,
+I am a Christian, and I attend <a href="http://newhopeopc.org/" target="_blank">New Hope OPC</a>.
+My hope is that my faith reflects on all of my behavior, and that I show kindness,
 humility, and love.
