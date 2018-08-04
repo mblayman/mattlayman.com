@@ -5,6 +5,10 @@ theme = "hugo-casper-two"
 canonifyURLs = true
 # enableRobotsTXT = true # generate robots.txt?
 # googleAnalytics
+paginate = 6
+
+[frontmatter]
+    date = [":filename", ":default"]
 
 [params]
     title = "Matt Layman"
