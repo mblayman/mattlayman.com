@@ -10,6 +10,8 @@ description: >-
   This blog series will show how to get the most out of Vim.
 image: img/2017/vim.png
 type: post
+aliases:
+ - /2017/supercharging-vim-using-plugins.html
 
 ---
 

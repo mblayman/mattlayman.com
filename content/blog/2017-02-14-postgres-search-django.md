@@ -12,6 +12,8 @@ description: >-
   of PostgreSQL search.
 image: img/2017/postgresql.png
 type: post
+aliases:
+ - /2017/postgres-search-django.html
 
 ---
 

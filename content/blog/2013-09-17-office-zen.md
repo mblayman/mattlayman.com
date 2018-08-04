@@ -3,6 +3,8 @@ title: Office Zen
 description: A review of "Peopleware"
 image: img/2013/peopleware.jpg
 type: post
+aliases:
+ - /2013/office-zen.html
 
 ---
 For developers who need to get things done, the work environment is often a

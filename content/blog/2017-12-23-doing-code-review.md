@@ -10,6 +10,8 @@ description: >-
   for years.
 image: img/2017/code-review.png
 type: post
+aliases:
+ - /2017/doing-code-review.html
 
 ---
 

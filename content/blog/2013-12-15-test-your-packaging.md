@@ -3,6 +3,8 @@ title: Test your packaging
 description: Using Travis CI and Tox to test Python packaging
 image: img/2013/travis.png
 type: post
+aliases:
+ - /2013/test-your-packaging.html
 
 ---
 Software development is a process rife with errors. We generally call them

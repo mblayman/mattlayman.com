@@ -14,6 +14,8 @@ description: >-
   to the woman who gave it to me.
 image: img/2017/nes.jpg
 type: post
+aliases:
+ - /2017/a-nes-for-christmas.html
 
 ---
 

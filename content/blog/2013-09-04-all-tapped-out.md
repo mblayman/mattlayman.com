@@ -3,6 +3,8 @@ title: When you're feeling all TAPped out
 description: An explanation of the Test Anything Protocol (TAP)
 image: img/2013/tap.png
 type: post
+aliases:
+ - /2013/all-tapped-out.html
 
 ---
 Good software practices say you should do automated testing, but what do you do

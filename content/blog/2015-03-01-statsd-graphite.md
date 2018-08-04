@@ -10,6 +10,8 @@ description: >-
   a snap to get going.
 image: img/2015/graph.png
 type: post
+aliases:
+ - /2015/statsd-graphite.html
 
 ---
 The graphing bug bit me.

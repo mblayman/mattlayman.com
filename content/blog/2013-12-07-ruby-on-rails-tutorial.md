@@ -3,6 +3,8 @@ title: Ruby on Rails Tutorial
 description: A review of "Ruby on Rails Tutorial"
 image: img/2013/rorcover.jpg
 type: post
+aliases:
+ - /2013/ruby-on-rails-tutorial.html
 
 ---
 If you don't know Ruby on Rails (RoR), this book *will* help you learn how to

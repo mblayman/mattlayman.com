@@ -11,6 +11,8 @@ description: >-
   converting a project to use one.
 image: img/python.png
 type: post
+aliases:
+ - /2017/using-pipfile-for-fun-and-profit.html
 
 ---
 

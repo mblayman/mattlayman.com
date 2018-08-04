@@ -3,6 +3,8 @@ title: Extending handroll for fun
 description: Show how to create an entire handroll extension from scratch
 image: img/2015/outlet.jpg
 type: post
+aliases:
+ - /2015/extending-handroll.html
 
 ---
 I released handroll 2.0 with a shiny new extension interface.

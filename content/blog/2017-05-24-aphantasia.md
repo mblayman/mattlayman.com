@@ -9,6 +9,8 @@ description: >-
   I found that this is known as aphantasia.
 image: img/2017/blind.jpeg
 type: post
+aliases:
+ - /2017/aphantasia.html
 
 ---
 

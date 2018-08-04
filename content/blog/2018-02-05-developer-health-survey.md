@@ -8,6 +8,8 @@ description: >-
   by answering a few questions?
 image: img/2018/running.jpg
 type: post
+aliases:
+ - /2018/developer-health-survey.html
 
 ---
 

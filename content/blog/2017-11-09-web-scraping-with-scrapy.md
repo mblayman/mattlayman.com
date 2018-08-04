@@ -12,6 +12,8 @@ description: >-
   at the November 2017 Python Frederick monthly event.
 image: img/python.png
 type: post
+aliases:
+ - /2017/web-scraping-with-scrapy.html
 
 ---
 

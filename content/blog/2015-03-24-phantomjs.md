@@ -12,6 +12,8 @@ description: >-
   you will learn how to extract data from the web via PhantomJS scripts.
 image: img/2015/phantomjs.png
 type: post
+aliases:
+ - /2015/phantomjs.html
 
 ---
 How can you inspect the source of a website with a script?

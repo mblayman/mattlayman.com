@@ -2,6 +2,8 @@
 title: handroll 1.1 released
 description: A release announcement for handroll 1.1
 type: post
+aliases:
+ - /2014/handroll-1-1-released.html
 
 ---
 I have released the 1.1 version of my static website generator. This version

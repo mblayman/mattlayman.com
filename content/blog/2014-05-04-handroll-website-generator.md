@@ -2,6 +2,8 @@
 title: "handroll: a simple website generator"
 description: Introduction of handroll website generator tool
 type: post
+aliases:
+ - /2014/handroll-website-generator.html
 
 ---
 Simplicity. That was my goal after studying [DHH's personal

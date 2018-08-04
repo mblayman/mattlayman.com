@@ -3,6 +3,8 @@ title: Advanced Rails
 description: A book review of 'Advanced Rails'
 image: img/2014/advanced-rails.jpg
 type: post
+aliases:
+ - /2014/advanced-rails.html
 
 ---
 Technology books are more like milk than wine. They don't get better with age.

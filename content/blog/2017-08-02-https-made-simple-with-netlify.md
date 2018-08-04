@@ -9,6 +9,8 @@ description: >-
   in no time using Netlify.
 image: img/2017/netlify.jpg
 type: post
+aliases:
+ - /2017/https-made-simple-with-netlify.html
 
 ---
 

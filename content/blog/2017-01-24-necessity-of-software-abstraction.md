@@ -6,6 +6,8 @@ description: >-
   that a developer must understand all the details
   of the abstractions that they work with.
 type: post
+aliases:
+ - /2017/necessity-of-software-abstraction.html
 
 ---
 

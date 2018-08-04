@@ -6,6 +6,8 @@ description: >-
   can help future users know what worked.
 image: img/python.png
 type: post
+aliases:
+ - /2016/ship-your-requirements.html
 
 ---
 Dependencies: they're always changing.

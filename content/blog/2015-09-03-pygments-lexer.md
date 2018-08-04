@@ -9,6 +9,8 @@ description: >-
   and how the tool does its job.
 image: img/2015/pygments.png
 type: post
+aliases:
+ - /2015/pygments-lexer.html
 
 ---
 I want pretty documentation for my [tappy][tappy] project,

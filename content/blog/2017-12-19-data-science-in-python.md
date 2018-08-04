@@ -13,6 +13,8 @@ description: >-
   is full of goodies to check out.
 image: img/python.png
 type: post
+aliases:
+ - /2017/data-science-in-python.html
 
 ---
 

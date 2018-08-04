@@ -10,6 +10,8 @@ description: >-
   as a software professional.
 image: img/2017/prag-prog.jpeg
 type: post
+aliases:
+ - /2017/pragmatic-programmer-revisited.html
 
 ---
 

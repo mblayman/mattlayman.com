@@ -11,6 +11,8 @@ description: >-
   that requires set up and tear down.
 image: img/python.png
 type: post
+aliases:
+ - /2017/pythonic-code-the-with-statement.html
 
 ---
 

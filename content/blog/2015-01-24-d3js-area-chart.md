@@ -5,6 +5,8 @@ description: >-
   This post covers each piece needed to create an area chart
   from a list of JavaScript data.
 type: post
+aliases:
+ - /2015/d3js-area-chart.html
 
 ---
 <style>

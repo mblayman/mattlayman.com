@@ -11,6 +11,8 @@ description: >-
   to Django applications.
 image: img/2017/django.png
 type: post
+aliases:
+ - /2017/12-factor-django-apps.html
 
 ---
 

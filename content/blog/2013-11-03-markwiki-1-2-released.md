@@ -2,6 +2,8 @@
 title: MarkWiki 1.2 released... now actually somewhat useful
 description: MarkWiki 1.2 release announcement
 type: post
+aliases:
+ - /2013/markwiki-1-2-released.html
 
 ---
 My pet project, MarkWiki, has reached a point of maturity where other people

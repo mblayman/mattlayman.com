@@ -8,6 +8,8 @@ description: >-
   on sites like Facebook and Twitter.
 image: img/2017/og.png
 type: post
+aliases:
+ - /2017/open-graph-twitter-plugins.html
 
 ---
 

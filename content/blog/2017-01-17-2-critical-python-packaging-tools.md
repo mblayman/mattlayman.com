@@ -7,6 +7,8 @@ description: >-
   that I think are the most important.
 image: img/python.png
 type: post
+aliases:
+ - /2017/2-critical-python-packaging-tools.html
 
 ---
 

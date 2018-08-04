@@ -10,6 +10,8 @@ description: >-
   as effective as possible.
 image: img/2017/nitpick.jpg
 type: post
+aliases:
+ - /2017/no-nitpicking-code-reviews.html
 
 ---
 

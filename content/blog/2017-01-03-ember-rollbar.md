@@ -8,6 +8,8 @@ description: >-
   into your application.
 image: img/2017/rollbar.jpeg
 type: post
+aliases:
+ - /2017/ember-rollbar.html
 
 ---
 

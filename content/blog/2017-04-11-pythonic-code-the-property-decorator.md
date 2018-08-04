@@ -10,6 +10,8 @@ description: >-
   as a way to clean up your classes.
 image: img/python.png
 type: post
+aliases:
+ - /2017/pythonic-code-the-property-decorator.html
 
 ---
 

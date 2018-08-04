@@ -9,6 +9,8 @@ description: >-
   to search engine crawlers.
 image: img/2016/robot.jpeg
 type: post
+aliases:
+ - /2016/handroll-sitemaps-robots.html
 
 ---
 Google [webmaster tools](https://www.google.com/webmasters/) provide suggestions

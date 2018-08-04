@@ -3,6 +3,8 @@ title: "Java: a bad choice for FOSS"
 description: A description of the pain encountered with contributing to Java FOSS
 image: img/2013/java.jpg
 type: post
+aliases:
+ - /2013/java-a-bad-choice-for-foss.html
 
 ---
 805MB. That's how much I had to download before I could even attempt to

@@ -11,6 +11,8 @@ description: >-
   to make your code more expressive.
 image: img/python.png
 type: post
+aliases:
+ - /2017/pythonic-code-leveraging-packages.html
 
 ---
 

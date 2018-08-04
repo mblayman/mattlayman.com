@@ -3,6 +3,8 @@ title: Dreaming in code
 description: A review of "Dreaming in Code"
 image: img/2013/dreaming.jpg
 type: post
+aliases:
+ - /2013/dreaming-in-code.html
 
 ---
 Until a couple of months ago, Chandler was just a character from *Friends* for

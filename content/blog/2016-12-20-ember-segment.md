@@ -5,6 +5,8 @@ description: >-
   Learn about the core features of ember-cli-segment.
 images: img/2016/segment.png
 type: post
+aliases:
+ - /2016/ember-segment.html
 
 ---
 I've been working on

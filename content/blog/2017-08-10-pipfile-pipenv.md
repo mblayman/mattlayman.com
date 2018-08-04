@@ -11,6 +11,8 @@ description: >-
   in August 2017.
 image: img/python.png
 type: post
+aliases:
+ - /2017/pipfile-pipenv.html
 
 ---
 

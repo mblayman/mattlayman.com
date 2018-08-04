@@ -10,6 +10,8 @@ description: >-
   that I'll explain how to resolve.
 image: img/2017/rollbar.jpeg
 type: post
+aliases:
+ - /2017/django-celery-rollbar.html
 
 ---
 

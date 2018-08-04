@@ -6,6 +6,8 @@ description: >-
   about human behavior and abilities.
 image: img/2015/toothbrush.jpg
 type: post
+aliases:
+ - /2015/ambidextrous.html
 
 ---
 *Your brain is far more elastic

@@ -11,6 +11,8 @@ description: >-
   This post will discuss one way to request that help.
 image: img/2018/rfnm.jpg
 type: post
+aliases:
+ - /2018/request-for-new-maintainer.html
 
 ---
 

@@ -13,6 +13,8 @@ description: >-
   in record time.
 image: img/2017/vim.png
 type: post
+aliases:
+ - /2017/supercharging-vim-instant-testing.html
 
 ---
 

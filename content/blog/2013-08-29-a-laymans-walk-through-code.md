@@ -4,6 +4,8 @@ description: >-
     A review of "Code: The Hidden Language of Computer Hardware and Software"
 image: img/2013/code.jpg
 type: post
+aliases:
+ - /2013/a-laymans-walk-through-code.html
 
 ---
 I went to a university for four years to learn how a computer works from power

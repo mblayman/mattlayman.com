@@ -12,6 +12,8 @@ description: >-
   Check out how it works!
 image: img/2017/jwt.svg
 type: post
+aliases:
+ - /2017/current-user-jwt.html
 
 ---
 

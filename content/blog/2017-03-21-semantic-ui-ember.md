@@ -11,6 +11,8 @@ description: >-
   from that experience.
 image: img/2017/ember.png
 type: post
+aliases:
+ - /2017/semantic-ui-ember.html
 
 ---
 

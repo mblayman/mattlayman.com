@@ -11,6 +11,8 @@ description: >-
   at your fingertips.
 image: img/python.png
 type: post
+aliases:
+ - /2017/pythonic-code-built-in-functions.html
 
 ---
 

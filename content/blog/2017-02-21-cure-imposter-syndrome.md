@@ -8,6 +8,8 @@ description: >-
   of self-confidence.
   We require a dose of Humility.
 type: post
+aliases:
+ - /2017/cure-imposter-syndrome.html
 
 ---
 

@@ -5,6 +5,8 @@ description: >-
   and how you can apply those learnings to your own study.
 image: img/2016/library.jpg
 type: post
+aliases:
+ - /2016/readthrough-python-standard-library.html
 
 ---
 A couple of years ago I decided to read the entire Python standard library.
