@@ -1,17 +1,13 @@
-%YAML 1.1
 ---
-blog: True
 title: Ship your requirements.txt
-date: 2016-7-01T12:00:00Z
-summary: >-
+description: >-
   Tell the world the versions of your dependencies when you release.
   Software is constantly moving so documenting your dependency versions
   can help future users know what worked.
-template: writing.j2
+image: img/python.png
+type: post
 
 ---
-<img class='book' src='python.png'>
-
 Dependencies: they're always changing.
 
 Software is in such continuous flux.

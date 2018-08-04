@@ -1,16 +1,12 @@
-%YAML 1.1
 ---
-blog: True
 title: Using Segment with Ember.js
-date: 2016-12-20T13:00:00Z
-summary: >-
+description: >-
   Ember CLI makes using Segment a snap.
   Learn about the core features of ember-cli-segment.
-template: writing.j2
+images: img/2016/segment.png
+type: post
 
 ---
-<img class='book' src='segment.png'>
-
 I've been working on
 [College Conductor](https://www.collegeconductor.com/)
 to help serve Independent Educational Consultants

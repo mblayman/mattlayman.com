@@ -1,16 +1,12 @@
-%YAML 1.1
 ---
-blog: True
 title: Reading through the Python standard library
-date: 2016-7-29T20:00:00Z
-summary: >-
+description: >-
   What I learned about the Python standard library
   and how you can apply those learnings to your own study.
-template: writing.j2
+image: img/2016/library.jpg
+type: post
 
 ---
-<img class='book' src='library.jpg'>
-
 A couple of years ago I decided to read the entire Python standard library.
 A few months back, I finished.
 

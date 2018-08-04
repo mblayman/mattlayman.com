@@ -1,20 +1,16 @@
-%YAML 1.1
 ---
-blog: True
 title: handroll, sitemaps, and robots.txt
-date: 2016-12-26T17:00:00Z
-summary: >-
+description: >-
   Make a sitemap that Google can find
   using new features available in handroll 3.1.
   In a few steps,
   you can improve the visiblity
   of your website
   to search engine crawlers.
-template: writing.j2
+image: img/2016/robot.jpeg
+type: post
 
 ---
-<img class='book' src='robot.jpeg'>
-
 Google [webmaster tools](https://www.google.com/webmasters/) provide suggestions
 to improve your site ranking.
 The suggestions generally involve making it easier
