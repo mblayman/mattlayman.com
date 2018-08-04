@@ -12,7 +12,7 @@ We'll call it the `ObnoxiousExtension`.
 Our extension will make some noise on the console.
 
 Let's start with the code.
-[Download the extension](obnoxious.py)
+[Download the extension](/2015/obnoxious.py)
 to play with it yourself.
 
 ```python
@@ -60,7 +60,7 @@ and handlers is entirely in your hands.
 Once your extension is ready,
 you need to hook it in using a setuptools entry point.
 I created a minimal `setup.py` file
-(which is also [available for download](setup.py))
+(which is also [available for download](/2015/setup.py))
 to show that setuptools configuration.
 
 ```python
@@ -106,4 +106,4 @@ Peace out, homeslice!
 I hope this gives you a clear idea
 of how to make a handroll extension.
 The source distribution for this little example
-is [available for download](handroll-obnoxious-0.1.tar.gz).
+is [available for download](/2015/handroll-obnoxious-0.1.tar.gz).

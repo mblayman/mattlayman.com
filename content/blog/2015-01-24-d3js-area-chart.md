@@ -7,6 +7,18 @@ description: >-
 type: post
 
 ---
+<style>
+svg { border: 1px solid #dedede; }
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.area { fill: #4ca3bd; }
+</style>
+
 Let's take:
 
 <table>
@@ -28,7 +40,7 @@ And make:
 D3.js is mindbending, and I find the examples on the D3.js wiki to be too
 little explanation with too much going on. In this example, I will show
 you how to make the simplest area chart I could devise. If you want to
-jump straight to "the answer," see [the complete JavaScript](area.js).
+jump straight to "the answer," see [the complete JavaScript](/2015/area.js).
 
 D3.js is not a chart library. It is a chart *parts* library. The library feels
 like a mashup of SVG and data manipulation with some sugar sprinkled on top.
@@ -202,4 +214,4 @@ I will explain how to use other types of data and how to make stacked
 area charts. Stay tuned!
 
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src='area.js'></script>
+<script src='/2015/area.js'></script>
