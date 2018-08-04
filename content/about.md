@@ -1,15 +1,13 @@
-%YAML 1.1
 ---
-title: Matt Layman
-template: base.j2
-metadata_description: >-
+title: About
+description: >-
   Matt Layman is a software engineer from Frederick, MD.
   He is an open source software maintainer
   and advocate for the Python programming language.
 
 ---
 <div id='me-wrapper'>
-<img id='me' src='images/me.jpg' width='200' height='200'>
+<img id='me' src='/img/me.jpg' width='200' height='200'>
 </div>
 
 I'm Matt,
