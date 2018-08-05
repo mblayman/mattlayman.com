@@ -1,0 +1,3 @@
+[submodule "themes/hugo-casper-two"]
+	path = themes/hugo-casper-two
+	url = git@github.com:eueung/hugo-casper-two.git
