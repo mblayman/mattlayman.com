@@ -1,6 +1,5 @@
 ---
 title: "Pythonic code: the with statement"
-date: 2017-04-04T12:00:00Z
 description: >-
   In this series of posts,
   I'm going to examine common design patterns
