@@ -23,16 +23,16 @@ that fits well
 with the design
 of the Python language.
 The last post examined the
-[property decorator](/2017/pythonic-code-the-property-decorator.html)
+[property decorator]({{< ref "/blog/2017-04-11-pythonic-code-the-property-decorator.md" >}})
 as a technique to make beautiful classes.
 This fourth post will dive into Python's built-in functions.
 
-1. [The list comprehension](/2017/pythonic-code-the-list-comprehension.html)
-2. [The with statement](/2017/pythonic-code-the-with-statement.html)
-3. [The property decorator](/2017/pythonic-code-the-property-decorator.html)
+1. [The list comprehension]({{< ref "/blog/2017-03-28-pythonic-code-the-list-comprehension.md" >}})
+2. [The with statement]({{< ref "/blog/2017-04-04-pythonic-code-the-with-statement.md" >}})
+3. [The property decorator]({{< ref "/blog/2017-04-11-pythonic-code-the-property-decorator.md" >}})
 4. Built-in functions
-5. [Using the standard library](/2017/pythonic-code-using-standard-library.html)
-6. [Leveraging packages](/2017/pythonic-code-leveraging-packages.html)
+5. [Using the standard library]({{< ref "/blog/2017-05-09-pythonic-code-using-standard-library.md" >}})
+6. [Leveraging packages]({{< ref "/blog/2017-06-13-pythonic-code-leveraging-packages.md" >}})
 
 ## Built-in functions
 
@@ -42,7 +42,7 @@ to read through all of Python's standard library.
 Today,
 I would generally suggest that people **don't** do that
 (for reasons I documented
-in a [blog post about the readthrough experience](/2016/readthrough-python-standard-library.html)).
+in a [blog post about the readthrough experience]({{< ref "/blog/2016-07-29-readthrough-python-standard-library.md" >}})).
 
 Even with that caution,
 there **is** some documentation

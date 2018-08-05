@@ -24,18 +24,18 @@ that fits well
 with the design
 of the Python language.
 The previous post explored the possibilities
-with Python's [built-in functions](/2017/pythonic-code-built-in-functions.html).
+with Python's [built-in functions]({{< ref "/blog/2017-04-24-pythonic-code-built-in-functions.md" >}}).
 This fifth post will peek
 into the standard library
 and highlight how many amazing tools are available
 with no setup.
 
-1. [The list comprehension](/2017/pythonic-code-the-list-comprehension.html)
-2. [The with statement](/2017/pythonic-code-the-with-statement.html)
-3. [The property decorator](/2017/pythonic-code-the-property-decorator.html)
-4. [Built-in functions](/2017/pythonic-code-built-in-functions.html)
+1. [The list comprehension]({{< ref "/blog/2017-03-28-pythonic-code-the-list-comprehension.md" >}})
+2. [The with statement]({{< ref "/blog/2017-04-04-pythonic-code-the-with-statement.md" >}})
+3. [The property decorator]({{< ref "/blog/2017-04-11-pythonic-code-the-property-decorator.md" >}})
+4. [Built-in functions]({{< ref "/blog/2017-04-24-pythonic-code-built-in-functions.md" >}})
 5. Using the standard library
-6. [Leveraging packages](/2017/pythonic-code-leveraging-packages.html)
+6. [Leveraging packages]({{< ref "/blog/2017-06-13-pythonic-code-leveraging-packages.md" >}})
 
 ## Using the standard library
 

@@ -41,7 +41,7 @@ If you dig this,
 check out other posts
 in the series.
 
-1. [Using plugins](/2017/supercharging-vim-using-plugins.html)
+1. [Using plugins]({{< ref "/blog/2017-11-22-supercharging-vim-using-plugins.md" >}})
 2. Instant testing
 
 ## Not-so-instant testing

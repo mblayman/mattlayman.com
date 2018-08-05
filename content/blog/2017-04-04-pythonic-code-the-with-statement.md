@@ -24,16 +24,16 @@ with the design
 of the Python language.
 Previously,
 I wrote about
-[list comprehensions](/2017/pythonic-code-the-list-comprehension.html)
+[list comprehensions]({{< ref "/blog/2017-03-28-pythonic-code-the-list-comprehension.md" >}})
 as a powerful way to manipulate Python's list data structure.
 This post will cover the `with` statement.
 
-1. [The list comprehension](/2017/pythonic-code-the-list-comprehension.html)
+1. [The list comprehension]({{< ref "/blog/2017-03-28-pythonic-code-the-list-comprehension.md" >}})
 2. The with statement
-3. [The property decorator](/2017/pythonic-code-the-property-decorator.html)
-4. [Built-in functions](/2017/pythonic-code-built-in-functions.html)
-5. [Using the standard library](/2017/pythonic-code-using-standard-library.html)
-6. [Leveraging packages](/2017/pythonic-code-leveraging-packages.html)
+3. [The property decorator]({{< ref "/blog/2017-04-11-pythonic-code-the-property-decorator.md" >}})
+4. [Built-in functions]({{< ref "/blog/2017-04-24-pythonic-code-built-in-functions.md" >}})
+5. [Using the standard library]({{< ref "/blog/2017-05-09-pythonic-code-using-standard-library.md" >}})
+6. [Leveraging packages]({{< ref "/blog/2017-06-13-pythonic-code-leveraging-packages.md" >}})
 
 ## The `with` statement
 

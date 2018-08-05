@@ -15,7 +15,7 @@ aliases:
 
 ---
 
-The last [Rollbar post](/2017/ember-rollbar.html)
+The last [Rollbar post]({{< ref "/blog/2017-01-03-ember-rollbar.md" >}})
 that I made covered how to integrate Rollbar
 into your Ember application.
 As a reminder,

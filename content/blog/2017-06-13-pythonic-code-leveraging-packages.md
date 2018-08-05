@@ -32,11 +32,11 @@ and more powerful
 by using the amazing work
 from the Python community.
 
-1. [The list comprehension](/2017/pythonic-code-the-list-comprehension.html)
-2. [The with statement](/2017/pythonic-code-the-with-statement.html)
-3. [The property decorator](/2017/pythonic-code-the-property-decorator.html)
-4. [Built-in functions](/2017/pythonic-code-built-in-functions.html)
-5. [Using the standard library](/2017/pythonic-code-using-standard-library.html)
+1. [The list comprehension]({{< ref "/blog/2017-03-28-pythonic-code-the-list-comprehension.md" >}})
+2. [The with statement]({{< ref "/blog/2017-04-04-pythonic-code-the-with-statement.md" >}})
+3. [The property decorator]({{< ref "/blog/2017-04-11-pythonic-code-the-property-decorator.md" >}})
+4. [Built-in functions]({{< ref "/blog/2017-04-24-pythonic-code-built-in-functions.md" >}})
+5. [Using the standard library]({{< ref "/blog/2017-05-09-pythonic-code-using-standard-library.md" >}})
 6. Leveraging packages
 
 ## Leveraging packages
@@ -254,14 +254,14 @@ I began this series
 with a zoomed-in view
 of Python.
 We learned the specifics
-of language features like [list comprehensions](/2017/pythonic-code-the-list-comprehension.html),
-[the with statement](/2017/pythonic-code-the-with-statement.html),
-and [the property decorator](/2017/pythonic-code-the-property-decorator.html).
+of language features like [list comprehensions]({{< ref "/blog/2017-03-28-pythonic-code-the-list-comprehension.md" >}}),
+[the with statement]({{< ref "/blog/2017-04-04-pythonic-code-the-with-statement.md" >}}),
+and [the property decorator]({{< ref "/blog/2017-04-11-pythonic-code-the-property-decorator.md" >}}).
 
 Then I started to zoom out.
-We explored the [built-in functions](/2017/pythonic-code-built-in-functions.html)
+We explored the [built-in functions]({{< ref "/blog/2017-04-24-pythonic-code-built-in-functions.md" >}})
 to get comfortable with the tools that you don't need to import.
-We [used the standard library](/2017/pythonic-code-using-standard-library.html)
+We [used the standard library]({{< ref "/blog/2017-05-09-pythonic-code-using-standard-library.md" >}})
 to find the "batteries"
 that are included
 with the language.
