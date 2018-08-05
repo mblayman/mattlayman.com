@@ -29,9 +29,9 @@ but there are some subtle flaws
 that make dependency handling more confusing
 than necessary.
 To fix these issues,
-the [Python Packaging Authority](https://github.com/pypa),
+the {{< extlink "https://github.com/pypa" "Python Packaging Authority" >}},
 which is the group responsible
-for many things including `pip` and [PyPI](https://pypi.python.org/pypi),
+for many things including `pip` and {{< extlink "https://pypi.python.org/pypi" "PyPI" >}},
 proposed a replacement for `requirements.txt`
 called a `Pipfile`.
 *We're going to look
@@ -47,7 +47,7 @@ Let's look at `requirements.txt` to see
 where the flaws are.
 
 A `requirements.txt` file has a very primitive structure.
-Here's a sample file from the [handroll](https://github.com/handroll/handroll) project
+Here's a sample file from the {{< extlink "https://github.com/handroll/handroll" "handroll" >}} project
 that I work on.
 
 ```
@@ -137,10 +137,10 @@ that `requirements.txt` does not.
 It is important to note that a `Pipfile` is *not* a novel creation.
 Pipfile is a Python implementation of a system that appears
 in Ruby, Rust, PHP, and JavaScript.
-[Bundler](http://bundler.io/),
-[Cargo](https://crates.io/),
-[Composer](https://getcomposer.org/),
-and [Yarn](https://yarnpkg.com/en/)
+{{< extlink "http://bundler.io/" "Bundler" >}},
+{{< extlink "https://crates.io/" "Cargo" >}},
+{{< extlink "https://getcomposer.org/" "Composer" >}},
+and {{< extlink "https://yarnpkg.com/en/" "Yarn" >}}
 are tools
 from each of those languages
 that follow a similar pattern.
@@ -190,7 +190,7 @@ offers a couple of benefits.
 The other trait of a `Pipfile` is the split
 between user and developer dependencies.
 Let's look at the `Pipfile`
-for [pytest-tap](https://github.com/python-tap/pytest-tap),
+for {{< extlink "https://github.com/python-tap/pytest-tap" "pytest-tap" >}},
 a project that I converted recently to the `Pipfile` format.
 
 ```toml
@@ -211,14 +211,14 @@ pytest = "*"
 "tap.py" = "*"
 ```
 
-Because `Pipfile` uses [TOML](https://github.com/toml-lang/toml),
+Because `Pipfile` uses {{< extlink "https://github.com/toml-lang/toml" "TOML" >}},
 it can include sections
 when a `requirements.txt` file could not.
 The sections give a clear delineation
 between user packages and developer packages.
 
-pytest-tap is [pytest](https://docs.pytest.org/en/latest/) plugin
-that produces [Test Anything Protocol (TAP)](http://testanything.org/) output.
+pytest-tap is {{< extlink "https://docs.pytest.org/en/latest/" "pytest" >}} plugin
+that produces {{< extlink "http://testanything.org" "Test Anything Protocol (TAP)" >}} output.
 It is a natural fit to depend on `pytest`
 and `tap.py`, a TAP library.
 
@@ -244,7 +244,7 @@ for your own project?*
 Enter pipenv.
 
 Kenneth Reitz, of `requests` fame,
-created [pipenv](http://docs.pipenv.org/en/latest/),
+created {{< extlink "http://docs.pipenv.org/en/latest/" "pipenv" >}},
 a tool to manage a `Pipfile`.
 pipenv helps users add and remove packages
 from their `Pipfile` (and `Pipfile.lock`)

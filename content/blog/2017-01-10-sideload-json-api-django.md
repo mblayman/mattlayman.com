@@ -27,13 +27,13 @@ This truth is even more evident
 when there are layers of extensions
 to achieve a desired result.
 For instance,
-[College Conductor](https://www.collegeconductor.com/) is driving an
-[EmberJS](http://emberjs.com/) app
-with a [JSON API](http://jsonapi.org/)
-powered by [Django](https://www.djangoproject.com/).
+{{< extlink "https://www.collegeconductor.com/" "College Conductor" >}} is driving an
+{{< extlink "http://emberjs.com/" "EmberJS" >}} app
+with a {{< extlink "http://jsonapi.org/" "JSON API" >}}
+powered by {{< extlink "https://www.djangoproject.com/" "Django" >}}.
 The API uses the excellent
-[Django REST Framework](http://www.django-rest-framework.org/)
-and the [DRF JSON API](http://django-rest-framework-json-api.readthedocs.io/en/stable/)
+{{< extlink "http://www.django-rest-framework.org/" "Django REST Framework" >}}
+and the {{< extlink "http://django-rest-framework-json-api.readthedocs.io/en/stable/" "DRF JSON API" >}}
 extension.
 DRF JSON API translates from vanilla DRF API serialized output
 to JSON API flavored output.
@@ -46,7 +46,7 @@ in a single API request.**
 The JSON API specification describes
 how to include extra resources
 using a
-[Compound Document](http://jsonapi.org/format/#document-compound-documents).
+{{< extlink "http://jsonapi.org/format/#document-compound-documents" "Compound Document" >}}.
 Compound Documents are the mechanism
 to serialize extra resources
 *in a single request*.
@@ -60,7 +60,7 @@ Unfortunately,
 DRF JSON API does not explain
 how to make a Compound Document
 (a fact I hope to correct with this
-[Pull Request](https://github.com/django-json-api/django-rest-framework-json-api/pull/308)).
+{{< extlink "https://github.com/django-json-api/django-rest-framework-json-api/pull/308" "Pull Request" >}}).
 For now,
 that means that users must scour the source.
 What follows is an example
@@ -157,8 +157,8 @@ in a single request. Neat!
 Before we part,
 I must sadly note that this is how this should work
 *in theory*.
-There is currently a bug ([#291](https://github.com/django-json-api/django-rest-framework-json-api/issues/291))
-that is fixed by [Pull Request #307](https://github.com/django-json-api/django-rest-framework-json-api/pull/307).
+There is currently a bug ({{< extlink "https://github.com/django-json-api/django-rest-framework-json-api/issues/291" "#291" >}})
+that is fixed by {{< extlink "https://github.com/django-json-api/django-rest-framework-json-api/pull/307" "Pull Request #307" >}}.
 When that is merged and released,
 you'll be able to use sideloaded resources
 in your Django based JSON API.

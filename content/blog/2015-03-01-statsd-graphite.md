@@ -16,20 +16,17 @@ aliases:
 ---
 The graphing bug bit me.
 
-I am currently enjoying the backlog of the [Giant
-Robots podcast](http://giantrobots.fm/). One of the subjects that Giant
+I am currently enjoying the backlog of the {{< extlink "http://giantrobots.fm/" "Giant Robots podcast" >}}.
+One of the subjects that Giant
 Robots often covers is measuring user behavior. You can only know what
 your users want if you a) talk to them or b) observe them. There are
-many services for observing users like [New Relic][nr], [Google Analytics][ga],
-or [Mixpanel][mp] that offer a lot of value, but this post is about
+many services for observing users like {{< extlink "http://newrelic.com/" "New Relic" >}},
+{{< extlink "http://www.google.com/analytics/" "Google Analytics" >}},
+or {{< extlink "https://mixpanel.com/" "Mixpanel" >}} that offer a lot of value, but this post is about
 going your own way with Statsd and Graphite.
 
-[nr]: http://newrelic.com/
-[ga]: http://www.google.com/analytics/
-[mp]: https://mixpanel.com/
-
 When I did some hunting for how to measure behavior on your own, I ran
-into [Statsd][sd] from Etsy. Statsd is a minimal server that listens
+into {{< extlink "https://github.com/etsy/statsd/" "Statsd" >}} from Etsy. Statsd is a minimal server that listens
 for data input over a UDP port. Because UDP is a connectionless protocol
 (it's a fire and forget model of messaging), UDP messages are very fast
 to send. Applications use a Statsd client and send messages about
@@ -37,21 +34,15 @@ various measures. For instance, an application could
 increment a counter for each request received to figure out the amount
 of traffic.
 
-[sd]: https://github.com/etsy/statsd/
-
 Statsd is good at aggregating metric data, but it is not intended to
-store or display the data. Enter [Graphite][gr]. Graphite is a web
+store or display the data. Enter {{< extlink "http://graphite.readthedocs.org/en/latest/" "Graphite" >}}. Graphite is a web
 application that can display time based graphs (exactly the kind of
 data Statsd spits out) and store time based data in a specialized
 database. Statsd and Graphite make an excellent pair.
 
-[gr]: http://graphite.readthedocs.org/en/latest/
-
 I explored these tools by following some of the advice in a
-[DigitalOcean tutorial][do]. First, I set up Vagrant to use a virtual
-machine for Graphite. The VM uses Ubuntu 14.04.
-
-[do]: https://www.digitalocean.com/community/tutorials/an-introduction-to-tracking-statistics-with-graphite-statsd-and-collectd
+{{< extlink "https://www.digitalocean.com/community/tutorials/an-introduction-to-tracking-statistics-with-graphite-statsd-and-collectd" "DigitalOcean tutorial" >}}.
+First, I set up Vagrant to use a virtual machine for Graphite. The VM uses Ubuntu 14.04.
 
 ```console
 $ vagrant init ubuntu/trusty64
@@ -117,10 +108,8 @@ $ node stats.js exampleConfig.js
 After all that configuration, I could execute a basic command to create
 a metric in Graphite. The protocol is specific to Statsd, but there are
 plenty of language specific clients that help abstract away the details.
-[Python statsd][ps] looks like the front runner for my language of
+{{< extlink "http://statsd.readthedocs.org/en/latest/" "Python statsd" >}} looks like the front runner for my language of
 choice.
-
-[ps]: http://statsd.readthedocs.org/en/latest/
 
 ```console
 $ echo "sample.gauge:14|g" | nc -u -w0 127.0.0.1 8125

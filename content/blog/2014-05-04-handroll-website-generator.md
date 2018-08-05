@@ -6,11 +6,11 @@ aliases:
  - /2014/handroll-website-generator.html
 
 ---
-Simplicity. That was my goal after studying [DHH's personal
-website](http://david.heinemeierhansson.com/). I wanted a simple website that
+Simplicity. That was my goal after studying {{< extlink "http://david.heinemeierhansson.com/" "DHH's personal website" >}}.
+I wanted a simple website that
 had all the feeling of something handcrafted, but I didn't want to write all
 my HTML by hand. I looked at the website generators out there like
-[Pelican](http://blog.getpelican.com/) (which is pretty great if you want
+{{< extlink "http://blog.getpelican.com/" "Pelican" >}} (which is pretty great if you want
 blogging software), but they didn't fit my use case. I wanted complete control.
 Is that too much to ask? No. So I scratched my own itch and wrote some new
 software. I called it **handroll**. Let me show an example:
@@ -21,7 +21,7 @@ $ handroll site mblayman.github.io
 
 My source content is in the `site` directory. The output will be stored in my
 `mblayman.github.io` git repository so I can easily publish my work to
-[http://mblayman.github.io](http://mblayman.github.io). handroll copies all the
+{{< extlink "http://mblayman.github.io" "http://mblayman.github.io" >}}. handroll copies all the
 content of `site` to `mblayman.github.io`. When it finds a Markdown file
 (`*.md`), it generates HTML and combines it with `template.html` from the root
 of the site directory. The first line of the Markdown file is passed to the
@@ -75,4 +75,4 @@ $ pip install handroll
 ```
 
 I am doing development of handroll on
-[GitHub](https://github.com/mblayman/handroll).
+{{< extlink "https://github.com/mblayman/handroll" "GitHub" >}}.

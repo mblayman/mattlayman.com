@@ -18,8 +18,7 @@ Scott Rosenberg, the author, documented so many "groan moments" in this book.
 You know those moments. It's when you see some major problem coming along like
 a freight train, and you want to yell at the book in the feeble hope that the
 poor developers will narrowly dodge the train at the last second. When, in
-fact, they get smashed up worse than [the peanut in that children's
-song](http://www.youtube.com/watch?v=Oat1of0Z2iE).
+fact, they get smashed up worse than {{< extlink "http://www.youtube.com/watch?v=Oat1of0Z2iE" "the peanut in that children's song" >}}.
 
 I feel sorry for the Chandler development team. They are perfect examples of
 how not to operate a software project. Poor technology choices, poor

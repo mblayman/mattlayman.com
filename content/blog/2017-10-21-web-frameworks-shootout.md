@@ -25,16 +25,16 @@ for you to view.
 
 These were the 5 web frameworks that we compared:
 
-* [API Star](https://github.com/encode/apistar)
-* [Falcon](http://falconframework.org/)
-* [Flask](http://flask.pocoo.org/)
-* [Django](https://www.djangoproject.com/)
-* [Pyramid](https://docs.pylonsproject.org/projects/pyramid/en/latest/)
+* {{< extlink "https://github.com/encode/apistar" "API Star" >}}
+* {{< extlink "http://falconframework.org/" "Falcon" >}}
+* {{< extlink "http://flask.pocoo.org/" "Flask" >}}
+* {{< extlink "https://www.djangoproject.com/" "Django" >}}
+* {{< extlink "https://docs.pylonsproject.org/projects/pyramid/en/latest/" "Pyramid" >}}
 
 The presentation material is available
-in the [Python Frederick talks repository](https://github.com/python-frederick/talks/tree/master/2017-10-web-frameworks).
+in the {{< extlink "https://github.com/python-frederick/talks/tree/master/2017-10-web-frameworks" "Python Frederick talks repository" >}}.
 
 Additionally,
 the sample code for each framework can be downloaded
 from GitHub
-in a specific [web frameworks repository](https://github.com/mblayman/web-framework-shootout).
+in a specific {{< extlink "https://github.com/mblayman/web-framework-shootout" "web frameworks repository" >}}.

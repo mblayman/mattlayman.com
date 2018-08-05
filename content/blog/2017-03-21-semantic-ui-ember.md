@@ -17,12 +17,12 @@ aliases:
 ---
 
 For my SaaS app,
-[College Conductor](https://www.collegeconductor.com/),
+{{< extlink "https://www.collegeconductor.com/" "College Conductor" >}},
 I made the choice to use
-[Ember](http://emberjs.com/)
+{{< extlink "http://emberjs.com/" "Ember" >}}
 to power the frontend web client.
 I also decided to use
-[Semantic UI](https://semantic-ui.com/)
+{{< extlink "https://semantic-ui.com/" "Semantic UI" >}}
 as the UI toolkit
 to build the look and feel
 of the site.
@@ -36,7 +36,7 @@ led me to consider
 if a viable Ember add-on existed.
 The official Semantic UI project
 points to
-[Semantic-UI-Ember](http://semantic-org.github.io/Semantic-UI-Ember/#/modules)
+{{< extlink "http://semantic-org.github.io/Semantic-UI-Ember/#/modules" "Semantic-UI-Ember" >}}
 as the default answer
 for working with Semantic
 in Ember.
@@ -59,10 +59,10 @@ at all.
 After I ruled out Semantic-UI-Ember,
 I decided to integrate the toolkit myself.
 Semantic has packages that are available
-via [npm](https://www.npmjs.com/)
+via {{< extlink "https://www.npmjs.com/" "npm" >}}
 in a variety of flavors.
 Semantic is built with the
-[Less](http://lesscss.org/) CSS preprocessor.
+{{< extlink "http://lesscss.org/" "Less" >}} CSS preprocessor.
 My goal was to make sure
 that I could work with the Less-based files
 and integrate into Ember's toolchain.
@@ -70,7 +70,7 @@ Because of that goal,
 I chose the `semantic-ui-less` package.
 This package offers all of the Semantic files
 without its normal
-[Gulp](http://gulpjs.com/) build process.
+{{< extlink "http://gulpjs.com/" "Gulp" >}} build process.
 My logic was that Ember's Less integration
 could build my Semantic theme
 and be a seamless part
@@ -124,4 +124,4 @@ Thankfully, my Ansible scripts can readily handle that
 so I'm ok with the tradeoff.
 This whole experience is an example
 of where I failed to follow some sage advice,
-*[do the simplest thing that could possibly work](http://wiki.c2.com/?DoTheSimplestThingThatCouldPossiblyWork)*.
+*{{< extlink "http://wiki.c2.com/?DoTheSimplestThingThatCouldPossiblyWork" "do the simplest thing that could possibly work" >}}*.

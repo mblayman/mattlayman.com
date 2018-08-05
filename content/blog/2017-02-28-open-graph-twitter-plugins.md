@@ -29,9 +29,9 @@ in your HTML
 that these sites can discover
 when scanning your pages.
 Facebook's metadata format is called
-[Open Graph](http://ogp.me/)
+{{< extlink "http://ogp.me/" "Open Graph" >}}
 and Twitter describes their metadata as
-[cards](https://dev.twitter.com/cards/overview).
+{{< extlink "https://dev.twitter.com/cards/overview" "cards" >}}.
 **This post will cover Open Graph and Twitter cards
 and how I incorporated them
 into this site.**
@@ -117,7 +117,7 @@ especially if you're writing HTML by hand.
 But I'm not writing my HTML by hand.
 Instead,
 I use
-[handroll](http://handroll.readthedocs.io/en/latest/),
+{{< extlink "http://handroll.readthedocs.io/en/latest/" "handroll" >}},
 a static site generator
 that I developed
 because I wanted to see if I could.
@@ -138,7 +138,7 @@ that I had no need for.
 This system enabled me
 to integrate Open Graph and Twitter cards.
 
-handroll [extensions](http://handroll.readthedocs.io/en/latest/extensions.html)
+handroll {{< extlink "http://handroll.readthedocs.io/en/latest/extensions.html" "extensions" >}}
 operate on well defined signals
 that are invoked
 at various stages
@@ -150,7 +150,7 @@ These plugins work by reacting
 to any blog post that changes.
 When a post changes,
 the plugin processes
-[frontmatter](http://handroll.readthedocs.io/en/latest/configuration.html#front-matter),
+{{< extlink "http://handroll.readthedocs.io/en/latest/configuration.html#front-matter" "frontmatter" >}},
 scans for attributes that can populate the meta tags,
 and injects the tags
 into context
@@ -177,5 +177,5 @@ I quite enjoyed this process for a couple of reasons:
 
 You can see an example of one of the extensions
 by checking out the Open Graph
-[code](https://github.com/handroll/handroll/blob/master/handroll/extensions/og.py)
+{{< extlink "https://github.com/handroll/handroll/blob/master/handroll/extensions/og.py" "code" >}}
 on GitHub.

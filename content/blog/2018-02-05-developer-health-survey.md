@@ -19,7 +19,7 @@ I'll cut to the chase on this:
 > can you help me identify our community's biggest health issues
 > by answering a few questions?
 
-## [Here is the Google Form with developer health survey questions.](https://docs.google.com/forms/d/1hOMT8a0NAYG3Tge7T4D7F0VEAwPK3glf44Yw-6j6M2E/edit)
+## {{< extlink "https://docs.google.com/forms/d/1hOMT8a0NAYG3Tge7T4D7F0VEAwPK3glf44Yw-6j6M2E/edit" "Here is the Google Form with developer health survey questions." >}}
 
 As January came around,
 I spent time reviewing my annual goals.
@@ -42,9 +42,9 @@ These articles are spread all over Reddit
 and other popular developer channels.
 
 What I didn't find was a resource that pulls all these things together.
-[Nerd Fitness](https://www.nerdfitness.com/) exists to help
+{{< extlink "https://www.nerdfitness.com/" "Nerd Fitness" >}} exists to help
 with some physical conditioning.
-[OSMI](https://osmihelp.org/) looks like a valuable resource
+{{< extlink "https://osmihelp.org/" "OSMI" >}} looks like a valuable resource
 for mental illness.
 But where is the site that focuses on software developers
 and talks extensively about physical and mental health issues?
@@ -66,6 +66,6 @@ could you share this survey out to your peers and coworkers?
 The more data we collect,
 the better the final resource site can be.
 
-## [Here is the Developer Health Survey Google Form again.](https://docs.google.com/forms/d/1hOMT8a0NAYG3Tge7T4D7F0VEAwPK3glf44Yw-6j6M2E/edit)
+## {{< extlink "https://docs.google.com/forms/d/1hOMT8a0NAYG3Tge7T4D7F0VEAwPK3glf44Yw-6j6M2E/edit" "Here is the Developer Health Survey Google Form again." >}}
 
 Thank you so much for your time.

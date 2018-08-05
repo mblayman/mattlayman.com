@@ -17,7 +17,7 @@ aliases:
 
 ---
 
-[College Conductor](https://www.collegeconductor.com/)
+{{< extlink "https://www.collegeconductor.com/" "College Conductor" >}}
 gives educational consultants and counselors
 access to the information
 of thousands of U.S. colleges and universities.
@@ -26,10 +26,10 @@ to find these schools
 is through search.
 Since College Conductor keeps up
 with the latest versions
-of [Django](https://www.djangoproject.com/),
+of {{< extlink "https://www.djangoproject.com/" "Django" >}},
 I was able to add search
 by using PostgreSQL's
-[full text search](https://docs.djangoproject.com/en/1.10/ref/contrib/postgres/search/)
+{{< extlink "https://docs.djangoproject.com/en/1.10/ref/contrib/postgres/search/" "full text search" >}}
 that is exposed to the Django ORM.
 The search features are not perfect,
 but they provide results quickly

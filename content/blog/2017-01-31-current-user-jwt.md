@@ -22,26 +22,26 @@ the capability to authenticate a user
 and show information
 about that user.
 As an interesting design choice,
-[Ember](http://emberjs.com/) does **not**
+{{< extlink "http://emberjs.com/" "Ember" >}} does **not**
 include authentication
 as a core feature.
 Instead,
 Ember developers must turn to the addon ecosystem.
 After some research,
 I chose
-[Ember Simple Auth](http://ember-simple-auth.com/)
+{{< extlink "http://ember-simple-auth.com/" "Ember Simple Auth" >}}
 with
-[Ember Simple Auth Token](https://github.com/jpadilla/ember-simple-auth-token)
+{{< extlink "https://github.com/jpadilla/ember-simple-auth-token" "Ember Simple Auth Token" >}}
 to use
-JSON Web Tokens ([JWT](https://jwt.io/))
-for [College Conductor](https://www.collegeconductor.com).
+JSON Web Tokens ({{< extlink "https://jwt.io/" "JWT" >}})
+for {{< extlink "https://www.collegeconductor.com" "College Conductor" >}}.
 JSON Web Tokens are an emerging standard
 that make secure exchanges (like authentication) possible.
 To provide user information
 throughout the application,
 I had to do some extra work
 to create an Ember
-[service](https://guides.emberjs.com/v2.11.0/applications/services/).
+{{< extlink "https://guides.emberjs.com/v2.11.0/applications/services/" "service" >}}.
 I'm going to cover what I learned
 in the process.
 
@@ -51,7 +51,7 @@ to cover a wide variety
 of uses.
 As a template,
 I used the
-[Managing a Current User](https://github.com/simplabs/ember-simple-auth/blob/master/guides/managing-current-user.md)
+{{< extlink "https://github.com/simplabs/ember-simple-auth/blob/master/guides/managing-current-user.md" "Managing a Current User" >}}
 guide
 to direct the service
 that I needed.
@@ -168,7 +168,7 @@ of Ember Simple Auth Token.
 
 Last week,
 I wrote about
-[software abstractions](/2017/necessity-of-software-abstraction.html)
+{{< extlink "/2017/necessity-of-software-abstraction.html" "software abstractions" >}}
 and the benefits of boundaries.
 The boundaries provided by abstractions are extremely useful,
 but we should be comfortable breaking through them

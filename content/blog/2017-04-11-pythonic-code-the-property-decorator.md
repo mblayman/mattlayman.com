@@ -167,6 +167,6 @@ This characteristic allows developers
 to write code quickly and succinctly.
 If you want to know more about `property`,
 check out the
-[documentation](https://docs.python.org/3/library/functions.html#property).
+{{< extlink "https://docs.python.org/3/library/functions.html#property" "documentation" >}}.
 So, go forth and stop writing Java-style getter and setter methods
 in your Python code! :)

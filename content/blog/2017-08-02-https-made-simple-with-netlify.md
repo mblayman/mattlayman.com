@@ -36,7 +36,7 @@ This procedure was *manual*
 and *painful*.
 
 Thanks to the amazing work
-of [Let's Encrypt](https://letsencrypt.org/),
+of {{< extlink "https://letsencrypt.org/" "Let's Encrypt" >}},
 a certificate authority (CA)
 managed by a non-profit
 with large corporate backing,
@@ -45,7 +45,7 @@ with adding HTTPS
 is disappearing.**
 Let's Encrypt makes it possible
 for services
-like [Netlify](https://www.netlify.com/)
+like {{< extlink "https://www.netlify.com/" "Netlify" >}}
 to add HTTPS
 to a website,
 trivially.
@@ -98,7 +98,7 @@ stems from Google's preference
 for secure sites.
 Back in 2014,
 Google documented
-that [it would use HTTPS as a ranking signal](https://webmasters.googleblog.com/2014/08/https-as-ranking-signal.html).
+that {{< extlink "https://webmasters.googleblog.com/2014/08/https-as-ranking-signal.html" "it would use HTTPS as a ranking signal" >}}.
 I knew that this was true,
 but I didn't realize the weight
 of this signal
@@ -111,7 +111,7 @@ if they stick with HTTP.
 
 ## Enabling HTTPS with Netlify
 
-[Netlify](https://www.netlify.com/)
+{{< extlink "https://www.netlify.com/" "Netlify" >}}
 is a web service
 that can host content.
 They have a strong focus
@@ -119,15 +119,15 @@ on serving static content
 with dynamic content coming
 from various APIs.
 The company calls this style of architecture
-a [JAMstack](https://jamstack.org/)
+a {{< extlink "https://jamstack.org/" "JAMstack" >}}
 for JavaScript, APIs, and prebuilt Markup.
 
 If you run a statically generated website,
 Netlify is a great fit.
 Whether you use
-[Jekyll](https://jekyllrb.com/),
-[Hugo](https://gohugo.io/),
-or some obscure tool (like I do with [handroll](http://handroll.readthedocs.io/en/latest/)),
+{{< extlink "https://jekyllrb.com/" "Jekyll" >}},
+{{< extlink "https://gohugo.io/" "Hugo" >}},
+or some obscure tool (like I do with {{< extlink "http://handroll.readthedocs.io/en/latest/" "handroll" >}}),
 Netlify's build process can accommodate your tool of choice.
 
 > How does Netlify provide HTTPS support?
@@ -136,7 +136,7 @@ All it took for me to enable HTTPS was a couple of button clicks.
 Before enabling HTTPS,
 I had to connect my domain name.
 This was a process I needed to do anyway,
-and the [Netlify documentation](https://www.netlify.com/docs/custom-domains/) was very solid.
+and the {{< extlink "https://www.netlify.com/docs/custom-domains/" "Netlify documentation" >}} was very solid.
 With my domain name connected to my Netlify deployment,
 I clicked a button prompting me
 to enable HTTP,
@@ -146,7 +146,7 @@ Behind the scenes,
 Netlify contacted Let's Encrypt
 using one of the CA's automated processes.
 The automated process leads to an exchange
-that generates a [TLS certificate](https://en.wikipedia.org/wiki/Transport_Layer_Security).
+that generates a {{< extlink "https://en.wikipedia.org/wiki/Transport_Layer_Security" "TLS certificate" >}}.
 The certificate is what makes it possible to use HTTPS.
 The beautiful part
 about the process

@@ -26,14 +26,14 @@ Looking back,
 I wish I had ignored that feeling.
 
 My main editor is
-[Vim](http://www.vim.org/),
+{{< extlink "http://www.vim.org/" "Vim" >}},
 a tool with a strong reputation.
 I was very comfortable with the tool's default settings,
 but I had not explored how to customize it
 beyond turning on syntax highlighting.
 
 Once I joined
-[Storybird](https://storybird.com/)
+{{< extlink "https://storybird.com/" "Storybird" >}}
 and was working
 with my own hardware,
 I decided to improve my workflow
@@ -52,7 +52,7 @@ check out other posts
 in the series.
 
 1. Using plugins
-2. [Instant testing](/2017/supercharging-vim-instant-testing.html)
+2. [Instant testing]({{< ref "/blog/2017-12-10-supercharging-vim-instant-testing.md" >}})
 
 ## Managing plugins
 
@@ -63,9 +63,9 @@ to *manage* those plugins.
 To install and manage Vim plugins,
 you'll need a Vim plugin manager.
 There are a few options like
-[Pathogen](https://github.com/tpope/vim-pathogen),
-[Vundle](https://github.com/VundleVim/Vundle.vim),
-and [vim-plug](https://github.com/junegunn/vim-plug).
+{{< extlink "https://github.com/tpope/vim-pathogen" "Pathogen" >}},
+{{< extlink "https://github.com/VundleVim/Vundle.vim" "Vundle" >}},
+and {{< extlink "https://github.com/junegunn/vim-plug" "vim-plug" >}}.
 Each of these tools works in a similar way.
 I happen to use vim-plug
 so that's the tool I'll describe here.
@@ -124,7 +124,7 @@ Vim plugins often use Git and GitHub
 for hosting.
 In the example configuration above,
 the vim-unimpaired plugin comes from
-[https://github.com/tpope/vim-unimpaired](https://github.com/tpope/vim-unimpaired).
+{{< extlink "https://github.com/tpope/vim-unimpaired" "https://github.com/tpope/vim-unimpaired" >}}.
 
 vim-plug works by cloning each Git repository
 into the location specified by `begin`.
@@ -147,7 +147,7 @@ so it should be a quick process.
 Now you know how to install plugins
 in Vim!
 Learn more about vim-plug
-at the [vim-plug project page](https://github.com/junegunn/vim-plug).
+at the {{< extlink "https://github.com/junegunn/vim-plug" "vim-plug project page" >}}.
 
 ## Next time
 
@@ -157,4 +157,4 @@ inside of Vim,
 and minimize the delay
 in getting test feedback.
 
-Next up: [vim-test](https://github.com/janko-m/vim-test).
+Next up: {{< extlink "https://github.com/janko-m/vim-test" "vim-test" >}}.

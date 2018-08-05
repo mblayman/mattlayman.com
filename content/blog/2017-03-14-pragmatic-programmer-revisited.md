@@ -51,7 +51,7 @@ The emphasis on principles creates a timelessness
 to the material
 in spite of the text being full
 of references to older technology
-like [CVS](https://en.wikipedia.org/wiki/Concurrent_Versions_System).
+like {{< extlink "https://en.wikipedia.org/wiki/Concurrent_Versions_System" "CVS" >}}.
 These principles cover a sprectrum
 from generating code
 to metaprogramming
@@ -64,7 +64,7 @@ When I first read the book,
 I was working for a large defense contractor.
 The culture at work dictated a heavy process
 with an emphasis
-on a [waterfall methodology](https://en.wikipedia.org/wiki/Waterfall_model).
+on a {{< extlink "https://en.wikipedia.org/wiki/Waterfall_model" "waterfall methodology" >}}.
 Tracer bullets made my brain explode
 (not literally, thankfully)
 when considering how software *could* be developed.
@@ -100,19 +100,19 @@ and compilation could take much longer
 than on today's hardware.
 In modern development,
 we use Continuous Integration services
-like [Travis CI](https://travis-ci.org/)
+like {{< extlink "https://travis-ci.org/" "Travis CI" >}}
 to make sure our code is integrated far more than nightly.
 
 I think I would also actively tell other developers
 to be cautious with the appendix of resources.
 There are definitely great suggestions in there
-(like [Python](https://www.python.org/)).
+(like {{< extlink "https://www.python.org/" "Python" >}}).
 On the other hand,
 many suggestions are likely eclipsed
 by more modern tools.
-You might want use [Lua](https://www.lua.org/)
+You might want use {{< extlink "https://www.lua.org/" "Lua" >}}
 as an alternative to the book's suggestion
-of [Tcl](https://www.tcl.tk/)
+of {{< extlink "https://www.tcl.tk/" "Tcl" >}}
 for an embedded programming language,
 for example.
 
@@ -124,5 +124,5 @@ that is,
 well,
 pragmatic.
 It is a book that you should be sure to read.
-*[Read it](https://pragprog.com/book/tpp/the-pragmatic-programmer).*
+*{{< extlink "https://pragprog.com/book/tpp/the-pragmatic-programmer" "Read it" >}}.*
 Seriously.

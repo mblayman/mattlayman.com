@@ -15,7 +15,7 @@ aliases:
 ---
 
 At the next
-[Python Frederick](https://www.meetup.com/python-frederick/) meetup,
+{{< extlink "https://www.meetup.com/python-frederick/" "Python Frederick" >}} meetup,
 I'm going to speak
 about "Pythonic" code.
 Pythonic code is code
@@ -57,7 +57,7 @@ some_numbers = [1, 2, 3, 4, 5]
 
 You can learn a lot about lists
 by reading the
-[Python tutorial on data structures](https://docs.python.org/3/tutorial/datastructures.html),
+{{< extlink "https://docs.python.org/3/tutorial/datastructures.html" "Python tutorial on data structures" >}},
 but this post will cover one of the list's more iconic features,
 list comprehensions.
 

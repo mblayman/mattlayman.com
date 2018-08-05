@@ -15,7 +15,7 @@ aliases:
 
 I launched a new website devoted to developer health
 called
-[Full Health Developer](https://fullhealthdeveloper.com/).
+{{< extlink "https://fullhealthdeveloper.com/" "Full Health Developer" >}}.
 The site focuses on physical and mental health topics
 that are relevant to software developers.
 
@@ -80,7 +80,7 @@ if they choose.
 
 Speaking of articles, the first content article is available.
 You can check out
-[The Sleepy Developer: How Sleep Affects Your Code](https://fullhealthdeveloper.com/how-sleep-affects-your-code)
+{{< extlink "https://fullhealthdeveloper.com/how-sleep-affects-your-code" "The Sleepy Developer: How Sleep Affects Your Code" >}}
 on the site.
 
 If you like what you read,

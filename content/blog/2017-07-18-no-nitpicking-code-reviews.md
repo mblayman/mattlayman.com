@@ -96,9 +96,9 @@ that a computer could verify.
 
 Let's contrast that terrible code review experience
 with a Storybird code review.
-At [Storybird](https://storybird.com/),
+At {{< extlink "https://storybird.com/" "Storybird" >}},
 all code goes through a GitHub
-[pull request](https://help.github.com/articles/about-pull-requests/).
+{{< extlink "https://help.github.com/articles/about-pull-requests/" "pull request" >}}.
 
 In a pull request,
 the software runs through a series of checks
@@ -118,14 +118,14 @@ For this post,
 the item to unpack is "Style checks."
 The engineering team runs two tools
 to check Python code style.
-The first is [flake8](http://flake8.pycqa.org/en/latest/).
-The second tool is [isort](http://isort.readthedocs.io/en/latest/).
+The first is {{< extlink "http://flake8.pycqa.org/en/latest/" "flake8" >}}.
+The second tool is {{< extlink "http://isort.readthedocs.io/en/latest/" "isort" >}}.
 
 flake8 is a static analysis tool
 that compares Python code
 to recommendations made
 in the "Style Guide for Python Code"
-(often referred to as [PEP 8](https://www.python.org/dev/peps/pep-0008/)).
+(often referred to as {{< extlink "https://www.python.org/dev/peps/pep-0008/" "PEP 8" >}}).
 Any code that does not match conventions is reported,
 and the `flake8` executable exits
 with an error code.

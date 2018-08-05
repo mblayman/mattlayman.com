@@ -19,11 +19,10 @@ of the usual characteristics of my reading fare except for being non-fiction.
 They had no idea how this appeared on my Amazon wish list.
 
 The handbook, written by Bob Bly, made it to my list after a posting by a
-prolific Perl blogger, [chromatic][chr]. chromatic highlighted an area where
+prolific Perl blogger, {{< extlink "http://modernperlbooks.com/mt/2011/11/promoting-perls-features-versus-benefits.html" "chromatic" >}}.
+chromatic highlighted an area where
 software developers are poor communicators, and he suggested that we could all
 learn a thing or two from Bob about writing. I absolutely agree.
-
-[chr]: http://modernperlbooks.com/mt/2011/11/promoting-perls-features-versus-benefits.html
 
 I read the handbook with few expectations since it was totally out of my field
 of expertise. After completing it, I have a couple of specific comments for

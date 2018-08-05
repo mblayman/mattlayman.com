@@ -15,7 +15,7 @@ massive amounts of useless code with little explanation of what is going on.
 Those authors aim for high page count so that the dead tree version can be
 thicker to justify the high cost in a book store.
 
-The [RoR Tutorial](http://ruby.railstutorial.org/) includes a lot of code, but
+The {{< extlink "http://ruby.railstutorial.org/" "RoR Tutorial" >}} includes a lot of code, but
 the code was well explained and felt meaningful. Additionally, the author,
 Michael Hartl, is serious about Test Driven Development (TDD) so he includes a
 lot of test code. The use of TDD might have been my favorite feature of the
@@ -28,10 +28,9 @@ shows you how to test those things. The benefits to this are twofold:
    way as the app in the book.
 
 I could enumerate all the topics that Hartl covers in Rails, but the book is
-online so it would be better to just go read the [table of
-contents](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book). I'm not
-a seasoned RoR developer so I don't know how exhaustive he truly was, but the
-content seemed pretty thorough to me.
+online so it would be better to just go read the {{< extlink "http://ruby.railstutorial.org/ruby-on-rails-tutorial-book" "table of contents" >}}.
+I'm not a seasoned RoR developer so I don't know how exhaustive he truly was,
+but the content seemed pretty thorough to me.
 
 Overall, this is a very good introduction to the Ruby on Rails world. You
 don't have to be a pro at Ruby. And you don't have to be a pro at web

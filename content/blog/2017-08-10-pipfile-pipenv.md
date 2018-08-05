@@ -21,8 +21,7 @@ aliases:
 Last month,
 I wrote
 in detail
-about [the new Pipfile format
-and the pipenv tool](https://www.mattlayman.com/2017/using-pipfile-for-fun-and-profit.html)
+about {{< extlink "https://www.mattlayman.com/2017/using-pipfile-for-fun-and-profit.html" "the new Pipfile format and the pipenv tool" >}}
 for managing Python packages.
 I presented about Pipfiles
 in depth
@@ -36,4 +35,4 @@ and I posted it to YouTube
 for your enjoyment.
 
 The presentation material is available
-in the [Python Frederick talks repository](https://github.com/python-frederick/talks/tree/master/2017-08-pipfile).
+in the {{< extlink "https://github.com/python-frederick/talks/tree/master/2017-08-pipfile" "Python Frederick talks repository" >}}.

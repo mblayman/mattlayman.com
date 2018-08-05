@@ -31,8 +31,8 @@ of these issues,
 and I'll show how to make a Django web application
 behave as a twelve-factor app.*
 
-The [twelve-factor application](https://12factor.net/) methodology
-is a pattern popularized by [Heroku](https://www.heroku.com/)
+The {{< extlink "https://12factor.net/" "twelve-factor application" >}} methodology
+is a pattern popularized by {{< extlink "https://www.heroku.com/" "Heroku" >}}
 with an aim
 to handle many of the biggest considerations
 in web application deployment.
@@ -95,7 +95,7 @@ I've worked on a few Django apps
 in my career.
 These apps have mostly *not* been twelve-factor apps,
 but my latest project,
-[College Conductor](https://www.collegeconductor.com/),
+{{< extlink "https://www.collegeconductor.com/" "College Conductor" >}},
 uses the twelve-factor app pattern.
 A Django app requires very little extra work
 to make it a twelve-factor app.
@@ -138,8 +138,8 @@ In fact,
 any `./manage.py` command will fail to function
 without some configuation.
 To fix this,
-I use [Honcho](https://honcho.readthedocs.io/en/latest/),
-a Python port of [Foreman](http://ddollar.github.com/foreman).
+I use {{< extlink "https://honcho.readthedocs.io/en/latest/" "Honcho" >}},
+a Python port of {{< extlink "http://ddollar.github.com/foreman" "Foreman" >}}.
 Honcho provides tools for working
 on twelve-factor apps.
 With Honcho,

@@ -37,7 +37,7 @@ I stumbled upon this characteristic
 of humans
 by reading a random article
 on the internet.
-The [article](https://www.facebook.com/notes/blake-ross/aphantasia-how-it-feels-to-be-blind-in-your-mind/10156834777480504/),
+The {{< extlink "https://www.facebook.com/notes/blake-ross/aphantasia-how-it-feels-to-be-blind-in-your-mind/10156834777480504/" "article" >}},
 written by a man named Blake Ross,
 covers his cognitive ability and a lack of visual sense.
 He learned that this lack of sense is called aphantasia.

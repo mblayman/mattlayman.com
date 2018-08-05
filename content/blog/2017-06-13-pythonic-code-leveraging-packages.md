@@ -23,7 +23,7 @@ that fits well
 with the design
 of the Python language.
 In the last post,
-we looked at Python's [standard library](/2017/pythonic-code-using-standard-library.html)
+we looked at Python's {{< extlink "/2017/pythonic-code-using-standard-library.html" "standard library" >}}
 and how the "batteries included" mentality
 can take a developer very far with minimal extra effort.
 This sixth and final post will discuss the Python Package Index (PyPI)
@@ -47,10 +47,10 @@ that can be installed
 by developers.
 For instance,
 JavaScript developers can find software
-in the [npm](https://npmjs.com/) registry.
-Elixir developers have [Hex](https://hex.pm/).
+in the {{< extlink "https://npmjs.com/" "npm" >}} registry.
+Elixir developers have {{< extlink "https://hex.pm/" "Hex" >}}.
 And Python developers can look
-at the [Python Package Index](https://pypi.python.org/) (PyPI)
+at the {{< extlink "https://pypi.python.org/" "Python Package Index" >}} (PyPI)
 for extra software.
 
 Each language has a common tool
@@ -159,12 +159,12 @@ That's three very powerful lines of code.
 There are many packages you can use
 to build a website.
 If you need to make a website,
-you would be well served with [Django](https://www.djangoproject.com/).
+you would be well served with {{< extlink "https://www.djangoproject.com/" "Django" >}}.
 A full website is too large to provide
 a concise example
 in a blog post,
 but you can `pip install Django`
-and check out their [excellent tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial01/)
+and check out their {{< extlink "https://docs.djangoproject.com/en/1.11/intro/tutorial01/" "excellent tutorial" >}}
 to get going.
 
 > How do I connect to a database?
@@ -175,7 +175,7 @@ A well crafted Python program can help create a lot of business value
 if you could only connect
 and query a database.
 One excellent tool for communicating with a database is
-[SQLAlchemy](https://www.sqlalchemy.org/).
+{{< extlink "https://www.sqlalchemy.org/" "SQLAlchemy" >}}.
 `pip install SQLAlchemy` to get started.
 
 SQLAlchemy gives developers a Python API
@@ -212,13 +212,13 @@ to work with code
 that models the problem domain
 instead of working with raw SQL queries.
 You can explore SQLAlchemy
-with [their tutorial](http://docs.sqlalchemy.org/en/rel_1_1/orm/tutorial.html).
+with {{< extlink "http://docs.sqlalchemy.org/en/rel_1_1/orm/tutorial.html" "their tutorial" >}}.
 
 ### More resources
 
 Sometimes knowing the name of a package is the hardest part
 for getting started.
-Who could guess that [Werkzeug](http://werkzeug.pocoo.org/) is a great set of tools
+Who could guess that {{< extlink "http://werkzeug.pocoo.org/" "Werkzeug" >}} is a great set of tools
 for working with HTTP?
 Unless you're German,
 that's an unusual term to search for.
@@ -226,7 +226,7 @@ To find some names,
 I use a couple of resources.
 
 First,
-I like to check [Python 3 Readiness](http://py3readiness.org/).
+I like to check {{< extlink "http://py3readiness.org/" "Python 3 Readiness" >}}.
 This site checks the top 360 packages
 and their compatibility with Python 3.
 As the community transitioned to Python 3,
@@ -237,7 +237,7 @@ I find that it is a useful list
 to know what is popularly downloaded.
 
 The second resource that you might use is
-[Awesome Python](https://awesome-python.com/).
+{{< extlink "https://awesome-python.com/" "Awesome Python" >}}.
 Awesome Python breaks down many popular packages
 into their related category.
 The site links to the package

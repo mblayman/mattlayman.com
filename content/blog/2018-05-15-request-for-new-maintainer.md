@@ -36,13 +36,13 @@ Let's see how I got here to begin with.
 
 Some years ago,
 I started an ambituous side project
-called [College Conductor](https://www.collegeconductor.com/).
-The project uses [Django](https://www.djangoproject.com/)
-and [Ember](https://emberjs.com/).
+called {{< extlink "https://www.collegeconductor.com/" "College Conductor" >}}.
+The project uses {{< extlink "https://www.djangoproject.com/" "Django" >}}
+and {{< extlink "https://emberjs.com/" "Ember" >}}.
 
 While building out my project,
 I used a Python package
-([this one](http://django-rest-framework-json-api.readthedocs.io/en/stable/))
+({{< extlink "http://django-rest-framework-json-api.readthedocs.io/en/stable/" "this one" >}})
 and found a bug.
 Since I care about open source,
 I filed an issue on GitHub
@@ -135,7 +135,7 @@ on your project:
 **what if no one steps up?**
 
 If you're running a Python project,
-consider [JazzBand](https://jazzband.co/).
+consider {{< extlink "https://jazzband.co/" "JazzBand" >}}.
 JazzBand is focused
 on collective ownership
 of established projects
@@ -184,8 +184,8 @@ to finish this post
 without saying thanks.
 So,
 thanks to
-[n2ygk](https://github.com/n2ygk)
-and [sliverc](https://github.com/sliverc)
+{{< extlink "https://github.com/n2ygk" "n2ygk" >}}
+and {{< extlink "https://github.com/sliverc" "sliverc" >}}
 for their willingness
 to take over Django REST Framework JSON API
 as maintainers.

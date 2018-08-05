@@ -13,7 +13,7 @@ aliases:
 ---
 
 At last week's
-[Python Frederick](https://www.meetup.com/python-frederick/) meetup,
+{{< extlink "https://www.meetup.com/python-frederick/" "Python Frederick" >}} meetup,
 I gave a talk
 on Python packaging.
 My aim was to cover how packaging works
@@ -29,7 +29,7 @@ and why I think they are critical*.
 
 ## tox
 
-[tox](https://tox.readthedocs.io/en/latest/)
+{{< extlink "https://tox.readthedocs.io/en/latest/" "tox" >}}
 is a fantastic tool
 for *testing packaging*.
 With the `tox` command,
@@ -80,7 +80,7 @@ for testing against multiple versions of Python.
 
 ## twine
 
-[twine](https://pypi.python.org/pypi/twine)
+{{< extlink "https://pypi.python.org/pypi/twine" "twine" >}}
 is a critical tool
 in a packager's toolbelt
 for one reason:
@@ -110,7 +110,7 @@ $ twine upload dist/*
 
 The Python ecosystem has excellent documentation
 about packaging at the
-[Python Packaging User Guide](https://packaging.python.org/).
+{{< extlink "https://packaging.python.org/" "Python Packaging User Guide" >}}.
 This post was meant to be a gentle introduction
 to a couple of very valuable tools
 when you want to work

@@ -20,8 +20,8 @@ Internet can delete anything they want on your MarkWiki site. The release also
 incorporates Bootstrap 3 so all pages are now completely mobile responsive.
 
 You can check out the docs at
-[http://pythonhosted.org/MarkWiki/](http://pythonhosted.org/MarkWiki/) or lend
-a hand on [GitHub](https://github.com/mblayman/markwiki). Other features for
+{{< extlink "http://pythonhosted.org/MarkWiki/" "http://pythonhosted.org/MarkWiki/" >}} or lend
+a hand on {{< extlink "https://github.com/mblayman/markwiki" "GitHub" >}}. Other features for
 the release are in the release notes.
 
 Or... if you're like me, you can play around with it:

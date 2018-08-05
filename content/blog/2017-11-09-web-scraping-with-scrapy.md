@@ -21,7 +21,7 @@ aliases:
 
 This month,
 Python Frederick learned about
-[Scrapy](https://scrapy.org/),
+{{< extlink "https://scrapy.org/" "Scrapy" >}},
 a tool used to read web pages
 and extract information from them.
 Our speaker was Micah Nordland,
@@ -31,4 +31,4 @@ and demoed how to use the tool
 to get data from website.
 
 Micah's presentation is available online
-at [http://lucy.rehack.me/slides/scrapy/](http://lucy.rehack.me/slides/scrapy/).
+at {{< extlink "http://lucy.rehack.me/slides/scrapy/" "http://lucy.rehack.me/slides/scrapy/" >}}.

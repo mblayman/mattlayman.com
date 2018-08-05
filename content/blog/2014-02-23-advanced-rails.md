@@ -8,8 +8,7 @@ aliases:
 
 ---
 Technology books are more like milk than wine. They don't get better with age.
-Brad Ediger's *[Advanced
-Rails](http://www.amazon.com/Advanced-Rails-Brad-Ediger/dp/0596510322)* is
+Brad Ediger's *{{< extlink "http://www.amazon.com/Advanced-Rails-Brad-Ediger/dp/0596510322" "Advanced Rails" >}}* is
 fairly well written and provides lots of details, but much of the information
 is outdated. Ruby on Rails has changed. The plugin ecosystem of Ruby gems has
 changed. Even the underlying Ruby language has changed.

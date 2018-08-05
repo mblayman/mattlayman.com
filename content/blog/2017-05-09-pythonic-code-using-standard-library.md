@@ -39,13 +39,13 @@ with no setup.
 
 ## Using the standard library
 
-To quote from the [Python documentation](https://docs.python.org/3/):
+To quote from the {{< extlink "https://docs.python.org/3/" "Python documentation" >}}:
 
 > keep this under your pillow
 
 Python is an extremely productive programming language.
 Its visual style lends itself to great readability and clarity.
-Its [guiding principles](https://www.python.org/dev/peps/pep-0020/)
+Its {{< extlink "https://www.python.org/dev/peps/pep-0020/" "guiding principles" >}}
 are beautiful ambitions for programming language design.
 And its included software,
 known as the standard library,
@@ -62,7 +62,7 @@ This batteries included philosophy gives developers a wide choice
 of software
 that solves many problems.
 Having so much software introduces a challenge.
-In my last post on [built-in functions](/2017/pythonic-code-built-in-functions.html),
+In my last post on {{< extlink "/2017/pythonic-code-built-in-functions.html" "built-in functions" >}},
 I noted that I covered less than 10%
 of the built-ins.
 That challenge is amplified
@@ -77,7 +77,7 @@ an idea of some tasks
 that the standard library can handle.
 With this idea in hand,
 I hope you'll be inspired
-to browse [the documentation](https://docs.python.org/3/library/index.html)
+to browse {{< extlink "https://docs.python.org/3/library/index.html" "the documentation" >}}
 when trying to solve some of your own problems.
 
 Making use of the standard library
@@ -104,7 +104,7 @@ does not.
 
 When you encounter some data task
 that Excel can't handle,
-you may want to consider the [csv](https://docs.python.org/3/library/csv.html)
+you may want to consider the {{< extlink "https://docs.python.org/3/library/csv.html" "csv" >}}
 module.
 Exporting your data to CSV format
 and manipulating it in Python
@@ -147,17 +147,17 @@ The Perl code that I wrote targeted a UNIX-like operating system,
 and I was tasked with adding cross-platform support on Windows.
 The ensuing experience was horrible.
 The team I was on made heavy use of
-[File::Spec](http://search.cpan.org/dist/PathTools/lib/File/Spec.pm),
+{{< extlink "http://search.cpan.org/dist/PathTools/lib/File/Spec.pm" "File::Spec" >}},
 but it was still painful.
 
 When I started doing development
 in Python,
 I learned about modules that made file handling much better:
-[os](https://docs.python.org/2/library/os.html)
+{{< extlink "https://docs.python.org/2/library/os.html" "os" >}}
 and
-[shutil](https://docs.python.org/3/library/shutil.html).
+{{< extlink "https://docs.python.org/3/library/shutil.html" "shutil" >}}.
 
-`os` and its buddy module [os.path](https://docs.python.org/3/library/os.path.html)
+`os` and its buddy module {{< extlink "https://docs.python.org/3/library/os.path.html" "os.path" >}}
 make file management doable.
 
 The documentation for `os` is *completely* intimidating,
@@ -194,7 +194,7 @@ These two functions let you copy or delete
 an entire directory and all its contents.
 
 The newest module to shake things up
-in file handling is [pathlib](https://docs.python.org/3/library/pathlib.html).
+in file handling is {{< extlink "https://docs.python.org/3/library/pathlib.html" "pathlib" >}}.
 I don't have much experience with this
 because I haven't written much Python 3 *only* code,
 but it seems really powerful.
@@ -226,12 +226,12 @@ in data
 and do something
 if there is a match to the pattern.
 
-Python includes the [re](https://docs.python.org/3/library/re.html) module
+Python includes the {{< extlink "https://docs.python.org/3/library/re.html" "re" >}} module
 as your gateway to handling regular expressions.
 The documentation for this module is possibly *more* intimidating
 than the `os` module,
 but that's because regular expressions are essentially
-a [domain specific language](https://en.wikipedia.org/wiki/Domain-specific_language)
+a {{< extlink "https://en.wikipedia.org/wiki/Domain-specific_language" "domain specific language" >}}
 for pattern matching.
 If you take the time to learn regular expressions,
 you can get some really cool things done.
@@ -296,7 +296,7 @@ Describing each of these modules would take many years
 of posts.
 If you want to learn more,
 I can suggest you read the
-[Python 3 Module of the Week](https://pymotw.com/3/) series
+{{< extlink "https://pymotw.com/3/" "Python 3 Module of the Week" >}} series
 from Doug Hellmann.
 Doug covers a number of popular modules
 in great depth,

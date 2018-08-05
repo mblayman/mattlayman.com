@@ -61,7 +61,7 @@ to expose a feature
 in a controlled manner.
 
 You might come across feature flags
-as [*feature toggles*](https://martinfowler.com/articles/feature-toggles.html)
+as *{{< extlink "https://martinfowler.com/articles/feature-toggles.html" "feature toggles" >}}*
 or *feature flippers*.
 Even though the names are different,
 the intent is the same.
@@ -101,7 +101,7 @@ from personal experience
 that mastery
 over the feature timeline
 is a huge boon
-for [Storybird](https://storybird.com/).
+for {{< extlink "https://storybird.com/" "Storybird" >}}.
 The team at Storybird can polish features
 before sharing them
 with hundreds of thousands
@@ -121,9 +121,9 @@ er,
 
 > **waffle**: verb - EQUIVOCATE, VACILLATE
 >
-> [Merriam-Webster](https://www.merriam-webster.com/dictionary/waffle)
+> {{< extlink "https://www.merriam-webster.com/dictionary/waffle" "Merriam-Webster" >}}
 
-[Django Waffle](http://waffle.readthedocs.io/en/latest/index.html)
+{{< extlink "http://waffle.readthedocs.io/en/latest/index.html" "Django Waffle" >}}
 is a feature flag library
 that can enable or disable code,
 as described previously,
@@ -131,7 +131,7 @@ and is quick
 to add to any Django project.
 
 Waffle includes
-[a few types of feature control](http://waffle.readthedocs.io/en/latest/types/index.html).
+{{< extlink "http://waffle.readthedocs.io/en/latest/types/index.html" "a few types of feature control" >}}.
 For our purposes,
 I'm going to focus
 on flags
@@ -169,7 +169,7 @@ Let's break down how this works.
 Waffle stores flag settings
 in a database table.
 A team controls the available flags
-via the [Django admin](https://docs.djangoproject.com/en/1.11/ref/contrib/admin/).
+via the {{< extlink "https://docs.djangoproject.com/en/1.11/ref/contrib/admin/" "Django admin" >}}.
 From the admin site,
 a developer can set a flag's name,
 enabled/disabled status,

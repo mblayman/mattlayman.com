@@ -10,23 +10,23 @@ aliases:
 
 ---
 I've been working on
-[College Conductor](https://www.collegeconductor.com/)
+{{< extlink "https://www.collegeconductor.com/" "College Conductor" >}}
 to help serve Independent Educational Consultants
-(like [this one](https://laymancollegeconsulting.com/) :)
+(like {{< extlink "https://laymancollegeconsulting.com/" "this one" >}} :)
 and high school guidance counselors.
 To find product market fit,
-I'm using [Segment](https://segment.com/)
+I'm using {{< extlink "https://segment.com/" "Segment" >}}
 which gets the data I need
 to decide how to improve the service.
 In this post,
 **I'll describe how I connected Segment
 to College Conductor's
-[Ember.js](http://emberjs.com/) frontend.**
+{{< extlink "http://emberjs.com/" "Ember.js" >}} frontend.**
 
 Working with Segment in Ember can be done with
-[ember-cli-segment](https://github.com/josemarluedke/ember-cli-segment),
+{{< extlink "https://github.com/josemarluedke/ember-cli-segment" "ember-cli-segment" >}},
 an Ember addon that provides an Ember
-[service](https://guides.emberjs.com/v2.1.0/applications/services/)
+{{< extlink "https://guides.emberjs.com/v2.1.0/applications/services/" "service" >}}
 to communicate with Segment.
 The first thing I did was install the addon with:
 
@@ -40,7 +40,7 @@ Before getting buried in details,
 I had two initial goals with this addon.
 
 1. Connect to Segment to record basic analytics.
-2. Utilize the [identify](https://segment.com/docs/sources/server/http/#identify)
+2. Utilize the {{< extlink "https://segment.com/docs/sources/server/http/#identify" "identify" >}}
    API to connect users to their actions.
 
 Once these two goals were completed,

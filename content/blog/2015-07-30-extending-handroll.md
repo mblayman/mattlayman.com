@@ -53,11 +53,9 @@ In the example,
 I did a boring `print` statement.
 
 All the signals and handler methods that you can use
-are in the [extension documentation][rtd].
+are in the {{< extlink "http://handroll.readthedocs.org/en/latest/extensions.html" "extension documentation" >}}.
 Any work that you do beyond the class attributes
 and handlers is entirely in your hands.
-
-[rtd]: http://handroll.readthedocs.org/en/latest/extensions.html
 
 Once your extension is ready,
 you need to hook it in using a setuptools entry point.

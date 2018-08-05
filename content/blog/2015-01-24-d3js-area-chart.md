@@ -79,7 +79,7 @@ source code.
 #### Margins
 
 Charts in D3 have no margins, but the primary D3 author frequently talks about
-defining [conventional margins](http://bl.ocks.org/mbostock/3019563). The idea
+defining {{< extlink "http://bl.ocks.org/mbostock/3019563" "conventional margins" >}}. The idea
 is to make some margins and define an SVG group (i.e. the `g` tag) that is
 set to those margin boundaries. The code only considers the group tag as the
 drawable area.

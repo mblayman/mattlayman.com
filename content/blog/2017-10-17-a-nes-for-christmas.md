@@ -90,11 +90,11 @@ like many other kids my age,
 that I wanted to make videogames
 as my job.
 I read Nintendo Power
-and learned about schools like [DigiPen](https://www.digipen.edu/)
+and learned about schools like {{< extlink "https://www.digipen.edu/" "DigiPen" >}}
 and aimed for that path.
 With my neighborhood buddies,
 we explored some game development systems
-like [MegaZuex](http://vault.digitalmzx.net/index.php),
+like {{< extlink "http://vault.digitalmzx.net/index.php" "MegaZuex" >}},
 and I fantasized about creating my own Street Fighter clone.
 This desire to create games pushed me toward math
 and pushed me to excel in school,
@@ -107,7 +107,7 @@ I learned how computers work,
 how software is created,
 and so much more.
 The course of my life has steered away from game development
-(though I recently made a [Pong](https://github.com/mblayman/pong) game for fun),
+(though I recently made a {{< extlink "https://github.com/mblayman/pong" "Pong" >}} game for fun),
 but I still credit my path
 to that little grey box
 that appeared before my eyes

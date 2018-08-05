@@ -46,11 +46,10 @@ Result: FAIL
 ```
 
 Once you have some TAP results from your awesome homegrown test suite, you can
-get them into a TAP reader like the [Jenkins
-plugin](https://wiki.jenkins-ci.org/display/JENKINS/TAP+Plugin) or a specific
-tool like [Tapper](http://tapper.github.io/Tapper/).
+get them into a TAP reader like the {{< extlink "https://wiki.jenkins-ci.org/display/JENKINS/TAP+Plugin" "Jenkins plugin" >}} or a specific
+tool like {{< extlink "http://tapper.github.io/Tapper/" "Tapper" >}}.
 
 There are some additional features that I did not discuss here (like TODO
-tracking). See the [TAP website](http://testanything.org/) for more details.
+tracking). See the {{< extlink "http://testanything.org/" "TAP website" >}} for more details.
 More adventurous individuals can check out the specifics by looking at the de
-facto parser, [TAP::Parser](http://search.cpan.org/~ovid/Test-Harness-3.28/lib/TAP/Parser.pm), on Perl's CPAN.
+facto parser, {{< extlink "http://search.cpan.org/~ovid/Test-Harness-3.28/lib/TAP/Parser.pm" "TAP::Parser" >}}, on Perl's CPAN.

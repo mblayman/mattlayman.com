@@ -47,7 +47,7 @@ in a [blog post about the readthrough experience](/2016/readthrough-python-stand
 Even with that caution,
 there **is** some documentation
 that you *absolutely* should read:
-[the built-in functions reference](https://docs.python.org/3/library/functions.html).
+{{< extlink "https://docs.python.org/3/library/functions.html" "the built-in functions reference" >}}.
 
 The built-in functions are the set
 of functions that do not need to be imported.
@@ -207,7 +207,7 @@ and how to apply them regularly
 as you make new things.
 
 Be sure to
-[check out the docs](https://docs.python.org/3/library/functions.html)
+{{< extlink "https://docs.python.org/3/library/functions.html" "check out the docs" >}}
 to boost your skill set,
 and check back in next time
 when I illuminate

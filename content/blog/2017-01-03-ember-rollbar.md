@@ -33,10 +33,10 @@ Or,
 and fix them
 to improve your application.**
 I recently set up Rollbar
-for [College Conductor](https://www.collegeconductor.com/)
+for {{< extlink "https://www.collegeconductor.com/" "College Conductor" >}}
 and wanted to share my experience.
 
-[Rollbar](https://rollbar.com/)
+{{< extlink "https://rollbar.com/" "Rollbar" >}}
 is a service
 that let's you record your errors
 *wherever* they happen.

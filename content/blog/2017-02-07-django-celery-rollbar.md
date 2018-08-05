@@ -19,7 +19,7 @@ The last [Rollbar post](/2017/ember-rollbar.html)
 that I made covered how to integrate Rollbar
 into your Ember application.
 As a reminder,
-[Rollbar](https://rollbar.com/)
+{{< extlink "https://rollbar.com/" "Rollbar" >}}
 is a service
 that let's you record your errors
 *wherever* they happen.
@@ -28,15 +28,15 @@ I didn't cover how to include Rollbar
 in a Django application
 because the Rollbar team does a great job
 of that
-in [their own documentation](https://rollbar.com/docs/notifier/pyrollbar/).
+in {{< extlink "https://rollbar.com/docs/notifier/pyrollbar/" "their own documentation" >}}.
 **But what happens when you want to do asynchronous task management
-with [Celery](http://www.celeryproject.org/)
+with {{< extlink "http://www.celeryproject.org/" "Celery" >}}
 in your Django app?**
 I encountered some gotchas
 in making that work
 so I'm going to describe what I learned here.
 
-[College Conductor](https://www.collegeconductor.com/)
+{{< extlink "https://www.collegeconductor.com/" "College Conductor" >}}
 uses Celery
 to make sure
 that slow tasks
@@ -61,7 +61,7 @@ but it does not execute the Django middleware.
 Thus,
 the Rollbar configuration is skipped.
 After searching,
-I found [Rollbar's example code](https://github.com/rollbar/rollbar-celery-example)
+I found {{< extlink "https://github.com/rollbar/rollbar-celery-example" "Rollbar's example code" >}}
 for configuring a Celery worker
 and that is when I encountered my problem.
 The sample code and the Django middleware
@@ -90,7 +90,7 @@ ROLLBAR = {
 These settings, in combination with the Django middleware,
 make the Django application report errors to Rollbar.
 (Note: my Django app follows the
-[twelve factor app](https://12factor.net/) design
+{{< extlink "https://12factor.net/" "twelve factor app" >}} design
 so all of the environment specific stuff
 like acccess tokens
 are injected as environment variables.

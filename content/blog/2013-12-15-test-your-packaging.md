@@ -22,12 +22,12 @@ The mistake was completely avoidable. All I needed to do was run the test suite
 against an installed version, and the error would have smacked me in the face
 like it did for the 300 other people.
 
-When someone kindly [pointed out the error via
-GitHub](https://github.com/mblayman/markwiki/issues/13), I decided I should fix
+When someone kindly {{< extlink "https://github.com/mblayman/markwiki/issues/13" "pointed out the error via GitHub" >}},
+I decided I should fix
 the problem to avoid such future embarrassment. The solution to this packaging
-issue comes via [Travis CI](https://travis-ci.org/),
-[Tox](http://tox.readthedocs.org/en/latest/), and
-[virtualenv](http://virtualenv.readthedocs.org/en/latest/). Travis is a service
+issue comes via {{< extlink "https://travis-ci.org/" "Travis CI" >}},
+{{< extlink "http://tox.readthedocs.org/en/latest/" "Tox" >}}, and
+{{< extlink "http://virtualenv.readthedocs.org/en/latest/" "virtualenv" >}}. Travis is a service
 for doing automated builds using "Continuous Integration." All this means is
 that every source commit to GitHub will trigger Travis to build MarkWiki and
 run the tests. The automated build is run inside a virtual environment with

@@ -13,13 +13,13 @@ aliases:
  - /2016/handroll-sitemaps-robots.html
 
 ---
-Google [webmaster tools](https://www.google.com/webmasters/) provide suggestions
+Google {{< extlink "https://www.google.com/webmasters/" "webmaster tools" >}} provide suggestions
 to improve your site ranking.
 The suggestions generally involve making it easier
 for their crawlers
 to find your content.
 One such suggestion is adding a
-[sitemap](https://www.sitemaps.org/index.html).
+{{< extlink "https://www.sitemaps.org/index.html" "sitemap" >}}.
 *Adding a sitemap
 can increase your visibility
 on the internet.*

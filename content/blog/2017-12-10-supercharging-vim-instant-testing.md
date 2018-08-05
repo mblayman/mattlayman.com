@@ -99,20 +99,20 @@ That's a lot of work to run some tests.
 Shouldn't it be **easier** to run a single test
 rather than harder?
 
-As [Raymond Hettinger](https://twitter.com/raymondh) is prone to say:
+As {{< extlink "https://twitter.com/raymondh" "Raymond Hettinger" >}} is prone to say:
 *There must be a better way!*
 
 ## Testing *inside* Vim with `vim-test`
 
 My former co-worker at Storybird,
-[Ben Johnson](https://twitter.com/benjohnson),
+{{< extlink "https://twitter.com/benjohnson" "Ben Johnson" >}},
 introduced me to a Vim plugin called
-[vim-test](https://github.com/janko-m/vim-test).
+{{< extlink "https://github.com/janko-m/vim-test" "vim-test" >}}.
 This plugin dramatically changed my relationship
 with automated test tools.
 
 If you followed the first post
-and added [vim-plug](https://github.com/junegunn/vim-plug) to your `vimrc`,
+and added {{< extlink "https://github.com/junegunn/vim-plug" "vim-plug" >}} to your `vimrc`,
 then add vim-test
 in your plugin section:
 
@@ -179,4 +179,4 @@ we'll focus on another flow improvement tool
 that does insanely fast file navigation
 with fuzzy finding.
 
-Next up: [ctrlp](http://ctrlpvim.github.io/ctrlp.vim/)
+Next up: {{< extlink "http://ctrlpvim.github.io/ctrlp.vim/" "ctrlp" >}}

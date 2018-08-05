@@ -31,4 +31,4 @@ that highlighted some amazing features
 used by scientists all over the world.
 
 Christine's presentation is available online
-at [Python Frederick's GitHub repo](https://github.com/python-frederick/talks/tree/master/2017-12-data-science).
+at {{< extlink "https://github.com/python-frederick/talks/tree/master/2017-12-data-science" "Python Frederick's GitHub repo" >}}.

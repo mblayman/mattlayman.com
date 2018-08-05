@@ -134,7 +134,7 @@ of this code.
 Where did the `close` call go?
 The `with` statement used an extra concept
 called a
-[context manager](https://docs.python.org/3/reference/datamodel.html#context-managers).
+{{< extlink "https://docs.python.org/3/reference/datamodel.html#context-managers" "context manager" >}}.
 Context managers are designed
 to handle setup and tear down
 for anything that needs it.
@@ -163,7 +163,7 @@ timers,
 or even nicer interfaces for unit testing exceptions.
 Finally,
 Python let's you create your own context managers.
-Check out [contextlib](https://docs.python.org/3/library/contextlib.html)
+Check out {{< extlink "https://docs.python.org/3/library/contextlib.html" "contextlib" >}}
 for more info.
 I've included this example to give you a quick idea in action.
 
