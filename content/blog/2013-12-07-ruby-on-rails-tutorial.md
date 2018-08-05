@@ -5,6 +5,11 @@ image: img/2013/rorcover.jpg
 type: post
 aliases:
  - /2013/ruby-on-rails-tutorial.html
+categories:
+ - Book reviews
+tags:
+ - Ruby
+ - Ruby on Rails
 
 ---
 If you don't know Ruby on Rails (RoR), this book *will* help you learn how to

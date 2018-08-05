@@ -5,6 +5,11 @@ image: img/2013/allthethings.jpg
 type: post
 aliases:
  - /2013/markwiki-1-3-released.html
+categories:
+ - Open source
+tags:
+ - MarkWiki
+ - Python
 
 ---
 MarkWiki 1.3 is now packaged and uploaded to

@@ -5,6 +5,11 @@ image: img/2013/travis.png
 type: post
 aliases:
  - /2013/test-your-packaging.html
+categories:
+ - Open source
+tags:
+ - Python
+ - testing
 
 ---
 Software development is a process rife with errors. We generally call them

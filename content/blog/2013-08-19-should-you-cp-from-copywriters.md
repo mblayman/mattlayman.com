@@ -5,6 +5,10 @@ image: img/2013/copywriter.jpg
 type: post
 aliases:
  - /2013/should-you-cp-from-copywriters.html
+categories:
+ - Book reviews
+tags:
+ - copywriting
 
 ---
 Spend any time on the Internet looking at software information and you will

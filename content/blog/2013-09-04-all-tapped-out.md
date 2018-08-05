@@ -5,6 +5,11 @@ image: img/2013/tap.png
 type: post
 aliases:
  - /2013/all-tapped-out.html
+categories:
+ - Software
+tags:
+ - TAP
+ - testing
 
 ---
 Good software practices say you should do automated testing, but what do you do

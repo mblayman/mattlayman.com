@@ -5,6 +5,10 @@ image: img/2013/peopleware.jpg
 type: post
 aliases:
  - /2013/office-zen.html
+categories:
+ - Book reviews
+tags:
+ - People
 
 ---
 For developers who need to get things done, the work environment is often a

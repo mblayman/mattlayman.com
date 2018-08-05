@@ -5,6 +5,10 @@ image: img/2013/java.jpg
 type: post
 aliases:
  - /2013/java-a-bad-choice-for-foss.html
+categories:
+ - Open source
+tags:
+ - Java
 
 ---
 805MB. That's how much I had to download before I could even attempt to

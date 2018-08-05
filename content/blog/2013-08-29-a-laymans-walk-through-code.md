@@ -6,6 +6,10 @@ image: img/2013/code.jpg
 type: post
 aliases:
  - /2013/a-laymans-walk-through-code.html
+categories:
+ - Book reviews
+tags:
+ - computers
 
 ---
 I went to a university for four years to learn how a computer works from power

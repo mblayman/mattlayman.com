@@ -5,6 +5,10 @@ image: img/2013/dreaming.jpg
 type: post
 aliases:
  - /2013/dreaming-in-code.html
+categories:
+ - Book reviews
+tags:
+ - Design
 
 ---
 Until a couple of months ago, Chandler was just a character from *Friends* for

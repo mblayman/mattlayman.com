@@ -4,6 +4,11 @@ description: MarkWiki 1.2 release announcement
 type: post
 aliases:
  - /2013/markwiki-1-2-released.html
+categories:
+ - Open source
+tags:
+ - MarkWiki
+ - Python
 
 ---
 My pet project, MarkWiki, has reached a point of maturity where other people
