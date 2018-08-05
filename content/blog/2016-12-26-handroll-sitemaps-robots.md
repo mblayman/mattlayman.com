@@ -11,6 +11,13 @@ image: img/2016/robot.jpeg
 type: post
 aliases:
  - /2016/handroll-sitemaps-robots.html
+categories:
+ - Python
+ - Open source
+tags:
+ - handroll
+ - sitemaps
+ - robots.txt
 
 ---
 Google {{< extlink "https://www.google.com/webmasters/" "webmaster tools" >}} provide suggestions

@@ -4,6 +4,12 @@ description: A release announcement for handroll 1.1
 type: post
 aliases:
  - /2014/handroll-1-1-released.html
+categories:
+ - Python
+ - Open source
+tags:
+ - handroll
+ - static site generators
 
 ---
 I have released the 1.1 version of my static website generator. This version

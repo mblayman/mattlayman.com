@@ -7,6 +7,11 @@ description: >-
 type: post
 aliases:
  - /2015/d3js-area-chart.html
+categories:
+ - Guide
+tags:
+ - JavaScript
+ - D3js
 
 ---
 <style>

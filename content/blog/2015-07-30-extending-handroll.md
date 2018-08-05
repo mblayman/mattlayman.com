@@ -5,6 +5,13 @@ image: img/2015/outlet.jpg
 type: post
 aliases:
  - /2015/extending-handroll.html
+categories:
+ - Guide
+ - Python
+ - Open source
+tags:
+ - handroll
+ - static site generators
 
 ---
 I released handroll 2.0 with a shiny new extension interface.

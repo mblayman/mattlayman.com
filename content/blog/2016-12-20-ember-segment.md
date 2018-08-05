@@ -7,6 +7,12 @@ images: img/2016/segment.png
 type: post
 aliases:
  - /2016/ember-segment.html
+categories:
+ - Guide
+tags:
+ - JavaScript
+ - Ember
+ - Segment
 
 ---
 I've been working on

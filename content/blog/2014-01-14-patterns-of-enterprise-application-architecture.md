@@ -5,6 +5,10 @@ image: img/2014/eaa.jpg
 type: post
 aliases:
  - /2014/patterns-of-enterprise-application-architecture.html
+categories:
+ - Book reviews
+tags:
+ - Patterns
 
 ---
 *Active Record*. *Unit of Work*. You may have heard of these before. They are

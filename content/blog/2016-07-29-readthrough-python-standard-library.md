@@ -7,6 +7,12 @@ image: img/2016/library.jpg
 type: post
 aliases:
  - /2016/readthrough-python-standard-library.html
+categories:
+ - Book reviews
+ - Python
+tags:
+ - Python
+ - standard library
 
 ---
 A couple of years ago I decided to read the entire Python standard library.

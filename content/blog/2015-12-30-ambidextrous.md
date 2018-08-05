@@ -8,6 +8,10 @@ image: img/2015/toothbrush.jpg
 type: post
 aliases:
  - /2015/ambidextrous.html
+categories:
+ - Personal
+tags:
+ - practice
 
 ---
 *Your brain is far more elastic

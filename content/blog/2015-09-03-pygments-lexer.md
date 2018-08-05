@@ -11,6 +11,11 @@ image: img/2015/pygments.png
 type: post
 aliases:
  - /2015/pygments-lexer.html
+categories:
+ - Python
+tags:
+ - Pygments
+ - syntax highlighters
 
 ---
 I want pretty documentation for my {{< extlink "http://tappy.readthedocs.org/en/latest/" "tappy" >}} project,

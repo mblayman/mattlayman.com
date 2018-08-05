@@ -4,6 +4,12 @@ description: Introduction of handroll website generator tool
 type: post
 aliases:
  - /2014/handroll-website-generator.html
+categories:
+ - Python
+ - Open source
+tags:
+ - handroll
+ - static site generators
 
 ---
 Simplicity. That was my goal after studying {{< extlink "http://david.heinemeierhansson.com/" "DHH's personal website" >}}.

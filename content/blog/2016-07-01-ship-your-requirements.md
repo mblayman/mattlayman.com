@@ -8,6 +8,10 @@ image: img/python.png
 type: post
 aliases:
  - /2016/ship-your-requirements.html
+categories:
+ - Python
+tags:
+ - dependencies
 
 ---
 Dependencies: they're always changing.

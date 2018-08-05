@@ -14,6 +14,11 @@ image: img/2015/phantomjs.png
 type: post
 aliases:
  - /2015/phantomjs.html
+categories:
+ - Software
+tags:
+ - JavaScript
+ - PhantomJS
 
 ---
 How can you inspect the source of a website with a script?
