@@ -1,4 +1,6 @@
 [build]
-  base = "."
-  publish = "publish"
-  commmand = "handroll -f build site"
+publish = "public"
+commmand = "hugo"
+
+[context.production.environment]
+HUGO_VERSION = "0.46"
