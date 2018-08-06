@@ -12,6 +12,11 @@ image: img/2017/vim.png
 type: post
 aliases:
  - /2017/supercharging-vim-using-plugins.html
+categories:
+ - Guide
+tags:
+ - Vim
+ - plugins
 
 ---
 

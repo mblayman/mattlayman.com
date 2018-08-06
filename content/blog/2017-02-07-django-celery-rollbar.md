@@ -12,6 +12,12 @@ image: img/2017/rollbar.jpeg
 type: post
 aliases:
  - /2017/django-celery-rollbar.html
+categories:
+ - Python
+tags:
+ - Django
+ - Celery
+ - Rollbar
 
 ---
 

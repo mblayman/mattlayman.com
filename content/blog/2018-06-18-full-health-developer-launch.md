@@ -10,6 +10,10 @@ image: img/2018/fhd.png
 type: post
 aliases:
  - /2018/full-health-developer-launch.html
+categories:
+ - Developer health
+tags:
+ - Full Health Developer
 
 ---
 

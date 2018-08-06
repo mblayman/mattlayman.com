@@ -14,6 +14,12 @@ image: img/2017/jwt.svg
 type: post
 aliases:
  - /2017/current-user-jwt.html
+categories:
+ - Guide
+tags:
+ - Ember
+ - JWT
+ - authn
 
 ---
 

@@ -13,6 +13,10 @@ image: img/python.png
 type: post
 aliases:
  - /2017/pythonic-code-leveraging-packages.html
+categories:
+ - Python
+tags:
+ - Design
 
 ---
 

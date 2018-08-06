@@ -10,6 +10,11 @@ description: >-
 type: post
 aliases:
  - /2017/cure-imposter-syndrome.html
+categories:
+ - Opinion
+tags:
+ - humility
+ - people
 
 ---
 

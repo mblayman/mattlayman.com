@@ -13,6 +13,12 @@ image: img/2018/rfnm.jpg
 type: post
 aliases:
  - /2018/request-for-new-maintainer.html
+categories:
+ - Python
+ - Open source
+tags:
+ - Django
+ - maintainers
 
 ---
 

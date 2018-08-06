@@ -14,6 +14,11 @@ image: img/python.png
 type: post
 aliases:
  - /2017/web-scraping-with-scrapy.html
+categories:
+ - Python
+tags:
+ - Python Frederick
+ - Scrapy
 
 ---
 

@@ -13,6 +13,12 @@ image: img/2017/ember.png
 type: post
 aliases:
  - /2017/semantic-ui-ember.html
+categories:
+ - Software
+tags:
+ - CSS
+ - Semantic UI
+ - Ember
 
 ---
 

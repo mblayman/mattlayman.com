@@ -11,6 +11,11 @@ image: img/python.png
 type: post
 aliases:
  - /2017/web-frameworks-shootout.html
+categories:
+ - Python
+tags:
+ - Python Frederick
+ - web apps
 
 ---
 

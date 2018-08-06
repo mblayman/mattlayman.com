@@ -6,7 +6,7 @@ description: >-
   and advocate for the Python programming language.
 
 ---
-<div class="about-banner">
+<div class="about-section about-section-reverse">
   <div>
     <p>I’m Matt, a software creator. Here are things I do:</p>
 
@@ -99,8 +99,27 @@ The core project is called `tappy`.
 <a name='work'></a>
 ## Work
 
-<img class='about-image' src='/about/storybird.gif'>
+<div class="about-section">
+  <div>
+    <img class='about-image' src='/about/dod.jpg' width='200' height='200'>
+  </div>
+  <div class="about-text">
+    <p>
+I’m currently a senior software engineer
+at {{< extlink "https://doctorondemand.com/" "Doctor on Demand" >}}.
+Doctor on Demand connects patients to doctors
+with video calls
+to solve common health problems.
+I write code using Django
+to make the patient experience
+as good as it can be.
+    </p>
+  </div>
+</div>
 
+<div class="about-section about-section-reverse">
+  <div class="about-text">
+    <p>
 I worked at <a href="https://storybird.com" target="_blank">Storybird</a>.
 Storybird makes it possible for people to share creative stories
 through book and poetry writing.
@@ -108,9 +127,19 @@ I was the lead software engineer
 with the opportunity to make Storybird an even better place to share stories.
 I got to write Python and JavaScript every day
 and help make the internet more awesome.
+    </p>
+  </div>
+  <div class='about-image-container'>
+    <img class='about-image' src='/about/storybird.gif'>
+  </div>
+</div>
 
-<img class='about-image' src='/about/lm.png' width='302' height='62'>
-
+<div class="about-section">
+  <div>
+    <img class='about-image' src='/about/lm.png' width='302' height='62'>
+  </div>
+  <div class="about-text">
+    <p>
 <a href="https://lockheedmartin.com/" target="_blank">Lockheed Martin</a> was my employer.
 While there, I worked on a wide range of products.
 You might have heard of some of them,
@@ -118,7 +147,12 @@ like <a href="https://en.wikipedia.org/wiki/Global_Positioning_System#Control_se
 or <a href="https://www.iridium.com/network/iridium-next/" target="_blank">satellite phones</a>.
 I also gained experience with Modeling and Simulation software,
 web applications,
-and complex configuration management implementations.
+and complex configuration management.
+    </p>
+  </div>
+</div>
+
+
 
 <a name='family'></a>
 ## Family

@@ -13,6 +13,11 @@ image: img/python.png
 type: post
 aliases:
  - /2017/using-pipfile-for-fun-and-profit.html
+categories:
+ - Python
+tags:
+ - Pipfile
+ - dependencies
 
 ---
 

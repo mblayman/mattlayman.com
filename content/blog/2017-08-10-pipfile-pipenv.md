@@ -13,6 +13,12 @@ image: img/python.png
 type: post
 aliases:
  - /2017/pipfile-pipenv.html
+categories:
+ - Python
+tags:
+ - Python Frederick
+ - Pipenv
+ - Pipfile
 
 ---
 

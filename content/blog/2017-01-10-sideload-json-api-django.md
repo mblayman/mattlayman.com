@@ -13,6 +13,11 @@ image: img/2017/jsonapi.png
 type: post
 aliases:
  - /2017/sideload-json-api-django.html
+categories:
+ - Python
+tags:
+ - Django
+ - JSON API
 
 ---
 

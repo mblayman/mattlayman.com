@@ -11,6 +11,10 @@ image: img/python.png
 type: post
 aliases:
  - /2017/pythonic-code-the-list-comprehension.html
+categories:
+ - Python
+tags:
+ - Design
 
 ---
 

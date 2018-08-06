@@ -11,6 +11,10 @@ image: img/2017/blind.jpeg
 type: post
 aliases:
  - /2017/aphantasia.html
+categories:
+ - Personal
+tags:
+ - aphantasia
 
 ---
 

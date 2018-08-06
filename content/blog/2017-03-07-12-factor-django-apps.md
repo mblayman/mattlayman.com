@@ -13,6 +13,11 @@ image: img/2017/django.png
 type: post
 aliases:
  - /2017/12-factor-django-apps.html
+categories:
+ - Python
+tags:
+ - 12-factor
+ - web apps
 
 ---
 

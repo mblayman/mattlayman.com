@@ -15,6 +15,11 @@ image: img/python.png
 type: post
 aliases:
  - /2017/data-science-in-python.html
+categories:
+ - Python
+tags:
+ - Python Frederick
+ - Data science
 
 ---
 

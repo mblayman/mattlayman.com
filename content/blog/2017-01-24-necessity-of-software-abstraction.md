@@ -8,6 +8,10 @@ description: >-
 type: post
 aliases:
  - /2017/necessity-of-software-abstraction.html
+categories:
+ - Software
+tags:
+ - Design
 
 ---
 

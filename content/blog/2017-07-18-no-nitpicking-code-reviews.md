@@ -12,6 +12,10 @@ image: img/2017/nitpick.jpg
 type: post
 aliases:
  - /2017/no-nitpicking-code-reviews.html
+categories:
+ - Opinion
+tags:
+ - code reviews
 
 ---
 

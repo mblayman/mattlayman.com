@@ -9,6 +9,12 @@ image: img/python.png
 type: post
 aliases:
  - /2017/2-critical-python-packaging-tools.html
+categories:
+ - Python
+tags:
+ - packaging
+ - tox
+ - twine
 
 ---
 

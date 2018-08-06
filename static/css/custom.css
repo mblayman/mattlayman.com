@@ -2,10 +2,21 @@ img#me {
   border-radius: 100%;
 }
 
-.about-banner {
+.about-section {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
+}
+
+.about-text {
+  margin: 1em;
+}
+.about-section-reverse .about-text {
+  margin-left: 0;
+}
+.about-image-container {
+  min-width: 25%;
 }
 
 .flex-right {
@@ -23,9 +34,16 @@ img#me {
     width: auto;
   }
 
-  .about-banner {
+  .about-section {
+    flex-direction: column;
+  }
+  .about-section-reverse {
     flex-direction: column-reverse;
   }
+  .about-text {
+    margin: 0;
+  }
+
   .post-full-content img.about-image {
     margin: 1em auto;
     width: auto;

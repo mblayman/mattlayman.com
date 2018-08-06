@@ -14,6 +14,11 @@ image: img/python.png
 type: post
 aliases:
  - /2017/pythonic-code-using-standard-library.html
+categories:
+ - Python
+tags:
+ - Design
+ - standard library
 
 ---
 

@@ -14,6 +14,12 @@ image: img/2017/postgresql.png
 type: post
 aliases:
  - /2017/postgres-search-django.html
+categories:
+ - Python
+tags:
+ - Django
+ - PostgreSQL
+ - search
 
 ---
 

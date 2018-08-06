@@ -15,6 +15,11 @@ image: img/2017/vim.png
 type: post
 aliases:
  - /2017/supercharging-vim-instant-testing.html
+categories:
+ - Guide
+tags:
+ - Vim
+ - testing
 
 ---
 

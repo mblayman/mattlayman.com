@@ -17,6 +17,11 @@ image: img/2017/waffles.jpg
 type: post
 aliases:
  - /2017/feature-flags-and-waffles.html
+categories:
+ - Python
+tags:
+ - Django
+ - feature flags
 
 ---
 

@@ -16,6 +16,11 @@ image: img/2017/nes.jpg
 type: post
 aliases:
  - /2017/a-nes-for-christmas.html
+categories:
+ - Personal
+tags:
+ - NES
+ - inspiration
 
 ---
 
