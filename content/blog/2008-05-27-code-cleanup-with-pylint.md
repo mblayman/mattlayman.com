@@ -44,7 +44,7 @@ so we use a pylint rules file that attempts to follow that guideline.
 Pylint is very easy to use and the following is an example of how to run it:
 
 ```bash
-matt@zion:~/branches/transitions-cleanup/src$ pylint —rcfile=pylintrc frontend/gui/transitions/fade_transition.py
+matt@zion:~/branches/transitions-cleanup/src$ pylint —-rcfile=pylintrc frontend/gui/transitions/fade_transition.py
 ```
 
 In this example, we do three things:
