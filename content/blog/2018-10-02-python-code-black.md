@@ -281,12 +281,12 @@ that inserts all the necessary scripts
 to let pre-commit manage it all.
 
 After the install command executes,
-pre-commit will use a `.pre-commit-config.yml` file
+pre-commit will use a `.pre-commit-config.yaml` file
 to make decisions
 about what to do
 at the various Git hook points.
 
-This gives power to a team since `.pre-commit-config.yml`
+This gives power to a team since `.pre-commit-config.yaml`
 can be added to source control
 and the team can make shared configuration choices.
 
@@ -297,7 +297,7 @@ The details of this setup are explained
 in the {{< extlink "https://github.com/ambv/black#version-control-integration" "Version control integration" >}} section
 of the documentation,
 but the short version is
-to add the following to `.pre-commit-config.yml`:
+to add the following to `.pre-commit-config.yaml`:
 
 ```yaml
 repos:
