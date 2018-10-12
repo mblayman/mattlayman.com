@@ -28,7 +28,8 @@ with Python?
 Absolutely.
 At Python Frederick's October 2018 presentation,
 {{< extlink "https://github.com/bobm123" "Bob Marchese" >}}
-showed us how to use BeeWare,
+showed us how to use
+{{< extlink "https://pybee.org/" "BeeWare" >}},
 a suite of tools for building mobile apps
 (among other things).
 
