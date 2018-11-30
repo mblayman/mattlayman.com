@@ -119,7 +119,7 @@ $ python3 ast_example.py
 {'from': ['pprint'], 'import': ['ast']}
 ```
 
-### Tranform to AST
+### Transform to AST
 
 ```python
 with open("ast_example.py", "r") as source:
