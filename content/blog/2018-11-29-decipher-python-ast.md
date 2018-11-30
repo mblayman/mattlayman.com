@@ -243,10 +243,12 @@ the code pulls from the `Import` and `ImportFrom` node types.
 def visit_Import(self, node):
     for alias in node.names:
         self.stats["import"].append(alias.name)
+    self.generic_visit(node)
 
 def visit_ImportFrom(self, node):
     for alias in node.names:
         self.stats["from"].append(alias.name)
+    self.generic_visit(node)
 ```
 
 This code takes the name of the module
