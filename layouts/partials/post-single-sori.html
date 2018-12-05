@@ -24,7 +24,7 @@
     <h2>If you enjoyed this post, you may also be interested in&hellip;</h2>
       {{ range . }}
       <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-      <p>{{ .Description }}</p>
+      <p>{{ .Description | markdownify }}</p>
       {{ end }}
   </div>
 {{ end }}

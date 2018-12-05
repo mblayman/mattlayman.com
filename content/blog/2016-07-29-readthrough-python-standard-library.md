@@ -2,6 +2,7 @@
 title: Reading through the Python standard library
 description: >-
   What I learned about the Python standard library
+  by reading *all* of it
   and how you can apply those learnings to your own study.
 image: img/2016/library.jpg
 type: post

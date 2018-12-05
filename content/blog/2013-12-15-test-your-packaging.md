@@ -1,6 +1,11 @@
 ---
 title: Test your packaging
-description: Using Travis CI and Tox to test Python packaging
+description: >-
+  It's embarassing when you release a package to PyPI,
+  and the package is totally broken.
+  I know because it happened to me.
+  This post explores using Travis CI and Tox to test Python packaging
+  so you don't make my mistake.
 image: img/2013/travis.png
 type: post
 aliases:
