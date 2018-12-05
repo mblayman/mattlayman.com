@@ -23,6 +23,11 @@ img#me {
   margin-left: auto;
 }
 
+.related-posts {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
 @media screen and (max-width: 650px) {
   div#me-wrapper {
     width: 100%;

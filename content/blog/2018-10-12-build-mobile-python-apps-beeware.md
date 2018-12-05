@@ -18,6 +18,7 @@ tags:
  - python
  - mobile
  - BeeWare
+ - Python Frederick
 
 ---
 

@@ -18,6 +18,17 @@
         </div>
     </section>
 
+{{ $related := .Site.RegularPages.Related . | first 5 }}
+{{ with $related }}
+  <div class="related-posts">
+    <h2>If you enjoyed this post, you may also be interested in&hellip;</h2>
+      {{ range . }}
+      <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+      <p>{{ .Description }}</p>
+      {{ end }}
+  </div>
+{{ end }}
+
     <footer class="post-full-footer">
       <section class="author-card">
         <img class="author-profile-image" src="{{ (.Params.authorAvatar | default .Site.Params.authorAvatar) | absURL}}" alt="Author" />
