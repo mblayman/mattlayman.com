@@ -15,6 +15,7 @@ tags:
  - Black
  - Code formatter
  - lint
+ - Python
 
 ---
 
