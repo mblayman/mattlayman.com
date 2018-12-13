@@ -23,6 +23,9 @@ img#me {
   margin-left: auto;
 }
 
+.post-full-image {
+  height: 500px;
+}
 .related-posts {
   max-width: 840px;
   margin: 0 auto;
