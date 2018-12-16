@@ -56,8 +56,7 @@ If you dig this,
 check out other posts
 in the series.
 
-1. Using plugins
-2. [Instant testing]({{< ref "/blog/2017-12-10-supercharging-vim-instant-testing.md" >}})
+{{< vim-series "plugins" >}}
 
 ## Managing plugins
 

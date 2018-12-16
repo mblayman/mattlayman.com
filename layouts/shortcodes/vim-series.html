@@ -1,0 +1,14 @@
+{{ $post := .Get 0 }}
+<ol>
+  {{- if eq $post "plugins" -}}
+  <li>Using plugins</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/blog/2017-11-22-supercharging-vim-using-plugins.md" }}">Using plugins</a></li>
+  {{- end -}}
+
+  {{- if eq $post "testing" -}}
+  <li>Instant testing</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/blog/2017-12-10-supercharging-vim-instant-testing.md" }}">Instant testing</a></li>
+  {{- end -}}
+</ol>
