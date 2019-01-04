@@ -1036,7 +1036,7 @@ For virtual machine development,
 For container development,
 
 * **Pro:**
-    Container will help large teams scale up their large systems
+    Containers will help large teams scale up their large systems
     using patterns established
     by the big dogs
     like Google.
