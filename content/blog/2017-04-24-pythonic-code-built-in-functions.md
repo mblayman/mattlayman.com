@@ -13,6 +13,7 @@ image: img/python.png
 type: post
 aliases:
  - /2017/pythonic-code-built-in-functions.html
+ - /pythonic-code/built-in-functions
 categories:
  - Python
 tags:

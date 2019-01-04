@@ -12,6 +12,7 @@ image: img/python.png
 type: post
 aliases:
  - /2017/pythonic-code-the-property-decorator.html
+ - /pythonic-code/the-property-decorator
 categories:
  - Python
 tags:

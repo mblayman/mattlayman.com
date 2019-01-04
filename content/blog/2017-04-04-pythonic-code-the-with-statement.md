@@ -12,6 +12,7 @@ image: img/python.png
 type: post
 aliases:
  - /2017/pythonic-code-the-with-statement.html
+ - /pythonic-code/the-with-statement
 categories:
  - Python
 tags:
