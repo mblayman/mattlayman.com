@@ -12,6 +12,7 @@ description: >-
 
     <p>
       <ul>
+        <li>Stream on <a href="#twitch">Twitch</a>.</li>
         <li>Run <a href="#fullhealth">Full Health Developer</a>.</li>
         <li>Organize <a href="#frederick">Python Frederick</a>.</li>
         <li>Have a few <a href="#projects">open source projects</a>.</li>
@@ -24,6 +25,24 @@ description: >-
     <img id='me' src='/img/me.jpg' width='250' height='250'>
   </div>
 </div>
+
+<a name='twitch'></a>
+## Stream software development on Twitch
+
+I'm regularly streaming on {{< extlink "https://www.twitch.tv/mblayman" "Twitch" >}}.
+On most Wednesday nights at 9pm Eastern time,
+I'm streaming on Twitch
+to build my Software as a Service called {{< extlink "https://www.collegeconductor.com/" "College Conductor" >}}.
+During the stream,
+I work on Python and Django
+to add new features to my SaaS product.
+My primary goal is to teach others how to build complex web projects
+and all the skills that they'll need to produce something
+that's more than a tutorial app.
+
+Want to check it out?
+I post the streams on YouTube
+at the {{< extlink "https://www.youtube.com/watch?v=WzDsImiO7b8&list=PLFcKEo4b_n1wQA6lKtSqCq1dTMq1c2Lmw" "Building SaaS with Python and Django" >}} playlist.
 
 <a name='fullhealth'></a>
 ## Full Health Developer
