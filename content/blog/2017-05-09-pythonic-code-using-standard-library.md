@@ -104,7 +104,7 @@ do amazing things with Excel
 and its rich functions and tools.
 In spite of that,
 Excel has limitations
-where a general progamming language
+where a general programming language
 like Python
 does not.
 
