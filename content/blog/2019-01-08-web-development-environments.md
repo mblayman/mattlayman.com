@@ -40,10 +40,11 @@ If you make a harmonious choice,
 your tool will aide you
 on your development journey
 and let you crank out features
-to delight your users.
+to delight your customers.
 
 This topic deserves your consideration
-because time is one of our most precious resources.
+because time is one of our most precious resources,
+and a bad tool choice will eat your time.
 
 > Don't waste **your** time on tools that are bad fits for your project!
 
@@ -152,11 +153,16 @@ What's *not* great with this setup?
    with the operating system of your live website.
    <br><br>
    *Statistically, you run Windows.*
-   Maybe your a macOS person like me,
+   Maybe you're a macOS person like me,
    but the data shows that Windows still dominates.
-   Most websites run on AWS, GCP, Azure
-   or a VPS
-   like Digital Ocean or Linode,
+   Most websites run on
+   {{< extlink "https://aws.amazon.com/" "AWS" >}},
+   {{< extlink "https://cloud.google.com/" "GCP" >}},
+   {{< extlink "https://azure.microsoft.com/en-us/" "Azure" >}},
+   or on a Virtual Private Server
+   like
+   {{< extlink "https://www.digitalocean.com/" "Digital Ocean" >}} or
+   {{< extlink "https://www.linode.com/" "Linode" >}},
    and most things running on these services are Linux.
    <br><br>
    The bad news is that the differences
@@ -166,7 +172,7 @@ What's *not* great with this setup?
    I am acutely aware of this fact
    from writing a cross platform Perl application
    waaaay back in the day
-   (the filesystem `/` and `\` differences were the bane
+   (the filesystem `/` and `\` differences alone were the bane
    of my existence).
 3. The development web server will only take you so far.
    Those tools are designed
@@ -179,8 +185,8 @@ What's *not* great with this setup?
 ## Emerging from primordial web app goo
 
 Weeks or months have ticked by.
-Version 1.0 The Hot New Thing is nearly ready
-and your site it growing.
+Version 1.0 of The Hot New Thing is nearly ready,
+and your site is growing.
 
 By this point,
 your workflow is getting out of control.
@@ -196,7 +202,7 @@ which means that you're pulling along webpack
 for the ride.
 
 Management of this system is nutty
-because you have four different tabs open
+because you have four different terminals open
 to start all the different processes
 to check your site.
 
@@ -206,7 +212,7 @@ Now is a good time to introduce `Procfile`
 and process management tools.
 
 {{< extlink "http://blog.daviddollar.org/2011/05/06/introducing-foreman.html" "Years ago" >}},
-the Ruby community introduced a tool called
+the Ruby community created a tool called
 {{< extlink "http://ddollar.github.io/foreman/" "foreman" >}}.
 foreman manages running multiple processes in a single command.
 Each process is given a label (like `web`)
@@ -512,7 +518,7 @@ and foundational pieces
 like virtual environments
 (i.e., `venv` *not* VMs).
 
-What if The New Hot Thing is a replacement
+What if, for instance, The New Hot Thing is a replacement
 for Instagram?
 In that case,
 you'll be manipulating images.
@@ -568,9 +574,9 @@ If you can shove all your code
 and dependencies
 into a container
 (i.e., a thing with a common interface),
-then moving around that thing
+then moving that thing around
 from one environment to another
-should make life better.
+should be easier.
 
 ### Containers in practice
 
@@ -1106,7 +1112,7 @@ you can move to containers.
 You likely do not (and will not) have Google-sized problems.
 The benefit is that you don't need Google-sized solutions.
 
-I hope you found this post helpful
+I hope you found this article helpful
 to understand different modes
 for developing software.
 
