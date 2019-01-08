@@ -216,7 +216,7 @@ the Ruby community created a tool called
 {{< extlink "http://ddollar.github.io/foreman/" "foreman" >}}.
 foreman manages running multiple processes in a single command.
 Each process is given a label (like `web`)
-and all logging is funnelled
+and all logging is funneled
 to a single terminal window.
 
 You define the processes to run in a `Profile`
