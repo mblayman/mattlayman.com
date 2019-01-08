@@ -15,7 +15,6 @@
 * [ ] mailing list
 * [ ] Schedule Buffer
 * [ ] Frederick Tech Slack
-* [ ] Dzone
 * [ ] pycoders.com/submissions
 * [ ] importpython.com/pages/contact/ - cs@importpython.com
 * [ ] Reddit /r/python
