@@ -12,6 +12,7 @@
 
 ### Post-publish
 
+* [ ] mailing list
 * [ ] Schedule Buffer
 * [ ] Frederick Tech Slack
 * [ ] Dzone
