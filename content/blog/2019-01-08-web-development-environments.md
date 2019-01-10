@@ -491,12 +491,12 @@ between development
 and your live site.
 The industry term
 for a live website
-is "production"
+is "production,"
 so you might hear
 about this problem
 as the dev/prod (development/production) parity problem.
 
-We've already encountered this problem a couple of time
+We've already encountered this problem a couple of times
 in this article.
 If an environment has differences
 between how it was developed
@@ -1007,7 +1007,7 @@ we've looked at three modes of development.
 
 ### Bottom line pros and cons
 
-If you're racing to this end
+If you're racing to the end
 of this article
 and are looking for the "answer,"
 then I'm afraid you're out of luck.
