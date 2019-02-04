@@ -13,7 +13,6 @@ description: >-
     <p>
       <ul>
         <li>Stream on <a href="#twitch">Twitch</a>.</li>
-        <li>Run <a href="#fullhealth">Full Health Developer</a>.</li>
         <li>Organize <a href="#frederick">Python Frederick</a>.</li>
         <li>Have a few <a href="#projects">open source projects</a>.</li>
         <li>Work at <a href="#work">Doctor on Demand</a>.</li>
@@ -43,18 +42,6 @@ that's more than a tutorial app.
 Want to check it out?
 I post the streams on YouTube
 at the {{< extlink "https://www.youtube.com/watch?v=WzDsImiO7b8&list=PLFcKEo4b_n1wQA6lKtSqCq1dTMq1c2Lmw" "Building SaaS with Python and Django" >}} playlist.
-
-<a name='fullhealth'></a>
-## Full Health Developer
-
-I run <a href="https://fullhealthdeveloper.com/" target="_blank">Full Health Developer</a>.
-Full Health Developer is a website
-with a mission to help developers
-improve their physical and mental health.
-
-I research topics that are relevant to software developers
-and deliver that information in long form articles.
-The site covers topics like focus, repetitive stress injury, and nutrition.
 
 <a name='frederick'></a>
 ## Frederick Technology

@@ -21,7 +21,6 @@ pygmentsCodeFences = true
     customCSS = ["css/custom.css"]
 
     twitterName = "mblayman"
-    fbName = "matthewlayman"
     githubName = "mblayman"
     linkedinName = "mattlayman"
 
