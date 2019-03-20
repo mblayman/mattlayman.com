@@ -11,4 +11,10 @@
   {{- else -}}
   <li><a href="{{ ref . "/blog/2017-12-10-supercharging-vim-instant-testing.md" }}">Instant testing</a></li>
   {{- end -}}
+
+  {{- if eq $post "ctrlp" -}}
+  <li>Navigate files instantly</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/blog/2019-03-20-supercharging-vim-navigate-files-instantly.md" }}">Navigate files instantly</a></li>
+  {{- end -}}
 </ol>

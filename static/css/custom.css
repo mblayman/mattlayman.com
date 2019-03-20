@@ -31,6 +31,17 @@ img#me {
   margin: 0 auto;
 }
 
+.post-full-content figure img {
+  margin-bottom: 0.25em;
+  margin-top: 0;
+}
+
+figcaption p {
+  color: #738a94;
+  font-size: .7em;
+  text-align: center;
+}
+
 @media screen and (max-width: 650px) {
   div#me-wrapper {
     width: 100%;
