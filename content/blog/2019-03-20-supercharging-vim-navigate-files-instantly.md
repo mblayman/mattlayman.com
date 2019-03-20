@@ -135,7 +135,7 @@ deal with something large?
 
 First, let's think about how **not** to do this.
 
-## Pathlogical Vim file navigation
+## Pathological Vim file navigation
 
 Before I start,
 I'll preface this section
