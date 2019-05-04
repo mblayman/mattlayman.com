@@ -50,7 +50,7 @@ here's what happens to your code:
 2. The raw list of tokens is transformed
    to build an Abstract Syntax Tree, AST,
    which is the subject we will explore more in this post.
-   An AST is a collection nodes
+   An AST is a collection of nodes
    which are linked together
    based on the grammar
    of the Python language.
