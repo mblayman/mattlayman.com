@@ -51,6 +51,11 @@ pygmentsCodeFences = true
     weight = 100
 
 [[menu.main]]
+    name = "Newsletter"
+    url = "/newsletter/"
+    weight = 100
+
+[[menu.main]]
     name = "Categories"
     url = "/categories/"
     weight = 99
