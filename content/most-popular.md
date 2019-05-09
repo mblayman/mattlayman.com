@@ -89,6 +89,11 @@ for those that are more visual learners.
     that dive into the Vim text editor
     and a variety of tools
     that make working with Vim awesome.
+* [Local web development vs Vagrant vs Docker: What’s right for you?]({{< ref "/blog/2019-01-08-web-development-environments.md" >}})
+    looks at different modes
+    for developing software.
+    Each mode has positive and negative aspects,
+    and I explain why your team might pick one style or another.
 * [No nitpicking in code reviews]({{< ref "/blog/2017-07-18-no-nitpicking-code-reviews.md" >}})
     covers my opinions
     on code reviews
