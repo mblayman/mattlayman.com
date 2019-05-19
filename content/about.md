@@ -12,6 +12,7 @@ description: >-
 
     <p>
       <ul>
+        <li>Consult on the <a href="#django">Django</a> web framework.</li>
         <li>Stream on <a href="#twitch">Twitch</a>.</li>
         <li>Organize <a href="#frederick">Python Frederick</a>.</li>
         <li>Have a few <a href="#projects">open source projects</a>.</li>
@@ -24,6 +25,14 @@ description: >-
     <img id='me' src='/img/me.jpg' width='250' height='250'>
   </div>
 </div>
+
+<a name='django'></a>
+## Consult on the Django web framework
+
+With over a decade of web development experience,
+I consult on the {{< extlink "https://www.djangoproject.com/" "Django" >}} web framework.
+If your team needs Django training,
+please reach out to me on {{< extlink "https://www.linkedin.com/in/mattlayman/" "LinkedIn" >}}.
 
 <a name='twitch'></a>
 ## Stream software development on Twitch
