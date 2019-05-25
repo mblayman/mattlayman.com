@@ -5,3 +5,10 @@ public
 
 # OS X
 .DS_Store
+
+# Python
+*.pyc
+venv
+
+# Secrety stuff
+.env
