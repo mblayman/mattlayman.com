@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 import os
 import sys
+import time
 import webbrowser
 
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
+import pyperclip
 import requests
 
 
@@ -63,29 +65,7 @@ def create_campaign(session, list_id, article):
     }
     response = session.post(f"{mc_url}/campaigns", json=data)
     response.raise_for_status()
-    campaign = response.json()
-
-    update_campaign_content(session, campaign, article, template_id)
-    return campaign
-
-
-def update_campaign_content(session, campaign, article, template_id):
-    """Update the campaign with the article's content."""
-    response = session.get(f"{mc_url}/campaigns/{campaign['id']}/content")
-    response.raise_for_status()
-    campaign_content = response.json()
-
-    # Insert the article into the template body.
-    soup = BeautifulSoup(campaign_content["html"], "html.parser")
-    content = soup.find("td", id="templateBody")
-    content.append(BeautifulSoup(article["html_content"], "html.parser"))
-
-    data = {
-        "html": soup.encode_contents().decode("utf-8"),
-        "template": {"id": template_id},
-    }
-    response = session.put(f"{mc_url}/campaigns/{campaign['id']}/content", json=data)
-    response.raise_for_status()
+    return response.json()
 
 
 def get_one_column_template_id(session):
@@ -119,11 +99,9 @@ if __name__ == "__main__":
     session = requests.Session()
     session.auth = ("me", os.environ["MAILCHIMP_API_KEY"])
 
-    # import pprint
-
-    # # pprint.pprint(session.get(f"{mc_url}/campaigns").json())
-    # pprint.pprint(session.get(f"{mc_url}/campaigns/343e9a4e29/content").json())
-    # sys.exit()
     list_id = get_list_id(session)
     campaign = create_campaign(session, list_id, article)
+    pyperclip.copy(article["html_content"])
+    print("Article copied to clipboard.")
+    time.sleep(1)
     open_campaign(campaign["web_id"])
