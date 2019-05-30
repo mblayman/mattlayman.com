@@ -83,7 +83,7 @@ of the `grep` program.
 that lets you search
 through files
 on the command line
-(in fact, it's name means "**g**lobally search a **r**egular **e**xpression and **p**rint").
+(in fact, its name means "**g**lobally search a **r**egular **e**xpression and **p**rint").
 The primary difference between `:vimgrep` and `:grep`
 is whether Vim will call out
 to the `grep` program or not.
