@@ -42,6 +42,17 @@ figcaption p {
   text-align: center;
 }
 
+.author {
+  margin: -150px auto 0;
+  padding: 4px;
+}
+.author img {
+  border: 5px solid white;
+  border-radius: 100%;
+  margin: 5px auto;
+  width: auto;
+}
+
 @media screen and (max-width: 650px) {
   div#me-wrapper {
     width: 100%;
