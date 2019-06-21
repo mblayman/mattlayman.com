@@ -2,6 +2,10 @@
   "name": "tailwind-site",
   "version": "1.0.0",
   "description": "A tailwind based theme",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/mblayman/mattlayman.com"
+  },
   "main": "index.js",
   "scripts": {
     "css": "postcss --verbose styles.css -o static/css/styles.css"
