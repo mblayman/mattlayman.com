@@ -12,3 +12,6 @@ venv
 
 # Secrety stuff
 .env
+
+# JavaScript
+node_modules/
