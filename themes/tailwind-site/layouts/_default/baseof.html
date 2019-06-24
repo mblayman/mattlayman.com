@@ -1,11 +1,37 @@
 <!DOCTYPE html>
-<html>
-    {{- partial "head.html" . -}}
-    <body>
-        {{- partial "header.html" . -}}
-        <div id="content">
-        {{- block "main" . }}{{- end }}
-        </div>
-        {{- partial "footer.html" . -}}
-    </body>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{ if .IsPage -}}
+    <meta name="description" content="{{ .Description | default (substr .Summary 0 160) }}">
+  {{ else -}}
+    <meta name="description" content="{{ .Site.Params.metadescription | default .Site.Params.description }}">
+  {{ end -}}
+  {{ partial "meta-facebook" . }}
+  {{- partial "meta-twitter" . }}
+  {{ .Hugo.Generator }}
+  <link rel="stylesheet" type="text/css" href="{{ "css/styles.css" | absURL}}">
+  <link rel="shortcut icon" href="{{ "favicon.ico" | absURL}}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  {{ if .Site.Params.RSSLink -}}
+    <link href="{{ .Site.Params.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
+  {{ else if eq .URL "/" -}}
+    <link href="{{ "index.xml" | absURL}}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
+  {{ end -}}
+  <title>
+    {{- if .IsHome }}
+      {{- .Title -}}
+    {{ else }}
+      {{- .Title }} &middot; {{ .Site.Title -}}
+    {{ end -}}
+  </title>
+</head>
+
+<body class="bg-teal-500">
+  <h1>Hello World</h1>
+  {{- block "main" . }}{{- end }}
+</body>
+
 </html>
