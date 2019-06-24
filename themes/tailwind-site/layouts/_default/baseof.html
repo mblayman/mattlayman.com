@@ -9,9 +9,9 @@
   {{ else -}}
     <meta name="description" content="{{ .Site.Params.metadescription | default .Site.Params.description }}">
   {{ end -}}
+  {{ partial "meta-twitter" . }}
   {{ partial "meta-facebook" . }}
-  {{- partial "meta-twitter" . }}
-  {{ .Hugo.Generator }}
+  {{- .Hugo.Generator }}
   <link rel="stylesheet" type="text/css" href="{{ "css/styles.css" | absURL}}">
   <link rel="shortcut icon" href="{{ "favicon.ico" | absURL}}">
   <link rel="canonical" href="{{ .Permalink }}">
