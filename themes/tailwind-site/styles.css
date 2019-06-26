@@ -2,4 +2,27 @@
 
 @tailwind components;
 
+.container {
+  display: grid;
+  grid-template-areas: "content" "sidebar";
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  @apply mx-auto;
+}
+
+@screen sm {
+  .container {
+    grid-template-areas: "content sidebar";
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+article {
+  grid-area: content;
+}
+
+aside {
+  grid-area: sidebar;
+}
+
 @tailwind utilities;

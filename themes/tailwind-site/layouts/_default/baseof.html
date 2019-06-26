@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" class="bg-white subpixel-antialiased">
 
 <head>
   <meta charset="utf-8">
@@ -30,9 +30,64 @@
   </title>
 </head>
 
-<body class="bg-teal-500">
-  <h1>Hello World</h1>
-  {{- block "main" . }}{{- end }}
+<body>
+  <nav class="flex bg-gray-900 text-white border-b border-gray-600 sm:h-16 items-center">
+    <div class="w-full max-w-6xl relative mx-auto px-6">
+      <div class="flex flex-col sm:flex-row sm:items-center">
+        <a href="/" class="block mr-4 py-1">
+          <h1 class="text-xl uppercase tracking-widest font-hairline hover:underline">Matt Layman</h1>
+        </a>
+        <a href="/" class="block mr-4 py-1">
+          <h2 class="text-normal tracking-wide font-hairline hover:underline">About</h2>
+        </a>
+        <a href="/" class="block mr-4 py-1">
+          <h2 class="text-normal tracking-wide font-hairline hover:underline">Most Popular</h2>
+        </a>
+        <a href="/" class="block py-1">
+          <h2 class="text-normal tracking-wide font-hairline hover:underline">Newsletter</h2>
+        </a>
+      </div>
+    </div>
+  </nav>
+  <main class="container py-4 h-screen">
+    <article class="bg-orange-500 px-6 sm:px-0">
+      <h1>Hello World</h1>
+      {{- block "main" . }}{{- end }}
+      <p>This is the article.</p>
+      <p>This is the article.</p>
+      <p>This is the article.</p>
+    </article>
+    <aside class="bg-red-500 px-6 sm:px-0">
+      This is the aside.
+    </aside>
+  </main>
+  <footer class="flex bg-gray-900 text-white border-t border-gray-600 pt-2 sm:h-16 items-center">
+    <div class="w-full max-w-6xl relative mx-auto px-6">
+      <div class="flex flex-col-reverse sm:flex-row items-center">
+        <a href="/" class="block sm:mr-4 py-1 flex-grow">
+          <h1 class="text-xs sm:text-sm font-thin hover:underline">{{ .Site.Params.copyright }}</h1>
+        </a>
+        <a href="/" class="block sm:mr-4 py-1">
+          <h2 class="text-sm font-thin hover:underline">Latest Articles</h2>
+        </a>
+        <a href="/categories/" class="block sm:mr-4 py-1">
+          <h2 class="text-sm font-thin hover:underline">Categories</h2>
+        </a>
+        <a href="/tags/" class="block sm:mr-4 py-1">
+          <h2 class="text-sm font-thin hover:underline">Tags</h2>
+        </a>
+        <a href="https://twitter.com/{{ .Site.Params.twitterName }}" target="_blank" class="block sm:mr-4 py-1">
+          <h2 class="text-sm font-thin hover:underline">Twitter</h2>
+        </a>
+        <a href="https://github.com/{{ .Site.Params.githubName }}" target="_blank" class="block sm:mr-4 py-1">
+          <h2 class="text-sm font-thin hover:underline">GitHub</h2>
+        </a>
+        <a href="https://linkedin.com/in/{{ .Site.Params.linkedinName }}/" target="_blank" class="block py-1">
+          <h2 class="text-sm font-thin hover:underline">LinkedIn</h2>
+        </a>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>
