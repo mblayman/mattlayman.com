@@ -1,3 +1,24 @@
-<div class="bg-teal-500">
-  {{ .Permalink }}
-</div>
+<a href="{{ .Permalink }}" class="block shadow-md rounded-lg border border-gray-100 h-full">
+  {{ if .Params.image }}
+    <img src="{{ .Params.image }}" class="h-48 w-full object-cover rounded-t-lg">
+  {{ else }}
+   <h1>ERROR ON {{ .Permalink }}</h1>
+  {{ end }}
+  <div class="p-4">
+    {{ if .Params.tags }}
+      <ul class="pb-1">
+        {{ range .Params.tags }}
+          <li class="inline uppercase text-xs font-thin tracking-wide">#{{ . }}</li>
+        {{ end }}
+      </ul>
+    {{ end }}
+    <h2 class="text-lg font-semibold pb-2">{{ .Title }}</h2>
+    <p class="text-sm text-gray-700">
+    {{ if .Description }}
+      {{ .Description | markdownify }}
+    {{ else }}
+      {{ .Summary | plainify | safeHTML }}{{ if .Truncated }} ... {{ end }}
+    {{ end }}
+    </p>
+  </div>
+</a>

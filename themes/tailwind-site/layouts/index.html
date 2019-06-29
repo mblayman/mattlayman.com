@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="bg-cover bg-center h-48 sm:h-56 sm:rounded-t-lg -mx-6 -mt-4 mb-4 sm:m-0 sm:mb-4" style="background-image: url({{ .Site.Params.cover }})">
+<div class="bg-cover bg-center h-48 sm:h-56 sm:rounded-lg -mx-4 -mt-4 mb-4 sm:m-0 sm:mb-4" style="background-image: url({{ .Site.Params.cover }})">
   <h1 class="text-center text-white text-4xl font-semibold tracking-wide pt-8 sm:pt-16">{{ .Title }}</h1>
   <h2 class="text-center text-white text-xl font-thin px-1">{{ .Site.Params.subtitle }}</h2>
 </div>
@@ -7,7 +7,7 @@
 <div class="articles-grid">
   {{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "post") }}
   {{ range $index, $post := $paginator.Pages }}
-    <div class="article-{{ add $index 1 }} bg-gray-400">
+    <div class="article-{{ add $index 1 }}">
       {{ partial "article-card" . }}
     </div>
   {{ end }}
