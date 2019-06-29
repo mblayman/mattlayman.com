@@ -13,7 +13,7 @@
 @screen sm {
   .container {
     grid-template-areas: "content sidebar";
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 1fr;
   }
 }
 
@@ -23,6 +23,42 @@ article {
 
 aside {
   grid-area: sidebar;
+}
+
+.articles-grid {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr;
+  grid-template-areas: "article-1" "article-2" "article-3" "article-4" "article-5" "article-6";
+}
+
+@screen sm {
+  .articles-grid {
+    grid-template-areas:
+      "article-1 article-1 article-1 article-1 article-1 article-1"
+      "article-2 article-2 article-3 article-3 article-4 article-4"
+      "article-5 article-5 article-5 article-6 article-6 article-6";
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.article-1 {
+  grid-area: article-1;
+}
+.article-2 {
+  grid-area: article-2;
+}
+.article-3 {
+  grid-area: article-3;
+}
+.article-4 {
+  grid-area: article-4;
+}
+.article-5 {
+  grid-area: article-5;
+}
+.article-6 {
+  grid-area: article-6;
 }
 
 @tailwind utilities;
