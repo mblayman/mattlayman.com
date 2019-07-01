@@ -1,4 +1,4 @@
-<a href="{{ .context.Permalink }}" class="block shadow-md rounded-lg border border-gray-100 h-full flex flex-col{{ if eq .index 0 }} lg:flex-row{{ end }}">
+<a href="{{ .context.Permalink }}" class="block shadow-md rounded-lg border border-gray-100 hover:border-gray-300 h-full flex flex-col{{ if eq .index 0 }} lg:flex-row{{ end }}">
   {{ if .context.Params.image }}
   <img src="{{ .context.Params.image | absURL }}" class="h-48 w-full rounded-t-lg {{ if eq .index 0 }}sm:w-2/5 sm:h-full sm:rounded-none sm:rounded-l-lg {{ end }}object-cover">
   {{ else }}
