@@ -2,6 +2,11 @@
 
 @tailwind components;
 
+/* The fenced code ruins mobile layout so it needs to be restricted. */
+pre code {
+  @apply inline-block max-w-xs overflow-x-scroll;
+}
+
 .container {
   display: grid;
   grid-template-areas: "content" "sidebar";
@@ -14,6 +19,11 @@
   .container {
     grid-template-areas: "content sidebar";
     grid-template-columns: 3fr 1fr;
+  }
+
+  /* At larger sizes, fenced code should have all the width it wants. */
+  pre code {
+    @apply max-w-full;
   }
 }
 

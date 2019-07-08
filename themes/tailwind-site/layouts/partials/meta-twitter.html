@@ -1,10 +1,10 @@
 {{ if .IsPage -}}
   {{ with .Params.image -}}
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="{{ .  | absURL }}">
-  {{ else -}}
+  <meta name="twitter:image" content="{{ .  | absURL }}">
+  {{- else -}}
     <meta name="twitter:card" content="summary">
-  {{ end }}
+  {{ end -}}
 {{ else -}}
   <meta name="twitter:card" content="summary">
   {{ with .Site.Params.cover -}}
