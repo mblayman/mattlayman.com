@@ -1,5 +1,65 @@
 @tailwind base;
 
+.article-content a {
+  @apply border-b border-blue-400;
+}
+.article-content a:hover {
+  @apply text-blue-400;
+}
+
+.article-content h2 {
+  @apply mt-6 mb-2 text-3xl font-semibold;
+}
+.article-content h3 {
+  @apply mt-6 mb-2 text-2xl font-semibold;
+}
+.article-content h4,h5,h6 {
+  @apply mt-6 mb-2 text-xl font-semibold;
+}
+
+.article-content p {
+  @apply mb-4 text-lg font-serif leading-relaxed;
+}
+.article-content p code {
+  @apply bg-blue-100;
+}
+
+.article-content ul {
+  @apply mt-1 mb-3 list-inside list-disc;
+}
+.article-content ol {
+  @apply mt-1 mb-3 list-inside list-decimal;
+}
+.article-content li {
+  @apply px-4 text-lg font-serif leading-relaxed;
+}
+
+.article-content blockquote {
+  @apply border-l-4 border-blue-400 pl-4 italic;
+}
+
+.article-content .highlight pre {
+  @apply mb-4 p-4 rounded;
+}
+
+.article-content figure {
+  @apply text-center py-4;
+}
+.article-content figure img {
+  @apply mx-auto mb-2;
+}
+.article-content figcaption p {
+  @apply text-base text-gray-600;
+}
+
+.article-content hr {
+  @apply border-t-2 border-blue-200 my-8;
+}
+
+.article-content .footnotes p {
+  @apply text-base inline;
+}
+
 @tailwind components;
 
 /* The fenced code ruins mobile layout so it needs to be restricted. */
