@@ -1,5 +1,9 @@
 @tailwind base;
 
+.article-content {
+  @apply text-gray-900;
+}
+
 .article-content a {
   @apply border-b border-blue-400;
 }
@@ -31,11 +35,14 @@
   @apply mt-1 mb-3 list-inside list-decimal;
 }
 .article-content li {
-  @apply px-4 text-lg font-serif leading-relaxed;
+  @apply px-4 pb-2 text-lg font-serif leading-relaxed;
+}
+.article-content li p {
+  @apply inline;
 }
 
 .article-content blockquote {
-  @apply border-l-4 border-blue-400 pl-4 italic;
+  @apply border-l-4 border-blue-400 mb-4 pl-4 italic;
 }
 
 .article-content .highlight pre {
@@ -46,10 +53,14 @@
   @apply text-center py-4;
 }
 .article-content figure img {
-  @apply mx-auto mb-2;
+  @apply mx-auto mb-2 rounded shadow;
 }
 .article-content figcaption p {
   @apply text-base text-gray-600;
+}
+
+.article-content .fluid-vids {
+  @apply my-8;
 }
 
 .article-content hr {
