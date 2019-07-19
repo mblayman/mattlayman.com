@@ -14,7 +14,8 @@
   <div class="bg-cover bg-center h-48 sm:h-56 sm:rounded-lg sm:border border-gray-100 -mx-4 -mt-4 mb-4 sm:m-0 sm:mb-4" style="background-image: url({{ .Params.image | absURL }})">
   </div>
 {{ else }}
-  <div>TODO NO IMAGE</div>
+  <div class="bg-cover bg-center h-48 sm:h-56 sm:rounded-lg sm:border border-gray-100 -mx-4 -mt-4 mb-4 sm:m-0 sm:mb-4" style="background-image: url({{ .Site.Params.cover | absURL }})">
+  </div>
 {{ end }}
 
 <div class="bg-white rounded-full mx-auto -mt-20 sm:-mt-20 mb-2 p-1 h-32 w-32 shadow-xl">

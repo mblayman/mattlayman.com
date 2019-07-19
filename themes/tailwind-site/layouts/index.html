@@ -8,13 +8,7 @@
   <img src="{{ .Site.Params.authorAvatar | absURL }}" class="rounded-full">
 </div>
 
-{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "post") }}
-<div class="articles-grid">
-  {{ range $index, $post := $paginator.Pages }}
-    <div class="article-{{ add $index 1 }}">
-      {{ partial "article-card" (dict "context" . "index" $index) }}
-    </div>
-  {{ end }}
-</div>
+{{ partial "articles-list" . }}
+
 {{ partial "paginator" . }}
 {{ end }}
