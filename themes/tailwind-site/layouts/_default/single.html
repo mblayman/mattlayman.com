@@ -24,6 +24,12 @@
 
 <div class="article-content mx-auto mt-8 pb-8 sm:px-20">
   {{ .Content }}
+
+  {{ if eq .Params.type "post" }}
+    <div class="hidden sm:block">
+      {{ partial "newsletter-form" . }}
+    </div>
+  {{ end }}
 </div>
 
 <div class="flex flex-col sm:flex-row">
