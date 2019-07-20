@@ -1,0 +1,14 @@
+{{ define "main" }}
+<h1 class="text-center text-black text-4xl font-semibold tracking-wide pt-4 pb-4 sm:pt-2 sm:pb-2">{{ .Title }}</h1>
+
+<div class="bg-cover bg-center h-48 sm:h-56 sm:rounded-lg sm:border border-gray-100 -mx-4 -mt-4 mb-4 sm:m-0 sm:mb-4" style="background-image: url({{ .Site.Params.cover | absURL }})">
+</div>
+
+{{ $data := .Data }}
+{{ range $key, $value := .Data.Terms.Alphabetical }}
+  <span class="text-xl text-blue-400">
+    <a class="hover:underline" href="{{ $.Site.BaseURL }}{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ $value.Name }}</a> <span class="text-gray-700">({{ $value.Count }})</span>&nbsp;<span class="text-black">&#x2F;</span>&nbsp;
+  </span>
+{{ end }}
+
+{{ end }}
