@@ -1,6 +1,6 @@
+/* purgecss start ignore */
 @tailwind base;
 
-/* purgecss start ignore */
 .article-content {
   @apply text-gray-900;
 }
