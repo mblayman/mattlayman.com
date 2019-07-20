@@ -1,7 +1,8 @@
 baseURL = "https://www.mattlayman.com/"
 languageCode = "en-us"
 title = "Matt Layman"
-theme = "hugo-casper-two"
+#theme = "hugo-casper-two"
+theme = "tailwind-site"
 canonifyURLs = true
 enableRobotsTXT = true
 # googleAnalytics
@@ -20,6 +21,7 @@ pygmentsCodeFences = true
 
     customCSS = ["css/custom.css"]
 
+    fbName = "matthewlayman"
     twitterName = "mblayman"
     githubName = "mblayman"
     linkedinName = "mattlayman"

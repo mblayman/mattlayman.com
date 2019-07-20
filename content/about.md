@@ -6,25 +6,14 @@ description: >-
   and advocate for the Python programming language.
 
 ---
-<div class="about-section about-section-reverse">
-  <div>
-    <p>I’m Matt, a software creator. Here are things I do:</p>
+I’m Matt, a software creator. Here are things I do:
 
-    <p>
-      <ul>
-        <li>Consult on the <a href="#django">Django</a> web framework.</li>
-        <li>Stream on <a href="#twitch">Twitch</a>.</li>
-        <li>Organize <a href="#frederick">Python Frederick</a>.</li>
-        <li>Have a few <a href="#projects">open source projects</a>.</li>
-        <li>Work at <a href="#work">Doctor on Demand</a>.</li>
-        <li>Love my <a href="#family">family</a> and go to <a href="#church">church</a>.</li>
-      </ul>
-    </p>
-  </div>
-  <div id='me-wrapper'>
-    <img id='me' src='/img/me.jpg' width='250' height='250'>
-  </div>
-</div>
+* Consult on the <a href="#django">Django</a> web framework.
+* Stream on <a href="#twitch">Twitch</a>.
+* Organize <a href="#frederick">Python Frederick</a>.
+* Have a few <a href="#projects">open source projects</a>.
+* Work at <a href="#work">Doctor on Demand</a>.
+* Love my <a href="#family">family</a> and go to <a href="#church">church</a>.
 
 <a name='django'></a>
 ## Consult on the Django web framework
@@ -114,11 +103,11 @@ The core project is called `tappy`.
 <a name='work'></a>
 ## Work
 
-<div class="about-section">
-  <div>
-    <img class='about-image' src='/about/dod.jpg' width='200' height='200'>
+<div class="flex flex-col sm:flex-row justify-between">
+  <div class="w-full sm:w-1/4 sm:mx-8 mb-8">
+    <img class='mx-auto' src='/about/dod.jpg' width='200' height='200'>
   </div>
-  <div class="about-text">
+  <div class="w-full sm:w-3/4">
     <p>
 I’m currently a senior software engineer
 at {{< extlink "https://doctorondemand.com/" "Doctor on Demand" >}}.
@@ -132,8 +121,8 @@ as good as it can be.
   </div>
 </div>
 
-<div class="about-section about-section-reverse">
-  <div class="about-text">
+<div class="flex flex-col-reverse sm:flex-row">
+  <div class="w-full sm:w-3/4 mb-8">
     <p>
 I worked at <a href="https://storybird.com" target="_blank">Storybird</a>.
 Storybird makes it possible for people to share creative stories
@@ -144,16 +133,16 @@ I got to write Python and JavaScript every day
 and help make the internet more awesome.
     </p>
   </div>
-  <div class='about-image-container'>
-    <img class='about-image' src='/about/storybird.gif'>
+  <div class="w-full sm:w-1/4 sm:mx-8 mb-8">
+    <img class='mx-auto' src='/about/storybird.gif'>
   </div>
 </div>
 
-<div class="about-section">
-  <div>
-    <img class='about-image' src='/about/lm.png' width='302' height='62'>
+<div class="flex flex-col sm:flex-row justify-between items-center">
+  <div class="w-full sm:w-1/3 sm:mx-8 mb-8">
+    <img class='mx-auto' src='/about/lm.png' width='302' height='62'>
   </div>
-  <div class="about-text">
+  <div class="w-full sm:w-2/3">
     <p>
 <a href="https://lockheedmartin.com/" target="_blank">Lockheed Martin</a> was my employer.
 While there, I worked on a wide range of products.
@@ -178,7 +167,7 @@ two great kids, Mark and Faye.
 My children are young so my life is a
 little hectic, but that's perfectly fine with me.
 
-<img class='about-image' src='/about/family.jpg' width='450' height='303'>
+<img class='mx-auto my-8' src='/about/family.jpg' width='450' height='303'>
 
 <a name='church'></a>
 ## Church

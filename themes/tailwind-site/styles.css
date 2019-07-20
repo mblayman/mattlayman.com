@@ -1,5 +1,6 @@
 @tailwind base;
 
+/* purgecss start ignore */
 .article-content {
   @apply text-gray-900;
 }
@@ -70,9 +71,11 @@
 .article-content .footnotes p {
   @apply text-base inline;
 }
+/* purgecss end ignore */
 
 @tailwind components;
 
+/* purgecss start ignore */
 /* The fenced code ruins mobile layout so it needs to be restricted. */
 pre code {
   @apply inline-block max-w-xs overflow-x-scroll;
@@ -141,5 +144,6 @@ aside {
 .article-6 {
   grid-area: article-6;
 }
+/* purgecss end ignore */
 
 @tailwind utilities;
