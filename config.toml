@@ -1,11 +1,9 @@
 baseURL = "https://www.mattlayman.com/"
 languageCode = "en-us"
 title = "Matt Layman"
-#theme = "hugo-casper-two"
 theme = "tailwind-site"
 canonifyURLs = true
 enableRobotsTXT = true
-# googleAnalytics
 paginate = 6
 pygmentsCodeFences = true
 
@@ -19,50 +17,12 @@ pygmentsCodeFences = true
     cover = "img/paint.jpg"
     description = "Matt Layman is a software engineer from Frederick, MD. He is an open source software maintainer and advocate for the Python programming language."
 
-    customCSS = ["css/custom.css"]
-
     fbName = "matthewlayman"
     twitterName = "mblayman"
     githubName = "mblayman"
     linkedinName = "mattlayman"
 
-    author = "Matt Layman"
     authorAvatar = "img/me.jpg"
-    authorLocation = "Frederick, MD"
-    authorWebsite = "https://www.mattlayman.com"
-    authorDescription = "Matt Layman is a software engineer from Frederick, MD. He is an open source software maintainer and advocate for the Python programming language."
-
-    singleViewStyle = "casper"
 
 [permalinks]
     blog = "/blog/:year/:slug/"
-
-[[menu.main]]
-    name = "Home"
-    url = "/"
-    weight = 200
-
-[[menu.main]]
-    name = "About"
-    url = "/about/"
-    weight = 100
-
-[[menu.main]]
-    name = "Most Popular"
-    url = "/most-popular/"
-    weight = 100
-
-[[menu.main]]
-    name = "Newsletter"
-    url = "/newsletter/"
-    weight = 100
-
-[[menu.main]]
-    name = "Categories"
-    url = "/categories/"
-    weight = 99
-
-[[menu.main]]
-    name = "Tags"
-    url = "/tags/"
-    weight = 98
