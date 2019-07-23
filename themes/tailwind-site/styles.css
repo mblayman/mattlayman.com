@@ -41,6 +41,9 @@
 .article-content li p {
   @apply inline;
 }
+.article-content li code {
+  @apply bg-blue-100;
+}
 
 .article-content blockquote {
   @apply border-l-4 border-blue-400 mb-4 pl-4 italic;
