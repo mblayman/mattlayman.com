@@ -6,6 +6,7 @@ description: >-
   In future episodes, I've greatly improved audio and video settings.
   I'd suggest checking those out.
 type: video
+image: img/python-django.png
 video: https://www.youtube.com/embed/chBfIQa89sI
 aliases:
  - /building-saas/1

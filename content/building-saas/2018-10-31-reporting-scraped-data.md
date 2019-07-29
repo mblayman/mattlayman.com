@@ -9,6 +9,7 @@ description: >-
   that could be sent
   to the site admin.
 type: video
+image: img/python-django.png
 video: https://www.youtube.com/embed/0qON1KsFwyg
 aliases:
  - /building-saas/2
