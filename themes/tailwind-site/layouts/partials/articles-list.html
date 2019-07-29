@@ -1,6 +1,5 @@
-{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "post") }}
 <div class="articles-grid">
-  {{ range $index, $post := $paginator.Pages }}
+  {{ range $index, $post := .Pages }}
     <div class="article-{{ add $index 1 }}">
       {{ partial "article-card" (dict "context" . "index" $index) }}
     </div>

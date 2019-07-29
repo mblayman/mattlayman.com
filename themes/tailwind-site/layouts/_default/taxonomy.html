@@ -9,7 +9,8 @@
   {{ end }}
 </h2>
 
-{{ partial "articles-list" . }}
+{{ $paginator := .Paginate (.Pages | lang.Merge (where .Sites.First.RegularPages "Section" .Section)) }}
+{{ partial "articles-list" $paginator }}
 
 {{ partial "paginator" . }}
 

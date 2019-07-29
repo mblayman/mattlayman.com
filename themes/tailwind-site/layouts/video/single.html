@@ -1,0 +1,40 @@
+{{ define "main" }}
+<div class="text-center">
+  {{ range $index, $tag := .Params.tags }}
+    {{ if lt $index 2 }}
+      <a class="text-blue-400 text-sm font-light tracking-wider hover:underline uppercase" href="{{ $.Site.BaseURL }}tags/{{ $tag | urlize }}/">#{{ $tag }}</a>
+    {{  end  }}
+  {{ end }}
+</div>
+
+
+<h1 class="text-center text-black text-4xl font-semibold tracking-wide pt-4 pb-8 sm:pt-2 sm:pb-4">{{ .Title }}</h1>
+
+<div class="article-content mx-auto mt-8 pb-8 sm:px-20">
+  <iframe width="560" height="315" src="{{ .Params.video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  <h1 class="text-center text-black text-4xl font-semibold tracking-wide pt-4 pb-8 sm:pt-2 sm:pb-4">Notes</h1>
+
+  {{ .Content }}
+
+  {{ if eq .Params.type "post" }}
+    <div class="hidden sm:block">
+      {{ partial "newsletter-form" . }}
+    </div>
+  {{ end }}
+</div>
+
+<div class="flex flex-col sm:flex-row">
+  {{ with .NextInSection }}
+    <div class="flex-1 px-0 py-2 sm:p-2">
+      {{ partial "article-card" (dict "context" . ) }}
+    </div>
+  {{ end }}
+  {{ with .PrevInSection }}
+    <div class="flex-1 px-0 py-2 sm:p-2">
+      {{ partial "article-card" (dict "context" . ) }}
+    </div>
+  {{ end }}
+</div>
+
+{{ end }}

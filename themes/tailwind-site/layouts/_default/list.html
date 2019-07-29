@@ -1,0 +1,16 @@
+{{ define "main" }}
+<h1 class="text-center text-black text-4xl font-semibold tracking-wide pt-4 pb-4 sm:pt-2 sm:pb-2">{{ .Title }}</h1>
+
+{{ $content := .Content }}
+{{ with $content }}
+  <div class="article-content mx-auto mt-8 pb-8 sm:px-20">
+    {{ $content }}
+  </div>
+{{ end }}
+
+{{ $paginator := .Paginate (.Pages | lang.Merge (where .Sites.First.RegularPages "Section" .Section)) }}
+{{ partial "articles-list" $paginator }}
+
+{{ partial "paginator" . }}
+
+{{ end }}

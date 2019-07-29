@@ -8,7 +8,8 @@
   <img src="{{ .Site.Params.authorAvatar | absURL }}" class="rounded-full">
 </div>
 
-{{ partial "articles-list" . }}
+{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "post") }}
+{{ partial "articles-list" $paginator }}
 
 {{ partial "paginator" . }}
 {{ end }}
