@@ -20,9 +20,9 @@ def parse_article(article_path):
         article_html = f.read()
 
     soup = BeautifulSoup(article_html, "html.parser")
-    title = soup.find("h1", class_="post-full-title")
+    title = soup.find("h1", class_="article-title")
     description = soup.find("meta", attrs={"name": "description"})
-    content = soup.find("div", class_="kg-card-markdown")
+    content = soup.find("div", class_="article-content")
 
     return {
         "title": title.string,

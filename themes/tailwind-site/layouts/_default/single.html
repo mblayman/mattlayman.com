@@ -8,7 +8,7 @@
 </div>
 
 
-<h1 class="text-center text-black text-4xl font-semibold tracking-wide pt-4 pb-8 sm:pt-2 sm:pb-4">{{ .Title }}</h1>
+<h1 class="article-title text-center text-black text-4xl font-semibold tracking-wide pt-4 pb-8 sm:pt-2 sm:pb-4">{{ .Title }}</h1>
 
 {{ if .Params.image }}
   <div class="bg-cover bg-center h-48 sm:h-56 sm:rounded-lg sm:border border-gray-100 -mx-4 -mt-4 mb-4 sm:m-0 sm:mb-4" style="background-image: url({{ .Params.image | absURL }})">
