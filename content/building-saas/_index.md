@@ -1,5 +1,8 @@
 ---
 title: "Building SaaS with Python and Django"
+aliases:
+ - /buildingsaas
+
 ---
 
 On Wednesday nights
