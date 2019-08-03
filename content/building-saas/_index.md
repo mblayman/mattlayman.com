@@ -5,9 +5,9 @@ aliases:
 
 ---
 
-On Wednesday nights
+On Wednesdays
 at 9pm Eastern Time,
-I stream about developing a Software as a Service (SaaS)
+I develop a Software as a Service (SaaS)
 on {{< extlink "https://www.twitch.tv/mblayman" "Twitch" >}}.
 
 We work through code
@@ -24,7 +24,6 @@ I have two goals:
     from working with the web framework
     for 5+ years.
 2. Make progress on my side project.
-    My selfish motivation is that streaming forces me to make progress.
 
 Since College Conductor is a functioning service
 and has more features
