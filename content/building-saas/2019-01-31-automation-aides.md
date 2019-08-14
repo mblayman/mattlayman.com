@@ -1,5 +1,5 @@
 ---
-title: "Semi-automated tasks - Building SaaS #12"
+title: "Automation aides - Building SaaS #12"
 description: >-
   In this episode,
   we completed an automated tool for processing and connecting data quickly.
