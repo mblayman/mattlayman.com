@@ -13,7 +13,7 @@
     {{ end -}}
   {{ else -}}
     <meta property="og:type" content="website">
-  <meta property="og:description" content="{{ .Site.Params.description }}">
+  <meta property="og:description" content="{{ .Description | default .Site.Params.description }}">
   {{ end -}}
   {{ if .Params.image -}}
     <meta property="og:image" content="{{ .Params.image | absURL }}">
