@@ -3,12 +3,12 @@ title: "Building SaaS with Python and Django"
 aliases:
  - /buildingsaas
 description: >-
-  Building SaaS is a weekly stream on Twitch
-  that runs on Wednesday at 9pm ET.
-  We work through all the gritty details
-  of building a fully functional Software as a Service
+  Building SaaS is a weekly Twitch stream
+  that works through the gritty details
+  of building a Software as a Service
   using Python, the Django web framework,
   and other packages from the Django ecosystem.
+  The stream runs on Wednesday at 9pm ET.
 
 ---
 
