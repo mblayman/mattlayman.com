@@ -20,4 +20,4 @@ jobs:
       - name: Install packages
         run: pip install -r requirements/pub.txt
       - name: Run publisher
-        run: python --version
+        run: python bin/publish.py
