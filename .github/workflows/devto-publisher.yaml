@@ -1,0 +1,23 @@
+name: DEV Publisher
+on:
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  publish:
+    name: Publish to DEV
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.x'
+          architecture: 'x64'
+      - name: Install packages
+        run: python --version
+      - name: Run publisher
+        run: python --version
