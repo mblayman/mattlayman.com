@@ -1,6 +1,7 @@
 beautifulsoup4
 black
 flake8
+pip-tools
 pyperclip
 python-dotenv
 requests
