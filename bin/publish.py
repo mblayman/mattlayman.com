@@ -1,18 +1,18 @@
 """Publish scheduled articles to DEV."""
 import datetime
+import json
 import logging
+import sys
 
-import requests
 from dateutil.parser import parse
 
 from devto import DEVGateway
 
-
-dev_gateway = DEVGateway()
 logger = logging.getLogger(__name__)
 
 
 def publish_scheduled_articles():
+    dev_gateway = DEVGateway()
     published_articles = dev_gateway.get_published_articles()
     published_article_ids = set([article["id"] for article in published_articles])
 
@@ -25,12 +25,10 @@ def publish_scheduled_articles():
 
 
 def get_scheduled_articles():
-    """Get the schedule from GitHub."""
+    """Get the schedule."""
     logger.info("Fetch schedule.")
-    url = "https://raw.githubusercontent.com/mblayman/mattlayman.com/master/devto-schedule.json"
-    response = requests.get(url)
-    response.raise_for_status()
-    return response.json()
+    with open("devto-schedule.json", "r") as f:
+        return json.load(f)
 
 
 def should_publish(article, published_article_ids):
@@ -45,4 +43,7 @@ def should_publish(article, published_article_ids):
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        format="%(levelname)s: %(message)s", level=logging.INFO, stream=sys.stdout
+    )
     publish_scheduled_articles()
