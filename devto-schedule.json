@@ -1,9 +1,4 @@
 [{
-    "id": 163854,
-    "title": "A complete guide to i18n in Python",
-    "publish_date": "2019-09-25T18:00:00+00:00"
-},
-{
     "id": 170414,
     "title": "Ep 18",
     "publish_date": "2019-12-10T18:00:00+00:00"
@@ -16,7 +11,7 @@
 {
     "id": 170409,
     "title": "Ep 16",
-    "publish_date": "2019-11-26:00:00+00:00"
+    "publish_date": "2019-11-26T18:00:00+00:00"
 },
 {
     "id": 170408,
@@ -54,9 +49,19 @@
     "publish_date": "2019-10-08T18:00:00+00:00"
 },
 {
+    "id": 170419,
+    "title": "statsd",
+    "publish_date": "2019-10-02T18:00:00+00:00"
+},
+{
     "id": 167524,
     "title": "Ep 8",
     "publish_date": "2019-10-01T18:00:00+00:00"
+},
+{
+    "id": 163854,
+    "title": "A complete guide to i18n in Python",
+    "publish_date": "2019-09-25T18:00:00+00:00"
 },
 {
     "id": 167523,
