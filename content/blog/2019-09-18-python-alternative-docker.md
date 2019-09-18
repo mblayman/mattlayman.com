@@ -630,10 +630,10 @@ into deployment.
 Note that this doesn't mean eliminating your deployment tool.
 If you're configuring your own environment
 on a VPS,
-then there are plenty of part
+then there are plenty of parts
 in a fully functioning system.
 A Shiv app doesn't eliminate those parts,
-but it reduced the number of tasks related
+but it reduces the number of tasks related
 to the Python app code.
 
 To get an app into deployment,
@@ -656,7 +656,7 @@ in a nutshell.
 I haven't painted the complete picture,
 but I hope you have enough
 of an idea of how to run a single file Shiv app
-as alternative to a more traditional Python app deployment.
+as an alternative to a more traditional Python app deployment.
 
 Next, let's compare Docker and Shiv.
 
