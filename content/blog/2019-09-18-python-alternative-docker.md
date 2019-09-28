@@ -581,8 +581,8 @@ in the project.
 {{< extlink "https://twitter.com/LorenCarvalho" "@LorenCarvalho" >}},
 author of Shiv,
 messaged me
-to tell me
-that Shiv will pass extra options to `pip`.
+to say
+that Shiv can pass its extra options to `pip`.
 That means you can skip the `pip` command above
 and replace the `pip` and `shiv` commands
 with this single Shiv command:
