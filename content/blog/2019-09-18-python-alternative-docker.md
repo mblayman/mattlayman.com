@@ -577,6 +577,26 @@ That means that Shiv would try to execute a `main` function
 that is located in a `myapp/main.py` file
 in the project.
 
+**Update:**
+{{< extlink "https://twitter.com/LorenCarvalho" "@LorenCarvalho" >}},
+author of Shiv,
+messaged me
+to tell me
+that Shiv will pass extra options to `pip`.
+That means you can skip the `pip` command above
+and replace the `pip` and `shiv` commands
+with this single Shiv command:
+
+```bash
+shiv --compressed \
+    -p '/usr/bin/env python3' \
+    -o myapp.pyz \
+    -e myapp.main:main \
+    . -r requirements.txt
+```
+
+Thanks, Loren!
+
 ### What's in `main`?
 
 To this point,
