@@ -26,7 +26,7 @@ def publish_scheduled_articles():
 
 def get_scheduled_articles():
     """Get the schedule."""
-    logger.info("Fetch schedule.")
+    logger.info("Read schedule.")
     with open("devto-schedule.json", "r") as f:
         return json.load(f)
 
