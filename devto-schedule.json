@@ -76,6 +76,11 @@
 {
     "id": 167526,
     "title": "Ep 10",
+    "publish_date": "2019-10-16T18:00:00+00:00"
+},
+{
+    "id": 185923,
+    "title": "DEV pub",
     "publish_date": "2019-10-15T18:00:00+00:00"
 },
 {
@@ -87,29 +92,4 @@
     "id": 167525,
     "title": "Ep 9",
     "publish_date": "2019-10-08T18:00:00+00:00"
-},
-{
-    "id": 170419,
-    "title": "statsd",
-    "publish_date": "2019-10-02T18:00:00+00:00"
-},
-{
-    "id": 167524,
-    "title": "Ep 8",
-    "publish_date": "2019-10-01T18:00:00+00:00"
-},
-{
-    "id": 163854,
-    "title": "A complete guide to i18n in Python",
-    "publish_date": "2019-09-25T18:00:00+00:00"
-},
-{
-    "id": 167523,
-    "title": "Ep 7",
-    "publish_date": "2019-09-24T18:00:00+00:00"
-},
-{
-    "id": 172303,
-    "title": "Shiv",
-    "publish_date": "2019-09-18T18:00:00+00:00"
 }]
