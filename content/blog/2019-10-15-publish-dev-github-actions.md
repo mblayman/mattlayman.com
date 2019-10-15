@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "Publish to DEV automatically with GitHub Actions"
 description: >-
   DEV is a great community
