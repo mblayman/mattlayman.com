@@ -34,42 +34,22 @@
     "publish_date": "2019-12-17T18:00:00+00:00"
 },
 {
+    "id": 212554,
+    "title": "ember segment",
+    "publish_date": "2019-12-11T18:00:00+00:00"
+},
+{
     "id": 170414,
     "title": "Ep 18",
     "publish_date": "2019-12-10T18:00:00+00:00"
 },
 {
+    "id": 212551,
+    "title": "brunch",
+    "publish_date": "2019-12-04T18:00:00+00:00"
+},
+{
     "id": 170412,
     "title": "Ep 17",
     "publish_date": "2019-12-03T18:00:00+00:00"
-},
-{
-    "id": 202769,
-    "title": "standard library",
-    "publish_date": "2019-11-27T18:00:00+00:00"
-},
-{
-    "id": 170409,
-    "title": "Ep 16",
-    "publish_date": "2019-11-26T18:00:00+00:00"
-},
-{
-    "id": 202767,
-    "title": "requirements.txt",
-    "publish_date": "2019-11-20T18:00:00+00:00"
-},
-{
-    "id": 170408,
-    "title": "Ep 15",
-    "publish_date": "2019-11-19T18:00:00+00:00"
-},
-{
-    "id": 202765,
-    "title": "dotfiles",
-    "publish_date": "2019-11-13T18:00:00+00:00"
-},
-{
-    "id": 168732,
-    "title": "Ep 14",
-    "publish_date": "2019-11-12T18:00:00+00:00"
 }]
