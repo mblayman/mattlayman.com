@@ -14,11 +14,11 @@ jobs:
         with:
           fetch-depth: 1
 
-      # - name: Cache Python packages
-      #   uses: actions/cache@v1
-      #   with:
-      #     path: ~/.virtualenvs
-      #     key: python-packages-${{ hashFiles('requirements/pub.txt') }}
+      - name: Cache Python packages
+        uses: actions/cache@v1
+        with:
+          path: venv
+          key: venv-${{ hashFiles('requirements/pub.txt') }}
 
       - name: Set up Python
         uses: actions/setup-python@v1
