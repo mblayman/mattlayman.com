@@ -16,8 +16,8 @@ jobs:
       - name: Cache Python packages
         uses: actions/cache@v1
         with:
-          path: venv
-          key: venv-${{ hashFiles('requirements/pub.txt') }}
+          path: ~/.cache/pip
+          key: pip-${{ hashFiles('requirements/pub.txt') }}
 
       - name: Set up Python
         uses: actions/setup-python@v1
@@ -25,13 +25,10 @@ jobs:
           python-version: '3.x'
           architecture: 'x64'
 
-      - name: Set up virtual environment
-        run: test -d venv || python -m venv venv
-
       - name: Install packages
-        run: venv/bin/pip install -r requirements/pub.txt
+        run: pip install -r requirements/pub.txt
 
       - name: Run publisher
-        run: venv/bin/python bin/publish.py
+        run: python bin/publish.py
         env:
           DEV_API_KEY: ${{ secrets.DEV_API_KEY }}
