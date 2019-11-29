@@ -46,8 +46,4 @@ if __name__ == "__main__":
     logging.basicConfig(
         format="%(levelname)s: %(message)s", level=logging.INFO, stream=sys.stdout
     )
-    import requests
-
-    logger.info("test with cache")
-    logger.info(requests.__file__)
     publish_scheduled_articles()

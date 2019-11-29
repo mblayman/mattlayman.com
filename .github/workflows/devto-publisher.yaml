@@ -1,8 +1,7 @@
 name: DEV Publisher
-# on:
-#   schedule:
-#     - cron: '0 * * * *'
-on: [push]
+on:
+  schedule:
+    - cron: '0 * * * *'
 
 jobs:
   publish:
