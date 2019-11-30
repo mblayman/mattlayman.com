@@ -107,7 +107,7 @@ The service needs to get the user ID
 and it's not easily accessible.
 That leads to code like:
 
-```javascript hl_lines="12 21 22 23 24"
+```javascript
 import Ember from 'ember';
 
 const { inject: { service }, isEmpty, RSVP } = Ember;
