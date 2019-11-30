@@ -104,7 +104,7 @@ It's a very powerful pattern.)
 
 Over in my `celery.py` module, the code looks like:
 
-```python hl_lines="13"
+```python
 import os
 
 from celery import Celery
