@@ -115,9 +115,13 @@ I ran:
 (venv) $ heroku local
 ```
 
-This failed because I was missing a `Profile`.
-So, we created `Profile`
-to run the app.
+This failed because the project was missing a `Profile`.
+So, we created a `Profile`
+to run the app
+with this line
+(and added an installation
+of {{< extlink "https://gunicorn.org/" "gunicorn" >}}
+into our virtual environment).
 
 ```Procfile
 web: gunicorn project.wsgi --log-file -
@@ -125,9 +129,9 @@ web: gunicorn project.wsgi --log-file -
 
 Now `heroku local` would start,
 but we immediately hit an error
-because `0.0.0.0:5000`
+because of the `http://0.0.0.0:5000` URL
 (which is the default
-for {{< extlink "https://gunicorn.org/" "gunicorn" >}}).
+for gunicorn).
 The failure is that the gunicorn default URL
 is not in the `ALLOWED_HOSTS` setting.
 
