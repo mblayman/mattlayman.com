@@ -20,3 +20,4 @@
 * [ ] Reddit /r/python
 * [ ] Hacker News
 * [ ] python.libhunt.com/contribute
+* [ ] dev.to
