@@ -145,19 +145,10 @@ and in `urls.py`:
 # Enable the debug toolbar only in DEBUG mode.
 if settings.DEBUG and settings.DEBUG_TOOLBAR:
     import debug_toolbar
-    from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
     urlpatterns = [path("__debug__/", include(debug_toolbar.urls))] \
                 + urlpatterns
-    urlpatterns += staticfiles_urlpatterns()
 ```
-
-The `staticfiles` shenanigans are there
-because we're using Gunicorn locally.
-`./manage.py runserver` handles static files seamlessly,
-but some extra configuration was needed
-to make Gunicorn behave
-in a similar way in debug mode.
 
 We also took the step to make the toolbar configurable
 with a `DEBUG_TOOLBAR` setting
