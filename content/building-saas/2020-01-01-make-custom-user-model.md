@@ -2,7 +2,7 @@
 title: "Make A Custom User Model - Building SaaS #40"
 description: >-
     In this episode,
-    we started a users app and hook up the custom user model feature of Django
+    we started a users app and hooked up the custom user model feature of Django
     to unlock the full extensibility of that model in the future.
 type: video
 image: img/python-django.png
@@ -20,7 +20,7 @@ tags:
 ---
 
 In this episode,
-we started a users app and hook up the custom user model feature of Django
+we started a users app and hooked up the custom user model feature of Django
 to unlock the full extensibility of that model in the future.
 The stream was cut short this week because of some crashing issues
 in the OBS streaming software.
