@@ -75,7 +75,7 @@ for my decision.
 
 With the app
 in the location I wanted,
-we put in the list
+we put it in the list
 of installed applications
 in the settings.
 
