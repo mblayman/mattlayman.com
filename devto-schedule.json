@@ -4,14 +4,14 @@
     "publish_date": "2020-02-05T18:00:00+00:00"
 },
 {
-    "id": 171345,
-    "title": "Ep 25",
-    "publish_date": "2020-01-28T18:00:00+00:00"
-},
-{
     "id": 213102,
     "title": "postgres search",
     "publish_date": "2020-01-29T18:00:00+00:00"
+},
+{
+    "id": 171345,
+    "title": "Ep 25",
+    "publish_date": "2020-01-28T18:00:00+00:00"
 },
 {
     "id": 213101,
@@ -36,35 +36,15 @@
 {
     "id": 213091,
     "title": "abstractions",
+    "publish_date": "2020-01-09T18:00:00+00:00"
+},
+{
+    "id": 233652,
+    "title": "browser to django",
     "publish_date": "2020-01-08T18:00:00+00:00"
 },
 {
     "id": 171342,
     "title": "Ep 22",
     "publish_date": "2020-01-07T18:00:00+00:00"
-},
-{
-    "id": 213089,
-    "title": "critical tools",
-    "publish_date": "2020-01-01T18:00:00+00:00"
-},
-{
-    "id": 171341,
-    "title": "Ep 21",
-    "publish_date": "2019-12-31T18:00:00+00:00"
-},
-{
-    "id": 212561,
-    "title": "sideload",
-    "publish_date": "2019-12-25T18:00:00+00:00"
-},
-{
-    "id": 171337,
-    "title": "Ep 20",
-    "publish_date": "2019-12-24T18:00:00+00:00"
-},
-{
-    "id": 222872,
-    "title": "failed saas",
-    "publish_date": "2019-12-18T18:00:00+00:00"
 }]
