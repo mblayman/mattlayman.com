@@ -13,7 +13,7 @@ pygmentsCodeFences = true
 [params]
     title = "Matt Layman"
     subtitle = "A software creator / Django consultant"
-    copyright = "© 2008–2019 Matt Layman"
+    copyright = "© 2008–2020 Matt Layman"
     cover = "img/paint.jpg"
     description = "Matt Layman is a software engineer from Frederick, MD. He is an open source software maintainer and advocate for the Python programming language."
 
