@@ -29,10 +29,7 @@ please reach out to me on {{< extlink "https://www.linkedin.com/in/mattlayman/" 
 I'm regularly streaming on {{< extlink "https://www.twitch.tv/mblayman" "Twitch" >}}.
 On most Wednesday nights at 9pm Eastern time,
 I'm streaming on Twitch
-to build my Software as a Service called {{< extlink "https://www.collegeconductor.com/" "College Conductor" >}}.
-During the stream,
-I work on Python and Django
-to add new features to my SaaS product.
+to build a Django application.
 My primary goal is to teach others how to build complex web projects
 and all the skills that they'll need to produce something
 that's more than a tutorial app.
