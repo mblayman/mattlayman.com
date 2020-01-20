@@ -16,35 +16,15 @@
 {
     "id": 213101,
     "title": "django celery rollbar",
+    "publish_date": "2020-01-23T18:00:00+00:00"
+},
+{
+    "id": 245088,
+    "title": "urls lead way",
     "publish_date": "2020-01-22T18:00:00+00:00"
 },
 {
     "id": 171344,
     "title": "Ep 24",
     "publish_date": "2020-01-21T18:00:00+00:00"
-},
-{
-    "id": 213092,
-    "title": "ember jwt",
-    "publish_date": "2020-01-15T18:00:00+00:00"
-},
-{
-    "id": 171343,
-    "title": "Ep 23",
-    "publish_date": "2020-01-14T18:00:00+00:00"
-},
-{
-    "id": 213091,
-    "title": "abstractions",
-    "publish_date": "2020-01-09T18:00:00+00:00"
-},
-{
-    "id": 233652,
-    "title": "browser to django",
-    "publish_date": "2020-01-08T18:00:00+00:00"
-},
-{
-    "id": 171342,
-    "title": "Ep 22",
-    "publish_date": "2020-01-07T18:00:00+00:00"
 }]
