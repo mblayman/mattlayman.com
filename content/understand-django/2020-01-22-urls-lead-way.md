@@ -2,7 +2,7 @@
 title: "URLs Lead The Way"
 description: >-
     How does a Django site know
-    where to set requests?
+    where to send requests?
     You have to tell it!
     In this next article
     in the Understand Django series,
