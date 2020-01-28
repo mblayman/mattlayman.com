@@ -375,7 +375,7 @@ this solution will match some URL path
 like `blog/2020/urls-lead-way/`.
 
 ```python
-    re_path("^blog/(?P<year>[0-9]{4})/(?P<slug>[\w-]+)/$", views.blog_post),
+    re_path(r"^blog/(?P<year>[0-9]{4})/(?P<slug>[\w-]+)/$", views.blog_post),
 ```
 
 This crazy string behaves exactly like our earlier example
