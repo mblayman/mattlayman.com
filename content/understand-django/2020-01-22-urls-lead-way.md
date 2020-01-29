@@ -330,7 +330,7 @@ in `blog_by_year`
 to handle the weird case where `year` doesn't look like a number.
 That kind of feature is real time saver!
 It keeps your code cleaner
-*and* is makes handling more precise.
+*and* makes handling more precise.
 
 What about that other strange example
 that we saw earlier
@@ -497,7 +497,7 @@ to handle this better.
 
 ```python
 # project/urls.py
-from django.urls import include
+from django.urls import include, path
 
 urlpatterns = [
     path("schools/", include("schools.urls"),
