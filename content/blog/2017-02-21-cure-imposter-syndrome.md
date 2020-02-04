@@ -95,7 +95,7 @@ Naturally,
 if a developer is proficient
 at one half of a solution
 but not the other half,
-those fradulent feelings may creep in.
+those fraudulent feelings may creep in.
 Again,
 a humble mindset
 will be a boon
