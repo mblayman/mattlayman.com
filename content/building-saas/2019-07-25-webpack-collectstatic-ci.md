@@ -1,5 +1,5 @@
 ---
-title: "Plug the Shiv App Into Nginx - Building SaaS #28"
+title: "Webpack and collectstatic in CI - Building SaaS #28"
 description: >-
   In this episode,
   we updated Continuous Integration (CI) to run webpack
