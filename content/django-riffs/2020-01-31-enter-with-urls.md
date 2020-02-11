@@ -12,6 +12,13 @@ description: >-
     to work with URLs.
 image: img/django-riffs-banner.png
 type: post
+categories:
+ - Python
+ - Django
+tags:
+ - Python
+ - Django
+ - URLs
 
 ---
 

@@ -14,6 +14,12 @@ description: >-
     to build a web app.
 image: img/django-riffs-banner.png
 type: post
+categories:
+ - Python
+ - Django
+tags:
+ - Python
+ - Django
 
 ---
 
