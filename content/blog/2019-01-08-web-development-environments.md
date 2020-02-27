@@ -222,7 +222,7 @@ to a single terminal window.
 You define the processes to run in a `Profile`
 with something that could look like:
 
-```
+```text
 web: ./manage.py runserver
 worker: celery worker --app new_hot_thing:celeryapp --loglevel info
 frontend: webpack --watch

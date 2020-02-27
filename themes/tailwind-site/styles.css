@@ -41,7 +41,7 @@
 .article-content li p {
   @apply inline;
 }
-.article-content li code {
+.article-content li > code {
   @apply bg-blue-100;
 }
 
