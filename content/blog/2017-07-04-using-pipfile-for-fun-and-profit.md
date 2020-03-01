@@ -55,7 +55,7 @@ A `requirements.txt` file has a very primitive structure.
 Here's a sample file from the {{< extlink "https://github.com/handroll/handroll" "handroll" >}} project
 that I work on.
 
-```
+```txt
 Jinja2==2.8
 Markdown==2.4
 MarkupSafe==0.23
