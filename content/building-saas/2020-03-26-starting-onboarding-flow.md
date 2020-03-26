@@ -1,5 +1,5 @@
 ---
-title: "Onboarding - Building SaaS #49"
+title: "Starting the Onboarding Flow - Building SaaS #49"
 description: >-
     In this episode,
     we worked on the progress element
