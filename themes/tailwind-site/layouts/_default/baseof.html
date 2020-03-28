@@ -84,7 +84,7 @@
           I have released a new Django podcast
           about learning Django.
           This new podcast, Django Riffs,
-          is available at <a class="hover:underline" href="https://djangoriffs.com">djangoriffs.com</a>.
+          is available at <a class="underline" href="https://djangoriffs.com">djangoriffs.com</a>.
         </p>
       </div>
 
@@ -97,13 +97,16 @@
         <a href="https://www.patreon.com/mblayman" target="_blank" rel="noopener">
           <img class="px-4" src="{{ "img/patreon.png" | absURL }}">
         </a>
-        <p class="text-sm font-serif text-gray-100">
+        <p class="text-sm font-serif text-gray-100 mb-2">
           If you like my work
           and you want to say thanks,
           you can become a patron
           on Patreon.
           Thanks for supporting me!
         </p>
+        <p class="text-sm font-serif text-gray-100">
+          Check out my <a class="underline" href="{{ "superheroes/" | absURL }}">Patreon Superhero supporters</a>!
+        <p>
       </div>
 
       {{ if eq .Kind "page" }}
