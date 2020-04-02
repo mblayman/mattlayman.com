@@ -31,3 +31,4 @@ of doing web development.
 * [From Browser To Django]({{< ref "/understand-django/2020-01-08-browser-to-django.md" >}})
 * [URLs Lead The Way]({{< ref "/understand-django/2020-01-22-urls-lead-way.md" >}})
 * [Views On Views]({{< ref "/understand-django/2020-03-03-views-on-views.md" >}})
+* [Templates For User Interfaces]({{< ref "/understand-django/2020-04-02-templates-user-interfaces.md" >}})

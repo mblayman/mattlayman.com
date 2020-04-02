@@ -147,6 +147,14 @@ aside {
 .article-6 {
   grid-area: article-6;
 }
+
+.sidebar {
+    @apply rounded-lg p-4 border border-orange-200 bg-orange-100 mb-4;
+}
+.sidebar h4, .sidebar p {
+    @apply m-0 mb-1;
+}
+
 /* purgecss end ignore */
 
 @tailwind utilities;
