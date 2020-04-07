@@ -868,7 +868,6 @@ Handy!
 Before moving on,
 let's consider two more.
 
-
 `pluralize` is a convenient tag
 for the times when your text considers counts
 of things. Consider a count of items.
