@@ -2,7 +2,7 @@
 title: "Fast Forms With UpdateView - Building SaaS #44"
 description: >-
     In this episode, we worked on an edit view.
-    We used Django's generic UpdateView to add the process
+    We used Django's generic UpdateView to aid the process
     and test drove the creation of the view
     to verify things every step of the way.
 type: video
@@ -22,7 +22,7 @@ tags:
 ---
 
 In this episode, we worked on an edit view.
-We used Django's generic UpdateView to add the process
+We used Django's generic UpdateView to aid the process
 and test drove the creation of the view
 to verify things every step of the way.
 
