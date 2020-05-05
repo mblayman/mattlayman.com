@@ -32,3 +32,4 @@ of doing web development.
 * [URLs Lead The Way]({{< ref "/understand-django/2020-01-22-urls-lead-way.md" >}})
 * [Views On Views]({{< ref "/understand-django/2020-03-03-views-on-views.md" >}})
 * [Templates For User Interfaces]({{< ref "/understand-django/2020-04-02-templates-user-interfaces.md" >}})
+* [User Interaction With Forms]({{< ref "/understand-django/2020-05-05-user-interaction-forms.md" >}})
