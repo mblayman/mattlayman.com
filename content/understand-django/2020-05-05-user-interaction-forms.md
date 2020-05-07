@@ -289,6 +289,7 @@ with a class-based view.
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 
 from .forms import ContactForm
 
@@ -376,6 +377,7 @@ named `FormView`.
 # application/views.py
 
 from django.views.generic import FormView
+from django.urls import reverse
 
 from .forms import ContactForm
 
