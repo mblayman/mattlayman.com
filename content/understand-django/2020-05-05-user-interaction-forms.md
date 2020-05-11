@@ -722,8 +722,8 @@ class HistoricalPersonForm(forms.Form):
 
     def clean(self):
         cleaned_data = super().clean()
-        date_of_birth = cleaned_date.get('date_of_birth')
-        date_of_death = cleaned_date.get('date_of_death')
+        date_of_birth = cleaned_data.get('date_of_birth')
+        date_of_death = cleaned_data.get('date_of_death')
         if date_of_birth and date_of_death and date_of_birth > date_of_death:
             raise forms.ValidationError('Birth date must be before death date.')
         return cleaned_data
