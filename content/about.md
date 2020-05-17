@@ -106,7 +106,7 @@ The core project is called `tappy`.
   </div>
   <div class="w-full sm:w-3/4">
     <p>
-I’m currently a senior software engineer
+I’m currently the software architect
 at {{< extlink "https://doctorondemand.com/" "Doctor on Demand" >}}.
 Doctor on Demand connects patients to doctors
 with video calls

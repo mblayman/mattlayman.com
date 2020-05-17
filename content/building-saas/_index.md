@@ -17,18 +17,12 @@ at 9pm Eastern Time,
 I develop a Software as a Service (SaaS)
 on {{< extlink "https://www.twitch.tv/mblayman" "Twitch" >}}.
 
-We work with code
-from whatever my current Django project is.
-The stream is episodic
-and covers ongoing features and problems
-of the site.
-
 > My primary goal is to **teach people about the Django web framework and Python**.
 
 Django is a big web framework
 so I share my experience
 from using the project
-for 5+ years.
+for 6+ years.
 
 This page contains show notes
 and links to each stream.
