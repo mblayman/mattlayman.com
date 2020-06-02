@@ -219,7 +219,7 @@ Each process is given a label (like `web`)
 and all logging is funneled
 to a single terminal window.
 
-You define the processes to run in a `Profile`
+You define the processes to run in a `Procfile`
 with something that could look like:
 
 ```text
