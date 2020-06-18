@@ -3,7 +3,7 @@ title: "Hackathon App - Building SaaS #61"
 description: >-
     In this episode, we took a break from the regular app
     to work on an app for a local hackathon that I'm participating in.
-    My team is building a mobile web app for the homeless around Frderick, MD.
+    My team is building a mobile web app for the homeless around Frederick, MD.
     In this stream, we cranked through some modeling, admin building,
     a couple of pages, tests, and templates! We got a lot done!
 type: video
@@ -24,7 +24,7 @@ tags:
 
 In this episode, we took a break from the regular app
 to work on an app for a local hackathon that I'm participating in.
-My team is building a mobile web app for the homeless around Frderick, MD.
+My team is building a mobile web app for the homeless around Frederick, MD.
 In this stream, we cranked through some modeling, admin building,
 a couple of pages, tests, and templates! We got a lot done!
 
