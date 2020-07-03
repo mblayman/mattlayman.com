@@ -26,3 +26,4 @@ for the community.
 The superheroes include:
 
 * Rob Riedlinger
+* Rupert Baker
