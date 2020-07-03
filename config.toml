@@ -4,7 +4,7 @@ title = "Matt Layman"
 theme = "tailwind-site"
 canonifyURLs = true
 enableRobotsTXT = true
-paginate = 6
+paginate = 18
 pygmentsCodeFences = true
 
 [frontmatter]

@@ -116,7 +116,10 @@ aside {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: 1fr;
-  grid-template-areas: "article-1" "article-2" "article-3" "article-4" "article-5" "article-6";
+  grid-template-areas:
+    "article-1" "article-2" "article-3" "article-4" "article-5" "article-6"
+    "article-7" "article-8" "article-9" "article-10" "article-11" "article-12"
+    "article-13" "article-14" "article-15" "article-16" "article-17" "article-18";
 }
 
 @screen sm {
@@ -124,7 +127,13 @@ aside {
     grid-template-areas:
       "article-1 article-1 article-1 article-1 article-1 article-1"
       "article-2 article-2 article-3 article-3 article-4 article-4"
-      "article-5 article-5 article-5 article-6 article-6 article-6";
+      "article-5 article-5 article-5 article-6 article-6 article-6"
+      "article-7 article-7 article-7 article-7 article-7 article-7"
+      "article-8 article-8 article-9 article-9 article-10 article-10"
+      "article-11 article-11 article-11 article-12 article-12 article-12"
+      "article-13 article-13 article-13 article-13 article-13 article-13"
+      "article-14 article-14 article-15 article-15 article-16 article-16"
+      "article-17 article-17 article-17 article-18 article-18 article-18";
     grid-template-columns: repeat(6, 1fr);
   }
 }
@@ -146,6 +155,42 @@ aside {
 }
 .article-6 {
   grid-area: article-6;
+}
+.article-7 {
+  grid-area: article-7;
+}
+.article-8 {
+  grid-area: article-8;
+}
+.article-9 {
+  grid-area: article-9;
+}
+.article-10 {
+  grid-area: article-10;
+}
+.article-11 {
+  grid-area: article-11;
+}
+.article-12 {
+  grid-area: article-12;
+}
+.article-13 {
+  grid-area: article-13;
+}
+.article-14 {
+  grid-area: article-14;
+}
+.article-15 {
+  grid-area: article-15;
+}
+.article-16 {
+  grid-area: article-16;
+}
+.article-17 {
+  grid-area: article-17;
+}
+.article-18 {
+  grid-area: article-18;
 }
 
 .sidebar {
