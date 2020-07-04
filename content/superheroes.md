@@ -26,4 +26,5 @@ for the community.
 The superheroes include:
 
 * Rob Riedlinger
-* Rupert Baker
+* {{< extlink "https://twitter.com/rupertbaker" "Rupert Baker" >}} - 
+    Rupert is building {{< extlink "https://sharedgoals.co/" "SharedGoals" >}}.
