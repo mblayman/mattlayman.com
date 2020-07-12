@@ -41,7 +41,7 @@ so *why do I feel this way?*
 Let's see how I got here to begin with.
 
 Some years ago,
-I started an ambituous side project
+I started an ambitious side project
 called {{< extlink "https://www.collegeconductor.com/" "College Conductor" >}}.
 The project uses {{< extlink "https://www.djangoproject.com/" "Django" >}}
 and {{< extlink "https://emberjs.com/" "Ember" >}}.
@@ -62,7 +62,7 @@ Fast forward past the details
 and I found that ***I*** was the person doing new releases
 for the project.
 
-My role was declared publically
+My role was declared publicly
 and simply:
 I agreed to manage PR reviews
 from community contributed PRs
