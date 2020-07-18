@@ -19,6 +19,7 @@ tags:
  - Python
  - Django
  - templates
+series: "Building SaaS"
 
 ---
 
