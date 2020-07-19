@@ -6,7 +6,7 @@ import sys
 
 from dateutil.parser import parse
 
-from devto import DEVGateway
+from tools.devto import DEVGateway
 
 logger = logging.getLogger(__name__)
 

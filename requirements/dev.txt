@@ -6,3 +6,4 @@ pyperclip
 python-dotenv
 python-frontmatter
 requests
+typer[all]

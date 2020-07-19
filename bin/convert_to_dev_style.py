@@ -6,7 +6,7 @@ import sys
 import frontmatter
 from dotenv import load_dotenv
 
-from devto import DEVGateway
+from tools.devto import DEVGateway
 
 EXTLINK_PATTERN = re.compile(r'.*({{< extlink "(.*)" "(.*)" >}}).*')
 EXTLINE_REPLACEMENT_PATTERN = re.compile(r"{{< extlink .* >}}")
