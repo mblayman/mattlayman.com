@@ -17,10 +17,11 @@ def main(article: Path = typer.Argument(..., exists=True)):
     checklist = Checklist(article)
     checklist.load(CHECKLIST_ITEMS)
 
+    for item in checklist:
+        print(item)
     # TODO: Use the checklist.
 
     checklist.write()
-    print(checklist.items)
 
 
 class Checklist:
@@ -30,6 +31,10 @@ class Checklist:
 
     def __init__(self, article):
         self.article = article
+        self.items = {}
+
+    def __iter__(self):
+        return iter(self.items.keys())
 
     @property
     def path(self):
