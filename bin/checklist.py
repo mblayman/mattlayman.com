@@ -4,9 +4,12 @@ import json
 from pathlib import Path
 
 import typer
+from dotenv import load_dotenv
+
+from tools.dev_formatter_task import DEVFormatterTask
 
 ROOT_DIR = Path(__file__).parent.parent
-CHECKLIST_ITEMS = ("dev",)
+TASKS = {"dev": DEVFormatterTask}
 
 
 def main(article: Path = typer.Argument(..., exists=True)):
@@ -14,12 +17,20 @@ def main(article: Path = typer.Argument(..., exists=True)):
         typer.echo("The provided article path is not a Markdown file.")
         raise typer.Exit(code=1)
 
+    load_dotenv()
+
     checklist = Checklist(article)
-    checklist.load(CHECKLIST_ITEMS)
+    checklist.load(TASKS.keys())
 
     for item in checklist:
-        print(item)
-    # TODO: Use the checklist.
+        task = TASKS[item]()
+        response = typer.confirm(task.prompt, default=True)
+        if response:
+            typer.echo(task.start)
+            status = task.handle(article=article)
+            if status:
+                typer.echo("Task completed.")
+                checklist.complete(item)
 
     checklist.write()
 
@@ -48,6 +59,9 @@ class Checklist:
                 self.items = json.load(f)
         except FileNotFoundError:
             self.items = {item: False for item in checklist_items}
+
+    def complete(self, item):
+        self.items[item] = True
 
     def write(self):
         """Store the checklist for any future use."""

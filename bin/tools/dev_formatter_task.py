@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 import os
 import re
-import sys
 
 import frontmatter
-from dotenv import load_dotenv
+import typer
 
-from tools.devto import DEVGateway
+from .devto import DEVGateway
+from .task import Task
 
 EXTLINK_PATTERN = re.compile(r'.*({{< extlink "(.*)" "(.*)" >}}).*')
 EXTLINE_REPLACEMENT_PATTERN = re.compile(r"{{< extlink .* >}}")
@@ -16,31 +16,31 @@ YOUTUBE_IFRAME_PATTERN = re.compile(r'.*youtube.com/embed/(.*?)".*')
 WEBSITE_URL = "https://www.mattlayman.com"
 
 
-def main():
-    if len(sys.argv) < 1:
-        sys.exit("Provide the path to the Markdown article.")
+class DEVFormatterTask(Task):
+    prompt = "Create article on DEV?"
+    start = "Processing Markdown and reformatting for DEV..."
 
-    load_dotenv()
+    def handle(self, *args, **kwargs):
+        article_path = str(kwargs["article"])
+        article = frontmatter.load(article_path)
+        output = []
 
-    article_path = sys.argv[1]
-    article = frontmatter.load(article_path)
-    output = []
+        if "video" in article.keys():
+            embed_code = article["video"].split("/")[-1]
+            output.extend([f"{{% youtube {embed_code} %}}", ""])
 
-    if "video" in article.keys():
-        embed_code = article["video"].split("/")[-1]
-        output.extend([f"{{% youtube {embed_code} %}}", ""])
+        state = "unknown"
+        for line in article.content.splitlines():
+            previous_state = state
+            state = check_state(previous_state, line)
+            # print(f"{previous_state} -> {state}")
+            run_state(previous_state, state, line, output)
 
-    state = "unknown"
-    for line in article.content.splitlines():
-        previous_state = state
-        state = check_state(previous_state, line)
-        # print(f"{previous_state} -> {state}")
-        run_state(previous_state, state, line, output)
-
-    dev_markdown = "\n".join(output)
-    # print(dev_markdown)
-    canonical_url = get_canonical_url(article_path)
-    create_article(article, dev_markdown, canonical_url)
+        dev_markdown = "\n".join(output)
+        # print(dev_markdown)
+        canonical_url = get_canonical_url(article_path)
+        create_article(article, dev_markdown, canonical_url)
+        return True
 
 
 def check_state(current_state, line):
@@ -183,8 +183,4 @@ def create_article(article, dev_markdown, canonical_url):
         series=article.get("series"),
         canonical_url=canonical_url,
     )
-    print(f"New article ID: {data['id']}")
-
-
-if __name__ == "__main__":
-    main()
+    typer.echo(f"New article ID: {data['id']}")
