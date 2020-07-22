@@ -23,6 +23,10 @@ def main(article: Path = typer.Argument(..., exists=True)):
     checklist.load(TASKS.keys())
 
     for item in checklist:
+        if checklist.is_complete(item):
+            typer.echo(f"Skipping complete item: {item}")
+            continue
+
         task = TASKS[item]()
         response = typer.confirm(task.prompt, default=True)
         if response:
@@ -59,6 +63,9 @@ class Checklist:
                 self.items = json.load(f)
         except FileNotFoundError:
             self.items = {item: False for item in checklist_items}
+
+    def is_complete(self, item):
+        return self.items[item]
 
     def complete(self, item):
         self.items[item] = True
