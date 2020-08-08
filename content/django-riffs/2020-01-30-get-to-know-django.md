@@ -3,6 +3,8 @@ title: "Episode 1 - Get To Know Django"
 aliases:
  - /django-riffs/1
  - /djangoriffs/1
+ - /django-riffs/1.
+ - /djangoriffs/1.
 description: >-
     Django Riffs is
     a podcast for learning web application development

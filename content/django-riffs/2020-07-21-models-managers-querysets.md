@@ -3,6 +3,8 @@ title: "Episode 7 - Models and Managers and Querysets, Oh My!"
 aliases:
  - /django-riffs/7
  - /djangoriffs/7
+ - /django-riffs/7.
+ - /djangoriffs/7.
 description: >-
     On this episode,
     we will explore more about models

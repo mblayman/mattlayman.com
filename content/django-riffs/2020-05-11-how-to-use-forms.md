@@ -3,6 +3,8 @@ title: "Episode 5 - How To Use Forms"
 aliases:
  - /django-riffs/5
  - /djangoriffs/5
+ - /django-riffs/5.
+ - /djangoriffs/5.
 description: >-
     On this episode,
     we will learn about HTML forms

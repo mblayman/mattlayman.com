@@ -3,6 +3,8 @@ title: "Episode 4 - Building User Interfaces"
 aliases:
  - /django-riffs/4
  - /djangoriffs/4
+ - /django-riffs/4.
+ - /djangoriffs/4.
 description: >-
     On this episode,
     we look at templates,

@@ -3,6 +3,8 @@ title: "Episode 2 - Enter With URLs"
 aliases:
  - /django-riffs/2
  - /djangoriffs/2
+ - /django-riffs/2.
+ - /djangoriffs/2.
 description: >-
     On this episode,
     we discuss Django's front door, URLs.

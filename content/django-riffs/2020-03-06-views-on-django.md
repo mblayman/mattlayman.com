@@ -3,6 +3,8 @@ title: "Episode 3 - Views On Django"
 aliases:
  - /django-riffs/3
  - /djangoriffs/3
+ - /django-riffs/3.
+ - /djangoriffs/3.
 description: >-
     On this episode,
     we look at views,

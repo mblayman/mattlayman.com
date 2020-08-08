@@ -3,6 +3,8 @@ title: "Episode 6 - Where Does the Data Go?"
 aliases:
  - /django-riffs/6
  - /djangoriffs/6
+ - /django-riffs/6.
+ - /djangoriffs/6.
 description: >-
     On this episode,
     we will learn about storing data
