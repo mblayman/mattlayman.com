@@ -34,3 +34,4 @@ of doing web development.
 * [Templates For User Interfaces]({{< ref "/understand-django/2020-04-02-templates-user-interfaces.md" >}})
 * [User Interaction With Forms]({{< ref "/understand-django/2020-05-05-user-interaction-forms.md" >}})
 * [Store Data With Models]({{< ref "/understand-django/2020-06-25-store-data-with-models.md" >}})
+* [Administer All The Things]({{< ref "/understand-django/2020-08-26-administer-all-the-things.md" >}})
