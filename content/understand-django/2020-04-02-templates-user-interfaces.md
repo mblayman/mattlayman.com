@@ -35,6 +35,8 @@ Let's see how templates hook into views
 and what features Django provides
 with its template system.
 
+{{< understand-django-series "templates" >}}
+
 ## Set Up Templates
 
 We need a place for templates to live.

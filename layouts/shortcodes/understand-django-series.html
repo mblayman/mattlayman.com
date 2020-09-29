@@ -1,0 +1,50 @@
+{{ $post := .Get 0 }}
+<ol>
+  {{- if eq $post "browser" -}}
+  <li>From Browser To Django</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2020-01-08-browser-to-django.md" }}">From Browser To Django</a></li>
+  {{- end -}}
+
+  {{- if eq $post "urls" -}}
+  <li>URLs Lead The Way</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2020-01-22-urls-lead-way.md" }}">URLs Lead The Way</a></li>
+  {{- end -}}
+
+  {{- if eq $post "views" -}}
+  <li>Views On Views</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2020-03-03-views-on-views.md" }}">Views On Views</a></li>
+  {{- end -}}
+
+  {{- if eq $post "templates" -}}
+  <li>Templates For User Interfaces</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2020-04-02-templates-user-interfaces.md" }}">Templates For User Interfaces</a></li>
+  {{- end -}}
+
+  {{- if eq $post "forms" -}}
+  <li>User Interaction With Forms</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2020-05-05-user-interaction-forms.md" }}">User Interaction With Forms</a></li>
+  {{- end -}}
+
+  {{- if eq $post "models" -}}
+  <li>Store Data With Models</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2020-06-25-store-data-with-models.md" }}">Store Data With Models</a></li>
+  {{- end -}}
+
+  {{- if eq $post "admin" -}}
+  <li>Administer All The Things</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2020-08-26-administer-all-the-things.md" }}">Administer All The Things</a></li>
+  {{- end -}}
+
+  {{- if eq $post "apps" -}}
+  <li>Anatomy Of An Application</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2020-09-23-anatomy-of-an-application.md" }}">Anatomy Of An Application</a></li>
+  {{- end -}}
+</ol>

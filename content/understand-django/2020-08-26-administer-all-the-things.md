@@ -37,6 +37,8 @@ on the built-in tools
 that Django provides
 to help us manage that data.
 
+{{< understand-django-series "admin" >}}
+
 ## What Is The Django Admin?
 
 When you run an application,

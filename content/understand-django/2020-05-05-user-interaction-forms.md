@@ -39,6 +39,8 @@ we'll focus
 on how to work with web forms
 using the Django form system.
 
+{{< understand-django-series "forms" >}}
+
 ## Web Forms 101
 
 Before we can dive into how Django handles forms,

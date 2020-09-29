@@ -37,6 +37,8 @@ into a database
 so that your application can use that data
 or display it later.
 
+{{< understand-django-series "models" >}}
+
 ## Setting Up
 
 Let's figure out where your data goes

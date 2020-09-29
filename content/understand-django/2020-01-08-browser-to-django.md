@@ -57,6 +57,8 @@ from the very top
 of a user's internet experience:
 at the web browser.
 
+{{< understand-django-series "browser" >}}
+
 ## Making A Browser Request
 
 Django is a web framework,

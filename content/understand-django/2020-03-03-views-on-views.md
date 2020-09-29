@@ -37,6 +37,8 @@ we'll examine the core building block
 that makes those URLs work:
 the Django view.
 
+{{< understand-django-series "views" >}}
+
 ## What Is A View?
 
 A view is a chunk of code
