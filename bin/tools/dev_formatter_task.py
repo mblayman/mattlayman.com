@@ -132,6 +132,7 @@ def process_line(line):
     line = convert_extlink(line)
     line = convert_ref(line)
     line = convert_youtube_embed(line)
+    line = check_hugo_directives(line)
     return line
 
 
@@ -151,6 +152,10 @@ def convert_ref(line):
         if "_index.md" in ref_path:
             ref_url = f"{WEBSITE_URL}{ref_path.replace('_index.md', '')}"
             return REF_REPLACEMENT_PATTERN.sub(ref_url, line)
+        elif "understand-django" in ref_path:
+            parts = ref_path.split("/")
+            slug = parts[2][11:-3]
+            return f"/understand-django/{slug}/"
         else:
             raise Exception(f"unhandled ref style: {ref_path}")
     return line
@@ -161,6 +166,19 @@ def convert_youtube_embed(line):
         match = YOUTUBE_IFRAME_PATTERN.match(line)
         embed_code = match.group(1)
         return f"{{% youtube {embed_code} %}}"
+    return line
+
+
+def check_hugo_directives(line):
+    """Check for Hugo shortcodes.
+
+    This is the chance to ignore shortcode that I don't want custom processing for.
+    """
+    if "{{<" in line:
+        if "understand-django" in line:
+            return ""
+        raise Exception(f"Unhandled Hugo directive: {line}")
+
     return line
 
 
