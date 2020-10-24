@@ -16,13 +16,14 @@ image: img/django-riffs-banner.png
 ---
 
 Django Riffs is
-a podcast for learning web application development
+a podcast for learning how to build web apps
 in Python
-using the Django web framework.
+using Django.
 We explore all of Django's features
-to equip listeners
+to equip you
 with the knowledge
-to build a web app.
+to build a web app
+of your own.
 
 Episodes are available at
 {{< extlink "https://djangoriffs.com/" "djangoriffs.com" >}}.
