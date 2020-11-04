@@ -47,4 +47,10 @@
   {{- else -}}
   <li><a href="{{ ref . "/understand-django/2020-09-29-anatomy-of-an-application.md" }}">Anatomy Of An Application</a></li>
   {{- end -}}
+
+  {{- if eq $post "auth" -}}
+  <li>User Authentication</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2020-10-21-user-authentication.md" }}">User Authentication</a></li>
+  {{- end -}}
 </ol>
