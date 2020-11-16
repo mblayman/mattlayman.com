@@ -41,5 +41,7 @@ class DEVGateway:
             data["article"]["series"] = series
 
         response = self.session.post(f"{self.url}/articles", json=data)
-        response.raise_for_status()
+        if response.status_code >= 400:
+            print(response.content)
+            raise
         return response.json()
