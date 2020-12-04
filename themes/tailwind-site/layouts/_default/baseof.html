@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {{ .Hugo.Generator }}
+  {{ hugo.Generator }}
   {{ if .IsPage -}}
     <meta name="description" content="{{ .Description | default (substr .Summary 0 160) }}">
   {{ else -}}
@@ -17,7 +17,7 @@
   <link rel="canonical" href="{{ .Permalink }}">
   {{ if .Site.Params.RSSLink -}}
     <link href="{{ .Site.Params.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
-  {{ else if eq .URL "/" -}}
+  {{ else if eq .RelPermalink "/" -}}
     <link href="{{ "index.xml" | absURL}}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
   {{- end -}}
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93541554-1"></script>
