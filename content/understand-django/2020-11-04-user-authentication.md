@@ -414,7 +414,6 @@ what is that user allowed to do?
 We'll see that next as we explore authorization
 in Django.
 
-
 ## What's Allowed?
 
 ### Authorization From User Attributes
