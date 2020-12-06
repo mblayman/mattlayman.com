@@ -25,6 +25,11 @@ for the community.
 
 The superheroes include:
 
-* Rob Riedlinger
 * {{< extlink "https://twitter.com/rupertbaker" "Rupert Baker" >}} - 
     Rupert is building {{< extlink "https://sharedgoals.co/" "SharedGoals" >}}.
+
+## Hall of Fame
+
+These are the superheroes who helped me in the past:
+
+* Rob Riedlinger
