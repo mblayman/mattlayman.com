@@ -39,30 +39,18 @@
 </head>
 
 <body>
-  <nav class="flex bg-gray-900 text-white border-b border-gray-600 sm:h-16 items-center">
+  <nav class="flex bg-gray-900 text-white border-b border-gray-900 sm:h-16 items-center">
     <div class="w-full max-w-6xl relative mx-auto px-6">
       <div class="flex flex-col sm:flex-row sm:items-center">
         <a href="/" class="block mr-4 py-1">
           <h1 class="text-xl uppercase tracking-widest font-hairline hover:underline">Matt Layman</h1>
         </a>
-        <a href="/about/" class="block mr-4 py-1">
-          <h2 class="text-normal tracking-wide font-hairline hover:underline">About</h2>
-        </a>
-        <a href="/most-popular/" class="block mr-4 py-1">
-          <h2 class="text-normal tracking-wide font-hairline hover:underline">Most Popular</h2>
-        </a>
-        <a href="/django-riffs/" class="block mr-4 py-1">
-          <h2 class="text-normal tracking-wide font-hairline hover:underline">Django Riffs</h2>
-        </a>
-        <a href="/understand-django/" class="block mr-4 py-1">
-          <h2 class="text-normal tracking-wide font-hairline hover:underline">Understand Django</h2>
-        </a>
-        <a href="/building-saas/" class="block mr-4 py-1">
-          <h2 class="text-normal tracking-wide font-hairline hover:underline">Building SaaS</h2>
-        </a>
         <div class="flex-grow">
         </div>
-        <a href="https://www.youtube.com/c/MattLayman" target="_blank" rel="noopener" class="sm:mr-4 hidden sm:block w-6 h-6 fill-current hover:text-gray-300">
+        <a href="/most-popular/" class="block mr-4 py-1">
+          <h2 class="text-normal tracking-wide font-hairline hover:underline">Most Popular Articles</h2>
+        </a>
+        <a href="https://www.youtube.com/c/MattLayman" target="_blank" rel="noopener" class="ml-12 sm:mr-4 hidden sm:block w-6 h-6 fill-current hover:text-gray-300">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="-35.20005 -41.33325 305.0671 247.9995" style="background-color: #1a202c">
             <path d="M93.333 117.559V47.775l61.334 34.893zm136.43-91.742c-2.699-10.162-10.651-18.165-20.747-20.881C190.716 0 117.333 0 117.333 0S43.951 0 25.651 4.936C15.555 7.652 7.603 15.655 4.904 25.817 0 44.236 0 82.667 0 82.667s0 38.429 4.904 56.849c2.699 10.163 10.65 18.165 20.747 20.883 18.3 4.934 91.682 4.934 91.682 4.934s73.383 0 91.683-4.934c10.096-2.718 18.048-10.72 20.747-20.883 4.904-18.42 4.904-56.85 4.904-56.85s0-38.43-4.904-56.849" fill="#fff"/>
           </svg>
@@ -73,8 +61,18 @@
         <a href="https://github.com/{{ .Site.Params.githubName }}" target="_blank" rel="noopener" class="sm:mr-4 hidden sm:block w-6 h-6 fill-current hover:text-gray-300">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
         </a>
-        <a href="https://linkedin.com/in/{{ .Site.Params.linkedinName }}/" target="_blank" rel="noopener" class="hidden sm:block w-6 h-6 fill-current hover:text-gray-300">
+        <a href="https://linkedin.com/in/{{ .Site.Params.linkedinName }}/" target="_blank" rel="noopener" class="sm:mr-4 hidden sm:block w-6 h-6 fill-current hover:text-gray-300">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 50 512 512"><path d="M150.65,100.682c0,27.992-22.508,50.683-50.273,50.683c-27.765,0-50.273-22.691-50.273-50.683 C50.104,72.691,72.612,50,100.377,50C128.143,50,150.65,72.691,150.65,100.682z M143.294,187.333H58.277V462h85.017V187.333z M279.195,187.333h-81.541V462h81.541c0,0,0-101.877,0-144.181c0-38.624,17.779-61.615,51.807-61.615 c31.268,0,46.289,22.071,46.289,61.615c0,39.545,0,144.181,0,144.181h84.605c0,0,0-100.344,0-173.915 s-41.689-109.131-99.934-109.131s-82.768,45.369-82.768,45.369V187.333z"></path></svg>
+        </a>
+        <a href="/building-saas/" class="hidden sm:block w-6 h-6 fill-current hover:text-gray-300">
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2400 2800" style="enable-background:new 0 0 2400 2800;" xml:space="preserve">
+            <title>Twitch</title>
+            <g id="Layer_1-2">
+            <path class="st0" d="M500,0L0,500v1800h600v500l500-500h400l900-900V0H500z M2200,1300l-400,400h-400l-350,350v-350H600V200h1600    V1300z"/>
+            <rect x="1700" y="550" class="st0" width="200" height="600"/>
+            <rect x="1150" y="550" class="st0" width="200" height="600"/>
+            </g>
+          </svg>
         </a>
       </div>
     </div>
@@ -106,6 +104,55 @@
         <p>
       </div>
 
+      <div class="rounded-lg border border-purple-700 p-4 bg-white mt-8">
+        <a href="https://twitch.tv/mblayman" target="_blank" rel="noopener">
+          <img class="rounded" src="{{ "img/2018/twitch.jpg" | absURL }}">
+        </a>
+        <p class="mt-4 mb-2 text-sm font-serif text-gray-900">
+          I regularly stream
+          how to build Django apps
+          on Twitch each week
+          at 9pm ET.
+          I happily answer your questions
+          about web apps
+          as I build one.
+        </p>
+        <p class="text-sm font-serif text-gray-900">
+          Links to past recordings and show notes
+          are at <a class="underline" href="{{ "building-saas/" | absURL }}">Building SaaS with Python and Django</a>.
+        <p>
+      </div>
+
+      <div class="rounded-lg border border-green-900 p-4 bg-green-800 text-white mt-8">
+        <a href="https://djangoriffs.com" target="_blank" rel="noopener">
+          <img class="rounded" src="{{ "img/django-riffs-banner.png" | absURL }}">
+        </a>
+        <p class="mt-4 mb-2 text-sm font-serif text-gray-100">
+          Django Riffs is my podcast devoted entirely
+          to learning the Django web framework.
+          Give it a listen!
+        </p>
+        <p class="text-sm font-serif text-gray-100">
+          All the shows are
+          on the <a class="underline" href="{{ "django-riffs/" | absURL }}">Show Notes</a> page.
+        <p>
+      </div>
+
+      <div class="rounded-lg border border-green-700 p-4 bg-white mt-8">
+        <a href="{{ "understand-django/" | absURL }}" class="hover:underline">
+          <h3 class="text-3xl text-center font-light tracking-wide text-green-900">Understand Django</h3>
+        </a>
+        <p class="mt-4 mb-2 text-sm font-serif text-gray-900">
+          Understand Django is an article series
+          where I exhaustively cover Django
+          and all its many features.
+        </p>
+        <p class="text-sm font-serif text-gray-900">
+          See all the articles
+          on the <a class="underline" href="{{ "understand-django/" | absURL }}">Understand Django</a> section.
+        <p>
+      </div>
+
       {{ if eq .Kind "page" }}
         {{ $related := .Site.RegularPages.Related . | first 5 }}
         {{ with $related }}
@@ -125,9 +172,12 @@
   </main>
   <footer class="flex bg-gray-900 text-white border-t border-gray-600 pt-2 sm:h-16 items-center">
     <div class="w-full max-w-6xl relative mx-auto px-6">
-      <div class="flex flex-col-reverse sm:flex-row items-center">
+      <div class="flex flex-row items-center">
         <a href="/" class="block sm:mr-4 py-1 flex-grow">
           <h1 class="text-xs sm:text-sm font-thin hover:underline">{{ .Site.Params.copyright }}</h1>
+        </a>
+        <a href="/about/" class="block mr-4 py-1">
+          <h2 class="sm:block text-sm font-thin hover:underline">About</h2>
         </a>
         <a href="/" class="block sm:mr-4 py-1">
           <h2 class="hidden sm:block text-sm font-thin hover:underline">Latest Articles</h2>
