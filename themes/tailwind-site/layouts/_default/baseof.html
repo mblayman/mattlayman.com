@@ -153,6 +153,37 @@
         <p>
       </div>
 
+      <div class="mt-8 p-4">
+        <h3 class="text-3xl font-light tracking-wide w-full border-b-2 border-red-600 mb-6">Videos</h3>
+
+        <h4 class="text-lg font-light tracking-wide mb-2">Python Testing 101 with pytest</h4>
+        <a class="block mb-8 hover:shadow-lg transition duration-200 ease-in-out" href="https://www.youtube.com/watch?v=etosV2IWBF0" target="_blank" rel="noopener">
+          <img src="{{ "img/youtube/python-testing-101.jpg" | absURL }}">
+        </a>
+
+        <h4 class="text-lg font-light tracking-wide mb-2">Python Testing 201 with pytest</h4>
+        <a class="block mb-8 hover:shadow-lg transition duration-200 ease-in-out" href="https://www.youtube.com/watch?v=fv259R38gqc" target="_blank" rel="noopener">
+          <img src="{{ "img/youtube/python-testing-201.jpg" | absURL }}">
+        </a>
+
+        <h4 class="text-lg font-light tracking-wide mb-2">Godot You Want To Make A Videogame</h4>
+        <a class="block mb-8 hover:shadow-lg transition duration-200 ease-in-out" href="https://www.youtube.com/watch?v=4o63V0AdrHk" target="_blank" rel="noopener">
+          <img src="{{ "img/youtube/godot.jpg" | absURL }}">
+        </a>
+
+        <h4 class="text-lg font-light tracking-wide mb-2">Basics of the Vim Text Editor</h4>
+        <a class="block mb-8 hover:shadow-lg transition duration-200 ease-in-out" href="https://www.youtube.com/watch?v=zxdQJlB65lA" target="_blank" rel="noopener">
+          <img src="{{ "img/youtube/vim.jpg" | absURL }}">
+        </a>
+
+        <h4 class="text-lg font-light tracking-wide mb-2">Using Git and GitHub</h4>
+        <a class="block mb-4 hover:shadow-lg transition duration-200 ease-in-out" href="https://www.youtube.com/watch?v=v98_7iHlYWM" target="_blank" rel="noopener">
+          <img src="{{ "img/youtube/git.jpg" | absURL }}">
+        </a>
+
+        <a class="underline p-1 rounded-sm text-gray-900 hover:bg-red-500 hover:text-white transition duration-200 ease-in-out" href="https://www.youtube.com/c/MattLayman" target="_blank" rel="noopener">More videos on YouTube...</a>
+      </div>
+
       {{ if eq .Kind "page" }}
         {{ $related := .Site.RegularPages.Related . | first 5 }}
         {{ with $related }}
