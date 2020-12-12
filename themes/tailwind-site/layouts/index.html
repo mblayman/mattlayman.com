@@ -1,11 +1,21 @@
 {{ define "main" }}
-<div class="bg-cover bg-center h-48 sm:h-56 sm:rounded-lg -mx-4 -mt-4 mb-4 sm:m-0 sm:mb-4" style="background-image: url({{ .Site.Params.cover | absURL }})">
-  <h1 class="text-center text-white text-4xl font-semibold tracking-wide pt-8 sm:pt-4">{{ .Title }}</h1>
-  <h2 class="text-center text-white text-xl font-thin px-1">{{ .Site.Params.subtitle }}</h2>
-</div>
 
-<div class="bg-white rounded-full mx-auto -mt-20 sm:-mt-32 mb-2 p-1 h-32 w-32 shadow-xl">
-  <img src="{{ .Site.Params.authorAvatar | absURL }}" class="rounded-full">
+<div class="flex flex-col sm:flex-row mt-4">
+  <div class="w-full sm:w-2/5">
+    <div class="bg-white rounded-full p-1 h-56 w-56 shadow-2xl mx-auto mb-8">
+      <img src="{{ .Site.Params.authorAvatar | absURL }}" class="rounded-full">
+    </div>
+  </div>
+  <div class="w-full sm:w-3/5 text-3xl font-thin tracking-wide leading-relaxed sm:mx-4">
+    <p class="mb-2">I’m Matt Layman.</p>
+    <p class="mb-8">
+      I want to help you learn more about
+      <a href="{{ "understand-django/" | absURL }}" class="bg-green-800 text-white hover:bg-white hover:text-green-900 font-light p-1 px-2 rounded-sm">Django</a>
+      and
+      <a href="{{ "blog/2017/pythonic-code-the-list-comprehension/" | absURL }}"class="bg-blue-600 text-white hover:bg-white hover:text-blue-700  font-light p-1 px-2 rounded-sm">Python</a>.
+      <a class="underline p-1 px-2 rounded-sm hover:bg-red-500 hover:text-white" href="{{ "about/" | absURL }}">Who am I?</a>
+    </p>
+  </div>
 </div>
 
 {{ $paginator := .Paginate (where .Site.RegularPages.ByDate.Reverse "Type" "post") }}

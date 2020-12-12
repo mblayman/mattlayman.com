@@ -8,14 +8,6 @@ description: >-
 ---
 I’m Matt, a software creator. Here are things I do:
 
-* Consult on the <a href="#django">Django</a> web framework.
-* Stream on <a href="#twitch">Twitch</a>.
-* Organize <a href="#frederick">Python Frederick</a>.
-* Have a few <a href="#projects">open source projects</a>.
-* Work at <a href="#work">Doctor on Demand</a>.
-* Love my <a href="#family">family</a> and go to <a href="#church">church</a>.
-
-<a name='django'></a>
 ## Consult on the Django web framework
 
 With over a decade of web development experience,
@@ -23,8 +15,7 @@ I consult on the {{< extlink "https://www.djangoproject.com/" "Django" >}} web f
 If your team needs Django training,
 please reach out to me on {{< extlink "https://www.linkedin.com/in/mattlayman/" "LinkedIn" >}}.
 
-<a name='twitch'></a>
-## Stream software development on Twitch
+## Build apps on Twitch
 
 I'm regularly streaming on {{< extlink "https://www.twitch.tv/mblayman" "Twitch" >}}.
 On most Wednesday nights at 9pm Eastern time,
@@ -38,7 +29,6 @@ Want to check it out?
 I post the streams on YouTube
 at the {{< extlink "https://www.youtube.com/watch?v=WzDsImiO7b8&list=PLFcKEo4b_n1wQA6lKtSqCq1dTMq1c2Lmw" "Building SaaS with Python and Django" >}} playlist.
 
-<a name='frederick'></a>
 ## Frederick Technology
 
 Frederick is a lovely small city
@@ -51,53 +41,56 @@ and foster a love of tech
 among my fellow citizens.
 
 * I started
-  <a href="https://www.pythonfrederick.org/" target="_blank">Python Frederick</a>
+  {{< extlink "https://www.pythonfrederick.org/" "Python Frederick" >}}
   in 2015
   and continue to organize it
   (with some fantastic co-organizers).
 * I helped coordinate the city's first
-  <a href="https://www.hackfrederick.com/" target="_blank">Hackathon</a>.
+  {{< extlink "https://www.hackfrederick.com/" "Hackathon" >}}.
 * Through my efforts
   on a team of tech volunteers,
   we earned Frederick a finalist spot
-  in Amazon's <a href="https://aws.amazon.com/stateandlocal/cityonacloud/2017finalists/" target="_blank">2017 City on a Cloud Innovation Challenge</a>.
+  in Amazon's
+  {{< extlink "https://aws.amazon.com/stateandlocal/cityonacloud/2017finalists/" "2017 City on a Cloud Innovation Challenge" >}}.
 
 I care deeply about my home,
 and I push hard to make sure
 that its citizens have the opportunity to learn
 about technology.
 
-<a name='projects'></a>
 ## Open Source
 
 I enjoy spending time
 on many open source projects.
-Some are my own.
-Some are the work of many.
-All are fun.
+These days I'm mostly working
+on Django apps,
+but I've maintained some open source projects
+and still work on some of them today.
 
 ### Django REST Framework JSON API
 
 In 2017,
 I picked up the torch
 as the maintainer
-of the <a href="https://github.com/django-json-api/django-rest-framework-json-api" target="_blank">Django REST Framework JSON API</a>
+of the
+{{< extlink "https://github.com/django-json-api/django-rest-framework-json-api" "Django REST Framework JSON API" >}}
 package.
 This package translates
 Django REST Framework API output
-into the <a href="http://jsonapi.org/" target="_blank">JSON API</a> format.
+into the
+{{< extlink "http://jsonapi.org/" "JSON API" >}} format.
 
 ### tappy
 
 Automated software testing is generally useful,
-and the <a href="http://testanything.org/" target="_blank">Test Anything Protocol (TAP)</a>
+and the
+{{< extlink "http://testanything.org/" "Test Anything Protocol (TAP)" >}}
 is a way to track those automated results.
 I wrote
-<a href="https://github.com/python-tap" target="_blank">a set of TAP generators for Python</a>
+{{< extlink "https://github.com/python-tap" "a set of TAP generators for Python" >}}
 that hook in with Python's testing ecosystem.
 The core project is called `tappy`.
 
-<a name='work'></a>
 ## Work
 
 <div class="flex flex-col sm:flex-row justify-between">
@@ -153,9 +146,6 @@ and complex configuration management.
   </div>
 </div>
 
-
-
-<a name='family'></a>
 ## Family
 
 I am a family man.
@@ -166,7 +156,6 @@ little hectic, but that's perfectly fine with me.
 
 <img class='mx-auto my-8' src='/about/family.jpg' width='450' height='303'>
 
-<a name='church'></a>
 ## Church
 
 I am a Christian, and I attend <a href="http://newhopeopc.org/" target="_blank">New Hope OPC</a>.

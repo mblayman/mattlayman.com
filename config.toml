@@ -7,6 +7,9 @@ enableRobotsTXT = true
 paginate = 18
 pygmentsCodeFences = true
 
+[markup.goldmark.renderer]
+unsafe= true
+
 [frontmatter]
     date = [":filename", ":default"]
 
