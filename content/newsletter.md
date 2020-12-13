@@ -5,6 +5,7 @@ description:
   to get interesting Python
   and other software content
   right to your inbox.
+hideNextPrev: true
 
 ---
 

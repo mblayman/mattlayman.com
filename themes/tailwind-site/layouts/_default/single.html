@@ -32,6 +32,7 @@
   {{ end }}
 </div>
 
+{{ if not .Params.hideNextPrev }}
 <div class="flex flex-col sm:flex-row">
   {{ with .NextInSection }}
     <div class="flex-1 px-0 py-2 sm:p-2">
@@ -44,6 +45,7 @@
     </div>
   {{ end }}
 </div>
+{{ end }}
 
 {{/* Add MailChimp form*/}}
 <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us19.list-manage.com","uuid":"874a48ddf96f615fc1695f646","lid":"618f049eb0"}) })</script>

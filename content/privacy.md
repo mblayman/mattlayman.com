@@ -2,6 +2,7 @@
 title: Privacy Policy
 description: >-
     This is a privacy policy for my Android games.
+hideNextPrev: true
 
 ---
 

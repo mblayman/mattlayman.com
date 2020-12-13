@@ -4,6 +4,7 @@ description: >-
   This page is a selection
   of some of my more popular articles
   over the years.
+hideNextPrev: true
 
 ---
 

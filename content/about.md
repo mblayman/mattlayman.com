@@ -4,6 +4,7 @@ description: >-
   Matt Layman is a software engineer from Frederick, MD.
   He is an open source software maintainer
   and advocate for the Python programming language.
+hideNextPrev: true
 
 ---
 I’m Matt, a software creator. Here are things I do:

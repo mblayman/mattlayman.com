@@ -8,6 +8,7 @@ description: >-
     and cover some of the time
     that I invest in creating content
     for the community.
+hideNextPrev: true
 
 ---
 
