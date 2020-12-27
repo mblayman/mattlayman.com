@@ -17,6 +17,12 @@ to help you learn more about software development.
 
 On my list, I send out information about:
 
+* **Django** -
+    I'm a heavy user
+    of the Django web framework
+    and spend a lot of my time writing
+    about Django
+    and packages related to Django.
 * **Python!** -
     I love Python and like to write in-depth articles
     on a wide variety of Python subjects.
@@ -25,13 +31,6 @@ On my list, I send out information about:
     I write about how to code
     on a team
     and work with other developers.
-* **Developer health** -
-    I care deeply about personal health
-    and the intersection with software development.
-    I occasionally write articles
-    to inform developers
-    about specific health issues
-    in our industry.
 
 I believe in having a strong signal-to-noise ratio,
 so the list is low frequency
