@@ -59,4 +59,11 @@
   {{- else -}}
   <li><a href="{{ ref . "/understand-django/2020-12-16-middleware-do-you-go.md" }}">Middleware Do You Go?</a></li>
   {{- end -}}
+
+  {{- if eq $post "static" -}}
+  <li>Serving Static Files</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2021-01-12-serving-static-files.md" }}">Serving Static Files</a></li>
+  {{- end -}}
+
 </ol>
