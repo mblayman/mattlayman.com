@@ -6,7 +6,7 @@ description: >-
     so I refactored the school year page into a flow that worked better.
 type: video
 image: img/python-django.png
-video: https://www.youtube.com/embed/Ix0af3r8Uls
+video: https://www.youtube.com/embed/LYvT9OXuGDE
 aliases:
  - /building-saas/84
 categories:
