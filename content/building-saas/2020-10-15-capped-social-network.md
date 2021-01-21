@@ -33,7 +33,7 @@ I had a wild thought
 to build a social network
 with a capped number of connection
 in the hope
-that users would choice their connections based
+that users would choose their connections based
 on people
 that they really care about.
 To get that idea out of my head,
