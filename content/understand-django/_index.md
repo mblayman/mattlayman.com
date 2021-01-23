@@ -22,6 +22,7 @@ The articles build
 on each other
 to increase your understanding
 of how to use Django.
+The series explains how Django works.
 If you're new to Django,
 you can start
 from the beginning.
