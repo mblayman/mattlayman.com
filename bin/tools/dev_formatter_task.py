@@ -156,6 +156,9 @@ def convert_ref(line):
             parts = ref_path.split("/")
             slug = parts[2][11:-3]
             return f"/understand-django/{slug}/"
+        elif "newsletter" in ref_path:
+            ref_url = f"{WEBSITE_URL}/newsletter/"
+            return REF_REPLACEMENT_PATTERN.sub(ref_url, line)
         else:
             raise Exception(f"unhandled ref style: {ref_path}")
     return line
