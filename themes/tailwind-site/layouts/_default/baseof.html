@@ -47,6 +47,9 @@
         </a>
         <div class="flex-grow">
         </div>
+        <a href="/uses/" class="block mr-4 py-1">
+          <h2 class="text-normal tracking-wide font-hairline hover:underline">My Gear</h2>
+        </a>
         <a href="/most-popular/" class="block mr-4 py-1">
           <h2 class="text-normal tracking-wide font-hairline hover:underline">Most Popular Articles</h2>
         </a>
@@ -87,6 +90,24 @@
       <div class="gcse-search"></div>
 
       {{ partial "newsletter-form" . }}
+
+      <div class="rounded-lg border border-black p-4 bg-white mt-8">
+        <a href="{{ "uses/" | absURL }}" class="hover:underline">
+          <h3 class="text-3xl text-center font-light tracking-wide">My Developer Gear</h3>
+        </a>
+        <p class="mt-4 mb-2 text-sm font-serif text-gray-900">
+          Every developer has gear
+          that they use to code
+          (even if that is a laptop only).
+          I wrote down my hardware
+          that may help you be more productive.
+        </p>
+        <p class="text-sm font-serif text-gray-900">
+          <a class="underline" href="{{ "uses/" | absURL }}">Check out My Gear page</a>.
+          The list includes gadgets, accessories,
+          and even my preferred furniture!
+        <p>
+      </div>
 
       <div class="rounded-lg border border-red-600 p-4 bg-red-500 text-white mt-8">
         <a href="https://www.patreon.com/mblayman" target="_blank" rel="noopener">
