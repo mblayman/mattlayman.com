@@ -45,7 +45,7 @@ there are a probably a couple of reasons.
     that mention different versions
     of Django.
 2. The {{< extlink " https://www.djangoproject.com/download/" "Django project download page" >}}
-    has a overwhelming amount
+    has an overwhelming amount
     of information
     about different versions.
 
