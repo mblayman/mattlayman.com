@@ -21,6 +21,7 @@ tags:
  - Python
  - Django
  - middleware
+nofluidvids: true
 
 ---
 
@@ -32,6 +33,10 @@ you'll see why middleware is useful
 and how you can work with it.
 
 Listen at {{< extlink "https://djangoriffs.com/episodes/here-there-middleware" "djangoriffs.com" >}}.
+
+<div class="h-48">
+<iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/f203aa15-5ff9-4bec-b89c-2a34c4bde844?dark=false"></iframe>
+</div>
 
 ## Last Episode
 

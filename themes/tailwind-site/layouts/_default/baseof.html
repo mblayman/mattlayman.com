@@ -244,7 +244,9 @@
       </div>
     </div>
   </footer>
+  {{ if not .Params.nofluidvids }}
   <script type="text/javascript" src="{{ "js/fluidvids.js" | absURL }}"></script>
+  {{ end }}
 </body>
 
 </html>
