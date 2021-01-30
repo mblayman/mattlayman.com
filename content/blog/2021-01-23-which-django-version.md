@@ -23,7 +23,7 @@ to help you build a web app.
 Which Django version should you use?
 
 > If you're starting a Django web app,
-    **use the latest version of Django available**.
+**use the latest version of Django available**.
 
 Why listen to me?
 I'm a software developer
@@ -52,8 +52,8 @@ there are a probably a couple of reasons.
 So, here's the core reason why you should use the latest version:
 
 > Django is a very mature web framework
-    (first released in 2005)
-    that is extremely stable.
+(first released in 2005)
+that is extremely stable.
 
 What does that stability provide for you?
 
@@ -91,8 +91,8 @@ where it's difficult
 to integrate new versions.
 
 > Django's stong stability guarantees make picking the latest version
-    of the framework a no brainer
-    for new web applications.
+of the framework a no brainer
+for new web applications.
 
 `pip install Django` and good luck!
 
