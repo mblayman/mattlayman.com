@@ -44,7 +44,7 @@ there are a probably a couple of reasons.
 1. You've found learning resources online
     that mention different versions
     of Django.
-2. The {{< extlink " https://www.djangoproject.com/download/" "Django project download page" >}}
+2. The {{< extlink "https://www.djangoproject.com/download/" "Django project download page" >}}
     has an overwhelming amount
     of information
     about different versions.
