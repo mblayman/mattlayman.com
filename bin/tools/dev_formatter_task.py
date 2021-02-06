@@ -10,6 +10,7 @@ from .task import Task
 
 EXTLINK_PATTERN = re.compile(r'.*({{< extlink "(.*)" "(.*)" >}}).*')
 EXTLINE_REPLACEMENT_PATTERN = re.compile(r"{{< extlink .* >}}")
+NUMBER_LIST_PATTERN = re.compile(r"^\d+\.")
 REF_PATTERN = re.compile(r'.*{{< ref "(.*?)" >}}.*')
 REF_REPLACEMENT_PATTERN = re.compile(r"{{< ref .* >}}")
 YOUTUBE_IFRAME_PATTERN = re.compile(r'.*youtube.com/embed/(.*?)".*')
@@ -69,6 +70,11 @@ def check_state(current_state, line):
             return "list"
         else:
             return "empty_line"
+    elif current_state == "number_list":
+        if line:
+            return "number_list"
+        else:
+            return "empty_line"
     elif current_state == "blockquote":
         if line:
             return "blockquote"
@@ -89,6 +95,8 @@ def check_starting_line_state(line):
         return "blockquote"
     elif line.strip().startswith("* "):
         return "list"
+    elif line.strip().startswith("1. "):
+        return "number_list"
     return "paragraph"
 
 
@@ -115,6 +123,14 @@ def process_fenced(previous_state, line, output):
 def process_list(previous_state, line, output):
     line = process_line(line)
     if line.strip().startswith("* "):
+        output.append(line)
+    else:
+        output[-1] = output[-1] + " " + line.lstrip()
+
+
+def process_number_list(previous_state, line, output):
+    line = process_line(line)
+    if NUMBER_LIST_PATTERN.match(line):
         output.append(line)
     else:
         output[-1] = output[-1] + " " + line.lstrip()
