@@ -1,7 +1,7 @@
 ---
 title: "How To Use Htmx In Django"
 description: >-
-    How do use htmx (the lightweight JavaScript library
+    How do you use htmx (the lightweight JavaScript library
     that uses HTML markup)
     in Django?
     This article shows how and provides an example usage.
