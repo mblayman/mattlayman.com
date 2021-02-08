@@ -17,7 +17,7 @@ tags:
 
 ---
 
-This article show you
+This article shows you
 how to use htmx in Django.
 What is htmx?
 According to the {{< extlink "https://htmx.org/" "htmx website" >}}:
