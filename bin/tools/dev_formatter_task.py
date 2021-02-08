@@ -172,6 +172,14 @@ def convert_ref(line):
             parts = ref_path.split("/")
             slug = parts[2][11:-3]
             return f"/understand-django/{slug}/"
+        elif "/blog/" in ref_path:
+            parts = ref_path.split("/")
+            slug = parts[2][11:-3]
+            return f"/blog/{slug}/"
+        elif "/django-riffs/" in ref_path:
+            parts = ref_path.split("/")
+            slug = parts[2][11:-3]
+            return f"/django-riffs/{slug}/"
         elif "newsletter" in ref_path:
             ref_url = f"{WEBSITE_URL}/newsletter/"
             return REF_REPLACEMENT_PATTERN.sub(ref_url, line)
@@ -195,6 +203,8 @@ def check_hugo_directives(line):
     """
     if "{{<" in line:
         if "understand-django" in line:
+            return ""
+        elif "vim-series" in line:
             return ""
         raise Exception(f"Unhandled Hugo directive: {line}")
 

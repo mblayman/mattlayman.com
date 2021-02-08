@@ -33,7 +33,8 @@ class DEVGateway:
                 "title": title,
                 "published": published,
                 "body_markdown": body,
-                "tags": [tag.lower() for tag in tags],
+                # No spaces in tags and max of 4.
+                "tags": [tag.lower() for tag in tags if " " not in tag][:3],
                 "canonical_url": canonical_url,
             }
         }
