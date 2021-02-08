@@ -188,14 +188,16 @@ we can add the new functionality
 and use htmx.
 
 ```html
-<div id="tasks">
+<div id="tasks"
+  hx-confirm="Are you sure you want to delete this task?"
+  hx-target="#tasks"
+  hx-swap="outerHTML">
   {% for task in tasks %}
     <div>{{ forloop.counter }} {{ task.description }}
       <a class="block mr-2 hover:text-gray-600"
-        hx-delete="{% url 'delete_task' task.id %}"
-        hx-confirm="Are you sure you want to delete this task?"
-        hx-target="#tasks"
-        hx-swap="outerHTML">Delete?</a>
+        hx-delete="{% url 'delete_task' task.id %}">
+        Delete?
+      </a>
     </div>
   {% endfor %}
 </div>
@@ -206,6 +208,11 @@ Here's how this flows:
 * When a user clicks "Delete?," that user will be prompted
     with a standard browser alert box
     with the question from `hx-confirm`.
+    This works for each task `div`
+    because htmx will inherit attributes
+    from its parent content.
+    Using attributes from parents can reduce the amount
+    of extra markup in your output.
 * If the user confirms,
     htmx will send a `DELETE` request
     to a URL like `/tasks/42/delete/`
