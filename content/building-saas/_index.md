@@ -27,3 +27,12 @@ for 6+ years.
 This page contains show notes
 and links to each stream.
 Join me live if you're interested!
+
+As of February 2021,
+I'm no longer writing show notes
+for the stream
+(sorry, I don't have enough time!).
+*I'm still streaming!*
+
+You can find the stream recordings
+on my {{< extlink "https://www.youtube.com/playlist?list=PLFcKEo4b_n1wQA6lKtSqCq1dTMq1c2Lmw" "How To Build SaaS with Python and Django playlist" >}}.
