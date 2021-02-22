@@ -66,4 +66,10 @@
   <li><a href="{{ ref . "/understand-django/2021-01-06-serving-static-files.md" }}">Serving Static Files</a></li>
   {{- end -}}
 
+  {{- if eq $post "tests" -}}
+  <li>Test Your Apps</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2021-02-22-test-your-apps.md" }}">Test Your Apps</a></li>
+  {{- end -}}
+
 </ol>
