@@ -26,6 +26,7 @@ for the community.
 
 The superheroes include:
 
+* Andrew Dailey
 * {{< extlink "https://twitter.com/rupertbaker" "Rupert Baker" >}} - 
     Rupert is building {{< extlink "https://sharedgoals.co/" "SharedGoals" >}}.
 
