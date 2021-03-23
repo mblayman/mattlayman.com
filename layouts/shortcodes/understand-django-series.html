@@ -72,4 +72,10 @@
   <li><a href="{{ ref . "/understand-django/2021-02-22-test-your-apps.md" }}">Test Your Apps</a></li>
   {{- end -}}
 
+  {{- if eq $post "deployment" -}}
+  <li>Deploy A Site Live</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2021-03-23-deploy-site-live.md" }}">Deploy A Site Live</a></li>
+  {{- end -}}
+
 </ol>
