@@ -141,8 +141,8 @@ The number of requests processed is usually called *traffic*
 by web developers.
 The idea of handling more traffic
 by creating more processes (i.e., Gunicorn workers)
-is called *horizonal scaling*.
-In constrast,
+is called *horizontal scaling*.
+In contrast,
 *vertical scaling* handles more traffic
 by using a better individual computer.
 A faster processor with a single CPU can handle more requests.
@@ -377,17 +377,17 @@ Let's look at how to address those next.
 
 ## Protecting Your Site
 
-"Put on your seatbelt."
+"Put on your seat belt."
 The average person knows
 that it's wise
-to wear a seatbelt
+to wear a seat belt
 in a car.
 The statistical data is overwhelming
-that a seatbelt can help save your life
+that a seat belt can help save your life
 if you're ever
 in a car accident.
 Yet,
-a seatbelt is not strictly necessary
+a seat belt is not strictly necessary
 (aside from a legal perspective)
 to operate a vehicle.
 
