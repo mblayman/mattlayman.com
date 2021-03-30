@@ -39,7 +39,7 @@ def should_publish(article, published_article_ids):
     """
     publish_date = parse(article["publish_date"])
     now = datetime.datetime.now(datetime.timezone.utc)
-    return publish_date < now and article["id"] not in published_article_ids
+    return publish_date < now and int(article["id"]) not in published_article_ids
 
 
 if __name__ == "__main__":
