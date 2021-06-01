@@ -681,6 +681,8 @@ that we can discuss.
 from django.test import Client
 from django.urls import reverse
 
+from application.tests.factories import UserFactory
+
 class TestProfileView:
     def test_shows_name(self):
         """The profile view shows the user's name."""
