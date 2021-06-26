@@ -27,7 +27,8 @@ for the community.
 The superheroes include:
 
 * {{< extlink "https://github.com/theandrew168" "Andrew Dailey" >}}
-* {{< extlink "https://twitter.com/rupertbaker" "Rupert Baker" >}} - 
+* Dragos C.
+* {{< extlink "https://twitter.com/rupertbaker" "Rupert Baker" >}} -
     Rupert is building {{< extlink "https://sharedgoals.co/" "SharedGoals" >}}.
 
 ## Hall of Fame
