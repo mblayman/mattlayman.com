@@ -84,4 +84,10 @@
   <li><a href="{{ ref . "/understand-django/2021-05-21-sessions.md" }}">Per-visitor Data With Sessions</a></li>
   {{- end -}}
 
+  {{- if eq $post "settings" -}}
+  <li>Making Sense Of Settings</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2021-07-15-settings.md" }}">Making Sense Of Settings</a></li>
+  {{- end -}}
+
 </ol>
