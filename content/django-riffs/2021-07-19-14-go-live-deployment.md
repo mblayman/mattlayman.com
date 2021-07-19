@@ -1,14 +1,18 @@
 ---
-title: "Deploy A Site Live"
+title: "Episode 14 - Going Live"
+aliases:
+ - /django-riffs/14
+ - /djangoriffs/14
+ - /django-riffs/14.
+ - /djangoriffs/14.
 description: >-
-    You're ready to take the site you developed
-    and share it with the world.
-    What steps should you take
-    to prepare your Django project
-    for life on the web?
-    That's the focus
-    of this article.
-image: img/django.png
+    On this episode,
+    we will look
+    at what it takes
+    to go live
+    and how to prepare your Django project
+    for the internet.
+image: img/django-riffs-banner.png
 type: post
 categories:
  - Python
@@ -17,34 +21,33 @@ tags:
  - Python
  - Django
  - deployment
-series: "Understand Django"
+nofluidvids: true
 
 ---
 
-In the previous
-[Understand Django]({{< ref "/understand-django/_index.md" >}})
-article,
-we looked at automated testing
-and how writing tests
-to check your Django project
-can be very valuable
-to save you time
-and make sure your site works
-for your users.
-Next,
-we're going to look into
-how to share your site
-on the internet
-by understanding what it means
-to *deploy* a Django project.
-Deployment is the act
-of making your application live
-to your audience,
-and this article explains the actions
-you should consider
-to deploy effectively.
+On this episode,
+we will look
+at what it takes
+to go live
+and how to prepare your Django project
+for the internet.
 
-{{< understand-django-series "deployment" >}}
+Listen at {{< extlink "https://djangoriffs.com/episodes/go-live-deployment" "djangoriffs.com" >}}
+or with the player below.
+
+<div class="h-48">
+<iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/4722c9c1-9725-4a9d-92f8-8054ff0b8234?dark=false"></iframe>
+</div>
+
+## Last Episode
+
+On the last episode,
+we discussed how you can verify
+that your site works
+and continues to work.
+We dug into automated testing
+and how to write tests
+for your Django apps.
 
 ## Pick A Python Application Server
 
@@ -89,41 +92,9 @@ for Django apps,
 and few are as simple
 to use as Gunicorn.
 
-To use Gunicorn,
-we need to point the `gunicorn` command
-to the WSGI application
-that Django projects have.
-If you recall,
-WSGI is the Web Server Gateway Interface.
-WSGI is the protocol that permits Django apps
-to talk to any of these web application servers.
-
-If you run the `startproject` command
-and named your Django project as "project,"
-the WSGI application should be in a file
-like `project/wsgi.py`.
-Gunicorn is aware that Django conventionally calls
-the WSGI application in that module `application`,
-so your only action is to point Gunicorn
-to the module
-with Python's dotted syntax.
-Here's the most basic setup.
-
 ```bash
 $ gunicorn project.wsgi
 ```
-
-Gunicorn works by starting a main process
-that will listen
-for HTTP requests
-on the local machine
-at port 5000
-by default.
-As each request reaches the main process,
-the request routes to an available worker process.
-The work process executes your Django app code
-to provide the response data
-to the user.
 
 By default,
 Gunicorn will only create a single worker process.
@@ -148,40 +119,6 @@ by using a better individual computer.
 A faster processor with a single CPU can handle more requests.
 When thinking about performance,
 horizontal scaling is often a far easier approach.
-
-One of my projects
-has a small amount of traffic
-and runs on a single CPU
-on its hosting provider.
-In that scenario,
-I use two workers
-which looks like:
-
-```bash
-$ gunicorn project.wsgi --workers 2
-```
-
-The only other option you may require is an option
-to handle where logging data goes.
-I haven't covered logging in depth yet,
-but recall from previous articles
-that logging allows you to record information
-about what your application is doing
-while its running.
-
-Some hosting providers expect monitoring output
-like logging
-to go to stdout or stderr.
-stdout stands for "standard output"
-and stderr is "standard error."
-stdout is where data appears
-in your terminal
-when you use `print`.
-To tell Gunicorn to log
-to stderr,
-you can use a dash as the value
-to the `log-file` option.
-My full Gunicorn command looks like:
 
 ```bash
 $ gunicorn project.wsgi --workers 2 --log-file -
@@ -222,14 +159,6 @@ but you'll potentially need to be prepared for:
 * Using configuration management tools to automate deployment
 * And loads more!
 
-You may be using Django to learn those skills.
-If so,
-that's awesome and good luck!
-But if your primary goal is to get your application out
-into the world,
-then these tasks are a huge drag
-on your productivity.
-
 Let's contrast this
 with Heroku.
 Because Heroku is a PaaS,
@@ -243,32 +172,14 @@ to a single command:
 $ git push heroku main
 ```
 
-The Heroku instructions have you set up a Git remote.
-That remote is the place you push your code to
-and let Heroku handle the deployment
-of your application.
-Heroku manages this by cleverly detecting Django applications
-and applying the correct commands.
-We'll see some of those required commands
-when looking at the preconditions.
-
-To be really clear,
-this is not an ad for Heroku.
-I have personal experience with most of the cloud vendors
-that I listed earlier
-in this section.
-I have found that a PaaS like Heroku is far and away an easier option
-to apply for my own projects.
-That's why I recommend the service so strongly.
-
 ## Project Preconditions
 
 Django has a few preconditions
 that it expects
 before running your application
 in a live setting.
-If you've read the previous articles,
-then you've actually seen most
+If you've listened to the previous episodes,
+then you've actually heard most
 of these preconditions by now,
 but we'll group them together in this section
 so you can see the complete picture.
@@ -287,50 +198,21 @@ then you may need to specify
 which settings module
 that Django should use when running.
 
-In a future article,
-we'll focus on how to manage your settings modules.
-At that time,
-you'll see how using some particular techniques diminish the need
-for multiple modules.
-For now,
-keep in mind `DJANGO_SETTINGS_MODULE` for deployments,
-and you should be good.
-
 The next important precondition
 for your app is keeping your database
 in sync using migrations.
 As mentioned
-in the models article,
+in the models episode,
 we make migrations
 when making model changes.
 These migrations generate instructions
 for your relational database,
 so that Django can match the database schema.
 
-Without the migration system,
-Django would be unable to communicate effectively
-with the database.
-Because of that,
-you need to ensure
-that you have applied all migrations
-to your application
-before running your app.
-
-For whatever cloud you're using,
-you need to make sure
-that when you deploy,
-your deployment scripts run:
-
 ```bash
 $ ./manage.py migrate
 ```
 
-For instance,
-with my Heroku setup,
-Heroku lets me define a "release" command
-that they guarantee to run
-before launching the new version
-of the app.
 Heroku uses a `Procfile` to set
 which machines and commands to run
 so my `Procfile` looks like:
@@ -340,16 +222,10 @@ release: python manage.py migrate
 web: gunicorn project.wsgi --workers 2 --log-file -
 ```
 
-This file tells Heroku
-to run migrations before launching,
-then run gunicorn
-as the web process
-for the application.
-
 Another precondition needed
 for your app
 is static files.
-We saw in the static files article
+We saw in the static files episode
 that Django looks
 for static files
 in a single directory
@@ -362,34 +238,7 @@ in the expected location.
 $ ./manage.py collectstatic
 ```
 
-In my deployment process
-for Heroku,
-this is a step that Heroku automatically does
-because it can detect a Django project.
-
-These items are the required preconditions
-to run your application.
-Django also has steps
-that aren't strictly required
-to make your app work,
-but are very beneficial.
-Let's look at how to address those next.
-
 ## Protecting Your Site
-
-"Put on your seat belt."
-The average person knows
-that it's wise
-to wear a seat belt
-in a car.
-The statistical data is overwhelming
-that a seat belt can help save your life
-if you're ever
-in a car accident.
-Yet,
-a seat belt is not strictly necessary
-(aside from a legal perspective)
-to operate a vehicle.
 
 Django includes a command
 that provides a set
@@ -407,14 +256,6 @@ on the public internet.
 
 To view these important messages,
 run:
-
-```bash
-$ ./manage.py check --deploy --fail-level WARNING
-```
-
-On a little sample project
-that I created,
-the (slightly reformatted for the article) output looks like:
 
 ```bash
 $ ./manage.py check --deploy --fail-level WARNING
@@ -449,14 +290,6 @@ These checks are created
 by the {{< extlink "https://docs.djangoproject.com/en/3.1/topics/checks/" "System check framework" >}}
 that comes with Django.
 
-You should review each of the checks
-and learn about the changes
-that the check recommends.
-The items that appear with the `--deploy` flag are usually quite important
-and fixing them can greatly improve the safety
-and security
-of your application.
-
 Some of these checks are too modest about their importance.
 For instance, `security.W018` is the warning
 that tells you that `DEBUG` is set to `True`
@@ -465,30 +298,6 @@ in the settings.
 for a live site
 since it can *trivially* leak loads of private data.
 
-As a *warning*,
-`security.W018` will *not* fail the deploy check
-because `./manage.py check` defaults
-to failing
-on things that are errors.
-If you want to make sure
-that your site is sufficiently protected,
-I strongly encourage you
-to add the `--fail-level WARNING` flag
-so that the check will give those warnings the weight
-that they likely deserve.
-
-What do you do if the check is handled
-by some other part
-of your system?
-For example,
-maybe you've set up a secure configuration
-with HTTPS,
-and you've set HSTS headers
-with a reverse proxy
-like Nginx
-(this was one of the configurations
-that I mentioned
-in the static files article).
 If HSTS is handled elsewhere,
 you could set the `SILENCED_SYSTEM_CHECKS` setting
 to tell Django
@@ -500,20 +309,7 @@ that you took care of it.
 SILENCED_SYSTEM_CHECKS = ["security.W004"]
 ```
 
-Once you have finished the checklist,
-your application will be much better equipped
-to handle the hostile internet,
-but things can still go wrong.
-What should you do about errors
-that happen on your live site?
-Let's look at that next.
-
 ## Prepare For Errors
-
-If an error happens on a live site
-and the site administrator (e.g., *you*) didn't hear it,
-did it really happen?
-**Yes, yes it did.**
 
 Dealing with a live site brings a new set
 of challenges.
@@ -569,9 +365,6 @@ Why?
     A flood of emails is a quick way to get email accounts flagged
     and hurt the deliverability of email.
 
-This brings us to the final strategy
-that I'll cover.
-
 #### 3. Use an error tracking service.
 
 Error tracking services are specifically designed
@@ -579,17 +372,6 @@ to collect context about errors,
 aggregate common errors together,
 and generally give you tools
 to respond to your site's errors appropriately.
-
-**I find that error tracking services are the best tools
-to understand what's going wrong
-on your live site**
-because the tools are purpose-built
-for detailing error behavior.
-
-Many of these services are not complicated
-to get installed and configured,
-and the services often have an extremely generous free tier
-to monitor your application.
 
 In the Django world,
 I generally hear about two
@@ -612,11 +394,6 @@ The flow for installing Rollbar is:
 2. Install the `rollbar` package.
 3. Set some settings in a `ROLLBAR` dictionary.
 
-That's it!
-
-My Rollbar configuration
-for one of my projects looks like:
-
 ```python
 # project/settings.py
 
@@ -628,35 +405,6 @@ ROLLBAR = {
     "root": BASE_DIR,
 }
 ```
-
-In this example,
-everything coming from `env` is from an environment variable
-that we'll discuss more when we focus on settings management
-in Django.
-
-The `enabled` parameter can quickly turn Rollbar on and off.
-This is good for local development
-so you're not sending data to the service when working on new features.
-
-The `access_token` is the secret that Rollbar will provide
-in your account
-to associate your app's error data
-with your account
-so you can see problems.
-
-The `environment` setting lets Rollbar split your errors
-into different groupings.
-You can use this to separate different configurations
-that you put on the internet.
-For instance,
-the software industry likes to call live sites "production."
-You may also have a separate site
-that is available privately
-to a team
-that you might call "development."
-
-The other settings tell Rollbar information
-that can help map errors back to your code repository.
 
 Once you set this up,
 how can you tell that it's working?
@@ -677,15 +425,6 @@ def boom(request):
     raise Exception("Is this thing on?")
 ```
 
-I connect this view to a URL configuration,
-then check it after I deploy Rollbar
-for the first time.
-Importantly,
-don't forget to include a `staff_member_required` decorator
-so that random people
-on the internet can't trigger errors
-on your server on a whim!
-
 With error tracking set up,
 you'll be in a good position
 to see errors when they happen
@@ -701,7 +440,7 @@ that you fixed their problem immediately.
 
 ## Summary
 
-In this article,
+In this episode,
 we learned the things
 to consider when deploying a site
 to the internet.
@@ -716,28 +455,33 @@ We examined:
     with the proper security guards
 * Monitoring your application for errors
 
-In the next article,
-we'll look at Django's tools
-for managing shorter term user data
-like authentication info
-with Django sessions.
-We'll see the different modes
-that Django provides
-and how to use sessions
-to support your project.
-You'll learn about:
+## Next Time
 
-* What sessions are and how they work
-* Ways that Django uses sessions
-* How to use sessions in your apps
+On the next episode,
+we are going to look at session data.
+Sessions are a way to keep a bit of data
+for each visitor to your site.
+We'll see why sessions are critical
+to most Django apps
+and what that data is used for.
 
-If you'd like to follow along
-with the series,
-please feel free to sign up
-for my newsletter
-where I announce all of my new content.
-If you have other questions,
-you can reach me online
+You can follow the show
+on {{< extlink "https://djangoriffs.com" "djangoriffs.com" >}}.
+Or follow me or the show
 on Twitter
-where I am
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+at
+{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+or
+{{< extlink "https://twitter.com/djangoriffs" "@djangoriffs" >}}.
+
+Please rate or review
+on Apple Podcasts, Spotify,
+or from wherever you listen to podcasts.
+Your rating will help others discover the podcast,
+and I would be very grateful.
+
+Django Riffs is supported by listeners like *you*.
+If you can contribute financially
+to cover hosting and production costs,
+please check out my {{< extlink "https://www.patreon.com/mblayman" "Patreon page" >}}
+to see how you can help out.
