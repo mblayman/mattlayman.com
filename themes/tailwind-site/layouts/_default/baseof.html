@@ -91,140 +91,94 @@
 
       {{ partial "newsletter-form" . }}
 
-      <div class="rounded-lg border border-black p-4 bg-white mt-8">
-        <a href="{{ "uses/" | absURL }}" class="hover:underline">
-          <h3 class="text-3xl text-center font-light tracking-wide">My Developer Gear</h3>
-          <img class="p-4 mx-auto" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B07ZPBFVKK&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=mblayman-20&language=en_US">
-        </a>
-        <p class="mt-4 mb-2 text-sm font-serif text-gray-900">
-          Every developer has gear
-          that they use to code
-          (even if that is a laptop only).
-          I wrote down my hardware
-          that may help you be more productive.
-        </p>
-        <p class="text-sm font-serif text-gray-900">
-          <a class="underline" href="{{ "uses/" | absURL }}">Check out My Gear page</a>.
-          The list includes gadgets, accessories,
-          and even my preferred furniture!
-        <p>
-      </div>
-
-      <div class="rounded-lg border border-red-600 p-4 bg-red-500 text-white mt-8">
-        <a href="https://www.patreon.com/mblayman" target="_blank" rel="noopener">
-          <img class="px-4" src="{{ "img/patreon.png" | absURL }}">
-        </a>
-        <p class="text-sm font-serif text-gray-100 mb-2">
-          If you like my work
-          and you want to say thanks,
-          you can become a patron
-          on Patreon.
-          Thanks for supporting me!
-        </p>
-        <p class="text-sm font-serif text-gray-100">
-          Check out my <a class="underline" href="{{ "superheroes/" | absURL }}">Patreon Superhero supporters</a>!
-        <p>
-      </div>
-
-      <div class="rounded-lg border border-purple-700 p-4 bg-white mt-8">
-        <a href="https://twitch.tv/mblayman" target="_blank" rel="noopener">
-          <img class="rounded" src="{{ "img/2018/twitch.jpg" | absURL }}">
-        </a>
-        <p class="mt-4 mb-2 text-sm font-serif text-gray-900">
-          I regularly stream
-          how to build Django apps
-          on Twitch each week
-          at 9pm ET.
-          I happily answer your questions
-          about web apps
-          as I build one.
-        </p>
-        <p class="text-sm font-serif text-gray-900">
-          Links to past recordings and show notes
-          are at <a class="underline" href="{{ "building-saas/" | absURL }}">Building SaaS with Python and Django</a>.
-        <p>
-      </div>
-
-      <div class="pt-4 bg-white">
-        <a href="https://www.redbubble.com/i/t-shirt/Python-Rocks-by-mattlayman/69718043.IJ6L0?asc=u" target="_blank" rel="noopener">
-          <h3 class="text-3xl text-center font-light tracking-wide mb-4">Python Merch</h3>
-          <img class="rounded shadow" src="{{ "img/merch/python-rocks-t-shirt.jpg" | absURL }}">
-        </a>
-        <p class="px-4 mt-4 mb-2 text-sm font-serif text-gray-900">
-          <b>Python Rocks!</b>
-          Now you can show that off
-          with some merchandise.
-          Get some cool gear and support me!
-        </p>
-        <p class="px-4 text-sm font-serif text-gray-900">
-          I follow the PSF trademark policy
-          so a portion of sales will be donated
-          to the PSF.
-        </p>
-      </div>
-
-      <div class="rounded-lg border border-green-900 p-4 bg-green-800 text-white mt-8">
-        <a href="https://djangoriffs.com" target="_blank" rel="noopener">
-          <img class="rounded" src="{{ "img/django-riffs-banner.png" | absURL }}">
-        </a>
-        <p class="mt-4 mb-2 text-sm font-serif text-gray-100">
-          Django Riffs is my podcast devoted entirely
-          to learning the Django web framework.
-          Give it a listen!
-        </p>
-        <p class="text-sm font-serif text-gray-100">
-          All the shows are
-          on the <a class="underline" href="{{ "django-riffs/" | absURL }}">Show Notes</a> page.
-        <p>
-      </div>
-
-      <div class="rounded-lg border border-green-700 p-4 bg-white mt-8">
-        <a href="{{ "understand-django/" | absURL }}" class="hover:underline">
-          <h3 class="text-3xl text-center font-light tracking-wide text-green-900">Understand Django</h3>
-        </a>
-        <p class="mt-4 mb-2 text-sm font-serif text-gray-900">
-          Understand Django is an article series
-          where I exhaustively cover Django
-          and all its many features.
-        </p>
-        <p class="text-sm font-serif text-gray-900">
-          See all the articles
-          on the <a class="underline" href="{{ "understand-django/" | absURL }}">Understand Django</a> section.
-        <p>
-      </div>
-
-      <div class="mt-8 p-4">
-        <h3 class="text-3xl font-light tracking-wide w-full border-b-2 border-red-600 mb-6">Videos</h3>
-
-        <h4 class="text-lg font-light tracking-wide mb-2">Python Testing 101 with pytest</h4>
-        <a class="block mb-8 hover:shadow-lg transition duration-200 ease-in-out" href="https://www.youtube.com/watch?v=etosV2IWBF0" target="_blank" rel="noopener">
-          <img src="{{ "img/youtube/python-testing-101.jpg" | absURL }}">
-        </a>
-
-        <h4 class="text-lg font-light tracking-wide mb-2">Python Testing 201 with pytest</h4>
-        <a class="block mb-8 hover:shadow-lg transition duration-200 ease-in-out" href="https://www.youtube.com/watch?v=fv259R38gqc" target="_blank" rel="noopener">
-          <img src="{{ "img/youtube/python-testing-201.jpg" | absURL }}">
-        </a>
-
-        <h4 class="text-lg font-light tracking-wide mb-2">Godot You Want To Make A Videogame</h4>
-        <a class="block mb-8 hover:shadow-lg transition duration-200 ease-in-out" href="https://www.youtube.com/watch?v=4o63V0AdrHk" target="_blank" rel="noopener">
-          <img src="{{ "img/youtube/godot.jpg" | absURL }}">
-        </a>
-
-        <h4 class="text-lg font-light tracking-wide mb-2">Basics of the Vim Text Editor</h4>
-        <a class="block mb-8 hover:shadow-lg transition duration-200 ease-in-out" href="https://www.youtube.com/watch?v=zxdQJlB65lA" target="_blank" rel="noopener">
-          <img src="{{ "img/youtube/vim.jpg" | absURL }}">
-        </a>
-
-        <h4 class="text-lg font-light tracking-wide mb-2">Using Git and GitHub</h4>
-        <a class="block mb-4 hover:shadow-lg transition duration-200 ease-in-out" href="https://www.youtube.com/watch?v=v98_7iHlYWM" target="_blank" rel="noopener">
-          <img src="{{ "img/youtube/git.jpg" | absURL }}">
-        </a>
-
-        <a class="underline p-1 rounded-sm text-gray-900 hover:bg-red-500 hover:text-white transition duration-200 ease-in-out" href="https://www.youtube.com/c/MattLayman" target="_blank" rel="noopener">More videos on YouTube...</a>
-      </div>
-
       {{ if eq .Kind "page" }}
+        <div class="rounded-lg border border-red-600 p-4 bg-red-500 text-white mt-8">
+          <a href="https://www.patreon.com/mblayman" target="_blank" rel="noopener">
+            <img class="px-4" src="{{ "img/patreon.png" | absURL }}">
+          </a>
+          <p class="text-sm font-serif text-gray-100 mb-2">
+            If you like my work
+            and you want to say thanks,
+            you can become a patron
+            on Patreon.
+            Thanks for supporting me!
+          </p>
+          <p class="text-sm font-serif text-gray-100">
+            Check out my <a class="underline" href="{{ "superheroes/" | absURL }}">Patreon Superhero supporters</a>!
+          <p>
+        </div>
+
+        <div class="rounded-lg border border-purple-700 p-4 bg-white mt-8">
+          <a href="https://twitch.tv/mblayman" target="_blank" rel="noopener">
+            <img class="rounded" src="{{ "img/2018/twitch.jpg" | absURL }}">
+          </a>
+          <p class="mt-4 text-sm font-serif text-gray-900">
+            I regularly stream
+            how to build Django apps
+            on Twitch each week
+            at 9pm ET.
+            I happily answer your questions
+            about web apps
+            as I build one.
+          </p>
+        </div>
+
+        <div class="rounded-lg border border-green-900 p-4 bg-green-800 text-white mt-8">
+          <a href="https://djangoriffs.com" target="_blank" rel="noopener">
+            <img class="rounded" src="{{ "img/django-riffs-banner.png" | absURL }}">
+          </a>
+          <p class="mt-4 mb-2 text-sm font-serif text-gray-100">
+            Django Riffs is my podcast devoted entirely
+            to learning the Django web framework.
+            Give it a listen!
+          </p>
+          <p class="text-sm font-serif text-gray-100">
+            All the shows are
+            on the <a class="underline" href="{{ "django-riffs/" | absURL }}">Show Notes</a> page.
+          <p>
+        </div>
+
+        <div class="rounded-lg border border-green-700 p-4 bg-white mt-8">
+          <a href="{{ "understand-django/" | absURL }}" class="hover:underline">
+            <h3 class="text-3xl text-center font-light tracking-wide text-green-900">Understand Django</h3>
+          </a>
+          <p class="mt-4 mb-2 text-sm font-serif text-gray-900">
+            Understand Django is an article series
+            where I exhaustively cover Django
+            and all its many features.
+          </p>
+          <p class="text-sm font-serif text-gray-900">
+            See all the articles
+            on the <a class="underline" href="{{ "understand-django/" | absURL }}">Understand Django</a> section.
+          <p>
+        </div>
+
+        <div class="mt-8 p-4">
+          <h3 class="text-3xl font-light tracking-wide w-full border-b-2 border-red-600 mb-6">Videos</h3>
+
+          <h4 class="text-lg font-light tracking-wide mb-2">Python Testing 101 with pytest</h4>
+          <a class="block mb-8 hover:shadow-lg transition duration-200 ease-in-out" href="https://www.youtube.com/watch?v=etosV2IWBF0" target="_blank" rel="noopener">
+            <img src="{{ "img/youtube/python-testing-101.jpg" | absURL }}">
+          </a>
+
+          <h4 class="text-lg font-light tracking-wide mb-2">Python Testing 201 with pytest</h4>
+          <a class="block mb-8 hover:shadow-lg transition duration-200 ease-in-out" href="https://www.youtube.com/watch?v=fv259R38gqc" target="_blank" rel="noopener">
+            <img src="{{ "img/youtube/python-testing-201.jpg" | absURL }}">
+          </a>
+
+          <h4 class="text-lg font-light tracking-wide mb-2">Basics of the Vim Text Editor</h4>
+          <a class="block mb-8 hover:shadow-lg transition duration-200 ease-in-out" href="https://www.youtube.com/watch?v=zxdQJlB65lA" target="_blank" rel="noopener">
+            <img src="{{ "img/youtube/vim.jpg" | absURL }}">
+          </a>
+
+          <h4 class="text-lg font-light tracking-wide mb-2">Using Git and GitHub</h4>
+          <a class="block mb-4 hover:shadow-lg transition duration-200 ease-in-out" href="https://www.youtube.com/watch?v=v98_7iHlYWM" target="_blank" rel="noopener">
+            <img src="{{ "img/youtube/git.jpg" | absURL }}">
+          </a>
+
+          <a class="underline p-1 rounded-sm text-gray-900 hover:bg-red-500 hover:text-white transition duration-200 ease-in-out" href="https://www.youtube.com/c/MattLayman" target="_blank" rel="noopener">More videos on YouTube...</a>
+        </div>
+
         {{ $related := .Site.RegularPages.Related . | first 5 }}
         {{ with $related }}
           <div class="rounded-lg border border-blue-200 p-4 bg-blue-100 mt-8">

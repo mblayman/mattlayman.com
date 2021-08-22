@@ -18,9 +18,11 @@
   </div>
 {{ end }}
 
-<div class="bg-white rounded-full mx-auto -mt-20 sm:-mt-20 mb-2 p-1 h-32 w-32 shadow-xl">
-  <img src="{{ .Site.Params.authorAvatar | absURL }}" class="rounded-full">
-</div>
+<a href="/">
+  <div class="bg-white rounded-full mx-auto -mt-20 sm:-mt-20 mb-2 p-1 h-32 w-32 shadow-xl">
+    <img src="{{ .Site.Params.authorAvatar | absURL }}" class="rounded-full">
+  </div>
+</a>
 
 <div class="article-content mx-auto mt-8 pb-8 sm:px-20">
   {{ .Content }}
