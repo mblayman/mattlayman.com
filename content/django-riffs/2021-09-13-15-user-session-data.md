@@ -1,16 +1,19 @@
 ---
-title: "Per-visitor Data With Sessions"
+title: "Episode 15 - User Session Data"
+aliases:
+ - /django-riffs/15
+ - /djangoriffs/15
+ - /django-riffs/15.
+ - /djangoriffs/15.
 description: >-
-    How does Django know
-    when a user is logged in?
-    Where can the framework store data
-    for a visitor on your app?
-    In this article,
-    we'll answer those questions
-    and look at a storage concept
-    in Django
-    called sessions.
-image: img/django.png
+    On this episode,
+    we will dig
+    into a data storage technique
+    that Django makes heavy use of
+    for visitors
+    to your site.
+    This category of data is called *session* data.
+image: img/django-riffs-banner.png
 type: post
 categories:
  - Python
@@ -19,35 +22,35 @@ tags:
  - Python
  - Django
  - sessions
-series: "Understand Django"
+nofluidvids: true
 
 ---
 
-In the last
-[Understand Django]({{< ref "/understand-django/_index.md" >}})
-article,
-we saw
-what it takes
-to make your Django project live
-on the internet.
-Now,
-we'll get back to a more narrow topic
-and focus on a way Django can store data
-for visitors to your site.
-This is the kind of data
-that doesn't often fit well
-into your Django models
-and is called *session* data.
+On this episode,
+we will dig
+into a data storage technique
+that Django makes heavy use of
+for visitors
+to your site.
+This category of data is called *session* data.
 
-{{< understand-django-series "sessions" >}}
+Listen at {{< extlink "https://djangoriffs.com/episodes/user-session-data" "djangoriffs.com" >}}
+or with the player below.
+
+<div class="h-48">
+<iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/f1618e33-7219-491d-9cd7-9794b539b67a?dark=false"></iframe>
+</div>
+
+## Last Episode
+
+On the last episode episode,
+we looked
+at what it takes
+to go live
+and how to prepare your Django project
+for the internet.
 
 ## What Is A Session?
-
-As *I* was learning Django,
-I'd run into sessions occasionally
-and accept that I didn't really understand them.
-They felt like magic to me.
-But what is a session?
 
 > A session is a set of data
 that is available to users
@@ -65,12 +68,8 @@ Instead,
 you can access session content
 via the `request.session` attribute.
 
-The `request.session` is a dictionary-like object.
-Storing data into the session is like working
-with any other Python dictionary.
-
 ```python
-# application/view.py
+# application/views.py
 
 from django.http import HttpResponse
 
@@ -78,17 +77,6 @@ def a_session_view(request):
     request.session['data_to_keep'] = 'store this'
     return HttpReponse('')
 ```
-
-When Django stores the session data,
-the framework will keep the data
-in a JSON format.
-What is JSON?
-I've mentioned JSON in passing
-in previous articles,
-but now is a decent time to explain it.
-Knowing what JSON is will help you understand
-what happens to session data
-as the data is stored.
 
 ### The "What is JSON?" Sidebar
 
@@ -100,17 +88,6 @@ The definition of that format is listed
 on the official {{< extlink "https://www.json.org/json-en.html" "JSON website" >}}
 and can be understood
 in probably 10 minutes or less.
-
-That stored data can be parsed
-based on the definition of the format
-to recreate the data
-at a different time
-or on a different computer.
-In general,
-you can view JSON as a tool
-to take Python dictionaries or lists
-and store or transmit them
-for use elsewhere.
 
 The Python standard library includes a module
 for working with JSON data.
@@ -130,10 +107,6 @@ of what JSON output looks like.
 True
 ```
 
-The `dumps` and `loads` functions transform data
-to and from a string, respectively
-(the `s` in the those function names stands for "string").
-
 JSON is an extremely versatile format
 and is used all over the internet.
 Getting back to sessions,
@@ -143,15 +116,6 @@ where Django can store session data.
 Let's look at those next.
 
 ## Session Storage
-
-You probably know this drill by now
-if you've been following this series.
-Like the template system,
-the ORM,
-and the authentication system,
-the session application is configurable
-with multiple different "engines"
-to store session data.
 
 When you start a new Django project
 with the `startproject` command,
@@ -187,10 +151,6 @@ The `Session` model stores three things:
   in a `TextField`
 * An expiration date for the session data
 
-With these three fields,
-Django can handle the temporary storage needs
-for any of your site's visitors.
-
 Why is the session engine configurable?
 Django's session storage is configurable
 to manage tradeoffs.
@@ -199,17 +159,6 @@ is a safe default
 and the easiest to understand.
 The answer to "Where is my app's session data?"
 is "In the database with all of my other application data."
-
-If your site grows in popularity
-and usage,
-using the database to store sessions can become a bottleneck
-and limit your performance and application scaling.
-Additionally,
-the default engine creates an ever expanding set
-of database rows in the `Session` model's table.
-You can work around the second challenge
-by periodically running the `clearsessions` management command,
-but what if the performance is a problem for you?
 
 This is where other storage engines might be better
 for your application.
@@ -252,13 +201,6 @@ With cookie-base storage:
   of a cookie
   (commonly, only 4kB).
 
-Choosing the right session storage engine
-for your application depends
-on what the app does.
-If you're in doubt,
-start with the default of database-backed storage,
-and you should be fine initially.
-
 ## How Does The Session System Identify Visitors?
 
 When a visitor comes to your site,
@@ -294,10 +236,6 @@ The session ID is very long (32 characters),
 and the session will expire after a given length of time.
 These characteristics make session IDs quite secure.
 
-Since sessions are secure
-and can uniquely identify a browser,
-what kind of data can we put in there?
-
 ## What Uses Sessions?
 
 Sessions can store all kinds of data,
@@ -305,20 +243,6 @@ but what are some real world use cases?
 You can look
 in Django's source code
 to find some immediate answers!
-
-In my estimate,
-the most used part of Django
-that uses sessions heavily
-is the auth system.
-We explored the authentication and authorization system
-in [User Authentication]({{< ref "/understand-django/2020-11-04-user-authentication.md" >}}).
-At the time,
-I mentioned
-in the pre-requisites
-that sessions were required,
-but I noted that sessions were an internal detail.
-Now that you know what sessions are about,
-let's see how the auth system uses them.
 
 If you look into the session data
 after you've authenticated,
@@ -328,17 +252,6 @@ you'll find three pieces of information:
 * The user's hash (stored in `_auth_user_hash`)
 * The string name of the auth backend used 
   (stored in `_auth_user_backend`)
-
-Since we know that a session identifies a browser
-and does so securely,
-the auth system stores identity information
-into the session
-to tie that unique session to a unique user.
-When a user makes a request
-with these data elements,
-the auth system can determine
-if the request data is valid
-and should be considered authenticated.
 
 The auth system will read which backend is used
 and load that backend if possible.
@@ -355,29 +268,6 @@ in the session).
 If the comparison checks out,
 the user is authenticated
 and the request proceeds as an authenticated request.
-
-You can see that the session is vital
-to this flow with the auth system.
-Without the ability to store state
-in the session,
-the user would be unable
-to prove who they were.
-
-Another use of sessions is found
-with CSRF handling.
-The CSRF security features in Django
-(which I mentioned in the forms article
-and we will explore more in a future topic)
-permit CSRF tokens to be stored
-in the session
-instead of a cookie
-when the `CSRF_USE_SESSIONS` setting is enabled.
-Django provides a safe default
-for CSRF tokens
-in cookies,
-but the session is an alternative storage place
-if you're not happy enough
-with the cookie configuration.
 
 As a final example,
 we can look
@@ -412,8 +302,7 @@ class ContactView(FormView):
     success_url = reverse_lazy("application:index")
 
     def form_valid(self, form):
-        messages.add_message(
-            self.request, messages.INFO, "Thank you for the feedback!")
+        messages.info(self.request, "Thank you for the feedback!")
         return super().form_valid(form)
 ```
 
@@ -428,16 +317,12 @@ to the session as a more robust alternative.
 Observe that this might run into problems
 if you are using the session's cookie storage engine!
 
-I hope that these examples from Django's `contrib` package provide you
-with some ideas for how you might use sessions
-in your own projects.
-
 ## Summary
 
-In this article,
-we dug into Django sessions
-and how you use them.
-We saw:
+In this episode,
+we learned session data
+and its use.
+We covered:
 
 * What sessions are and the interface they expose as `request.session`
 * How JSON is used to manage session data
@@ -447,22 +332,32 @@ We saw:
 * Examples within `django.contrib`
     of how sessions get used by Django's built-in apps.
 
-In the next article,
+## Next Time
+
+On the next episode,
 we are going to spend time focusing
 on settings in Django.
-You'll learn about:
+Settings are how you control your Django app,
+and there are a variety of techniques
+that make settings more manageable.
 
-* Various strategies for managing your project's settings
-* Django's tools to help with settings
-* Tools in the larger Django ecosystem that can make your life easier
-
-If you'd like to follow along
-with the series,
-please feel free to sign up
-for my newsletter
-where I announce all of my new content.
-If you have other questions,
-you can reach me online
+You can follow the show
+on {{< extlink "https://djangoriffs.com" "djangoriffs.com" >}}.
+Or follow me or the show
 on Twitter
-where I am
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+at
+{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+or
+{{< extlink "https://twitter.com/djangoriffs" "@djangoriffs" >}}.
+
+Please rate or review
+on Apple Podcasts, Spotify,
+or from wherever you listen to podcasts.
+Your rating will help others discover the podcast,
+and I would be very grateful.
+
+Django Riffs is supported by listeners like *you*.
+If you can contribute financially
+to cover hosting and production costs,
+please check out my {{< extlink "https://www.patreon.com/mblayman" "Patreon page" >}}
+to see how you can help out.
