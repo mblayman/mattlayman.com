@@ -90,4 +90,10 @@
   <li><a href="{{ ref . "/understand-django/2021-07-15-settings.md" }}">Making Sense Of Settings</a></li>
   {{- end -}}
 
+  {{- if eq $post "files" -}}
+  <li>User File Use</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2021-09-14-media-files.md" }}">User File Use</a></li>
+  {{- end -}}
+
 </ol>
