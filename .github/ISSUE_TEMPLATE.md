@@ -14,10 +14,10 @@
 
 * [ ] mailing list
 * [ ] Schedule Buffer
-* [ ] Frederick Tech Slack
 * [ ] pycoders.com/submissions
 * [ ] importpython.com/pages/contact/ - cs@importpython.com
 * [ ] Reddit /r/python
 * [ ] Hacker News
 * [ ] python.libhunt.com/contribute
 * [ ] dev.to
+* [ ] tweeter
