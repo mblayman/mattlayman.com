@@ -400,7 +400,7 @@ This version of development adds a very large layer
 into your process
 so why would you want to include it?
 
-1. You development environment will run the same operating system
+1. Your development environment will run the same operating system
     as your live site.
     Any problems you catch and fix
     on the development site

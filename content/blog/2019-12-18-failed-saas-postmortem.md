@@ -184,7 +184,7 @@ For some of those tools,
 I had some experience,
 but the depth of my knowledge was lacking
 since I am a company of one.
-Theses were all technologies
+These were all technologies
 that I had to learn
 and configure myself.
 While I succeeded

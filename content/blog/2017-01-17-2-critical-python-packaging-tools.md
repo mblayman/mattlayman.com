@@ -106,6 +106,13 @@ that I'm unaware of.
 `python setup.py sdist bdist_wheel`
 creates a `dist` directory
 with the packages to upload.
+*(Ed. Note:
+Hello from 2021!
+The Python community has moved away
+from using `setup.py` directly.
+To build your packages instead,
+use a tool like
+{{< extlink "https://pypa-build.readthedocs.io/en/stable/" "build" >}}).*
 You can perform your upload with:
 
 ```bash
