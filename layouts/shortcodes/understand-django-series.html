@@ -96,4 +96,10 @@
   <li><a href="{{ ref . "/understand-django/2021-09-14-media-files.md" }}">User File Use</a></li>
   {{- end -}}
 
+  {{- if eq $post "commands" -}}
+  <li>Command Your App</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2021-11-04-command-apps.md" }}">Command Your App</a></li>
+  {{- end -}}
+
 </ol>
