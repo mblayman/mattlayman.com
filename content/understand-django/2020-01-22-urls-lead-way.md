@@ -58,7 +58,7 @@ In other words,
 the URLconf is placed right next to the `settings.py` file
 in `project/urls.py`.
 
-That explain where the file resides,
+That explains where the file resides,
 but it doesn't tell us much
 about how it works.
 Let's dig in more.
