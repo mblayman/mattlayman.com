@@ -636,14 +636,12 @@ We covered:
 * Useful commands from the core framework and the django-extensions package
 
 In the next article,
-I'm going to describe internationalization.
-Internationalization is the process
-of making your app work for multiple spoken languages.
+we're going to look into performance.
 You'll learn about:
 
-* Enabling internationalization for your app
-* Tools to help manage an internationalized app
-* Extra considerations like handling time formatting
+* How Django sites get slow
+* Ways to optimize your database queries
+* How to apply caching to save processing
 
 If you'd like to follow along
 with the series,
