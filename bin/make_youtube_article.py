@@ -50,12 +50,13 @@ def get_video(video_id):
     youtube = build_youtube_client()
     request = youtube.videos().list(part="snippet", id=video_id)
     snippet = request.execute()["items"][0]["snippet"]
+    thumbnail = snippet["thumbnails"].get("maxres", snippet["thumbnails"]["standard"])
     return Video(
         video_id,
         snippet["title"],
         snippet["description"],
         snippet["publishedAt"],
-        snippet["thumbnails"]["maxres"]["url"],
+        thumbnail["url"],
         snippet["tags"],
     )
 
