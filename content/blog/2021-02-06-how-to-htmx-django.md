@@ -73,6 +73,28 @@ If you don't include this configuration,
 Django will respond to requests
 with a `403 Forbidden` status code.
 
+**Edit 2021-12-31**:
+As an alternative to the event listener,
+you can now use `hx-headers`
+to achieve the same effect.
+Because htmx will look at parent elements
+to find additional attibutes,
+you can apply the CSRF token globally
+to your site
+by adding to the `body` tag like this:
+
+```html
+<html>
+  <head><title>Htmx Demo!</title></head>
+  <body
+    hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+    >
+    {% block main %}{% endblock %}
+    <script src="https://unpkg.com/htmx.org@1.1.0"></script>
+  </body>
+</html>
+```
+
 ## Step 2: Create The Tasks List View
 
 We need a view to display tasks.
