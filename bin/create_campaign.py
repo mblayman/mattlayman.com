@@ -38,9 +38,9 @@ def get_list_id(session):
     lists_data = response.json()
 
     list_id = ""
-    for l in lists_data.get("lists"):
-        if l.get("name") == "Matt Layman":
-            list_id = l.get("id")
+    for lists in lists_data.get("lists"):
+        if lists.get("name") == "Matt Layman":
+            list_id = lists.get("id")
 
     if not list_id:
         sys.exit("No list found.")
