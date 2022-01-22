@@ -9,6 +9,7 @@ public
 # Python
 *.pyc
 venv
+.direnv
 
 # Secrety stuff
 .env
