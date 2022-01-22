@@ -1,10 +1,10 @@
 #!/usr/bin/env python
-import os
 import re
 
-import frontmatter
 import typer
 
+from . import constants
+from .article import Article
 from .devto import DEVGateway
 from .task import Task
 
@@ -14,7 +14,6 @@ NUMBER_LIST_PATTERN = re.compile(r"^\d+\.")
 REF_PATTERN = re.compile(r'.*{{< ref "(.*?)" >}}.*')
 REF_REPLACEMENT_PATTERN = re.compile(r"{{< ref .* >}}")
 YOUTUBE_IFRAME_PATTERN = re.compile(r'.*youtube.com/embed/(.*?)".*')
-WEBSITE_URL = "https://www.mattlayman.com"
 
 
 class DEVFormatterTask(Task):
@@ -23,12 +22,11 @@ class DEVFormatterTask(Task):
 
     def handle(self, *args, **kwargs):
         article_path = str(kwargs["article_path"])
-        article = frontmatter.load(article_path)
+        article = Article(article_path)
         output = []
 
-        if "video" in article.keys():
-            embed_code = article["video"].split("/")[-1]
-            output.extend([f"{{% youtube {embed_code} %}}", ""])
+        if article.embed_code:
+            output.extend([f"{{% youtube {article.embed_code} %}}", ""])
 
         state = "unknown"
         for line in article.content.splitlines():
@@ -39,8 +37,7 @@ class DEVFormatterTask(Task):
 
         dev_markdown = "\n".join(output)
         # print(dev_markdown)
-        canonical_url = get_canonical_url(article_path)
-        create_article(article, dev_markdown, canonical_url)
+        create_article(article, dev_markdown)
         return True
 
 
@@ -166,7 +163,7 @@ def convert_ref(line):
         match = REF_PATTERN.match(line)
         ref_path = match.group(1)
         if "_index.md" in ref_path:
-            ref_url = f"{WEBSITE_URL}{ref_path.replace('_index.md', '')}"
+            ref_url = f"{constants.WEBSITE_URL}{ref_path.replace('_index.md', '')}"
             return REF_REPLACEMENT_PATTERN.sub(ref_url, line)
         elif "understand-django" in ref_path:
             parts = ref_path.split("/")
@@ -181,7 +178,7 @@ def convert_ref(line):
             slug = parts[2][11:-3]
             return f"/django-riffs/{slug}/"
         elif "newsletter" in ref_path:
-            ref_url = f"{WEBSITE_URL}/newsletter/"
+            ref_url = f"{constants.WEBSITE_URL}/newsletter/"
             return REF_REPLACEMENT_PATTERN.sub(ref_url, line)
         else:
             raise Exception(f"unhandled ref style: {ref_path}")
@@ -199,7 +196,7 @@ def convert_youtube_embed(line):
 def check_hugo_directives(line):
     """Check for Hugo shortcodes.
 
-    This is the chance to ignore shortcode that I don't want custom processing for.
+    This is the chance to ignore shortcodes that I don't want custom processing for.
     """
     if "{{<" in line:
         if "understand-django" in line:
@@ -211,23 +208,13 @@ def check_hugo_directives(line):
     return line
 
 
-def get_canonical_url(article_path):
-    # Remove the "content" part of the path.
-    path_parts = article_path.split("/")[1:]
-    base_name = os.path.splitext(path_parts[-1])[0]
-    # Strip off the date. Expects "YYYY-MM-DD-".
-    path_parts[-1] = base_name[11:]
-    path = "/".join(path_parts)
-    return f"{WEBSITE_URL}/{path}/"
-
-
-def create_article(article, dev_markdown, canonical_url):
+def create_article(article: Article, dev_markdown: str):
     dev_gateway = DEVGateway()
     data = dev_gateway.create_article(
-        title=article["title"],
+        title=article.title,
         body=dev_markdown,
-        tags=article["tags"],
-        series=article.get("series"),
-        canonical_url=canonical_url,
+        tags=article.tags,
+        series=article.series,
+        canonical_url=article.canonical_url,
     )
     typer.echo(f"New article ID: {data['id']}")
