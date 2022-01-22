@@ -3,16 +3,13 @@ import os
 import string
 import sys
 from dataclasses import dataclass
-from pathlib import Path
 
 import googleapiclient.discovery
 import requests
 from dateutil import parser
 from dotenv import load_dotenv
 
-root = Path(__name__).resolve().parent
-static_dir = root / "static"
-templates_dir = root / "bin" / "templates"
+from tools import constants
 
 
 @dataclass
@@ -32,7 +29,7 @@ class Video:
     def image_filename(self):
         _, extension = os.path.splitext(self.image_url)
         filename = self.youtube_id + extension
-        return static_dir / "img" / str(self.published_at.year) / filename
+        return constants.static_dir / "img" / str(self.published_at.year) / filename
 
 
 def main():
@@ -76,19 +73,19 @@ def fetch_thumbnail(video):
 
 
 def generate_article(video):
-    template_filename = templates_dir / "article.md"
+    template_filename = constants.templates_dir / "article.md"
     with open(template_filename) as f:
         template = string.Template(f.read())
 
     title = slugify(video.title)
     filename = f"{video.published_at:%Y-%m-%d}-{title}.md"
-    filepath = root / "content" / "blog" / filename
+    filepath = constants.root / "content" / "blog" / filename
     with open(filepath, "w") as f:
         short_description = video.description.split("\n")[0]
         mapping = {
             "title": video.title.replace('"', "'"),
             "description": short_description.replace('"', "'"),
-            "image_filename": video.image_filename.relative_to(static_dir),
+            "image_filename": video.image_filename.relative_to(constants.static_dir),
             "youtube_id": video.youtube_id,
             "tags": repr(video.tags),
         }

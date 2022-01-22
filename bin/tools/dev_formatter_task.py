@@ -22,7 +22,7 @@ class DEVFormatterTask(Task):
     start = "Processing Markdown and reformatting for DEV..."
 
     def handle(self, *args, **kwargs):
-        article_path = str(kwargs["article"])
+        article_path = str(kwargs["article_path"])
         article = frontmatter.load(article_path)
         output = []
 
