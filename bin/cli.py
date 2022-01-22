@@ -1,12 +1,9 @@
 import typer
 
 import checklist
+import make_youtube_article
 
 app = typer.Typer()
 
 app.command("checklist")(checklist.main)
-
-
-@app.command("other")
-def other():
-    pass
+app.command("yt")(make_youtube_article.main)

@@ -1,13 +1,10 @@
-#!/usr/bin/env python
 import os
 import string
-import sys
 from dataclasses import dataclass
 
 import googleapiclient.discovery
 import requests
 from dateutil import parser
-from dotenv import load_dotenv
 
 from tools import constants
 
@@ -32,11 +29,8 @@ class Video:
         return constants.static_dir / "img" / str(self.published_at.year) / filename
 
 
-def main():
-    if len(sys.argv) < 2:
-        sys.exit("Missing YouTube URL")
-
-    url = sys.argv[1]
+def main(url: str):
+    """Generate an article from a YouTube video URL."""
     video_id = url.split("=")[1]
     video = get_video(video_id)
     fetch_thumbnail(video)
@@ -99,8 +93,3 @@ def slugify(title):
     title = "-".join(parts)
     title = title.replace("#", "")
     return title.lower()
-
-
-if __name__ == "__main__":
-    load_dotenv()
-    main()

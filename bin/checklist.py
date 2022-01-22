@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import json
 from pathlib import Path
 
@@ -76,7 +74,3 @@ class Checklist:
         """Store the checklist for any future use."""
         with self.path.open("w") as f:
             json.dump(self.items, f, sort_keys=True, indent=2)
-
-
-if __name__ == "__main__":
-    typer.run(main)
