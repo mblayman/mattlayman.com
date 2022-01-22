@@ -16,7 +16,9 @@
   <h1 class="text-center text-black text-4xl font-semibold tracking-wide pt-4 pb-8 sm:pt-2 sm:pb-4">Notes</h1>
 
   {{ .Content }}
+</div>
 
+<div class="mx-auto pb-8 sm:px-20">
   {{ if eq .Params.type "post" }}
     <div class="hidden sm:block">
       {{ partial "newsletter-form" . }}
