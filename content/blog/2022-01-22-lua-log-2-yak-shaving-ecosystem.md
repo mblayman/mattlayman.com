@@ -139,7 +139,7 @@ With Busted, tests will have multiple `it` calls
 and that is perfectly normal.
 
 The support for pytest in vim-test will put together the unique identifier
-(e.g., `test_some_file.py::test_some_function`)
+(e.g., `test_file.py::test_some_function`)
 and invoke pytest with that identifier
 as the argument.
 
