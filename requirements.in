@@ -1,6 +1,7 @@
 beautifulsoup4
 black
 flake8
+jinja2
 pip-tools
 pyperclip
 python-dateutil

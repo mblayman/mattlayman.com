@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import os
 from pathlib import Path
 
 import frontmatter
@@ -13,9 +12,19 @@ class Article:
         self.article_path = article_path
         self._raw_article = frontmatter.load(article_path)
 
+    def __str__(self):
+        return self.title
+
+    def __repr__(self):
+        return f"<Article: {self.title}>"
+
     @property
     def title(self) -> str:
         return self._raw_article["title"]
+
+    @property
+    def description(self) -> str:
+        return self._raw_article["description"]
 
     @property
     def tags(self) -> list:
@@ -36,10 +45,15 @@ class Article:
 
     @property
     def canonical_url(self):
-        # Remove the "content" part of the path.
-        path_parts = self.article_path.split("/")[1:]
-        base_name = os.path.splitext(path_parts[-1])[0]
+        path = self.article_path.relative_to(constants.content_dir)
+        path_parts = list(path.parts)
+
         # Strip off the date. Expects "YYYY-MM-DD-".
-        path_parts[-1] = base_name[11:]
-        path = "/".join(path_parts)
-        return f"{constants.WEBSITE_URL}/{path}/"
+        path_parts[-1] = path.stem[11:]
+
+        # Articles in the main blog area include the year in the path.
+        if path_parts[0] == "blog":
+            path_parts = ["blog", path.stem[:4]] + path_parts[1:]
+
+        slug = "/".join(path_parts)
+        return f"{constants.WEBSITE_URL}/{slug}/"

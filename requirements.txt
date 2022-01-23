@@ -47,6 +47,10 @@ httplib2==0.20.2
     #   google-auth-httplib2
 idna==3.3
     # via requests
+jinja2==3.0.3
+    # via -r requirements.in
+markupsafe==2.0.1
+    # via jinja2
 mccabe==0.6.1
     # via flake8
 mypy-extensions==0.4.3
