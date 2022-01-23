@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 import frontmatter
+from bs4 import BeautifulSoup
 
 from . import constants
 
@@ -44,7 +45,20 @@ class Article:
         return self._raw_article.content
 
     @property
-    def canonical_url(self):
+    def html_content(self) -> str:
+        with open(self._output_path, "r") as f:
+            article_html = f.read()
+
+        soup = BeautifulSoup(article_html, "html.parser")
+        content = soup.find("div", class_="article-content")
+        return content.encode_contents().decode("utf-8")
+
+    @property
+    def _output_path(self):
+        return constants.public_dir / self._slug_path / "index.html"
+
+    @property
+    def _slug_path(self):
         path = self.article_path.relative_to(constants.content_dir)
         path_parts = list(path.parts)
 
@@ -55,5 +69,8 @@ class Article:
         if path_parts[0] == "blog":
             path_parts = ["blog", path.stem[:4]] + path_parts[1:]
 
-        slug = "/".join(path_parts)
-        return f"{constants.WEBSITE_URL}/{slug}/"
+        return "/".join(path_parts)
+
+    @property
+    def canonical_url(self):
+        return f"{constants.WEBSITE_URL}/{self._slug_path}/"

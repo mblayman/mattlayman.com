@@ -11,6 +11,7 @@ TASKS = {"dev": DEVFormatterTask}
 
 
 def main(article_path: Path = typer.Argument(..., exists=True)):
+    """Run an article through the checklist."""
     if article_path.suffix != ".md":
         typer.echo("The provided article path is not a Markdown file.")
         raise typer.Exit(code=1)

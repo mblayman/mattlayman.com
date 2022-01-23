@@ -8,6 +8,7 @@ from jinja2 import Environment, FileSystemLoader
 
 from . import constants
 from .article import Article
+from .mailchimp import MailchimpGateway
 
 
 def default_month() -> datetime.datetime:
@@ -23,8 +24,16 @@ def main(
     html = render_newsletter(articles)
     pyperclip.copy(html)
     print("Newsletter copied to clipboard.")
-    # print(html)
-    # TODO: Create the campaign automatically.
+
+    mailchimp = MailchimpGateway()
+    month_name = f"{month:%B %Y}"
+    campaign = mailchimp.create_campaign(
+        month_name,
+        f"What did you miss from {month_name}?",
+        "In case you missed it, here are some software developer topics "
+        "that I covered this past month.",
+    )
+    mailchimp.open_campaign(campaign["web_id"])
 
 
 def get_month_content(month: datetime.datetime) -> list[Path]:
