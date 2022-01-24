@@ -80,11 +80,12 @@
       </div>
     </div>
   </nav>
-  <main class="container py-4 min-h-screen">
+  <main class="container {{ block "grid" . }}grid-system{{- end }} py-4 min-h-screen">
     <article class="px-4 sm:px-0">
 
       {{- block "main" . }}{{- end }}
     </article>
+    {{- block "sidebar" . }}
     <aside class="px-4 sm:px-0">
 
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6938294327810924"
@@ -203,6 +204,7 @@
       {{ end }}
 
     </aside>
+    {{- end }}
   </main>
   <footer class="flex bg-gray-900 text-white border-t border-gray-600 pt-2 sm:h-16 items-center">
     <div class="w-full max-w-6xl relative mx-auto px-6">

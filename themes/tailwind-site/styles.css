@@ -84,7 +84,7 @@ pre code {
   @apply inline-block max-w-xs overflow-x-scroll;
 }
 
-.container {
+.grid-system {
   display: grid;
   grid-template-areas: "content" "sidebar";
   grid-template-columns: 1fr;
@@ -93,7 +93,7 @@ pre code {
 }
 
 @screen sm {
-  .container {
+  .grid-system {
     grid-template-areas: "content sidebar";
     grid-template-columns: 3fr 1fr;
   }
