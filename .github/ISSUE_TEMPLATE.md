@@ -1,4 +1,4 @@
-## Post checklist
+## Article checklist
 
 ### Pre-publish
 
@@ -15,9 +15,8 @@
 * [ ] mailing list
 * [ ] Schedule Buffer
 * [ ] pycoders.com/submissions
-* [ ] importpython.com/pages/contact/ - cs@importpython.com
 * [ ] Reddit /r/python
 * [ ] Hacker News
 * [ ] python.libhunt.com/contribute
 * [ ] dev.to
-* [ ] tweeter
+* [ ] messenger
