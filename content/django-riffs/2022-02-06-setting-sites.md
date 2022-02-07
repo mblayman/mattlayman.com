@@ -1,14 +1,18 @@
 ---
-title: "Making Sense Of Settings"
+title: "Episode 16 - Setting Your Sites"
+aliases:
+ - /django-riffs/16
+ - /djangoriffs/16
+ - /django-riffs/16.
+ - /djangoriffs/16.
 description: >-
-    All Django apps need to be configured
-    in order to run properly.
-    In this article,
-    we will dig into how Django lets you configure your project
-    using a settings module.
-    We'll also look at ways to be extra effective
-    with settings.
-image: img/django.png
+    On this episode,
+    we look at how to manage settings
+    on your Django site.
+    What are the common techniques
+    to make this easier to handle?
+    Let's find out!
+image: img/django-riffs-banner.png
 type: post
 categories:
  - Python
@@ -17,33 +21,32 @@ tags:
  - Python
  - Django
  - settings
-series: "Understand Django"
+nofluidvids: true
 
 ---
 
-In the last
-[Understand Django]({{< ref "/understand-django/_index.md" >}})
-article,
-we looked at a storage concept
-in Django
-called sessions.
-Sessions help us answer questions
-like
-"How does Django know
-when a user is logged in?" or
-"Where can the framework store data
-for a visitor on your app?"
+On this episode,
+we look at how to manage settings
+on your Django site.
+What are the common techniques
+to make this easier to handle?
+Let's find out!
 
-With this article,
-you'll learn about Django settings
-and how to manage the configuration
-of your application.
-We'll also look at tools
-to help you
-to be extra effective
-with settings.
+Listen at {{< extlink "https://djangoriffs.com/episodes/setting-your-sites" "djangoriffs.com" >}}
+or with the player below.
 
-{{< understand-django-series "settings" >}}
+<div class="h-48">
+<iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/c7b96314-c43e-4293-a598-109b2fb773d0?dark=false"></iframe>
+</div>
+
+## Last Episode
+
+On the last episode,
+we dug
+into sessions
+and how Django uses that data storage technique
+for visitors
+to your site.
 
 ## How Is Django Configured?
 
@@ -65,26 +68,6 @@ Django will internally import the following:
 from django.conf import settings
 ```
 
-This `settings` import is a module level object
-created in `django/conf/__init__.py`.
-The `settings` object has attributes added to it
-from two primary sources.
-
-The first source is a set of global default settings
-that come from the framework.
-These global settings are from `django/conf/global_settings.py`
-and provide a set of initial values
-for configuration
-that Django needs to operate.
-
-The second source of configuration settings comes
-from user defined values.
-Django will accept a Python module
-and apply its module level attributes
-to the `settings` object.
-To find the user module,
-Django searches for a `DJANGO_SETTINGS_MODULE` environment variable.
-
 ### Sidebar: Environment Variables
 
 Environment variables are not a Django concept.
@@ -97,30 +80,9 @@ and each piece of data
 in that set
 is an environment variable.
 
-If you're starting Django from a terminal,
-you can view the environment variables
-that Django will receive from the operating system
-by running the `env` command on macOS or Linux,
-or the `set` command on Windows.
-
-We can add our own environment variables
-to the environment
-with the `export` command on macOS or Linux,
-or the `set` command on Windows.
-Environment variables are typically named
-in all capital letters.
-
 ```bash
 $ export HELLO=world
 ```
-
-Now that we have a base understanding
-of environment variables,
-let's return to the `DJANGO_SETTINGS_MODULE` variable.
-The variable's value should be the location
-of a Python module containing any settings
-that a developer wants to change
-from Django's default values.
 
 If you create a Django project
 with `startproject`
@@ -134,10 +96,6 @@ you could explicitly instruct Django with:
 $ export DJANGO_SETTINGS_MODULE=project.settings
 ```
 
-Instead of supplying the file path,
-the `DJANGO_SETTINGS_MODULE` should be
-in a Python module dotted notation.
-
 You may not actually need
 to set `DJANGO_SETTINGS_MODULE` explicitly.
 If you stick with the same settings file
@@ -149,12 +107,6 @@ that looks like:
 ```python
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project.settings')
 ```
-
-Because of this line,
-Django will attempt to read
-from `project.settings`
-(or whatever you named your project)
-without the need to explicitly set `DJANGO_SETTINGS_MODULE`.
 
 Once Django reads the global settings
 and any user defined settings,
@@ -175,26 +127,7 @@ $ ./manage.py shell
 'a secret to everybody'
 ```
 
-The `settings` object is a shared item
-so it is generally thought
-to be a Really Bad Idea™
-to edit and assign to the object directly.
-Keep your settings in your settings module!
-
-That's the core of Django configuration.
-We're ready to focus in
-on the user defined settings
-and our responsibilities
-as Django app developers.
-
 ## Settings Module Patterns
-
-There are multiple ways to deal
-with settings modules
-and how to populate those modules
-with the appropriate values
-for different environments.
-Let's look at some popular patterns.
 
 ### Multiple Modules Per Environment
 
@@ -210,18 +143,6 @@ where your Django app runs:
 * On your local machine while developing
 * On the internet for your live site
 
-We should know by now
-that setting `DEBUG = True` is a terrible idea
-for a live Django site,
-so how can we get the benefits of the debug mode
-without having `DEBUG` set to `True`
-in our module?
-
-One technique is to use separate settings modules.
-With this strategy,
-you can pick which environment your Django app should run for
-by switching the `DJANGO_SETTINGS_MODULE` value
-to pick a different environment.
 You might have modules like:
 
 * `project.settings.dev`
@@ -240,56 +161,13 @@ As a reminder from the deployment article,
 the software industry like to call the primary site
 for customers "production."
 
-This strategy has certain challenges to consider.
-Should you replicate settings
-in each file
-or use some common module between them?
-
-If you decide to replicate the settings across modules,
-you'll have the advantage that the settings module shows *all*
-of the settings in a single place
-for that environment.
-The disadvantage is that keeping the common settings the same
-could be a challenge
-if you forget to update one of the modules.
-
-On the other hand,
-you could use a common module.
+You could use a common module.
 The advantage to this form is that the common settings can be
 in a single location.
 The environment specific files only need to record the *differences*
 between the environments.
 The disadvantage is that it is harder to get a clear picture
 of all the settings of that environment.
-
-If you decide to use a common module,
-this style is often implemented
-with a `*` import.
-I can probably count on one hand the number
-of places
-where I'm ok with a `*` import,
-and this is one of them.
-In most cases the Python community prefers explicit over implicit,
-and the idea extends to the treatment of imports.
-Explicit imports make it clear what a module is actually using.
-The `*` import is very implicit,
-and it makes it unclear what a module uses.
-For the case of a common settings module,
-a `*` import is actually positive
-because we want to use *everything*
-in the common module.
-
-Let's make this more concrete.
-Assume that you have a `project.settings.base` module.
-This module would hold your common settings
-for your app.
-I'd recommend that you try to make your settings safe and secure
-by default.
-For instance,
-use `DEBUG = False` in the base settings
-and force other settings modules
-to opt-in
-to the more unsafe behavior.
 
 For your local development environment
 on your laptop,
@@ -316,13 +194,6 @@ When Django starts using `DJANGO_SETTINGS_MODULE`
 of `project.settings.dev`,
 all the values from `base.py` will be used
 via `dev.py`.
-
-This scheme gives you control to define common things once,
-but there is still a big challenge
-with this.
-What do we do about settings
-that need to be kept secret
-(e.g., API keys)?
 
 *Don't commit secret data to your code repository!*
 Adding secrets to your source control tool
@@ -377,29 +248,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 ...
 ```
 
-Django needs a secret key
-for a variety of safe hashing purposes.
-There is a warning in the default `startproject` output
-that reads:
-
-```python
-# SECURITY WARNING: keep the secret key used in production secret!
-```
-
-By moving the secret key value
-to an environment variable
-that happens to have a matching name of `SECRET_KEY`,
-we won't be committing the value
-to source control
-for some nefarious actor to discover.
-
-This pattern works really well for secrets,
-but it can also work well
-for *any* configuration
-that we want to vary between environments.
-
-For instance,
-on one of my projects,
+On one of my projects,
 I use the excellent {{< extlink "https://anymail.readthedocs.io/en/stable/" "Anymail" >}} package
 to send emails
 via an email service provider
@@ -428,17 +277,6 @@ EMAIL_BACKEND = os.environ.get(
 ...
 ```
 
-I prefer to make my default settings closer
-to the live site context.
-This not only leads to safer behavior
-(because I have to explicitly opt-out
-of safer settings like switching to `DEBUG = False`),
-but it also means that my live site has less to configure.
-That's good because there are fewer chances
-to make configuration mistakes
-on the site that matters most:
-the one where my customers are.
-
 We need to be aware of a big gotcha
 with using environment variables.
 *Environment variables* are only available as a `str` type.
@@ -460,9 +298,6 @@ in Python:
 True
 ```
 
-In the next section,
-we will see tools that help alleviate this typing problem.
-
 Note:
 As you learn more about settings,
 you will probably encounter advice
@@ -483,12 +318,6 @@ is a reasonably low risk storage mechanism.
 
 ## Settings Management Tools
 
-We can focus on two categories
-of tools
-that can help you manage your settings
-in Django:
-built-in tools and third party libraries.
-
 The built-in tool that is available to you
 is the `diffsettings` command.
 This tool makes it easy
@@ -502,22 +331,6 @@ inspecting the settings output
 of `diffsettings` is more convenient
 than thinking through how a setting is set.
 
-By default,
-`diffsettings` will show a comparison
-of the settings module
-to the default Django settings.
-Settings that aren't in the defaults are marked
-with `###` after the value
-to indicate that they are different.
-
-I find that the default output is not the most useful mode.
-Instead,
-you can instruct `diffsettings`
-to output in a "unified" format.
-This format looks a lot more like a code diff.
-In addition,
-Django will colorize that output
-so that it's easier to see.
 Here's an example
 of some of the security settings
 by running `./manage.py diffsettings --output unified`
@@ -546,25 +359,8 @@ $ ./manage.py diffsettings \
     --output unified
 ```
 
-By using the `--default` flag,
-we instruct Django that `project.settings.dev` is the baseline
-for comparison.
-This version of the command will show where the two settings modules are different.
-
-Django only includes this single tool for working
-with settings,
-but I hope you can see that it's really handy.
-Now let's talk about a useful third party library
-that can help you with settings.
-
-Earlier in the article,
-I noted that dealing with environment variables has the pitfall
-of working with string data for everything.
-Thankfully, there is a package
-that can help you work
-with environment variables.
-The project is called {{< extlink "https://django-environ.readthedocs.io/en/latest/" "django-environ" >}}.
-django-environ primarily does two important things
+{{< extlink "https://django-environ.readthedocs.io/en/latest/" "django-environ" >}}
+primarily does two important things
 that I value:
 
 * The package allows you coerce strings into a desired data type.
@@ -582,14 +378,6 @@ import environ
 
 env = environ.Env()
 ```
-
-The keyword arguments to `Env` describe the different environment variables
-that you expect the app to process.
-The key is the name of the environment variable.
-The value is a two element tuple.
-The first tuple element is the type you want,
-and the second element is a default value
-if the environment variable doesn't exist.
 
 If you want to be able to control `DEBUG`
 from an environment variable,
@@ -617,26 +405,6 @@ of strings that it will accept as `True`
 such as "on", "yes", "true", and others
 (see the documentation for more details).
 
-Once you start using environment variables,
-you'll want an convenient way to set them
-when your app runs.
-Manually calling `export` for all your variables
-before running your app is a totally unsustainable way
-to run apps.
-
-The `Env` class comes with a handy class method named `read_env`.
-With this method,
-your app can read environment variables
-into `os.environ`
-from a file.
-Conventionally,
-this file is named `.env`,
-and the file contains a list of key/value pairs
-that you want as environment variables.
-Following our earlier example,
-here's how we could set our app
-to be in debug mode:
-
 ```env
 # .env
 DEBUG=on
@@ -657,29 +425,7 @@ env = environ.Env(
 DEBUG = env("DEBUG")
 ```
 
-If you use a `.env` file,
-you will occasionally find a need to put secrets
-into this file
-for testing.
-Since the file can be a source for secrets,
-you should add this to `.gitignore`
-or ignore it
-in whatever version control system you use.
-As time goes on,
-the list of variables and settings will likely grow,
-so it's also a common pattern
-to create a `.env.example` file
-that you can use as a template
-in case you ever need to start
-with a fresh clone of your repository.
-
 ## My Preferred Settings Setup
-
-Now we've looked at multiple strategies
-and tools for managing settings.
-I've used many of these schemes
-on various Django projects,
-so what is my preferred setup?
 
 For the majority of uses,
 I find that working with `django-environ`
@@ -690,31 +436,6 @@ When I use this approach,
 I make sure that all of my settings favor a safe default configuration.
 This minimizes the configuration
 that I have to do for a live site.
-
-I like the flexibility
-of the pattern,
-and I find that I can quickly set certain configurations
-when developing.
-For instance,
-when I want to do certain kinds of testing
-like checking email rendering,
-I'll call something like:
-
-```bash
-$ EMAIL_TESTING=on ./manage.py runserver
-```
-
-My settings file has a small amount of configuration
-to alter the email settings
-to point emails
-to a local SMTP server tool
-called {{< extlink "https://github.com/mailhog/MailHog" "MailHog" >}}.
-Because I set an environment variable directly
-on my command line call,
-I can easily switch
-into a mode that sends email
-to MailHog
-for quick review.
 
 Overall,
 I like the environment variable approach,
@@ -751,11 +472,6 @@ from .settings import *
 EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
 ```
 
-Even though my `Env` will look for an `EMAIL_BACKEND` environment variable
-to configure that setting dynamically,
-the testing setting is hardcoded
-to make email sending accidents impossible.
-
 The combination of a single file
 for most settings sprinkled
 with a testing settings file
@@ -765,8 +481,8 @@ that has worked the best for me.
 
 ## Summary
 
-In this article,
-you learned about Django settings
+In this episode,
+we learned about Django settings
 and how to manage the configuration
 of your application.
 We covered:
@@ -775,23 +491,31 @@ We covered:
 * Patterns for working with settings in your projects
 * Tools that help you observe and manage settings
 
-In the next article,
-we will look at how to handle files and media
-provided by users
-(e.g., profile pictures).
-You'll learn about:
+## Next Time
 
-* How Django models maintain references to files
-* How the files are managed in Django
-* Packages that can store files in various cloud services
+On the next episode,
+we'll talk about user uploaded files.
+How *does* that profile picture work?
+Where does that data go?
+We'll answer those kinds of questions next time.
 
-If you'd like to follow along
-with the series,
-please feel free to sign up
-for my newsletter
-where I announce all of my new content.
-If you have other questions,
-you can reach me online
+You can follow the show
+on {{< extlink "https://djangoriffs.com" "djangoriffs.com" >}}.
+Or follow me or the show
 on Twitter
-where I am
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+at
+{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+or
+{{< extlink "https://twitter.com/djangoriffs" "@djangoriffs" >}}.
+
+Please rate or review
+on Apple Podcasts, Spotify,
+or from wherever you listen to podcasts.
+Your rating will help others discover the podcast,
+and I would be very grateful.
+
+Django Riffs is supported by listeners like *you*.
+If you can contribute financially
+to cover hosting and production costs,
+please check out my {{< extlink "https://www.patreon.com/mblayman" "Patreon page" >}}
+to see how you can help out.
