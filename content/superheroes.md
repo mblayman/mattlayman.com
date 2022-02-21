@@ -30,6 +30,7 @@ The superheroes include:
 * Dragos C.
 * {{< extlink "https://twitter.com/rupertbaker" "Rupert Baker" >}} -
     Rupert is building {{< extlink "https://sharedgoals.co/" "SharedGoals" >}}.
+* {{< extlink "https://twitter.com/ry_austin" "Ryan Austin" >}}
 
 ## Hall of Fame
 
