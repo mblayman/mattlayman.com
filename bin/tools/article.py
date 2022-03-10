@@ -10,7 +10,9 @@ from . import constants
 
 class Article:
     def __init__(self, article_path: Path):
-        self.article_path = article_path
+        if not article_path.parts[0] == "content":
+            raise ValueError("Pass in the path starting with the content directory.")
+        self.article_path = constants.root / article_path
         self._raw_article = frontmatter.load(article_path)
 
     def __str__(self):
