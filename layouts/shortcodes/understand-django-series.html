@@ -108,4 +108,10 @@
   <li><a href="{{ ref . "/understand-django/2022-01-19-go-fast.md" }}">Go Fast With Django</a></li>
   {{- end -}}
 
+  {{- if eq $post "security" -}}
+  <li>Security And Django</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2022-03-10-secure-apps.md" }}">Security And Django</a></li>
+  {{- end -}}
+
 </ol>
