@@ -43,6 +43,7 @@ class DEVGateway:
 
         response = self.session.post(f"{self.url}/articles", json=data)
         if response.status_code >= 400:
+            print("dev.to request failed")
             print(response.content)
             raise
         return response.json()

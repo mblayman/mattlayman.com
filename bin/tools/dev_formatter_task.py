@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import re
 
+import pyperclip
 import typer
 
 from . import constants
@@ -21,7 +22,7 @@ class DEVFormatterTask(Task):
     start = "Processing Markdown and reformatting for DEV..."
 
     def handle(self, *args, **kwargs):
-        article_path = str(kwargs["article_path"])
+        article_path = kwargs["article_path"]
         article = Article(article_path)
         output = []
 
@@ -37,7 +38,9 @@ class DEVFormatterTask(Task):
 
         dev_markdown = "\n".join(output)
         # print(dev_markdown)
-        create_article(article, dev_markdown)
+        # create_article(article, dev_markdown)
+        print("Copied to clipboard.")
+        pyperclip.copy(dev_markdown)
         return True
 
 
