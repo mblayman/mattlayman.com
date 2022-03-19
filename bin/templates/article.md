@@ -5,7 +5,7 @@ image: $image_filename
 video: https://www.youtube.com/embed/$youtube_id
 type: post
 categories:
- - Twitch
+ - YouTube
  - Python
  - Django
 tags: $tags

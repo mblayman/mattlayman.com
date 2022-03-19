@@ -5,7 +5,7 @@ image: img/2022/CcC0zgXIg_w.jpg
 video: https://www.youtube.com/embed/CcC0zgXIg_w
 type: post
 categories:
- - Twitch
+ - YouTube
  - Python
  - Django
 tags: ['Django', 'SaaS', 'Python']

@@ -41,7 +41,15 @@ def get_video(video_id):
     youtube = build_youtube_client()
     request = youtube.videos().list(part="snippet", id=video_id)
     snippet = request.execute()["items"][0]["snippet"]
-    thumbnail = snippet["thumbnails"].get("maxres", snippet["thumbnails"]["standard"])
+    thumbnail = None
+    for size in ["maxres", "standard", "high"]:
+        if size in snippet["thumbnails"]:
+            thumbnail = snippet["thumbnails"][size]
+            break
+    if thumbnail is None:
+        print(snippet["thumbnails"])
+        raise Exception("Failed to find a size")
+
     return Video(
         video_id,
         snippet["title"],
