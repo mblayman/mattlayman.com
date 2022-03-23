@@ -8,13 +8,13 @@
   </div>
   <div class="w-full sm:w-3/5 text-3xl font-thin tracking-wide leading-relaxed sm:mx-4">
     <p class="mb-2">I’m
-      <a class="underline p-1 px-2 rounded-sm hover:bg-red-500 hover:text-white transition duration-200 ease-in-out" href="{{ "about/" | absURL }}">Matt Layman.</a>
+      <a class="underline p-1 px-2 hover:bg-red-500 hover:text-white transition duration-200 ease-in-out" href="{{ "about/" | absURL }}">Matt Layman.</a>
     </p>
     <p class="mb-8">
       I want to help you learn more about
-      <a href="{{ "understand-django/" | absURL }}" class="bg-green-800 text-white hover:bg-white hover:text-green-900 transition duration-200 ease-in-out font-light p-1 px-2 rounded-sm">Django</a>
+      <a href="{{ "understand-django/" | absURL }}" class="bg-green-800 text-white hover:bg-white hover:text-green-900 transition duration-200 ease-in-out font-light p-1 px-2">Django</a>
       and
-      <a href="{{ "blog/2017/pythonic-code-the-list-comprehension/" | absURL }}"class="bg-blue-600 text-white hover:bg-white hover:text-blue-700 transition duration-200 ease-in-out font-light p-1 px-2 rounded-sm">Python</a>.
+      <a href="{{ "blog/2017/pythonic-code-the-list-comprehension/" | absURL }}"class="bg-blue-600 text-white hover:bg-white hover:text-blue-700 transition duration-200 ease-in-out font-light p-1 px-2">Python</a>.
     </p>
   </div>
 </div>
@@ -23,7 +23,7 @@
   <div class="w-full flex flex-col sm:flex-row justify-center items-center">
     <div class="w-full sm:w-1/2 pb-4 sm:pr-2">
       <a href="https://djangoriffs.com" target="_blank" rel="noopener">
-        <div class="border border-green-700 text-center p-8 mx-auto w-full flex flex-col shadow-md">
+        <div class="border border-green-700 text-center px-4 py-8 mx-auto w-full flex flex-col shadow-md">
           <div class="mx-auto text-green-800">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
@@ -36,7 +36,7 @@
     </div>
     <div class="w-full sm:w-1/2 pb-4 sm:pl-2">
       <a href="{{ "understand-django/" | absURL }}">
-        <div class="bg-green-800 text-white text-center p-8 mx-auto w-full flex flex-col shadow-md">
+        <div class="bg-green-800 text-white text-center px-4 py-8 mx-auto w-full flex flex-col shadow-md">
           <div class="mx-auto">
             <svg xmlns="http://www.w3.org/2000/svg" class="block h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
@@ -75,7 +75,7 @@
   <div class="w-full flex flex-col sm:flex-row justify-center items-center mb-2">
     <div class="w-full sm:w-1/2 pb-4 sm:py-2 sm:pr-2">
       <a href="https://www.youtube.com/c/MattLayman" target="_blank" rel="noopener">
-        <div class="bg-red-600 text-white text-center p-8 mx-auto w-full flex flex-col shadow-md">
+        <div class="bg-red-600 text-white text-center px-4 py-8 mx-auto w-full flex flex-col shadow-md">
           <div class="mx-auto">
             <svg xmlns="http://www.w3.org/2000/svg" class="block h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -88,7 +88,7 @@
     </div>
     <div class="w-full sm:w-1/2 pb-4 sm:py-2 sm:pl-2">
       <a href="https://www.youtube.com/c/MattLayman" target="_blank" rel="noopener">
-        <div class="border border-red-600 text-center p-8 mx-auto w-full flex flex-col shadow-md">
+        <div class="border border-red-600 text-center px-4 py-8 mx-auto w-full flex flex-col shadow-md">
           <div class="mx-auto text-red-600">
             <svg xmlns="http://www.w3.org/2000/svg" class="block h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
@@ -108,5 +108,5 @@
 {{ partial "paginator" . }}
 {{ end }}
 
-{{ define "grid" }}mx-auto w-2/3{{ end }}
+{{ define "grid" }}mx-auto w-full sm:w-2/3{{ end }}
 {{ define "sidebar" }}<br>{{ end }}

@@ -1,7 +1,7 @@
 {{ define "main" }}
 <h1 class="text-center text-black text-4xl font-semibold tracking-wide pt-4 pb-4 sm:pt-2 sm:pb-2">{{ .Title }}</h1>
 
-<div class="bg-cover bg-center h-48 sm:h-56 sm:rounded-lg sm:border border-gray-100 -mx-4 -mt-4 mb-4 sm:m-0 sm:mb-4" style="background-image: url({{ .Site.Params.cover | absURL }})">
+<div class="bg-cover bg-center h-48 sm:h-56 sm:border border-gray-100 -mx-4 -mt-4 mb-4 sm:m-0 sm:mb-4" style="background-image: url({{ .Site.Params.cover | absURL }})">
 </div>
 
 {{ $data := .Data }}

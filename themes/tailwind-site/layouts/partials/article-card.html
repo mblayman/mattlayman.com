@@ -1,10 +1,10 @@
-<a href="{{ .context.Permalink }}" class="block shadow-md rounded-lg border border-gray-100 hover:border-gray-300 h-full flex flex-col{{ if eq .index 0 }} lg:flex-row{{ end }}">
+<a href="{{ .context.Permalink }}" class="block shadow-md border border-gray-100 hover:border-gray-300 h-full flex flex-col lg:flex-row mb-4 items-center">
   {{ if .context.Params.image }}
-    <img src="{{ .context.Params.image | absURL }}" class="h-48 w-full rounded-t-lg {{ if eq .index 0 }}sm:w-2/5 sm:h-full sm:rounded-none sm:rounded-l-lg {{ end }}object-cover">
+    <img src="{{ .context.Params.image | absURL }}" class="h-48 w-full sm:w-2/5 sm:h-full object-cover">
   {{ else }}
-    <img src="{{ .context.Site.Params.cover | absURL }}" class="h-48 w-full rounded-t-lg {{ if eq .index 0 }}sm:w-2/5 sm:h-full sm:rounded-none sm:rounded-l-lg {{ end }}object-cover">
+    <img src="{{ .context.Site.Params.cover | absURL }}" class="h-48 w-full sm:w-2/5 sm:h-full object-cover">
   {{ end }}
-  <div class="p-4 {{ if eq .index 0 }}sm:w-3/5{{ end }}">
+  <div class="p-4 sm:p-8 sm:w-3/5 self-start">
     {{ if .context.Params.tags }}
       <ul class="pb-1">
         {{ range .context.Params.tags }}
@@ -12,7 +12,7 @@
         {{ end }}
       </ul>
     {{ end }}
-    <h2 class="text-lg font-semibold pb-2">{{ .context.Title }}</h2>
+    <h2 class="text-2xl font-semibold pb-2">{{ .context.Title }}</h2>
     <p class="text-md text-gray-700 font-serif leading-relaxed">
     {{ if .context.Description }}
       {{ .context.Description | markdownify }}

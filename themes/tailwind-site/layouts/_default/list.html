@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 {{ if .Params.image }}
-  <div class="bg-cover bg-center h-48 sm:h-56 sm:rounded-lg sm:border border-gray-100 -mx-4 -mt-4 mb-4 sm:m-0 sm:mb-4" style="background-image: url({{ .Params.image | absURL }})">
+  <div class="bg-cover bg-center h-48 sm:h-56 sm:border border-gray-100 -mx-4 -mt-4 mb-4 sm:m-0 sm:mb-4" style="background-image: url({{ .Params.image | absURL }})">
   </div>
 {{ end }}
 

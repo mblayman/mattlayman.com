@@ -112,6 +112,7 @@ aside {
   grid-area: sidebar;
 }
 
+/*
 .articles-grid {
   display: grid;
   grid-gap: 20px;
@@ -192,6 +193,7 @@ aside {
 .article-18 {
   grid-area: article-18;
 }
+*/
 
 .sidebar {
     @apply rounded-lg p-4 border border-orange-200 bg-orange-100 mb-4;
