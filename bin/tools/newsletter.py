@@ -46,7 +46,7 @@ def get_month_content(month: datetime.datetime) -> list[Path]:
                 month_content.append((dirpath, filename))
 
     return [
-        Path(dirpath) / filename
+        Path(dirpath).relative_to(constants.root) / filename
         for dirpath, filename in sorted(month_content, key=lambda v: v[1])
     ]
 
