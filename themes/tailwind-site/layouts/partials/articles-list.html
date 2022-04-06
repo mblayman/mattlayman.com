@@ -3,5 +3,31 @@
     <div class="article-{{ add $index 1 }}">
       {{ partial "article-card" (dict "context" . "index" $index) }}
     </div>
+    {{ if eq $index 2 }}
+     <div class="w-full flex flex-col sm:flex-row justify-center items-center">
+        <div class="w-full pb-8 pt-4">
+          <a href="https://www.patreon.com/mblayman" target="_blank" rel="noopener">
+            <div class="bg-red-500 p-2 mx-auto w-full flex flex-col sm:flex-row shadow-md justify-center items-center">
+              <div class="w-full sm:w-2/5">
+                <img class="px-8" src="{{ "img/patreon.png" | absURL }}">
+              </div>
+              <div class="text-xl text-gray-100 w-full sm:w-2/5 p-2">
+                <p class="mb-2">
+                  I make a lot of Django content for the community.
+                </p>
+                <p>
+                  Please support me on Patreon!
+                </p>
+              </div>
+              <div class="mx-auto w-full sm:w-1/5 text-gray-100 flex justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="block h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    {{  end  }}
   {{ end }}
 </div>
