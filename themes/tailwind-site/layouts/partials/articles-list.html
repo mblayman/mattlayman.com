@@ -3,8 +3,9 @@
     <div class="article-{{ add $index 1 }}">
       {{ partial "article-card" (dict "context" . "index" $index) }}
     </div>
+
     {{ if eq $index 2 }}
-     <div class="w-full flex flex-col sm:flex-row justify-center items-center">
+      <div class="w-full flex flex-col sm:flex-row justify-center items-center">
         <div class="w-full pb-8 pt-4">
           <a href="https://www.patreon.com/mblayman" target="_blank" rel="noopener">
             <div class="bg-red-500 p-2 mx-auto w-full flex flex-col sm:flex-row shadow-md justify-center items-center">
@@ -22,6 +23,33 @@
               <div class="mx-auto w-full sm:w-1/5 text-gray-100 flex justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="block h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    {{  end  }}
+
+    {{ if eq $index 6 }}
+      <div class="w-full flex flex-col sm:flex-row justify-center items-center">
+        <div class="w-full pb-8 pt-4">
+          <a href="https://discord.gg/2btCrAe" target="_blank" rel="noopener">
+            <div class="bg-purple-500 p-2 mx-auto w-full flex flex-col sm:flex-row shadow-md justify-center items-center">
+              <div class="w-full sm:w-2/5">
+                <img class="px-8" src="{{ "img/discord.png" | absURL }}">
+              </div>
+              <div class="text-xl text-gray-100 w-full sm:w-2/5 p-2">
+                <p class="mb-2">
+                  Want to chat about Python, Django, or building on the web?
+                </p>
+                <p>
+                  Join the Building SaaS Discord and say “Hello!”
+                </p>
+              </div>
+              <div class="mx-auto w-full sm:w-1/5 text-gray-100 flex justify-center">
+                <svg class="block h-16 w-16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" stroke="currentColor" fill="white">
+                  <path d="M17 11v3l-3-3H8a2 2 0 0 1-2-2V2c0-1.1.9-2 2-2h10a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-1zm-3 2v2a2 2 0 0 1-2 2H6l-3 3v-3H2a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h2v3a4 4 0 0 0 4 4h6z"stroke="currentColor" />
                 </svg>
               </div>
             </div>
