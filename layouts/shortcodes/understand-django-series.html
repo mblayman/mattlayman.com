@@ -114,4 +114,10 @@
   <li><a href="{{ ref . "/understand-django/2022-03-10-secure-apps.md" }}">Security And Django</a></li>
   {{- end -}}
 
+  {{- if eq $post "debugging" -}}
+  <li>Debugging Tips And Techniques</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2022-05-31-debugging-tips-techniques.md" }}">Debugging Tips And Techniques</a></li>
+  {{- end -}}
+
 </ol>
