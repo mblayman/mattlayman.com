@@ -416,7 +416,9 @@ That format is the {{< extlink "https://wsgi.readthedocs.io/en/latest/what.html"
 or WSGI
 (which is often pronounced "wiz-gee").
 
+{{< web >}}
 {{< figure src="/img/2020/wsgi.jpg" caption="Web Server Gateway Interface" >}}
+{{< /web >}}
 
 WSGI enables common web servers
 like
@@ -459,7 +461,9 @@ of how a request gets
 from your browser
 to a machine running Django.
 
+{{< web >}}
 {{< figure src="/img/2020/request-response.jpg" caption="Life of a browser request" >}}
+{{< /web >}}
 
 This article is relatively free
 of code examples,
