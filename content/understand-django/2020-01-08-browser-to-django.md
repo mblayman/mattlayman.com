@@ -31,10 +31,17 @@ new to web development,
 or new to programming
 as a whole.
 
+{{< web >}}
 This new series,
 [Understand Django]({{< ref "/understand-django/_index.md" >}}),
 will show you what Django is all about.
 Throughout this series,
+{{< /web >}}
+{{< book >}}
+This book
+will show you what Django is all about.
+In these chapters,
+{{< /book >}}
 I hope to reveal how Django is a powerful tool
 that can unlock the potential
 of anyone interested
