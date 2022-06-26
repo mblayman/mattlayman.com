@@ -465,7 +465,12 @@ to a machine running Django.
 {{< figure src="/img/2020/request-response.jpg" caption="Life of a browser request" >}}
 {{< /web >}}
 
+{{< web >}}
 This article is relatively free
+{{< /web >}}
+{{< book >}}
+This chapter is relatively free
+{{< /book >}}
 of code examples,
 and for good reason.
 There are already enough concepts
@@ -473,7 +478,12 @@ to wrestle with
 and I didn't want to add code complexity
 on top of it.
 Writing that code will be the focus
+{{< web >}}
 of this article series
+{{< /web >}}
+{{< book >}}
+of this book
+{{< /book >}}
 so we can answer questions like:
 
 * How do we build web pages
@@ -488,9 +498,6 @@ so we can answer questions like:
     and how is that access controlled?
 * What security do we need to add
     to ensure that our users' information is safe and private?
-* Can we make an application accessible
-    to the entire world
-    by translating to multiple languages?
 
 Django has answers for all these things
 and way more.
@@ -499,11 +506,17 @@ to make a full web application
 for the internet.
 This "batteries-included" philosophy is what makes Django so powerful.
 The same philosophy can also make Django seem overwhelming.
+{{< web >}}
 My goal in this series is to introduce piece after piece
+{{< /web >}}
+{{< book >}}
+My goal in this book is to introduce piece after piece
+{{< /book >}}
 to build your understanding of Django
 so you can get productive and get going
 on your own web application.
 
+{{< web >}}
 In the next article,
 our focus is going to be
 on those URLs
@@ -526,13 +539,19 @@ you can reach me online
 on Twitter
 where I am
 {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+{{< /web >}}
 
 Finally,
 there is one more bonus topic...
 
 ## Getting Set Up
 
+{{< web >}}
 In the series,
+{{< /web >}}
+{{< book >}}
+In the book,
+{{< /book >}}
 I'm going to have plenty of code examples,
 but I'm not going to show how to get Django running
 from scratch each time.
@@ -554,7 +573,12 @@ I'll try to give pointers
 and highlight differences when I can.
 
 We need a place to put our work.
+{{< web >}}
 Since this series is call "Understand Django,"
+{{< /web >}}
+{{< book >}}
+Since this book is call "Understand Django,"
+{{< /book >}}
 I'm going to use that name.
 Call yours whatever is meaningful to you.
 
@@ -578,7 +602,7 @@ $ source venv/bin/activate
 This may change your terminal prompt
 so that it will now start with `(venv)`
 to tell you that the virtual environment is in use.
-Other operating system activate the virtual environment differently.
+Other operating systems activate the virtual environment differently.
 Check the {{< extlink "https://docs.python.org/3/library/venv.html" "venv module documentation" >}}
 for more information
 on your operating system.
@@ -655,18 +679,25 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'application.apps.ApplicationConfig',
+    'application',
 ]
 ```
 
 That's as far as we need to go
 to get started
 with our code examples
+{{< web >}}
 in the next article.
+{{< /web >}}
+{{< book >}}
+in the next chapter.
+{{< /book >}}
 We have a Django project
 that can run locally
 for testing
 that is configured
 with its first app.
+{{< web >}}
 See you soon
 to talk about making URLs and resources!
+{{< /web >}}
