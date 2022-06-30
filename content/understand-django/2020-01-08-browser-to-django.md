@@ -89,7 +89,7 @@ on these topics.
 The internet works
 by fulfilling a user's desire
 for information.
-That "information" takes many different forms.
+That “information” takes many different forms.
 It might be:
 
 * Cat videos on YouTube
@@ -124,9 +124,9 @@ on the internet.
 When you hit Enter
 on the address bar
 of your browser,
-you're saying
-"please browser,
-go get me this."
+you’re saying,
+“Please browser,
+go get me this.”
 In other words,
 we make a *request*
 from the browser.
@@ -136,16 +136,16 @@ so that the resource
 at that URL
 can get to your eyeballs.
 
-What's in this chain?
-*Loads of things are there.*
-We'll gloss over many of the layers
-in this discussion
-because I'm guessing you aren't planning
+What’s in this chain?
+*Loads of things!*
+We’ll gloss over many of the layers
+in this discussion,
+because I’m guessing you aren’t planning
 to get down to the level
 of how electrical signals work
 in networking cables.
 Instead,
-let's focus
+let’s focus
 on these two parts
 of the chain
 for now: **DNS** and **HTTP**.
@@ -157,11 +157,11 @@ that you want
 from the internet.
 How does the internet know
 where it comes from?
-That's where DNS comes in.
+That’s where DNS comes in.
 DNS stands for
 {{< extlink "https://en.wikipedia.org/wiki/Domain_Name_System" "Domain Name System" >}}.
-The important word there is "Name."
-Let's return to the address analogy.
+The important word there is “Name.”
+Let’s return to the address analogy.
 
 In a postal address
 (at least from a US perspective),
@@ -191,7 +191,7 @@ from narrow to broad
 is the same.
 Each piece between periods is a type
 of *domain*.
-Let's look at them
+Let’s look at them
 in reverse order.
 
 * `com` is considered a {{< extlink "https://en.wikipedia.org/wiki/Top-level_domain" "Top Level Domain" >}}, TLD.
@@ -212,7 +212,7 @@ in reverse order.
     and `a` and `b` would both be subdomains of `example.com`.
 
 Domain names are *not* how computers communicate.
-The domain name is something "friendly"
+The domain name is something “friendly”
 for a human.
 Computer systems are designed to work
 with numbers
@@ -225,7 +225,7 @@ to act as the translation layer
 between domain names
 and the numbers that computer networks use.
 
-Maybe you've seen these networking numbers.
+Maybe you’ve seen these networking numbers.
 The numbers are called IP addresses,
 short for {{< extlink "https://en.wikipedia.org/wiki/Internet_Protocol" "Internet Protocol" >}} addresses.
 Common examples would include:
@@ -238,7 +238,7 @@ Common examples would include:
 
 Those examples are special
 because they are in specially designated {{< extlink "https://en.wikipedia.org/wiki/Subnetwork" "subnetworks" >}},
-but we'll set that tangent aside.
+but we’ll set that tangent aside.
 You can delve deeper
 on that topic
 on your own
@@ -260,18 +260,18 @@ of the domain name you requested.
 The DNS server keeps a lookup table
 of domain names to IP addresses
 for a period of time.
-If the domain name isn't in the table,
+If the domain name isn’t in the table,
 it can ask another DNS server
 in a chain
 that will continue to look
-for the domain's IP address.
+for the domain’s IP address.
 This leads to a couple of outcomes:
 
 * If none of the servers can find the domain,
     the browser gives up
     and shows you a message like
-    "Hmm. We’re having trouble finding that site."
-    (from Firefox's Server Not Found page).
+    “Hmm. We’re having trouble finding that site.”
+    (from Firefox’s Server Not Found page).
 * If the browser gets the IP address
     from the DNS server,
     it can proceed with the request.
@@ -284,8 +284,8 @@ but I hope you get the idea.
 
 ### What Are We Sending?
 
-I know we're still not talking to Django yet,
-but *I promise we're getting there.*
+I know we’re still not talking to Django yet,
+but *I promise we’re getting there.*
 There are a lot of layers
 to go through
 when taking the top down approach,
@@ -323,7 +323,7 @@ Host: www.mattlayman.com
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
 ```
 
-There are other parts that I've omitted,
+There are other parts that I’ve omitted,
 but this gets us started.
 The top line provides the command,
 the path to a particular resource on the site
@@ -346,7 +346,7 @@ This header tells the server
 what kind of content the browser can receive
 as a response.
 There are other headers
-that can tell a server what else it should "know."
+that can tell a server what else it should “know.”
 These headers can:
 
 * Indicate what kind of browser is requesting.
@@ -360,11 +360,11 @@ Most of the headers are handled automatically
 by browsers and servers,
 but we will see instances
 where we want to use these headers ourselves
-so it's good to know they exist.
+so it’s good to know they exist.
 
 ## Serving A Response
 
-It's time to discuss Django!
+It’s time to discuss Django!
 We now have a rough idea
 of what browsers do.
 A browser sends an HTTP request
@@ -394,18 +394,18 @@ A web server is the software
 on a machine designed
 to handle the incoming HTTP requests.
 Sometimes this terminology can be confusing
-because people may also apply the name "web server"
+because people may also apply the name “web server”
 to an entire *machine*
 that is serving web traffic.
 In this instance,
-I'm referring
+I’m referring
 to the actual program listening and responding
 to web requests.
 
 A Python web framework
 like Django
 runs with a web server.
-The web server's role is to translate the raw HTTP request
+The web server’s role is to translate the raw HTTP request
 into a format
 that the framework understands.
 In the Python world,
@@ -414,7 +414,7 @@ so that any web server
 can talk to any Python web framework.
 That format is the {{< extlink "https://wsgi.readthedocs.io/en/latest/what.html" "Web Server Gateway Interface" >}},
 or WSGI
-(which is often pronounced "wiz-gee").
+(which is often pronounced “wiz-gee”).
 
 {{< web >}}
 {{< figure src="/img/2020/wsgi.jpg" caption="Web Server Gateway Interface" >}}
@@ -435,7 +435,7 @@ you can explore all the details
 of that format
 in {{< extlink "https://www.python.org/dev/peps/pep-3333/" "PEP 3333" >}}.
 
-### Django's Job
+### Django’s Job
 
 Once the web server sends request data,
 Django needs to return a *response*.
@@ -475,7 +475,7 @@ of code examples,
 and for good reason.
 There are already enough concepts
 to wrestle with
-and I didn't want to add code complexity
+and I didn’t want to add code complexity
 on top of it.
 Writing that code will be the focus
 {{< web >}}
@@ -497,14 +497,14 @@ so we can answer questions like:
 * Who can access the application
     and how is that access controlled?
 * What security do we need to add
-    to ensure that our users' information is safe and private?
+    to ensure that our users’ information is safe and private?
 
 Django has answers for all these things
 and way more.
 The Django philosophy is to include all the required pieces
 to make a full web application
 for the internet.
-This "batteries-included" philosophy is what makes Django so powerful.
+This “batteries-included” philosophy is what makes Django so powerful.
 The same philosophy can also make Django seem overwhelming.
 {{< web >}}
 My goal in this series is to introduce piece after piece
@@ -529,7 +529,7 @@ We will see:
 * how to extract information from URLs
     that can be used by the code that returns responses.
 
-If you'd like to follow along
+If you’d like to follow along
 with the series,
 please feel free to sign up
 for my newsletter
@@ -552,34 +552,39 @@ In the series,
 {{< book >}}
 In the book,
 {{< /book >}}
-I'm going to have plenty of code examples,
-but I'm not going to show how to get Django running
+I’m going to have plenty of code examples,
+but I’m not going to show how to get Django running
 from scratch each time.
 Instead,
-I'll put in some starting instructions
+I’ll put in some starting instructions
+{{< web >}}
 in this article
+{{< /web >}}
+{{< book >}}
+in this chapter
+{{< /book >}}
 so you can follow along
 in the future.
 
-We're going to use a terminal to run commands.
+We’re going to use a terminal to run commands.
 Windows, macOS, and Linux are all a bit different.
-I'm showing macOS here
-because that's what I run.
+I’m showing macOS here
+because that’s what I run.
 The dollar sign (`$`) is the traditional starting character
 for a bash terminal
 so when I list commands,
-don't type that character.
-I'll try to give pointers
+don’t type that character.
+I’ll try to give pointers
 and highlight differences when I can.
 
 We need a place to put our work.
 {{< web >}}
-Since this series is call "Understand Django,"
+Since this series is called, “Understand Django,”
 {{< /web >}}
 {{< book >}}
-Since this book is call "Understand Django,"
+Since this book is called, “Understand Django,”
 {{< /book >}}
-I'm going to use that name.
+I’m going to use that name.
 Call yours whatever is meaningful to you.
 
 ```bash
@@ -616,7 +621,7 @@ Install Django!
 Django includes some tools
 to get a project started quickly
 which we can use.
-We'll run a single command
+We’ll run a single command
 to get it going.
 
 ```bash
@@ -624,9 +629,9 @@ to get it going.
 ```
 
 This commands says
-"start a project
+“start a project
 *named* 'project'
-in the current directory (`.`)."
+in the current directory (`.`).”
 After that command is finished,
 you should have some files
 and a layout that looks like:
@@ -650,14 +655,14 @@ If you copy and paste that URL
 into your browser,
 you should see a welcoming start page!
 
-The other thing that we need is an "app."
+The other thing that we need is an “app.”
 This is (perhaps confusingly) the name
 of a Django component
 in a project.
 What you need to remember is
 that a Django project *contains* one or more apps.
 
-Let's create an app to work with:
+Let’s create an app to work with:
 
 ```bash
 (venv) $ python manage.py startapp application
@@ -665,7 +670,7 @@ Let's create an app to work with:
 
 Finally,
 we must hook that app
-into Django's project settings.
+into Django’s project settings.
 Open up `project/settings.py`,
 find `INSTALLED_APPS`
 and append to the list
@@ -683,7 +688,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-That's as far as we need to go
+That’s as far as we need to go
 to get started
 with our code examples
 {{< web >}}
