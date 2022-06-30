@@ -125,7 +125,7 @@ When you hit Enter
 on the address bar
 of your browser,
 you're saying
-"please browser,
+"Please browser,
 go get me this."
 In other words,
 we make a *request*
@@ -137,7 +137,7 @@ at that URL
 can get to your eyeballs.
 
 What's in this chain?
-*Loads of things are there.*
+*Loads of things are there!*
 We'll gloss over many of the layers
 in this discussion
 because I'm guessing you aren't planning
@@ -557,7 +557,11 @@ but I'm not going to show how to get Django running
 from scratch each time.
 Instead,
 I'll put in some starting instructions
+{{< web >}}
 in this article
+{{< book >}}
+in this chapter
+{{< /book >}}
 so you can follow along
 in the future.
 
@@ -574,10 +578,10 @@ and highlight differences when I can.
 
 We need a place to put our work.
 {{< web >}}
-Since this series is call "Understand Django,"
+Since this series is called "Understand Django,"
 {{< /web >}}
 {{< book >}}
-Since this book is call "Understand Django,"
+Since this book is called "Understand Django,"
 {{< /book >}}
 I'm going to use that name.
 Call yours whatever is meaningful to you.
