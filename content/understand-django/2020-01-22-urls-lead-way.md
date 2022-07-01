@@ -187,7 +187,7 @@ The string part of `path`
 
 A route can be a plain string
 as you've seen,
-but it can include other special structure
+but it can include other special structures
 with a feature called *converters*.
 When you use a converter,
 you can extract information out
@@ -216,11 +216,11 @@ Each converter has some expected rules to follow.
     that appears in Django
     because Django started
     as a project
-    out a newspaper in Kansas.
+    out of a newspaper in Kansas.
     A slug is a string that can include characters, numbers, dashes, and underscores.
 
 Given those converter definitions,
-let's compare to some URLs!
+let's compare against some URLs!
 
 * `https://www.acme.com/blog/2020/urls-lead-way/` - MATCH!
 * `https://www.acme.com/blog/twenty-twenty/urls-lead-way/` - NOPE.
@@ -330,7 +330,7 @@ The benefit of this
 is that we don't have to put extra checking logic
 in `blog_by_year`
 to handle the weird case where `year` doesn't look like a number.
-That kind of feature is real time saver!
+That kind of feature is a real time saver!
 It keeps your code cleaner
 *and* makes handling more precise.
 
@@ -705,7 +705,7 @@ urlpatterns = [
 ]
 ```
 
-Django provides an alterative
+Django provides an alternative
 that will let you keep a shorter name.
 
 ```python
@@ -736,7 +736,7 @@ reverse("schools:index") == "/schools/"
 
 This is another convenience
 that Django gives
-to makes our application development experience easier.
+to make our application development experience easier.
 
 That brings us to a close
 on the subject of URLs.
