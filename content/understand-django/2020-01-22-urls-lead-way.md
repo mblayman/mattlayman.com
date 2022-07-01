@@ -20,6 +20,7 @@ tags:
 
 ---
 
+{{< web >}}
 In the last article
 in the
 [Understand Django]({{< ref "/understand-django/_index.md" >}})
@@ -27,8 +28,14 @@ series,
 we saw how a user's browser request goes
 from their browser
 to Django's "front door."
+{{< /web >}}
 Now it's time to look
+{{< web >}}
 at how Django processes those requests.
+{{< /web >}}
+{{< book >}}
+at how Django processes a user's browser requests.
+{{< /book >}}
 
 An HTTP request coming
 from a browser
@@ -266,7 +273,12 @@ to remember here:
 What do converters do with this extra data?
 That's hard to explain
 without touching on views.
+{{< web >}}
 The next article will cover views
+{{< /web >}}
+{{< book >}}
+The next chapter will cover views
+{{< /book >}}
 in far more depth,
 but here's a primer.
 
@@ -435,7 +447,12 @@ at a time.
 
 Congratulations!
 This is definitely the hardest section
+{{< web >}}
 of this article.
+{{< /web >}}
+{{< book >}}
+of this chapter.
+{{< /book >}}
 If you understood what we did
 with `re_path`,
 the rest of this should feel very comfortable.
@@ -752,6 +769,7 @@ we've seen how to:
 * Refer to a URL by its `name`.
 * Put related names together in a namespace.
 
+{{< web >}}
 In the next article,
 we'll dig into views.
 This article only gave the briefest definition
@@ -775,3 +793,4 @@ you can reach me online
 on Twitter
 where I am
 {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+{{< /web >}}
