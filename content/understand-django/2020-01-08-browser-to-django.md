@@ -446,7 +446,7 @@ so that any web server
 can talk to any Python web framework.
 That format is the {{< extlink "https://wsgi.readthedocs.io/en/latest/what.html" "Web Server Gateway Interface" >}},
 or WSGI
-(which is often pronounced "wiz-gee").
+(which is often pronounced "wiz-gee") or you can use, ASGI the spiritual successor to WSGI.
 
 {{< web >}}
 {{< figure src="/img/2020/wsgi.jpg" caption="Web Server Gateway Interface" >}}
