@@ -389,7 +389,7 @@ Responses can be images, web pages, videos,
 or whatever formats a browser can handle.
 
 Before Django can handle a request,
-there is more layer
+there is one more layer
 to traverse:
 the Python web server.
 
