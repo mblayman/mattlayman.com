@@ -115,9 +115,9 @@ for short.
 You know what URLs are,
 even if you didn't know them by name.
 
-* {{< extlink "https://www.mattlayman.com/" "https://www.mattlayman.com/" >}}
 * {{< extlink "https://en.wikipedia.org/" "https://en.wikipedia.org/" >}}
 * {{< extlink "https://www.djangoproject.com/" "https://www.djangoproject.com/" >}}
+* {{< extlink "https://www.mattlayman.com/img/django.png" "https://www.mattlayman.com/img/django.png" >}}
 
 These are all examples
 of URLs.
@@ -141,7 +141,7 @@ so that the resource
 at that URL
 can get to your eyeballs.
 
-What's in this chain?
+What's in this chain of events?
 *Loads of things are there!*
 We'll gloss over many of the layers
 in this discussion
@@ -249,6 +249,22 @@ on that topic
 on your own
 if you would like.
 
+Private networks have IP addresses
+like the two examples I listed above.
+Machines on public networks also have IP addresses.
+For instance, `172.253.115.105` is an IP address
+for `www.google.com`
+at the time of this writing.
+
+If you'd like to figure out the IP address
+of a domain name,
+you can install a popular tool named `dig`.
+I found Google's IP address by running this command:
+
+```bash
+dig www.google.com
+```
+
 Back to DNS,
 the system takes domain names
 and keeps a distributed routing table
@@ -260,6 +276,7 @@ of DNS servers.
 DNS servers stack up into a gigantic hierarchy.
 When your browser makes a request,
 it asks the closest DNS server
+to your machine
 for the IP address
 of the domain name you requested.
 The DNS server keeps a lookup table
@@ -280,6 +297,16 @@ This leads to a couple of outcomes:
 * If the browser gets the IP address
     from the DNS server,
     it can proceed with the request.
+
+The hierarchy is gigantic,
+but it is wide, not deep.
+In other words,
+there are many machines
+that participate in DNS (like your home router),
+but the number of links in the chain
+to make a request from your computer up
+to the root servers in the system
+is relatively small.
 
 This is simplified
 to exclude some
@@ -606,7 +633,14 @@ we install Django
 into a virtual environment
 so we keep our project code separate
 from the rest
-of the installed Python packages.
+of the installed Python packages
+on our machine.
+Having this separation
+from other installed packages
+is a good way to prevent conflicts
+with other Python projects
+that you may be running
+on your computer.
 
 ```bash
 $ python -m venv venv
