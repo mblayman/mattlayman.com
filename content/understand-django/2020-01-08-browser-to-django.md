@@ -459,7 +459,12 @@ That means you must:
 There is a ton
 to unpack in those two statements
 so we will explore individual topics
+{{< web >}}
 in future articles.
+{{< /web >}}
+{{< book >}}
+in future chapters.
+{{< /book >}}
 By now,
 I hope you have an idea
 of how a request gets
