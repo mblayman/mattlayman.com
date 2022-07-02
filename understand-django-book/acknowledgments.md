@@ -7,8 +7,11 @@ The beta readers were invaluable
 for improving the content
 on these pages.
 Thank you:
+Garrett Coakley,
+Ighorr Holstrom,
 Jason Braganza,
 Ryan Cheley,
+Shivan Sivakumaran,
 and
 YOUR NAME HERE.
 
