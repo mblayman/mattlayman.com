@@ -242,7 +242,7 @@ Common examples would include:
     that a home router might use.
 
 Those examples are special
-because they are in specially designated {{< extlink "https://en.wikipedia.org/wiki/Subnetwork" "subnetworks" >}},
+because those addresses are in specially designated {{< extlink "https://en.wikipedia.org/wiki/Subnetwork" "subnetworks" >}},
 but we'll set that tangent aside.
 You can delve deeper
 on that topic
@@ -459,7 +459,12 @@ That means you must:
 There is a ton
 to unpack in those two statements
 so we will explore individual topics
+{{< web >}}
 in future articles.
+{{< /web >}}
+{{< book >}}
+in future chapters.
+{{< /book >}}
 By now,
 I hope you have an idea
 of how a request gets
