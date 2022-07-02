@@ -242,7 +242,7 @@ Common examples would include:
     that a home router might use.
 
 Those examples are special
-because they are in specially designated {{< extlink "https://en.wikipedia.org/wiki/Subnetwork" "subnetworks" >}},
+because those addresses are in specially designated {{< extlink "https://en.wikipedia.org/wiki/Subnetwork" "subnetworks" >}},
 but we'll set that tangent aside.
 You can delve deeper
 on that topic
