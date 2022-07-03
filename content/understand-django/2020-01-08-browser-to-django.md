@@ -679,6 +679,14 @@ This commands says
 "start a project
 *named* 'project'
 in the current directory (`.`)."
+The choice of "project" as the name is intentional.
+`startproject` will create a directory
+named `project` that will contain various files
+that you'll use to configure your entire web app.
+You can name your project whatever you like,
+but I find that using the generic name makes my life easier
+as I switch between different Django web apps.
+I always know where my project related files reside.
 After that command is finished,
 you should have some files
 and a layout that looks like:
@@ -688,6 +696,13 @@ and a layout that looks like:
 manage.py project venv
 ```
 
+Notice that,
+in addition to the `project` directory,
+Django created a `manage.py` file.
+This file is a script that will help you interact
+with Django.
+You'll learn a lot more about `manage.py`
+as we get farther along.
 To check if the basics are working,
 try:
 
@@ -720,6 +735,10 @@ of a Django component
 in a project.
 What you need to remember is
 that a Django project *contains* one or more apps.
+Apps will hold most
+of your code
+that you need to write
+when working with Django.
 
 After you have quit the server,
 you can create an app to work with:
@@ -730,13 +749,23 @@ you can create an app to work with:
 
 This will generate another set of files
 that follow the standard structure
-of a Django application component.
+of a Django application component
+inside a directory called `application`.
+This example uses a boring name,
+but,
+unlike `project`,
+you should pick a name
+that makes sense for your web app
+(e.g., `movies` would be a good name
+for a web app that is about movies).
 All of these files will be discussed
 in detail in a future topic.
 
 Finally,
 we must hook that app
 into Django's project settings.
+The project settings allow you to configure Django
+to suit your needs.
 Open up `project/settings.py`,
 find `INSTALLED_APPS`
 and append to the list
