@@ -28,8 +28,7 @@ Maybe you have heard about
 and that it can help you build websites.
 You might be new to Python,
 new to web development,
-or new to programming
-as a whole.
+or new to programming.
 
 {{< web >}}
 This new series,
@@ -40,23 +39,24 @@ Throughout this series,
 {{< book >}}
 This book
 will show you what Django is all about.
-In these chapters,
+In the following chapters,
 {{< /book >}}
-I hope to reveal how Django is a powerful tool
+I will reveal how Django is a powerful tool
 that can unlock the potential
 of anyone interested
 in making applications
 on the internet.
 
-We're going to take a high level approach to learning.
+We're going to take a high-level approach to learning Django.
 Rather than starting
 at the bottom
 with all the pieces
 of Django,
 I'll give you the big picture,
-then explore each layer more and more
+then explore each layer in more detail
 to reveal how much Django does
 for developers
+and the power Django has
 under the hood.
 
 Let's get started
@@ -80,7 +80,8 @@ but this post
 {{< book >}}
 but this chapter
 {{< /book >}}
-will lay down the breadcrumbs.
+will lay down the breadcrumbs
+to build your understanding.
 We'll look at the way your web browser requests data
 from the internet
 and the "plumbing" needed
@@ -153,7 +154,7 @@ of how electrical signals work
 in networking cables.
 Instead,
 let's focus
-on these two parts
+on two primary parts
 of the chain
 for now: **DNS** and **HTTP**.
 
@@ -243,7 +244,7 @@ Common examples would include:
 * `192.168.0.1` as a default address
     that a home router might use.
 
-Those examples are special
+The IP address examples above are special
 because those addresses are in specially designated {{< extlink "https://en.wikipedia.org/wiki/Subnetwork" "subnetworks" >}},
 but we'll set that tangent aside.
 You can delve deeper
@@ -322,12 +323,12 @@ I know we're still not talking to Django yet,
 but *I promise we're getting there.*
 There are a lot of layers
 to go through
-when taking the top down approach,
+when taking the top-down approach,
 but I think it helps build the foundation
-that removes the mystery
+and removes the mystery
 of what makes the internet (and Django) work.
 
-The other piece we need to explore is HTTP,
+The other vital piece that we need to explore is HTTP,
 or the {{< extlink "https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" "Hypertext Transfer Protocol" >}}.
 This part of internet communication describes
 how content transfers
