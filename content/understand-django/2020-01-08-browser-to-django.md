@@ -643,7 +643,7 @@ that you may be running
 on your computer.
 
 ```bash
-$ python -m venv venv
+$ python3 -m venv venv
 $ source venv/bin/activate
 ```
 
@@ -694,9 +694,21 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
 
+When you start the web server,
+you will likely see a message
+about "unapplied migrations."
+We'll explore the migrations topic later,
+so don't worry about that message for now.
+
 If you copy and paste that URL
 into your browser,
 you should see a welcoming start page!
+Also,
+if you look back at your terminal,
+you'll find `"GET / HTTP/1.1"`.
+This message is showing that Django responded
+to an HTTP request.
+Neat!
 
 The other thing that we need is an "app."
 This is (perhaps confusingly) the name
