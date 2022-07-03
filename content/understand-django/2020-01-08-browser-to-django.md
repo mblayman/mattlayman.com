@@ -705,7 +705,7 @@ in a project.
 What you need to remember is
 that a Django project *contains* one or more apps.
 
-Let's create an app to work with:
+After you have quit the server, You can create an app to work with:
 
 ```bash
 (venv) $ python manage.py startapp application
