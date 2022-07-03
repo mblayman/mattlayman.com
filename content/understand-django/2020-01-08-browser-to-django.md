@@ -728,6 +728,12 @@ you can create an app to work with:
 (venv) $ python manage.py startapp application
 ```
 
+This will generate another set of files
+that follow the standard structure
+of a Django application component.
+All of these files will be discussed
+in detail in a future topic.
+
 Finally,
 we must hook that app
 into Django's project settings.
