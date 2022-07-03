@@ -126,7 +126,7 @@ because that feels right.
 A URL is the address
 of some resource
 on the internet.
-When you hit Enter
+When you hit *Enter*
 on the address bar
 of your browser,
 you're saying
@@ -137,8 +137,10 @@ we make a *request*
 from the browser.
 This request starts a large chain
 of events
+from your browser
+to the website at that URL
 so that the resource
-at that URL
+from the site
 can get to your eyeballs.
 
 What's in this chain of events?
@@ -596,6 +598,7 @@ Instead,
 I'll put in some starting instructions
 {{< web >}}
 in this article
+{{< /web >}}
 {{< book >}}
 in this chapter
 {{< /book >}}
