@@ -10,8 +10,10 @@ Thank you:
 Garrett Coakley,
 Ighorr Holstrom,
 Jason Braganza,
+Karel Van Dongen,
 Ryan Cheley,
 Shivan Sivakumaran,
+Sumit S Chawla,
 and
 YOUR NAME HERE.
 
