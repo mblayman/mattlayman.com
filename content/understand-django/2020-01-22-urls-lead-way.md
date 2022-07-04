@@ -137,7 +137,7 @@ When considering a URL
 in a URLconf,
 Django does not use the scheme (`https://`),
 the domain (`www.acme.com`),
-and the leading slash
+or the leading slash
 for matching.
 Everything else is what the URLconf will match against.
 
