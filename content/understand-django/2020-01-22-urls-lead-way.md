@@ -165,9 +165,9 @@ Django will redirect the request
 to the same URL
 with the slash appended
 because of the `APPEND_SLASH`
-{{< extlink "https://docs.djangoproject.com/en/3.0/ref/settings/#append-slash" "default setting" >}}.
+{{< extlink "https://docs.djangoproject.com/en/4.0/ref/settings/#append-slash" "default setting" >}}.
 This behavior is because
-of a Django {{< extlink "https://docs.djangoproject.com/en/3.0/misc/design-philosophies/#definitive-urls" "design philosophy" >}} choice.
+of a Django {{< extlink "https://docs.djangoproject.com/en/4.0/misc/design-philosophies/#definitive-urls" "design philosophy" >}} choice.
 
 ## The `path` Before Us
 
@@ -215,7 +215,7 @@ The two converters in this path are:
 * `<slug:slug>`
 
 The use of angle brackets
-and some {{< extlink "https://docs.djangoproject.com/en/3.0/topics/http/urls/#path-converters" "reserved names" >}}
+and some {{< extlink "https://docs.djangoproject.com/en/4.0/topics/http/urls/#path-converters" "reserved names" >}}
 cause Django to attempt extra parsing
 on a URL.
 Each converter has some expected rules to follow.
