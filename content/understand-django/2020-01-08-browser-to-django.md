@@ -28,8 +28,7 @@ Maybe you have heard about
 and that it can help you build websites.
 You might be new to Python,
 new to web development,
-or new to programming
-as a whole.
+or new to programming.
 
 {{< web >}}
 This new series,
@@ -40,23 +39,24 @@ Throughout this series,
 {{< book >}}
 This book
 will show you what Django is all about.
-In these chapters,
+In the following chapters,
 {{< /book >}}
-I hope to reveal how Django is a powerful tool
+I will reveal how Django is a powerful tool
 that can unlock the potential
 of anyone interested
 in making applications
 on the internet.
 
-We're going to take a high level approach to learning.
+We're going to take a high-level approach to learning Django.
 Rather than starting
 at the bottom
 with all the pieces
 of Django,
 I'll give you the big picture,
-then explore each layer more and more
+then explore each layer in more detail
 to reveal how much Django does
 for developers
+and the power Django has
 under the hood.
 
 Let's get started
@@ -80,13 +80,14 @@ but this post
 {{< book >}}
 but this chapter
 {{< /book >}}
-will lay down the breadcrumbs.
+will lay down the breadcrumbs
+to build your understanding.
 We'll look at the way your web browser requests data
 from the internet
 and the "plumbing" needed
 to make that work.
-Equipped with these key words
-and acronyms,
+Equipped with the key words
+and acronyms found in this chapter,
 you should be able
 to start your own research
 on these topics.
@@ -115,9 +116,9 @@ for short.
 You know what URLs are,
 even if you didn't know them by name.
 
-* {{< extlink "https://www.mattlayman.com/" "https://www.mattlayman.com/" >}}
 * {{< extlink "https://en.wikipedia.org/" "https://en.wikipedia.org/" >}}
 * {{< extlink "https://www.djangoproject.com/" "https://www.djangoproject.com/" >}}
+* {{< extlink "https://www.mattlayman.com/img/django.png" "https://www.mattlayman.com/img/django.png" >}}
 
 These are all examples
 of URLs.
@@ -126,7 +127,7 @@ because that feels right.
 A URL is the address
 of some resource
 on the internet.
-When you hit Enter
+When you hit *Enter*
 on the address bar
 of your browser,
 you're saying
@@ -137,11 +138,13 @@ we make a *request*
 from the browser.
 This request starts a large chain
 of events
+from your browser
+to the website at that URL
 so that the resource
-at that URL
+from the site
 can get to your eyeballs.
 
-What's in this chain?
+What's in this chain of events?
 *Loads of things are there!*
 We'll gloss over many of the layers
 in this discussion
@@ -151,7 +154,7 @@ of how electrical signals work
 in networking cables.
 Instead,
 let's focus
-on these two parts
+on two primary parts
 of the chain
 for now: **DNS** and **HTTP**.
 
@@ -174,10 +177,10 @@ there is the street, city, and state.
 We might write it like:
 
 ```text
-# Most narrow to most broad
 123 Main St., Springfield, IL
 ```
 
+This address goes from most narrow to most broad.
 123 Main St. is in the city
 of Springfield
 in the state of Illinois (IL).
@@ -186,7 +189,6 @@ Likewise,
 a URL fits into a similar format.
 
 ```text
-# Most narrow to most broad
 www.example.com
 ```
 
@@ -241,13 +243,29 @@ Common examples would include:
 * `192.168.0.1` as a default address
     that a home router might use.
 
-Those examples are special
-because they are in specially designated {{< extlink "https://en.wikipedia.org/wiki/Subnetwork" "subnetworks" >}},
+The IP address examples above are special
+because those addresses are in specially designated {{< extlink "https://en.wikipedia.org/wiki/Subnetwork" "subnetworks" >}},
 but we'll set that tangent aside.
 You can delve deeper
 on that topic
 on your own
 if you would like.
+
+Private networks have IP addresses
+like the two examples I listed above.
+Machines on public networks also have IP addresses.
+For instance, `172.253.115.105` is an IP address
+for `www.google.com`
+at the time of this writing.
+
+If you'd like to figure out the IP address
+of a domain name,
+you can install a popular tool named `dig`.
+I found Google's IP address by running this command:
+
+```bash
+dig www.google.com
+```
 
 Back to DNS,
 the system takes domain names
@@ -260,6 +278,7 @@ of DNS servers.
 DNS servers stack up into a gigantic hierarchy.
 When your browser makes a request,
 it asks the closest DNS server
+to your machine
 for the IP address
 of the domain name you requested.
 The DNS server keeps a lookup table
@@ -281,24 +300,30 @@ This leads to a couple of outcomes:
     from the DNS server,
     it can proceed with the request.
 
+The hierarchy is gigantic,
+but it is wide, not deep.
+In other words,
+there are many machines
+that participate in DNS (like your home router),
+but the number of links in the chain
+to make a request from your computer up
+to the root servers in the system
+is relatively small.
+
 This is simplified
 to exclude some
 of the warty corners
-of DNS,
-but I hope you get the idea.
+of DNS.
+The wikipedia page
+that I linked at the start
+of this section covers DNS
+in much greater detail
+if you're interested
+in learning more.
 
 ### What Are We Sending?
 
-I know we're still not talking to Django yet,
-but *I promise we're getting there.*
-There are a lot of layers
-to go through
-when taking the top down approach,
-but I think it helps build the foundation
-that removes the mystery
-of what makes the internet (and Django) work.
-
-The other piece we need to explore is HTTP,
+The other vital piece that we need to explore is HTTP,
 or the {{< extlink "https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" "Hypertext Transfer Protocol" >}}.
 This part of internet communication describes
 how content transfers
@@ -389,7 +414,7 @@ Responses can be images, web pages, videos,
 or whatever formats a browser can handle.
 
 Before Django can handle a request,
-there is more layer
+there is one more layer
 to traverse:
 the Python web server.
 
@@ -459,7 +484,12 @@ That means you must:
 There is a ton
 to unpack in those two statements
 so we will explore individual topics
+{{< web >}}
 in future articles.
+{{< /web >}}
+{{< book >}}
+in future chapters.
+{{< /book >}}
 By now,
 I hope you have an idea
 of how a request gets
@@ -549,7 +579,7 @@ where I am
 Finally,
 there is one more bonus topic...
 
-## Getting Set Up
+## Getting Django Set Up
 
 {{< web >}}
 In the series,
@@ -564,6 +594,7 @@ Instead,
 I'll put in some starting instructions
 {{< web >}}
 in this article
+{{< /web >}}
 {{< book >}}
 in this chapter
 {{< /book >}}
@@ -589,7 +620,7 @@ Since this series is called "Understand Django,"
 Since this book is called "Understand Django,"
 {{< /book >}}
 I'm going to use that name.
-Call yours whatever is meaningful to you.
+You can name your project differently if you prefer.
 
 ```bash
 $ mkdir understand-django
@@ -601,10 +632,17 @@ we install Django
 into a virtual environment
 so we keep our project code separate
 from the rest
-of the installed Python packages.
+of the installed Python packages
+on our machine.
+Having this separation
+from other installed packages
+is a good way to prevent conflicts
+with other Python projects
+that you may be running
+on your computer.
 
 ```bash
-$ python -m venv venv
+$ python3 -m venv venv
 $ source venv/bin/activate
 ```
 
@@ -616,7 +654,9 @@ Check the {{< extlink "https://docs.python.org/3/library/venv.html" "venv module
 for more information
 on your operating system.
 
-Install Django!
+Now you can install Django,
+and the Django framework code will be added
+to the virtual environment.
 
 ```bash
 (venv) $ pip install Django
@@ -636,6 +676,14 @@ This commands says
 "start a project
 *named* 'project'
 in the current directory (`.`)."
+The choice of "project" as the name is intentional.
+`startproject` will create a directory
+named `project` that will contain various files
+that you'll use to configure your entire web app.
+You can name your project whatever you like,
+but I find that using the generic name makes my life easier
+as I switch between different Django web apps.
+I always know where my project related files reside.
 After that command is finished,
 you should have some files
 and a layout that looks like:
@@ -645,6 +693,13 @@ and a layout that looks like:
 manage.py project venv
 ```
 
+Notice that,
+in addition to the `project` directory,
+Django created a `manage.py` file.
+This file is a script that will help you interact
+with Django.
+You'll learn a lot more about `manage.py`
+as we get farther along.
 To check if the basics are working,
 try:
 
@@ -655,9 +710,21 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
 
+When you start the web server,
+you will likely see a message
+about "unapplied migrations."
+We'll explore the migrations topic later,
+so don't worry about that message for now.
+
 If you copy and paste that URL
 into your browser,
 you should see a welcoming start page!
+Also,
+if you look back at your terminal,
+you'll find `"GET / HTTP/1.1"`.
+This message is showing that Django responded
+to an HTTP request.
+Neat!
 
 The other thing that we need is an "app."
 This is (perhaps confusingly) the name
@@ -665,16 +732,37 @@ of a Django component
 in a project.
 What you need to remember is
 that a Django project *contains* one or more apps.
+Apps will hold most
+of your code
+that you need to write
+when working with Django.
 
-Let's create an app to work with:
+After you have quit the server,
+you can create an app to work with:
 
 ```bash
 (venv) $ python manage.py startapp application
 ```
 
+This will generate another set of files
+that follow the standard structure
+of a Django application component
+inside a directory called `application`.
+This example uses a boring name,
+but,
+unlike `project`,
+you should pick a name
+that makes sense for your web app
+(e.g., `movies` would be a good name
+for a web app that is about movies).
+All of these files will be discussed
+in detail in a future topic.
+
 Finally,
 we must hook that app
 into Django's project settings.
+The project settings allow you to configure Django
+to suit your needs.
 Open up `project/settings.py`,
 find `INSTALLED_APPS`
 and append to the list
@@ -701,6 +789,11 @@ in the next article.
 {{< book >}}
 in the next chapter.
 {{< /book >}}
+`application` will be our reference app.
+The code in future topics is not a tutorial,
+but I will use `application` on occasion
+to orient you to where you would can files
+in your own Django web app.
 We have a Django project
 that can run locally
 for testing

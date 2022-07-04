@@ -203,7 +203,10 @@ that a view can use later.
 Consider a path like this:
 
 ```python
-    path("blog/<int:year>/<slug:slug>/", views.blog_post),
+    path(
+        "blog/<int:year>/<slug:slug>/",
+        views.blog_post
+    ),
 ```
 
 The two converters in this path are:
@@ -241,13 +244,25 @@ Consider these two paths
 in different orders:
 
 ```python
-    path("blog/<int:year>/", views.blog_by_year),
-    path("blog/2020/", views.blog_for_twenty_twenty),
+    path(
+        "blog/<int:year>/",
+        views.blog_by_year
+    ),
+    path(
+        "blog/2020/",
+        views.blog_for_twenty_twenty
+    ),
 
 # vs.
 
-    path("blog/2020/", views.blog_for_twenty_twenty),
-    path("blog/<int:year>/", views.blog_by_year),
+    path(
+        "blog/2020/",
+        views.blog_for_twenty_twenty
+    ),
+    path(
+        "blog/<int:year>/",
+        views.blog_by_year
+    ),
 ```
 
 In the first ordering,
@@ -263,10 +278,18 @@ because it is matched first.
 That means there's a lesson
 to remember here:
 
+{{< web >}}
 > When including `path` entries that match
     on ranges
     with converters,
     be sure to put them **after** the more specific entries.
+{{< /web >}}
+{{< book >}}
+When including `path` entries that match
+    on ranges
+    with converters,
+    be sure to put them **after** the more specific entries.
+{{< /book >}}
 
 ## An Abbreviated View Of Views
 
@@ -290,9 +313,14 @@ here's an example
 that will send a `Hello World` response.
 
 ```python
-from django.http import HttpRequest, HttpResponse
+from django.http import (
+    HttpRequest,
+    HttpResponse
+)
 
-def some_view(request: HttpRequest) -> HttpResponse:
+def some_view(
+    request: HttpRequest
+) -> HttpResponse:
     return HttpResponse('Hello World')
 ```
 
@@ -308,7 +336,10 @@ Now we can look
 at one of the converters again.
 
 ```python
-    path("blog/<int:year>/", views.blog_by_year),
+    path(
+        "blog/<int:year>/",
+        views.blog_by_year
+    ),
 ```
 
 With this converter in place
@@ -321,7 +352,7 @@ from django.http import HttpResponse
 
 def blog_by_year(request, year):
     # ... some code to handle the year
-    data = 'Some data that would be set by code above'
+    data = 'Some data set by code above'
     return HttpResponse(data)
 ```
 
@@ -392,7 +423,10 @@ Note, we use the `re_path()` function for
 regular expression matching here, instead of `path()`.
 
 ```python
-    re_path(r"^blog/(?P<year>[0-9]{4})/(?P<slug>[\w-]+)/$", views.blog_post),
+re_path(
+    r"^blog/(?P<year>[0-9]{4})/(?P<slug>[\w-]+)/$",
+    views.blog_post
+),
 ```
 
 This crazy string behaves exactly like our earlier example
@@ -423,8 +457,6 @@ at a time.
     to pass on the content
     in an argument called `year`
     to the view.
-    <br>
-    <br>
     The other part of the capture group, `[0-9]{4}`,
     is what the pattern is actually matching.
     `[0-9]` is a *character class*
@@ -437,7 +469,8 @@ at a time.
     into an argument named `slug`.
     The character class of `[\w-]` contains two types
     of characters. `\w` means any word character
-    that you might have in a natural language.
+    that you might have in a natural language
+    and digits and underscores.
     The other type of character is a literal dash, `-`, character.
     Finally, the plus, `+`, character means
     that the character class must match 1 or more times.
@@ -498,14 +531,29 @@ You *could* do something like:
 # project/urls.py
 from django.urls import path
 
-from schools import views as schools_views
-from students import views as students_views
+from schools import (
+    views as schools_views,
+)
+from students import (
+    views as students_views,
+)
 
 urlpatterns = [
-    path("schools/", schools_views.index),
-    path("schools/<int:school_id>/", schools_views.school_detail),
-    path("students/", students_views.index),
-    path("students/<int:student_id>/", students_views.student_detail),
+    path(
+        "schools/", schools_views.index
+    ),
+    path(
+        "schools/<int:school_id>/",
+        schools_views.school_detail,
+    ),
+    path(
+        "students/",
+        students_views.index,
+    ),
+    path(
+        "students/<int:student_id>/",
+        students_views.student_detail,
+    ),
 ]
 ```
 
@@ -522,8 +570,14 @@ to handle this better.
 from django.urls import include, path
 
 urlpatterns = [
-    path("schools/", include("schools.urls"),
-    path("students/", include("students.urls"),
+    path(
+        "schools/",
+        include("schools.urls"),
+    ),
+    path(
+        "students/",
+        include("students.urls"),
+    ),
 ]
 ```
 
@@ -539,7 +593,10 @@ from schools import views
 
 urlpatterns = [
     path("", views.index),
-    path("<int:school_id>/", views.school_detail),
+    path(
+        "<int:school_id>/",
+        views.school_detail
+    ),
 ]
 ```
 
@@ -576,10 +633,14 @@ Consider this (rather silly) view:
 
 ```python
 # application/views.py
-from django.http import HttpResponseRedirect
+from django.http import (
+    HttpResponseRedirect
+)
 
 def old_blog_categories(request):
-    return HttpRequestRedirect("/blog/categories/")
+    return HttpRequestRedirect(
+        "/blog/categories/"
+    )
 ```
 
 A redirect is when a user tries to visit a page
@@ -611,8 +672,11 @@ from blog import views as blog_views
 
 urlpatterns = [
     ...
-    path("/marketing/blog/categories/",
-        blog_views.categories, name="blog_categories"),
+    path(
+        "/marketing/blog/categories/",
+        blog_views.categories,
+        name="blog_categories"
+    ),
     ...
 ]
 ```
@@ -628,11 +692,15 @@ Our modified view looks like:
 
 ```python
 # application/views.py
-from django.http import HttpResponseRedirect
+from django.http import (
+    HttpResponseRedirect
+)
 from django.urls import reverse
 
 def old_blog_categories(request):
-    return HttpRequestRedirect(reverse("blog_categories"))
+    return HttpRequestRedirect(
+        reverse("blog_categories")
+    )
 ```
 
 The job of `reverse`
@@ -720,8 +788,16 @@ from django.urls import path
 from schools import views
 
 urlpatterns = [
-    path("", views.index, name="schools_index"),
-    path("<int:school_id>/", views.school_detail, name="schools_detail"),
+    path(
+        "",
+        views.index,
+        name="schools_index"
+    ),
+    path(
+        "<int:school_id>/",
+        views.school_detail,
+        name="schools_detail"
+    ),
 ]
 ```
 
@@ -737,7 +813,11 @@ from schools import views
 app_name = "schools"
 urlpatterns = [
     path("", views.index, name="index"),
-    path("<int:school_id>/", views.school_detail, name="detail"),
+    path(
+        "<int:school_id>/",
+        views.school_detail,
+        name="detail"
+    ),
 ]
 ```
 
