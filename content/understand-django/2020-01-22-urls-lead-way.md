@@ -119,7 +119,7 @@ Django will treat the list
 in a `urlpatterns` variable
 as the URLconf.
 
-The order on this list is also important.
+The order of this list is also important.
 The example doesn't show any conflict
 between paths,
 but it's possible to create two different `path` entries
@@ -137,7 +137,7 @@ When considering a URL
 in a URLconf,
 Django does not use the scheme (`https://`),
 the domain (`www.acme.com`),
-and the leading slash
+or the leading slash
 for matching.
 Everything else is what the URLconf will match against.
 
@@ -398,7 +398,7 @@ Regular expressions can express complex relationships
 and match patterns
 in a very concise way.
 This conciseness often gives regular expressions a bad reputation
-of being impossible to understand.
+of being difficult to understand.
 When used carefully though,
 they can be a great tool
 for a job.
@@ -418,6 +418,9 @@ and then break down what it means.
 As a reminder,
 this solution will match some URL path
 like `blog/2020/urls-lead-way/`.
+
+Note, we use the `re_path()` function for 
+regular expression matching here, instead of `path()`.
 
 ```python
 re_path(
