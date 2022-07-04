@@ -278,10 +278,18 @@ because it is matched first.
 That means there's a lesson
 to remember here:
 
+{{< web >}}
 > When including `path` entries that match
     on ranges
     with converters,
     be sure to put them **after** the more specific entries.
+{{< /web >}}
+{{< book >}}
+When including `path` entries that match
+    on ranges
+    with converters,
+    be sure to put them **after** the more specific entries.
+{{< /book >}}
 
 ## An Abbreviated View Of Views
 
@@ -458,7 +466,8 @@ at a time.
     into an argument named `slug`.
     The character class of `[\w-]` contains two types
     of characters. `\w` means any word character
-    that you might have in a natural language.
+    that you might have in a natural language
+    and digits and underscores.
     The other type of character is a literal dash, `-`, character.
     Finally, the plus, `+`, character means
     that the character class must match 1 or more times.

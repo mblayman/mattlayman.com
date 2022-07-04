@@ -86,8 +86,8 @@ We'll look at the way your web browser requests data
 from the internet
 and the "plumbing" needed
 to make that work.
-Equipped with these key words
-and acronyms,
+Equipped with the key words
+and acronyms found in this chapter,
 you should be able
 to start your own research
 on these topics.
@@ -177,10 +177,10 @@ there is the street, city, and state.
 We might write it like:
 
 ```text
-# Most narrow to most broad
 123 Main St., Springfield, IL
 ```
 
+This address goes from most narrow to most broad.
 123 Main St. is in the city
 of Springfield
 in the state of Illinois (IL).
@@ -189,7 +189,6 @@ Likewise,
 a URL fits into a similar format.
 
 ```text
-# Most narrow to most broad
 www.example.com
 ```
 
@@ -314,19 +313,15 @@ is relatively small.
 This is simplified
 to exclude some
 of the warty corners
-of DNS,
-but I hope you get the idea.
+of DNS.
+The wikipedia page
+that I linked at the start
+of this section covers DNS
+in much greater detail
+if you're interested
+in learning more.
 
 ### What Are We Sending?
-
-I know we're still not talking to Django yet,
-but *I promise we're getting there.*
-There are a lot of layers
-to go through
-when taking the top-down approach,
-but I think it helps build the foundation
-and removes the mystery
-of what makes the internet (and Django) work.
 
 The other vital piece that we need to explore is HTTP,
 or the {{< extlink "https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" "Hypertext Transfer Protocol" >}}.
@@ -584,7 +579,7 @@ where I am
 Finally,
 there is one more bonus topic...
 
-## Getting Set Up
+## Getting Django Set Up
 
 {{< web >}}
 In the series,
@@ -625,7 +620,7 @@ Since this series is called "Understand Django,"
 Since this book is called "Understand Django,"
 {{< /book >}}
 I'm going to use that name.
-Call yours whatever is meaningful to you.
+You can name your project differently if you prefer.
 
 ```bash
 $ mkdir understand-django
@@ -659,7 +654,9 @@ Check the {{< extlink "https://docs.python.org/3/library/venv.html" "venv module
 for more information
 on your operating system.
 
-Install Django!
+Now you can install Django,
+and the Django framework code will be added
+to the virtual environment.
 
 ```bash
 (venv) $ pip install Django
@@ -792,6 +789,11 @@ in the next article.
 {{< book >}}
 in the next chapter.
 {{< /book >}}
+`application` will be our reference app.
+The code in future topics is not a tutorial,
+but I will use `application` on occasion
+to orient you to where you would can files
+in your own Django web app.
 We have a Django project
 that can run locally
 for testing

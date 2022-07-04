@@ -7,3 +7,4 @@ then write this much later in the process.
 
 * Explain my philosophy of teaching
 * Expected prereqs
+  * Python knowledge
