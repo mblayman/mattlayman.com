@@ -278,18 +278,10 @@ because it is matched first.
 That means there's a lesson
 to remember here:
 
-{{< web >}}
 > When including `path` entries that match
     on ranges
     with converters,
     be sure to put them **after** the more specific entries.
-{{< /web >}}
-{{< book >}}
-When including `path` entries that match
-    on ranges
-    with converters,
-    be sure to put them **after** the more specific entries.
-{{< /book >}}
 
 ## An Abbreviated View Of Views
 
@@ -877,3 +869,17 @@ on Twitter
 where I am
 {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
 {{< /web >}}
+{{< book >}}
+In the next chapter,
+we'll dig into views.
+This chapter only gave the briefest definition
+to what a view is.
+Django gives us very rich options
+when working with views.
+We're going to explore:
+
+* View functions
+* View classes
+* Some built-in supporting views
+* Decorators that supercharge views.
+{{< /book >}}
