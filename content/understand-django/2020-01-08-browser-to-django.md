@@ -342,6 +342,7 @@ A few of the common commands are:
 * `GET` - Get a resource
 * `POST` - Send data to a resource
 * `DELETE` - Request deletion of a resource
+* `PUT` - Update a resource
 
 If you visit my website
 at `https://www.mattlayman.com/about/`,
