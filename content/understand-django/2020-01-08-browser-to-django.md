@@ -330,7 +330,7 @@ how content transfers
 between browsers
 and servers,
 or,
-more generically,
+more generally,
 between any computers
 that use the protocol.
 
@@ -379,7 +379,7 @@ There are other headers
 that can tell a server what else it should "know."
 These headers can:
 
-* Indicate what kind of browser is requesting.
+* Indicate what kind of browser is making the request.
 * Tell when the resource was requested previously
     to determine if a new version should be returned.
 * Declare that the browser can receive compressed data
@@ -439,7 +439,7 @@ The web server's role is to translate the raw HTTP request
 into a format
 that the framework understands.
 In the Python world,
-there is a specific format
+there is a specific format used
 so that any web server
 can talk to any Python web framework.
 That format is the {{< extlink "https://wsgi.readthedocs.io/en/latest/what.html" "Web Server Gateway Interface" >}},
@@ -630,7 +630,7 @@ $ cd understand-django
 Next,
 we install Django
 into a virtual environment
-so we keep our project code separate
+so we keep our project dependencies separate
 from the rest
 of the installed Python packages
 on our machine.
@@ -663,8 +663,8 @@ to the virtual environment.
 ```
 
 Django includes some tools
-to get a project started quickly
-which we can use.
+which we can use
+to get a project started quickly.
 We'll run a single command
 to get it going.
 
@@ -797,7 +797,7 @@ in your own Django web app.
 We have a Django project
 that can run locally
 for testing
-that is configured
+and is configured
 with its first app.
 {{< web >}}
 See you soon
