@@ -21,6 +21,7 @@ tags:
 
 ---
 
+{{< web >}}
 In the previous
 [Understand Django]({{< ref "/understand-django/_index.md" >}})
 article,
@@ -28,6 +29,7 @@ we looked at the fundamentals
 of using views in Django.
 This article will focus
 on templates.
+{{< /web >}}
 Templates are your primary tool
 in a Django project
 for generating a user interface.
@@ -59,21 +61,19 @@ The section should look something like:
 ```python
 # project/settings.py
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
+TEMPLATES = [{
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'DIRS': [],
+    'APP_DIRS': True,
+    'OPTIONS': {
+        'context_processors': [
+            'django.template.context_processors.debug',
+            'django.template.context_processors.request',
+            'django.contrib.auth.context_processors.auth',
+            'django.contrib.messages.context_processors.messages',
+        ],
     },
-]
+}]
 ```
 
 Django's template system can use multiple template backends.
@@ -129,9 +129,9 @@ to something like:
 # project/settings.py
 
 TEMPLATES = [
-    ...
-        "DIRS": [os.path.join(BASE_DIR, "templates")],
-    ...
+...
+    "DIRS": [BASE_DIR / "templates"],
+...
 ]
 ```
 
@@ -141,7 +141,12 @@ Each backend can accept a variety
 of options.
 `startproject` set a number of context processors.
 We'll come back to context processors later
+{{< web >}}
 in this article.
+{{< /web >}}
+{{< book >}}
+in this chapter.
+{{< /book >}}
 
 With your templates set up,
 you're ready to go!
@@ -167,7 +172,11 @@ from django.shortcuts import render
 
 def a_template_view(request):
     context = {'name': 'Johnny'}
-    return render(request, 'hello.txt', context)
+    return render(
+        request,
+        'hello.txt',
+        context
+    )
 ```
 
 In this example,
@@ -201,12 +210,22 @@ about this example.
 
 This idea of mixing context and static layout is the core concept
 of working with templates.
+{{< web >}}
 The rest of this article builds
+{{< /web >}}
+{{< book >}}
+The rest of this chapter builds
+{{< /book >}}
 on this root concept
 and shows what else is possible
 in the Django template language.
 
+{{< web >}}
 From the last article,
+{{< /web >}}
+{{< book >}}
+From the last chapter,
+{{< /book >}}
 you may recall seeing the `TemplateView`.
 In those examples,
 we provided a template name,
@@ -228,8 +247,13 @@ from django.views.generic.base import TemplateView
 class HelloView(TemplateView):
     template_name = 'hello.txt'
 
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
+    def get_context_data(
+        self,
+        *args,
+        **kwargs
+    ):
+        context = super().get_context_data(
+            *args, **kwargs)
         context['name'] = 'Johnny'
         return context
 ```
@@ -711,8 +735,14 @@ from django.shortcuts import render
 from django.urls import reverse
 
 def the_view(request):
-    context = {'the_url': reverse('a_named_view')}
-    return render(request, 'a_template.html', context)
+    context = {
+        'the_url': reverse('a_named_view')
+    }
+    return render(
+        request,
+        'a_template.html',
+        context
+    )
 ```
 
 While this works,
@@ -966,7 +996,11 @@ register = template.Library()
 
 @register.filter
 def add_pizzazz(value):
-    pieces_of_flair = [' Amazing!', ' Wowza!', ' Unbelievable!']
+    pieces_of_flair = [
+        ' Amazing!',
+        ' Wowza!',
+        ' Unbelievable!'
+    ]
     return value + random.choice(pieces_of_flair)
 ```
 
@@ -1046,7 +1080,12 @@ We've looked at:
 * Built-in tags and filters available to templates
 * Customizing templates with your own code extensions
 
+{{< web >}}
 In the next article,
+{{< /web >}}
+{{< book >}}
+In the next chapter,
+{{< /book >}}
 we are going to examine
 how users can send data to a Django application
 with HTML forms.
@@ -1059,6 +1098,7 @@ We're going to see:
 * How forms are rendered to users by Django
 * How to do form validation
 
+{{< web >}}
 If you'd like to follow along
 with the series,
 please feel free to sign up
@@ -1069,3 +1109,4 @@ you can reach me online
 on Twitter
 where I am
 {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+{{< /web >}}
