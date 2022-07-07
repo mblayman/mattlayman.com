@@ -46,6 +46,15 @@ that can unlock the potential
 of anyone interested
 in making applications
 on the internet.
+Django is used
+by companies
+like Instagram,
+Eventbrite,
+Disqus,
+and
+Udemy,
+and is also a great tool
+for individuals like you.
 
 We're going to take a high-level approach to learning Django.
 Rather than starting
@@ -86,20 +95,20 @@ We'll look at the way your web browser requests data
 from the internet
 and the "plumbing" needed
 to make that work.
-Equipped with these key words
-and acronyms,
+Equipped with the key words
+and acronyms found in this chapter,
 you should be able
 to start your own research
 on these topics.
 
 The internet works
 by fulfilling a user's desire
-for information.
+for sending and receiving information.
 That "information" takes many different forms.
 It might be:
 
 * Cat videos on YouTube
-* Political rumblings from social media
+* Political ramblings from social media
 * Profiles of other people on dating sites
 
 Whatever people are looking for,
@@ -177,10 +186,10 @@ there is the street, city, and state.
 We might write it like:
 
 ```text
-# Most narrow to most broad
 123 Main St., Springfield, IL
 ```
 
+This address goes from most narrow to most broad.
 123 Main St. is in the city
 of Springfield
 in the state of Illinois (IL).
@@ -189,7 +198,6 @@ Likewise,
 a URL fits into a similar format.
 
 ```text
-# Most narrow to most broad
 www.example.com
 ```
 
@@ -314,19 +322,15 @@ is relatively small.
 This is simplified
 to exclude some
 of the warty corners
-of DNS,
-but I hope you get the idea.
+of DNS.
+The wikipedia page
+that I linked at the start
+of this section covers DNS
+in much greater detail
+if you're interested
+in learning more.
 
 ### What Are We Sending?
-
-I know we're still not talking to Django yet,
-but *I promise we're getting there.*
-There are a lot of layers
-to go through
-when taking the top-down approach,
-but I think it helps build the foundation
-and removes the mystery
-of what makes the internet (and Django) work.
 
 The other vital piece that we need to explore is HTTP,
 or the {{< extlink "https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" "Hypertext Transfer Protocol" >}}.
@@ -335,7 +339,7 @@ how content transfers
 between browsers
 and servers,
 or,
-more generically,
+more generally,
 between any computers
 that use the protocol.
 
@@ -347,6 +351,7 @@ A few of the common commands are:
 * `GET` - Get a resource
 * `POST` - Send data to a resource
 * `DELETE` - Request deletion of a resource
+* `PUT` - Update a resource
 
 If you visit my website
 at `https://www.mattlayman.com/about/`,
@@ -384,7 +389,7 @@ There are other headers
 that can tell a server what else it should "know."
 These headers can:
 
-* Indicate what kind of browser is requesting.
+* Indicate what kind of browser is making the request.
 * Tell when the resource was requested previously
     to determine if a new version should be returned.
 * Declare that the browser can receive compressed data
@@ -444,7 +449,7 @@ The web server's role is to translate the raw HTTP request
 into a format
 that the framework understands.
 In the Python world,
-there is a specific format
+there is a specific format used
 so that any web server
 can talk to any Python web framework.
 That format is the {{< extlink "https://wsgi.readthedocs.io/en/latest/what.html" "Web Server Gateway Interface" >}},
@@ -584,7 +589,7 @@ where I am
 Finally,
 there is one more bonus topic...
 
-## Getting Set Up
+## Getting Django Set Up
 
 {{< web >}}
 In the series,
@@ -625,7 +630,7 @@ Since this series is called "Understand Django,"
 Since this book is called "Understand Django,"
 {{< /book >}}
 I'm going to use that name.
-Call yours whatever is meaningful to you.
+You can name your project differently if you prefer.
 
 ```bash
 $ mkdir understand-django
@@ -635,7 +640,7 @@ $ cd understand-django
 Next,
 we install Django
 into a virtual environment
-so we keep our project code separate
+so we keep our project dependencies separate
 from the rest
 of the installed Python packages
 on our machine.
@@ -659,15 +664,17 @@ Check the {{< extlink "https://docs.python.org/3/library/venv.html" "venv module
 for more information
 on your operating system.
 
-Install Django!
+Now you can install Django,
+and the Django framework code will be added
+to the virtual environment.
 
 ```bash
 (venv) $ pip install Django
 ```
 
 Django includes some tools
-to get a project started quickly
-which we can use.
+which we can use
+to get a project started quickly.
 We'll run a single command
 to get it going.
 
@@ -679,6 +686,14 @@ This commands says
 "start a project
 *named* 'project'
 in the current directory (`.`)."
+The choice of "project" as the name is intentional.
+`startproject` will create a directory
+named `project` that will contain various files
+that you'll use to configure your entire web app.
+You can name your project whatever you like,
+but I find that using the generic name makes my life easier
+as I switch between different Django web apps.
+I always know where my project related files reside.
 After that command is finished,
 you should have some files
 and a layout that looks like:
@@ -688,6 +703,13 @@ and a layout that looks like:
 manage.py project venv
 ```
 
+Notice that,
+in addition to the `project` directory,
+Django created a `manage.py` file.
+This file is a script that will help you interact
+with Django.
+You'll learn a lot more about `manage.py`
+as we get farther along.
 To check if the basics are working,
 try:
 
@@ -720,6 +742,10 @@ of a Django component
 in a project.
 What you need to remember is
 that a Django project *contains* one or more apps.
+Apps will hold most
+of your code
+that you need to write
+when working with Django.
 
 After you have quit the server,
 you can create an app to work with:
@@ -730,13 +756,23 @@ you can create an app to work with:
 
 This will generate another set of files
 that follow the standard structure
-of a Django application component.
+of a Django application component
+inside a directory called `application`.
+This example uses a boring name,
+but,
+unlike `project`,
+you should pick a name
+that makes sense for your web app
+(e.g., `movies` would be a good name
+for a web app that is about movies).
 All of these files will be discussed
 in detail in a future topic.
 
 Finally,
 we must hook that app
 into Django's project settings.
+The project settings allow you to configure Django
+to suit your needs.
 Open up `project/settings.py`,
 find `INSTALLED_APPS`
 and append to the list
@@ -763,10 +799,15 @@ in the next article.
 {{< book >}}
 in the next chapter.
 {{< /book >}}
+`application` will be our reference app.
+The code in future topics is not a tutorial,
+but I will use `application` on occasion
+to orient you to where you would can files
+in your own Django web app.
 We have a Django project
 that can run locally
 for testing
-that is configured
+and is configured
 with its first app.
 {{< web >}}
 See you soon

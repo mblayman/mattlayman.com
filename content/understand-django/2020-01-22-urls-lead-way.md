@@ -119,7 +119,7 @@ Django will treat the list
 in a `urlpatterns` variable
 as the URLconf.
 
-The order on this list is also important.
+The order of this list is also important.
 The example doesn't show any conflict
 between paths,
 but it's possible to create two different `path` entries
@@ -137,7 +137,7 @@ When considering a URL
 in a URLconf,
 Django does not use the scheme (`https://`),
 the domain (`www.acme.com`),
-and the leading slash
+or the leading slash
 for matching.
 Everything else is what the URLconf will match against.
 
@@ -165,9 +165,9 @@ Django will redirect the request
 to the same URL
 with the slash appended
 because of the `APPEND_SLASH`
-{{< extlink "https://docs.djangoproject.com/en/3.0/ref/settings/#append-slash" "default setting" >}}.
+{{< extlink "https://docs.djangoproject.com/en/4.0/ref/settings/#append-slash" "default setting" >}}.
 This behavior is because
-of a Django {{< extlink "https://docs.djangoproject.com/en/3.0/misc/design-philosophies/#definitive-urls" "design philosophy" >}} choice.
+of a Django {{< extlink "https://docs.djangoproject.com/en/4.0/misc/design-philosophies/#definitive-urls" "design philosophy" >}} choice.
 
 ## The `path` Before Us
 
@@ -215,7 +215,7 @@ The two converters in this path are:
 * `<slug:slug>`
 
 The use of angle brackets
-and some {{< extlink "https://docs.djangoproject.com/en/3.0/topics/http/urls/#path-converters" "reserved names" >}}
+and some {{< extlink "https://docs.djangoproject.com/en/4.0/topics/http/urls/#path-converters" "reserved names" >}}
 cause Django to attempt extra parsing
 on a URL.
 Each converter has some expected rules to follow.
@@ -278,10 +278,18 @@ because it is matched first.
 That means there's a lesson
 to remember here:
 
+{{< web >}}
 > When including `path` entries that match
     on ranges
     with converters,
     be sure to put them **after** the more specific entries.
+{{< /web >}}
+{{< book >}}
+When including `path` entries that match
+    on ranges
+    with converters,
+    be sure to put them **after** the more specific entries.
+{{< /book >}}
 
 ## An Abbreviated View Of Views
 
@@ -390,7 +398,7 @@ Regular expressions can express complex relationships
 and match patterns
 in a very concise way.
 This conciseness often gives regular expressions a bad reputation
-of being impossible to understand.
+of being difficult to understand.
 When used carefully though,
 they can be a great tool
 for a job.
@@ -410,6 +418,9 @@ and then break down what it means.
 As a reminder,
 this solution will match some URL path
 like `blog/2020/urls-lead-way/`.
+
+Note, we use the `re_path()` function for 
+regular expression matching here, instead of `path()`.
 
 ```python
 re_path(
@@ -458,7 +469,8 @@ at a time.
     into an argument named `slug`.
     The character class of `[\w-]` contains two types
     of characters. `\w` means any word character
-    that you might have in a natural language.
+    that you might have in a natural language
+    and digits and underscores.
     The other type of character is a literal dash, `-`, character.
     Finally, the plus, `+`, character means
     that the character class must match 1 or more times.
@@ -844,6 +856,12 @@ we've seen how to:
 In the next article,
 we'll dig into views.
 This article only gave the briefest definition
+{{< /web >}}
+{{< book >}}
+In the next chapter,
+we'll dig into views.
+This chapter only gave the briefest definition
+{{< /book >}}
 to what a view is.
 Django gives us very rich options
 when working with views.
@@ -854,6 +872,7 @@ We're going to explore:
 * Some built-in supporting views
 * Decorators that supercharge views.
 
+{{< web >}}
 If you'd like to follow along
 with the series,
 please feel free to sign up

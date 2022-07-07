@@ -22,6 +22,7 @@ tags:
 
 ---
 
+{{< web >}}
 In the previous
 [Understand Django]({{< ref "/understand-django/_index.md" >}})
 article,
@@ -33,6 +34,11 @@ to describe the outside interface
 to the internet
 for your project.
 In this article,
+{{< /web >}}
+{{< book >}}
+Now that we have a grasp
+on URLs in Django,
+{{< /book >}}
 we'll examine the core building block
 that makes those URLs work:
 the Django view.
@@ -97,7 +103,12 @@ def hello_world(request):
 If you added that view
 to a URL configuration
 which we learned about
+{{< web >}}
 in the last article,
+{{< /web >}}
+{{< book >}}
+in the last chapter,
+{{< /book >}}
 then you could visit a browser
 at the URL
 and find the text "Hello World"
@@ -224,7 +235,12 @@ This makes the objects great candidates
 for extra features that you may require.
 For instance,
 if you need user management
+{{< web >}}
 (which we will explore in a future article),
+{{< /web >}}
+{{< book >}}
+(which we will explore in a future chapter),
+{{< /book >}}
 then there is code
 that can attach a `request.user` attribute
 to represent a user
@@ -281,6 +297,7 @@ of subclasses
 for common uses.
 Let's look at some:
 
+{{< web >}}
 * `HttpResponseRedirect` - You may want to send a user
     to a different page.
     Perhaps the user bought something
@@ -304,6 +321,32 @@ Let's look at some:
     to Python native data types
     and can be used
     to communicate with JavaScript.
+{{< /web >}}
+{{< book >}}
+* `HttpResponseRedirect` - You may want to send a user
+    to a different page.
+    Perhaps the user bought something
+    on your site,
+    and you would like them to see a receipt page
+    of their order.
+    This subclass is perfect
+    for that scenario.
+* `HttpResponseNotFound` - This is the subclass used
+    to create a `404 Not Found` response.
+    Django provides some helper functions to return this
+    so you may not use this subclass directly,
+    but it's good to know it's available.
+* `HttpResponseForbidden` - This type of response happens
+    when you don't want a user
+    to access a part
+    of your website.
+* `JsonResponse` - I haven't focused on JSON yet
+    in this book,
+    but it's a data format which matches closely
+    to Python native data types
+    and can be used
+    to communicate with JavaScript.
+{{< /book >}}
 
 ```python
 >>> from django.http import JsonResponse
@@ -321,7 +364,12 @@ The most common function is `render`.
 `render` is a tool
 for working with templates.
 Templates are the topic
+{{< web >}}
 of the next article,
+{{< /web >}}
+{{< book >}}
+of the next chapter,
+{{< /book >}}
 but here is a sneak peek.
 
 You could write a view
@@ -391,8 +439,13 @@ And we would have another file named `template.html` containing:
 </html>
 ```
 
+{{< web >}}
 The important part for this article is not about templates themselves.
-What's worth noting is that `render` returns an `HttpReponse` instance
+{{< /web >}}
+{{< book >}}
+The important part for this chapter is not about templates themselves.
+{{< /book >}}
+What's worth noting is that `render` returns an `HttpResponse` instance
 that will contain the rendered template
 as the content.
 
@@ -497,9 +550,14 @@ to the full framework so far.
 I won't exhaustively cover all the class-based views
 because there are a lot of them.
 Also,
+{{< web >}}
 if you're joining this article series
 from the beginning
 and have never done Django before,
+{{< /web >}}
+{{< book >}}
+if you have never done Django before,
+{{< /book >}}
 then there will still be holes
 in your knowledge
 (which we will plug together!),
@@ -543,7 +601,7 @@ to a view
 that moved somewhere else
 in your project.
 
-`as_view` is what let's us avoid subclassing `RedirectView`.
+`as_view` is what lets us avoid subclassing `RedirectView`.
 The arguments passed to `as_view` override any class attributes.
 The following two `RedirectView` uses are equivalent:
 
@@ -566,7 +624,12 @@ urlpatterns = [
 
 ### TemplateView
 
+{{< web >}}
 Earlier in the article,
+{{< /web >}}
+{{< book >}}
+Earlier in the chapter,
+{{< /book >}}
 we saw briefly how we can separate web page layout
 from the logic needed
 to build a page
@@ -589,7 +652,12 @@ class HomeView(TemplateView):
 
 We will look at template views
 in greater detail
+{{< web >}}
 in the next article
+{{< /web >}}
+{{< book >}}
+in the next chapter
+{{< /book >}}
 when we dive into templates.
 
 ### Other View Classes
@@ -619,7 +687,12 @@ Django has views that will:
 As we continue to explore Django,
 I will discuss these views
 when their related topic (like forms) is the primary subject
+{{< web >}}
 of an article.
+{{< /web >}}
+{{< book >}}
+of a chapter.
+{{< /book >}}
 For now,
 when you're developing your own views,
 try to remember that Django probably has a class-based view
@@ -644,7 +717,7 @@ when you have common functionality
 that you want to add to many views
 without copying and pasting a lot of code around.
 
-Mixin classes serves a very similar purpose
+Mixin classes serve a very similar purpose
 as decorators,
 but behave with Python's multiple inheritance feature
 of classes
@@ -740,7 +813,7 @@ of a useful built-in decorator
 is `user_passes_test`.
 This is another decorator used
 with the user management system
-that let's us control *which* users should be allowed
+that lets us control *which* users should be allowed
 to access a view.
 For instance,
 we could make a view that only staff-level users could access.
@@ -852,6 +925,7 @@ We've looked at:
 * Some built-in supporting views
 * Decorators and mixins that supercharge views.
 
+{{< web >}}
 In the next article,
 we'll see how views can mix static layout
 with the dynamic data we provide
@@ -877,3 +951,4 @@ you can reach me online
 on Twitter
 where I am
 {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+{{< /web >}}
