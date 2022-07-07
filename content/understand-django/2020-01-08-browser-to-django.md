@@ -46,6 +46,15 @@ that can unlock the potential
 of anyone interested
 in making applications
 on the internet.
+Django is used
+by companies
+like Instagram,
+Eventbrite,
+Disqus,
+and
+Udemy,
+and is also a great tool
+for individuals like you.
 
 We're going to take a high-level approach to learning Django.
 Rather than starting
@@ -94,12 +103,12 @@ on these topics.
 
 The internet works
 by fulfilling a user's desire
-for information.
+for sending and receiving information.
 That "information" takes many different forms.
 It might be:
 
 * Cat videos on YouTube
-* Political rumblings from social media
+* Political ramblings from social media
 * Profiles of other people on dating sites
 
 Whatever people are looking for,
