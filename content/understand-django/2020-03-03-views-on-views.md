@@ -183,7 +183,12 @@ This example is from a side project
 that uses school data.
 I have trimmed some lines out
 of the request so it will fit better
+{{< web >}}
 on the screen,
+{{< /web >}}
+{{< book >}}
+on the page,
+{{< /book>}}
 and I did some slight reformatting
 to make the content a bit clearer.
 
