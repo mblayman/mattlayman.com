@@ -856,6 +856,12 @@ we've seen how to:
 In the next article,
 we'll dig into views.
 This article only gave the briefest definition
+{{< /web >}}
+{{< book >}}
+In the next chapter,
+we'll dig into views.
+This chapter only gave the briefest definition
+{{< /book >}}
 to what a view is.
 Django gives us very rich options
 when working with views.
@@ -866,6 +872,7 @@ We're going to explore:
 * Some built-in supporting views
 * Decorators that supercharge views.
 
+{{< web >}}
 If you'd like to follow along
 with the series,
 please feel free to sign up
