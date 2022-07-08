@@ -62,8 +62,9 @@ where "project" is the name given
 as an argument
 to the command.
 In other words,
-the URLconf is placed right next to the `settings.py` file
-in `project/urls.py`.
+the URLconf is placed
+in `project/urls.py`,
+right next to the `settings.py` file.
 
 That explains where the file resides,
 but it doesn't tell us much
@@ -109,8 +110,7 @@ urlpatterns = [
 ```
 
 What's here matches well
-with the description
-that I described above:
+with what I described above:
 a list of URL paths
 that Django will try to match
 from top to bottom.
@@ -130,14 +130,14 @@ of how that can happen
 after we see another aspect
 of paths.
 
-We can work through this example
+We can work through an example
 to see how this would work
 for `www.acme.com`.
 When considering a URL
 in a URLconf,
-Django does not use the scheme (`https://`),
+Django ignores the scheme (`https://`),
 the domain (`www.acme.com`),
-or the leading slash
+and the leading slash
 for matching.
 Everything else is what the URLconf will match against.
 
@@ -280,14 +280,14 @@ to remember here:
 
 {{< web >}}
 > When including `path` entries that match
-    on ranges
-    with converters,
+    on ranges of values
+    with converters (like the years example above),
     be sure to put them **after** the more specific entries.
 {{< /web >}}
 {{< book >}}
 When including `path` entries that match
-    on ranges
-    with converters,
+    on ranges of values
+    with converters (like the years example above),
     be sure to put them **after** the more specific entries.
 {{< /book >}}
 
@@ -308,7 +308,7 @@ but here's a primer.
 A view is code
 that takes a request
 and returns a response.
-Using Python's optional type checking,
+Using Python's optional type hinting,
 here's an example
 that will send a `Hello World` response.
 
@@ -399,9 +399,8 @@ and match patterns
 in a very concise way.
 This conciseness often gives regular expressions a bad reputation
 of being difficult to understand.
-When used carefully though,
-they can be a great tool
-for a job.
+When used carefully, though,
+they can be highly effective.
 
 One job that a regular expression
 (which is often abbreviated to "regex")
@@ -480,6 +479,10 @@ at a time.
     of the caret and means
     "the pattern must *end* here."
     Thus, `blog/2020/some-slug/another-slug/` will not match.
+
+Note that you cannot mix the `path` style and `re_path` style strings.
+The example above had to describe the slug as a regular expression
+instead of using the slug converter (i.e., `<slug:slug>`).
 
 Congratulations!
 This is definitely the hardest section
@@ -638,7 +641,7 @@ from django.http import (
 )
 
 def old_blog_categories(request):
-    return HttpRequestRedirect(
+    return HttpResponseRedirect(
         "/blog/categories/"
     )
 ```
@@ -698,7 +701,7 @@ from django.http import (
 from django.urls import reverse
 
 def old_blog_categories(request):
-    return HttpRequestRedirect(
+    return HttpResponseRedirect(
         reverse("blog_categories")
     )
 ```

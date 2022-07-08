@@ -43,6 +43,6 @@ and
 YOUR NAME HERE.
 
 These readers have helped me
-to produce a much stronger book.
+produce a much stronger book.
 Any remaining mistakes in this book
 belong exclusively to me.
