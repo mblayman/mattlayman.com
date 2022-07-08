@@ -411,7 +411,7 @@ behaves as you might expect.
 Django will loop over iterables
 like lists
 and let users output template responses
-for each entry in an interable.
+for each entry in an iterable.
 If the example above had a list
 of `items`
 in the context like:
@@ -561,7 +561,7 @@ of the page elements.
 
 Imagine you're asked to manage a site
 and you need to create two separate pages.
-The home page looks like:
+The homepage looks like:
 
 ```html
 <!DOCTYPE html>
@@ -617,7 +617,7 @@ Let's make a new template called `base.html`.
 ```
 
 We've created a reusable template with the `block` tag!
-We can fix up our home page
+We can fix up our homepage
 to use this new template.
 
 ```django
@@ -628,7 +628,7 @@ to use this new template.
 {% endblock %}
 ```
 
-This new version of the home page *extends* the base template.
+This new version of the homepage *extends* the base template.
 All the template had to do was define its own version
 of the `main` block
 to fill in the content.
@@ -687,7 +687,7 @@ into smaller pieces.
 ```
 
 The `include` tag can move those extra pieces around.
-By providing good name to your templates,
+By providing a good name to your templates,
 if you needed to change the structure of some section
 like navigation,
 you could go to the template
@@ -782,7 +782,7 @@ No problem!
 One final built-in tag to consider is the `spaceless` tag.
 HTML is *partially* sensitive to whitespace.
 There are some frustrating circumstances
-where this whitspace sensitivity can ruin your day
+where this whitespace sensitivity can ruin your day
 when building a user interface.
 Can you make a pixel perfect navigation menu
 for your site with an unordered list?
@@ -938,13 +938,13 @@ the template will display something meaningful
 to a reader.
 
 There are so many built-ins
-that's it's really hard to narrow down my favorites.
+that it's really hard to narrow down my favorites.
 Check out the full list
 to see what might be useful for you.
 
 What if the built-ins don't cover what you need?
 Have no fear,
-Django let's you make custom tags and filters
+Django lets you make custom tags and filters
 for your own purposes.
 We'll see how next.
 
@@ -1094,7 +1094,7 @@ to make form building quick and effective.
 We're going to see:
 
 * The `Form` class that Django uses to handle form data in Python
-* Controling what fields are in forms
+* Controlling what fields are in forms
 * How forms are rendered to users by Django
 * How to do form validation
 
