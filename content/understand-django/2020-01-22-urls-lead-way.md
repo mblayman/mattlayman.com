@@ -750,8 +750,8 @@ to something in the real world,
 let's use trusty buckets.
 Imagine you have two red balls
 and two blue balls.
-Put one color ball
-in one of two buckets labeled "A" and "B."
+Put one ball of each color
+in each of the two buckets labeled "A" and "B."
 If I wanted a specific blue ball,
 I can't say "please give me the blue ball"
 because that would be ambiguous.
