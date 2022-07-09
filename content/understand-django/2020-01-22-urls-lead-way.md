@@ -132,22 +132,22 @@ of paths.
 
 We can work through an example
 to see how this would work
-for `www.acme.com`.
+for `www.example.com`.
 When considering a URL
 in a URLconf,
 Django ignores the scheme (`https://`),
-the domain (`www.acme.com`),
+the domain (`www.example.com`),
 and the leading slash
 for matching.
 Everything else is what the URLconf will match against.
 
-* A request to `https://www.acme.com/about/` will look
+* A request to `https://www.example.com/about/` will look
     like `"about/"`
     to the pattern matching process
     and match the second `path`.
     That request would route
     to the `views.about` view.
-* A request to `https://www.acme.com/` will look
+* A request to `https://www.example.com/` will look
     like `""`
     to the pattern matching process
     and match the first `path`.
@@ -160,7 +160,7 @@ that Django URLs end
 with a slash character.
 In fact,
 if you attempt to reach a URL
-like `https://www.acme.com/about`,
+like `https://www.example.com/about`,
 Django will redirect the request
 to the same URL
 with the slash appended
@@ -232,9 +232,9 @@ Each converter has some expected rules to follow.
 Given those converter definitions,
 let's compare against some URLs!
 
-* `https://www.acme.com/blog/2020/urls-lead-way/` - MATCH!
-* `https://www.acme.com/blog/twenty-twenty/urls-lead-way/` - NOPE.
-* `https://www.acme.com/blog/0/life-in-rome/` - MATCH!
+* `https://www.example.com/blog/2020/urls-lead-way/` - MATCH!
+* `https://www.example.com/blog/twenty-twenty/urls-lead-way/` - NOPE.
+* `https://www.example.com/blog/0/life-in-rome/` - MATCH!
     Uh, maybe not what we wanted though.
     Let's look at that soon.
 
@@ -267,7 +267,7 @@ in different orders:
 
 In the first ordering,
 the converter will match any integer following `blog/`,
-including `https://www.acme.com/blog/2020/`.
+including `https://www.example.com/blog/2020/`.
 That means that the first ordering will never call the `blog_for_twenty_twenty` view
 because Django matches `path` entries in order.
 
@@ -511,7 +511,7 @@ Knowing that this power
 with `re_path`
 is there may help you later
 on your Django journey,
-even if you don't need it today.
+even if you don't need it now.
 
 ## Grouping Related URLs
 
