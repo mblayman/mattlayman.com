@@ -789,6 +789,11 @@ This version states the expectation up front
 with the decorator
 and declares the contract
 that the view will work with.
+If a user tries a different method
+(like a `GET`),
+then Django will respond
+with HTTP status code `405`,
+which is an error code for "method not allowed."
 
 Another common decorator you may encounter is the `login_required` decorator.
 When we get to the subject
@@ -806,6 +811,10 @@ from django.http import HttpResponse
 def the_view(request):
     return HttpResponse('This view is only viewable to authenticated users.')
 ```
+
+Any unauthenticated user will be redirected automatically
+to the login page
+for your web app.
 
 A final example
 of a useful built-in decorator
