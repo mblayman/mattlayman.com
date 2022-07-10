@@ -617,6 +617,7 @@ class SubclassedRedirectView(RedirectView):
 
 urlpatterns = [
     path("old-path/", SubclassedRedirectView.as_view()),
+    # The RedirectView below acts like SubclassedRedirectView.
     path("old-path/", RedirectView.as_view(pattern_name='new-view')),
     path("new-path/", NewView.as_view(), name='new-view'),
 ]
@@ -679,8 +680,6 @@ Django has views that will:
     from a collection of records
     to the user
     (e.g., showing the cast of actors from a movie).
-* Allow a user to create or update data
-    that will be saved to a database.
 * Show data from specific time ranges
     like days, weeks, and months.
 
