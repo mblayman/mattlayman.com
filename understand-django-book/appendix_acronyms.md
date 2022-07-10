@@ -34,6 +34,12 @@ The Internet Protcol is a networking protocol
 that defines how machines can communicate
 on the internet.
 
+**MRO:**
+Method Resolution Order -
+The rules that Python follows
+when handling multiple inheritance
+in classes
+
 **PEP:**
 Python Enhancement Proposal -
 A PEP is a proposal scheme

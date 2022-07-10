@@ -309,9 +309,9 @@ Let's look at some:
 * `HttpResponseNotFound` - This is the subclass used
     to create a `404 Not Found` response.
     Django provides some helper functions to return this
-    so you may not use this subclass directly,
+    so you might not use this subclass directly,
     but it's good to know it's available.
-* `HttpResponseForbidden` - This type of response happens
+* `HttpResponseForbidden` - This type of response can be used
     when you don't want a user
     to access a part
     of your website.
@@ -718,7 +718,7 @@ without copying and pasting a lot of code around.
 
 Mixin classes serve a very similar purpose
 as decorators,
-but behave with Python's multiple inheritance feature
+but use Python's multiple inheritance feature
 of classes
 to "mix in" the new behavior
 with an existing class-based view.
@@ -898,9 +898,15 @@ Because of the way
 that Python handles multiple inheritance,
 you should be sure to include mixin classes
 to the left
-in the list of classes.
+in the list of inherited base classes.
 This will ensure that Python will behave appropriately
 with these classes.
+The exact reason for this placement is
+because of Python's method resolution order (MRO) rules
+when using multiple inheritance.
+MRO is outside of our scope,
+but that's what you can search for
+if you want to learn more.
 
 There are plenty
 of other mixin classes.
