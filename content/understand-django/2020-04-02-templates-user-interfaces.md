@@ -139,7 +139,7 @@ Finally,
 there is `OPTIONS`.
 Each backend can accept a variety
 of options.
-`startproject` set a number of context processors.
+`startproject` sets a number of context processors.
 We'll come back to context processors later
 in this article.
 
