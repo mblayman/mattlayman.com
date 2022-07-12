@@ -10,6 +10,12 @@ Domain Name System -
 DNS is the system that the internet uses to manage names
 of websites (e.g., `www.djangoproject.com`) to help route requests.
 
+**HTML:**
+Hypertext Markup Language -
+HTML is the language that describes the structure
+and content
+of a webpage.
+
 **HTTP:**
 Hypertext Transfer Protocol -
 HTTP is a protocol
@@ -45,6 +51,10 @@ that enables pattern matching and parsing for strings.
 Top Level Domain -
 A TLD is a controlled name that is part of a domain name
 (e.g., `.com`, `.org`).
+
+**UI:**
+User Interface -
+A UI is the visual interface that a user interacts with.
 
 **URL:**
 Uniform Resource Locators -

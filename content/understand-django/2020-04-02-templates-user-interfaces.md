@@ -21,6 +21,7 @@ tags:
 
 ---
 
+{{< web >}}
 In the previous
 [Understand Django]({{< ref "/understand-django/_index.md" >}})
 article,
@@ -28,6 +29,7 @@ we looked at the fundamentals
 of using views in Django.
 This article will focus
 on templates.
+{{< /web >}}
 Templates are your primary tool
 in a Django project
 for generating a user interface.
@@ -59,21 +61,19 @@ The section should look something like:
 ```python
 # project/settings.py
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
+TEMPLATES = [{
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'DIRS': [],
+    'APP_DIRS': True,
+    'OPTIONS': {
+        'context_processors': [
+            'django.template.context_processors.debug',
+            'django.template.context_processors.request',
+            'django.contrib.auth.context_processors.auth',
+            'django.contrib.messages.context_processors.messages',
+        ],
     },
-]
+}]
 ```
 
 Django's template system can use multiple template backends.
@@ -129,9 +129,9 @@ to something like:
 # project/settings.py
 
 TEMPLATES = [
-    ...
-        "DIRS": [os.path.join(BASE_DIR, "templates")],
-    ...
+...
+    "DIRS": [BASE_DIR / "templates"],
+...
 ]
 ```
 
@@ -141,7 +141,12 @@ Each backend can accept a variety
 of options.
 `startproject` sets a number of context processors.
 We'll come back to context processors later
+{{< web >}}
 in this article.
+{{< /web >}}
+{{< book >}}
+in this chapter.
+{{< /book >}}
 
 With your templates set up,
 you're ready to go!
@@ -167,7 +172,11 @@ from django.shortcuts import render
 
 def a_template_view(request):
     context = {'name': 'Johnny'}
-    return render(request, 'hello.txt', context)
+    return render(
+        request,
+        'hello.txt',
+        context
+    )
 ```
 
 In this example,
@@ -201,12 +210,22 @@ about this example.
 
 This idea of mixing context and static layout is the core concept
 of working with templates.
+{{< web >}}
 The rest of this article builds
+{{< /web >}}
+{{< book >}}
+The rest of this chapter builds
+{{< /book >}}
 on this root concept
 and shows what else is possible
 in the Django template language.
 
+{{< web >}}
 From the last article,
+{{< /web >}}
+{{< book >}}
+From the last chapter,
+{{< /book >}}
 you may recall seeing the `TemplateView`.
 In those examples,
 we provided a template name,
@@ -228,8 +247,13 @@ from django.views.generic.base import TemplateView
 class HelloView(TemplateView):
     template_name = 'hello.txt'
 
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
+    def get_context_data(
+        self,
+        *args,
+        **kwargs
+    ):
+        context = super().get_context_data(
+            *args, **kwargs)
         context['name'] = 'Johnny'
         return context
 ```
@@ -387,7 +411,7 @@ behaves as you might expect.
 Django will loop over iterables
 like lists
 and let users output template responses
-for each entry in an interable.
+for each entry in an iterable.
 If the example above had a list
 of `items`
 in the context like:
@@ -537,7 +561,7 @@ of the page elements.
 
 Imagine you're asked to manage a site
 and you need to create two separate pages.
-The home page looks like:
+The homepage looks like:
 
 ```html
 <!DOCTYPE html>
@@ -593,7 +617,7 @@ Let's make a new template called `base.html`.
 ```
 
 We've created a reusable template with the `block` tag!
-We can fix up our home page
+We can fix up our homepage
 to use this new template.
 
 ```django
@@ -604,7 +628,7 @@ to use this new template.
 {% endblock %}
 ```
 
-This new version of the home page *extends* the base template.
+This new version of the homepage *extends* the base template.
 All the template had to do was define its own version
 of the `main` block
 to fill in the content.
@@ -663,7 +687,7 @@ into smaller pieces.
 ```
 
 The `include` tag can move those extra pieces around.
-By providing good name to your templates,
+By providing a good name to your templates,
 if you needed to change the structure of some section
 like navigation,
 you could go to the template
@@ -683,7 +707,7 @@ that can supercharge your UI.
 ## The Templates Toolbox
 
 The Django documentation includes
-a {{< extlink "https://docs.djangoproject.com/en/3.0/ref/templates/builtins/" "large set of built-in tags" >}}
+a {{< extlink "https://docs.djangoproject.com/en/4.0/ref/templates/builtins/" "large set of built-in tags" >}}
 that you can use
 in your projects.
 We aren't going to cover all of them,
@@ -711,8 +735,14 @@ from django.shortcuts import render
 from django.urls import reverse
 
 def the_view(request):
-    context = {'the_url': reverse('a_named_view')}
-    return render(request, 'a_template.html', context)
+    context = {
+        'the_url': reverse('a_named_view')
+    }
+    return render(
+        request,
+        'a_template.html',
+        context
+    )
 ```
 
 While this works,
@@ -752,7 +782,7 @@ No problem!
 One final built-in tag to consider is the `spaceless` tag.
 HTML is *partially* sensitive to whitespace.
 There are some frustrating circumstances
-where this whitspace sensitivity can ruin your day
+where this whitespace sensitivity can ruin your day
 when building a user interface.
 Can you make a pixel perfect navigation menu
 for your site with an unordered list?
@@ -823,7 +853,7 @@ in the context,
 you can use the `date` filter
 to control the format
 of the datetime.
-The `date` {{< extlink "https://docs.djangoproject.com/en/3.0/ref/templates/builtins/#date" "documentation" >}} shows
+The `date` {{< extlink "https://docs.djangoproject.com/en/4.0/ref/templates/builtins/#date" "documentation" >}} shows
 what options you can use
 to modify the format.
 
@@ -908,13 +938,13 @@ the template will display something meaningful
 to a reader.
 
 There are so many built-ins
-that's it's really hard to narrow down my favorites.
+that it's really hard to narrow down my favorites.
 Check out the full list
 to see what might be useful for you.
 
 What if the built-ins don't cover what you need?
 Have no fear,
-Django let's you make custom tags and filters
+Django lets you make custom tags and filters
 for your own purposes.
 We'll see how next.
 
@@ -966,7 +996,11 @@ register = template.Library()
 
 @register.filter
 def add_pizzazz(value):
-    pieces_of_flair = [' Amazing!', ' Wowza!', ' Unbelievable!']
+    pieces_of_flair = [
+        ' Amazing!',
+        ' Wowza!',
+        ' Unbelievable!'
+    ]
     return value + random.choice(pieces_of_flair)
 ```
 
@@ -1032,7 +1066,7 @@ of custom tags
 in our examples.
 There are some more advanced custom tagging features
 which you can explore
-in the {{< extlink "https://docs.djangoproject.com/en/3.0/howto/custom-template-tags/" "Django custom template tags documentation" >}}.
+in the {{< extlink "https://docs.djangoproject.com/en/4.0/howto/custom-template-tags/" "Django custom template tags documentation" >}}.
 
 ## Summary
 
@@ -1046,7 +1080,12 @@ We've looked at:
 * Built-in tags and filters available to templates
 * Customizing templates with your own code extensions
 
+{{< web >}}
 In the next article,
+{{< /web >}}
+{{< book >}}
+In the next chapter,
+{{< /book >}}
 we are going to examine
 how users can send data to a Django application
 with HTML forms.
@@ -1055,10 +1094,11 @@ to make form building quick and effective.
 We're going to see:
 
 * The `Form` class that Django uses to handle form data in Python
-* Controling what fields are in forms
+* Controlling what fields are in forms
 * How forms are rendered to users by Django
 * How to do form validation
 
+{{< web >}}
 If you'd like to follow along
 with the series,
 please feel free to sign up
@@ -1069,3 +1109,4 @@ you can reach me online
 on Twitter
 where I am
 {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+{{< /web >}}

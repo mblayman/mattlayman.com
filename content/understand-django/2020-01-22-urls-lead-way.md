@@ -62,8 +62,9 @@ where "project" is the name given
 as an argument
 to the command.
 In other words,
-the URLconf is placed right next to the `settings.py` file
-in `project/urls.py`.
+the URLconf is placed
+in `project/urls.py`,
+right next to the `settings.py` file.
 
 That explains where the file resides,
 but it doesn't tell us much
@@ -109,8 +110,7 @@ urlpatterns = [
 ```
 
 What's here matches well
-with the description
-that I described above:
+with what I described above:
 a list of URL paths
 that Django will try to match
 from top to bottom.
@@ -130,24 +130,24 @@ of how that can happen
 after we see another aspect
 of paths.
 
-We can work through this example
+We can work through an example
 to see how this would work
-for `www.acme.com`.
+for `www.example.com`.
 When considering a URL
 in a URLconf,
-Django does not use the scheme (`https://`),
-the domain (`www.acme.com`),
-or the leading slash
+Django ignores the scheme (`https://`),
+the domain (`www.example.com`),
+and the leading slash
 for matching.
 Everything else is what the URLconf will match against.
 
-* A request to `https://www.acme.com/about/` will look
+* A request to `https://www.example.com/about/` will look
     like `"about/"`
     to the pattern matching process
     and match the second `path`.
     That request would route
     to the `views.about` view.
-* A request to `https://www.acme.com/` will look
+* A request to `https://www.example.com/` will look
     like `""`
     to the pattern matching process
     and match the first `path`.
@@ -160,7 +160,7 @@ that Django URLs end
 with a slash character.
 In fact,
 if you attempt to reach a URL
-like `https://www.acme.com/about`,
+like `https://www.example.com/about`,
 Django will redirect the request
 to the same URL
 with the slash appended
@@ -232,9 +232,9 @@ Each converter has some expected rules to follow.
 Given those converter definitions,
 let's compare against some URLs!
 
-* `https://www.acme.com/blog/2020/urls-lead-way/` - MATCH!
-* `https://www.acme.com/blog/twenty-twenty/urls-lead-way/` - NOPE.
-* `https://www.acme.com/blog/0/life-in-rome/` - MATCH!
+* `https://www.example.com/blog/2020/urls-lead-way/` - MATCH!
+* `https://www.example.com/blog/twenty-twenty/urls-lead-way/` - NOPE.
+* `https://www.example.com/blog/0/life-in-rome/` - MATCH!
     Uh, maybe not what we wanted though.
     Let's look at that soon.
 
@@ -267,7 +267,7 @@ in different orders:
 
 In the first ordering,
 the converter will match any integer following `blog/`,
-including `https://www.acme.com/blog/2020/`.
+including `https://www.example.com/blog/2020/`.
 That means that the first ordering will never call the `blog_for_twenty_twenty` view
 because Django matches `path` entries in order.
 
@@ -280,14 +280,14 @@ to remember here:
 
 {{< web >}}
 > When including `path` entries that match
-    on ranges
-    with converters,
+    on ranges of values
+    with converters (like the years example above),
     be sure to put them **after** the more specific entries.
 {{< /web >}}
 {{< book >}}
 When including `path` entries that match
-    on ranges
-    with converters,
+    on ranges of values
+    with converters (like the years example above),
     be sure to put them **after** the more specific entries.
 {{< /book >}}
 
@@ -308,7 +308,7 @@ but here's a primer.
 A view is code
 that takes a request
 and returns a response.
-Using Python's optional type checking,
+Using Python's optional type hinting,
 here's an example
 that will send a `Hello World` response.
 
@@ -399,9 +399,8 @@ and match patterns
 in a very concise way.
 This conciseness often gives regular expressions a bad reputation
 of being difficult to understand.
-When used carefully though,
-they can be a great tool
-for a job.
+When used carefully, though,
+they can be highly effective.
 
 One job that a regular expression
 (which is often abbreviated to "regex")
@@ -481,6 +480,10 @@ at a time.
     "the pattern must *end* here."
     Thus, `blog/2020/some-slug/another-slug/` will not match.
 
+Note that you cannot mix the `path` style and `re_path` style strings.
+The example above had to describe the slug as a regular expression
+instead of using the slug converter (i.e., `<slug:slug>`).
+
 Congratulations!
 This is definitely the hardest section
 {{< web >}}
@@ -508,7 +511,7 @@ Knowing that this power
 with `re_path`
 is there may help you later
 on your Django journey,
-even if you don't need it today.
+even if you don't need it now.
 
 ## Grouping Related URLs
 
@@ -638,7 +641,7 @@ from django.http import (
 )
 
 def old_blog_categories(request):
-    return HttpRequestRedirect(
+    return HttpResponseRedirect(
         "/blog/categories/"
     )
 ```
@@ -698,7 +701,7 @@ from django.http import (
 from django.urls import reverse
 
 def old_blog_categories(request):
-    return HttpRequestRedirect(
+    return HttpResponseRedirect(
         reverse("blog_categories")
     )
 ```
@@ -747,8 +750,8 @@ to something in the real world,
 let's use trusty buckets.
 Imagine you have two red balls
 and two blue balls.
-Put one color ball
-in one of two buckets labeled "A" and "B."
+Put one ball of each color
+in each of the two buckets labeled "A" and "B."
 If I wanted a specific blue ball,
 I can't say "please give me the blue ball"
 because that would be ambiguous.
@@ -856,6 +859,12 @@ we've seen how to:
 In the next article,
 we'll dig into views.
 This article only gave the briefest definition
+{{< /web >}}
+{{< book >}}
+In the next chapter,
+we'll dig into views.
+This chapter only gave the briefest definition
+{{< /book >}}
 to what a view is.
 Django gives us very rich options
 when working with views.
@@ -866,6 +875,7 @@ We're going to explore:
 * Some built-in supporting views
 * Decorators that supercharge views.
 
+{{< web >}}
 If you'd like to follow along
 with the series,
 please feel free to sign up
