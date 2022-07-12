@@ -519,11 +519,6 @@ to any template
 in your project.
 That's super powerful.
 
-<div class='sidebar'>
-
-<h4>Sidebar</h4>
-
-<p>
 Don't be afraid to look at the source code
 of the projects
 that you depend on.
@@ -532,9 +527,6 @@ You can learn valuable lessons
 from what they did.
 The code might be a little intimidating at first,
 but there is no magic going on!
-</p>
-
-</div>
 
 The "dark side" of context processors is
 that they run for all requests.
@@ -823,7 +815,9 @@ By removing the extra space,
 you may get a more consistent experience
 with your CSS styling
 and save yourself some frustration.
+{{< web >}}
 (I had to trim the output to fit better on the screen.)
+{{< /web >}}
 
 There is another kind of built-in
 that we have not looked at yet.
@@ -885,7 +879,12 @@ It is the Django template equivalent to the `len` function.
 
 I like the `linebreaks` filter a lot.
 If you create a form
+{{< web >}}
 (which we'll explore in the next article)
+{{< /web >}}
+{{< book >}}
+(which we'll explore in the next chapter)
+{{< /book >}}
 and accept a text area field where the user is allowed
 to provide newlines,
 then the `linebreaks` filter is great
