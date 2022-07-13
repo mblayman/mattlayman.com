@@ -281,7 +281,7 @@ Some of the common `HttpResponse` attributes include:
     of a request.
     `200` is the usual success code.
     Any number from `400` and up will indicate some error,
-    like `404` when something is not found.
+    like `404` when a requested resource is not found.
 * `content` - This is the content
     that you provide to the user.
     The response stores this data as bytes.
