@@ -59,7 +59,7 @@ You might notice
 that I'm a bit vague
 about "chunk of code."
 That was deliberate.
-The reason is because views come
+The reason is that views come
 in multiple forms.
 To call views *functions*
 would only be part
@@ -81,9 +81,8 @@ to views.
 
 ## Function Views
 
-A function view is exactly that, a function.
-The function takes an instance
-of `HttpRequest`
+A function view is precisely that, a function.
+The function takes an `HttpRequest` instance
 as input
 and returns an `HttpResponse`
 (or one of its many subclasses)
@@ -100,7 +99,7 @@ def hello_world(request):
     return HttpResponse('Hello World')
 ```
 
-If you added that view
+Adding the `hello_world` view
 to a URL configuration
 which we learned about
 {{< web >}}
@@ -109,7 +108,7 @@ in the last article,
 {{< book >}}
 in the last chapter,
 {{< /book >}}
-then you could visit a browser
+you could visit a browser
 at the URL
 and find the text "Hello World"
 on your browser page.
@@ -131,17 +130,17 @@ Django does most of the heavy lifting
 for us.
 The raw HTTP request fits neatly
 into the `HttpRequest` class.
-Our example view doesn't make any use
-of that information,
+Our example view doesn't use that information,
 but it's accessible
 if we need it.
 Likewise,
 we're not using much
-of `HttpResponse`,
-but it's doing all the work
-to make sure it can appear
+of `HttpResponse`.
+Still,
+it's doing all the work
+to ensure it appears
 on a user's browser
-and deliver our message.
+and delivers our message.
 
 To see what we can do with views,
 let's look closely
@@ -189,13 +188,13 @@ to make the content a bit clearer.
 
 When Django receives a request like this,
 it will parse the data
-and store the data in an `HttpRequest` instance.
+and store it in an `HttpRequest` instance.
 The request provides convenient access
 to all parts
 of the raw data
 with helpful attributes
 for the most commonly used parameters.
-Considering the example,
+When considering the example,
 the request would have:
 
 * `method` - This matches the HTTP method of `POST`
@@ -205,7 +204,7 @@ the request would have:
     on how to handle the data
     in the request.
     The example value would be `application/x-www-form-urlencoded `
-    to indicate that this is user submitted form data.
+    to indicate that this is user-submitted form data.
 * `POST` - For POST requests,
     Django processes the form data
     and stores the data
@@ -241,7 +240,7 @@ if you need user management
 {{< book >}}
 (which we will explore in a future chapter),
 {{< /book >}}
-then there is code
+there is code
 that can attach a `request.user` attribute
 to represent a user
 in your system.
@@ -281,7 +280,7 @@ Some of the common `HttpResponse` attributes include:
     that you provide to the user.
     The response stores this data as bytes.
     If you supply Python string data,
-    Django will encode to bytes for you.
+    Django will encode it to bytes for you.
 
 ```python
 >>> from django.http import HttpResponse
@@ -440,10 +439,10 @@ And we would have another file named `template.html` containing:
 ```
 
 {{< web >}}
-The important part for this article is not about templates themselves.
+The important part for this article is not about the templates themselves.
 {{< /web >}}
 {{< book >}}
-The important part for this chapter is not about templates themselves.
+The important part for this chapter is not about the templates themselves.
 {{< /book >}}
 What's worth noting is that `render` returns an `HttpResponse` instance
 that will contain the rendered template
@@ -509,9 +508,9 @@ urlpatterns = [
 
 Note that we don't pass `SampleView`
 to `path` as is.
-`path` expects a callable object
-so we must call `as_view`
-which is a class method
+`path` expects a callable object,
+so we must call `as_view`,
+a class method
 that returns a function
 that will call the code
 in our class.
@@ -520,15 +519,15 @@ At this point,
 I would be suitably unimpressed
 if I were in your shoes.
 Why would we add all
-of this boilerplate code
+this boilerplate code
 when you can make a function
 and be done?
 If this were the full story,
 I would absolutely agree with you.
-This doesn't add much
+A class-based view doesn't add much
 beyond the function-based version.
 If anything,
-it has more to remember
+it has more to remember,
 so it's probably more confusing.
 
 Where class-based views begin
@@ -548,7 +547,7 @@ to the full framework so far.
 ## Out Of The Box Views
 
 I won't exhaustively cover all the class-based views
-because there are a lot of them.
+because there are many.
 Also,
 {{< web >}}
 if you're joining this article series
@@ -565,8 +564,7 @@ and some of the views will not make much sense.
 
 ### RedirectView
 
-This is a view to use
-when you want to send users
+Use `RedirectView` to send users
 of your site
 to a different place.
 You *could* make a view
@@ -594,7 +592,7 @@ urlpatterns = [
 ```
 
 `RedirectView` can use `url`
-for a full URL
+for a full URL,
 or it can use `pattern_name`
 if you need to route
 to a view
@@ -631,7 +629,7 @@ Earlier in the article,
 {{< book >}}
 Earlier in the chapter,
 {{< /book >}}
-we saw briefly how we can separate web page layout
+we briefly saw how to separate web page layout
 from the logic needed
 to build a page
 with templates.
@@ -674,7 +672,7 @@ Django has views that will:
 * Pull data from a database
     and show an individual record
     to the user
-    (e.g., a webpage to see facts about an individual movie).
+    (e.g., a webpage to see facts about a particular movie).
 * Pull data from a database
     and show information
     from a collection of records
@@ -711,10 +709,10 @@ with additional capabilities.
 A decorator can wrap a view function
 to provide new behavior
 to a view.
-This is useful
+Decorators are helpful
 when you have common functionality
 that you want to add to many views
-without copying and pasting a lot of code around.
+without copying and pasting a lot of code.
 
 Mixin classes serve a very similar purpose
 as decorators,
@@ -768,7 +766,7 @@ def if_clause_view(request):
         raise Http404()
 ```
 
-Both of these techniques work,
+Both techniques work,
 but the code is a little messier
 because of the extra indentation.
 Instead, we can use the `require_POST` decorator
@@ -919,13 +917,12 @@ if you want to learn more.
 
 There are plenty
 of other mixin classes.
-In fact,
-most of Django's built-in class-based views are constructed
+Most of Django's built-in class-based views are constructed
 by composing various mixin classes together.
 If you'd like to see how they are constructed,
-check out {{< extlink "https://ccbv.co.uk/" "Classy Class-Based Views" >}}
-which is a site showing the built-in CBVs
-along with the mixins and attributes available
+check out {{< extlink "https://ccbv.co.uk/" "Classy Class-Based Views" >}},
+a site showing the built-in CBVs
+and the mixins and attributes available
 to those classes.
 
 ## Summary
