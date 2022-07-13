@@ -182,7 +182,12 @@ This example is from a side project
 that uses school data.
 I have trimmed some lines out
 of the request so it will fit better
+{{< web >}}
 on the screen,
+{{< /web >}}
+{{< book >}}
+on the page,
+{{< /book>}}
 and I did some slight reformatting
 to make the content a bit clearer.
 
@@ -275,7 +280,7 @@ Some of the common `HttpResponse` attributes include:
     of a request.
     `200` is the usual success code.
     Any number from `400` and up will indicate some error,
-    like `404` when something is not found.
+    like `404` when a requested resource is not found.
 * `content` - This is the content
     that you provide to the user.
     The response stores this data as bytes.
