@@ -146,7 +146,7 @@ To see what we can do with views,
 let's look closely
 at `HttpRequest` and `HttpResponse`
 to get a glimpse
-and what's going on.
+at what's going on.
 
 ## HttpRequest
 
@@ -228,7 +228,7 @@ the request would have:
 
 Other attributes are available
 to `HttpRequest`,
-but that list will get you far to get started.
+but that list will get you far enough to get started.
 
 I should also note
 that `HttpRequest` instances are a common place
@@ -532,8 +532,8 @@ I would absolutely agree with you.
 A class-based view doesn't add much
 beyond the function-based version.
 If anything,
-it has more to remember,
-so it's probably more confusing.
+CBVs have more to remember,
+so they are probably more confusing.
 
 Where class-based views begin
 to shine

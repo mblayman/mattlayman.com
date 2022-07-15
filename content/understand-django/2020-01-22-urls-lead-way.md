@@ -671,13 +671,13 @@ We do this with the `name` keyword argument to `path`.
 # project/urls.py
 from django.urls import path
 
-from blog import views as blog_views
+from blog import views
 
 urlpatterns = [
     ...
     path(
         "/marketing/blog/categories/",
-        blog_views.categories,
+        views.categories,
         name="blog_categories"
     ),
     ...
