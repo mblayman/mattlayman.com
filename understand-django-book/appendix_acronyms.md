@@ -8,7 +8,9 @@ This list is a reference to some of the acronyms found in this book.
 **DNS:**
 Domain Name System -
 DNS is the system that the internet uses to manage names
-of websites (e.g., `www.djangoproject.com`) to help route requests.
+of websites (e.g., `www.djangoproject.com`)
+to map to IP addresses
+to help route requests.
 
 **HTML:**
 Hypertext Markup Language -
