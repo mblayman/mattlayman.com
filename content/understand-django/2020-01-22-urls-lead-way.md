@@ -442,6 +442,12 @@ we have to know what the parts of the pattern mean.
 We can explain this pattern one chunk
 at a time.
 
+* The string itself starts with `r"`
+    because it is a raw string in Python.
+    This is used because regular expressions use `\` extensively.
+    Without a raw string,
+    a developer would have to escape the backslash repeatedly
+    by using `\\`.
 * The caret, `^`, means "the pattern must *start* here."
     Because of the caret,
     a path that starts like `myblog/...` will not work.

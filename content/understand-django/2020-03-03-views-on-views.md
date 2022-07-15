@@ -315,7 +315,8 @@ Let's look at some:
 * `HttpResponseForbidden` - This type of response can be used
     when you don't want a user
     to access a part
-    of your website.
+    of your website
+    (i.e., HTTP status `403 Forbidden`).
 * `JsonResponse` - I haven't focused on JSON yet
     in this series,
     but it's a data format which matches closely
@@ -340,7 +341,8 @@ Let's look at some:
 * `HttpResponseForbidden` - This type of response happens
     when you don't want a user
     to access a part
-    of your website.
+    of your website
+    (i.e., HTTP status `403 Forbidden`).
 * `JsonResponse` - I haven't focused on JSON yet
     in this book,
     but it's a data format which matches closely
