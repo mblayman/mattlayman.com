@@ -5,6 +5,17 @@ This list is a reference to some of the acronyms found in this book.
 
 **BETA READERS**: Did I miss one? Let me know.
 
+**CSRF:**
+Cross-Site Request Forgery -
+CSRF is a kind of security problem
+that can cause a web application to execute unwanted actions
+using a user's credentials.
+
+**CSS:**
+Cascading Style Sheets -
+A language used on the web to describe the presentation
+of markup on a webpage
+
 **DNS:**
 Domain Name System -
 DNS is the system that the internet uses to manage names
@@ -25,6 +36,11 @@ that describes how to communicate content
 between different machines
 on the internet.
 
+**HTTPS:**
+Hypertext Transfer Protocol Secure -
+HTTPS is the HTTP protocol
+over a secure (i.e., encrypted) connection.
+
 **ICANN:**
 Internet Corporation for Assigned Names and Numbers -
 This non-profit corporation maintains the domain name system
@@ -36,11 +52,21 @@ The Internet Protcol is a networking protocol
 that defines how machines can communicate
 on the internet.
 
+**MDN:**
+Mozilla Developer Network -
+MDN Web Docs is an open-source,
+collaborative project documenting web platform technologies.
+
 **MRO:**
 Method Resolution Order -
 The rules that Python follows
 when handling multiple inheritance
 in classes
+
+**OWASP:**
+Open Web Application Security Project -
+A nonprofit foundation that works to improve the security of software
+on the web
 
 **PEP:**
 Python Enhancement Proposal -
