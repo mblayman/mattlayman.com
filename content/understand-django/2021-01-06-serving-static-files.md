@@ -220,6 +220,7 @@ for a static file for your site.
 
 Here's an example template to consider:
 
+{{< web >}}
 ```django
 {% load static %}
 <!DOCTYPE html>
@@ -232,6 +233,21 @@ Here's an example template to consider:
 </body>
 </html>
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static "css/site.css" %}">
+</head>
+<body>
+  <h1>Example of static template tag!</h1>
+</body>
+</html>
+```
+{{< /book >}}
 
 In this example,
 I'm assuming that there is a `css` directory

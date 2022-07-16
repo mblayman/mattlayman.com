@@ -341,9 +341,16 @@ This is the path that we can reference
 in templates.
 An image tag template fragment would like:
 
+{{< web >}}
 ```django
 <img src="{{ profile.picture.url }}">
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+<img src="{{ profile.picture.url }}">
+```
+{{< /book >}}
 
 The Django documentation shows how file storage is a specific interface.
 `FileSystemStorage` happens to be included

@@ -428,7 +428,11 @@ from the logic.
 from django.shortcuts import render
 
 def my_html_view(request):
-    return render(request, "template.html", {})
+    return render(
+        request,
+        "template.html",
+        {}
+    )
 ```
 
 And we would have another file named `template.html` containing:

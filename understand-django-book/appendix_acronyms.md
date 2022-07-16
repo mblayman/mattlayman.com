@@ -16,6 +16,10 @@ Cascading Style Sheets -
 A language used on the web to describe the presentation
 of markup on a webpage
 
+**DB:**
+Database -
+DB is the conventional short name for database.
+
 **DNS:**
 Domain Name System -
 DNS is the system that the internet uses to manage names
@@ -63,6 +67,11 @@ The rules that Python follows
 when handling multiple inheritance
 in classes
 
+**ORM:**
+Object Relational Mapper -
+An ORM is a technique to translate objects (e.g., Python classes)
+into a relational database.
+
 **OWASP:**
 Open Web Application Security Project -
 A nonprofit foundation that works to improve the security of software
@@ -80,6 +89,10 @@ or the Python language itself.
 Regular Expression -
 A regex is a concise string definition
 that enables pattern matching and parsing for strings.
+
+**SQL:**
+Structured Query Language -
+SQL is the language used to interact with a relational database.
 
 **TLD:**
 Top Level Domain -

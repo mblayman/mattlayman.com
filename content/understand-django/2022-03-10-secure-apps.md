@@ -148,6 +148,7 @@ A CSRF token works by including a generated value
 that gets submitted along with the form.
 The template looks like:
 
+{{< web >}}
 ```django
 <form method="POST">
   {% csrf_token %}
@@ -155,6 +156,16 @@ The template looks like:
   <input type="submit">
 </form>
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+<form method="POST">
+  {% csrf_token %}
+  <input name="myvalue">
+  <input type="submit">
+</form>
+```
+{{< /book >}}
 
 When this renders,
 the result would be something like:

@@ -240,9 +240,16 @@ This method will use paragraph tags instead
 for the form elements.
 If the template looks like:
 
+{{< web >}}
 ```django
 {{ form.as_p }}
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+{{ form.as_p }}
+```
+{{< /book >}}
 
 Then Django will render:
 
@@ -284,6 +291,7 @@ sprinkle the token into your forms
 with Django's built-in template tag
 and everything should work.
 
+{{< web >}}
 ```django
 <form action="{% url "some-form-view" %}" method="POST">
     {% csrf_token %}
@@ -293,6 +301,18 @@ and everything should work.
         value="Send the form!"></p>
 </form>
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+<form action="{% url "some-form-view" %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><input
+        type="submit"
+        value="Send the form!"></p>
+</form>
+```
+{{< /book >}}
 
 That's how a form gets displayed.
 Now let's look at a view that handles the form properly.

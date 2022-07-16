@@ -357,11 +357,20 @@ with two core tags, `if` and `for`.
 The `if` tag is for handling conditional logic
 that your template might need.
 
+{{< web >}}
 ```django
 {% if user.is_authenticated %}
     <h1>Welcome, {{ user.username }}</h1>
 {% endif %}
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+{% if user.is_authenticated %}
+    <h1>Welcome, {{ user.username }}</h1>
+{% endif %}
+```
+{{< /book >}}
 
 This example will only include this welcome message HTML header tag
 when the user is logged in
@@ -381,6 +390,7 @@ there are also `else` and `elif` tags
 that are accepted inside
 of an `if`/`endif` pair.
 
+{{< web >}}
 ```django
 {% if user.is_authenticated %}
     <h1>Welcome, {{ user.username }}</h1>
@@ -388,6 +398,16 @@ of an `if`/`endif` pair.
     <h1>Welcome, guest</h1>
 {% endif %}
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+{% if user.is_authenticated %}
+    <h1>Welcome, {{ user.username }}</h1>
+{% else %}
+    <h1>Welcome, guest</h1>
+{% endif %}
+```
+{{< /book >}}
 
 In this case, only one of the header tags will render
 depending on whether the user is authenticated or not.
@@ -399,6 +419,7 @@ A `for` loop
 in Django templates
 behaves as you might expect.
 
+{{< web >}}
 ```django
 <p>Prices:</p>
 <ul>
@@ -407,6 +428,17 @@ behaves as you might expect.
 {% endfor %}
 </ul>
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+<p>Prices:</p>
+<ul>
+{% for item in items %}
+    <li>{{ item.name }} costs {{ item.price }}.</li>
+{% endfor %}
+</ul>
+```
+{{< /book >}}
 
 Django will loop over iterables
 like lists
@@ -446,12 +478,22 @@ like `first` and `last`
 that you can use to make templates behave differently
 on certain loop iterations.
 
+{{< web >}}
 ```django
 Counting:
 {% for number in first_three_numbers %}
     {{ number }}{% if forloop.last %} is last!{% endif %}
 {% endfor %}
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+Counting:
+{% for number in first_three_numbers %}
+    {{ number }}{% if forloop.last %} is last!{% endif %}
+{% endfor %}
+```
+{{< /book >}}
 
 This example would produce:
 
@@ -604,6 +646,7 @@ Django helps you avoid this scenario entirely
 with a few tags.
 Let's make a new template called `base.html`.
 
+{{< web >}}
 ```django
 <!DOCTYPE html>
 <html>
@@ -615,11 +658,28 @@ Let's make a new template called `base.html`.
     </body>
 </html>
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet"
+            type="text/css"
+            href="styles.css">
+    </head>
+    <body>
+        {% block main %}{% endblock %}
+    </body>
+</html>
+```
+{{< /book >}}
 
 We've created a reusable template with the `block` tag!
 We can fix up our homepage
 to use this new template.
 
+{{< web >}}
 ```django
 {% extends "base.html" %}
 
@@ -627,6 +687,16 @@ to use this new template.
     <h1>Hello from the Home page</h1>
 {% endblock %}
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+{% extends "base.html" %}
+
+{% block main %}
+    <h1>Hello from the Home page</h1>
+{% endblock %}
+```
+{{< /book >}}
 
 This new version of the homepage *extends* the base template.
 All the template had to do was define its own version
@@ -674,6 +744,7 @@ is now harder.
 We can decompose the template
 into smaller pieces.
 
+{{< web >}}
 ```django
 <!DOCTYPE html>
 <html>
@@ -685,6 +756,20 @@ into smaller pieces.
     {% include "footer.html" %}
 </html>
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+<!DOCTYPE html>
+<html>
+    {% include "head.html" %}
+    <body>
+        {% include "navigation.html" %}
+        {% block main %}{% endblock %}
+    </body>
+    {% include "footer.html" %}
+</html>
+```
+{{< /book >}}
 
 The `include` tag can move those extra pieces around.
 By providing a good name to your templates,
@@ -752,9 +837,16 @@ Instead,
 our template can directly create the proper URL.
 Here's what `a_template.html` might look like instead:
 
+{{< web >}}
 ```django
 <a href="{% url "a_named_view" %}">Go to a named view</a>
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+<a href="{% url "a_named_view" %}">Go to a named view</a>
+```
+{{< /book >}}
 
 The `url` tag is the template equivalent
 of the `reverse` function.
@@ -775,9 +867,16 @@ you can tell your template how to display the current time.
 Want to add a current copyright year to your website?
 No problem!
 
+{{< web >}}
 ```django
 &copy; {% now "Y" %} Your Company LLC.
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+&copy; {% now "Y" %} Your Company LLC.
+```
+{{< /book >}}
 
 One final built-in tag to consider is the `spaceless` tag.
 HTML is *partially* sensitive to whitespace.
@@ -802,6 +901,7 @@ when working with CSS.
 Knowing that the whitespace can affect layout,
 we can use `spaceless` like so:
 
+{{< web >}}
 ```django
 {% spaceless %}
 <ul class="navigation">
@@ -810,6 +910,17 @@ we can use `spaceless` like so:
 </ul>
 {% endspaceless %}
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+{% spaceless %}
+<ul class="navigation">
+    <li><a href="/home/">Home</a></li>
+    <li><a href="/about/">About</a></li>
+</ul>
+{% endspaceless %}
+```
+{{< /book >}}
 
 This neat little template tag will remove all the spaces
 between HTML tags
@@ -833,9 +944,17 @@ in your templates.
 The filter syntax is a bit interesting.
 It looks like:
 
+{{< web >}}
 ```django
 Here's a filter example: {{ a_variable|some_filter:"filter arguments" }}
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+Here's a filter example:
+{{ a_variable|some_filter:"filter arguments" }}
+```
+{{< /book >}}
 
 The important element is the pipe character directly
 after a variable.
@@ -857,9 +976,16 @@ The `date` {{< extlink "https://docs.djangoproject.com/en/4.0/ref/templates/buil
 what options you can use
 to modify the format.
 
+{{< web >}}
 ```django
 {{ a_datetime|date:"Y-m-d" }}
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+{{ a_datetime|date:"Y-m-d" }}
+```
+{{< /book >}}
 
 If `a_datetime` was an instance of April Fools' Day,
 then it could return a string like `2020-04-01`.
@@ -874,9 +1000,16 @@ with an empty string.
 The example below outputs "Nothing to see here"
 if the variable was Falsy.
 
+{{< web >}}
 ```django
 {{ a_variable|default:"Nothing to see here." }}
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+{{ a_variable|default:"Nothing to see here." }}
+```
+{{< /book >}}
 
 `length` is a simple filter
 for lists.
@@ -904,9 +1037,16 @@ let's consider two more.
 for the times when your text considers counts
 of things. Consider a count of items.
 
+{{< web >}}
 ```django
 {{ count_items }} item{{ count_items|pluralize }}
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+{{ count_items }} item{{ count_items|pluralize }}
+```
+{{< /book >}}
 
 The `pluralize` tag will do the right thing
 if there are zero, one, or more items
@@ -929,9 +1069,16 @@ and a person's attendance is one
 of those three values.
 Our template might look like:
 
+{{< web >}}
 ```django
 {{ user.name }} has {{ user_accepted|yesno:"accepted,declined,not RSVPed" }}.
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+{{ user.name }} has {{ user_accepted|yesno:"accepted,declined,not RSVPed" }}.
+```
+{{< /book >}}
 
 Depending on the value of `user_accepted`,
 the template will display something meaningful
@@ -1012,11 +1159,20 @@ we must load our tags module
 into the template
 with the `load` tag.
 
+{{< web >}}
 ```django
 {% load custom_tags %}
 
 {{ message|add_pizzazz }}
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+{% load custom_tags %}
+
+{{ message|add_pizzazz }}
+```
+{{< /book >}}
 
 If our message was "You got a perfect score!",
 then our template should show the message
@@ -1050,11 +1206,20 @@ def champion_welcome(name, level):
 
 We can load the custom tags and use our tag like any other built-in tag.
 
+{{< web >}}
 ```django
 {% load custom_tags %}
 
 {% champion_welcome "He-Man" 50 %}
 ```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+{% load custom_tags %}
+
+{% champion_welcome "He-Man" 50 %}
+```
+{{< /book >}}
 
 This silly welcome tag will respond
 to multiple input variables
