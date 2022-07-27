@@ -5,6 +5,11 @@ This list is a reference to some of the acronyms found in this book.
 
 **BETA READERS**: Did I miss one? Let me know.
 
+**CRUD:**
+Create, Read, Update, Delete -
+CRUD represents the most common operations
+that exist for virtually all web applications.
+
 **CSRF:**
 Cross-Site Request Forgery -
 CSRF is a kind of security problem

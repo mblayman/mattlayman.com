@@ -22,16 +22,23 @@ series: "Understand Django"
 
 ---
 
+{{< web >}}
 In the previous
 [Understand Django]({{< ref "/understand-django/_index.md" >}})
 article,
 we used models
 to see how Django stores data
 in a relational database.
+{{< /web >}}
 We covered all the tools
 to bring your data to life
 in your application.
+{{< web >}}
 In this article,
+{{< /web >}}
+{{< book >}}
+In this chapter,
+{{< /book >}}
 we will focus
 on the built-in tools
 that Django provides
@@ -185,8 +192,12 @@ of a book.
 from django.db import models
 
 class Book(models.Model):
-    title = models.CharField(max_length=256)
-    author = models.CharField(max_length=256)
+    title = models.CharField(
+        max_length=256
+    )
+    author = models.CharField(
+        max_length=256
+    )
 ```
 
 Now we can create a `ModelAdmin` class
@@ -308,7 +319,7 @@ As such,
 mastering the Django admin site
 is all about mastering the `ModelAdmin` options
 that are listed
-{{< extlink "https://docs.djangoproject.com/en/3.0/ref/contrib/admin/#modeladmin-options" "in the documentation" >}}.
+{{< extlink "https://docs.djangoproject.com/en/4.0/ref/contrib/admin/#modeladmin-options" "in the documentation" >}}.
 That list is long,
 but don't be discouraged!
 I think that you can get about 80%
@@ -365,16 +376,20 @@ Suppose that the `Book` model has a category field.
 # application/models.py
 
 class Book(models.Model):
-    class Category(models.IntegerChoices):
+    class Category(
+        models.IntegerChoices
+    ):
         SCI_FI = 1
         FANTASY = 2
         MYSTERY = 3
         NON_FICTION = 4
 
-    title = models.CharField(max_length=256)
-    author = models.CharField(max_length=256)
+    # ... title and author from before
+
     category = models.IntegerField(
-        choices=Category.choices, default=Category.SCI_FI)
+        choices=Category.choices,
+        default=Category.SCI_FI
+    )
 ```
 
 By using the `list_filter` attribute,
@@ -415,20 +430,14 @@ let's give the model a `published_date`.
 # application/models.py
 
 class Book(models.Model):
-    class Category(models.IntegerChoices):
-        SCI_FI = 1
-        FANTASY = 2
-        MYSTERY = 3
-        NON_FICTION = 4
+    # ... title, author, category
 
-    title = models.CharField(max_length=256)
-    author = models.CharField(max_length=256)
-    category = models.IntegerField(
-        choices=Category.choices, default=Category.SCI_FI)
-    published_date = models.DateField(default=datetime.date.today)
+    published_date = models.DateField(
+        default=datetime.date.today
+    )
 ```
 
-We can can also change the `ModelAdmin`
+We can also change the `ModelAdmin`
 to use the new field.
 
 ```python
@@ -505,7 +514,9 @@ on the field.
 The `QuerySet` would be something like:
 
 ```python
-search_results = Book.objects.filter(author__icontains="tolkien")
+search_results = Book.objects.filter(
+    author__icontains="tolkien"
+)
 ```
 
 The results wouldn't compete well
@@ -529,19 +540,15 @@ to track an editor.
 from django.contrib.auth.models import User
 
 class Book(models.Model):
-    class Category(models.IntegerChoices):
-        SCI_FI = 1
-        FANTASY = 2
-        MYSTERY = 3
-        NON_FICTION = 4
+    # ... title, author, category
+    # published_date from before
 
-    title = models.CharField(max_length=256)
-    author = models.CharField(max_length=256)
-    category = models.IntegerField(
-        choices=Category.choices, default=Category.SCI_FI)
-    published_date = models.DateField(default=datetime.date.today)
     editor = models.ForeignKey(
-        User,null=True, blank=True, on_delete=models.CASCADE)
+        User,
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE
+    )
 ```
 
 On the admin page
@@ -613,20 +620,10 @@ to the `Book` model.
 # application/models.py
 
 class Book(models.Model):
-    class Category(models.IntegerChoices):
-        SCI_FI = 1
-        FANTASY = 2
-        MYSTERY = 3
-        NON_FICTION = 4
+    # ... title, author, category
+    # published_date, editor from before
 
-    title = models.CharField(max_length=256)
     slug = models.SlugField()
-    author = models.CharField(max_length=256)
-    category = models.IntegerField(
-        choices=Category.choices, default=Category.SCI_FI)
-    published_date = models.DateField(default=datetime.date.today)
-    editor = models.ForeignKey(
-        User, null=True, blank=True, on_delete=models.CASCADE)
 ```
 
 What is the benefit
@@ -698,7 +695,10 @@ We could add a model like:
 # application/models.py
 
 class Review(models.Model):
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    book = models.ForeignKey(
+        Book,
+        on_delete=models.CASCADE
+    )
     rating = models.IntegerField()
     comment = models.TextField()
 ```
@@ -768,7 +768,7 @@ of records.
 
 In the default admin site,
 there is an action
-that let's administrators delete records.
+that lets administrators delete records.
 If you select some rows
 with the checkboxes
 on the left hand side,
@@ -861,7 +861,11 @@ class BookAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     search_fields = ("author",)
 
-    def set_premiere(self, request, queryset):
+    def set_premiere(
+        self,
+        request,
+        queryset
+    ):
         if len(queryset) == 1:
             book = queryset[0]
             update_premiere(book)
@@ -889,7 +893,12 @@ in their applications.
 
 ## Summary
 
+{{< web >}}
 In this article,
+{{< /web >}}
+{{< book >}}
+In this chapter,
+{{< /book >}}
 we looked
 at the built-in Django administrator's site.
 This powerful extension gives us the ability
@@ -920,6 +929,7 @@ We will explore:
 * How Django identifies and loads applications
 * Why applications are crucial for the Django ecosystem
 
+{{< web >}}
 If you'd like to follow along
 with the series,
 please feel free to sign up
@@ -930,3 +940,4 @@ you can reach me online
 on Twitter
 where I am
 {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+{{< /web >}}

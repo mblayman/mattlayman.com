@@ -496,6 +496,13 @@ class SampleView(View):
 The `get` method
 on the class
 corresponds to a `GET` HTTP request.
+`*args` and `**kwargs` are a common convention
+in Python
+to make a method or function
+that accepts any number
+of positional or keyword based arguments.
+We need these to match the expect method signature
+that Django requires for CBVs.
 Similarly,
 you would write a `post` method
 to respond to a `POST` HTTP request
