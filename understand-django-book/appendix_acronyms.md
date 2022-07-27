@@ -5,6 +5,10 @@ This list is a reference to some of the acronyms found in this book.
 
 **BETA READERS**: Did I miss one? Let me know.
 
+**CBV:**
+Class-based view -
+A Django view that uses a Python class
+
 **CRUD:**
 Create, Read, Update, Delete -
 CRUD represents the most common operations
@@ -31,6 +35,10 @@ DNS is the system that the internet uses to manage names
 of websites (e.g., `www.djangoproject.com`)
 to map to IP addresses
 to help route requests.
+
+**FBV:**
+Function-based view -
+A Django view that uses a Python function
 
 **HTML:**
 Hypertext Markup Language -

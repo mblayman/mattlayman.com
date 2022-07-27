@@ -33,6 +33,9 @@ on templates.
 Templates are your primary tool
 in a Django project
 for generating a user interface.
+With templates,
+you'll be able to build the pages
+that users will see when they visit your web app.
 Let's see how templates hook into views
 and what features Django provides
 with its template system.
@@ -163,14 +166,15 @@ to produce a final output.
 To produce an `HttpResponse`
 that contains rendered output,
 we use the `render` function.
-Let's see an example.
+Let's see an example
+in the form of a function-based view (FBV).
 
 ```python
 # application/views.py
 
 from django.shortcuts import render
 
-def a_template_view(request):
+def hello_view(request):
     context = {'name': 'Johnny'}
     return render(
         request,
@@ -220,6 +224,26 @@ on this root concept
 and shows what else is possible
 in the Django template language.
 
+As an aside,
+HTML is a topic that we are not going to explore directly.
+HTML, the Hypertext Markup Language, is the language used
+on the web
+to describe the structure of a page.
+HTML is composed of tags
+and many of these tags work in pairs.
+For example,
+to make a *paragraph*,
+you can use a `p` tag,
+which is represented
+by wrapping `p` with greater than and less than symbols
+to form the "opening" tag.
+The "closing" tag is similar,
+but it includes a forward slash.
+
+```html
+<p>This is a paragraph example.</p>
+```
+
 {{< web >}}
 From the last article,
 {{< /web >}}
@@ -237,7 +261,8 @@ and calls code similar to `render`
 to provide an `HttpResponse`.
 Those examples were missing context data
 to combine with the template.
-A fuller example to replicate what is above would look like:
+A fuller example replicating the `hello_view` function-based view
+as a class-based-view would look like:
 
 ```python
 # application/views.py
@@ -542,6 +567,23 @@ The returned dictionary merges
 with any other context
 that will be passed to your template.
 
+Conceptually,
+when preparing to render
+and given a `context` dictionary
+that was passed to `render`,
+the template system will do something like:
+
+```python
+for processor in context_processors:
+    context.update(processor(request))
+
+# Continue on to template rendering
+```
+
+The actual code in the template system is more complex
+than this concept code sketch,
+but not by much!
+
 We can look
 at the actual definition of the `request` context processor included
 in that default list.
@@ -718,6 +760,13 @@ to change
 for an entire site.
 
 That's the power of Django's template extension system.
+Use `extend` when you need content
+that is mostly the same.
+Add a `block` section whenever you need to customize an extended page.
+You can extend a page by including multiple types of blocks.
+The example only shows a `main` block,
+but you might have pages that customize a `sidebar`, `header`, `footer`,
+or whatever might vary.
 
 Another powerful tool for reuse is the `include` tag.
 The `include` tag is useful
@@ -1011,6 +1060,13 @@ if the variable was Falsy.
 ```
 {{< /book >}}
 
+Falsy is a concept in Python
+that describes anything
+that Python will evaluate as false
+in a boolean expression.
+Empty strings, empty lists, empty dicts, empty sets, `False`, and `None`
+are all common Falsy values.
+
 `length` is a simple filter
 for lists.
 `{{ a_list_variable|length }}` will produce a number.
@@ -1232,6 +1288,14 @@ in our examples.
 There are some more advanced custom tagging features
 which you can explore
 in the {{< extlink "https://docs.djangoproject.com/en/4.0/howto/custom-template-tags/" "Django custom template tags documentation" >}}.
+
+Django also uses `load`
+to provide template authors
+with some additional tools.
+For instance,
+we will see how to load some custom tags provided
+by the framework
+when we learn about working with images and JavaScript later on.
 
 ## Summary
 
