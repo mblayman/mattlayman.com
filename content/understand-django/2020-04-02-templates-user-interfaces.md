@@ -1074,7 +1074,12 @@ It is the Django template equivalent to the `len` function.
 
 I like the `linebreaks` filter a lot.
 If you create a form
+{{< web >}}
 (which we'll explore in the next article)
+{{< /web >}}
+{{< book >}}
+(which we'll explore in the next chapter)
+{{< /book >}}
 and accept a text area field where the user is allowed
 to provide newlines,
 then the `linebreaks` filter is great
@@ -1089,7 +1094,7 @@ Handy!
 Before moving on,
 let's consider two more.
 
-`pluralize` is a convenient tag
+`pluralize` is a convenient filter
 for the times when your text considers counts
 of things. Consider a count of items.
 
@@ -1104,7 +1109,7 @@ of things. Consider a count of items.
 ```
 {{< /book >}}
 
-The `pluralize` tag will do the right thing
+The `pluralize` filter will do the right thing
 if there are zero, one, or more items
 in the list.
 
@@ -1116,7 +1121,7 @@ in the list.
 (and so on)
 ```
 
-The final tag in our tour is the `yesno` tag.
+The final filter in our tour is the `yesno` filter.
 `yesno` is good for converting `True|False|None`
 into a meaningful text message.
 Imagine we're making an application
