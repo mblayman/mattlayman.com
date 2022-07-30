@@ -96,7 +96,7 @@ within a `templates` directory
 in each Django application
 in your project.
 Note that this also includes any third party applications
-so you should probably leave this to `True`.
+so you should probably leave this set to `True`.
 
 So,
 where should *your* templates go?
@@ -293,7 +293,7 @@ a lot of the code that we need to write focuses
 on building up a truly dynamic context.
 I'm using static data in these examples
 to keep the mechanics of the template system clear.
-When you see me use context,
+When you see me use `context`,
 try to imagine more complex data building
 to create a user interface.
 
@@ -309,16 +309,13 @@ and insert it
 into the placeholders
 within the template.
 
-This most basic form
-of filling placeholders
-with context
-are template variables.
+Template variables are the most basic form
+of filling placeholders with context.
 The previous section showed an example
 by using the `name` variable.
-The context dictionary contained a `name` key
-and double curly braces
-like `{{ name }}` are
-where the `name` value is used.
+The context dictionary contains a `name` key,
+whose value appears anywhere in the template
+where that key is surrounded by double curly braces.
 
 We can also use a dot access
 when the context data is more complex.
@@ -493,7 +490,7 @@ Then the output would look roughly like:
 Occasionally,
 you may want to take some specific action
 on a particular element
-in the for loop.
+in the `for` loop.
 Python's built in `enumerate` function isn't available directly
 in templates,
 but a special variable called `forloop` is available
@@ -821,7 +818,7 @@ into smaller pieces.
 {{< /book >}}
 
 The `include` tag can move those extra pieces around.
-By providing a good name to your templates,
+By providing a good name for your templates,
 if you needed to change the structure of some section
 like navigation,
 you could go to the template
@@ -853,7 +850,12 @@ of what is available.
 One of the most used built-in tags
 aside from what we've already covered
 is the `url` tag.
+{{< web >}}
 Recall from the article
+{{< /web >}}
+{{< book >}}
+Recall from the chapter
+{{< /book >}}
 on URLs
 that you can get the URL
 to a named view
@@ -1039,8 +1041,9 @@ to modify the format.
 If `a_datetime` was an instance of April Fools' Day,
 then it could return a string like `2020-04-01`.
 The `date` filter has many specifiers
-that will enable you to produce most date formatting outputs
-that you could think of.
+that will enable you to produce most
+of the date formatting outputs
+you could think of.
 
 `default` is a useful filter
 for when your template value evaluates to `False`.
@@ -1082,8 +1085,8 @@ If you create a form
 {{< /book >}}
 and accept a text area field where the user is allowed
 to provide newlines,
-then the `linebreaks` filter is great
-if you want to display those newlines later
+then the `linebreaks` filter allows you
+to display those newlines later
 when rendering the user's data.
 By default,
 HTML will not show new line characters as intended.
@@ -1120,6 +1123,9 @@ in the list.
 3 items
 (and so on)
 ```
+
+Be aware that `pluralize` can't handle irregular plurals
+like "mice" for "mouse."
 
 The final filter in our tour is the `yesno` filter.
 `yesno` is good for converting `True|False|None`
