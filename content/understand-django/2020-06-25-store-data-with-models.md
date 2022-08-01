@@ -409,6 +409,12 @@ and the migrations
 from the other Django applications
 that we included are also applied.
 
+If you run the `migrate` command again,
+you won't see the same output.
+That's because Django keeps tracks
+of which migrations were applied.
+The migration system will only execute any *unapplied* migrations.
+
 Those are the fundamentals
 of migrations.
 You can also use migrations

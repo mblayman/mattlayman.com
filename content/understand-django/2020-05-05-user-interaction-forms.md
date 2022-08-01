@@ -83,7 +83,6 @@ It's also useful to know that leaving out `action`
 or using `action=""` will send any form data
 as an HTTP request to the same URL
 that the user's browser is on.
-The default behavior of `action` is sometimes handy to know.
 
 The `method` attribute dictates which HTTP method to use
 and can have a value of `GET` or `POST`.
@@ -186,7 +185,7 @@ Django's form features act as a bridge
 between HTML forms
 and Python classes and data types.
 When presenting a form
-to a user in view,
+to a user via a view,
 the form system is able
 to display the proper HTML form tags
 and structure.
@@ -217,12 +216,11 @@ class ContactForm(forms.Form):
     )
 ```
 
-1. Django forms are sub-classes
-    of the `Form` class.
+* User-defined Django forms should subclass the `Form` class.
     This class adds a lot of powerful functionality
     that will aid us
     as we explore more.
-2. The data that we want to collect is listed
+* The data that we want to collect is listed
     as class level attributes.
     Each field of the form is a certain field type
     that has its own characteristics
@@ -293,7 +291,7 @@ and everything should work.
 
 {{< web >}}
 ```django
-<form action="{% url "some-form-view" %}" method="POST">
+<form action="{% url "some-form-url" %}" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <p><input
@@ -304,7 +302,7 @@ and everything should work.
 {{< /web >}}
 {{< book >}}
 ```djangotemplate
-<form action="{% url "some-form-view" %}" method="POST">
+<form action="{% url "some-form-url" %}" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <p><input
@@ -343,7 +341,7 @@ def contact_us(request):
             # Do something with the form data
             # like send an email.
             return HttpResponseRedirect(
-                reverse('some-form-success-view')
+                reverse('some-form-success-url')
             )
     else:
         form = ContactForm()
@@ -693,7 +691,7 @@ the form's data will be
 in a dictionary named `cleaned_data`
 with keys
 that match the field names
-declared by the forms.
+declared by the form.
 With the validated data,
 you access `cleaned_data` to do your work.
 For instance,
