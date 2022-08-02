@@ -318,7 +318,7 @@ When working with form views,
 we will often use a view
 that is able to handle
 both `GET` and `POST` HTTP requests.
-Here's a full form
+Here's a full view
 that we can break down piece by piece.
 The example uses a function view
 for simplicity,
@@ -364,8 +364,8 @@ and renders a template
 with the `form`
 in the context.
 
-`contact_form.html` would contain the Django template
-that is above to display the HTML form
+`contact_form.html` contains the Django template above
+to display the HTML form
 to the user.
 When the user clicks "Send the form!",
 another request comes
@@ -440,8 +440,8 @@ from django.urls import reverse
 from .forms import ContactForm
 
 class ContactUs(FormView):
-    form = ContactForm
-    template = 'contact_form.html'
+    form_class = ContactForm
+    template_name = 'contact_form.html'
 
     def get_success_url(self):
         return reverse(
@@ -453,6 +453,11 @@ class ContactUs(FormView):
         # like send an email.
         return super().form_valid(form)
 ```
+
+The `FormView` expects a form class and template name
+and provides some methods to override
+for the common places
+where your own application logic should live.
 
 ## Form Fields
 

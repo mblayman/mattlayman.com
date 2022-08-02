@@ -31,12 +31,13 @@ to receive data
 from users
 who use your site.
 In this article,
+you'll see how to take
+that data
 {{< /web >}}
 {{< book >}}
 In this chapter,
+you'll see how to take data
 {{< /book >}}
-you'll see how to take
-that data
 and store it
 into a database
 so that your application can use that data
@@ -672,7 +673,7 @@ the_other_bobs = (
 ```python
 Employee.objects.filter(
     first_name='Bob'
-).update('Robert')
+).update(first_name='Robert')
 ```
 
 * `exists` - Use this method if you want to check
@@ -1108,7 +1109,7 @@ In this case, `CASCADE` means
 that deleting an employee row will cascade
 and delete any of the employee's related phone numbers too.
 
-The key to how this works is by understanding *keys*.
+The key to how this works lies in understanding *keys*.
 When you make a Django model,
 you get an extra field added
 to your model
@@ -1251,7 +1252,7 @@ class Person(models.Model):
     )
     house = models.ForeignKey(
         House,
-        on_delete_models.CASCADE
+        on_delete=models.CASCADE
     )
 ```
 
@@ -1422,7 +1423,7 @@ from the pack.
 
 First on the list is the built-in
 Django administrators site
-that let's you explore the data
+that lets you explore the data
 that you store
 in your database.
 We'll cover:
