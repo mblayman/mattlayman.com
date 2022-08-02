@@ -403,7 +403,7 @@ by built-in Django applications.
 In my sample project,
 I used `startproject`
 which includes a set
-of included applications
+of common applications
 in the `INSTALLED_APPS` list.
 We can observe that our sample `application` applied its migration,
 and the migrations
@@ -620,7 +620,7 @@ if should_find_the_bobs:
     )
 ```
 
-Here's are some other `QuerySet` methods
+Here are some other `QuerySet` methods
 that I use constantly:
 
 * `create` - As an alternative to creating a record instance
@@ -647,7 +647,8 @@ the_bob = Employee.objects.get(
 )
 
 Employee.objects.get(first_name='Bob')
-# Raises application.models.Employee.MultipleObjectsReturned
+# Raises
+# application.models.Employee.MultipleObjectsReturned
 
 Employee.objects.get(
     first_name='Bob',
@@ -1311,9 +1312,9 @@ that contain primary keys from each model.
 
 Let's think of an example
 to see what this looks like.
-Suppose there are three people records
+Suppose there are three `Person` records
 with primary keys of 1, 2, and 3.
-Let's also suppose that there are three houses
+Let's also suppose that there are three `House` records
 with primary keys of 97, 98, and 99.
 To prove that the many-to-many relationship works
 in both directions,
@@ -1349,7 +1350,7 @@ Getting the reverse direction is a little less obvious.
 Django will add another `ManyRelatedManager`
 to the `Person` model automatically.
 The name of that manager is the model name joined with `_set`.
-In this circumstance,
+In this case,
 that name is `house_set`.
 You can also provide a `related_name` attribute
 to the `ManyToManyField` if you want a different name
@@ -1368,7 +1369,8 @@ for house in person.house_set.all():
     print(house.address)
 ```
 
-Understanding `ForeignKey` and `ManyToManyField` is an important step
+Understanding the Django models fields
+of `ForeignKey` and `ManyToManyField` is an important step
 to modeling your problem domain well.
 By having these tools available to you,
 you can begin to create many
