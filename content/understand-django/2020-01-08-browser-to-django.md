@@ -802,7 +802,7 @@ in the next chapter.
 `application` will be our reference app.
 The code in future topics is not a tutorial,
 but I will use `application` on occasion
-to orient you to where you would can files
+to orient you to where you would find files
 in your own Django web app.
 We have a Django project
 that can run locally

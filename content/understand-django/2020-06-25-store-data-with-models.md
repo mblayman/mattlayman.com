@@ -415,6 +415,13 @@ That's because Django keeps tracks
 of which migrations were applied.
 The migration system will only execute any *unapplied* migrations.
 
+You can also limit which migrations to execute
+by providing a Django app name.
+
+```bash
+(venv) $ ./manage.py migrate application
+```
+
 Those are the fundamentals
 of migrations.
 You can also use migrations
@@ -456,7 +463,7 @@ with the actual database.
 SQL is the common standard
 that Django's supported databases all "speak."
 Since Django uses SQL,
-that's why messages are named "query."
+that's why a message is named "query."
 
 What does an SQL query look like?
 If we save our model example from earlier,
@@ -711,6 +718,10 @@ if not is_hr:
 >>> print(a_bob.last_name)
 Ross
 ```
+
+An `order_by` operation can also reverse the order of the results.
+To do this, add a dash before the field name
+like `order_by('-last_name')`.
 
 With the knowledge
 of how you can interact
@@ -1390,7 +1401,7 @@ for your users!**
 In this series,
 {{< /web >}}
 {{< book >}}
-In this chapter,
+In this book,
 {{< /book >}}
 we have examined:
 
