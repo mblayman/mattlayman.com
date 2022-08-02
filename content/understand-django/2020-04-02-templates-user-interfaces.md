@@ -985,7 +985,9 @@ By removing the extra space,
 you may get a more consistent experience
 with your CSS styling
 and save yourself some frustration.
+{{< web >}}
 (I had to trim the output to fit better on the screen.)
+{{< /web >}}
 
 There is another kind of built-in
 that we have not looked at yet.
