@@ -224,6 +224,23 @@ with this `admin.py` file.
     with the admin site
     by using the `admin.register` decorator.
 
+You can also register an admin class
+by calling `register`
+after the class
+if you don't want to use a decorator.
+
+```python
+# application/admin.py
+from django.contrib import admin
+
+from .models import Book
+
+class BookAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(Book, BookAdmin)
+```
+
 Now that we have a model registered
 with the admin site,
 how do we view it?
