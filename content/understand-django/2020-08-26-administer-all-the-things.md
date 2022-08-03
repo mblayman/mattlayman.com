@@ -148,7 +148,7 @@ Now that we understand what is in the admin site,
 let's focus on how to add your models to the admin.
 
 Before doing that,
-I'd like to note a security issue before moving on.
+I'd first like to make note of a security issue.
 When using `startproject`,
 Django will put the admin site
 at `/admin/`
@@ -456,7 +456,7 @@ Across the top of the page will be selectors
 to help filter down to the right time range.
 This is a very useful way to look through your database table.
 
-We can still go farther.
+We can still go further.
 Perhaps we want all of the books to be sorted
 by their titles.
 Even if the `ordering` attribute is not set
@@ -918,7 +918,12 @@ We've covered:
     that enable you to do work
     on your model records
 
+{{< web >}}
 Next time we will cover
+{{< /web >}}
+{{< book >}}
+In the next chapter we will cover
+{{< /book >}}
 the anatomy
 of a Django application.
 A Django project is composed
