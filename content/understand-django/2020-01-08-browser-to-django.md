@@ -132,7 +132,7 @@ even if you didn't know them by name.
 These are all examples
 of URLs.
 Often we call them web addresses
-because that feels right.
+because they're very similar to postal addresses.
 A URL is the address
 of some resource
 on the internet.
@@ -225,21 +225,25 @@ in reverse order.
     or whatever a domain owner might want to name them.
     Subdomains can also be more than one level deep
     so `a.b.example.com` is valid,
-    and `a` and `b` would both be subdomains of `example.com`.
+    and `a` is a subdomain of `b.example.com`
+    and `b` is a subdomain of `example.com`.
 
 Domain names are *not* how computers communicate.
 The domain name is something "friendly"
 for a human.
-Computer systems are designed to work
+Networking systems are designed to work
 with numbers
 so those domain names must be translated
-into something manageable.
+into something the networking system can use.
 To do this,
 the internet uses a system
-of DNS servers (special purpose computers)
+of DNS servers
 to act as the translation layer
 between domain names
 and the numbers that computer networks use.
+A server is a special purpose computer
+designed to provide services
+for other devices called clients.
 
 Maybe you've seen these networking numbers.
 The numbers are called IP addresses,
@@ -276,8 +280,7 @@ I found Google's IP address by running this command:
 dig www.google.com
 ```
 
-Back to DNS,
-the system takes domain names
+The system takes domain names
 and keeps a distributed routing table
 of names to IP addresses
 across the collection
@@ -323,7 +326,7 @@ This is simplified
 to exclude some
 of the warty corners
 of DNS.
-The wikipedia page
+The Wikipedia page
 that I linked at the start
 of this section covers DNS
 in much greater detail
@@ -348,11 +351,12 @@ and a set of commands
 to communicate.
 A few of the common commands are:
 
-* `GET` - Get a resource
-* `POST` - Send data to a resource
-* `DELETE` - Request deletion of a resource
+* `GET` - Fetch an existing resource
+* `POST` - Create or update a resource
+* `DELETE` - Delete a resource
 * `PUT` - Update a resource
 
+An HTTP request is like sending a text file over the network.
 If you visit my website
 at `https://www.mattlayman.com/about/`,
 your browser will send a request like:
@@ -371,13 +375,11 @@ the path to a particular resource on the site
 and a version of the protocol to use.
 
 After the first line are a list of *headers*.
-Average browser users never see headers,
-but headers are extra data
+Headers are extra data
 that tell the server more about the request.
-For HTTP 1.1,
-the `Host` header is required
-because it dictates
-where to make the request,
+The `Host` header is required
+because it names the website to retrieve
+(more than one website can exist on the same IP address),
 but any other header is optional.
 
 In the example,
@@ -389,12 +391,15 @@ There are other headers
 that can tell a server what else it should "know."
 These headers can:
 
-* Indicate what kind of browser is making the request.
+* Indicate what kind of browser is making the request
+    (this is the `User-Agent` header).
 * Tell when the resource was requested previously
-    to determine if a new version should be returned.
+    to determine if a new version should be returned
+    (the `Last-Modified` header).
 * Declare that the browser can receive compressed data
     which it can decompress after receiving
-    to save on bandwidth.
+    to save on bandwidth
+    (the `Accept-Encoding` header).
 
 Most of the headers are handled automatically
 by browsers and servers,
@@ -477,7 +482,7 @@ in {{< extlink "https://www.python.org/dev/peps/pep-3333/" "PEP 3333" >}}.
 
 ### Django's Job
 
-Once the web server sends request data,
+Once the web server sends a request,
 Django needs to return a *response*.
 Your role as a Django developer is
 to define the resources

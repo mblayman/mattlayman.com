@@ -7,6 +7,7 @@ The beta readers were invaluable
 for improving the content
 on these pages.
 Thank you:
+Adam Johnson,
 Adolf Daniel,
 Aleksandar Novakovic,
 Alexandros Papakostopoulos,
