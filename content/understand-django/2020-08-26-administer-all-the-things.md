@@ -82,6 +82,25 @@ The site is so commonly used
 that it is pre-configured
 when you run the `startproject` command.
 
+Before proceeding,
+I'd first like to make note of a security issue.
+When using `startproject`,
+Django will put the admin site
+at `/admin/`
+by default.
+**Change this**.
+The starter template conveniently sets up the admin site
+for you,
+but this default URL makes it easy
+for {{< extlink "https://en.wikipedia.org/wiki/Script_kiddie" "script kiddies" >}}
+to try to attack your admin site
+to gain access.
+Putting your admin site on a different URL *won't* fully protect your site
+(because you should never rely
+on "security through obscurity"),
+but it will help avoid a large amount
+of automated attacks.
+
 The Django admin gives you a quick ability
 to interact
 with your models.
@@ -114,6 +133,12 @@ There are a few main pages
 that you can navigate
 when working in a Django admin site
 that direct where the CRUD operations happen.
+These pages are available to you
+with very little effort
+on your part
+aside from the registration process
+that you'll see
+in the next section.
 
 1. Admin index page -
     This page will show all the models,
@@ -146,25 +171,6 @@ The power to create and destroy is in your hands. 😈
 
 Now that we understand what is in the admin site,
 let's focus on how to add your models to the admin.
-
-Before doing that,
-I'd first like to make note of a security issue.
-When using `startproject`,
-Django will put the admin site
-at `/admin/`
-by default.
-**Change this**.
-The starter template conveniently sets up the admin site
-for you,
-but this default URL makes it easy
-for {{< extlink "https://en.wikipedia.org/wiki/Script_kiddie" "script kiddies" >}}
-to try to attack your admin site
-to gain access.
-Putting your admin site on a different URL *won't* fully protect your site
-(because you should never rely
-on "security through obscurity"),
-but it will help avoid a large amount
-of automated attacks.
 
 ## Register A Model With The Admin
 
@@ -480,6 +486,20 @@ Even if the `ordering` attribute is not set
 on the model's meta options,
 the `ModelAdmin` has its own `ordering` attribute.
 
+*What's "meta?"*
+Aside from fields,
+a Django model can set extra infromation
+about how to handle data.
+These extra options are the "meta" attributes
+of the model.
+A Django model adds meta info
+by including a nested `Meta` class
+on the model.
+Check out the
+{{< extlink "https://docs.djangoproject.com/en/4.0/ref/models/options/" "Model Meta options" >}}
+to see what other features are available
+to customize model behavior.
+
 ```python
 # application/admin.py
 
@@ -696,6 +716,28 @@ we would implement `get_list_display`.
 In that method,
 we would return a tuple
 based on the user's access level.
+
+```python
+# application/admin.py
+from django.contrib import admin
+
+from .models import Book
+
+@admin.register(Book)
+class BookAdmin(admin.ModelAdmin):
+    ...
+
+    def get_list_display(self, request):
+        if request.user.is_superuser:
+            return (
+                'id',
+                'title',
+                'author',
+                'category',
+            )
+
+        return ('id', 'title')
+```
 
 One final attribute to consider
 is called `inlines`.
