@@ -8,3 +8,4 @@ then write this much later in the process.
 * Explain my philosophy of teaching
 * Expected prereqs
   * Python knowledge
+  * Rudimentary understanding of Python type hints. Link to a type hint reference material.

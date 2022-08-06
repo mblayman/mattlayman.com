@@ -50,7 +50,7 @@ the Django view.
 A view is a chunk of code
 that receives an HTTP request
 and returns an HTTP response.
-Views describe Django's entire purpose:
+Views are where you use Django's core functionality:
 to respond to requests
 made to an application
 on the internet.
@@ -61,12 +61,11 @@ about "chunk of code."
 That was deliberate.
 The reason is that views come
 in multiple forms.
-To call views *functions*
-would only be part
+To say views are *functions*
+would be part
 of the story.
-To call them *classes*
-would be a different chapter
-in the story.
+Later chapters in that story cover
+how they can also be implemented in *classes*.
 
 Even if I attempted
 to call views *callables,*
@@ -74,6 +73,9 @@ I still would not portray them accurately
 because of the ways
 that certain types of views
 get plugged into a Django app.
+For instance,
+a view based on a class will *produce* a callable
+as we'll see in a later section.
 
 Let's start with functions
 since I think they are the gentlest introduction
@@ -213,8 +215,7 @@ the request would have:
     into a dictionary-like structure.
     `request.POST['name']` would be `Science`
     in our example.
-* `GET` - For a GET request,
-    anything added to the query string
+* `GET` - Anything added to the query string
     (i.e., the content after a `?` character
     such as `student=Matt`
     in `/courses/?student=Matt` is stored
@@ -222,10 +223,15 @@ the request would have:
 * `headers` - This is where all the HTTP headers
     like `Host`, `Accept-Language`,
     and the others are stored.
+    `headers` is also dictionary-like
+    and can be accessed like `request.headers['Host']`.
 
 Other attributes are available
 to `HttpRequest`,
 but that list will get you far enough to get started.
+Check out
+{{< extlink "https://docs.djangoproject.com/en/4.0/ref/request-response/" "Request and response objects" >}}
+for the other attributes.
 
 I should also note
 that `HttpRequest` instances are a common place
@@ -248,7 +254,7 @@ to represent a user
 in your system.
 It's *very* handy.
 
-I like to think of `HttpRequest` objects
+You can think of `HttpRequest` objects
 as the common interface
 for most of the inputs
 that my code uses.
@@ -298,7 +304,6 @@ of subclasses
 for common uses.
 Let's look at some:
 
-{{< web >}}
 * `HttpResponseRedirect` - You may want to send a user
     to a different page.
     Perhaps the user bought something
@@ -317,46 +322,6 @@ Let's look at some:
     to access a part
     of your website
     (i.e., HTTP status `403 Forbidden`).
-* `JsonResponse` - I haven't focused on JSON yet
-    in this series,
-    but it's a data format which matches closely
-    to Python native data types
-    and can be used
-    to communicate with JavaScript.
-{{< /web >}}
-{{< book >}}
-* `HttpResponseRedirect` - You may want to send a user
-    to a different page.
-    Perhaps the user bought something
-    on your site,
-    and you would like them to see a receipt page
-    of their order.
-    This subclass is perfect
-    for that scenario.
-* `HttpResponseNotFound` - This is the subclass used
-    to create a `404 Not Found` response.
-    Django provides some helper functions to return this
-    so you may not use this subclass directly,
-    but it's good to know it's available.
-* `HttpResponseForbidden` - This type of response happens
-    when you don't want a user
-    to access a part
-    of your website
-    (i.e., HTTP status `403 Forbidden`).
-* `JsonResponse` - I haven't focused on JSON yet
-    in this book,
-    but it's a data format which matches closely
-    to Python native data types
-    and can be used
-    to communicate with JavaScript.
-{{< /book >}}
-
-```python
->>> from django.http import JsonResponse
->>> response = JsonResponse({'hello': 'world'})
->>> response.content
-b'{"hello": "world"}'
-```
 
 Aside from the subclasses,
 Django has other techniques
@@ -452,9 +417,10 @@ The important part for this article is not about the templates themselves.
 {{< book >}}
 The important part for this chapter is not about the templates themselves.
 {{< /book >}}
-What's worth noting is that `render` returns an `HttpResponse` instance
-that will contain the rendered template
-as the content.
+What's worth noting is that `render`
+loads the content from `template.html`,
+gets the output,
+and adds that output to an `HttpResponse` instance.
 
 That wraps up `HttpRequest` and `HttpResponse`.
 With those building blocks,
@@ -651,7 +617,7 @@ with templates.
 
 Templates are so commonly used
 that Django provides a class
-that knows how to produce a proper response
+that knows how to produce a response
 with nothing more than a template name.
 
 An example looks like:
@@ -697,7 +663,7 @@ Django has views that will:
     like days, weeks, and months.
 
 As we continue to explore Django,
-I will discuss these views
+We will discuss these views
 when their related topic (like forms) is the primary subject
 {{< web >}}
 of an article.
@@ -742,17 +708,24 @@ When you work
 with function-based views,
 there is a challenge
 when handling different HTTP methods.
+By default,
+a function based view can receive requests
+from *any* HTTP method.
 Some views will handle multiple methods like:
 
 ```python
 # application/views.py
-from django.http import HttpResponse
+from django.http import (
+    HttpResponse,
+    HttpResponseNotAllowed,
+)
 
 def multi_method_view(request):
     if request.method == 'GET':
         return HttpResponse('Method was a GET.')
     elif request.method == 'POST':
         return HttpResponse('Method was a POST.')
+    return HttpResponseNotAllowed()
 ```
 
 This view uses the `request` instance `method` attribute
@@ -764,11 +737,14 @@ We could write:
 
 ```python
 # application/views.py
-from django.http import Http404, HttpResponse
+from django.http import (
+    HttpResponse,
+    HttpResponseNotAllowed,
+)
 
 def guard_clause_view(request):
     if request.method != 'POST':
-        raise Http404()
+        return HttpResponseNotAllowed()
 
     return HttpResponse('Method was a POST.')
 
@@ -778,7 +754,7 @@ def if_clause_view(request):
     if request.method == 'POST':
         return HttpResponse('Method was a POST.')
     else:
-        raise Http404()
+        return HttpResponseNotAllowed()
 ```
 
 Both techniques work,
@@ -953,6 +929,10 @@ We've looked at:
 
 {{< web >}}
 In the next article,
+{{< /web >}}
+{{< book >}}
+In the next chapter,
+{{< /book >}}
 we'll see how views can mix static layout
 with the dynamic data we provide
 by using templates.
@@ -967,6 +947,7 @@ We're going to see:
 * Built-in functions available to templates
 * Customizing templates with your own code extensions
 
+{{< web >}}
 If you'd like to follow along
 with the series,
 please feel free to sign up

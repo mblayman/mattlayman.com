@@ -119,7 +119,9 @@ Django will treat the list
 in a `urlpatterns` variable
 as the URLconf.
 
-The order of this list is also important.
+The order of this list is also important
+because Django will stop scanning the list
+as soon as it encounters a match.
 The example doesn't show any conflict
 between paths,
 but it's possible to create two different `path` entries
@@ -158,6 +160,8 @@ Everything else is what the URLconf will match against.
 You might notice
 that Django URLs end
 with a slash character.
+This behavior is because
+of a Django {{< extlink "https://docs.djangoproject.com/en/4.0/misc/design-philosophies/#definitive-urls" "design philosophy" >}} choice.
 In fact,
 if you attempt to reach a URL
 like `https://www.example.com/about`,
@@ -166,32 +170,11 @@ to the same URL
 with the slash appended
 because of the `APPEND_SLASH`
 {{< extlink "https://docs.djangoproject.com/en/4.0/ref/settings/#append-slash" "default setting" >}}.
-This behavior is because
-of a Django {{< extlink "https://docs.djangoproject.com/en/4.0/misc/design-philosophies/#definitive-urls" "design philosophy" >}} choice.
 
 ## The `path` Before Us
 
-If all I gave you was the example above,
-I wouldn't fault you
-if you thought "Wow, Django is dumb. Why isn't `urlpatterns` a dictionary like below?"
-
-```python
-urlpatterns = {
-    "": views.home,
-    "about/": views.about,
-    "contact/": views.contact,
-    "terms/": views.terms,
-}
-```
-
-The reason is that `path` has more power
-than I initially revealed.
-Most of that power
-is in the first string parameter
-passed to the function.
 The string part of `path`
 (e.g., `"about/"`) is called the *route*.
-
 A route can be a plain string
 as you've seen,
 but it can include other special structures
@@ -216,7 +199,7 @@ The two converters in this path are:
 
 The use of angle brackets
 and some {{< extlink "https://docs.djangoproject.com/en/4.0/topics/http/urls/#path-converters" "reserved names" >}}
-cause Django to attempt extra parsing
+cause Django to perform extra parsing
 on a URL.
 Each converter has some expected rules to follow.
 
@@ -386,7 +369,7 @@ but let's assume we want to match a four digit year.
 How can we do that?
 We can use regular expressions.
 
-## Regular Expressions Paths
+## Regular Expression Paths
 
 Regular expressions are a programming feature
 often likened to a chainsaw:
@@ -394,18 +377,17 @@ often likened to a chainsaw:
 but you can cut off your foot
 if you're not careful.*
 
-Regular expressions can express complex relationships
-and match patterns
-in a very concise way.
+Regular expressions can express complex patterns
+of characters
+in a concise way.
 This conciseness often gives regular expressions a bad reputation
 of being difficult to understand.
 When used carefully, though,
 they can be highly effective.
 
-One job that a regular expression
+A regular expression
 (which is often abbreviated to "regex")
-is suited for
-is matching complex patterns
+matches complex patterns
 in strings.
 This sounds exactly like our blog year problem!
 In our problem,

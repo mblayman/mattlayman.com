@@ -602,19 +602,10 @@ In the series,
 {{< book >}}
 In the book,
 {{< /book >}}
-I'm going to have plenty of code examples,
-but I'm not going to show how to get Django running
-from scratch each time.
-Instead,
-I'll put in some starting instructions
-{{< web >}}
-in this article
-{{< /web >}}
-{{< book >}}
-in this chapter
-{{< /book >}}
-so you can follow along
-in the future.
+we'll be looking at plenty of code examples,
+but we won't be setting up Django from scratch each time.
+The following setup instructions will help you get started
+with each future example.
 
 We're going to use a terminal to run commands.
 Windows, macOS, and Linux are all a bit different.
@@ -727,11 +718,20 @@ Quit the server with CONTROL-C.
 
 When you start the web server,
 you will likely see a message
-about "unapplied migrations."
+like:
+
+```text
+You have ## unapplied migration(s).
+Your project may not work properly
+until you apply the migrations for app(s):
+<a list of names here>
+```
+
 We'll explore the migrations topic later,
 so don't worry about that message for now.
 
 If you copy and paste that URL
+(i.e., `http://127.0.0.1:8000/`)
 into your browser,
 you should see a welcoming start page!
 Also,
