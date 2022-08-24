@@ -19,6 +19,7 @@ series: "Understand Django"
 
 ---
 
+{{< web >}}
 In the previous
 [Understand Django]({{< ref "/understand-django/_index.md" >}})
 article,
@@ -27,6 +28,10 @@ of a Django *application*
 and how apps are the core components
 of a Django project.
 In this article,
+{{< /web >}}
+{{< book >}}
+In this chapter,
+{{< /book >}}
 we're going to dig into Django's built-in user authentication system.
 We'll see how Django makes your life easier
 by giving you tools
@@ -108,7 +113,7 @@ so consider them internal details
 that you can ignore for now.
 
 The Django docs provide additional context
-about these pre-requisites
+about these prerequisites
 so check out the
 {{< extlink "https://docs.djangoproject.com/en/3.1/topics/auth/#installation" "auth topic installation section" >}}
 for more details.
@@ -157,7 +162,12 @@ from the `User` model
 because it is integrated
 with the Django admin site.
 I mentioned
+{{< web >}}
 in [Administer All The Things]({{< ref "/understand-django/2020-08-26-administer-all-the-things.md" >}})
+{{< /web >}}
+{{< book >}}
+in the Administer All The Things chapter
+{{< /book >}}
 that we needed a user
 with certain permissions
 to access the admin,
@@ -360,7 +370,10 @@ from django.urls import include, path
 
 urlpatterns = [
     ...
-    path("accounts/", include("django.contrib.auth.urls")),
+    path(
+        "accounts/",
+        include("django.contrib.auth.urls")
+    ),
 ]
 ```
 
@@ -498,20 +511,28 @@ that you can use for authorization checking.
     that you needed to protect.
 
 ```python
-from django.contrib.admin.views.decorators import staff_member_required
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.admin.views.decorators import (
+    staff_member_required
+)
+from django.contrib.auth.decorators import (
+    user_passes_test
+)
 from django.http import HttpResponse
 
 @staff_member_required
 def a_staff_view(request):
-    return HttpResponse("You are a user with staff level permission.")
+    return HttpResponse(
+        "You are a user with staff level permission."
+    )
 
 def check_superuser(user):
     return user.is_superuser
 
 @user_passes_test(check_superuser)
 def special_view(request):
-    return HttpResponse("Super special response")
+    return HttpResponse(
+        "Super special response"
+    )
 ```
 
 The `user_passes_test` decorator behaves much
@@ -611,13 +632,21 @@ and
 but you'd leave out `orders.delete_order`.
 
 ```python
-from django.contrib.auth.models import Permission, User
-from django.contrib.contenttypes.models import ContentType
+from django.contrib.auth.models import (
+    Permission, User
+)
+from django.contrib.contenttypes.models import (
+    ContentType
+)
 from pizzas.models import Topping
 
-content_type = ContentType.objects.get_for_model(Topping)
+content_type = ContentType.objects.get_for_model(
+    Topping
+)
 permission = Permission.objects.get(
-    content_type=content_type, codename="add_topping")
+    content_type=content_type,
+    codename="add_topping"
+)
 chef_id = 42
 chef = User.objects.get(id=42)
 chef.user_permissions.add(permission)
@@ -639,7 +668,7 @@ to observe from the example
 is that permissions behave
 like any other Django model.
 
-Adding permissions to individuals users is a nice feature
+Adding permissions to individual users is a nice feature
 for a small team,
 but if your team grows,
 it could devolve
@@ -678,10 +707,16 @@ with another `ManyToManyField`
 called `groups`.
 
 ```python
-from django.contrib.auth.models import Group, User
+from django.contrib.auth.models import (
+    Group, User
+)
 
-support_team = Group.objects.get(name="Support Team")
-support_sally = User.objects.get(username="sally")
+support_team = Group.objects.get(
+    name="Support Team"
+)
+support_sally = User.objects.get(
+    username="sally"
+)
 support_sally.groups.add(support_team)
 ```
 
@@ -696,11 +731,17 @@ to bake pizzas
 in our imaginary app.
 
 ```python
-from django.contrib.auth.models import Permission, User
-from django.contrib.contenttypes.models import ContentType
+from django.contrib.auth.models import (
+    Permission, User
+)
+from django.contrib.contenttypes.models import (
+    ContentType
+)
 from pizzas.models import Pizza
 
-content_type = ContentType.objects.get_for_model(Pizza)
+content_type = ContentType.objects.get_for_model(
+    Pizza
+)
 permission = Permission.objects.create(
     codename="can_bake",
     name="Can Bake Pizza",
@@ -738,7 +779,8 @@ from django.contrib.auth.decorators import permission_required
 
 @permission_required('pizzas.can_bake')
 def bake_pizza(request):
-    # Time to bake the pizza if you're allowed.
+    # Time to bake the pizza
+    # if you're allowed.
     ...
 ```
 
@@ -768,14 +810,23 @@ from django.http import HttpResponse
 
 def my_view(request):
     if request.user.is_authenticated:
-        return HttpResponse('You are logged in.')
+        return HttpResponse(
+            'You are logged in.'
+        )
     else:
-        return HttpResponse('Hello guest!')
+        return HttpResponse(
+            'Hello guest!'
+        )
 ```
 
 The `AuthenticationMiddleware` is what makes it possible
 for the decorators
+{{< web >}}
 that I've described in this article
+{{< /web >}}
+{{< book >}}
+that I've described in this chapter
+{{< /book >}}
 (i.e., `login_required`, `user_passes_test`, and `permission_required`)
 to work.
 Each of the decorators finds the `user` record
@@ -790,7 +841,7 @@ that would be tedious.
 Thankfully,
 there is a context processor
 named `auth`
-that let's you avoid that pain
+that lets you avoid that pain
 (the processor is in `django.contrib.auth.context_processors`).
 The context processor will add a `user`
 to the context
@@ -823,7 +874,12 @@ to your views and templates.
 
 ## Summary
 
+{{< web >}}
 In this article,
+{{< /web >}}
+{{< book >}}
+In this chapter,
+{{< /book >}}
 we got into Django's built-in user auth system.
 
 We learned about:
@@ -848,6 +904,7 @@ We will learn about:
 * How to write your own middleware
 * Some of the middleware classes that comes with Django
 
+{{< web >}}
 If you'd like to follow along
 with the series,
 please feel free to sign up
@@ -858,3 +915,4 @@ you can reach me online
 on Twitter
 where I am
 {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+{{< /web >}}

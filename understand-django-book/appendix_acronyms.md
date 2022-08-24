@@ -5,6 +5,14 @@ This list is a reference to some of the acronyms found in this book.
 
 **BETA READERS**: Did I miss one? Let me know.
 
+**Authn:**
+Authentication -
+A check that a user is who they say they are
+
+**Authz:**
+Authorization -
+What a user is allowed to do
+
 **CBV:**
 Class-based view -
 A Django view that uses a Python class
@@ -103,9 +111,19 @@ Regular Expression -
 A regex is a concise string definition
 that enables pattern matching and parsing for strings.
 
+**SaaS:**
+Software as a Service -
+A software product that users pay for,
+often delivered as a web application
+
 **SQL:**
 Structured Query Language -
 SQL is the language used to interact with a relational database.
+
+**SSO:**
+Single Sign-On -
+An authentication scheme that allows a user to use one authentication service
+to authenticate with multiple other services.
 
 **TLD:**
 Top Level Domain -
