@@ -349,6 +349,7 @@ we're going to put the middleware
 in a `middleware.py` file.
 
 ```python
+# project/middleware.py
 class AwesomeMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
@@ -421,6 +422,7 @@ We might update the code
 to look like:
 
 ```python
+# project/middleware.py
 import logging
 import time
 
@@ -494,6 +496,7 @@ by using the `process_view` hook.
 Let's see what we can do:
 
 ```python
+# project/middleware.py
 import logging
 import time
 
@@ -582,7 +585,7 @@ in the framework?
 The full list
 of built-in middleware
 is available
-in the {{< extlink "https://docs.djangoproject.com/en/3.1/ref/middleware/" "middleware reference" >}}.
+in the {{< extlink "https://docs.djangoproject.com/en/4.1/ref/middleware/" "middleware reference" >}}.
 I'll describe what I think are the most common
 or useful middleware classes
 that Django includes.
