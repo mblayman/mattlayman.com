@@ -48,6 +48,12 @@ to help route requests.
 Function-based view -
 A Django view that uses a Python function
 
+**HSTS:**
+HTTP Strict Transport Security -
+A policy mechanism implemented by browsers and web servers
+to try to avoid certain attacks
+(like a man-in-the-middle attack)
+
 **HTML:**
 Hypertext Markup Language -
 HTML is the language that describes the structure
@@ -146,3 +152,8 @@ WSGI describes the format
 that a Python web server can use
 to send and receive data
 to and from a Python web application.
+
+**XSS:**
+Cross site scripting -
+An attack type where malicious external scripts are loaded into a site
+and executed without a user's permission
