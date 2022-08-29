@@ -343,7 +343,7 @@ Hashing is a fascinating subject.
 If you want to learn more about the guts
 of how Django manages hashes,
 I would suggest reading the
-{{< extlink "https://docs.djangoproject.com/en/3.1/topics/auth/passwords/" "Password management in Django" >}}
+{{< extlink "https://docs.djangoproject.com/en/4.1/topics/auth/passwords/" "Password management in Django" >}}
 docs
 to see the details.
 
@@ -392,7 +392,7 @@ For example,
 to customize the login view,
 you would create a file named `registration/login.html`
 in your templates directory.
-The {{< extlink "https://docs.djangoproject.com/en/3.1/topics/auth/default/#all-authentication-views" "All authentication views" >}}
+The {{< extlink "https://docs.djangoproject.com/en/4.1/topics/auth/default/#all-authentication-views" "All authentication views" >}}
 documentation provides information
 about each view
 and the name of each template
@@ -661,7 +661,7 @@ to reference models generically
 when handling permissions.
 You can learn more about content types
 and their uses
-at {{< extlink "https://docs.djangoproject.com/en/3.1/ref/contrib/contenttypes/" "the contenttypes framework" >}}
+at {{< extlink "https://docs.djangoproject.com/en/4.1/ref/contrib/contenttypes/" "the contenttypes framework" >}}
 documentation.
 The important point
 to observe from the example
