@@ -69,10 +69,9 @@ by Django.
 The "middle" can also refer
 to code that executes
 *after* your view completes
-but before the `HttpResponse`
-is translated to bytes
-by Django
-to send over the network
+but before Django translates the `HttpResponse`
+to bytes
+to send it over the network
 to a browser.
 
 Have you ever eaten an Everlasting Gobstopper?
