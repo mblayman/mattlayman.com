@@ -296,7 +296,7 @@ Django doesn't store actual passwords.
 To do so would be a major weakness
 in the framework
 because any leak
-of the database would leak all users passwords.
+of the database would leak all users' passwords.
 And that's totally not cool.
 Instead,
 the `password` field
@@ -867,7 +867,7 @@ of creating a dictionary
 like `{'user': request.user}`.
 There's a bit more to the actual implementation,
 and you can check out the
-{{< extlink "https://github.com/django/django/blob/d1791539a7d86739cd44c909fa8239cae7f85874/django/contrib/auth/context_processors.py#L46" "Django source code" >}}
+{{< extlink "https://github.com/django/django/blob/4.1/django/contrib/auth/context_processors.py#L49" "Django source code" >}}
 if you want to see those details.
 
 What does this look like in practice?
@@ -924,7 +924,12 @@ We learned about:
 * What levels of authorization are available
 * How to access users in views and templates
 
+{{< web >}}
 Next time we'll study middleware
+{{< /web >}}
+{{< book >}}
+In the next chapter, we'll study middleware
+{{< /book >}}
 in Django.
 As the name implies,
 middleware is some code
