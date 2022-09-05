@@ -71,7 +71,7 @@ These factors add up
 to make the `runserver` command unsuitable
 for handling your live site.
 What should you use instead?
-When you read the {{< extlink "https://docs.djangoproject.com/en/3.1/howto/deployment/wsgi/" "deployment documentation" >}},
+When you read the {{< extlink "https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/" "deployment documentation" >}},
 you'll find many possible Python web application servers listed.
 Gunicorn, uWSGI, Apache with mod_wsgi, Daphne, Hypercorn, and Uvicorn
 are all presented as available options.
@@ -446,7 +446,7 @@ System check identified 6 issues (0 silenced).
 The items reported by the checklist are often about settings
 that could be configured better.
 These checks are created
-by the {{< extlink "https://docs.djangoproject.com/en/3.1/topics/checks/" "System check framework" >}}
+by the {{< extlink "https://docs.djangoproject.com/en/4.1/topics/checks/" "System check framework" >}}
 that comes with Django.
 
 You should review each of the checks

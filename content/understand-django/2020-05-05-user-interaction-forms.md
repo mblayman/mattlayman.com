@@ -568,7 +568,7 @@ The difference with this field comes
 from the data type that the form will provide
 after it is validated.
 A `DateField` will convert
-{{< extlink "https://docs.djangoproject.com/en/4.0/ref/settings/#datetime-input-formats" "a variety of string formats" >}}
+{{< extlink "https://docs.djangoproject.com/en/4.1/ref/settings/#datetime-input-formats" "a variety of string formats" >}}
 into a Python `datetime.date` object.
 
 ### ChoiceField

@@ -96,7 +96,7 @@ that Django will include
 if you start from the `startproject` command.
 
 The `staticfiles` app has a handful
-of {{< extlink "https://docs.djangoproject.com/en/3.1/ref/settings/#settings-staticfiles" "settings" >}}
+of {{< extlink "https://docs.djangoproject.com/en/4.1/ref/settings/#settings-staticfiles" "settings" >}}
 that we need to consider to start.
 
 I'm going to make the same recommendation

@@ -432,7 +432,7 @@ that are specific
 to your selected database.
 You can learn more
 about what Django migrations can do
-in the {{< extlink "https://docs.djangoproject.com/en/4.0/topics/migrations/" "Migrations documentation" >}}.
+in the {{< extlink "https://docs.djangoproject.com/en/4.1/topics/migrations/" "Migrations documentation" >}}.
 
 ## Working With Models
 
@@ -762,11 +762,11 @@ that Django's form system
 includes a wide variety
 of form fields.
 If you look at the
-{{< extlink "https://docs.djangoproject.com/en/4.0/ref/forms/fields/" "Form fields" >}} reference
+{{< extlink "https://docs.djangoproject.com/en/4.1/ref/forms/fields/" "Form fields" >}} reference
 and compare the list
 of types
 to those in the
-{{< extlink "https://docs.djangoproject.com/en/4.0/ref/models/fields/" "Model field reference" >}},
+{{< extlink "https://docs.djangoproject.com/en/4.1/ref/models/fields/" "Model field reference" >}},
 you can observe a lot of overlap.
 
 Like their form counterparts,

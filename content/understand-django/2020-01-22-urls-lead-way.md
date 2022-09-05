@@ -161,7 +161,7 @@ You might notice
 that Django URLs end
 with a slash character.
 This behavior is because
-of a Django {{< extlink "https://docs.djangoproject.com/en/4.0/misc/design-philosophies/#definitive-urls" "design philosophy" >}} choice.
+of a Django {{< extlink "https://docs.djangoproject.com/en/4.1/misc/design-philosophies/#definitive-urls" "design philosophy" >}} choice.
 In fact,
 if you attempt to reach a URL
 like `https://www.example.com/about`,
@@ -169,7 +169,7 @@ Django will redirect the request
 to the same URL
 with the slash appended
 because of the `APPEND_SLASH`
-{{< extlink "https://docs.djangoproject.com/en/4.0/ref/settings/#append-slash" "default setting" >}}.
+{{< extlink "https://docs.djangoproject.com/en/4.1/ref/settings/#append-slash" "default setting" >}}.
 
 ## The `path` Before Us
 
@@ -198,7 +198,7 @@ The two converters in this path are:
 * `<slug:slug>`
 
 The use of angle brackets
-and some {{< extlink "https://docs.djangoproject.com/en/4.0/topics/http/urls/#path-converters" "reserved names" >}}
+and some {{< extlink "https://docs.djangoproject.com/en/4.1/topics/http/urls/#path-converters" "reserved names" >}}
 cause Django to perform extra parsing
 on a URL.
 Each converter has some expected rules to follow.

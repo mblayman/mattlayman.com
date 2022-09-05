@@ -342,7 +342,7 @@ As such,
 mastering the Django admin site
 is all about mastering the `ModelAdmin` options
 that are listed
-{{< extlink "https://docs.djangoproject.com/en/4.0/ref/contrib/admin/#modeladmin-options" "in the documentation" >}}.
+{{< extlink "https://docs.djangoproject.com/en/4.1/ref/contrib/admin/#modeladmin-options" "in the documentation" >}}.
 That list is long,
 but don't be discouraged!
 I think that you can get about 80%
@@ -496,7 +496,7 @@ A Django model adds meta info
 by including a nested `Meta` class
 on the model.
 Check out the
-{{< extlink "https://docs.djangoproject.com/en/4.0/ref/models/options/" "Model Meta options" >}}
+{{< extlink "https://docs.djangoproject.com/en/4.1/ref/models/options/" "Model Meta options" >}}
 to see what other features are available
 to customize model behavior.
 

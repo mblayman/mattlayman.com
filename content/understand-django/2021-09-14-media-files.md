@@ -276,7 +276,7 @@ to a special Python class
 in the system.
 
 This Python class must implement
-{{< extlink "https://docs.djangoproject.com/en/3.1/ref/files/storage/" "a specific API" >}}.
+{{< extlink "https://docs.djangoproject.com/en/4.1/ref/files/storage/" "a specific API" >}}.
 Why?
 Like so many other parts of Django,
 the storage class can be swapped out

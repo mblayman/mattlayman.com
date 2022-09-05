@@ -115,7 +115,7 @@ that you can ignore for now.
 The Django docs provide additional context
 about these prerequisites
 so check out the
-{{< extlink "https://docs.djangoproject.com/en/3.1/topics/auth/#installation" "auth topic installation section" >}}
+{{< extlink "https://docs.djangoproject.com/en/4.1/topics/auth/#installation" "auth topic installation section" >}}
 for more details.
 
 ## Who Authenticates?

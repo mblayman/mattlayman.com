@@ -191,7 +191,7 @@ on your site.
 
 You can learn more about CSRF
 with Django's
-{{< extlink "https://docs.djangoproject.com/en/4.0/ref/csrf/" "Cross Site Request Forgery protection" >}}
+{{< extlink "https://docs.djangoproject.com/en/4.1/ref/csrf/" "Cross Site Request Forgery protection" >}}
 reference page.
 
 ### CORS
@@ -492,7 +492,7 @@ in `django.core.checks.security`.
 A more readable version
 of the available security checks is
 on the
-{{< extlink "https://docs.djangoproject.com/en/4.0/ref/checks/#security" "System check framework" >}}
+{{< extlink "https://docs.djangoproject.com/en/4.1/ref/checks/#security" "System check framework" >}}
 reference page.
 
 Scanning through the list
@@ -511,7 +511,7 @@ you'll find that
     think `https://`.
 * other checks confirm that your site has the kinds
     of
-    {{< extlink "https://docs.djangoproject.com/en/4.0/ref/middleware/#security-middleware" "middleware" >}}
+    {{< extlink "https://docs.djangoproject.com/en/4.1/ref/middleware/#security-middleware" "middleware" >}}
     installed
     that offer some
     of the protection discussed previously

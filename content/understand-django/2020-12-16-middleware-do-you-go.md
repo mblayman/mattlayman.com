@@ -571,7 +571,7 @@ capturing and reporting exceptions would be *significantly* harder.
 Want to learn more about hooks?
 You can see all the details
 about these hooks
-in the {{< extlink "https://docs.djangoproject.com/en/3.1/topics/http/middleware/#other-middleware-hooks" "middleware documentation" >}}.
+in the {{< extlink "https://docs.djangoproject.com/en/4.1/topics/http/middleware/#other-middleware-hooks" "middleware documentation" >}}.
 
 ## What Middleware Does Django Include?
 

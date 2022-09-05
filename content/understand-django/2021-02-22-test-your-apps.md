@@ -757,7 +757,7 @@ but these two tools are a fantastic start.
 
 {{< extlink "https://docs.pytest.org/en/stable/" "pytest" >}} is a "test runner."
 The tool's job is to run automated tests.
-If you read {{< extlink "https://docs.djangoproject.com/en/3.1/topics/testing/overview/" "Writing and running tests" >}}
+If you read {{< extlink "https://docs.djangoproject.com/en/4.1/topics/testing/overview/" "Writing and running tests" >}}
 in the Django documentation,
 you'll discover
 that Django *also* includes a test runner

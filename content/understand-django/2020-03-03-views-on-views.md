@@ -230,7 +230,7 @@ Other attributes are available
 to `HttpRequest`,
 but that list will get you far enough to get started.
 Check out
-{{< extlink "https://docs.djangoproject.com/en/4.0/ref/request-response/" "Request and response objects" >}}
+{{< extlink "https://docs.djangoproject.com/en/4.1/ref/request-response/" "Request and response objects" >}}
 for the other attributes.
 
 I should also note
