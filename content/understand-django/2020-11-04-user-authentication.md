@@ -389,14 +389,16 @@ your job is to override the built-in templates
 to match the styling
 of your site.
 For example,
-to customize the login view,
-you would create a file named `registration/login.html`
+to customize the logout view,
+you would create a file named `registration/logged_out.html`
 in your templates directory.
 The {{< extlink "https://docs.djangoproject.com/en/4.1/topics/auth/default/#all-authentication-views" "All authentication views" >}}
 documentation provides information
 about each view
 and the name of each template
 to override.
+Note that you *must* provide a template for the login view
+as the framework does not supply a default template for that view.
 
 If you have more complex needs
 for your site,
@@ -933,7 +935,7 @@ We will learn about:
 
 * The mental model for considering middleware
 * How to write your own middleware
-* Some of the middleware classes that comes with Django
+* Some of the middleware classes that come with Django
 
 {{< web >}}
 If you'd like to follow along
