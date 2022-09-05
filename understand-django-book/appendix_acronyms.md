@@ -112,6 +112,11 @@ to describe major changes
 to the Python community
 or the Python language itself.
 
+**PyPI:**
+Python Package Index -
+the official index of public Python software.
+This is where packages come from when you use `pip install`.
+
 **REGEX:**
 Regular Expression -
 A regex is a concise string definition

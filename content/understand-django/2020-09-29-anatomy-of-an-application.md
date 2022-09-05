@@ -78,6 +78,7 @@ the code that you download
 using pip is technically called a "{{< extlink "https://packaging.python.org/overview/" "distribution" >}}."
 Even though we colloquially talk about Python downloads
 from PyPI
+(Python Package Index)
 as packages,
 we're really talking about distributions,
 and a distribution is a unit
@@ -253,14 +254,15 @@ in [Templates For User Interfaces]({{< ref "/understand-django/2020-04-02-templa
 {{< book >}}
 in the templates chapter,
 {{< /book >}}
-but `templates` directories are commonly found,
+but `templates` directories are commonly found
+in indvidual Django apps,
 especially for third party applications
 that you may pull into your project.
 
 `static`:
 For static files
-that you want to display
-like images,
+that you want to display,
+such as images,
 you can use the `static` directory.
 We'll discuss static files more
 {{< web >}}
@@ -445,7 +447,7 @@ Most of the tools
 that you need to build a website are baked directly
 into the framework.
 This is a vastly different approach compared
-to {{< extlink "https://flask.palletsprojects.com/en/1.1.x/" "Flask" >}}
+to {{< extlink "https://flask.palletsprojects.com/en/2.2.x/" "Flask" >}}
 which provides a relatively small API
 and depends heavily
 on third party libraries.
@@ -459,7 +461,9 @@ Django apps fill in the gaps.
 
 Before you go out to PyPI,
 we need look no further
-than the `django.contrib` package.
+than the `django.contrib` package,
+a collection of "contributed" applications provided
+by Django itself.
 When you run the `startproject` command,
 Django will include a variety
 of built-in applications
@@ -473,15 +477,19 @@ in `INSTALLED_APPS`.
 I think this is the big difference
 in philosophy
 behind the framework.
-Some developers like starting
+Some developers like to start
 from an extremely minimal kernel
 of functionality
-and build it up
-based on their needs.
+and build it up based on their needs.
 Django's philosophy seems to be
 that you start
 with an opinionated baseline
 and pare down what you don't require.
+Django doesn't expect that you'll use every feature
+in every app,
+but many of the features that you'll want
+are at the ready
+when you need them.
 
 From my point of view,
 I think the Django philosophy is the right one
