@@ -60,15 +60,14 @@ Middleware is code that exists
 in the middle.
 "In the middle of what?"
 you might ask.
-The "middle" is the code between
+The "middle" is the code that executes between
 when an `HttpRequest`
 is created
 by the framework
-to the time
-where your view code is called
+and when the code you wrote is called
 by Django.
 The "middle" can also refer
-to the time
+to code that executes
 *after* your view completes
 but before the `HttpResponse`
 is translated to bytes
