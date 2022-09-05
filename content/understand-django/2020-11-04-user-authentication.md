@@ -868,6 +868,37 @@ and you can check out the
 {{< extlink "https://github.com/django/django/blob/d1791539a7d86739cd44c909fa8239cae7f85874/django/contrib/auth/context_processors.py#L46" "Django source code" >}}
 if you want to see those details.
 
+What does this look like in practice?
+We've actually seen this already!
+One of the examples from the explanation
+of templates used the `user` context variable.
+Here's the example again so you don't need to jump back.
+
+{{< web >}}
+```django
+{% if user.is_authenticated %}
+    <h1>Welcome, {{ user.username }}</h1>
+{% endif %}
+```
+{{< /web >}}
+{{< book >}}
+```djangotemplate
+{% if user.is_authenticated %}
+    <h1>Welcome, {{ user.username }}</h1>
+{% endif %}
+```
+{{< /book >}}
+
+If you decide to use Django's permissions,
+you can also take advantage of the `perms` context variable
+in your templates.
+This variable is supplied
+by the `auth` context processor as well
+and gives your template access to the permissions
+of the `user` in a concise manner.
+The {{< extlink "https://docs.djangoproject.com/en/4.1/topics/auth/default/#permissions" "Django docs" >}} include some good examples
+of how the `perms` variable can be used.
+
 Now you've seen how Django leverages the auth middleware
 to make users easily accessible
 to your views and templates.
