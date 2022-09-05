@@ -144,6 +144,8 @@ with an application server
 like Gunicorn,
 you have to give the application server the path
 to your WSGI module.
+We will cover application servers in a later topic,
+but, for now, know that an application server can run your Django app.
 If your project directory containing your settings file
 is called `project`,
 then calling Gunicorn looks like:
@@ -151,6 +153,13 @@ then calling Gunicorn looks like:
 ```bash
 $ gunicorn project.wsgi
 ```
+
+You'd have this setup if you ran `django-admin startproject project .`
+(including the last dot),
+but what's really needed by the application server is wherever your `wsgi.py`
+file is located in your project,
+in module path form.
+Adjust accordingly for your needs.
 
 Remember way back
 {{< web >}}
@@ -167,7 +176,8 @@ that synchronous Python web apps must implement
 in order to work
 with Python application servers.
 Inside this `project.wsgi` module
-is a function called `get_wsgi_application`.
+is a function called `get_wsgi_application`,
+imported from `django.core.wsgi`.
 
 `get_wsgi_application` does two things:
 
