@@ -5,6 +5,11 @@ This list is a reference to some of the acronyms found in this book.
 
 **BETA READERS**: Did I miss one? Let me know.
 
+**API:**
+Application Programming Interface -
+The method which an application implements to allow other users or systems
+to interact with the app
+
 **Authn:**
 Authentication -
 A check that a user is who they say they are
@@ -82,6 +87,11 @@ Internet Protocol -
 The Internet Protcol is a networking protocol
 that defines how machines can communicate
 on the internet.
+
+**JSON:**
+JavaScript Object Notation -
+A common data format used by APIs to transfer information
+between different systems
 
 **MDN:**
 Mozilla Developer Network -
