@@ -23,8 +23,13 @@ series: "Understand Django"
 ---
 
 In the previous
+{{< web >}}
 [Understand Django]({{< ref "/understand-django/_index.md" >}})
 article,
+{{< /web >}}
+{{< book >}}
+chapter,
+{{< /book >}}
 we saw how static files
 like CSS, JavaScript, and images
 can be incorporated
@@ -69,7 +74,7 @@ How long does that take?
 For starting out,
 manually checking out your site is fine.
 What happens, though,
-when your create more pages?
+when you create more pages?
 How do you continue to confirm
 that all your pages are functional?
 You could open up the local site
@@ -213,7 +218,7 @@ there are some downsides:
     so running time is relative.
 
 When we have tests
-that runs many parts
+that run many parts
 of your application
 that are *integrated* together,
 we call these tests *integration tests*.
@@ -296,7 +301,12 @@ with testing your web app
 to verify its correctness.
 I brought all of this up because,
 if you're going to learn more about testing
+{{< web >}}
 after this article,
+{{< /web >}}
+{{< book >}}
+after this chapter,
+{{< /book >}}
 I caution you
 to avoid getting sucked
 into this definition trap.
@@ -304,10 +314,15 @@ into this definition trap.
 Here are my working definitions
 of unit and integration tests
 in Django.
-These definition are imperfect
+These definitions are imperfect
 (as are *any* definitions),
 but they should help frame the discussion
+{{< web >}}
 in this article.
+{{< /web >}}
+{{< book >}}
+in this chapter.
+{{< /book >}}
 
 * **Unit tests** - Tests that check individual units
     within a Django project like a model method
@@ -350,7 +365,7 @@ of those extensions.
 
 My biggest reason
 for using `pytest-django` is
-that it let's me use the `assert` keyword
+that it lets me use the `assert` keyword
 in all of my tests.
 In the Python standard library's `unittest` module
 and, by extension,
@@ -424,7 +439,9 @@ from application.tests.factories import OrderFactory
 class TestOrder:
     def test_shipped(self):
         """After shipping an order, the status is shipped."""
-        order = OrderFactory(status=Order.Status.PENDING)
+        order = OrderFactory(
+            status=Order.Status.PENDING
+        )
 
         order.ship()
 
@@ -460,7 +477,7 @@ Trust me, you *will* benefit from docstrings
 on your tests.
 There is a strong temptation to leave things
 at `test_shipped`,
-but future you may not have enough context.
+but in the future you may not have enough context.
 
 Many developers opt for long test names instead.
 While I have no problem with long descriptive test names,
@@ -527,14 +544,17 @@ class TestSupportForm:
         """A submission to the support form creates a support request."""
         email = "hello@notreal.com"
         data = {
-            "email": email, "message": "I'm having trouble with your product."
+            "email": email,
+            "message": "I'm having trouble with your product."
         }
         form = SupportForm(data=data)
         form.is_valid()
 
         form.save()
 
-        assert SupportRequest.objects.filter(email=email).count() == 1
+        assert SupportRequest.objects.filter(
+            email=email
+        ).count() == 1
 ```
 
 With this test,
@@ -579,7 +599,10 @@ class TestSupportForm:
 
     def test_bad_email(self):
         """An malformed email address is invalid."""
-        data = {"email": "bogus", "message": "Whatever"}
+        data = {
+            "email": "bogus",
+            "message": "Whatever"
+        }
         form = SupportForm(data=data)
 
         is_valid = form.is_valid()
@@ -623,7 +646,7 @@ for virtually all
 of my Django form tests.
 Let's move on
 to the integration tests
-to see what it look like
+to see what it looks like
 to test more code
 at once.
 
@@ -641,7 +664,12 @@ My definition of an integration test
 in Django
 is a test
 that uses Django's test `Client`.
+{{< web >}}
 In previous articles,
+{{< /web >}}
+{{< book >}}
+In previous chapters,
+{{< /book >}}
 I've only mentioned what a client is in passing.
 In the context
 of a web application,
@@ -689,7 +717,9 @@ class TestProfileView:
         client = Client()
         user = UserFactory()
 
-        response = client.get(reverse("profile"))
+        response = client.get(
+            reverse("profile")
+        )
 
         assert response.status_code == 200
         assert user.first_name in response.content.decode()
@@ -892,14 +922,25 @@ as the number of foreign key relationships increases.
 ```python
 def test_detail_view_show_genre(client):
     """The genre is on the detail page."""
-    director = Director.objects.create(name="Steven Spielberg")
-    producer = Producer.objects.create(name="George Lucas")
-    studio = Studio.objects.create(name='Paramount')
+    director = Director.objects.create(
+        name="Steven Spielberg"
+    )
+    producer = Producer.objects.create(
+        name="George Lucas"
+    )
+    studio = Studio.objects.create(
+        name='Paramount'
+    )
     movie = Movie.objects.create(
-        genre='Sci-Fi', director=director, producer=producer, studio=studio
+        genre='Sci-Fi',
+        director=director,
+        producer=producer,
+        studio=studio
     )
 
-    response = client.get(reverse('movie:detail', args=[movie.id]))
+    response = client.get(
+        reverse('movie:detail', args=[movie.id])
+    )
 
     assert response.status_code == 200
     assert 'Sci-Fi' in response.content.decode()
@@ -908,7 +949,7 @@ def test_detail_view_show_genre(client):
 On the surface,
 the test isn't *too* bad.
 I think that's mostly because I kept the modeling simple.
-What if `Director`, `Producer`, or `Studio` also had required foreign keys?
+What if the `Director`, `Producer`, or `Studio` models also had required foreign keys?
 We'd spend most
 of our effort
 on the Arrangement section
@@ -927,7 +968,9 @@ def test_detail_view_show_genre(client):
     """The genre is on the detail page."""
     movie = MovieFactory(genre='Sci-Fi')
 
-    response = client.get(reverse('movie:detail', args=[movie.id]))
+    response = client.get(
+        reverse('movie:detail', args=[movie.id])
+    )
 
     assert response.status_code == 200
     assert 'Sci-Fi' in response.content.decode()
@@ -966,9 +1009,15 @@ class MovieFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Movie
 
-    director = factory.SubFactory(DirectorFactory)
-    producer = factory.SubFactory(ProducerFactory)
-    studio = factory.SubFactory(StudioFactory)
+    director = factory.SubFactory(
+        DirectorFactory
+    )
+    producer = factory.SubFactory(
+        ProducerFactory
+    )
+    studio = factory.SubFactory(
+        StudioFactory
+    )
     genre = 'Action'
 ```
 
@@ -1021,7 +1070,12 @@ to your test tools.
 
 ## Summary
 
+{{< web >}}
 In this article,
+{{< /web >}}
+{{< book >}}
+In this chapter,
+{{< /book >}}
 we explored tests
 with Django projects.
 We focused on:
@@ -1051,6 +1105,7 @@ you'll want to know about:
     with the proper security guards
 * Monitoring your application for errors
 
+{{< web >}}
 If you'd like to follow along
 with the series,
 please feel free to sign up
@@ -1061,3 +1116,4 @@ you can reach me online
 on Twitter
 where I am
 {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+{{< /web >}}

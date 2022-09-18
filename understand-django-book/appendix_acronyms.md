@@ -5,6 +5,10 @@ This list is a reference to some of the acronyms found in this book.
 
 **BETA READERS**: Did I miss one? Let me know.
 
+**AAA:**
+Arrange Act Assert -
+A mental model for how to think about writing automated tests
+
 **API:**
 Application Programming Interface -
 The method which an application implements to allow other users or systems
@@ -131,6 +135,12 @@ This is where packages come from when you use `pip install`.
 Regular Expression -
 A regex is a concise string definition
 that enables pattern matching and parsing for strings.
+
+**REPL:**
+Read Evaluate Print Loop -
+The text user interface that you get
+when you run Python on the command line
+without any script input
 
 **SaaS:**
 Software as a Service -
