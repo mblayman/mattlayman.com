@@ -22,8 +22,13 @@ series: "Understand Django"
 ---
 
 In the previous
+{{< web >}}
 [Understand Django]({{< ref "/understand-django/_index.md" >}})
 article,
+{{< /web >}}
+{{< book >}}
+chapter,
+{{< /book >}}
 we looked at automated testing
 and how writing tests
 to check your Django project
@@ -40,7 +45,12 @@ to *deploy* a Django project.
 Deployment is the act
 of making your application live
 to your audience,
+{{< web >}}
 and this article explains the actions
+{{< /web >}}
+{{< book >}}
+and this chapter explains the actions
+{{< /book >}}
 you should consider
 to deploy effectively.
 
@@ -98,7 +108,7 @@ WSGI is the Web Server Gateway Interface.
 WSGI is the protocol that permits Django apps
 to talk to any of these web application servers.
 
-If you run the `startproject` command
+If you ran the `startproject` command
 and named your Django project as "project,"
 the WSGI application should be in a file
 like `project/wsgi.py`.
@@ -164,10 +174,15 @@ $ gunicorn project.wsgi --workers 2
 The only other option you may require is an option
 to handle where logging data goes.
 I haven't covered logging in depth yet,
+{{< web >}}
 but recall from previous articles
+{{< /web >}}
+{{< book >}}
+but recall from previous chapters
+{{< /book >}}
 that logging allows you to record information
 about what your application is doing
-while its running.
+while it's running.
 
 Some hosting providers expect monitoring output
 like logging
@@ -184,7 +199,9 @@ to the `log-file` option.
 My full Gunicorn command looks like:
 
 ```bash
-$ gunicorn project.wsgi --workers 2 --log-file -
+$ gunicorn project.wsgi \
+    --workers 2 \
+    --log-file -
 ```
 
 ## Pick Your Cloud
@@ -267,9 +284,16 @@ Django has a few preconditions
 that it expects
 before running your application
 in a live setting.
+{{< web >}}
 If you've read the previous articles,
 then you've actually seen most
 of these preconditions by now,
+{{< /web >}}
+{{< book >}}
+You've seen most
+of these preconditions by now
+in earlier chapters,
+{{< /book >}}
 but we'll group them together in this section
 so you can see the complete picture.
 
@@ -287,7 +311,12 @@ then you may need to specify
 which settings module
 that Django should use when running.
 
+{{< web >}}
 In a future article,
+{{< /web >}}
+{{< book >}}
+In a future chapter,
+{{< /book >}}
 we'll focus on how to manage your settings modules.
 At that time,
 you'll see how using some particular techniques diminish the need
@@ -300,7 +329,12 @@ The next important precondition
 for your app is keeping your database
 in sync using migrations.
 As mentioned
+{{< web >}}
 in the models article,
+{{< /web >}}
+{{< book >}}
+in the models chapter,
+{{< /book >}}
 we make migrations
 when making model changes.
 These migrations generate instructions
@@ -349,7 +383,12 @@ for the application.
 Another precondition needed
 for your app
 is static files.
+{{< web >}}
 We saw in the static files article
+{{< /web >}}
+{{< book >}}
+We saw in the static files chapter
+{{< /book >}}
 that Django looks
 for static files
 in a single directory
@@ -414,7 +453,12 @@ $ ./manage.py check --deploy --fail-level WARNING
 
 On a little sample project
 that I created,
+{{< web >}}
 the (slightly reformatted for the article) output looks like:
+{{< /web >}}
+{{< book >}}
+the output looks like:
+{{< /book >}}
 
 ```bash
 $ ./manage.py check --deploy --fail-level WARNING
@@ -488,7 +532,12 @@ with a reverse proxy
 like Nginx
 (this was one of the configurations
 that I mentioned
+{{< web >}}
 in the static files article).
+{{< /web >}}
+{{< book >}}
+in the static files chapter).
+{{< /book >}}
 If HSTS is handled elsewhere,
 you could set the `SILENCED_SYSTEM_CHECKS` setting
 to tell Django
@@ -497,7 +546,9 @@ that you took care of it.
 ```python
 # project/settings.py
 
-SILENCED_SYSTEM_CHECKS = ["security.W004"]
+SILENCED_SYSTEM_CHECKS = [
+    "security.W004"
+]
 ```
 
 Once you have finished the checklist,
@@ -511,7 +562,7 @@ Let's look at that next.
 ## Prepare For Errors
 
 If an error happens on a live site
-and the site administrator (e.g., *you*) didn't hear it,
+and the site administrator (i.e., *you*) didn't hear it,
 did it really happen?
 **Yes, yes it did.**
 
@@ -624,7 +675,7 @@ ROLLBAR = {
     "enabled": env("ROLLBAR_ENABLED"),
     "access_token": env("ROLLBAR_ACCESS_TOKEN"),
     "environment": env("ROLLBAR_ENVIRONMENT"),
-    "branch": "master",
+    "branch": "main",
     "root": BASE_DIR,
 }
 ```
@@ -663,7 +714,7 @@ how can you tell that it's working?
 Like a musician tapping a microphone
 to see if it's working,
 I like to add a view to my code
-that let's me test
+that lets me test
 that my error tracking service is operational.
 
 ```python
@@ -701,7 +752,12 @@ that you fixed their problem immediately.
 
 ## Summary
 
+{{< web >}}
 In this article,
+{{< /web >}}
+{{< book >}}
+In this chapter,
+{{< /book >}}
 we learned the things
 to consider when deploying a site
 to the internet.
@@ -716,7 +772,12 @@ We examined:
     with the proper security guards
 * Monitoring your application for errors
 
+{{< web >}}
 In the next article,
+{{< /web >}}
+{{< book >}}
+In the next chapter,
+{{< /book >}}
 we'll look at Django's tools
 for managing shorter term user data
 like authentication info
@@ -731,6 +792,7 @@ You'll learn about:
 * Ways that Django uses sessions
 * How to use sessions in your apps
 
+{{< web >}}
 If you'd like to follow along
 with the series,
 please feel free to sign up
@@ -741,3 +803,4 @@ you can reach me online
 on Twitter
 where I am
 {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+{{< /web >}}

@@ -26,6 +26,11 @@ What a user is allowed to do
 Class-based view -
 A Django view that uses a Python class
 
+**CPU:**
+Central Processing Unit -
+The primary part of a computer that performs computation
+and does "the work"
+
 **CRUD:**
 Create, Read, Update, Delete -
 CRUD represents the most common operations
