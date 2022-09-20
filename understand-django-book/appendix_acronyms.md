@@ -91,6 +91,11 @@ Internet Corporation for Assigned Names and Numbers -
 This non-profit corporation maintains the domain name system
 and the management of IP address allocation.
 
+**ID:**
+Identifier -
+A data attribute used to mark the identity
+of an item or related group of data
+
 **IP:**
 Internet Protocol -
 The Internet Protcol is a networking protocol
