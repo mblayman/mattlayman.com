@@ -49,7 +49,8 @@ when your application is running.
 
 These files do a lot to improve your application,
 but they aren't dynamically generated
-by your Python web server.
+by your Python web server
+like a usual HTML response.
 In a typical web application,
 your most common static files will be the following types:
 
@@ -62,8 +63,8 @@ there may be a complex process
 in place
 to produce the files.
 For instance,
-modern JavaScript apps often have complex processes
-using JavaScript build tools
+modern JavaScript apps often
+use complex build tools
 like {{< extlink "https://webpack.js.org/" "webpack" >}}
 to build the final JavaScript files
 that are served
@@ -203,6 +204,9 @@ in your `.gitignore`
 if you're using version control
 with {{< extlink "https://git-scm.com/" "Git" >}}
 (and I highly recommend that you do!).
+Without that addition to `.gitignore`,
+you'll needlessly add the generated files
+to version control.
 I happen to set my `STATIC_ROOT`
 to a `staticfiles` directory.
 
