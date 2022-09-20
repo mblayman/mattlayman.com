@@ -1084,8 +1084,12 @@ We focused on:
 * What kinds of tests are useful
     to a Django app
 * What tools can you use to make testing easier
-
+{{< web >}}
 Next time,
+{{< /web >}}
+{{< book >}}
+In the next chapter,
+{{< /book >}}
 we will dig into deployment.
 Deployment is getting your project
 into the environment
