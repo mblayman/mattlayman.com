@@ -483,6 +483,10 @@ because it's not a critical setting
 to make static files work,
 but we're ready for the setting
 as we're thinking about optimization.
+We should really consider this setting for our projects
+because Django is fairly slow at serving static files
+compared to some of the alternative options that are available
+in the ecosystem.
 
 The last setting we'll consider is the `STATICFILES_STORAGE` setting.
 This setting controls how static files are stored and accessed
