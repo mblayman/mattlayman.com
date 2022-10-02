@@ -58,6 +58,11 @@ of websites (e.g., `www.djangoproject.com`)
 to map to IP addresses
 to help route requests.
 
+**DOS:**
+Denial of Service -
+A class of security vulnerability that appears when some action
+prevents the rest of an application from responding to requests
+
 **ESP:**
 Email Service Provider -
 A vendor that can send emails on behalf of your application
@@ -161,6 +166,12 @@ Software as a Service -
 A software product that users pay for,
 often delivered as a web application
 
+**SFTP:**
+Secure File Transfer Protocol -
+A protocol used specifically for the transmission of files
+over a network
+in a secured manner
+
 **SMTP:**
 Simple Mail Transfer Protocol -
 The protocol used to send email over the internet
@@ -188,6 +199,11 @@ Uniform Resource Locators -
 A URL is the destination
 of a browser request
 (e.g., `https://www.djangoproject.com`).
+
+**UUID:**
+Universally Unique Identifier -
+A generated identifier that provides a strong degree of confidence
+that the identifier will be unique
 
 **WSGI:**
 Web Server Gateway Interface -

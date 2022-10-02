@@ -24,8 +24,13 @@ series: "Understand Django"
 ---
 
 In the last
+{{< web >}}
 [Understand Django]({{< ref "/understand-django/_index.md" >}})
 article,
+{{< /web >}}
+{{< book >}}
+chapter,
+{{< /book >}}
 you learned about Django settings
 and how to manage the configuration
 of your application.
@@ -34,7 +39,12 @@ to help you
 to be extra effective
 with settings.
 
+{{< web >}}
 With this article,
+{{< /web >}}
+{{< book >}}
+With this chapter,
+{{< /book >}}
 we're going to dig into file management.
 Unlike the static files
 that you create for the app yourself,
@@ -50,7 +60,12 @@ and how to deal with them safely.
 
 ## Files In Django Models
 
+{{< web >}}
 As we saw in the models article,
+{{< /web >}}
+{{< book >}}
+As we saw in the models chapter,
+{{< /book >}}
 model fields in a Django model map
 to a column in a database table.
 When you want to access the *data*
@@ -128,7 +143,10 @@ $ ./manage.py shell
 >>> from application.models import Profile
 >>> f = open('/Users/matt/path/to/image.png')
 >>> profile = Profile()
->>> profile.picture.save('my-image.png', File(f))
+>>> profile.picture.save(
+...     'my-image.png',
+...     File(f)
+... )
 ```
 
 In this example,
@@ -182,12 +200,20 @@ import uuid
 from pathlib import Path
 from django.db import models
 
-def profile_pic_path(instance, filename):
+def profile_pic_path(
+        instance,
+        filename
+    ):
     path = Path(filename)
-    return "profile_pics/{}{}".format(uuid.uuid4(), path.suffix)
+    return "profile_pics/{}{}".format(
+        uuid.uuid4(),
+        path.suffix
+    )
 
 class Profile(models.Model):
-    picture = models.FileField(upload_to=profile_pic_path)
+    picture = models.FileField(
+        upload_to=profile_pic_path
+    )
     # Other fields like a OneToOneKey to User ...
 ```
 
@@ -242,7 +268,7 @@ To use `ImageField`,
 you'll need to install the
 {{< extlink "https://pillow.readthedocs.io/en/latest/" "Pillow" >}} library.
 Pillow is a package
-that let's Python work with image data.
+that lets Python work with image data.
 
 Our final example looks like:
 
@@ -253,12 +279,20 @@ import uuid
 from pathlib import Path
 from django.db import models
 
-def profile_pic_path(instance, filename):
+def profile_pic_path(
+        instance,
+        filename
+    ):
     path = Path(filename)
-    return "profile_pics/{}{}".format(uuid.uuid4(), path.suffix)
+    return "profile_pics/{}{}".format(
+        uuid.uuid4(),
+        path.suffix
+    )
 
 class Profile(models.Model):
-    picture = models.ImageField(upload_to=profile_pic_path)
+    picture = models.ImageField(
+        upload_to=profile_pic_path
+    )
     # Other fields like a OneToOneKey to User ...
 ```
 
@@ -315,11 +349,12 @@ Django would store a file somewhere like:
 ```text
 # This path is split to be easier to read.
 /Users/matt/example-app/ \
-    media/profile_pics/76ee4ae4-8659-4b50-a04f-e222df9a656a.jpg
+    media/profile_pics/ \
+    76ee4ae4-8659-4b50-a04f-e222df9a656a.jpg
 ```
 
 The other setting important to `FileSystemStorage` is `MEDIA_URL`.
-This settings will determine how files are accessed
+This setting will determine how files are accessed
 by browsers
 when Django is running.
 Let's say `MEDIA_URL` is:
@@ -457,7 +492,12 @@ as an alternative to the `FileSystemStorage`.
 
 ## Summary
 
+{{< web >}}
 In this article,
+{{< /web >}}
+{{< book >}}
+In this chapter,
+{{< /book >}}
 you learned about Django file management.
 We covered:
 
@@ -465,7 +505,12 @@ We covered:
 * How the files are managed in Django
 * A Python package that can store files in various cloud services
 
+{{< web >}}
 In the next article,
+{{< /web >}}
+{{< book >}}
+In the next chapter,
+{{< /book >}}
 let's explore commands.
 Commands are the code
 that you can run with `./manage.py`.
@@ -475,6 +520,7 @@ You'll learn about:
 * How to build custom commands
 * Extra commands from the community that are useful extensions for apps
 
+{{< web >}}
 If you'd like to follow along
 with the series,
 please feel free to sign up
@@ -485,3 +531,4 @@ you can reach me online
 on Twitter
 where I am
 {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+{{< /web >}}
