@@ -58,6 +58,10 @@ of websites (e.g., `www.djangoproject.com`)
 to map to IP addresses
 to help route requests.
 
+**ESP:**
+Email Service Provider -
+A vendor that can send emails on behalf of your application
+
 **FBV:**
 Function-based view -
 A Django view that uses a Python function
@@ -156,6 +160,10 @@ without any script input
 Software as a Service -
 A software product that users pay for,
 often delivered as a web application
+
+**SMTP:**
+Simple Mail Transfer Protocol -
+The protocol used to send email over the internet
 
 **SQL:**
 Structured Query Language -
