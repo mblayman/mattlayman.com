@@ -620,7 +620,9 @@ like `site.abcd1234.css`,
 and it will generate compressed versions
 of those files
 using the gzip compression algorithm
-(and, optionally, the brotli compression algorithm).
+(and, optionally, the
+{{< extlink "https://en.wikipedia.org/wiki/Brotli" "brotli" >}}
+compression algorithm).
 Those extra files look
 like `site.abcd1234.css.gz`
 or `site.abcd1234.css.br`.

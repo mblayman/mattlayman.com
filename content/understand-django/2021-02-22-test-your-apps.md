@@ -370,7 +370,7 @@ in all of my tests.
 In the Python standard library's `unittest` module
 and, by extension,
 Django's built-in test tools
-which subclasses `unitttest` classes,
+which subclasses `unittest` classes,
 checking values requires methods
 like `assertEqual`
 and `assertTrue`.
@@ -380,7 +380,10 @@ to write tests.
 
 The other vital tool
 in my tool belt is `factory-boy`.
-factory_boy is a tool
+PyPI calls this `factory-boy`,
+but the documentation uses `factory_boy`,
+so we'll use that naming from here on.
+`factory_boy` is a tool
 for building test database data.
 The library has fantastic Django integration
 and gives us the ability
@@ -677,7 +680,7 @@ a client is anything that consumes the output
 of a web app
 to display it to a user.
 
-The most obvious client for web app
+The most obvious client for a web app
 is a web browser,
 but there are plenty
 of other client types out there.
@@ -885,17 +888,17 @@ when writing automated tests.
 The other test package
 that I think every developer should use
 in their Django projects is
-{{< extlink "https://factoryboy.readthedocs.io/en/stable/" "factory_boy" >}}.
+`{{< extlink "https://factoryboy.readthedocs.io/en/stable/" "factory_boy" >}}`.
 
-> factory_boy helps you build model data for your tests.
+> `factory_boy` helps you build model data for your tests.
 
 As you build up your Django project,
 you will have more models
 that help to describe the domain
 that your website addresses.
 Generating model data
-for your tests is a capability
-that is immensely valuable.
+for your tests is an
+immensely valuable capability.
 
 You *could* use your model manager's `create` method
 to create a database entry
@@ -961,7 +964,7 @@ Did we need to know the names
 of the director, producer, and studio?
 No, we didn't need that for this test.
 Now,
-let's look at the factory_boy equivalent.
+let's look at the `factory_boy` equivalent.
 
 ```python
 def test_detail_view_show_genre(client):
@@ -1023,7 +1026,7 @@ class MovieFactory(factory.django.DjangoModelFactory):
 
 This factory definition is very declarative.
 We declare what we want,
-and factory_boy figures out how to put it together.
+and `factory_boy` figures out how to put it together.
 This quality leads to factories
 that you can reason about
 because you can focus
@@ -1033,7 +1036,7 @@ of model construction.
 
 The other noteworthy aspect is that the factories compose together.
 When we call `MovieFactory()`,
-factory_boy is missing data
+`factory_boy` is missing data
 about everything
 so it must build all of that data.
 The challenge is that the `MovieFactory` doesn't know
@@ -1044,7 +1047,7 @@ the factory will delegate
 to *other* factories
 using the `SubFactory` attribute.
 By delegating to other factories,
-factory_boy can build the model
+`factory_boy` can build the model
 and its entire tree
 of relationships
 with a single call.
@@ -1058,14 +1061,14 @@ as the `genre`.
 You can pass in other model instances
 to your factories too.
 
-factory_boy makes testing
+`factory_boy` makes testing
 with database records a joy.
 In my experience,
 most of my Django tests require some amount
 of database data
 so I use factories very heavily.
 I think you will find
-that factory_boy is a worthy addition
+that `factory_boy` is a worthy addition
 to your test tools.
 
 ## Summary
@@ -1080,10 +1083,11 @@ we explored tests
 with Django projects.
 We focused on:
 
-* Why would anyone want to write automated tests
+* Why anyone would want to write automated tests
 * What kinds of tests are useful
     to a Django app
-* What tools can you use to make testing easier
+* What tools you can use to make testing easier
+
 {{< web >}}
 Next time,
 {{< /web >}}

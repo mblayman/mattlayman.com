@@ -32,9 +32,9 @@ chapter,
 we looked at automated testing
 and how writing tests
 to check your Django project
-can be very valuable
-to save you time
-and make sure your site works
+can be very valuable,
+saving you time
+and making sure your site works
 for your users.
 Next,
 we're going to look into
@@ -131,7 +131,7 @@ at port 5000
 by default.
 As each request reaches the main process,
 the request routes to an available worker process.
-The work process executes your Django app code
+The worker process executes your Django app code
 to provide the response data
 to the user.
 
@@ -145,7 +145,7 @@ to your machine.
 
 The number of workers is a large determining factor
 in how many requests
-that your Django app can handle
+your Django app can handle
 at once.
 The number of requests processed is usually called *traffic*
 by web developers.
@@ -309,7 +309,7 @@ for different configurations
 (e.g., a live site configuration versus a unit testing configuration),
 then you may need to specify
 which settings module
-that Django should use when running.
+Django should use when running.
 
 {{< web >}}
 In a future article,
@@ -431,11 +431,8 @@ a seat belt is not strictly necessary
 to operate a vehicle.
 
 Django includes a command
-that provides a set
-of instructive safety messages
-for things that you should apply
-to your site
-that are important.
+that produces a set of instructive safety messages
+for important site settings and configurations.
 Thankfully,
 ignoring these messages is unlikely
 to affect your personal health,
