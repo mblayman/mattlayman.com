@@ -21,13 +21,23 @@ series: "Understand Django"
 ---
 
 In the last
+{{< web >}}
 [Understand Django]({{< ref "/understand-django/_index.md" >}})
 article,
+{{< /web >}}
+{{< book >}}
+chapter,
+{{< /book >}}
 we dug into file management.
 We saw how Django handles user uploaded files
 and how to deal with them safely.
 
+{{< web >}}
 With this article,
+{{< /web >}}
+{{< book >}}
+With this chapter,
+{{< /book >}}
 you'll learn about commands.
 Commands are the way to execute scripts
 that interact with your Django app.
@@ -112,7 +122,12 @@ Django gives us a tool to run commands
 before we've even started our project.
 That tool is the `django-admin` script.
 We saw it all the way back
+{{< web >}}
 in the first article
+{{< /web >}}
+{{< book >}}
+in the first chapter
+{{< /book >}}
 where I provided a short set
 of setup instructions
 to get you started
@@ -120,7 +135,12 @@ if you've never used Django before.
 
 After you've started a project,
 your code will have a `manage.py` file,
+{{< web >}}
 and the commands you've seen in most articles are in the form of:
+{{< /web >}}
+{{< book >}}
+and the commands you've seen in most chapters are in the form of:
+{{< /book >}}
 
 ```bash
 $ ./manage.py some_command
@@ -239,7 +259,7 @@ of the command system.
 
 With the `Command` class,
 you can add a `help` class attribute.
-Adding help can gives users a description
+Adding help can give users a description
 of what your command does when running
 `./manage.py custom_command -h`.
 
@@ -259,7 +279,7 @@ then you may understand how much time this kind of parsing can save you
 
 Other smaller features exist within the `Command` class too.
 Perhaps you only want your command to run
-if your project has satisified certain pre-conditions.
+if your project has satisfied certain pre-conditions.
 Commands can use the `requires_migration_checks`
 or `requires_system_checks`
 to ensure that the system is in the correct state
@@ -281,7 +301,7 @@ all of your app's interaction will probably be through web pages.
 After all,
 you were trying to use Django to make a web app,
 right?
-What do you when you need to do something
+What do you do when you need to do something
 that doesn't involve a browser?
 
 This kind of work for your app is often considered *background* work.
@@ -289,7 +309,7 @@ Background work is a pretty deep topic
 and will often involve special background task software
 like
 {{< extlink "https://docs.celeryproject.org/en/stable/getting-started/introduction.html" "Celery" >}}.
-When your app is an early stage,
+When your app is at an early stage,
 Celery or similar software can be overkill and far more than you need.
 
 A simpler alternative for some background tasks could be a command paired
@@ -333,15 +353,21 @@ class Command(BaseCommand):
     help = "Expire any accounts that are TRIALING beyond the trial days limit"
 
     def handle(self, *args, **options):
-        self.stdout.write("Search for old trial accounts...")
+        self.stdout.write(
+            "Search for old trial accounts..."
+        )
         # Give an extra day to be gracious and avoid customer complaints.
         cutoff_days = 61
         trial_cutoff = timezone.now() - datetime.timedelta(days=cutoff_days)
         expired_trials = Account.objects.filter(
             status=Account.TRIALING, created__lt=trial_cutoff
         )
-        count = expired_trials.update(status=Account.TRIAL_EXPIRED)
-        self.stdout.write(f"Expired {count} trial(s)")
+        count = expired_trials.update(
+            status=Account.TRIAL_EXPIRED
+        )
+        self.stdout.write(
+            f"Expired {count} trial(s)"
+        )
 ```
 
 I configured the scheduler
@@ -428,7 +454,12 @@ of complex background processing.
 Django is full of
 {{< extlink "https://docs.djangoproject.com/en/3.2/ref/django-admin/" "useful commands" >}}
 that you can use for all kinds of purposes.
+{{< web >}}
 Thus far in this series,
+{{< /web >}}
+{{< book >}}
+Thus far in this book,
+{{< /book >}}
 we've discussed a bunch of them, including:
 
 * `check` - Checks that your project is in good shape.
@@ -441,7 +472,7 @@ we've discussed a bunch of them, including:
     on the command line.
 * `startapp` - Makes a new Django app from a template.
 * `startproject` - Makes a new Django project from a template.
-* `test` - Executes tests that checks the validity of your app.
+* `test` - Executes tests that check the validity of your app.
 
 Here is a sampling of other commands
 that I find useful
@@ -572,7 +603,7 @@ A package that I often reach for
 with my Django projects is the
 {{< extlink "https://django-extensions.readthedocs.io/en/latest/index.html" "django-extensions" >}}
 package.
-This package is fully of goodies,
+This package is full of goodies,
 including some great optional commands
 that you can use!
 
@@ -601,7 +632,7 @@ like `reverse`, `settings,` `timezone`, and more.
 ### `graph_models`
 
 When I'm live streaming my side projects
-on {{< extlink "https://www.twitch.tv/mblayman" "my Twitch channel" >}},
+on {{< extlink "https://www.youtube.com/c/MattLayman" "my YouTube channel" >}},
 I will often want to show the model relationships
 of my Django project.
 With the `graph_models` command,
@@ -626,7 +657,12 @@ You should definitely check out django-extensions.
 
 ## Summary
 
+{{< web >}}
 In this article,
+{{< /web >}}
+{{< book >}}
+In this chapter,
+{{< /book >}}
 you saw Django commands.
 We covered:
 
@@ -635,7 +671,12 @@ We covered:
 * How to create your own custom command and how to test it
 * Useful commands from the core framework and the django-extensions package
 
+{{< web >}}
 In the next article,
+{{< /web >}}
+{{< book >}}
+In the next chapter,
+{{< /book >}}
 we're going to look into performance.
 You'll learn about:
 
@@ -643,6 +684,7 @@ You'll learn about:
 * Ways to optimize your database queries
 * How to apply caching to save processing
 
+{{< web >}}
 If you'd like to follow along
 with the series,
 please feel free to sign up
@@ -653,3 +695,4 @@ you can reach me online
 on Twitter
 where I am
 {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+{{< /web >}}

@@ -51,6 +51,11 @@ of markup on a webpage
 Database -
 DB is the conventional short name for database.
 
+**DDL:**
+Data Definition Language -
+The language used to modify the structure of a database
+(e.g., a statement to create a database table)
+
 **DNS:**
 Domain Name System -
 DNS is the system that the internet uses to manage names
@@ -104,6 +109,11 @@ and the management of IP address allocation.
 Identifier -
 A data attribute used to mark the identity
 of an item or related group of data
+
+**IO:**
+Input/Output -
+A common way to reference how a program interfaces
+with data coming in or going out of the program
 
 **IP:**
 Internet Protocol -
@@ -193,6 +203,10 @@ A TLD is a controlled name that is part of a domain name
 **UI:**
 User Interface -
 A UI is the visual interface that a user interacts with.
+
+**UML:**
+Unified Modeling Language -
+A language used to describe the design of a system visually
 
 **URL:**
 Uniform Resource Locators -
