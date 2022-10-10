@@ -370,7 +370,7 @@ in all of my tests.
 In the Python standard library's `unittest` module
 and, by extension,
 Django's built-in test tools
-which subclasses `unittest` classes,
+which subclass `unittest` classes,
 checking values requires methods
 like `assertEqual`
 and `assertTrue`.
@@ -519,11 +519,11 @@ for testing.
 Once you see the way
 that tests:
 
-1. Set up the inputs.
-2. Take action.
-3. Check the outputs.
+1. Set up the inputs,
+2. Take action,
+3. Check the outputs,
 
-Then automated testing becomes a lot less scary
+then automated testing becomes a lot less scary
 and more valuable to you.
 Now let's see how this same pattern plays out
 in forms.
@@ -891,6 +891,20 @@ in their Django projects is
 `{{< extlink "https://factoryboy.readthedocs.io/en/stable/" "factory_boy" >}}`.
 
 > `factory_boy` helps you build model data for your tests.
+
+The recommendation when writing automated tests
+is to use an empty test database.
+If fact,
+the common pattern provided with Django testing tools
+is to use an empty database
+for every test.
+Having a blank slate in the database helps
+each test be independent
+and makes it easier to assert
+on the state of the database.
+Because the test database is empty,
+you'll need a strategy to populate your tests
+with the appropriate data to check against.
 
 As you build up your Django project,
 you will have more models

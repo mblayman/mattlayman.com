@@ -158,7 +158,7 @@ You'd have this setup if you ran `django-admin startproject project .`
 (including the last dot),
 but what's really needed by the application server is wherever your `wsgi.py`
 file is located in your project,
-in module path form.
+*in module path form*.
 Adjust accordingly for your needs.
 
 Remember way back
