@@ -36,8 +36,8 @@ and how to manage the configuration
 of your application.
 We also looked at tools
 to help you
-to be extra effective
-with settings.
+define settings
+effectively.
 
 {{< web >}}
 With this article,
@@ -92,9 +92,9 @@ a column would store some kind of *reference*
 to the stored file
 like a path
 if files are stored on a filesystem.
-**This is the approach
+This is the approach
 that Django takes
-with files.**
+with files.
 
 Now that you know that Django takes this approach,
 you can remember:
@@ -180,10 +180,14 @@ The current model example raises questions.
 If we make no changes to the current setup,
 the data will go into the root
 of the media file storage.
-This will lead to a mess if you're trying to track many file fields,
+Media file storage is a topic that will be covered later.
+For the moment,
+recognize that putting all the files into a single place (i.e., the root)
+will be a mess.
+This mess will be pronounced if you're trying to track many file fields,
 but we can fix this with the `upload_to` field keyword argument.
 The simplest version of `upload_to` can take a string
-that storage will use as a directory prefix
+that the storage logic will use as a directory prefix
 to scope content
 into a different area.
 
@@ -251,6 +255,10 @@ Because of this feature,
 we can avoid filename conflicts
 by storing profile pictures
 with a unique name.
+As an aside,
+UUIDs are not very friendly for users,
+so if you plan to let your users download these files,
+you might wish to explore alternative naming techniques.
 
 There's one more problem to fix
 in this example.
@@ -374,7 +382,7 @@ Our profile picture would have a URL like:
 
 This is the path that we can reference
 in templates.
-An image tag template fragment would like:
+An image tag template fragment would look like:
 
 {{< web >}}
 ```django
@@ -438,7 +446,7 @@ your application can connect to services like:
 * Amazon Simple Storage Service (S3)
 * Google Cloud Storage
 * Digital Ocean Spaces
-* Or services you run separately like an SFTP server
+* Services you run separately like an SFTP server
 
 These services would have additional cost
 beyond the cost of running your web server
@@ -457,7 +465,7 @@ Why use django-storages?
     like a malicious file trying to execute arbitrary code
     on the web server.
 * Cloud storage can offer some caching benefits
-    and be connected to Content Delivery Networks easily
+    and be easily connected to Content Delivery Networks
     to optimize how files are served to your app's users.
 
 As with all software choices,
