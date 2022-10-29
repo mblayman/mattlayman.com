@@ -154,7 +154,7 @@ In truth, **not much!**
 In Python packages,
 package developers can create scripts
 by defining an entry point
-in the packaging configuration.
+in the {{< extlink "https://github.com/django/django/blob/4.1/setup.cfg" "packaging configuration" >}}.
 In Django,
 this configuration looks like:
 
@@ -166,7 +166,7 @@ console_scripts =
 
 Meanwhile,
 the entire `manage.py`
-of one of my projects is:
+of a Django project looks like:
 
 ```python
 #!/usr/bin/env python
@@ -452,7 +452,7 @@ of complex background processing.
 ## Useful Commands
 
 Django is full of
-{{< extlink "https://docs.djangoproject.com/en/3.2/ref/django-admin/" "useful commands" >}}
+{{< extlink "https://docs.djangoproject.com/en/4.1/ref/django-admin/" "useful commands" >}}
 that you can use for all kinds of purposes.
 {{< web >}}
 Thus far in this series,
@@ -489,7 +489,7 @@ This shell will vary based on your choice of database.
 For instance,
 when using PostgreSQL,
 `./manage.py dbshell`
-will start `psql`.
+will start `{{< extlink "https://www.postgresql.org/docs/current/app-psql.html" "psql" >}}`.
 From this shell,
 you can execute SQL statements directly
 to inspect the state
@@ -596,8 +596,8 @@ because Django gets to process fewer files.
 ## Even More Useful Commands
 
 The commands above come with the standard Django install.
-There's even more cool stuff out there to help
-with your project development!
+Adding in third-party libraries gives you access
+to even more cool stuff to help with your project development!
 
 A package that I often reach for
 with my Django projects is the
@@ -628,6 +628,12 @@ and get directly to whatever you needed the shell for.
 The command will also import some commonly used Django functions
 and features
 like `reverse`, `settings,` `timezone`, and more.
+
+Also,
+if you have installed a separate REPL like
+{{< extlink "https://ipython.org/" "IPython" >}},
+`shell_plus` will attempt to use the alternate REPL instead
+of the default version that comes with Python.
 
 ### `graph_models`
 

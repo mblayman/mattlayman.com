@@ -838,7 +838,7 @@ that can supercharge your UI.
 ## The Templates Toolbox
 
 The Django documentation includes
-a {{< extlink "https://docs.djangoproject.com/en/4.0/ref/templates/builtins/" "large set of built-in tags" >}}
+a {{< extlink "https://docs.djangoproject.com/en/4.1/ref/templates/builtins/" "large set of built-in tags" >}}
 that you can use
 in your projects.
 We aren't going to cover all of them,
@@ -1025,7 +1025,7 @@ in the context,
 you can use the `date` filter
 to control the format
 of the datetime.
-The `date` {{< extlink "https://docs.djangoproject.com/en/4.0/ref/templates/builtins/#date" "documentation" >}} shows
+The `date` {{< extlink "https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#date" "documentation" >}} shows
 what options you can use
 to modify the format.
 
@@ -1300,7 +1300,7 @@ of custom tags
 in our examples.
 There are some more advanced custom tagging features
 which you can explore
-in the {{< extlink "https://docs.djangoproject.com/en/4.0/howto/custom-template-tags/" "Django custom template tags documentation" >}}.
+in the {{< extlink "https://docs.djangoproject.com/en/4.1/howto/custom-template-tags/" "Django custom template tags documentation" >}}.
 
 Django also uses `load`
 to provide template authors

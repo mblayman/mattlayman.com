@@ -467,7 +467,7 @@ to the kinds
 of fields
 that forms can use.
 The extensive list of fields is
-in {{< extlink "https://docs.djangoproject.com/en/4.0/ref/forms/fields/" "the Django documentation" >}},
+in {{< extlink "https://docs.djangoproject.com/en/4.1/ref/forms/fields/" "the Django documentation" >}},
 and we will look at a few
 of the most common ones
 {{< web >}}
