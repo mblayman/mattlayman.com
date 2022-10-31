@@ -9,6 +9,11 @@ This list is a reference to some of the acronyms found in this book.
 Arrange Act Assert -
 A mental model for how to think about writing automated tests
 
+**AJAX:**
+Asynchronous JavaScript and XML -
+A concept for making web requests in the browser via JavaScript
+and loading content asynchronously
+
 **ALB:**
 Application Load Balancer -
 A reverse proxy service layer positioned between users
@@ -37,6 +42,11 @@ What a user is allowed to do
 Class-based view -
 A Django view that uses a Python class
 
+**CORS:**
+Cross-Origin Resource Sharing -
+A security control mechanism that allows your site to expect requests
+only from particular domains
+
 **CPU:**
 Central Processing Unit -
 The primary part of a computer that performs computation
@@ -46,6 +56,11 @@ and does "the work"
 Create, Read, Update, Delete -
 CRUD represents the most common operations
 that exist for virtually all web applications.
+
+**CSP:**
+Content Security Policy -
+A security control mechanism to protect what domains are accessible
+to a browser visiting your site
 
 **CSRF:**
 Cross-Site Request Forgery -

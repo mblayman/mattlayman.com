@@ -23,13 +23,23 @@ series: "Understand Django"
 ---
 
 In the last
+{{< web >}}
 [Understand Django]({{< ref "/understand-django/_index.md" >}})
 article,
+{{< /web >}}
+{{< book >}}
+chapter,
+{{< /book >}}
 we learned about where apps slow down.
 We explored techniques that help sites handle the load
 and provide a fast experience for users.
 
+{{< web >}}
 With this article,
+{{< /web >}}
+{{< book >}}
+With this chapter,
+{{< /book >}}
 we will look at security.
 How does a Django site stay safe
 on the big, bad internet?
@@ -42,10 +52,17 @@ Let's find out.
 I have a confession to make.
 Of all the topics
 that I've covered about Django
+{{< web >}}
 in this series,
+{{< /web >}}
+{{< book >}}
+in this book,
+{{< /book >}}
 *this is my least favorite one.*
+{{< web >}}
 Perhaps that's why I've pushed the subject
 so far into this list of articles.
+{{< /web >}}
 
 I have a very hard time getting excited about security
 because it feels like a pure cost to me.
@@ -104,7 +121,7 @@ and do it with gusto!
 Security has a bunch of acronyms to learn.
 I don't know if this is something that security researchers
 like to do,
-or if the it's because the problems
+or if the reason is because the problems
 that the acronyms stand for are challenging
 to understand.
 Either way,
@@ -113,9 +130,19 @@ and the problems they address.
 
 ### CSRF
 
+{{< web >}}
 In a number of these Understand Django articles,
+{{< /web >}}
+{{< book >}}
+In a number of these chapters,
+{{< /book >}}
 I have discussed CSRF briefly.
+{{< web >}}
 In the forms article,
+{{< /web >}}
+{{< book >}}
+In the forms chapter,
+{{< /book >}}
 I did some hand waving and stated
 that you need a CSRF token
 for security reasons
@@ -138,7 +165,7 @@ you can see where this goes:
     the attacker may make purchases
     using the user's stored credit card information.
 
-Django include a capability to help thwart this kind of attack.
+Django includes a capability to help thwart this kind of attack.
 Through the use of **CSRF tokens**,
 we can help prevent bad actors
 from performing actions
@@ -429,7 +456,7 @@ which you deem are safe for your site.
 Modern browsers respect the policy declared
 by the HTTP header
 and will refuse to connect to resources
-out of your policy
+outside of your policy
 when users visit your site at your domain.
 
 There is something obvious
@@ -456,7 +483,12 @@ but you don't need to be prepared
 to go to black hat conventions
 in order to work on the web.
 
+{{< web >}}
 Before finishing up this security article,
+{{< /web >}}
+{{< book >}}
+Before finishing up this security chapter,
+{{< /book >}}
 let's look at what Django provides
 so that you can be less of a security expert
 and use the knowledge
@@ -472,7 +504,12 @@ on the
 Aside from the content outlined
 on the security page,
 we can return to the check command
+{{< web >}}
 discussed in previous articles.
+{{< /web >}}
+{{< book >}}
+discussed in previous chapters.
+{{< /book >}}
 Recall that Django includes a `check` command
 that can check your site's configuration
 before you deploy a site live.
@@ -539,7 +576,12 @@ and may cause people to leave your site forever.
 
 ## Summary
 
+{{< web >}}
 In this article,
+{{< /web >}}
+{{< book >}}
+In this chapter,
+{{< /book >}}
 we explored security topics
 and how they related to Django.
 We covered:
@@ -551,8 +593,13 @@ We covered:
 * The security checks and information available
     from the `check` command
 
+{{< web >}}
 In the *last* article
 of the Understand Django series,
+{{< /web >}}
+{{< book >}}
+In the *last* chapter,
+{{< /book >}}
 we'll get into debugging.
 You'll learn about:
 
@@ -560,6 +607,7 @@ You'll learn about:
 * Browser tools
 * Strategies for finding and fixing problems
 
+{{< web >}}
 If you'd like to follow along
 with the series,
 please feel free to sign up
@@ -570,3 +618,4 @@ you can reach me online
 on Twitter
 where I am
 {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+{{< /web >}}
