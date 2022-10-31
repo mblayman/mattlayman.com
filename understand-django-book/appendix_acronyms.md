@@ -3,8 +3,6 @@
 The web is full of acronyms for different technologies, protocols, and concepts.
 This list is a reference to some of the acronyms found in this book.
 
-**BETA READERS**: Did I miss one? Let me know.
-
 **AAA:**
 Arrange Act Assert -
 A mental model for how to think about writing automated tests
@@ -172,6 +170,11 @@ into a relational database.
 Open Web Application Security Project -
 A nonprofit foundation that works to improve the security of software
 on the web
+
+**PaaS:**
+Platform as a Service -
+A vendor that can host your application in a managed environment
+where you tradoff convenience for control
 
 **PEP:**
 Python Enhancement Proposal -

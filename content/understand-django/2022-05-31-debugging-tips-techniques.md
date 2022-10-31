@@ -21,15 +21,30 @@ series: "Understand Django"
 ---
 
 In the last
+{{< web >}}
 [Understand Django]({{< ref "/understand-django/_index.md" >}})
 article,
+{{< /web >}}
+{{< book >}}
+chapter,
+{{< /book >}}
 we looked at security.
 How does a Django site stay safe
 on the big, bad internet?
+{{< web >}}
 The article explored some core elements
-for making Django app more secure.
+{{< /web >}}
+{{< book >}}
+The chapter explored some core elements
+{{< /book >}}
+for making a Django app more secure.
 
+{{< web >}}
 With this article,
+{{< /web >}}
+{{< book >}}
+With this chapter,
+{{< /book >}}
 we will investigate problem solving techniques
 for Django apps.
 The goal is to equip you with tools
@@ -82,18 +97,25 @@ Once you understand the problem,
 you'll be ready to create the solution
 and fix your bug.
 
-*How do you repeatably figure out problems in a website?*
+*How do you repeatably figure out problems with a website?*
 
 In my experience,
 the most fruitful way to understand a problem is to reproduce it.
 To reproduce a problem requires context and data
 about what happened in the first place.
 
-What are sources of this data?
+What are the sources of this data?
 
+{{< web >}}
 * Error monitoring services like Rollbar or Sentry can be a fantastic source
     of data.
 * Log data, which we'll discuss later in this article, can be another excellent source.
+{{< /web >}}
+{{< book >}}
+* Error monitoring services like Rollbar or Sentry can be a fantastic source
+    of data.
+* Log data, which we'll discuss later in this chapter, can be another excellent source.
+{{< /book >}}
 
 Error monitoring services help show what happened.
 These services will collect tracebacks of Python exceptions
@@ -178,7 +200,7 @@ at a pretty deep level.
 
 One tool to reach for is the `print` function.
 You can sprinkle some calls to `print`
-into the code your working with
+into the code you're working with
 to gain an understanding
 of what is happening.
 
@@ -187,7 +209,7 @@ you'll run across this idea
 that "print debugging" is a bad idea.
 Not everyone espouses this idea,
 but it exists out there.
-In the same breathe,
+In the same breath,
 you'll read that you should be using a debugger instead
 or some other tool.
 
@@ -273,7 +295,7 @@ what about the rest of the time?
 
 Sometimes I'll use a debugger.
 A debugger is a specialized tool
-that allows you go through your Python code,
+that allows you to go through your Python code,
 one line at a time.
 
 Considering how much code we write
@@ -302,7 +324,7 @@ by running the Python debugger, `pdb`,
 starting from the call to `breakpoint`.
 
 If you do this, you'll be left at a prompt
-that start with `(Pdb)`.
+that starts with `(Pdb)`.
 From here,
 you'll need to know some commands
 to navigate within the debugger.
@@ -393,7 +415,7 @@ and checking data at different parts
 of the call stack,
 but I hope this description gives you an idea
 of how to apply a debugger
-in your work flow.
+in your workflow.
 
 Learn more about the debugger and `pdb`
 by checking out the
@@ -496,7 +518,7 @@ but comes with some tradeoffs
 to consider.
 
 * **Pro**: When you have sufficient logging,
-    you can see what was happening in the app
+    you can see what is happening in the app
     when your users are working in the app.
 * **Pro**: More advanced logging configurations
     can include metadata that you can filter on
@@ -591,7 +613,12 @@ as you think about how to debug your apps.
 
 ## Summary
 
+{{< web >}}
 In this article,
+{{< /web >}}
+{{< book >}}
+In this chapter,
+{{< /book >}}
 we saw debugging tips, tools, and techniques
 to make you a bug crushing machine
 in Django.
@@ -608,28 +635,63 @@ We discussed:
     of activity in your application
     to fix issues
 
+{{< web >}}
 That's the end of this series!
+{{< /web >}}
+{{< book >}}
+That's the end of this book!
+{{< /book >}}
 Can you believe there are still more topics
+{{< web >}}
 that this series could cover?
+{{< /web >}}
+{{< book >}}
+that this book could cover?
+{{< /book >}}
 Django has so much available that,
+{{< web >}}
 even after twenty articles,
+{{< /web >}}
+{{< book >}}
+even after twenty chapters,
+{{< /book >}}
 I've not covered everything.
 But this is the end
 of the line for me.
 
+{{< web >}}
 I knew when I started this series
+{{< /web >}}
+{{< book >}}
+I knew when I started this book
+{{< /book >}}
 that I was going to cover a huge number
 of topics.
 What I didn't know when I started this in January of 2020
 is how wacky the world would be.
+{{< web >}}
 I thought that I might produce an article every other week
+{{< /web >}}
+{{< book >}}
+I thought that I might produce a chapter every other week
+{{< /book >}}
 and be done in less than a year.
 *How wrong I was!*
 More than two years later,
 I'm writing the words
+{{< web >}}
 of this last article.
+{{< /web >}}
+{{< book >}}
+of this last chapter.
+{{< /book >}}
 
+{{< web >}}
 As I wrap up this series,
+{{< /web >}}
+{{< book >}}
+As I wrap up this book,
+{{< /book >}}
 my hope is that you,
 dear reader,
 have come to understand Django better.
@@ -654,11 +716,21 @@ to making something so useful
 for others
 (for *free* in most cases!).
 
+{{< web >}}
 I would like to conclude this series
+{{< /web >}}
+{{< book >}}
+I would like to conclude this book
+{{< /book >}}
 by thanking all of you readers out there.
 Along this lengthy journey,
 so many of you have reached out
+{{< web >}}
 and told me how this series has helped you grow
+{{< /web >}}
+{{< book >}}
+and told me how this book has helped you grow
+{{< /book >}}
 as a Django developer.
 I'm hopeful that developers have used these words
 to learn and create websites
@@ -666,10 +738,16 @@ that help their own communities.
 Knowing that I've impacted some of you
 and, by extension, the communities
 that you've helped,
+{{< web >}}
 made writing this series worth it.
+{{< /web >}}
+{{< book >}}
+made writing this book worth it.
+{{< /book >}}
 
 > Thank you for reading!
 
+{{< web >}}
 If you'd like to see more content
 like this series,
 please feel free to sign up
@@ -680,3 +758,4 @@ you can reach me online
 on Twitter
 where I am
 {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+{{< /web >}}
