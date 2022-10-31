@@ -9,10 +9,21 @@ This list is a reference to some of the acronyms found in this book.
 Arrange Act Assert -
 A mental model for how to think about writing automated tests
 
+**ALB:**
+Application Load Balancer -
+A reverse proxy service layer positioned between users
+and your Django application to allow for horizontal scaling
+
 **API:**
 Application Programming Interface -
 The method which an application implements to allow other users or systems
 to interact with the app
+
+**APM:**
+Application Performance Monitoring -
+A type of third party vendor that can monitor your application
+and record information about the performance characteristics
+of the site
 
 **Authn:**
 Authentication -
@@ -200,6 +211,11 @@ Top Level Domain -
 A TLD is a controlled name that is part of a domain name
 (e.g., `.com`, `.org`).
 
+**TLS:**
+Transport Layer Security -
+The cryptographic security layer that forms the basis
+of secure transfer for HTTPS connections
+
 **UI:**
 User Interface -
 A UI is the visual interface that a user interacts with.
@@ -218,6 +234,11 @@ of a browser request
 Universally Unique Identifier -
 A generated identifier that provides a strong degree of confidence
 that the identifier will be unique
+
+**VPS:**
+Virtual Private Server -
+A server provided by a cloud vendor
+that you can use as a hosting option for a Django project
 
 **WSGI:**
 Web Server Gateway Interface -
