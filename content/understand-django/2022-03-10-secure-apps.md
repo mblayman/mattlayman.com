@@ -118,7 +118,7 @@ and do it with gusto!
 
 ## The Three **C**s
 
-Security has a bunch of acronyms to learn.
+Learning about security involves learning a bunch of acronyms.
 I don't know if this is something that security researchers
 like to do,
 or if the reason is because the problems
@@ -149,7 +149,7 @@ for security reasons
 and basically said "trust me" at the time.
 
 CSRF stands for *Cross Site Request Forgery*.
-In my terms,
+In simple terms,
 a CSRF attack allows an attacker to use someone's credentials
 to a different site
 without their permission.
@@ -583,7 +583,7 @@ In this article,
 In this chapter,
 {{< /book >}}
 we explored security topics
-and how they related to Django.
+and how they relate to Django.
 We covered:
 
 * CSRF
