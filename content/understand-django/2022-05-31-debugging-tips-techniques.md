@@ -219,7 +219,7 @@ that we'll cover shortly,
 are not the only tool worth knowing.
 In fact,
 in many cases,
-debuggers are often a terrible tool for the job.
+debuggers are a terrible tool for the job.
 
 What does the `print` function do
 that makes it so useful?
@@ -285,6 +285,12 @@ Hello world foo=5
 `print` is pretty great,
 but it isn't always my tool
 of choice.
+For instance, `print` is not the best tool
+when problem solving a live site.
+`print` also doesn't work as well
+when I need to get really detailed information
+about the state of my program.
+
 When do I reach for something else?
 Let's look at debuggers next.
 
@@ -438,7 +444,7 @@ that many less experienced developers
 will hit this situation
 and suddenly freeze.
 There's some kind of mental barrier preventing them
-from looking any farther
+from looking any further
 than the boundary
 of their own code.
 
@@ -497,7 +503,7 @@ Logging is a topic that we will only scratch the surface of,
 but the subject is important
 to round out a discussion of debugging tools.
 
-A logging system is the ability to record messages
+A logging system provides the ability to record messages
 during the execution
 of your application.
 The easiest way to think of logging is as a permanent set
@@ -549,7 +555,7 @@ by configuring the `LOGGING` settings
 in your Django settings module.
 This process is described
 in the documentation
-at {{< extlink "https://docs.djangoproject.com/en/dev/howto/logging/" "How to configure and use logging" >}}.
+at {{< extlink "https://docs.djangoproject.com/en/4.1/howto/logging/" "How to configure and use logging" >}}.
 
 In a basic workflow,
 logging can be little more
@@ -562,7 +568,7 @@ like Digital Ocean
 and have control over your filesystem,
 this is a good starting option.
 If you choose that path,
-keep in mind that disk space is a limited supply.
+keep in mind that disk space is a limited resource.
 One way to tank your app is to fill your machine's disk
 with logging data.
 To prevent this,
@@ -628,12 +634,11 @@ We discussed:
 * How `print` is an awesome debugging tool
     that should be used without shame
 * Debugging with a "proper" debugging tool
-    for those particularly thorny problems
+    for particularly thorny problems
 * Using the source code of packages you didn't write
     to figure out what's going on
 * Logging and the ability to see a history
     of activity in your application
-    to fix issues
 
 {{< web >}}
 That's the end of this series!
@@ -700,10 +705,10 @@ by people like you and me.
 That community,
 through years of collaboration,
 polished a tool
-that can bring your idea
+that can bring your ideas
 to life on the web.
 
-While the framework might seem magical at first
+While the framework might initially seem magical
 in all that it is able to do,
 we can see through study
 and examination
