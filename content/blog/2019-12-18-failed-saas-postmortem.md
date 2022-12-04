@@ -518,6 +518,11 @@ on Wednesdays
 at 9pm ET.
 Hopefully, I'll make fewer mistakes this time around.
 
+**Note**: As of late 2021,
+I'm still streaming,
+but I moved from Twitch
+to {{< extlink "https://www.youtube.com/c/MattLayman/live" "streaming on YouTube">}}.
+
 If you have questions
 or enjoyed this article,
 please feel free to message me on Twitter
