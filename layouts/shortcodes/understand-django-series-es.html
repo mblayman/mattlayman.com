@@ -1,0 +1,9 @@
+{{ $post := .Get 0 }}
+<ol>
+  {{- if eq $post "browser" -}}
+  <li>Del Navegador A Django</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2020-01-08-browser-to-django.es.md" }}">Del Navegador A Django</a></li>
+  {{- end -}}
+
+</ol>

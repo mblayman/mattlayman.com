@@ -11,8 +11,13 @@
 {{ with $content }}
   <div class="article-content mx-auto mt-8 pb-8 sm:px-20">
     {{ $content }}
+
   </div>
 {{ end }}
+
+<div class="article-content mx-auto pb-8 sm:px-20">
+    {{ partial "i18nlist" . }}
+</div>
 
 {{ $paginator := .Paginate (.Pages | lang.Merge (where .Sites.First.RegularPages "Section" .Section)) }}
 {{ partial "articles-list" $paginator }}

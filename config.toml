@@ -6,6 +6,7 @@ canonifyURLs = true
 enableRobotsTXT = true
 paginate = 18
 pygmentsCodeFences = true
+defaultContentLanguage = "en"
 
 [markup.goldmark.renderer]
 unsafe= true
@@ -28,3 +29,9 @@ unsafe= true
 
 [permalinks]
     blog = "/blog/:year/:slug/"
+
+[languages]
+    [languages.en]
+        weight = 1
+    [languages.es]
+        weight = 2
