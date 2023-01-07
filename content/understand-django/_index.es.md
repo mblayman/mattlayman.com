@@ -4,29 +4,14 @@ aliases:
  - /understanddjango
  - /django
 description: >-
-  Understand Django is a series
-  of articles focused
-  on learning the Django web framework
-  to build web applications
-  with Python.
+  Comprendiendo Django es una serie de artículos enfocados
+  en el aprendizaje del framework de desarrollo web Django
+  para construir aplicaciones web con Python.
 
 ---
 
-Understand Django is a series
-of articles focused
-on learning the Django web framework
-to build web applications
-with Python.
+Comprendiendo Django es una serie de artículos enfocados en el aprendizaje del framework de desarrollo web Django para construir aplicaciones web con Python.
 
-The articles build
-on each other
-to increase your understanding
-of how to use Django.
-The series explains how Django works.
-If you're new to Django,
-you can start
-from the beginning.
-The articles assume you have little or no prior knowledge
-of doing web development.
+Los artículos se complementan entre sí para aumentar tu comprensión de cómo usar Django. La serie explica cómo funciona Django. Si eres nuevo en Django, puedes empezar desde el principio. Los artículos asumen que tienes poco o ningún conocimiento previo sobre desarrollo web.
 
 {{< understand-django-series-es "none" >}}

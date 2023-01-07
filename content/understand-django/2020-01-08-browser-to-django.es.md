@@ -311,3 +311,5 @@ INSTALLED_APPS = [
 ```
 
 Eso es todo lo que tenemos que hacer para comenzar con nuestros ejemplos de código en el próximo artículo. `application` será nuestra aplicación de referencia. El código de los temas futuros no es un tutorial, pero en ocasiones usaré `application` para orientarlo sobre dónde encontraría archivos en su propia aplicación web de Django. Tenemos un proyecto Django que puede ejecutarse localmente para realizar pruebas y está configurado con su primera aplicación. ¡Nos vemos pronto para hablar sobre la creación de URL y recursos!
+
+Traduccion libre al español cortesía de Saul F.Rojas G.
