@@ -28,6 +28,11 @@ A type of third party vendor that can monitor your application
 and record information about the performance characteristics
 of the site
 
+**ASGI:**
+Asynchronous Server Gateway Interface -
+The standard web interface when running a Python app
+that uses asynchronous Python functions.
+
 **Authn:**
 Authentication -
 A check that a user is who they say they are

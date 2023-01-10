@@ -204,6 +204,18 @@ $ gunicorn project.wsgi \
     --log-file -
 ```
 
+A note about ASGI:
+I am assuming that your use of Django will use WSGI
+and its synchronous mode.
+In recent years,
+Django added support for asynchronous Python.
+Asynchronous Python brings the promise
+of higher performance
+with the tradeoff of some implementation complexity.
+For learning Django initially,
+you don't need to understand asynchronous Python
+and the Asynchronous Server Gateway Interface (ASGI).
+
 ## Pick Your Cloud
 
 Once you know which application server to use
