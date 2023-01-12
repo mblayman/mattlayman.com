@@ -71,7 +71,7 @@ but it doesn't tell us much
 about how it works.
 Let's dig in more.
 
-{{< understand-django-series "urls" >}}
+{{< understand-django-series-es "urls" >}}
 
 ## URLconf In Action
 
