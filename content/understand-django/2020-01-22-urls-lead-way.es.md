@@ -1,5 +1,5 @@
 ---
-title: "URLs Lead The Way"
+title: "Las URL Marcan El Camino"
 slug: "url-marcan-camino"
 description: >-
     How does a Django site know
@@ -21,80 +21,23 @@ tags:
 
 ---
 
-{{< web >}}
-In the last article
-in the
-[Understand Django]({{< ref "/understand-django/_index.es.md" >}})
-series,
-we saw how a user's browser request goes
-from their browser
-to Django's "front door."
-{{< /web >}}
-Now it's time to look
-{{< web >}}
-at how Django processes those requests.
-{{< /web >}}
-{{< book >}}
-at how Django processes a user's browser requests.
-{{< /book >}}
+En el último artículo de la serie
+[Comprendiendo Django]({{< ref "/understand-django/_index.es.md" >}}),
+vimos cómo la solicitud del navegador de un usuario pasa de su navegador a la "puerta principal" de Django. Ahora es el momento de ver cómo Django procesa esas solicitudes.
 
-An HTTP request coming
-from a browser
-includes a URL describing which resource Django should produce.
-Since URLs can come
-in many forms,
-we must instruct Django
-on the kinds
-of URLs
-that our web application can handle.
-This is what the *URL configuration* is for.
-In the Django documentation,
-the URL configuration is called a URLconf,
-for short.
+Una solicitud HTTP proveniente de un navegador incluye una URL que describe qué recurso debe producir Django. Dado que las URL pueden tener muchas formas, debemos instruir a Django sobre los tipos de URL que nuestra aplicación web puede manejar. Para eso está la *configuración de URL*. En la documentación de Django, la configuración de URL se llama URLconf, para abreviar.
 
-Where is the URLconf?
-The URLconf is at the module path set
-by the `ROOT_URLCONF` setting
-in your project's settings file.
-If you ran the `startproject` command,
-then that setting will be named
-like `project.urls`
-where "project" is the name given
-as an argument
-to the command.
-In other words,
-the URLconf is placed
-in `project/urls.py`,
-right next to the `settings.py` file.
+¿Dónde está la URLconf? La URLconf está en la ruta del módulo establecida por la configuración `ROOT_URLCONF` en el archivo de configuración de su proyecto. Si ejecutó el comando `startproject`, esa configuración se llamará como `proyecto.urls`, donde "proyecto" es el nombre dado como argumento para el comando. En otras palabras, la URLconf se coloca en `proyecto/urls.py`, justo al lado del archivo `settings.py`.
 
-That explains where the file resides,
-but it doesn't tell us much
-about how it works.
-Let's dig in more.
+Eso explica dónde reside el archivo, pero no nos dice mucho sobre cómo funciona. Profundicemos más.
 
 {{< understand-django-series-es "urls" >}}
 
-## URLconf In Action
+## URLconf en acción
 
-Try to think
-of the URL configuration
-as a list
-of URL paths
-that Django will attempt to match
-from top to bottom.
-When Django finds a matching path,
-the HTTP request will route
-to a chunk of Python code
-that is associated with that path.
-That "chunk of Python code" is called a *view*
-which we will explore more
-in a bit.
-For the moment,
-trust that views know how
-to handle HTTP requests.
+Trata de pensar en la configuración de URL como una lista de rutas de URL que Django intentará hacer coincidir de arriba a abajo. Cuando Django encuentra una ruta coincidente, la solicitud HTTP se enruta a un fragmento de código de Python asociado con esa ruta. Ese "trozo de código de Python" se llama una *vista* que explicaremos más en un momento. Por el momento, confía en que las vistas saben cómo manejar las solicitudes HTTP.
 
-We can use an example URLconf
-to bring this to life.
+Podemos usar un URLconf de ejemplo para darle vida a este concepto:
 
 ```python
 # project/urls.py
@@ -110,67 +53,20 @@ urlpatterns = [
 ]
 ```
 
-What's here matches well
-with what I described above:
-a list of URL paths
-that Django will try to match
-from top to bottom.
-The key aspect of this list is the name `urlpatterns`.
-Django will treat the list
-in a `urlpatterns` variable
-as the URLconf.
+Lo que vemos aquí coincide bien con lo que describí anteriormente: una lista de rutas de URL que Django intentará hacer coincidir de arriba a abajo. El aspecto clave de esta lista es el nombre de `urlpatterns`. Django tratará la lista en una variable `urlpatterns` como URLconf.
 
-The order of this list is also important
-because Django will stop scanning the list
-as soon as it encounters a match.
-The example doesn't show any conflict
-between paths,
-but it's possible to create two different `path` entries
-that can match the same URL
-that a user submits.
-I'll show an example
-of how that can happen
-after we see another aspect
-of paths.
+El orden de esta lista también es importante porque Django dejará de escanear la lista tan pronto como encuentre una coincidencia. El ejemplo no muestra ningún conflicto entre las rutas, pero es posible crear dos entradas de ruta (`path`) diferentes que pueden coincidir con la misma URL que envía un usuario. Mostraré un ejemplo de cómo puede suceder eso después de que veamos otro aspecto de las rutas.
 
-We can work through an example
-to see how this would work
-for `www.example.com`.
-When considering a URL
-in a URLconf,
-Django ignores the scheme (`https://`),
-the domain (`www.example.com`),
-and the leading slash
-for matching.
-Everything else is what the URLconf will match against.
+Podemos trabajar con un ejemplo para ver cómo funciona esto para `www.example.com`. Al considerar una URL en una URLconf, Django ignora el esquema (`https://`), el dominio (`www.example.com`) y la barra inclinada inicial para la coincidencia. Todo lo demás es con lo que se comparará la URLconf.
 
-* A request to `https://www.example.com/about/` will look
-    like `"about/"`
-    to the pattern matching process
-    and match the second `path`.
-    That request would route
-    to the `views.about` view.
-* A request to `https://www.example.com/` will look
-    like `""`
-    to the pattern matching process
-    and match the first `path`.
-    That request would route
-    to the `views.home` view.
+* Una solicitud a `https://www.example.com/about/` se verá como `"about/"` para el proceso de coincidencia de patrones y coincidirá con la segunda ruta. Esa solicitud se enruta a la vista `views.about`.
+* Una solicitud a `https://www.example.com/` se verá como `""` (una cadena de texto vacía) en el proceso de coincidencia de patrones y coincidirá con la primera ruta. Esa solicitud se enruta a la vista `views.home`.
 
-> Aside:
-You might notice
-that Django URLs end
-with a slash character.
-This behavior is because
-of a Django {{< extlink "https://docs.djangoproject.com/en/4.1/misc/design-philosophies/#definitive-urls" "design philosophy" >}} choice.
-In fact,
-if you attempt to reach a URL
-like `https://www.example.com/about`,
-Django will redirect the request
-to the same URL
-with the slash appended
-because of the `APPEND_SLASH`
-{{< extlink "https://docs.djangoproject.com/en/4.1/ref/settings/#append-slash" "default setting" >}}.
+> Aparte: puedes notar que las URL de Django terminan con un carácter de barra inclinada. Este comportamiento se debe a una elección de
+{{< extlink "https://docs.djangoproject.com/en/4.1/misc/design-philosophies/#definitive-urls" "filosofía de diseño" >}} choice.
+de Django. De hecho, si intenta llegar a una URL como `https://www.example.com/about`, Django redirigirá la solicitud a la misma URL con la barra inclinada añadida debido a la
+{{< extlink "https://docs.djangoproject.com/en/4.1/ref/settings/#append-slash" "configuración predeterminada" >}}
+de `APPEND_SLASH`.
 
 ## The `path` Before Us
 
