@@ -68,19 +68,9 @@ de Django. De hecho, si intenta llegar a una URL como `https://www.example.com/a
 {{< extlink "https://docs.djangoproject.com/en/4.1/ref/settings/#append-slash" "configuración predeterminada" >}}
 de `APPEND_SLASH`.
 
-## The `path` Before Us
+## El camino antes que nosotros
 
-The string part of `path`
-(e.g., `"about/"`) is called the *route*.
-A route can be a plain string
-as you've seen,
-but it can include other special structures
-with a feature called *converters*.
-When you use a converter,
-you can extract information out
-of a URL
-that a view can use later.
-Consider a path like this:
+La parte de cadena de texto de una ruta (por ejemplo, `"about/"`) se considera la ruta en si misma. Una ruta puede ser una cadena de texto simple como se ha visto, pero puede incluir otras estructuras especiales con una característica llamada `convertidores`. Cuando usas un convertidor, puedes extraer información de una URL que una vista puede usar más tarde. Considera una ruta como esta:
 
 ```python
     path(
@@ -89,39 +79,26 @@ Consider a path like this:
     ),
 ```
 
-The two converters in this path are:
+Los dos convertidores en esta ruta son:
 
 * `<int:year>`
 * `<slug:slug>`
 
-The use of angle brackets
-and some {{< extlink "https://docs.djangoproject.com/en/4.1/topics/http/urls/#path-converters" "reserved names" >}}
-cause Django to perform extra parsing
-on a URL.
-Each converter has some expected rules to follow.
+El uso de corchetes angulares y algunos
+{{< extlink "https://docs.djangoproject.com/en/4.1/topics/http/urls/#path-converters" "nombres reservados" >}}
+hacen que Django realice un análisis adicional en una URL. Cada convertidor tiene algunas reglas esperadas a seguir.
 
-* The `int` converter must match an integer.
-* The `slug` converter must match a slug.
-    Slug is a bit of newspaper lingo
-    that appears in Django
-    because Django started
-    as a project
-    out of a newspaper in Kansas.
-    A slug is a string that can include characters, numbers, dashes, and underscores.
+* El convertidor `int` debe coincidir con un número entero.
+* El convertidor de `slug` debe coincidir con un slug. 
+    Slug es un término salido de la jerga de los periódicos que aparece en Django porque Django comenzó como un proyecto de un periódico en Kansas. Un slug es una cadena que puede incluir caracteres, números, guiones y guiones bajos.
 
-Given those converter definitions,
-let's compare against some URLs!
+Dadas esas definiciones de convertidor, ¡comparemos con algunas URL!
 
-* `https://www.example.com/blog/2020/urls-lead-way/` - MATCH!
-* `https://www.example.com/blog/twenty-twenty/urls-lead-way/` - NOPE.
-* `https://www.example.com/blog/0/life-in-rome/` - MATCH!
-    Uh, maybe not what we wanted though.
-    Let's look at that soon.
+* `https://www.example.com/blog/2020/urls-lead-way/` - ¡COINCIDE!
+* `https://www.example.com/blog/twenty-twenty/urls-lead-way/` - NO.
+* `https://www.example.com/blog/0/life-in-rome/` - ¡COINCIDE! Uh, quizás no sea lo que queríamos. Veremos eso pronto.
 
-Now we can revisit our ordering problem
-from earlier.
-Consider these two paths
-in different orders:
+Ahora podemos revisar nuestro problema de ordenamiento de antes. Considere estas dos rutas en diferentes órdenes:
 
 ```python
     path(
@@ -145,52 +122,17 @@ in different orders:
     ),
 ```
 
-In the first ordering,
-the converter will match any integer following `blog/`,
-including `https://www.example.com/blog/2020/`.
-That means that the first ordering will never call the `blog_for_twenty_twenty` view
-because Django matches `path` entries in order.
+En el primer orden, el convertidor coincidirá con cualquier número entero después de `blog/`, incluido `https://www.example.com/blog/2020/`. Eso significa que el primer pedido nunca llamará a la vista `blog_for_twenty_twenty` porque Django hace coincidir las entradas de la ruta en orden.
 
-Conversely,
-in the second ordering,
-`blog/2020/` will route to `blog_for_twenty_twenty` properly
-because it is matched first.
-That means there's a lesson
-to remember here:
+Por el contrario, en el segundo orden, `blog/2020/` se enrutará correctamente a `blog_for_twenty_twenty` porque coincide primero. Eso significa que hay una lección para recordar aquí:
 
-{{< web >}}
-> When including `path` entries that match
-    on ranges of values
-    with converters (like the years example above),
-    be sure to put them **after** the more specific entries.
-{{< /web >}}
-{{< book >}}
-When including `path` entries that match
-    on ranges of values
-    with converters (like the years example above),
-    be sure to put them **after** the more specific entries.
-{{< /book >}}
+> Cuando incluyas entradas de ruta que coincidan en rangos de valores con convertidores (como el ejemplo de años anterior), asegúrate de colocarlas **después** de las entradas más específicas.
 
-## An Abbreviated View Of Views
+## Una “vista abreviada” de vistas
 
-What do converters do with this extra data?
-That's hard to explain
-without touching on views.
-{{< web >}}
-The next article will cover views
-{{< /web >}}
-{{< book >}}
-The next chapter will cover views
-{{< /book >}}
-in far more depth,
-but here's a primer.
+¿Qué hacen los convertidores con estos datos adicionales? Eso es difícil de explicar sin tocar las vistas. El próximo artículo cubrirá las vistas con mucha más profundidad, pero aquí hay una introducción.
 
-A view is code
-that takes a request
-and returns a response.
-Using Python's optional type hinting,
-here's an example
-that will send a `Hello World` response.
+Una vista es un código que toma una solicitud y devuelve una respuesta. Usando type hint de Python de manera opcional, aquí hay un ejemplo que devolverá la respuesta `Hola mundo`.
 
 ```python
 from django.http import (
@@ -204,16 +146,9 @@ def some_view(
     return HttpResponse('Hello World')
 ```
 
-The `HttpRequest` is Django's translated format
-of an HTTP request
-wrapped up in a convenient container class.
-Likewise, `HttpResponse` is what we can use
-so that Django will translate our response data
-into a properly formatted HTTP response
-that will be sent back to the user's browser.
+`HttpRequest` es el formato traducido de Django de una solicitud HTTP envuelta en una clase de contenedor conveniente. Del mismo modo, `HttpResponse` es lo que podemos usar para que Django traduzca nuestros datos de respuesta en una respuesta HTTP con el formato adecuado que se enviará de vuelta al navegador del usuario.
 
-Now we can look
-at one of the converters again.
+Ahora podemos mirar de nuevo uno de los convertidores.
 
 ```python
     path(
@@ -222,9 +157,7 @@ at one of the converters again.
     ),
 ```
 
-With this converter in place
-in the route,
-what would `blog_by_year` look like?
+Con este convertidor en la ruta, ¿cómo sería `blog_by_year`?
 
 ```python
 # application/views.py
@@ -236,35 +169,11 @@ def blog_by_year(request, year):
     return HttpResponse(data)
 ```
 
-Django begins to reveal some nice qualities here!
-The converter did a bunch
-of tedious work
-for us.
-The `year` argument set
-by Django
-will already be an integer
-because Django did the string parsing
-and conversion.
+¡Django comienza a revelar algunas buenas cualidades aquí! El convertidor hizo un montón de trabajo tedioso para nosotros. El argumento `year` establecido por Django ya será un número entero porque Django realizó el análisis y la conversión de cadenas.
 
-If someone submits `/blog/not_a_number/`,
-Django will return a Not Found response
-because `not_a_number` can't be an integer.
-The benefit of this
-is that we don't have to put extra checking logic
-in `blog_by_year`
-to handle the weird case where `year` doesn't look like a number.
-That kind of feature is a real time saver!
-It keeps your code cleaner
-*and* makes handling more precise.
+Si alguien envía `/blog/not_a_number/`, Django devolverá una respuesta No encontrado porque `not_a_number` no puede ser un número entero. El beneficio de esto es que no tenemos que poner una lógica de verificación adicional en `blog_by_year` para manejar el caso extraño en el que el año no parece un número. ¡Ese tipo de característica es un ahorro de tiempo real! Mantiene su código más limpio y hace que el manejo sea más preciso.
 
-What about that other strange example
-that we saw earlier
-of `/blog/0/life-in-rome/`?
-That would match our pattern
-from the earlier section,
-but let's assume we want to match a four digit year.
-How can we do that?
-We can use regular expressions.
+¿Qué pasa con ese otro ejemplo extraño que vimos antes de `/blog/0/life-in-rome/`? Eso coincidiría con nuestro patrón de la sección anterior, pero supongamos que queremos coincidir con un año de cuatro dígitos. ¿Cómo podemos hacer eso? Podemos usar expresiones regulares.
 
 ## Regular Expression Paths
 
