@@ -23,7 +23,7 @@ tags:
 {{< web >}}
 In the last article
 in the
-[Understand Django]({{< ref "/understand-django/_index.md" >}})
+[Understand Django]({{< ref "/understand-django/_index.es.md" >}})
 series,
 we saw how a user's browser request goes
 from their browser
