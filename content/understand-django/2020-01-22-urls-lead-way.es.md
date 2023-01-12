@@ -1,5 +1,6 @@
 ---
 title: "URLs Lead The Way"
+slug: "url-marcan-camino"
 description: >-
     How does a Django site know
     where to send requests?
