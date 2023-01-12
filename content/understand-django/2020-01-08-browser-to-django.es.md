@@ -2,17 +2,12 @@
 title: "Del Navegador A Django"
 slug: "navegador-a-django"
 description: >-
-    Django helps you build websites
-    in Python.
-    How does it work?
-    In this series,
-    we'll explore Django
-    from top to bottom
-    to show you how to build
-    the website you've wanted.
-    We'll start
-    from the beginning
-    with the browser.
+    Django te ayuda a construir sitios web en Python.
+    ¿Cómo funciona?
+    En esta serie,
+    exploramos Django de arriba a abajo
+    para mostrarte cómo crear el sitio web que deseas.
+    Comenzaremos desde el principio con el navegador.
 image: img/django.png
 type: post
 categories:
