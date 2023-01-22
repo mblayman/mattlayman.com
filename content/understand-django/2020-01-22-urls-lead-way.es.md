@@ -175,39 +175,15 @@ Si alguien envía `/blog/not_a_number/`, Django devolverá una respuesta No enco
 
 ¿Qué pasa con ese otro ejemplo extraño que vimos antes de `/blog/0/life-in-rome/`? Eso coincidiría con nuestro patrón de la sección anterior, pero supongamos que queremos coincidir con un año de cuatro dígitos. ¿Cómo podemos hacer eso? Podemos usar expresiones regulares.
 
-## Regular Expression Paths
+## Rutas de expresiones regulares
 
-Regular expressions are a programming feature
-often likened to a chainsaw:
-*they are incredibly powerful,
-but you can cut off your foot
-if you're not careful.*
+Las expresiones regulares son una función de programación que a menudo se compara con una motosierra: *son increíblemente poderosas, pero puedes cortarte el pie si no tienes cuidado.*
 
-Regular expressions can express complex patterns
-of characters
-in a concise way.
-This conciseness often gives regular expressions a bad reputation
-of being difficult to understand.
-When used carefully, though,
-they can be highly effective.
+Las expresiones regulares pueden expresar patrones complejos de caracteres de forma concisa. Esta concisión a menudo da a las expresiones regulares la mala reputación de ser difíciles de entender. Sin embargo, cuando se usan con cuidado, pueden ser muy efectivas.
 
-A regular expression
-(which is often abbreviated to "regex")
-matches complex patterns
-in strings.
-This sounds exactly like our blog year problem!
-In our problem,
-we want to match a four digit integer only.
-Let's look at a solution
-that Django can handle
-and then break down what it means.
+Una expresión regular (que a menudo se abrevia como "regex") coincide con patrones complejos en cadenas. ¡Esto suena exactamente como nuestro problema del año del blog! En nuestro problema, queremos hacer coincidir sólo un número entero de cuatro dígitos. Veamos una solución que Django pueda manejar y luego analicemos lo que significa.
 
-As a reminder,
-this solution will match some URL path
-like `blog/2020/urls-lead-way/`.
-
-Note, we use the `re_path()` function for 
-regular expression matching here, instead of `path()`.
+Como recordatorio, esta solución coincidirá con alguna ruta de URL como `blog/2020/urls-lead-way/`. Tenga en cuenta que aquí usamos la función `re_path()` para la coincidencia de expresiones regulares, en lugar de `path()`.
 
 ```python
 re_path(
@@ -216,113 +192,32 @@ re_path(
 ),
 ```
 
-This crazy string behaves exactly like our earlier example
-**except** that it is more precise
-about only allowing four digit years.
-The crazy string also has a name.
-It is called a *regex pattern*.
-When the Django code runs,
-it will test URL paths against the rules
-that are defined in this pattern.
+Esta cadena rara se comporta exactamente como nuestro ejemplo anterior, **excepto** que es más precisa y solo permite años de cuatro dígitos. La cadena rara también tiene nombre. Se llama *patrón regex*. Cuando se ejecuta el código Django, probará las rutas de URL con las reglas definidas en este patrón.
 
-To see how it works,
-we have to know what the parts of the pattern mean.
-We can explain this pattern one chunk
-at a time.
+Para ver cómo funciona, tenemos que saber qué significan las partes del patrón. Podemos explicar este patrón un fragmento a la vez.
 
-* The string itself starts with `r"`
-    because it is a raw string in Python.
-    This is used because regular expressions use `\` extensively.
-    Without a raw string,
-    a developer would have to escape the backslash repeatedly
-    by using `\\`.
-* The caret, `^`, means "the pattern must *start* here."
-    Because of the caret,
-    a path that starts like `myblog/...` will not work.
-* `blog/` is a literal interpretation.
-    Those characters must match exactly.
-* The portion inside parentheses `(?P<year>[0-9]{4})` is a *capture group*.
-    The `?P<year>` is the name to associate
-    with the capture group and is similar
-    to the right side of the colon
-    in a converter like `<int:year>`.
-    The name allows Django
-    to pass on the content
-    in an argument called `year`
-    to the view.
-    The other part of the capture group, `[0-9]{4}`,
-    is what the pattern is actually matching.
-    `[0-9]` is a *character class*
-    which means "match any number from 0 through 9."
-    The `{4}` means that it must match **exactly** four times.
-    This is the specificity that `re_path` gives
-    that the `int` converter could not!
-* The slash, `/`, between capture groups is another literal character to match.
-* The second capture group, `(?P<slug>[\w-]+)`, will put whatever it matches
-    into an argument named `slug`.
-    The character class of `[\w-]` contains two types
-    of characters. `\w` means any word character
-    that you might have in a natural language
-    and digits and underscores.
-    The other type of character is a literal dash, `-`, character.
-    Finally, the plus, `+`, character means
-    that the character class must match 1 or more times.
-* The last slash is also a literal character match.
-* To complete the pattern,
-    the dollar sign, `$`, acts like the opposite
-    of the caret and means
-    "the pattern must *end* here."
-    Thus, `blog/2020/some-slug/another-slug/` will not match.
+* La cadena en sí comienza con  `r"` porque es una cadena sin procesar en Python. Esto se usa porque las expresiones regulares usan `\`  extensamente. Sin una cadena sin procesar, un desarrollador tendría que escapar de la barra invertida repetidamente usando `\\`.
+* El signo de intercalación, `^`, significa "el patrón debe *comenzar* aquí". Debido al signo de intercalación, una ruta que comience como `myblog/...` no funcionará.
+* `blog/` es una interpretación literal. Esos caracteres deben coincidir exactamente.
+* La parte entre paréntesis `(?P<year>[0-9]{4})` es un *grupo de captura*. `?P<year>` es el nombre que se asocia con el grupo de captura y es similar al lado derecho de los dos puntos en un convertidor como `<int:year>`. El nombre le permite a Django pasar el contenido en un argumento llamado `year` a la vista. La otra parte del grupo de captura, `[0-9]{4}`, es lo que realmente coincide con el patrón. `[0-9]` es una *clase de caracteres* que significa "coincidir con cualquier número del 0 al 9". El `{4}` significa que debe coincidir **exactamente** cuatro veces. ¡Esta es la especificidad que da `re_path` que el convertidor `int` no podría!
+* La barra inclinada, `/`, entre los grupos de captura es otro carácter literal que debe coincidir.
+* El segundo grupo de captura, `(?P<slug>[\w-]+)`, pondrá lo que coincida en un argumento llamado `slug`. La clase de caracteres de `[\w-]` contiene dos tipos de caracteres. `\w` significa cualquier carácter de palabra que pueda tener en un lenguaje natural y dígitos y guiones bajos. El otro tipo de carácter es un guión literal, `-`, carácter. Finalmente, el carácter más, `+`, significa que la clase de carácter debe coincidir 1 o más veces.
+* La última barra también es una coincidencia de carácter literal.
+* Para completar el patrón, el signo de dólar, `$`, actúa como el opuesto del signo de intercalación y significa que “el patrón debe *terminar* aquí”. Por lo tanto, `blog/2020/some-slug/another-slug/` no coincidirá.
 
-Note that you cannot mix the `path` style and `re_path` style strings.
-The example above had to describe the slug as a regular expression
-instead of using the slug converter (i.e., `<slug:slug>`).
+Tenga en cuenta que no puede mezclar las cadenas de estilo `path` y `re_path`. El ejemplo anterior tenía que describir el slug como una expresión regular en lugar de usar el convertidor de slug (es decir, `<slug:slug>`).
 
-Congratulations!
-This is definitely the hardest section
-{{< web >}}
-of this article.
-{{< /web >}}
-{{< book >}}
-of this chapter.
-{{< /book >}}
-If you understood what we did
-with `re_path`,
-the rest of this should feel very comfortable.
-If not,
-*please don't fret about it!*
-If you want to know more about regular expressions,
-know that everything I described
-in the pattern
-is *not* Django specific.
-Instead,
-this is Python's built-in behavior.
-You can learn more
-about regular expressions
-from Python's {{< extlink "https://docs.python.org/3/howto/regex.html" "Regular Expression HOWTO" >}}.
+¡Felicidades! Esta es definitivamente la sección más difícil de este artículo. Si entendiste lo que hicimos con `re_path`, el resto de esto debería sentirse muy cómodo. Si no, *¡no te preocupes por eso!* Si quieres saber más sobre las expresiones regulares, debes saber que todo lo que describí en el patrón *no* es específico de Django. En cambio, este es el comportamiento integrado de Python. Puede obtener más información sobre las expresiones regulares en el
+{{< extlink "https://docs.python.org/3/howto/regex.html" "Regular Expression HOWTO" >}}
+de Python.
 
-Knowing that this power
-with `re_path`
-is there may help you later
-on your Django journey,
-even if you don't need it now.
+Saber que este poder con `re_path` está ahí puede ayudarte más adelante en tu camino con Django, incluso si no lo necesitas ahora.
 
-## Grouping Related URLs
+## Agrupación de URL relacionadas
 
-Up to this point,
-we've looked at individual routes
-that you can map
-in a URLconf.
-What can we do
-when a related group
-of views
-should share a common path?
-Why would we want to do this?
+Hasta este punto, hemos analizado rutas individuales que puede mapear en una URLconf. ¿Qué podemos hacer cuando un grupo relacionado de puntos de vista debe compartir un camino común? ¿Por qué querríamos hacer esto?
 
-Let's imagine you're building an educational project.
-In your project,
-you have schools, students, and other education related concepts.
-You *could* do something like:
+Imaginemos que estás construyendo un proyecto educativo. En su proyecto, tiene escuelas, estudiantes y otros conceptos relacionados con la educación. Podrías hacer algo como:
 
 ```python
 # project/urls.py
@@ -354,13 +249,7 @@ urlpatterns = [
 ]
 ```
 
-This approach would work fine,
-but it forces the root URLconf
-to know about all the views defined
-in each app, `schools` and `students`.
-Instead,
-we can use `include`
-to handle this better.
+Este enfoque funciona bien, pero obliga a la raíz URLconf a conocer todas las vistas definidas en cada aplicación, `schools` y `students`. En cambio, podemos usar `include` para manejar esto mejor.
 
 ```python
 # project/urls.py
@@ -378,9 +267,7 @@ urlpatterns = [
 ]
 ```
 
-Then,
-in each application,
-we would have something like:
+Entonces, en cada aplicación, tendríamos algo como:
 
 ```python
 # schools/urls.py
@@ -397,36 +284,13 @@ urlpatterns = [
 ]
 ```
 
-The use of `include` gives each Django app autonomy
-in what views it needs to define.
-The project can be blissfully "ignorant"
-of what the application is doing.
+El uso de `include` le da a cada aplicación de Django autonomía en qué vistas necesita definir. El proyecto puede ser felizmente "ignorante" de lo que está haciendo la aplicación.
 
-Additionally,
-the repetition of `schools/` or `students/` is removed
-from the first example.
-As Django processes a route,
-it will match
-on the first portion
-of the route
-and pass the *remainder*
-onto the URLconf
-that is defined in the individual app.
-In this way,
-URL configurations can form a tree
-where the root URLconf is where all requests start,
-but individual applications can handle the details
-as a request is routed to the proper app.
+Adicionalmente, se elimina la repetición de `schools/` o `students/` del primer ejemplo. A medida que Django procesa una ruta, coincidirá con la primera parte de la ruta y pasará el *resto* a la URLconf que se define en la aplicación individual. De esta forma, las configuraciones de URL pueden formar un árbol donde la raíz URLconf es donde comienzan todas las solicitudes, pero las aplicaciones individuales pueden manejar los detalles a medida que una solicitud se enruta a la aplicación adecuada.
 
-## Naming URLs
+## Nombrar URLs
 
-We've looked at the main ways
-that URLs get defined
-with `path`, `re_path`, and `include`.
-There is another aspect to consider.
-How can we refer to URLs
-in other places in the code?
-Consider this (rather silly) view:
+Hemos analizado las principales formas en que las URL se definen con `path`, `re_path`, e `include`. Hay otro aspecto a considerar. ¿Cómo podemos referirnos a las URL en otros lugares del código? Considere esta vista (bastante tonta):
 
 ```python
 # application/views.py
@@ -440,26 +304,9 @@ def old_blog_categories(request):
     )
 ```
 
-A redirect is when a user tries to visit a page
-and is sent somewhere else
-by the browser.
-There are much better ways to handle redirects
-than this example shows,
-but this view illustrates a different point.
-What would happen if you want to restructure the project
-so that blog categories moved
-from `/blog/categories/`
-to `/marketing/blog/categories/`?
-In the current form,
-we would have to fix this view
-and any other view
-that referenced the route directly.
+Una redirección es cuando un usuario intenta visitar una página y el navegador lo envía a otro lugar. Hay formas mucho mejores de manejar los redireccionamientos que las que muestra este ejemplo, pero esta vista ilustra un punto diferente. ¿Qué pasaría si desea reestructurar el proyecto para que las categorías del blog se muevan de `/blog/categories/` a `/marketing/blog/categories/`? En la forma actual, tendríamos que arreglar esta vista y cualquier otra vista que hiciera referencia a la ruta directamente.
 
-What a waste of time!
-Django gives us tools to give paths names
-that are independent
-from the explicit route.
-We do this with the `name` keyword argument to `path`.
+¡Qué pérdida de tiempo! Django nos brinda herramientas para dar nombres de rutas que son independientes de la ruta explícita. Hacemos esto con el argumento de la palabra clave `name` de la ruta.
 
 ```python
 # project/urls.py
@@ -478,14 +325,7 @@ urlpatterns = [
 ]
 ```
 
-This gives us `blog_categories`
-as an independent name
-from the route
-of `/marketing/blog/categories/`.
-To use that name,
-we need `reverse`
-as its counterpart.
-Our modified view looks like:
+Esto nos da `blog_categories` como un nombre independiente de la ruta de `/marketing/blog/categories/`. Para usar ese nombre, necesitamos revertir (`reverse`) como su contraparte. Nuestra vista modificada se parece a:
 
 ```python
 # application/views.py
@@ -500,83 +340,35 @@ def old_blog_categories(request):
     )
 ```
 
-The job of `reverse`
-is to look up any path name
-and return its route equivalent.
-That means that:
+El trabajo de `reverse` es buscar cualquier nombre de ruta y devolver su ruta equivalente. Eso significa que:
 
 ```python
 reverse("blog_categories") == "/marketing/blog/categories/"
 ```
 
-At least until you want to change it again. 😁
+Al menos hasta que quieras cambiarlo de nuevo. 😁
 
-## When Names Collide
+## Cuando los nombres chocan
 
-What happens
-if you have multiple URLs
-that you want to give the same `name`?
-For instance,
-`index` or `detail` are common names
-that you may want to apply.
-We can turn to
+¿Qué sucede si tienes varias URL a las que deseas dar el mismo nombre (`name`)? Por ejemplo, índice (`index`) o detalle (`detail`) son nombres comunes que quizás desee aplicar. Podemos recurrir a
 {{< extlink "https://www.python.org/dev/peps/pep-0020/" "The Zen of Python" >}}
-for advice.
+para obtener asesoramiento.
 
-> The Zen of Python, by Tim Peters
+> El Zen de Python, de Tim Peters
 >
-> Beautiful is better than ugly.
+> Hermoso es mejor que feo.
 >
 > ...
 >
-> **Namespaces are one honking great idea -- let's do more of those!**
+> **Los espacios de nombres son una gran idea -- ¡hagamos más de eso!**
 
-Namespaces might be new to you
-if you haven't been programming long.
-They are a *shared space for names*.
-Maybe that's clear,
-but I recall struggling
-with the concept
-when I first began to write software.
+Los espacios de nombres pueden ser nuevos para tí si no has estado programando por mucho tiempo. Son un *espacio compartido para los nombres*. Tal vez eso esté claro, pero recuerdo haber luchado con el concepto cuando comencé a escribir software.
 
-To make an analogy
-to something in the real world,
-let's use trusty buckets.
-Imagine you have two red balls
-and two blue balls.
-Put one ball of each color
-in each of the two buckets labeled "A" and "B."
-If I wanted a specific blue ball,
-I can't say "please give me the blue ball"
-because that would be ambiguous.
-Instead,
-to get a specific ball,
-I would need to say "please give me the blue ball in bucket B."
-In this scenario,
-the bucket is the namespace.
+Para hacer una analogía con algo en el mundo real, usemos contenedores. Imagina que tienes dos bolas rojas y dos bolas azules. Ponga una bola de cada color en cada uno de los dos contenedores etiquetados "A" y "B". Si quisiera una bola azul específica, no puedo decir "por favor, dame la bola azul" porque sería ambiguo. En cambio, para obtener una bola específica, tendría que decir "por favor, dame la bola azul en el contenedor B". En este escenario, el depósito es el espacio de nombres.
 
-The example that we used for schools and students
-can help illustrate this idea
-in code.
-Both apps had an `index` view
-to represent the root
-of the respective portions of the project
-(i.e., `schools/` and `students/`).
-If we wanted to refer
-to those views,
-we'd try to pick the easiest choice
-of `index`.
-Unfortunately,
-if you pick `index`,
-then Django can't tell which one is the right view
-for `index`.
-The name is ambiguous.
+El ejemplo que usamos para escuelas y estudiantes puede ayudar a ilustrar esta idea en código. Ambas aplicaciones tenían una vista de `index` para representar la raíz de las partes respectivas del proyecto (es decir, `schools/` y `students/`). Si quisiéramos referirnos a esas vistas, intentaríamos elegir la opción de índice más fácil. Desafortunadamente, si elige `index`, Django no puede decir cuál es la vista correcta para `index`. El nombre es ambiguo.
 
-One solution is to create your own namespace
-by prefixing `name`
-with something common
-like `schools_`.
-The trouble with that approach is that the URLconf repeats itself.
+Una solución es crear su propio espacio de nombres anteponiendo el nombre (`name`) con algo común como `schools_`. El problema con ese enfoque es que la URLconf se repite.
 
 ```python
 # schools/urls.py
@@ -598,8 +390,7 @@ urlpatterns = [
 ]
 ```
 
-Django provides an alternative
-that will let you keep a shorter name.
+Django proporciona una alternativa que te permitirá mantener un nombre más corto.
 
 ```python
 # schools/urls.py
@@ -631,53 +422,23 @@ with a colon.
 reverse("schools:index") == "/schools/"
 ```
 
-This is another convenience
-that Django gives
-to make our application development experience easier.
+Esta es otra conveniencia que brinda Django para facilitar nuestra experiencia de desarrollo de aplicaciones.
 
-That brings us to a close
-on the subject of URLs.
-By now,
-we've seen how to:
+Con esto concluimos el tema de las URL. Por ahora, hemos visto cómo:
 
-* Make a URL configuration
-    by making a module with a list of `urlpatterns`.
-* Create URLs with `path` and `re_path`.
-* Use converters to extract information for views.
-* Use regular expressions to express more complex URL data.
-* Group related URLs together with `include`.
-* Refer to a URL by its `name`.
-* Put related names together in a namespace.
+* Realizar una configuración de URL creando un módulo con una lista de patrones de URL (`urlpatterns`).
+* Crear URL con `path` y `re_path`.
+* Usar convertidores para extraer información para las vistas.
+* Utilizar expresiones regulares para expresar datos de URL más complejos.
+* Agrupar las URL relacionadas con `include`.
+* Hacer referencia a una URL por su nombre (`name`).
+* Poner los nombres relacionados juntos en un espacio de nombres.
 
-{{< web >}}
-In the next article,
-we'll dig into views.
-This article only gave the briefest definition
-{{< /web >}}
-{{< book >}}
-In the next chapter,
-we'll dig into views.
-This chapter only gave the briefest definition
-{{< /book >}}
-to what a view is.
-Django gives us very rich options
-when working with views.
-We're going to explore:
+En el próximo artículo, profundizaremos en las vistas. Este artículo solo dió la definición más breve de lo que es una vista. Django nos da opciones muy ricas cuando trabajamos con vistas. Vamos a explorar:
 
-* View functions
-* View classes
-* Some built-in supporting views
-* Decorators that supercharge views.
+* Vistas funcionales
+* Vistas basadas en clases
+* Algunas vistas de apoyo incorporadas
+* Decoradores que potencian las vistas.
 
-{{< web >}}
-If you'd like to follow along
-with the series,
-please feel free to sign up
-for my newsletter
-where I announce all of my new content.
-If you have other questions,
-you can reach me online
-on Twitter
-where I am
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
-{{< /web >}}
+Traduccion libre al español cortesía de Saul F.Rojas G.
