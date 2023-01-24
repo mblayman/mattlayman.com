@@ -2,14 +2,8 @@
 title: "Las URL Marcan El Camino"
 slug: "url-marcan-camino"
 description: >-
-    How does a Django site know
-    where to send requests?
-    You have to tell it!
-    In this next article
-    in the Understand Django series,
-    we look at URLs
-    and how to let your users get
-    to the right place.
+    ¿Cómo sabe un sitio de Django dónde enviar solicitudes? ¡Tienes que decírselo!
+    En este artículo que continúa la serie Comprendiendo Django, examinaremos las URL y cómo permitir que tus usuarios lleguen al lugar correcto.
 image: img/django.png
 type: post
 categories:
