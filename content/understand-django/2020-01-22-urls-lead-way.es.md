@@ -403,14 +403,7 @@ urlpatterns = [
 ]
 ```
 
-By adding `app_name`,
-we signal to Django
-that these views are in a namespace.
-Now when we want to get a URL,
-we use the namespace name
-and the URL name
-and join them
-with a colon.
+Al añadir `app_name`, señalamos a Django que esas vistas están en un espacio de nombres. Ahora cuando queramos obtener una URL, usaremos el nombre del espacio de nombres y la url unidos con dos puntos.
 
 ```python
 reverse("schools:index") == "/schools/"
