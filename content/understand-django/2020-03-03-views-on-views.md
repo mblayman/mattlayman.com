@@ -189,6 +189,7 @@ on the screen,
 and I did some slight reformatting
 to make the content a bit clearer.
 {{< /web >}}
+&nbsp;
 
 When Django receives a request like this,
 it will parse the data
@@ -218,7 +219,7 @@ the request would have:
 * `GET` - Anything added to the query string
     (i.e., the content after a `?` character
     such as `student=Matt`
-    in `/courses/?student=Matt` is stored
+    in `/courses/?student=Matt`) is stored
     in a dictionary-like attribute as well.
 * `headers` - This is where all the HTTP headers
     like `Host`, `Accept-Language`,
@@ -959,3 +960,4 @@ on Twitter
 where I am
 {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
 {{< /web >}}
+&nbsp;
