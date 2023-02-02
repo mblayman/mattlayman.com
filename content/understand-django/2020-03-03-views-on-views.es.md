@@ -2,15 +2,7 @@
 title: "Un Vistazo A Las Vistas"
 slug: "vistazo-a-las-vistas"
 description: >-
-    Django URLs expect to send a response
-    back to a user.
-    Where does that response come from?
-    A Django view!
-    This article looks
-    into the fundamentals
-    of views
-    and how to use them
-    in your project.
+    Se espera que las URL de Django devuelvan respuesta al usuario. ¿De dónde viene esa respuesta? ¡De una vista de Django! Este artículo examina los fundamentos de las vistas y como usarlas en tu proyecto.
 image: img/django.png
 type: post
 categories:
