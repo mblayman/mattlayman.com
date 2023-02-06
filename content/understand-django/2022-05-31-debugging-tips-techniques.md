@@ -658,7 +658,7 @@ Django has so much available that,
 even after twenty articles,
 {{< /web >}}
 {{< book >}}
-even after twenty chapters,
+even after all these chapters,
 {{< /book >}}
 I've not covered everything.
 But this is the end
