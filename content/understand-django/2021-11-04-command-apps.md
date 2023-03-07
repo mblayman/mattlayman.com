@@ -407,6 +407,9 @@ Here is a test for this command:
 
 from io import StringIO
 
+from application.management.commands.expire_trials import (
+    Command
+)
 from application.models import Account
 from application.tests.factories import AccountFactory
 
