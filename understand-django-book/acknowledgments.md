@@ -7,10 +7,8 @@ The beta readers were invaluable
 for improving the content
 on these pages.
 Thank you:
-Adam Johnson,
 Adolf Daniel,
 Aleksandar Novakovic,
-Alexandros Papakostopoulos,
 Anna Makarudze,
 Anton Bouwer,
 António Coelho,
@@ -19,14 +17,11 @@ Bill Tucker,
 Brian Elliott,
 Chad Lemmer,
 Claus R. Wickinghoff,
-Craig Balsillie,
 Enrico Bonardi,
-Eric Garnick,
 Franz Ulenaers,
 Fernando Marques,
 Fred Johnston,
 Garrett Coakley,
-Ighorr Holstrom,
 Igor Macedo,
 Isaac Batho,
 Jason Braganza,
@@ -39,7 +34,6 @@ Max, Ong Zong Bao,
 Michael Ford,
 Philipp Acsany,
 Richard Kellner,
-Ryan Cheley,
 Shivan Sivakumaran,
 Sumit S Chawla,
 Tom Huston,
@@ -47,9 +41,21 @@ Tshepo Motau,
 Vaarun Sinha,
 Varadhan Mariappan,
 William Stockwell,
-Wolfgang Hammes,
 and
-YOUR NAME HERE.
+Wolfgang Hammes.
+
+I'd like to give an extra special thanks to some beta readers
+who went above and beyond
+what I could possibly expect
+from volunteers.
+An extra heartfelt thank you to:
+
+* Adam Johnson
+* Alexandros Papakostopoulos
+* Craig Balsillie
+* Eric Garnick
+* Ighorr Holstrom
+* Ryan Cheley
 
 These readers have helped me
 produce a much stronger book.
