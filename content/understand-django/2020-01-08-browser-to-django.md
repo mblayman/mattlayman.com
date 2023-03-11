@@ -607,6 +607,17 @@ but we won't be setting up Django from scratch each time.
 The following setup instructions will help you get started
 with each future example.
 
+> The goal of this section is not meant to be an authoritative description
+of how to set up your Python environment.
+I am assuming that you have some knowledge of how to run Python code.
+If you need a more descriptive guide,
+I'd suggest Michael Kennedy's
+[Installing Python 3](https://training.talkpython.fm/installing-python) article
+and Real Python's
+[primer on virtual environments](https://realpython.com/python-virtual-environments-a-primer/).
+These article go into the discussion of setup far more
+than I'm doing justice here.
+
 We're going to use a terminal to run commands.
 Windows, macOS, and Linux are all a bit different.
 I'm showing macOS here

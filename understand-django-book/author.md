@@ -13,13 +13,13 @@ of telemedicine visits.
 Outside of work,
 Matt likes to teach others
 how to be good software developers.
-Matt is the organizer
+He is the organizer
 for the local Python meetup.
-He also regularly streams on YouTube
+Matt also regularly streams on YouTube
 about how to build a Software as a Service
 and writes articles about Python and Django
 on his website, [mattlayman.com](https://www.mattlayman.com).
 
 Matt lives in Frederick, Maryland
 with his wife and two children.
-Matt is active with his local community and church.
+He is active with his local community and church.
