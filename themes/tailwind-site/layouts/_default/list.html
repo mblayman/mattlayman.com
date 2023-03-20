@@ -19,9 +19,11 @@
     {{ partial "i18nlist" . }}
 </div>
 
-{{ $paginator := .Paginate (.Pages | lang.Merge (where .Sites.First.RegularPages "Section" .Section)) }}
-{{ partial "articles-list" $paginator }}
+{{ if not .Params.nopaginator }}
+  {{ $paginator := .Paginate (.Pages | lang.Merge (where .Sites.First.RegularPages "Section" .Section)) }}
+  {{ partial "articles-list" $paginator }}
 
-{{ partial "paginator" . }}
+  {{ partial "paginator" . }}
 
+  {{ end }}
 {{ end }}
