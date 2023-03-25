@@ -1,13 +1,10 @@
 ---
-title: "Understand Django"
+title: "Entendendo a Django"
 aliases:
  - /understanddjango
  - /django
 description: >-
-  Understand Django is a book
-  on learning the Django web framework
-  to build web applications
-  with Python.
+  Entendendo a Django é um livro sobre a aprendizagem da abstração de web Django para construir aplicações de web com a Python.
 nopaginator: true
 
 ---
@@ -16,33 +13,16 @@ nopaginator: true
 <img src="/img/understand-django-cover.png" width=300>
 </div>
 
-Understand Django walks you through the Django web framework
-and explores many of the features available in Django.
+Entendendo a Django acompanha-te através da abstração de web Django e explora muitas das funcionalidades disponíveis na Django.
 
-We start from the top at an exploration of the browser and the layers
-that make the internet work, then dig deep down through the framework
-to reveal how you can make web applications using Django.
+Nós começamos desde o princípio em uma exploração do navegador e as camadas que fazem a internet funcionar, depois cavamos no fundo através da abstração para revelar como podes construir as tuas aplicações de web usando a Django.
 
-By the time you finish reading Understand Django,
-you'll have a much deeper knowledge of how web applications work
-and, specifically,
-how _Python-based_ web applications are built.
+No momento que terminares a leitura do Entender a Django, terás um conhecimento mais profundo de como as aplicações de web funcionam e, especialmente, como aplicações de web _baseadas na Python_ são construídas.
 
-You can read the book online for _free, right now,_
-and soon will be able to able to buy an e-book, physical book,
-or audio book from your favorite online stores.
+Tu podes ler o livro online _gratuitamente, agora mesmo_ e brevemente serás capaz de comprar um livro digital, físico, ou em áudio a partir das tuas lojas digitais favoritas.
 
-The content builds
-on itself
-to increase your understanding
-of how to use Django
-and explains how Django works.
-If you're new to Django,
-you can start
-from the beginning.
-The book assumes you have little or no prior knowledge
-of doing web development.
+O conteúdo constrói-se sobre si mesmo para aumentar o teu entendimento de como usar a Django e explica como a Django funciona. Se fores novo para a Django, podes começar desde o princípio. O livro presume que tens um pouco ou nenhum conhecimento prévio sobre o desenvolvimento da web.
 
-Let's get started!
+Vamos começar!
 
 {{< understand-django-series "none" >}}
