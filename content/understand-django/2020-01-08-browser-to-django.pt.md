@@ -1,17 +1,7 @@
 ---
-title: "From Browser To Django"
+title: "Do Navegador à Django"
 description: >-
-    Django helps you build websites
-    in Python.
-    How does it work?
-    In this series,
-    we'll explore Django
-    from top to bottom
-    to show you how to build
-    the website you've wanted.
-    We'll start
-    from the beginning
-    with the browser.
+    A Django ajuda-te a construir aplicações de Web em Python. Como ela funciona? Nesta série, exploraremos a Django desde a parte de cima até o fundo para mostrar-te como construir a aplicação de Web que tens desejado. Começaremos desde o princípio com o navegador.
 image: img/django.png
 type: post
 categories:
@@ -23,343 +13,113 @@ tags:
 
 ---
 
-Maybe you have heard about
-{{< extlink "https://www.djangoproject.com/" "Django" >}}
-and that it can help you build websites.
-You might be new to Python,
-new to web development,
-or new to programming.
+É possível que tenhas ouvido falar sobre a {{< extlink "https://www.djangoproject.com/" "Django" >}} e que pode ajudar-te a construir aplicações de Web. Tu podes ser principiante para Python, novo para o desenvolvimento da web, ou novo para a programação.
 
 {{< web >}}
-This new series,
-[Understand Django]({{< ref "/understand-django/_index.md" >}}),
-will show you what Django is all about.
-Throughout this series,
+Esta nova série, [Entendendo a Django]({{< ref "/understand-django/_index.pt.md" >}}), mostrar-te-á sobre o que a Django se trata. Ao longo desta série,
 {{< /web >}}
 {{< book >}}
-This book
-will show you what Django is all about.
-In the following chapters,
+Este livro mostrar-te-á sobre o que a Django se trata. Nos capítulos seguintes,
 {{< /book >}}
-I will reveal how Django is a powerful tool
-that can unlock the potential
-of anyone interested
-in making applications
-on the internet.
-Django is used
-by companies
-like Instagram,
-Eventbrite,
-Disqus,
-and
-Udemy,
-and is also a great tool
-for individuals like you.
+Eu revelarei como a Django é uma ferramenta poderosa que pode desbloquear o potencial de qualquer um interessado em criar aplicações na internet. A Django é usada por empresas como Instagram, Eventbrite, Disqus, e Udemy, e é também um excelente ferramenta para indivíduos como tu.
 
-We're going to take a high-level approach to learning Django.
-Rather than starting
-at the bottom
-with all the pieces
-of Django,
-I'll give you the big picture,
-then explore each layer in more detail
-to reveal how much Django does
-for developers
-and the power Django has
-under the hood.
+Iremos tomar uma abordagem de alto nível para aprender a Django. No lugar de começar desde fundo com todos os pedaços da Django, dar-te-ei um grande panorama, depois explorar cada camada com mais detalhes para revelar o quanto a Django faz pelos programadores e o poder que a Django tem nos bastidores.
 
-Let's get started
-from the very top
-of a user's internet experience:
-at the web browser.
+Começaremos desde a parte mais de cima da experiência de internet do utilizador: no navegador da web.
 
-{{< understand-django-series "browser" >}}
+{{< understand-django-series-pt "browser" >}}
 
-## Making A Browser Request
+## Fazendo Uma Requisição de Navegador
 
-Django is a web framework,
-but what the heck does that even mean?
-How do websites work?
-I'm not going
-to be able to walk
-through all the details,
+A Django é uma abstração de web, mas o que diabo isto significa?
+Como é que as aplicações de web funcionam? Eu não serei capaz de caminhar através de todos os detalhes,
 {{< web >}}
-but this post
+mas esta publicação
 {{< /web >}}
 {{< book >}}
-but this chapter
+mas este capítulo
 {{< /book >}}
-will lay down the breadcrumbs
-to build your understanding.
-We'll look at the way your web browser requests data
-from the internet
-and the "plumbing" needed
-to make that work.
-Equipped with the key words
-and acronyms found in this chapter,
-you should be able
-to start your own research
-on these topics.
+estabelecerá as migalhas para construir o teu entendimento. Olharemos para a maneira que o teu navegador da web requisita os dados da internet e a "canalização" necessária para fazer isto funcionar. Equipado com as palavras-chaves e acrónimos encontrados neste capítulo, serias capaz de começar a tua própria investigação sobre testes tópicos.
 
-The internet works
-by fulfilling a user's desire
-for sending and receiving information.
-That "information" takes many different forms.
-It might be:
+A internet funciona compensando um desejo do utilizador por enviar e receber informação. Esta "informação" toma muitas formas diferentes. Ela pode ser:
 
-* Cat videos on YouTube
-* Political ramblings from social media
-* Profiles of other people on dating sites
+* Vídeos de gato na YouTube
+* Incoerências políticas de media social
+* Perfis de outras pessoas em locais de encontro
 
-Whatever people are looking for,
-the information is transferred
-via the same mechanisms.
-In internet-speak,
-all types of information and data
-fall under the name *resource*.
+Qualquer coisa que as pessoas estiverem a procura, a informação é transferida através dos mesmos mecanismos. No dizer da internet, todos os tipos de informação e dado caiem sobre o mesmo nome de *recurso*.
 
-The way we get resources are with
-{{< extlink "https://en.wikipedia.org/wiki/URL" "Uniform Resource Locators" >}}
-or URLs,
-for short.
-You know what URLs are,
-even if you didn't know them by name.
-
+A maneira que recebemos os recursos são com os localizadores de recursos uniformes ou URL {{< extlink "https://en.wikipedia.org/wiki/URL" "Uniform Resource Locators" >}}, para abreviar. Tu sabes o que as URLs são, ainda que não as conhecias pelo nome.
 * {{< extlink "https://en.wikipedia.org/" "https://en.wikipedia.org/" >}}
 * {{< extlink "https://www.djangoproject.com/" "https://www.djangoproject.com/" >}}
 * {{< extlink "https://www.mattlayman.com/img/django.png" "https://www.mattlayman.com/img/django.png" >}}
 
-These are all examples
-of URLs.
-Often we call them web addresses
-because they're very similar to postal addresses.
-A URL is the address
-of some resource
-on the internet.
-When you hit *Enter*
-on the address bar
-of your browser,
-you're saying
-"Please browser,
-go get me this."
-In other words,
-we make a *request*
-from the browser.
-This request starts a large chain
-of events
-from your browser
-to the website at that URL
-so that the resource
-from the site
-can get to your eyeballs.
+Estes são todos os exemplos de URLs. Frequentemente os chamamos de endereços de web porque são muito parecidos com os endereços postais. Uma URL é o endereço de algum recurso na internet. Quando pressionas *Enter* na barra de endereço do teu navegador, estás a dizer "Navegador faz o favor de ir buscar-me isto." Em outras palavras, fazemos uma *requisição* a partir do navegador. Esta requisição inicia uma grande corrente de eventos a partir do teu navegador para o local na web naquela URL para que o recurso do local possa ser visto pelos teus olhos.
 
-What's in this chain of events?
-*Loads of things are there!*
-We'll gloss over many of the layers
-in this discussion
-because I'm guessing you aren't planning
-to get down to the level
-of how electrical signals work
-in networking cables.
-Instead,
-let's focus
-on two primary parts
-of the chain
-for now: **DNS** and **HTTP**.
+O que é esta corrente de eventos? *Montes de coisas estão lá!* Omitiremos muitas das camadas nesta discussão porque suponho que não planeias descer até o nível de como os sinais elétricos funcionam nos cabos de rede. No lugar disto, vamos nos focar em duas partes primárias da corrente por agora: **DNS** e **HTTP**.
 
-### Names Names Names
+### Nomes Nomes Nomes
 
-A URL represents a resource
-that you want
-from the internet.
-How does the internet know
-where it comes from?
-That's where DNS comes in.
-DNS stands for
-{{< extlink "https://en.wikipedia.org/wiki/Domain_Name_System" "Domain Name System" >}}.
-The important word there is "Name."
-Let's return to the address analogy.
+Uma URL representa um recurso que queres a partir da internet. Como é que a internet sabe de onde o recurso vem? É onde o DNS entra. DNS significa {{< extlink "https://en.wikipedia.org/wiki/Domain_Name_System" "Domain Name System" >}} ou Sistema de Nome de Domínio.
 
-In a postal address
-(at least from a US perspective),
-there is the street, city, and state.
-We might write it like:
+Em um endereço postal (pelo menos a partir de uma perspetiva dos Estados Unidos da América), existe a rua, cidade, e estado. Nós o escrevemos como:
 
 ```text
 123 Main St., Springfield, IL
 ```
 
-This address goes from most narrow to most broad.
-123 Main St. is in the city
-of Springfield
-in the state of Illinois (IL).
+Este endereço vai desde o mais estreito ao mais largo. 123 Main St. é na cidade de Springfield no estado de Illinois (IL).
 
-Likewise,
-a URL fits into a similar format.
+Do mesmo modo, uma URL ajusta-se em um formato parecido:
 
 ```text
 www.example.com
 ```
 
-The terminology is different,
-but the concept of going
-from narrow to broad
-is the same.
-Each piece between periods is a type
-of *domain*.
-Let's look at them
-in reverse order.
+A terminologia é diferente, mas o conceito de ir do mais estreito ao largo é o meso. Cada pedaço entre os pontos finais é um tipo de *domínio*. Vamos olhá-los em ordem inversa.
 
-* `com` is considered a {{< extlink "https://en.wikipedia.org/wiki/Top-level_domain" "Top Level Domain" >}}, TLD.
-    TLDs are carefully managed by a special group
-    called {{< extlink "https://www.icann.org/" "ICANN" >}}.
-* `example` is the domain name.
-    This is the primary identity
-    of a service on the internet
-    as it is the specific identifier
-    which a user would likely recognize.
-* `www` is considered the *subdomain*
-    of a domain.
-    A domain might have many of these
-    like `www`, `m`, `mail`, `wiki`
-    or whatever a domain owner might want to name them.
-    Subdomains can also be more than one level deep
-    so `a.b.example.com` is valid,
-    and `a` is a subdomain of `b.example.com`
-    and `b` is a subdomain of `example.com`.
+* `com` é considerado um {{< extlink "https://en.wikipedia.org/wiki/Top-level_domain" "Top Level Domain" >}}, TDL ou Domínio de Alto Nível. Os domínios de alto nível são cuidadosamente administrados por um grupo especial chamado {{< extlink "https://www.icann.org/" "ICANN" >}}.
+* `example` é o nome de domínio. Isto é a identidade primária de um serviço na internet embora seja o identificador específico que um utilizador provavelmente reconheceria.
+* `www` é considerado o *subdomínio* de um domínio. Um domínio pode ter muitos destes como `www`, `m`, `mail`, `wiki` ou tudo aquilo que um proprietário de domínio quiser nomeia-los. Os subdomínios também podem ser mais de um nível de profundidade assim `a.b.example.com` é válido, e `a` é um subdomínio de `b.example.com` e `b` é um subdomínio de `example.com`.
 
-Domain names are *not* how computers communicate.
-The domain name is something "friendly"
-for a human.
-Networking systems are designed to work
-with numbers
-so those domain names must be translated
-into something the networking system can use.
-To do this,
-the internet uses a system
-of DNS servers
-to act as the translation layer
-between domain names
-and the numbers that computer networks use.
-A server is a special purpose computer
-designed to provide services
-for other devices called clients.
+Os nomes de domínios *não* são como os computadores comunicam. O nome de domínio é algo "amigável" para um humano. Os sistemas de rede são desenhados para funcionar com números assim estes nomes de domínio devem ser traduzidos em algo que o sistema de rede possa usar. Para fazer isto, a internet usa um sistema de servidores de DNS para atuar como camada de tradução entre os nomes de domínio e os números que as redes de computadores usam. Um servidor é um computador de propósito especial desenhado para fornecer serviços para outros dispositivos chamados de clientes.
 
-Maybe you've seen these networking numbers.
-The numbers are called IP addresses,
-short for {{< extlink "https://en.wikipedia.org/wiki/Internet_Protocol" "Internet Protocol" >}} addresses.
-Common examples would include:
+Talvez tens visto estes números de rede. Os números são chamados de endereços de IP, abreviação para endereços de {{< extlink "https://en.wikipedia.org/wiki/Internet_Protocol" "Internet Protocol" >}} ou Protocolos de Internet. Os exemplos comuns incluiriam:
 
-* `127.0.0.1` as the address that your computer has
-    *for itself*
-    on its internal network.
-* `192.168.0.1` as a default address
-    that a home router might use.
+* `127.0.0.1` como o endereço que o teu computador tem *para si* na sua rede interna.
+* `192.168.0.1` como um endereço padrão que um roteador de cada pode usar.
 
-The IP address examples above are special
-because those addresses are in specially designated {{< extlink "https://en.wikipedia.org/wiki/Subnetwork" "subnetworks" >}},
-but we'll set that tangent aside.
-You can delve deeper
-on that topic
-on your own
-if you would like.
+Os exemplos de endereço de IP acima são especiais porque estes endereços são especialmente denominados {{< extlink "https://en.wikipedia.org/wiki/Subnetwork" "subnetworks" >}} ou  subredes, mas definiremos esta tangente à parte. Tu podes vasculhar mais a fundo neste tópico por conta própria se gostarias.
 
-Private networks have IP addresses
-like the two examples I listed above.
-Machines on public networks also have IP addresses.
-For instance, `172.253.115.105` is an IP address
-for `www.google.com`
-at the time of this writing.
+As redes privadas têm endereços de IP como os dois exemplos que listei acima. As máquinas em redes públicas também têm endereços de IP. Por exemplo, `172.253.115.105` é um endereço de IP para `www.google.com` no momento desta escrita.
 
-If you'd like to figure out the IP address
-of a domain name,
-you can install a popular tool named `dig`.
-I found Google's IP address by running this command:
+Se gostarias de compreender o endereço de IP de um nome de domínio, podes instalar uma ferramenta popular chamada `dig`. Eu descobri o endereço de IP da Google executando este comando:
 
 ```bash
 dig www.google.com
 ```
 
-The system takes domain names
-and keeps a distributed routing table
-of names to IP addresses
-across the collection
-of DNS servers.
-**Wait, what?**
+O sistema pega os nomes de domínio e preserva uma tabela de roteamento distribuído dos nomes para o endereço de IP através da coleção de servidores de DNS. **Espera, o quê?**
 
-DNS servers stack up into a gigantic hierarchy.
-When your browser makes a request,
-it asks the closest DNS server
-to your machine
-for the IP address
-of the domain name you requested.
-The DNS server keeps a lookup table
-of domain names to IP addresses
-for a period of time.
-If the domain name isn't in the table,
-it can ask another DNS server
-in a chain
-that will continue to look
-for the domain's IP address.
-This leads to a couple of outcomes:
+Os servidores de DNS empilham-se em uma hierarquia gigantesca. Quando o teu navegador faz uma requisição, ele pedi o servidor de DNS mais próximo da tua máquina para o endereço de IP do nome de domínio que requisitaste. O servidor de DNS mantém uma tabela de consulta de nomes de domínio para os endereços de IP por um período de tempo. Se o nome de domínio não estiver na tabela, ele pode pedir um outro servidor de DNS numa cadeia que continuará a procurar pelo endereço de IP do domínio. Isto conduz à um alguns resultados:
 
-* If none of the servers can find the domain,
-    the browser gives up
-    and shows you a message like
-    "Hmm. We’re having trouble finding that site."
-    (from Firefox's Server Not Found page).
-* If the browser gets the IP address
-    from the DNS server,
-    it can proceed with the request.
+* Se nenhum dos servidores puder encontrar o domínio, o navegador desiste e mostra-te uma mensagem como "Hum. Estamos tendo problemas em encontrar este local." (a partir da página Não Encontrada do servidor do Firefox).
+* Se o navegador receber o endereço de IP a partir do servidor de DNS, ele pode prosseguir com a requisição.
 
-The hierarchy is gigantic,
-but it is wide, not deep.
-In other words,
-there are many machines
-that participate in DNS (like your home router),
-but the number of links in the chain
-to make a request from your computer up
-to the root servers in the system
-is relatively small.
+A hierarquia é gigantesca, mas é extensa, não profunda. Em outras palavras, existem muitas máquinas que participam no DNS (como o teu roteador de casa), mas o número de ligações na cadeia para fazer uma requisição desde o teu computador aos servidores de raiz no sistema é relativamente pequeno.
 
-This is simplified
-to exclude some
-of the warty corners
-of DNS.
-The Wikipedia page
-that I linked at the start
-of this section covers DNS
-in much greater detail
-if you're interested
-in learning more.
+Isto é simplificado para excluir algumas das partes defeituosas do DNS. A página da Wikipedia que liguei no princípio desta seção cobre o DNS em detalhes ainda maiores se estiveres interessado em aprender mais.
 
-### What Are We Sending?
+### O Que Nós Estamos a Enviar?
 
-The other vital piece that we need to explore is HTTP,
-or the {{< extlink "https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" "Hypertext Transfer Protocol" >}}.
-This part of internet communication describes
-how content transfers
-between browsers
-and servers,
-or,
-more generally,
-between any computers
-that use the protocol.
+O outro pedaço essencial que precisamos de explorar é o HTTP, ou o {{< extlink "https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" "Hypertext Transfer Protocol" >}} ou Protocolo de Transferência de Hipertexto. Esta parte da comunicação de internet descreve como o conteúdo é transferido entre navegadores e servidores. O protocolo usa um formato padrão e um conjunto de comandos para comunicar. Alguns dos comandos comuns são:
 
-The protocol uses a standard format
-and a set of commands
-to communicate.
-A few of the common commands are:
+* `GET` - Pedi um recurso existente
+* `POST` - Cria ou atualiza um recurso
+* `DELETE` - Elimina um recurso
+* `PUT` - Atualiza um recurso
 
-* `GET` - Fetch an existing resource
-* `POST` - Create or update a resource
-* `DELETE` - Delete a resource
-* `PUT` - Update a resource
-
-An HTTP request is like sending a text file over the network.
-If you visit my website
-at `https://www.mattlayman.com/about/`,
-your browser will send a request like:
+Uma requisição de HTTP é como enviar um ficheiro de texto sobre a rede. Se visitares a minha página em `https://www.mattlayman.com/about/`, o teu navegador enviará uma requisição como:
 
 ```http
 GET /about/ HTTP/1.1
@@ -367,358 +127,156 @@ Host: www.mattlayman.com
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
 ```
 
-There are other parts that I've omitted,
-but this gets us started.
-The top line provides the command,
-the path to a particular resource on the site
-(i.e., `/about/`),
-and a version of the protocol to use.
+Existem outras partes que tenho omitido, mas esta permite-nos começar. A linha acima fornece o comando, o caminho para um recurso particular sobre a página (por exemplo, `/about/`, e uma versão do protocolo para usares).
 
-After the first line are a list of *headers*.
-Headers are extra data
-that tell the server more about the request.
-The `Host` header is required
-because it names the website to retrieve
-(more than one website can exist on the same IP address),
-but any other header is optional.
+Depois da primeira linha existe uma lista de *cabeçalhos*. Os cabeçalhos são dados adicionais que dizem ao servidor mais sobre a requisição. O cabeçalho `Host` é obrigatório porque nomeia a página à extrair (mais de uma página pode existir no mesmo endereço de IP), mas qualquer outro cabeçalho é opcional.
 
-In the example,
-I also showed the `Accept` header.
-This header tells the server
-what kind of content the browser can receive
-as a response.
-There are other headers
-that can tell a server what else it should "know."
-These headers can:
+No exemplo, também mostrei o cabeçalho `Accept`. Este cabeçalho diz ao servidor qual é o tipo de conteúdo o navegador pode receber como resposta. Existem outros cabeçalhos que podem dizer à um servidor que mais ele deveria "saber". Estes cabeçalhos podem:
 
-* Indicate what kind of browser is making the request
-    (this is the `User-Agent` header).
-* Tell when the resource was requested previously
-    to determine if a new version should be returned
-    (the `Last-Modified` header).
-* Declare that the browser can receive compressed data
-    which it can decompress after receiving
-    to save on bandwidth
-    (the `Accept-Encoding` header).
+* Indicar qual é o tipo de navegador que está fazer o requisição (isto é o cabeçalho `User-Agent`).
+* Dizer quando o recurso foi requisitado anteriormente para determinar se uma nova versão deveria ser retornada (o cabeçalho `Last-Modified`).
+* Declarar que o navegador pode receber dados compactados os quais pode descompactar depois de receber para guardar sobre a largura de banda (o cabeçalho `Accept-Encoding`).
 
-Most of the headers are handled automatically
-by browsers and servers,
-but we will see instances
-where we want to use these headers ourselves
-so it's good to know they exist.
+A maioria dos cabeçalhos são manipulados automaticamente pelos navegadores e servidores, mas veremos exemplos onde queremos usar estes cabeçalhos nós mesmos então é bom saber que existem.
 
-## Serving A Response
+## Servindo Uma Resposta
 
-It's time to discuss Django!
-We now have a rough idea
-of what browsers do.
-A browser sends an HTTP request
-to a URL
-which is resolved
-by the DNS system.
-That request arrives at a server
-that is connected to the IP address
-of the domain name.
-Django lives on such a server
-and is responsible
-for answering requests
-with an HTTP *response*.
+É hora de falar de Django! Agora temos uma ideia grosseira do que os navegadores fazem. Um navegador envia uma requisição de HTTP para uma URL que é resolvida pelo sistema de DNS. Esta requisição chega em um servidor que está conectado ao endereço de IP do nome de domínio. A Django mora em tal servidor e é responsável por responder as requisições com uma *resposta* de HTTP.
 
-The response is what the browser user wanted.
-Responses can be images, web pages, videos,
-or whatever formats a browser can handle.
+A resposta é o que o utilizador do navegador queria. As respostas podem ser imagens, páginas de web, vídeos, ou quaisquer formatos que um navegador puder manipular.
 
-Before Django can handle a request,
-there is one more layer
-to traverse:
-the Python web server.
+Antes da Django puder lidar com uma requisição, existe mais uma camada à atravessar: o servidor de web da Python.
 
-### Where HTTP Meets Python
+### Onde a HTTP Encontra a Python
 
-A web server is the software
-on a machine designed
-to handle the incoming HTTP requests.
-Sometimes this terminology can be confusing
-because people may also apply the name "web server"
-to an entire *machine*
-that is serving web traffic.
-In this instance,
-I'm referring
-to the actual program listening and responding
-to web requests.
+Um servidor de web é um software sobre uma máquina desenhada para lidar com as requisições de HTTP do exterior. Algumas vezes esta terminologia pode ser confusa porque as pessoas também podem aplicar o nome "servidor de web" à uma *máquina* inteira que está a servir o tráfego de web. Neste exemplo, estou a referir-me a um programa real ouvindo e respondendo às requisições de web.
 
-A Python web framework
-like Django
-runs with a web server.
-The web server's role is to translate the raw HTTP request
-into a format
-that the framework understands.
-In the Python world,
-there is a specific format used
-so that any web server
-can talk to any Python web framework.
-That format is the {{< extlink "https://wsgi.readthedocs.io/en/latest/what.html" "Web Server Gateway Interface" >}},
-or WSGI
-(which is often pronounced "wiz-gee").
+Uma abstração de web de Python como Django executa com um servidor de web. O papel do servidor de web é traduzir a requisição de HTTP crua em um formato que a abstração entenda. No mundo de Python, existe um formato específico usado para que qualquer servidor de web possa falar com qualquer abstração de web de Python. Este formato é o {{< extlink "https://wsgi.readthedocs.io/en/latest/what.html" "Web Server Gateway Interface" >}} ou Interface de Portal de Servidor de Web, WSGI em Inglês (o qual é frequentemente pronunciado como "wiz-gee").
 
 {{< web >}}
 {{< figure src="/img/2020/wsgi.jpg" caption="Web Server Gateway Interface" >}}
 {{< /web >}}
 
-WSGI enables common web servers
-like
-{{< extlink "https://gunicorn.org/" "Gunicorn" >}},
-{{< extlink "https://uwsgi-docs.readthedocs.io/en/latest/" "uWSGI" >}},
-or {{< extlink "https://modwsgi.readthedocs.io/en/develop/" "mod_wsgi" >}}
-to communicate
-with common Python web frameworks
-like Django,
-{{< extlink "https://palletsprojects.com/p/flask/" "Flask" >}},
-or {{< extlink "https://trypyramid.com/" "Pyramid" >}}.
-If you really want to nerd out,
-you can explore all the details
-of that format
-in {{< extlink "https://www.python.org/dev/peps/pep-3333/" "PEP 3333" >}}.
+A WSGI ativa servidores de web comum como {{< extlink "https://gunicorn.org/" "Gunicorn" >}}, {{< extlink "https://uwsgi-docs.readthedocs.io/en/latest/" "uWSGI" >}}, ou {{< extlink "https://modwsgi.readthedocs.io/en/develop/" "mod_wsgi" >}} para comunicar com abstrações de web de Python como a Django, {{< extlink "https://palletsprojects.com/p/flask/" "Flask" >}}, ou {{< extlink "https://trypyramid.com/" "Pyramid" >}}. Se realmente quiseres saber mais a fundo, podes explorar todos os detalhes deste formato no {{< extlink "https://www.python.org/dev/peps/pep-3333/" "PEP 3333" >}}.
 
-### Django's Job
+### A Tarefa da Django
 
-Once the web server sends a request,
-Django needs to return a *response*.
-Your role as a Django developer is
-to define the resources
-that will be available
-from the server.
-That means you must:
+Assim que o servidor de web enviar uma requisição, a Django precisa de retornar uma *resposta*. O teu papel como um programador de Django é definir os recursos que estarão disponíveis a partir do servidor. Isto significa que deves:
 
-* Describe the set of URLs
-    that Django will react to.
-* Write the code
-    that powers those URLs
-    and returns the response.
+* Descrever o conjunto de URLs para os quais a Django reagirá.
+* Escrever o código que alimenta estas URLs e retornam a resposta.
 
-There is a ton
-to unpack in those two statements
-so we will explore individual topics
+Existe uma tonelada para desempacotar nestas declarações assim exploraremos os tópicos individualmente  
 {{< web >}}
-in future articles.
+nos futuros artigos.
 {{< /web >}}
 {{< book >}}
-in future chapters.
+nos futuros capítulos.
 {{< /book >}}
-By now,
-I hope you have an idea
-of how a request gets
-from your browser
-to a machine running Django.
-
+Por agora, espero que tenhas uma ideia de como uma requisição sai do teu navegador para um máquina executando a Django. 
 {{< web >}}
-{{< figure src="/img/2020/request-response.jpg" caption="Life of a browser request" >}}
+{{< figure src="/img/2020/request-response.jpg" caption="Vida de uma requisição de navegador" >}}
 {{< /web >}}
 
 {{< web >}}
-This article is relatively free
+Este artigo está relativamente livre
 {{< /web >}}
 {{< book >}}
-This chapter is relatively free
+Este capítulo está relativamente livre
 {{< /book >}}
-of code examples,
-and for good reason.
-There are already enough concepts
-to wrestle with
-and I didn't want to add code complexity
-on top of it.
-Writing that code will be the focus
+de exemplos de código, e por boa razão. Já existem conceitos suficientes para debater-se e não queria adicionar complexidade de código sobre isto. Escrever este código será o foco 
 {{< web >}}
-of this article series
+desta séries de artigos
 {{< /web >}}
 {{< book >}}
-of this book
+deste livro 
 {{< /book >}}
-so we can answer questions like:
+então poderemos responder questões como:
 
-* How do we build web pages
-    and give everything a common look and feel?
-* How can users interact
-    with an application
-    and send data
-    that the app can react to?
-* How does Django store and retrieve data
-    to make sites dynamic?
-* Who can access the application
-    and how is that access controlled?
-* What security do we need to add
-    to ensure that our users' information is safe and private?
+* Como é que construímos páginas de web e damos a tudo uma aparência comum?
+* Como é que os utilizadores podem interagir com uma aplicação e enviar dados com os quais a aplicação possa reagir?
+* Como é que a Django armazena e recupera dos dados para tornar os páginas dinâmicas?
+* Quem pode acessar a aplicação e como é que este acesso é controlado?
+* Que segurança precisamos de adicionar para garantir que a informação dos nossos utilizadores está segura e privada?
 
-Django has answers for all these things
-and way more.
-The Django philosophy is to include all the required pieces
-to make a full web application
-for the internet.
-This "batteries-included" philosophy is what makes Django so powerful.
-The same philosophy can also make Django seem overwhelming.
+A Django tem respostas para todas estas questões e muito mais. A filosofia da Django é de incluir todos os pedaços necessários para fabricar uma aplicação completa de web para a internet. Esta filosofia de "baterias inclusas" é o que torna a Django tão poderosa. A mesma filosofia também pode fazer a Django parecer avassaladora. 
 {{< web >}}
-My goal in this series is to introduce piece after piece
+O meu objetivo nesta série é introduzir pedaço após pedaço
 {{< /web >}}
 {{< book >}}
-My goal in this book is to introduce piece after piece
+O meu objetivo neste livro é introduzir pedaço após pedaço 
 {{< /book >}}
-to build your understanding of Django
-so you can get productive and get going
-on your own web application.
+para construir o teu entendimento de Django para que assim possas ser produtivo e possas construir a tua própria aplicação de web. 
 
 {{< web >}}
-In the next article,
-our focus is going to be
-on those URLs
-that our application
-will respond to.
-We will see:
+No próximo artigo, o nosso foco será nestas URLs para as quais a nossa aplicação responderá. Nós veremos:
 
-* how to declare the URLs.
-* how to group sets of related URLs.
-* how to extract information from URLs
-    that can be used by the code that returns responses.
+* Como declarar as URLs.
+* Como agrupar conjuntos de URLs relacionadas.
+* Como extrair informação das URLs que possa ser usada pelo código que retorna respostas.
 
-If you'd like to follow along
-with the series,
-please feel free to sign up
-for my newsletter
-where I announce all of my new content.
-If you have other questions,
-you can reach me online
-on Twitter
-where I am
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+Se gostarias de seguir com a série, podes inscrever-te no meu boletim informativo onde anuncio todos os novos conteúdo. Se tiveres outras questões, podes contactar-me online na Twitter onde sou o {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
 {{< /web >}}
 
-Finally,
-there is one more bonus topic...
+Finalmente, existe mais um tópico de bónus...
 
-## Getting Django Set Up
+## Começar a Configurar a Django
 
 {{< web >}}
-In the series,
+Na série,
 {{< /web >}}
 {{< book >}}
-In the book,
+No livro,
 {{< /book >}}
-we'll be looking at plenty of code examples,
-but we won't be setting up Django from scratch each time.
-The following setup instructions will help you get started
-with each future example.
+veremos muitos exemplos de código, mas não configuraremos a Django desde zero repetidamente. As seguintes instruções de configuração ajudar-te-ão a começar com cada exemplo futuro.
 
-> The goal of this section is not meant to be an authoritative description
-of how to set up your Python environment.
-I am assuming that you have some knowledge of how to run Python code.
-If you need a more descriptive guide,
-I'd suggest Michael Kennedy's
-[Installing Python 3](https://training.talkpython.fm/installing-python) article
-and Real Python's
-[primer on virtual environments](https://realpython.com/python-virtual-environments-a-primer/).
-These article go into the discussion of setup far more
-than I'm doing justice here.
+> O objetivo desta seção não é ser uma descrição fidedigna de como configurar o teu ambiente de Python. Eu estou a assumir que tens algum conhecimento de como executar código de Python. Se precisares de um guia mais descritivo, eu sugeriria o artigo [Instalando a Python 3](https://training.talkpython.fm/installing-python) do Michael Kennedy e o [Compêndio sobre Ambientes Virtuais](https://realpython.com/python-virtual-environments-a-primer/) da Real Python. Estes artigos entram na discussão da configuração muito mais do que estou a fazer justiça aqui.
 
-We're going to use a terminal to run commands.
-Windows, macOS, and Linux are all a bit different.
-I'm showing macOS here
-because that's what I run.
-The dollar sign (`$`) is the traditional starting character
-for a bash terminal
-so when I list commands,
-don't type that character.
-I'll try to give pointers
-and highlight differences when I can.
+Usaremos um terminal para executar os comandos. Windows, MacOS, e Linux são todos um pouco diferentes. Estou a mostrar o terminal de MacOS porque é o que uso. O sinal de dólar (`$`) é o carácter inicial tradicional para um terminal de bash então quando eu listar os comandos, não digite este carácter. Tentarei dar indicações e realçar as diferenças quando puder.
 
-We need a place to put our work.
+Nós precisamos de um lugar para colocar o nosso trabalho.
 {{< web >}}
-Since this series is called "Understand Django,"
+Já que esta séria é chamada de "Entendendo a Django"
 {{< /web >}}
 {{< book >}}
-Since this book is called "Understand Django,"
+Já que este livro é chamado de "Entendendo a Django,"
 {{< /book >}}
-I'm going to use that name.
-You can name your project differently if you prefer.
+Usarei este nome, mas em Inglês. Tu podes nomear o teu projeto de maneira diferente se preferires:
 
 ```bash
 $ mkdir understand-django
 $ cd understand-django
 ```
 
-Next,
-we install Django
-into a virtual environment
-so we keep our project dependencies separate
-from the rest
-of the installed Python packages
-on our machine.
-Having this separation
-from other installed packages
-is a good way to prevent conflicts
-with other Python projects
-that you may be running
-on your computer.
+A seguir, instalaremos a Django em um ambiente virtual assim mantemos as dependências do nosso projeto separadas do resto dos pacotes de Python instalados na nossa máquina. Ter esta separação de outros pacotes instalados é uma boa maneira de evitar conflitos com outros projetos de Python que podes estar a executar no teu computador.
 
 ```bash
 $ python3 -m venv venv
 $ source venv/bin/activate
 ```
 
-This may change your terminal prompt
-so that it will now start with `(venv)`
-to tell you that the virtual environment is in use.
-Other operating systems activate the virtual environment differently.
-Check the {{< extlink "https://docs.python.org/3/library/venv.html" "venv module documentation" >}}
-for more information
-on your operating system.
+Isto pode mudar o pronto do teu terminal para que agora comece com `(venv)` para dizer-te que o ambiente virtual está em uso. Outros sistemas operativos ativam o ambiente virtual de maneira diferente. Consulte a {{< extlink "https://docs.python.org/3/library/venv.html" "documentação do módulo venv" >}} por mais informações sobre o teu sistema operativo.
 
-Now you can install Django,
-and the Django framework code will be added
-to the virtual environment.
+Agora podes instalar a Django, e o código da abstração Django será adicionado ao ambiente virtual:
 
 ```bash
 (venv) $ pip install Django
 ```
 
-Django includes some tools
-which we can use
-to get a project started quickly.
-We'll run a single command
-to get it going.
+A Django inclui algumas ferramentas que podemos usar começar um projeto rapidamente. Executaremos um único comando gerar o projeto:
 
 ```bash
 (venv) $ django-admin startproject project .
 ```
 
-This commands says
-"start a project
-*named* 'project'
-in the current directory (`.`)."
-The choice of "project" as the name is intentional.
-`startproject` will create a directory
-named `project` that will contain various files
-that you'll use to configure your entire web app.
-You can name your project whatever you like,
-but I find that using the generic name makes my life easier
-as I switch between different Django web apps.
-I always know where my project related files reside.
-After that command is finished,
-you should have some files
-and a layout that looks like:
+Este comando diz "começar um projeto *nomeado* 'project'" no diretório atual (`.`)." A escolha de "project" como nome é intencional. `startproject` criará um diretório nomeado `project` que conterá vários ficheiros que usarás para configurar o teu aplicação de web inteira. Tu podes nomear o teu projeto como queiras, mas considero que usar o nome genérico torna a minha vida muito mais fácil visto que alterno entre diferentes aplicações de web em Django. Eu sempre sei onde os ficheiros relacionados ao meu projeto residem. Depois daquele comando estiver terminado, deves ter alguns ficheiros e uma estrutura que parece-se com:
 
 ```bash
 (venv) $ ls
 manage.py project venv
 ```
 
-Notice that,
-in addition to the `project` directory,
-Django created a `manage.py` file.
-This file is a script that will help you interact
-with Django.
-You'll learn a lot more about `manage.py`
-as we get farther along.
-To check if the basics are working,
-try:
+Repara que, além do diretório `project`, a Django criou um ficheiro `manage.py`. Este ficheiro é um programa que ajudar-te-á a interagir com a Django. Aprenderás mais sobre `manage.py` a medida que formos avançando. Para verificar se as bases estão a funcionar, experimente:
 
 ```bash
 (venv) $ python manage.py runserver
@@ -727,9 +285,7 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
 
-When you start the web server,
-you will likely see a message
-like:
+Quando inicializares o servidor de web, provavelmente verás uma mensagem como:
 
 ```text
 You have ## unapplied migration(s).
@@ -738,61 +294,21 @@ until you apply the migrations for app(s):
 <a list of names here>
 ```
 
-We'll explore the migrations topic later,
-so don't worry about that message for now.
+Exploraremos o tópico de migrações depois, então não te preocupes com aquela mensagem por agora.
 
-If you copy and paste that URL
-(i.e., `http://127.0.0.1:8000/`)
-into your browser,
-you should see a welcoming start page!
-Also,
-if you look back at your terminal,
-you'll find `"GET / HTTP/1.1"`.
-This message is showing that Django responded
-to an HTTP request.
-Neat!
+Se copiares e colares aquela URL (por exemplo, `http://127.0.0.1:8000/`) para o teu navegador, deves ver uma página inicial de boas-vindas! Além disto, se olhares para trás no teu terminal, encontrarás `"GET / HTTP/1.1"`. Esta mensagem está a indicar que a Django respondeu à uma requisição de HTTP. Espetacular!
 
-The other thing that we need is an "app."
-This is (perhaps confusingly) the name
-of a Django component
-in a project.
-What you need to remember is
-that a Django project *contains* one or more apps.
-Apps will hold most
-of your code
-that you need to write
-when working with Django.
+A outra coisa que precisamos é de uma aplicação ou "app". Isto é (talvez confusamente) o nome de um componente de Django num projeto. O que precisas de lembrar é que um projeto de Django *contém* um ou mais aplicações. As aplicações segurarão a maior parte do teu código que precisas de escrever quando trabalhas com a Django.
 
-After you have quit the server,
-you can create an app to work with:
+Depois tens que parar o servidor, podes criar uma aplicação com a qual trabalhar através do seguinte comando:
 
 ```bash
 (venv) $ python manage.py startapp application
 ```
 
-This will generate another set of files
-that follow the standard structure
-of a Django application component
-inside a directory called `application`.
-This example uses a boring name,
-but,
-unlike `project`,
-you should pick a name
-that makes sense for your web app
-(e.g., `movies` would be a good name
-for a web app that is about movies).
-All of these files will be discussed
-in detail in a future topic.
+Isto gerará um outro conjunto de ficheiros que segue a estrutura padrão de um componente de aplicação de Django dentro de um diretório chamado `application`. Este exemplo usa um nome aborrecido, mas ao contrário de `project`, deverias escolher um nome que faça sentido para a tua aplicação de web (por exemplo, `movies` seria um bom nome para uma aplicação de web que é sobre cinema). Todos estes ficheiros serão discutidos em detalhes num tópico futuro.
 
-Finally,
-we must hook that app
-into Django's project settings.
-The project settings allow you to configure Django
-to suit your needs.
-Open up `project/settings.py`,
-find `INSTALLED_APPS`
-and append to the list
-so it looks like:
+Finalmente, devemos prender esta aplicação nas definições de projeto da Django. As definições de projeto permitem-te configurar a Django para ajustar-se às tuas necessidades. Abra `project/settings.py`, encontre `INSTALLED_APPS` e anexe o nome da tua aplicação à lista assim ela parece-se com isto:
 
 ```python
 INSTALLED_APPS = [
@@ -806,26 +322,14 @@ INSTALLED_APPS = [
 ]
 ```
 
-That's as far as we need to go
-to get started
-with our code examples
+Isto é o quanto precisamos para avançar para começar com os nossos exemplos de código
 {{< web >}}
-in the next article.
+no próximo artigo.
 {{< /web >}}
 {{< book >}}
-in the next chapter.
+no próximo capítulo.
 {{< /book >}}
-`application` will be our reference app.
-The code in future topics is not a tutorial,
-but I will use `application` on occasion
-to orient you to where you would find files
-in your own Django web app.
-We have a Django project
-that can run locally
-for testing
-and is configured
-with its first app.
+`application` será a nossa aplicação de referência. O código nos tópicos futuros não é um passo-a-passo, mas usarei a `application` ocasionalmente para orientar-te onde encontrarias os ficheiros na tua própria aplicação de web de Django. Nós temos um projeto de Django que podemos executar localmente para testagem e está configurado com a sua primeira aplicação.
 {{< web >}}
-See you soon
-to talk about making URLs and resources!
+Até à próxima para falarmos sobre a criação de URLS e recursos!
 {{< /web >}}
