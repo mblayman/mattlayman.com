@@ -8,15 +8,17 @@
   },
   "main": "index.js",
   "scripts": {
-    "css": "postcss --verbose styles.css -o static/css/styles.css"
+    "css": "postcss --verbose styles.css -o static/css/styles.css",
+    "tailwind": "tailwindcss -i ./styles.css -o static/css/styles.css --watch"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^1.2.0",
-    "autoprefixer": "^9.6.0",
+    "autoprefixer": "^10.4.14",
     "cssnano": "^4.1.10",
+    "postcss": "^8.4.21",
     "postcss-cli": "^6.1.2",
-    "tailwindcss": "^1.9.6"
+    "tailwindcss": "^3.3.1"
   }
 }

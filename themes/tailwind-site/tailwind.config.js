@@ -1,4 +1,8 @@
 module.exports = {
+  content: [
+    './layouts/**/*.html',
+    '../../content/about.md',
+  ],
   theme: {
     colors: {
       transparent: 'transparent',
