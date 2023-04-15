@@ -8,7 +8,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "css": "postcss --verbose styles.css -o static/css/styles.css",
+    "css": "tailwindcss -i ./styles.css -o static/css/styles.css",
     "tailwind": "tailwindcss -i ./styles.css -o static/css/styles.css --watch"
   },
   "author": "",
