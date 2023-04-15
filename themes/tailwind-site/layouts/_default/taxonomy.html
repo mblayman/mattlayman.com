@@ -1,7 +1,7 @@
 {{ define "main" }}
 <h1 class="text-center text-black text-4xl font-semibold tracking-wide pt-4 pb-4 sm:pt-2 sm:pb-2">{{ .Title }}</h1>
 
-<h2 class="text-center text-gray-700 font-thin tracking-wide text-xl mb-4">
+<h2 class="text-center text-gray-700 font-extralight tracking-wide text-xl mb-4">
   {{ if ge (len .Data.Pages) 2 }}
     A collection of {{ len .Data.Pages }} articles
   {{ else }}
