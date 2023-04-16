@@ -4,7 +4,7 @@ title = "Matt Layman"
 theme = "tailwind-site"
 canonifyURLs = true
 enableRobotsTXT = true
-paginate = 18
+paginate = 4
 pygmentsCodeFences = true
 defaultContentLanguage = "en"
 
@@ -17,7 +17,7 @@ unsafe= true
 [params]
     title = "Matt Layman"
     subtitle = "A software creator / Django consultant"
-    copyright = "© 2008–2022 Matt Layman"
+    copyright = "© 2008–2023 Matt Layman"
     cover = "img/paint.jpg"
     description = "Matt Layman is a software engineer from Frederick, MD. He is an open source software maintainer and advocate for the Python programming language."
 

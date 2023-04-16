@@ -1,8 +1,7 @@
-<nav class="relative text-center text-gray-400 text-sm my-4 py-4 w-full">
+<nav class="relative text-center text-gray-600 text-sm my-4 py-4 w-full">
   {{ if .Paginator.HasPrev }}
     <a class="absolute left-0 hover:text-gray-800 hover:underline" href="{{ .Paginator.Prev.URL }}">&larr; Next Articles</a>
   {{ end }}
-  <span class="hidden sm:inline">Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}</span>
   {{ if .Paginator.HasNext }}
     <a class="absolute right-0 hover:text-gray-800 hover:underline" href="{{ .Paginator.Next.URL }}">Previous Articles &rarr;</a>
   {{ end }}

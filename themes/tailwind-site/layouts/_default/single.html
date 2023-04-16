@@ -1,19 +1,9 @@
 {{ define "main" }}
-<div class="text-center">
-  {{ range $index, $tag := .Params.tags }}
-    {{ if lt $index 2 }}
-      <a class="text-blue-400 text-sm font-light tracking-wider hover:underline uppercase" href="{{ $.Site.BaseURL }}tags/{{ $tag | urlize }}/">#{{ $tag }}</a>
-    {{  end  }}
-  {{ end }}
-</div>
-
-
-<h1 class="article-title text-center text-black text-4xl font-semibold tracking-wide pt-4 pb-8 sm:pt-2 sm:pb-4">{{ .Title }}</h1>
 
 {{ if not .Params.video }}
 
 {{ if .Params.image }}
-  <div class="bg-cover bg-center h-48 sm:h-56 sm:border border-gray-100 -mx-4 -mt-4 mb-4 sm:m-0 sm:mb-4" style="background-image: url({{ .Params.image | absURL }})">
+  <div class="bg-cover bg-center h-48 sm:h-56 sm:border border-gray-100 m-0 mb-4" style="background-image: url({{ .Params.image | absURL }})">
   </div>
 {{ else }}
   <div class="bg-cover bg-center h-48 sm:h-56 sm:border border-gray-100 -mx-4 -mt-4 mb-4 sm:m-0 sm:mb-4" style="background-image: url({{ .Site.Params.cover | absURL }})">
@@ -27,6 +17,8 @@
 </a>
 
 {{ end }}
+
+<h1 class="article-title text-center text-black text-4xl font-semibold tracking-wide pt-4">{{ .Title }}</h1>
 
 <div class="article-content mx-auto mt-8 pb-8 sm:px-20">
   {{ if .Params.video }}

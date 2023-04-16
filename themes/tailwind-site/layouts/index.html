@@ -1,20 +1,23 @@
 {{ define "main" }}
 
-<div class="flex flex-col sm:flex-row mt-4">
+<div class="flex flex-col sm:flex-row mb-4 sm:mt-4 py-4 bg-gray-200">
   <div class="w-full sm:w-2/5">
-    <div class="bg-white rounded-full p-1 h-56 w-56 shadow-xl mx-auto mb-8">
+    <div class="bg-white rounded-full p-1 h-56 w-56 shadow-xl mx-auto mb-8 sm:mb-0">
       <img src="{{ .Site.Params.authorAvatar | absURL }}" class="rounded-full">
     </div>
   </div>
-  <div class="w-full sm:w-3/5 text-3xl font-extralight tracking-wide leading-relaxed sm:mx-4">
-    <p class="mb-2">I’m
-      <a class="underline p-1 px-2 hover:bg-red-500 hover:text-white transition duration-200 ease-in-out" href="{{ "about/" | absURL }}">Matt Layman.</a>
+  <div class="w-full sm:w-3/5 leading-relaxed px-2 sm:px-4">
+    <p class="mb-2 font-semibold text-2xl tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-blue-800 via-green-400 to-green-400">
+    Hi! I’m Matt Layman.
     </p>
-    <p class="mb-8">
-      I want to help you learn more about
-      <a href="{{ "understand-django/" | absURL }}" class="bg-green-800 text-white hover:bg-white hover:text-green-900 transition duration-200 ease-in-out font-light p-1 px-2">Django</a>
-      and
-      <a href="{{ "blog/2017/pythonic-code-the-list-comprehension/" | absURL }}"class="bg-blue-600 text-white hover:bg-white hover:text-blue-700 transition duration-200 ease-in-out font-light p-1 px-2">Python</a>.
+    <p class="mb-2 font-extralight text-md">
+      I am a Senior Staff Software Engineer at Included Health.
+    </p>
+    <p class="mb-8 font-extralight text-md">
+      I like to teach others about writing good software
+      while streaming on YouTube
+      and am committed to helping my local community grow its tech skills
+      by volunteering as a meetup organizer for Python Frederick.
     </p>
   </div>
 </div>
@@ -22,8 +25,8 @@
 <a href="{{ "understand-django/" | absURL }}">
   <div class="w-full flex flex-col-reverse sm:flex-row justify-center mb-4">
     <div class="w-full sm:w-3/5">
-        <div class="px-4 py-8 mx-auto w-full flex flex-col">
-          <h2 class="text-3xl sm:text-4xl pb-4">Want to learn Django from top to bottom?</h2>
+        <div class="px-4 py-8 mx-auto w-full flex flex-col font-extralight text-md">
+          <h2 class="font-semibold text-2xl tracking-wide pb-4">Want to learn Django from top to bottom?</h2>
           <p class="mb-4">
             My book, Understand Django, will walk you through the Django web framework.
           </p>
@@ -44,7 +47,7 @@
             or audio book from your favorite online stores.
           </p>
           <p class="underline">
-            Get started right now by clicking this link!
+            Get started right now!
           </p>
         </div>
     </div>
@@ -54,39 +57,7 @@
   </div>
 </a>
 
-<div class="w-full flex flex-col">
-  <div class="w-full flex flex-col sm:flex-row justify-center items-center">
-    <div class="w-full sm:w-1/2 pb-4 sm:pr-2">
-      <a href="https://djangoriffs.com" target="_blank" rel="noopener">
-        <div class="border border-green-700 text-center px-4 py-8 mx-auto w-full flex flex-col shadow-md">
-          <div class="mx-auto text-green-800">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-            </svg>
-          </div>
-          <h2 class="text-3xl sm:text-4xl">Django Riffs</h2>
-          <p>Learn Django on the go!</p>
-        </div>
-      </a>
-    </div>
-    <div class="w-full sm:w-1/2 pb-4 sm:pl-2">
-      <a href="https://www.youtube.com/c/MattLayman" target="_blank" rel="noopener">
-        <div class="bg-red-600 text-white text-center px-4 py-8 mx-auto w-full flex flex-col shadow-md">
-          <div class="mx-auto flex flex-row">
-            <svg xmlns="http://www.w3.org/2000/svg" class="block h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="block h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-            </svg>
-          </div>
-          <h2 class="text-3xl sm:text-4xl">Videos on YouTube</h2>
-          <p>Chat live on Wednesdays @ 9pm ET</p>
-        </div>
-      </a>
-    </div>
-  </div>
-</div>
+<h1 class="font-light tracking-wide text-xl border-b-2 border-red-600 my-2 sm:my-8">Recent</h1>
 
 {{ $paginator := .Paginate (where .Site.RegularPages.ByDate.Reverse "Type" "post") }}
 {{ partial "articles-list" $paginator }}
