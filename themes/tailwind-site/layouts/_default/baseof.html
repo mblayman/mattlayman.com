@@ -98,7 +98,7 @@
       </script>
 
       {{ if eq .Kind "page" }}
-        <div class="border border-red-600 p-4 bg-red-500 text-white mt-8">
+        <div class="border border-red-600 p-4 bg-red-500 text-white">
           <a href="https://www.patreon.com/mblayman" target="_blank" rel="noopener">
             <img class="px-4" src="{{ "img/patreon.png" | absURL }}">
           </a>
@@ -132,6 +132,21 @@
           <p class="text-sm font-serif">
             All the shows are
             on the <a class="underline" href="{{ "django-riffs/" | absURL }}">Show Notes</a> page.
+          <p>
+        </div>
+
+        <div class="border border-blue-700 p-4 bg-blue-600 text-white mt-8">
+          <a href="{{ "book-recommendations/" | absURL }}">
+            <p class="font-semibold text-2xl tracking-wide">Book Recommendations</p>
+          </a>
+          <p class="mt-4 mb-2 text-sm font-serif">
+            My library is full of technical books.
+            Many of these were hugely influencial
+            in helping me be a better software engineer.
+          </p>
+          <p class="text-sm font-serif">
+            Check out my favorite software books
+            on the <a class="underline" href="{{ "book-recommendations/" | absURL }}">Book Recommendations</a> page.
           <p>
         </div>
 
