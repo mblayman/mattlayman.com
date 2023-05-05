@@ -15,11 +15,11 @@ tags:
 ---
 
 {{< web >}}
-In the previous [Understand Django]({{< ref "/understand-django/_index.md" >}}) article, we looked at the fundamentals of using views in Django. This article will focus on templates.
+In the previous [Understand Django]({{< ref "/understand-django/_index.pt.md" >}}) article, we looked at the fundamentals of using views in Django. This article will focus on templates.
 {{< /web >}}
 Templates are your primary tool in a Django project for generating a user interface. With templates, you'll be able to build the pages that users will see when they visit your web app. Let's see how templates hook into views and what features Django provides with its template system.
 
-{{< understand-django-series "templates" >}}
+{{< understand-django-series-pt "templates" >}}
 
 ## Set Up Templates
 

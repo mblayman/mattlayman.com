@@ -15,7 +15,7 @@ tags:
 ---
 
 {{< web >}}
-In the previous [Understand Django]({{< ref "/understand-django/_index.md" >}}) article, we encountered forms and how forms allow your application to receive data from users who use your site. In this article, you'll see how to take that data
+In the previous [Understand Django]({{< ref "/understand-django/_index.pt.md" >}}) article, we encountered forms and how forms allow your application to receive data from users who use your site. In this article, you'll see how to take that data
 {{< /web >}}
 {{< book >}}
 In this chapter, you'll see how to take data

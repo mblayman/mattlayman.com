@@ -15,7 +15,7 @@ tags:
 ---
 
 {{< web >}}
-In the previous [Understand Django]({{< ref "/understand-django/_index.md" >}}) article, we saw how Django templates work to produce a user interface. That's fine if you only need to display a user interface, but what do you do
+In the previous [Understand Django]({{< ref "/understand-django/_index.pt.md" >}}) article, we saw how Django templates work to produce a user interface. That's fine if you only need to display a user interface, but what do you do
 {{< /web >}}
 {{< book >}}
 What do you do

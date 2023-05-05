@@ -15,14 +15,14 @@ tags:
 ---
 
 {{< web >}}
-In the previous [Understand Django]({{< ref "/understand-django/_index.md" >}}) article, I covered URLs and the variety of tools that Django gives us to describe the outside interface to the internet for your project. In this article,
+In the previous [Understand Django]({{< ref "/understand-django/_index.pt.md" >}}) article, I covered URLs and the variety of tools that Django gives us to describe the outside interface to the internet for your project. In this article,
 {{< /web >}}
 {{< book >}}
 Now that we have a grasp on URLs in Django,
 {{< /book >}}
 we'll examine the core building block that makes those URLs work: the Django view.
 
-{{< understand-django-series "views" >}}
+{{< understand-django-series-pt "views" >}}
 
 ## What Is A View?
 
