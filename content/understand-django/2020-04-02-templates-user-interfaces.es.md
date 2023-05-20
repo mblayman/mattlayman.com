@@ -793,7 +793,6 @@ Django también usa `load` para proporcionar a los autores de plantillas algunas
 
 En el próximo artículo, examinaremos cómo los usuarios pueden enviar datos a una aplicación Django con formularios HTML. Django tiene herramientas para hacer que la creación de formularios sea rápida y efectiva. vamos a ver:
 
-
 * La clase `Form` que usa Django para manejar datos de formularios en Python
 * Controlar qué campos hay en los formularios
 * Cómo Django presenta los formularios a los usuarios
