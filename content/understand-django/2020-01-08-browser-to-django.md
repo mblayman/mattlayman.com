@@ -24,7 +24,7 @@ tags:
 ---
 
 Maybe you have heard about
-{{< etlink "https://www.djangoproject.com/" "Django" >}}
+{{< extlink "https://www.djangoproject.com/" "Django" >}}
 and that it can help you build websites.
 You might be new to Python,
 new to web development,
