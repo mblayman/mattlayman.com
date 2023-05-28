@@ -30,6 +30,8 @@ jobs:
 
       - name: Generate missing video posts
         run: python bin/build_missing_videos.py
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
 
       # TODO: remove after validation.
       - name: Check for changes
