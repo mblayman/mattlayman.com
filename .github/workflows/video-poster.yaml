@@ -1,11 +1,8 @@
 name: Video poster
 
-# on:
-#   schedule:
-# TODO: change to a schedule that runs on Saturday morning.
-#     - cron: '0 13 * * 6'
 on:
-  - pull_request
+  schedule:
+    - cron: '0 13 * * 6'
 
 jobs:
   message:
@@ -33,13 +30,9 @@ jobs:
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
 
-      # TODO: remove after validation.
-      - name: Check for changes
-        run: git status
-
       - name: Check build
         run: hugo
 
-      # - uses: stefanzweifel/git-auto-commit-action@v4
-      #   with:
-      #     commit_message: Send message
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Add missing video post
