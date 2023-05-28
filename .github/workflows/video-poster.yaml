@@ -1,0 +1,38 @@
+name: Video poster
+
+on:
+  schedule:
+    - cron: '0 13 * * 6'
+
+jobs:
+  message:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          cache: 'pip'
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.111.3'
+
+      - name: Install packages
+        run: pip install -r requirements.txt
+
+      - name: Generate missing video posts
+        run: python bin/build_missing_videos.py
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+
+      - name: Check build
+        run: hugo
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Add missing video post
