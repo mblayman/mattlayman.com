@@ -2,11 +2,11 @@ import os
 import string
 from dataclasses import dataclass
 
-import googleapiclient.discovery
 import requests
 from dateutil import parser
 
 from tools import constants
+from tools.youtube import build_youtube_client
 
 
 @dataclass
@@ -17,6 +17,7 @@ class Video:
     published_at_str: str
     image_url: str
     tags: list
+    live_broadcast_content: str
 
     @property
     def published_at(self):
@@ -57,12 +58,7 @@ def get_video(video_id):
         snippet["publishedAt"],
         thumbnail["url"],
         snippet["tags"],
-    )
-
-
-def build_youtube_client():
-    return googleapiclient.discovery.build(
-        "youtube", "v3", developerKey=os.environ["YOUTUBE_API_KEY"]
+        snippet["liveBroadcastContent"],
     )
 
 

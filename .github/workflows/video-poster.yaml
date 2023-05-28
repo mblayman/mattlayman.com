@@ -28,8 +28,11 @@ jobs:
       - name: Install packages
         run: pip install -r requirements.txt
 
+      - name: Generate missing video posts
+        run: python bin/build_missing_videos.py
+
       # TODO: remove after validation.
-      - name: Checkout for changes
+      - name: Check for changes
         run: git status
 
       - name: Check build
