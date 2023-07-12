@@ -1,7 +1,7 @@
 ---
-title: "Templates For User Interfaces"
+title: "Modelos de Marcação para as Interfaces de Utilizador"
 description: >-
-    When your Django application sends back a response with your user interface, templates are the tool you'll use to produce that user interface. This article looks at what templates are and how to use them.
+    Quando a tua aplicação de Django devolve uma resposta com a tua interface de utilizador, os modelos de marcação são a ferramenta que usarás para produzir esta interface de utilizador. Este artigo olha considera o que os modelos de marcação são e como usá-los.
 image: img/django.png
 type: post
 categories:
@@ -15,17 +15,17 @@ tags:
 ---
 
 {{< web >}}
-In the previous [Understand Django]({{< ref "/understand-django/_index.pt.md" >}}) article, we looked at the fundamentals of using views in Django. This article will focus on templates.
+No artigo anterior da [Entendendo a Django]({{< ref "/understand-django/_index.pt.md" >}}), vimos os fundamentos de usar visões na Django. Este artigo focar-se-á em modelos de marcação.
 {{< /web >}}
-Templates are your primary tool in a Django project for generating a user interface. With templates, you'll be able to build the pages that users will see when they visit your web app. Let's see how templates hook into views and what features Django provides with its template system.
+Os modelos de marcação são a tua principal ferramenta num projeto de Django para gerar uma interface de utilizador. Com os modelos de marcação, seremos capazes de construir as páginas que os utilizadores verão quando visitarem a tua aplicação de Web. Vamos ver como os modelos de marcação ligam-se as visões e quais funcionalidades a Django fornece com o seu sistema de modelo de marcação.
 
 {{< understand-django-series-pt "templates" >}}
 
-## Set Up Templates
+## Configure os Modelos de Marcação
 
-We need a place for templates to live. Templates are static files that Django will fill in with data. In order to use those files, we must instruct Django on where to find them.
+Nós precisamos dum lugar para os modelos de marcação morarem. Os modelos de marcação são ficheiros estáticos que a Django preencherá com dados. Para usar estes ficheiros, devemos instruir a Django sobre onde encontrá-los.
 
-Like most parts of Django, this configuration is in your project's settings file. After you use `startproject`, you can find a section in your settings file that will be called `TEMPLATES`. The section should look something like:
+Tal como a maioria das partes da Django, esta configuração está no ficheiro de definições do teu projeto. Depois de usares `startproject`, podes encontrar uma seção no teu ficheiro de definições que será chamada de `TEMPLATES`. A seção deve parecer-se com algo como:
 
 ```python
 # project/settings.py
@@ -45,13 +45,13 @@ TEMPLATES = [{
 }]
 ```
 
-Django's template system can use multiple template backends. The backends dictate how your templates will work. I would recommend sticking with the default Django template language. This language has the tightest integration with the framework and the strongest support.
+O sistema de modelo de marcação da Django pode usar vários backend de modelo de marcação. Estes ditam como os teus modelos de marcação funcionarão. Eu recomendaria aguentar com a linguagem de modelo de marcação da Django padrão. Esta linguagem tem a mais firme integração com a abstração e o mais forte suporte.
 
-The next thing to notice is `APP_DIRS` with its value of `True`. For the Django template language, setting this value to `True` will cause Django to look for template files within a `templates` directory in each Django application in your project. Note that this also includes any third party applications so you should probably leave this set to `True`.
+A próxima coisa a notar é `APP_DIRS` com o seu valor de `True`. Para a linguagem de modelo de marcação da Django, definir este valor para `True` causará a Django à procurar pelos ficheiros de modelo de marcação dentro dum diretório `templates` em cada aplicação de Django no teu projeto. Nota que isto também inclui quaisquer aplicações de terceiros então deverias provavelmente deixar esta definida para `True`.
 
-So, where should *your* templates go? There are different schools of thought in the Django community. Some developers believe in having all templates within applications. Others ascribe to having all your project's templates in a single directory. I'm in this second category of developers. I find it valuable to keep all of the templates for my entire project within a single directory.
+Então, onde deveriam os *teus* modelos de marcação ir? Existem diferentes escolas de pensamento na comunidade da Django. Alguns programadores acreditam que todos os modelos de marcação deveriam estar dentro das aplicações. Outros imputam para que todos os modelos de marcação do teu projeto deveriam estar num único diretório. Eu estou nesta segunda categoria de programadores. Eu considero valioso manter todos os modelos de marcação para o meu projeto inteiro dentro dum único diretório.
 
-From my perspective, keeping templates in a single directory makes it very clear where all the layout and UI in your system will live. To use that pattern, we must set the `DIRS` variable with the directory that we want Django to include. I recommend keeping a `templates` directory at the root of your project. If you do that, your `DIRS` value will change to something like:
+Da minha perspetiva, manter os modelos de marcação num único diretório torna mais claro onde toda disposição e interface de utilizador no teu sistema morarão. Para usar este padrão, devemos definir a variável `DIRS` com o diretório que queremos que a Django inclua. Eu recomendo manter um diretório `templates` na raiz do teu projeto. Se fizeres isto, o valor do tua `DIRS` mudará para algo como:
 
 ```python
 # project/settings.py
@@ -63,21 +63,21 @@ TEMPLATES = [
 ]
 ```
 
-Finally, there is `OPTIONS`. Each backend can accept a variety of options. `startproject` sets a number of context processors. We'll come back to context processors later
+Finalmente, existe `OPTIONS`. Cada backend pode aceitar uma variedade de opções. `startproject` define um número de processadores de contexto. Voltaremos para os processadores de contexto depois
 {{< web >}}
-in this article.
+neste artigo.
 {{< /web >}}
 {{< book >}}
-in this chapter.
+neste capítulo.
 {{< /book >}}
 
-With your templates set up, you're ready to go!
+Com os teus modelos de marcação definidos, estás pronto para avançares!
 
-## Using Templates With Render
+## Usando os Modelos de Marcação com a `render`
 
-Django builds your user interface by *rendering* a template. The idea behind rendering is that dynamic data is combined with a static template file to produce a final output.
+A Django construi a tua interface de utilizador *interpretando* um modelo de marcação. A ideia por trás da interpretação é que os dados dinâmicos são combinados com um ficheiro de modelo de marcação estático para produzir uma saída final.
 
-To produce an `HttpResponse` that contains rendered output, we use the `render` function. Let's see an example in the form of a function-based view (FBV):
+Para produzir um `HttpResponse` que contém a saída interpretada, usamos a função `render`. Vamos ver um exemplo na forma duma visão baseada em função (FBV):
 
 ```python
 # application/views.py
@@ -93,39 +93,39 @@ def hello_view(request):
     )
 ```
 
-In this example, the view would use a template located in `templates/hello.txt` which could contain:
+Neste exemplo, a visão usaria um modelo de marcação localizado em `templates/hello.txt` que poderia conter:
 
 ```txt
 Hello {{ name }}
 ```
 
-When this view responds to a request, a user would see "Hello Johnny" in their browser. There are some interesting things to note about this example.
+Quando esta visão responde à uma requisição, um utilizador veria "Hello Johnny" no seu navegador. Existem algumas coisas interessantes à notar sobre este exemplo.
 
-1. The template can be any plain text file type. Most often we will use HTML to make a user interface so you will often see `some_template.html`, but the Django template system can render on any type.
-2. In the process of rendering, Django took the context data dictionary and used its keys as variable names in the template. Because of special double curly brace syntax, the template backend swapped out `{{ name }}` for the literal value of "Johnny" that was in the context.
+1. O modelo de marcação pode ser qualquer tipo de ficheiro de texto. Mais frequentemente usaremos HTML para fazer uma interface de utilizador então frequentemente veremos `some_template.html`, mas o sistema de modelo de marcação da Django pode interpretar qualquer tipo.
+2. No processo de interpretação, a Django pegou o dicionário de dados do contexto e usou suas chaves como nomes de variáveis no modelo de marcação. Por causa da sintaxe especial de chavetas duplas, o backend do modelo de marcação trocou `{{ name }}` pelo valor literal "Johnny" que estava no contexto.
 
-This idea of mixing context and static layout is the core concept of working with templates.
+Esta ideia de misturar contexto e disposição estática é o conceito fundamental do trabalho com modelos de marcação.
 {{< web >}}
-The rest of this article builds
+O resto deste artigo baseasse
 {{< /web >}}
 {{< book >}}
-The rest of this chapter builds
+O resto deste capítulo baseasse
 {{< /book >}}
-on this root concept and shows what else is possible in the Django template language.
+neste conceito de origem e mostra o que mais é possível na linguagem do modelo de marcação da Django.
 
-As an aside, HTML is a topic that we are not going to explore directly. HTML, the Hypertext Markup Language, is the language used on the web to describe the structure of a page. HTML is composed of tags and many of these tags work in pairs. For example, to make a *paragraph*, you can use a `p` tag, which is represented by wrapping `p` with greater than and less than symbols to form the "opening" tag. The "closing" tag is similar, but it includes a forward slash.
+Como um aparte, HTML é um tópico que não iremos explorar diretamente. HTML, **Hypertext Markup Language**, Linguagem de Marcação de Hipertexto, é a linguagem usada na Web para descrever a estrutura duma página. HTML é composta de marcadores e muitos destes marcadores trabalham em pares. Por exemplo, para fazer um *parágrafo*, podes usar o marcador `p`, que é representado envolvendo `p` com os sinais maior do que e menor do que para formar o marcador de "abertura". O marcador de "encerramento" é semelhante, mas este inclui uma barra oblíqua:
 
 ```html
 <p>This is a paragraph example.</p>
 ```
 
 {{< web >}}
-From the last article,
+Do último artigo,
 {{< /web >}}
 {{< book >}}
-From the last chapter,
+Do último capítulo,
 {{< /book >}}
-you may recall seeing the `TemplateView`. In those examples, we provided a template name, and I declared that Django would take care of the rest. Now you can start to understand that Django takes the template name and calls code similar to `render` to provide an `HttpResponse`. Those examples were missing context data to combine with the template. A fuller example replicating the `hello_view` function-based view as a class-based-view would look like:
+podes lembrar-te de ver a `TemplateView`. Naqueles exemplos, fornecemos um nome de modelo de marcação, e declarei que a Django cuidaria do resto. Agora podes começar a entender que a Django recebe o nome do modelo de marcação e chama um código semelhante ao `render` para fornecer um `HttpResponse`. Aqueles modelos de marcação estavam com o dado de contexto em falta para combinar com o modelo de marcação. Um exemplo mais completo replicando a visão baseada em função `hello_view` como uma visão baseada em classe parecer-se-ia com:
 
 ```python
 # application/views.py
@@ -146,19 +146,19 @@ class HelloView(TemplateView):
         return context
 ```
 
-This example uses `get_context_data` so that we can insert our "dynamic" data into the rendering system to give us the response we want.
+Este exemplo usa `get_context_data` para que possamos inserir os nossos dados "dinâmicos" no sistema de interpretação para dar-nos a resposta que queremos.
 
-In a real application, a lot of the code that we need to write focuses on building up a truly dynamic context. I'm using static data in these examples to keep the mechanics of the template system clear. When you see me use `context`, try to imagine more complex data building to create a user interface.
+Numa aplicação real, muito do código que precisamos de escrever concentra-se em construir um contexto verdadeiramente dinâmico. Eu estou a usar dados estáticos nestes exemplos para manter as mecânicas do sistema de modelo de marcação claras. Quando veres-me a usar `context`, tente imaginar a construção de dados mais complexos para criar uma interface de utilizador.
 
-Those are the fundamentals of rendering. We'll now turn our attention to what the Django template language is capable of.
+Estes são os fundamentos da interpretação. Agora voltaremos a nossa atenção para o que a linguagem de modelo de marcação é capaz de fazer.
 
-## Templates In Action
+## Modelos de Marcação em Ação
 
-When using templates, we take context data and insert it into the placeholders within the template.
+Quando usamos os modelos de marcação, recebemos o dado de contexto e o inserimos em espaços reservados dentro do modelo de marcação.
 
-Template variables are the most basic form of filling placeholders with context. The previous section showed an example by using the `name` variable. The context dictionary contains a `name` key, whose value appears anywhere in the template where that key is surrounded by double curly braces.
+As variáveis do modelo de marcação são a forma mais básica de preencher os espaços reservados com contexto. A seção anterior mostrava um exemplo usando a variável `name`. O dicionário de contexto contém um chave, cujo valor aparece em qualquer parte no modelo de marcação onde esta chave é envolvida por duplas chavetas.
 
-We can also use a dot access when the context data is more complex. Let's say your template gets context like:
+Nós podemos também usar um ponto de acesso quando o dado de contexto for mais complexo. Vamos dizer que o teu modelo de marcação recebe um contexto como:
 
 ```python
 context = {
@@ -171,7 +171,7 @@ context = {
 }
 ```
 
-Your Django template *won't* work if you try to access this context data like a regular dictionary (e.g., `{{ address['street'] }}`). Instead, you would use dot notation to get to the data in the dictionary:
+O teu modelo de marcação da Django *não funcionará* se tentares acessar este dado de contexto como um dicionário normal (por exemplo, `{{ address['street'] }}`). Ao invés disto, usarias a notação de ponto para teres acesso aos dados no dicionário:
 
 ```txt
 The address is:
@@ -179,7 +179,7 @@ The address is:
     {{ address.city }}, {{ address.state }} {{ address.zip_code}}
 ```
 
-This would render as:
+Isto interpretaria como:
 
 ```txt
 The address is:
@@ -187,11 +187,11 @@ The address is:
     Beverly Hills, CA 90210
 ```
 
-Django templates also try to be flexible with the types of context data. You could also pass in a Python class instance like an `Address` class with attributes that are the same as the keys in our previous dictionary. The template would work the same.
+Os modelos de marcação da Django também tentam ser flexíveis com os tipos de dados de contexto. Tu poderias também passar uma instância de classe da Python como uma classe `Address` com atributos que são iguais as chaves nos dicionário anterior. O modelo de marcação funcionaria da mesma maneira.
 
-The core template language also includes some standard programming logic keywords by using *tags*. Template tags look like `{% some_tag %}` whereas template variables look like `{{ some_variable }}`. Variables are meant to be placeholders to fill in, but tags offer more power.
+A linguagem de modelo de marcação fundamental também inclui algumas palavras-chave de lógica de programação padrão usando *marcadores*. Os marcadores do modelo de marcação parecem-se com `{% some_tag %}` ao passo que as variáveis do modelo de marcação parecem-se com `{{ some_variable }}`. As variáveis estão destinadas a serem espaço reservados à preencher, mas os marcadores oferecem mais poder.
 
-We can start with two core tags, `if` and `for`. The `if` tag is for handling conditional logic that your template might need:
+Nós podemos começar com dois marcadores fundamentais, `if` e `for`. O marcador `if` é para lidar com lógica condicional que o teu modelo de marcação pudesse precisar:
 
 {{< web >}}
 ```django
@@ -208,7 +208,7 @@ We can start with two core tags, `if` and `for`. The `if` tag is for handling co
 ```
 {{< /book >}}
 
-This example will only include this welcome message HTML header tag when the user is logged in to the application. We started the example with an `if` tag. Observe that the `if` tag requires a closing `endif` tag. Templates must respect whitespace since your layout might depend on that whitespace. The template language can't use whitespace to indicate scope like it can with Python so it uses closing tags instead. As you might guess, there are also `else` and `elif` tags that are accepted inside of an `if`/`endif` pair:
+Este exemplo apenas incluirá este marcador de cabeçalho de texto de HTML da mensagem de boas-vindas quando o utilizador estiver com a sua sessão iniciada nesta aplicação. Nós começamos o exemplo com um marcador `if`. Observe que o marcador `if` exige um marcador `endif` de encerramento. Os modelos de marcação devem respeitar o espaço em branco visto que a tua disposição pode depender deste espaço em branco. A linguagem de modelo de marcação não pode usar espaço em branco para indicar âmbito como pode com a Python então ao invés disto usa marcadores de encerramento. Como podes supor, também existem os marcadores `else` e `elif` que são aceites dentro um par `if`/`endif`:
 
 {{< web >}}
 ```django
@@ -229,9 +229,9 @@ This example will only include this welcome message HTML header tag when the use
 ```
 {{< /book >}}
 
-In this case, only one of the header tags will render depending on whether the user is authenticated or not.
+Neste caso, apenas um dos marcadores de cabeçalho de texto interpretará dependendo de se o utilizador estiver autenticado ou não.
 
-The other core tag to consider is the `for` loop tag. A `for` loop in Django templates behaves as you might expect:
+O outro marcador fundamental a considerar é o marcador de laço de repetição `for`. Um lado de repetição `for` nos modelos de marcação da Django comportam-se como podes esperar:
 
 {{< web >}}
 ```django
@@ -254,7 +254,7 @@ The other core tag to consider is the `for` loop tag. A `for` loop in Django tem
 ```
 {{< /book >}}
 
-Django will loop over iterables like lists and let users output template responses for each entry in an iterable. If the example above had a list of `items` in the context like:
+A Django iterará sobre os iteráveis como listas e deixarão os utilizadores produzirem respostas de modelo de marcação para cada entrada num iterável. Se o exemplo acima tivesse uma lista de `items` no contexto como:
 
 ```python
 items = [
@@ -263,7 +263,7 @@ items = [
 ]
 ```
 
-Then the output would look roughly like:
+Então a saída parecer-se-ia aproximadamente com:
 
 ```html
 <p>Prices:</p>
@@ -273,7 +273,7 @@ Then the output would look roughly like:
 </ul>
 ```
 
-Occasionally, you may want to take some specific action on a particular element in the `for` loop. Python's built in `enumerate` function isn't available directly in templates, but a special variable called `forloop` is available inside of a `for` tag. This `forloop` variable has some attributes like `first` and `last` that you can use to make templates behave differently on certain loop iterations:
+Ocasionalmente, podes querer tomar alguma específica sobre um elemento particular no laço de repetição `for`. A função `enumerate` embutida da Python não está disponível diretamente nos modelos de marcação, mas uma variável especial chamada `forloop` está disponível dentro dum marcador `for`. Esta variável `forloop` tem alguns atributos como `first` e `last` que podes usar para fazer os modelos de marcação comportarem-se de maneira diferente em certas iterações do laço de repetição:
 
 {{< web >}}
 ```django
@@ -292,7 +292,7 @@ Counting:
 ```
 {{< /book >}}
 
-This example would produce:
+Este exemplo produziria:
 
 ```txt
 Counting:
@@ -301,13 +301,13 @@ Counting:
     3 is last!
 ```
 
-Equipped with variables, `if` tags, and `for` tags, you should now have the ability to make some fairly powerful templates, but there's more!
+Equipado com variáveis, marcadores `if`, e marcadores `for`, agora deverias ter a habilidade de criar alguns modelos de marcação razoavelmente poderosos, mas existem mais! 
 
-### More Context On Context
+### Mais Contexto sobre Contexto
 
-In the setup of the templates settings, we glossed over context processors. Context processors are a valuable way to extend the context that is available to your templates when they are rendered.
+Na configuração das definições de modelos de marcação, não falámos dos processadores de contexto. Os processadores de contexto são uma maneira valiosa de estender o contexto que está disponível para os teus modelos de marcação quando forem interpretados.
 
-Here's the set of context processors that Django's `startproject` command brings in by default:
+Neste exemplo temos um conjunto de processadores de contexto que o comando `startproject` da Django trás por padrão:
 
 ```python
 'context_processors': [
@@ -318,20 +318,20 @@ Here's the set of context processors that Django's `startproject` command brings
 ],
 ```
 
-Context processors are functions (technically, callables, but let's focus on functions) that receive an `HttpRequest` and must return a dictionary. The returned dictionary merges with any other context that will be passed to your template.
+Os processadores de contexto são (tecnicamente, chamáveis, mas vamos nos concentrar nas funções) que recebem um `HttpRequest` e deve retornar um dicionário. O dicionário retornado funde-se com qualquer outro contexto que será passado para o modelo de marcação.
 
-Conceptually, when preparing to render and given a `context` dictionary that was passed to `render`, the template system will do something like:
+Concetualmente, quando preparas para interpretar e dado um dicionário de `context` que era passado para `render`, o sistema de modelo de marcação farão algo como:
 
 ```python
 for processor in context_processors:
     context.update(processor(request))
 
-# Continue on to template rendering
+# Continue na interpretação de modelo de marcação
 ```
 
-The actual code in the template system is more complex than this concept code sketch, but not by much!
+O verdadeiro código no sistema de modelo de marcação é mais complexo do que este esboço de código de conceito, mas não muito.
 
-We can look at the actual definition of the `request` context processor included in that default list:
+Nós podemos olhar na verdadeira definição do processador de contexto `request` incluído naquela lista padrão:
 
 ```python
 # django/template/context_processors.py
@@ -340,27 +340,27 @@ def request(request):
     return {'request': request}
 ```
 
-That's it! Because of this context processor, the `request` object will be available as a variable to any template in your project. That's super powerful.
+Já está! Por causa deste processador de contexto, o objeto `request` estará disponível como variável em qualquer modelo de marcação no teu projeto. Isto é superpoderoso.
 
 <div class='sidebar'>
 
-<h4>Sidebar</h4>
+<h4>Barra lateral</h4>
 
 <p>
-Don't be afraid to look at the source code of the projects that you depend on. Remember that regular people wrote your favorite frameworks! You can learn valuable lessons from what they did. The code might be a little intimidating at first, but there is no magic going on!
+Não tenhas medo de olhar o código-fonte dos projetos sobre os quais dependes. Lembra-te de que pessoas normais escreveram as tuas abstrações favoritas! Tu podes aprender lições valiosas a partir daquilo que fizeram. O código pode ser um pouco intimidante a princípio, mas não existe magia por trás dele!
 </p>
 
 </div>
 
-The "dark side" of context processors is that they run for all requests. If you write a context processor that is slow and does a lot of computation, *every request* will suffer that performance impact. So use context processors carefully.
+O "lado escuro" dos processadores de texto é que executam para todas as requisições. Se escreveres um processador de contexto que é lento e que faz muito cálculo, *cada requisição* sofrerá este impacto de desempenho. Então use os processadores de contexto cuidadosamente.
 
-### Reusable Chunks Of Templates
+### Pedaços Reutilizáveis de Modelos de Marcação
 
-Now let's talk about one of the powerhouse features of the template system: reusable pieces.
+Agora falaremos sobre uma das funcionalidades do núcleo de atividade do sistema de modelo de marcação: pedaços reutilizáveis.
 
-Think about a website. Most pages have a similar look and feel. They do this by repeating a lot of the same HTML, which is Hypertext Markup Language that defines the structure of a page. These pages also use the same CSS, Cascading Style Sheets, which define the styles that shape the look of the page elements.
+Pense sobre um local da Web. A maioria das páginas têm uma aparência semelhante. Elas fazem isto repetindo muito do mesmo HTML, que é a Linguagem de Marcação de Hipertexto que define a estrutura duma página. Estas páginas também usam a mesma CSS, Folhas de Estilo em Cascata, que define os estilos que moldam a aparência dos elementos da página.
 
-Imagine you're asked to manage a site and you need to create two separate pages. The homepage looks like:
+Imagine que és convidado para gerir uma aplicação e precisas de criar duas páginas separadas. A página principal parece-se com:
 
 ```html
 <!DOCTYPE html>
@@ -374,7 +374,7 @@ Imagine you're asked to manage a site and you need to create two separate pages.
 </html>
 ```
 
-And here is a page to learn about the company behind the website:
+E cá está uma página para conhecer a empresa por trás do local da Web:
 
 ```html
 <!DOCTYPE html>
@@ -388,9 +388,9 @@ And here is a page to learn about the company behind the website:
 </html>
 ```
 
-These examples are tiny amounts of HTML, but what if you're asked to change the stylesheet from `styles.css` to a new stylesheet made by a designer called `better_styles.css`? You would have to update both places. Now think if there were 2,000 pages instead of 2 pages. Making big changes quickly across a site would be virtually impossible!
+Estes exemplos são quantidades minúsculas de HTML, mas e se fores pedido para mudar a folha de estilo de `styles.css` para uma nova folha de estilo feita por um desenhista chamada `better_styles.css`? Tu terias de atualizar ambos lugares. Agora pense se existissem 2.000 páginas ao invés de 2 páginas. Fazer grandes mudanças rapidamente através duma aplicação seria virtualmente impossível!
 
-Django helps you avoid this scenario entirely with a few tags. Let's make a new template called `base.html`:
+A Django ajuda-te a evitar este cenário inteiramente com alguns marcadores. Vamos criar um novo modelo de marcação chamado `base.html`:
 
 {{< web >}}
 ```django
@@ -421,7 +421,7 @@ Django helps you avoid this scenario entirely with a few tags. Let's make a new 
 ```
 {{< /book >}}
 
-We've created a reusable template with the `block` tag! We can fix up our homepage to use this new template:
+Criamos um modelo de marcação reutilizável com o marcador `block`! Nós podemos reformar a nossa página principal para usar este novo modelo de marcação:
 
 {{< web >}}
 ```django
@@ -442,18 +442,18 @@ We've created a reusable template with the `block` tag! We can fix up our homepa
 ```
 {{< /book >}}
 
-This new version of the homepage *extends* the base template. All the template had to do was define its own version of the `main` block to fill in the content. We could do the exact same thing with the about page.
+Esta nova versão da página principal *estende* o modelo de marcação de base. Tudo o que modelo de marcação tinha de fazer era definir sua própria versão do bloco `main` para preencher o conteúdo. Nós poderíamos fazer exatamente a mesma coisa com a página sobre.
 
-If we revisit the task of replacing `styles.css` with `better_styles.css`, we can make the update in `base.html` and have that change apply to any templates that extend it. Even if there were 2,000 pages that all extended from `base.html`, changing the stylesheet would still be one line of code to change for an entire site.
+Se revisitarmos a tarefa de substituir `styles.css` por `better_styles.css`, poderemos fazer a atualização no `base.html` e ter esta mudança aplicada à quaisquer modelos de marcação que o estende. Mesmo se existissem 2.000 páginas que se estendessem todas a partir de `base.html`, mudar a folha de estilo continuaria ser uma linha de código à mudar para uma aplicação inteira.
 
-That's the power of Django's template extension system. Use `extend` when you need content that is mostly the same. Add a `block` section whenever you need to customize an extended page. You can extend a page by including multiple types of blocks. The example only shows a `main` block, but you might have pages that customize a `sidebar`, `header`, `footer`, or whatever might vary.
+Este é o poder do sistema de extensão de modelo de marcação da Django. Use `extend` quando precisares de conteúdo que é na maior parte das vezes o mesmo. Adicione uma seção de `block` sempre que precisares de personalizar uma página estendida. Tu podes estender uma página incluindo vários tipos de blocos. O modelo de marcação apenas exibe um bloco de `main`, mas podes ter páginas que personalizam um `sidebar`, `header`, `footer`, ou qualquer coisa que possa variar.
 
-Another powerful tool for reuse is the `include` tag. The `include` tag is useful when you want to extract some chunk of template that you want to use in multiple locations. You may want to use `include` to:
+Uma outra ferramenta poderosa para reutilização é o marcador `include`. O marcador `include` é útil quando queres extrair algum pedaço do modelo de marcação que queres usar em várias localizações. Tu podes querer usar `include` para:
 
-1. Keep templates tidy. You can break a large template up into small pieces that are more manageable.
-2. Use a template fragment in different parts of your site. Maybe you have a piece of template that should only appear on a few pages.
+1. Manter os modelos de marcação organizados. Tu podes quebrar um grande modelo de marcação em pequenos pedaços que são mais manejáveis.
+2. Usar um fragmento de modelo de marcação em diferentes partes da tua aplicação. Talvez tenhas um pedaço de modelo de marcação que deveria apenas aparecer em algumas páginas.
 
-Coming back to our website example, imagine that `base.html` grew to be 20,000 lines long. Navigating to the right part of the template to make changes is now harder. We can decompose the template into smaller pieces:
+Voltando ao nosso exemplo de aplicação de Web, imagine que `base.html` cresceu até estar com mais de 20.000 linhas. Navegar para a parte correta do modelo de marcação para fazer mudanças agora é mais difícil. Nós podemos decompor o modelo de marcação em pedaços mais pequenos:
 
 {{< web >}}
 ```django
@@ -482,24 +482,24 @@ Coming back to our website example, imagine that `base.html` grew to be 20,000 l
 ```
 {{< /book >}}
 
-The `include` tag can move those extra pieces around. By providing a good name for your templates, if you needed to change the structure of some section like navigation, you could go to the template with the appropriate name. That template file would focus on only the element that you need to change.
+O marcador `include` pode mover estes pedaços adicionais. Ao fornecer um bom nome para os teus modelos de marcação, se precisasses de mudar a estrutura de alguma seção como navegação, poderias ir ao modelo de marcação com o nome apropriado. Este ficheiro de modelo de marcação focar-se-ia apenas no elemento que precisas mudar.
 
-`block`, `extends`, and `include` are core tags for keeping your user interface code from sprawling all over the place with lots of duplication.
+`block`, `extends`, e `include` são marcadores fundamentais para proteger o teu código da interface de utilizador de crescer desordenadamente por toda a parte com muitas duplicações.
 
-Next, let's talk about more of Django's built-in template tags that can supercharge your UI.
+A seguir, falaremos de mais marcadores de modelo de marcação embutidos da Django que podem sobrecarregar a tua interface de utilizador.
 
-## The Templates Toolbox
+## A Caixa de Ferramentas dos Modelos de Marcação
 
-The Django documentation includes a {{< extlink "https://docs.djangoproject.com/en/4.1/ref/templates/builtins/" "large set of built-in tags" >}} that you can use in your projects. We aren't going to cover all of them, but I'll focus on a few tags to give you a flavor of what is available.
+A documentação da Django inclui um {{< extlink "https://docs.djangoproject.com/en/4.1/ref/templates/builtins/" "vasto conjunto de marcadores embutidos" >}} que podes usar nos teus projetos. Nós não iremos cobrir todos, mas nos focaremos em alguns marcadores para dar-te um gosto do que está disponível.
 
-One of the most used built-in tags aside from what we've already covered is the `url` tag.
+Um dos mais usados marcadores embutidos à parte daqueles que já cobrimos é o marcador `url`.
 {{< web >}}
-Recall from the article
+Lembra-te do artigo
 {{< /web >}}
 {{< book >}}
-Recall from the chapter
+Lembra-te do capítulo
 {{< /book >}}
-on URLs that you can get the URL to a named view by using the `reverse` function. What if you wanted to use the URL in your template? You could do this:
+sobre URLs de que podes receber a URL para uma visão nomeada usando a função `reverse`. E se quisesses usar a URL no teu modelo de marcação? Tu poderias fazer isto:
 
 ```python
 # application/views.py
@@ -518,7 +518,7 @@ def the_view(request):
     )
 ```
 
-While this works, it's tedious to have to route all URLs through the context. Instead, our template can directly create the proper URL. Here's what `a_template.html` might look like instead:
+Embora isto funcione, é tedioso ter de enviar todas as URLs através do contexto. Ao invés disto, o nosso modelo de marcação pode criar diretamente a URL apropriada. No exemplo abaixo mostramos como `a_template.html` se pareceria:
 
 {{< web >}}
 ```django
@@ -531,9 +531,9 @@ While this works, it's tedious to have to route all URLs through the context. In
 ```
 {{< /book >}}
 
-The `url` tag is the template equivalent of the `reverse` function. Like its `reverse` counterpart, `url` can accept args or kwargs for routes that expect other variables. `url` is an incredibly useful tool and one that you will probably reach for many times as you build your user interface.
+O marcador `url` é o equivalente do modelo de marcação da função `reverse`. Tal como sua homóloga `reverse`, `url` pode aceitar argumentos ou argumentos de chaves e valores para rotas que esperam outras variáveis. `url` é uma ferramenta incrivelmente útil e aquela que provavelmente usarás com frequência a medida que constróis a tua interface de utilizador.
 
-Another useful tag is the `now` tag. `now` is a convenient method to display information about the current time. Using what Django calls *format specifiers*, you can tell your template how to display the current time. Want to add a current copyright year to your website? No problem!:
+Um outro marcador útil é o marcador `now`. `now` é um método conveniente para exibir informação sobre a hora atual. Usando o que a Django chama de *especificadores de formato*, podes dizer ao teu modelo de marcação como exibir a hora atual. Queres adicionar o ano atual dos direitos de autor à tua aplicação? Sem problemas!:
 
 {{< web >}}
 ```django
@@ -546,7 +546,7 @@ Another useful tag is the `now` tag. `now` is a convenient method to display inf
 ```
 {{< /book >}}
 
-One final built-in tag to consider is the `spaceless` tag. HTML is *partially* sensitive to whitespace. There are some frustrating circumstances where this whitespace sensitivity can ruin your day when building a user interface. Can you make a pixel perfect navigation menu for your site with an unordered list? Maybe. Consider this:
+Um último marcador embutido a considerar é o marcador `spaceless`. A HTML é *particularmente* sensível ao espaço em branco. Existem algumas circunstâncias frustrantes onde esta sensibilidade ao espaço em branco pode arruinar o teu dia quando constróis uma interface de utilizador. Podes fazer um menu de navegação de pixeis perfeito para a tua aplicação com uma lista não ordenada? Talvez. Considere isto:
 
 ```html
 <ul class="navigation">
@@ -555,7 +555,7 @@ One final built-in tag to consider is the `spaceless` tag. HTML is *partially* s
 </ul>
 ```
 
-The indented whitespace on those list items (or the new line characters that follow them) might cause you trouble when working with CSS. Knowing that the whitespace can affect layout, we can use `spaceless` like so:
+O espaço em branco indentado nestes itens de lista (ou os caracteres de nova linha que os seguem) podem causar-te problema quando trabalhas com a CSS. Sabendo que o espaço em branco pode afetar a disposição da página, podemos usar `spaceless` assim:
 
 {{< web >}}
 ```django
@@ -578,18 +578,18 @@ The indented whitespace on those list items (or the new line characters that fol
 ```
 {{< /book >}}
 
-This neat little template tag will remove all the spaces between HTML tags so your output looks like:
+Este pequeno fantástico marcador de modelo de marcação removerá todos os espaços entre os marcadores de HTML assim a tua saída parece-se com:
 
 ```html
 <ul class="navigation"><li><a href="/home/">Home</a></li>...</ul>
 ```
 
-By removing the extra space, you may get a more consistent experience with your CSS styling and save yourself some frustration.
+Com a remoção do espaço adicional, podes ter uma experiência mais consistente com a tua estilização de CSS e poupares-te de alguma frustração.
 {{< web >}}
-(I had to trim the output to fit better on the screen.)
+(Eu tive de aparar a saída para ajustar-se melhor no ecrã.)
 {{< /web >}}
 
-There is another kind of built-in that we have not looked at yet. These alternative built-in functions are called **filters**. Filters change the output of variables in your templates. The filter syntax is a bit interesting. It looks like:
+Existe um outro tipo de embutido que ainda não olhamos. Estas funções embutidas alternativas são chamadas de **filtros**. Os filtros mudam a saída das variáveis nos teus modelos de marcação. A sintaxe do filtro é um pouco interessante. Parece-se com:
 
 {{< web >}}
 ```django
@@ -603,9 +603,9 @@ Here's a filter example:
 ```
 {{< /book >}}
 
-The important element is the pipe character directly after a variable. This character signals to the template system that we want to modify the variable with some kind of transformation. Also observe that filters are used between double curly braces instead of the `{%` syntax that we've seen with tags.
+O elemento importante é o carácter de conduta imediatamente depois duma variável. Este carácter faz sinal ao sistema de modelo de marcação que queremos modificar a variável com algum tipo de transformação. Também observe que os filtros são usados entre chavetas duplas no lugar da sintaxe `{%` que vimos com os marcadores.
 
-A very common filter is the `date` filter. When you pass a Python `datetime` instance in the context, you can use the `date` filter to control the format of the datetime. The `date` {{< extlink "https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#date" "documentation" >}} shows what options you can use to modify the format:
+Um filtro muito comum é o filtro `date`. Quando passas um instância de `datetime` da Python no contexto, podes usar o filtro `date` para controlar o formato da data e hora. A {{< extlink "https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#date" "documentação" >}} do `date` mostra quais opções podes usar para modificar o formato:
 
 {{< web >}}
 ```django
@@ -618,9 +618,9 @@ A very common filter is the `date` filter. When you pass a Python `datetime` ins
 ```
 {{< /book >}}
 
-If `a_datetime` was an instance of April Fools' Day, then it could return a string like `2020-04-01`. The `date` filter has many specifiers that will enable you to produce most of the date formatting outputs you could think of.
+Se `a_datetime` for uma instância do Dia das Mentiras, então poderia retornar uma sequência de caracteres como `2020-04-01`. O filtro `date` tem muitos especificadores que possibilitam-te produzir a maioria das saídas de formatação de data que poderias imaginar.
 
-`default` is a useful filter for when your template value evaluates to `False`. This is perfect when you've got a variable with an empty string. The example below outputs "Nothing to see here" if the variable was Falsy:
+`default` é um filtro útil para quando o valor do teu modelo de marcação avalia para `False`. Isto é perfeito quando temos uma variável com uma sequência de caracteres vazia. O exemplo abaixo resulta em "Nothing to see here" se a variável for falsa:
 
 {{< web >}}
 ```django
@@ -633,22 +633,22 @@ If `a_datetime` was an instance of April Fools' Day, then it could return a stri
 ```
 {{< /book >}}
 
-Falsy is a concept in Python that describes anything that Python will evaluate as false in a boolean expression. Empty strings, empty lists, empty dicts, empty sets, `False`, and `None` are all common Falsy values.
+Falso é um conceito na Python que descreve qualquer coisa que a Python avaliará como falso numa expressão booleana. As sequências de caracteres vazias, listas vazias, dicionários vazios, conjuntos vazios, `False`, e `None` são todos valores Falsos. 
 
-`length` is a simple filter for lists. `{{ a_list_variable|length }}` will produce a number. It is the Django template equivalent to the `len` function.
+`length` é um filtro simples para listas. `{{ a_list_variable|length }}` produzirá um número. É o equivalente do modelo de marcação da Django para a função `len`.
 
-I like the `linebreaks` filter a lot. If you create a form
+Eu gosto muito do filtro `linebreaks`. Se criares um formulário
 {{< web >}}
-(which we'll explore in the next article)
+(o que exploraremos no próximo artigo)
 {{< /web >}}
 {{< book >}}
-(which we'll explore in the next chapter)
+(o que exploraremos no próximo capítulo)
 {{< /book >}}
-and accept a text area field where the user is allowed to provide newlines, then the `linebreaks` filter allows you to display those newlines later when rendering the user's data. By default, HTML will not show new line characters as intended. The `linebreaks` filter will convert `\n` to a `<br>` HTML tag. Handy!
+e aceitares um campo de área de texto onde o utilizador está autorizado a fornecer novas linhas, então o filtro `linebreaks` permite-te exibir estas novas linhas mais tarde quando interpretares os dados do utilizador. Por padrão, a HTML não mostrará os caracteres de nova linha como pretendido. O filtro `linebreaks` converterá `\n` para um marcador de HTML `<br>`. Prático!
 
-Before moving on, let's consider two more.
+Antes de seguires em frente, vamos considerar mais dois.
 
-`pluralize` is a convenient filter for the times when your text considers counts of things. Consider a count of items.
+`pluralize` é um filtro conveniente para os momentos quando teu texto considera a contagens de coisas. Considera uma contagem de itens:
 
 {{< web >}}
 ```django
@@ -661,7 +661,7 @@ Before moving on, let's consider two more.
 ```
 {{< /book >}}
 
-The `pluralize` filter will do the right thing if there are zero, one, or more items in the list.
+O filtro `pluralize` fará a coisa certa se existirem zero, um, ou mais itens na lista.
 
 ```txt
 0 items
@@ -671,9 +671,9 @@ The `pluralize` filter will do the right thing if there are zero, one, or more i
 (and so on)
 ```
 
-Be aware that `pluralize` can't handle irregular plurals like "mice" for "mouse."
+Tenha atenção que `pluralize` não pode lidar com plurais irregulares como "mice" ou "mouse."
 
-The final filter in our tour is the `yesno` filter. `yesno` is good for converting `True|False|None` into a meaningful text message. Imagine we're making an application for tracking events and a person's attendance is one of those three values. Our template might look like:
+O filtro final no nosso passeio é o filtro `yesno`. `yesno` é bom para conversão `True|False|None` em uma mensagem de texto significativo. Imagina que estamos a criar uma aplicação para rastreamento de eventos e a presença duma pessoa é um destes três valores. O nosso modelo de marcação parecer-se-á com:
 
 {{< web >}}
 ```django
@@ -686,23 +686,23 @@ The final filter in our tour is the `yesno` filter. `yesno` is good for converti
 ```
 {{< /book >}}
 
-Depending on the value of `user_accepted`, the template will display something meaningful to a reader.
+Dependendo do valor da `user_accepted`, o modelo de marcação exibirá algo significativo para um leitor.
 
-There are so many built-ins that it's really hard to narrow down my favorites. Check out the full list to see what might be useful for you.
+Existem muitos filtros embutidos que é realmente difícil delimitar os meus favoritos. Consulte a lista completa para veres o que pode ser útil para ti.
 
-What if the built-ins don't cover what you need? Have no fear, Django lets you make custom tags and filters for your own purposes. We'll see how next.
+E se os filtros embutidos não cobrirem o que precisas? Não tenhas medo, a Django permite-te criar marcadores e filtros personalizados para os teus próprios fins. Veremos como a seguir.
 
-## Build Your Own Lightsaber In Templates
+### Construa o Teu Próprio Sabre de Luz Nos Modelos de Marcação
 
-When you need to build your own template tags or filters, Django gives you the tools to make what you need.
+Quando precisares de construir os teus próprios marcadores ou filtros personalizados, a Django dá-te as ferramentas para fazeres o que precisas.
 
-There are three major elements to working with custom tags:
+Existem três elementos principais para trabalhar com marcadores personalizados:
 
-1. Defining your tags in a place that Django expects.
-2. Registering your tags with the template engine.
-3. Loading your tags in a template so they can be used.
+1. Definir os teus marcadores num lugar que a Django espera.
+2. Registar os teus marcadores com o motor de modelo de marcação.
+3. Carregar os teus marcadores num modelo de marcação para que possam ser usados.
 
-The first step is to put the tags in the correct location. To do that, we need a `templatetags` Python package inside of a Django application. We also need a module in that directory. Choose the module name carefully because it is what we will load in the template later on:
+O primeiro passo é colocar os marcadores na localização correta. Para fazer isto, precisamos dum pacote de Python `templatetags` dentro duma aplicação de Django. Nós também precisamos dum módulo neste diretório. Escolha o nome do módulo cuidadosamente porque é o que carregaremos no modelo de marcação mais tarde: 
 
 ```txt
 application
@@ -715,7 +715,7 @@ application
 └── views.py
 ```
 
-Next, we need to make our tag or filter and register it. Let's start with a filter example:
+A seguir, precisamos de criar o nosso marcador ou filtro e registá-lo. Vamos começar com um exemplo de filtro:
 
 ```python
 # application/templatetags/custom_tags.py
@@ -735,7 +735,7 @@ def add_pizzazz(value):
     return value + random.choice(pieces_of_flair)
 ```
 
-Now, if we have a `message` variable, we can give it some pizzazz. To use the custom filter, we must load our tags module into the template with the `load` tag:
+Agora, se tivermos uma variável `message`, podemos dá-la algum entusiasmo. Para usar o filtro personalizado, devemos carregar o nosso módulo de marcadores no modelo de marcação com o marcador `load`:
 
 {{< web >}}
 ```django
@@ -752,9 +752,9 @@ Now, if we have a `message` variable, we can give it some pizzazz. To use the cu
 ```
 {{< /book >}}
 
-If our message was "You got a perfect score!", then our template should show the message and one of the three random choices like "You got a perfect score! Wowza!"
+Se a nossa mensagem foi "You got a perfect score!", então o nosso modelo de marcação mostraria a mensagem e uma das três escolhas pseudo-aleatórias como "You got a perfect score! Wowza!"
 
-Writing basic custom tags is very similar to custom filters. Code will speak better than words here:
+Escrever marcadores personalizado básicos é muito semelhante aos filtros personalizados. O código fala melhor do que as palavras:
 
 ```python
 # application/templatetags/custom_tags.py
@@ -777,7 +777,7 @@ def champion_welcome(name, level):
     return welcome
 ```
 
-We can load the custom tags and use our tag like any other built-in tag:
+Nós podemos carregar marcadores personalizados e usar o nosso marcador como qualquer outro marcador embutido:
 
 {{< web >}}
 ```django
@@ -794,37 +794,37 @@ We can load the custom tags and use our tag like any other built-in tag:
 ```
 {{< /book >}}
 
-This silly welcome tag will respond to multiple input variables and vary depending on the provided level. The example usage should display "Hello great champion He-Man!"
+Este marcador de boas-vindas responderá à várias variáveis de entrada e varia dependendo do nível fornecido. O exemplo de uso deveria exibir "Hello great champion He-Man!"
 
-We're only looking at the most common kinds of custom tags in our examples. There are some more advanced custom tagging features which you can explore in the {{< extlink "https://docs.djangoproject.com/en/4.1/howto/custom-template-tags/" "Django custom template tags documentation" >}}.
+Estamos apenas olhando para os tipos mais comuns de marcadores personalizados nos nossos exemplos. Existem funcionalidades de marcação personalizada avançadas que podes explorar na {{< extlink "https://docs.djangoproject.com/en/4.1/howto/custom-template-tags/" "documentação de marcadores de modelos de marcação personalizados da Django" >}}.
 
-Django also uses `load` to provide template authors with some additional tools. For instance, we will see how to load some custom tags provided by the framework when we learn about working with images and JavaScript later on.
+A Django também usa `load` para fornecer algumas ferramentas adicionais aos autores de modelo de marcação. Por exemplo, veremos como carregar alguns marcadores personalizados fornecidos pela abstração quando estudarmos sobre como trabalhar com imagens e JavaScript mais tarde.
 
-## Summary
+## Sumário
 
-Now we've seen templates in action! We've looked at:
+Agora vimos os modelos de marcação em ação! Vimos: 
 
-* How to set up templates for your site
-* Ways to call templates from views
-* How to use data
-* How to handle logic
-* Built-in tags and filters available to templates
-* Customizing templates with your own code extensions
+* Como configurar os modelos de marcação para a tua aplicação
+* Maneiras de chamar os modelos de marcação a partir das visões
+* Como usar os dados
+* Como manipular a lógica
+* Marcadores e filtros embutidos disponíveis para os modelos de marcação
+* Personalização de modelos de marcação com as tuas próprias extensões de código
 
 {{< web >}}
-In the next article,
+No próximo artigo,
 {{< /web >}}
 {{< book >}}
-In the next chapter,
+No próximo capítulo,
 {{< /book >}}
-we are going to examine how users can send data to a Django application with HTML forms. Django has tools to make form building quick and effective. We're going to see:
+examinaremos como os utilizadores podem enviar os dados à uma aplicação de Django com os formulários de HTML. A Django tem ferramentas para tornar a construção de formulário rápido e efetivo. Veremos:
 
-* The `Form` class that Django uses to handle form data in Python
-* Controlling what fields are in forms
-* How forms are rendered to users by Django
-* How to do form validation
+* A classe `Form` que a Django usa para manipular os dados do formulário na Python
+* Controlo de quais campos estão nos formulários
+* Como os formulários são desenhados para os utilizadores pela Django
+* Como fazer a validação de formulário
 
 {{< web >}}
-If you'd like to follow along with the series, please feel free to sign up for my newsletter where I announce all of my new content. If you have other questions, you can reach me online on Twitter where I am {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+Se gostarias de seguir com a série, sinta-se livre para inscrever-se no meu boletim informativo onde anúncio todos os meus novos conteúdos. Se tiveres outras questões, podes contactar-me na Twitter onde sou {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
 {{< /web >}}
 &nbsp;
