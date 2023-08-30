@@ -1,7 +1,7 @@
 ---
-title: "User Interaction With Forms"
+title: "Interação do Utilizador com os Formulários"
 description: >-
-    How do users provide data to your website so you can interact with them? We can answer that question by exploring Django's form system, and the tools that Django provides to simplify your site as you engage with your users.
+    Como os utilizadores fornecem dados à tua aplicação para que possas interagir com eles? Nós podemos responder esta questão explorando o sistema de formulário da Django, e as ferramentas que a Django fornece para simplificar a tua aplicação a medida que envolveres-te com os teus utilizadores.
 image: img/django.png
 type: post
 categories:
@@ -15,35 +15,35 @@ tags:
 ---
 
 {{< web >}}
-In the previous [Understand Django]({{< ref "/understand-django/_index.pt.md" >}}) article, we saw how Django templates work to produce a user interface. That's fine if you only need to display a user interface, but what do you do
+No artigo anterior da série [Entendendo a Django]({{< ref "/understand-django/_index.pt.md" >}}), vimos como os modelos de marcação da Django trabalham para produzir uma interface de utilizador. Está muito bem se apenas precisas de exibir uma interface de utilizador, mas o que fazes
 {{< /web >}}
 {{< book >}}
-What do you do
+O que fazes
 {{< /book >}}
-if you need your site to interact with users? You use Django's form system!
+se precisares que a tua aplicação interaja com os utilizadores? Tu usas o sistema de formulário da Django!
 {{< web >}}
-In this article,
+Neste artigo,
 {{< /web >}}
 {{< book >}}
-In this chapter,
+Neste capítulo,
 {{< /book >}}
-we'll focus on how to work with web forms using the Django form system.
+focaremos-nos em como trabalhar com os formulários da Web usando o sistema de formulário da Django.
 
 {{< understand-django-series-pt "forms" >}}
 
-## Web Forms 101
+## Formulários da Web 101
 
-Before we can dive into how Django handles forms, we need to have an understanding of HTML forms in general. Django's form functionality builds upon web forms so this topic won't make sense without a baseline knowledge of the topic.
+Antes de pudermos mergulhar em como a Django lida com os formulários, precisamos de um entendimento dos formulários da HTML em geral. A funcionalidade de formulário da Django baseia-se sobre os formulários da Web então este tópico não fará sentido sem um conhecimento básico do tópico.
 
-HTML can describe the type of data that you may want your users to send to your site. Collecting this data is done with a handful of tags. The primary HTML tags to consider are `form`, `input`, and `select`.
+A HTML pode descrever o tipo de dado que podes querer que os teus utilizadores enviem para a tua aplicação. A coleta deste dado é feito com uma mão cheia de marcadores. Os marcadores de HTML primários à considerar são `form`, `input`, e `select`.
 
-A `form` tag is the container for all the data that you want a user to send to your application. The tag has two critical attributes that tell the browser how to send data: `action` and `method`.
+Um marcador de `form` é o contentor para todos os dados que queres que um utilizador envie para a tua aplicação. O marcador tem dois atributos críticos que dizem ao navegador como enviar os dados: `action` e `method`.
 
-`action` would be better named as "destination" or "url." Alas, we are stuck with `action`. This attribute of the `form` tag is where user data should be sent to. It's also useful to know that leaving out `action` or using `action=""` will send any form data as an HTTP request to the same URL that the user's browser is on.
+`action` seria melhor nomeado como "destination" ou "url". Infelizmente, estamos presos ao `action`. Este atributo do marcador `form` é para onde os dados do utilizador deveriam ser enviados. Também é útil saber que omitir `action` ou usar `action=""` enviará qualquer dado de formulário como uma requisição de HTTP para a mesma URL em que o navegador do utilizador está ligado.
 
-The `method` attribute dictates which HTTP method to use and can have a value of `GET` or `POST`. When paired with `action`, the browser knows how to send a properly formatted HTTP request.
+O atributo `method` dita qual método de HTTP usar e pode ter um valor de `GET` ou `POST`. Quando emparelhado com `action`, o navegador sabe como enviar uma requisição de HTTP formatada apropriadamente.
 
-Let's say we have this example:
+Vamos dizer que temos este exemplo:
 
 ```html
 <form method="GET" action="/some/form/">
@@ -52,34 +52,33 @@ Let's say we have this example:
 </form>
 ```
 
-When the form's method is `GET`, the form data will be sent as part of the URL in a querystring. The GET request sent to the server will look like `/some/form/?message=Hello`. This type of form submission is most useful when we don't need to save data and are trying to do some kind of query. For instance, you could give your application some search functionality with a URL like `/search/?q=thing+to+search`. These links could be bookmarked easily and are a natural fit for that kind of function.
+Quando o método do formulário for `GET`, os dados do formulário serão enviados como parte da URL numa sequência de caracteres de consulta. A requisição `GET` enviada para o servidor parecer-se-á com `/some/form/?message=Hello`. Este tipo de submissão de formulário é muito útil quando não precisamos de guardar os dados e estamos a tentar fazer algum tipo de consulta. Por exemplo, poderias dar à tua aplicação alguma funcionalidade de pesquisa com uma URL como `/search/?q=thing+to+search`. Estas ligações poderiam ser marcadas facilmente e são um ajuste natural para este tipo de função.
 
-The `POST` method of sending form data is for data that we want to be secure or saved within an application. With a GET request, form data in the querystring is exposed in a number of places (see {{< extlink "https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url" "more information" >}}
-from the Open Web Application Security Project (OWASP)). On the other hand, POST sends the data in the body of the HTTP request. This means that if your site is secure (i.e., using HTTPS), then data is encrypted while traveling from a browser to a server.
+O método `POST` de envio de dados de formulário destina-se a dados que queremos que sejam seguros ou guardados dentro duma aplicação. Com uma requisição `GET`, o dado de formulário na sequência de caracteres de consulta é exposto num número de lugares (consulte {{< extlink "https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url" "mais informações" >}} do Projeto Aberto de Segurança de Aplicação de Web (OWASP, sigla em Inglês)). Por outro lado, `POST` envia os dados no corpo da requisição de HTTP. Isto significa que se aplicação estiver segura (por exemplo, usando HTTPS), então os dados são encriptados enquanto viajam dum navegador para um servidor.
 
-If you ever login to a website and submit a password in a form, you can be nearly certain that the form is sent with the POST method option (and if it's not, run away!).
+Se alguma vez iniciares a sessão numa aplicação de Web e submeteres uma palavra-passe num formulário, podes ter quase a certeza de que o formulário é enviado com a opção de método `POST` (e se não for, fuja!).
 
-We've seen that `form` is the container that guides how to send form data. `input` and `select` are the tags that let us display a meaningful form to the user.
+Vimos que `form` é o contentor que orienta como enviar os dados do formulário. `input` e `select` são os marcadores que permitem-nos exibir um formulário significativo ao utilizador.
 
-The more prevalent tag is `input`. With the `input` tag, form authors will set `type` and `name` primarily. The `type` attribute tells the browser which kind of input to display:
+O marcador mais predominante é `input`. Com o marcador `input`, os autores do formulário definirão principalmente o `type` e `name`. O atributo `type` diz ao navegador qual tipo de entrada a exibir:
 
-* Do we need a checkbox? `type="checkbox"`
-* Do we need a password field that hides characters? `type="password"`
-* How about a classic text box? `type="text"`
+* Precisamos duma caixa de confirmação? `type="checkbox"`
+* Precisamos dum campo de palavra-passe que esconde caracteres? `type="password"`
+* E uma caixa de texto clássica? `type="text"`
 
-You can see a full list of types on the {{< extlink "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input" "MDN input documentation" >}} page.
+Tu podes consultar uma lista completa de tipos na página da {{< extlink "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input" "documentação do elemento de entrada da MDN" >}}.
 
-The other attribute, `name`, is the identifier that the form will pair with the user data. The server uses the identifier so it can distinguish between the pieces of data that a form submission may include.
+O outro atributo, `name`, é o identificador que o formulário emparelhará com os dados do utilizador. O servidor usa o identificador para que possa distinguir entre os pedaços de dados que uma submissão de formulário possa incluir.
 
-Another tag that your forms may use is the `select` tag. This kind of tag is less frequent than the `input` tag. The `select` tag lets users make a choice from a list of options. The default browser user interface for this tag is a dropdown menu.
+Um outro marcador que os teus formulários podem usar é o marcador `select`. Este tipo de marcador é menos frequente do que o marcador `input`. O marcador `select` permite os utilizadores fazerem uma escolha a partir duma lista de opções. A interface de utilizador do navegador padrão para este marcador é um menu deslizante.
 
-With these core elements of HTML forms, we are equipped to understand Django's form capabilities. Let's dive in!
+Com estes elementos principais de formulários de HTML, estamos equipados para entender as capacidades de formulário da Django. Vamos mergulhar!
 
-## Django Forms
+## Formulários da Django
 
-Django's form features act as a bridge between HTML forms and Python classes and data types. When presenting a form to a user via a view, the form system is able to display the proper HTML form tags and structure. When receiving this form data from a user's submission, the form system can translate the browser's raw form data into native Python data that we can use.
+A funcionalidade de formulário da Django atua como uma ponte entre os formulários de HTML e as classes da Python e os tipos de dados. Quando representamos um formulário ao utilizador através duma visão, o sistema de formulário é capaz de exibir os marcadores de formulário de HTML e estruturas apropriadas. Quando recebemos os dados deste formulário a partir duma submissão do utilizador, o sistema de formulário pode traduzir os dados de formulário crus do navegador em dados de Python nativos que podemos usar.
 
-We can begin with the `Form` class. A form class acts as the data declaration of what data we need from the user. Here's an example that we can examine:
+Nós podemos começar com a classe `Form`. Uma classe de formulário representa a declaração de dados daqueles dados que precisamos da parte do utilizador. Cá está um exemplo que podemos examinar:
 
 ```python
 # application/forms.py
@@ -96,10 +95,10 @@ class ContactForm(forms.Form):
     )
 ```
 
-* User-defined Django forms should subclass the `Form` class. This class adds a lot of powerful functionality that will aid us as we explore more.
-* The data that we want to collect is listed as class level attributes. Each field of the form is a certain field type that has its own characteristics to help translate raw form data into the data types that we want to work with in views.
+* Os formulários da Django definidas pelo utilizador devem ser subclasse da classe `Form`. Esta classe adiciona muitas funcionalidades poderosas que nos ajudarão a medida que exploramos mais.
+* Os dados que queremos coletar estão listados como atributos de nível de classe. Cada campo do formulário é um certo tipo de campo que tem suas próprias características para ajudar a traduzir dados de formulário crus em tipos de dados com os quais queremos trabalhar nas visões.
 
-If we take this form and add it to a view's context as `form`, then we can render it in a template. The default rendering of the form uses an HTML table, but we can render the fields in a simpler format with the `as_p` method. This method will use paragraph tags instead for the form elements. If the template looks like:
+Se pegarmos este formulário e o adicionarmos ao contexto da visão como `form`, então podemos desenhá-lo no modelo de marcação. A interpretação padrão do formulário usa uma tabela de HTML, mas podemos desenhar os campos num formato mais simples com o método `as_p`. Este método usará os marcadores de parágrafo para os elementos de formulário. Se o modelo de marcação parecer-se com isto:
 
 {{< web >}}
 ```django
@@ -112,7 +111,7 @@ If we take this form and add it to a view's context as `form`, then we can rende
 ```
 {{< /book >}}
 
-Then Django will render:
+Então a Django desenhará:
 
 ```html
 <p><label for="id_name">Name:</label>
@@ -124,16 +123,16 @@ Then Django will render:
 </p>
 ```
 
-To make it possible to submit the form, we need to wrap this rendered output with a `form` tag and include a submit button and a CSRF token.
+Possibilitar a submissão do formulário, precisamos envolver esta saída desenhada com um marcador `form` e incluir um botão submeter e um sinal de CSRF.
 
-Huh? *CSRF token?* Sadly, the world is full of nefarious people who would love to hack your application to steal data from others. A CSRF token is a security measure that Django includes to make it harder for malicious actors to tamper with your form's data. We'll talk more about security
+Huh? *sinal de CSRF?* infelizmente, o mundo está cheio de pessoas malvadas que adorariam piratear a tua aplicação para roubar dados dos outros. Um sinal de CSRF é uma medida de segurança que Django inclui para dificultar os atores maliciosos de falsificar os dados do teu formulário. Falaremos mais sobre segurança 
 {{< web >}}
-in a future article.
+num artigo futuro.
 {{< /web >}}
 {{< book >}}
-in a future chapter.
+num capítulo futuro.
 {{< /book >}}
-For now, sprinkle the token into your forms with Django's built-in template tag and everything should work:
+Por agora, borrife o sinal nos teus formulários com o marcador de modelo de marcação embutido da Django e tudo deve funcionar:
 
 {{< web >}}
 ```django
@@ -158,7 +157,7 @@ For now, sprinkle the token into your forms with Django's built-in template tag 
 ```
 {{< /book >}}
 
-That's how a form gets displayed. Now let's look at a view that handles the form properly. When working with form views, we will often use a view that is able to handle both `GET` and `POST` HTTP requests. Here's a full view that we can break down piece by piece. The example uses a function view for simplicity, but you could do something similar with a class-based view:
+É assim como um formulário é exibido. Agora vamos olhar uma visão que manipula o formulário apropriadamente. Quando trabalhamos com visões de formulário, frequentemente usaremos uma visão que é capaz de manipular ambas requisições de HTTP `GET` e `POST`. Cá está uma visão completa que podemos decompor pedaço por pedaço. O exemplo usa uma visão de função por questões de simplicidade, mas poderíamos fazer algo semelhante com uma visão baseada em classe:
 
 ```python
 # application/views.py
@@ -173,8 +172,8 @@ def contact_us(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
-            # Do something with the form data
-            # like send an email.
+            # Fazer algo com os dados do formulário
+            # como enviar um correio-eletrónico.
             return HttpResponseRedirect(
                 reverse('some-form-success-url')
             )
@@ -188,32 +187,32 @@ def contact_us(request):
     )
 ```
 
-If we start by thinking about the `else` branch, we can see how little this view does on a `GET` request. When the HTTP method is a `GET`, it creates an empty form with no data passed to the constructor and renders a template with the `form` in the context.
+Se começarmos pensando sobre o ramo `else`, podemos ver o quão pouco esta visão faz numa requisição `GET`. Quando o método de HTTP for um `GET`, cria um formulário vazio sem dados passados ao construtor e desenha um modelo de marcação com o `form` no contexto.
 
-`contact_form.html` contains the Django template above to display the HTML form to the user. When the user clicks "Send the form!", another request comes to the same view, but this time the method is an HTTP `POST` and contains the submitted data.
+`contact_form.html` contém o modelo de marcação da Django acima para exibir o formulário de HTML ao utilizador. Quando o utilizador clicar em "Send the form!", uma outra requisição vai para visão, mas desta vez o método é um `POST` de HTTP e contém os dados submetidos.
 
-The `POST` request creates a `form`, but there is a difference in how it is constructed. The form submission data is stored in `request.POST`, which is a dictionary-like object that we first encountered
+A requisição de `POST` cria um `form`, mas existe uma diferença em como é construído. Os dados de submissão do formulário são armazenados no `request.POST`, que é um objeto parecido com dicionário que deparamos-nos primeiro
 {{< web >}}
-in the views article.
+no artigo de visões.
 {{< /web >}}
 {{< book >}}
-in the views chapter.
+no capítulo de visões.
 {{< /book >}}
-By passing `request.POST` to the form's constructor, we create a form with data. In the Django documentation, you will see this called a *bound form* because data is *bound* to the form.
+Com a passagem de `request.POST` ao construtor do formulário, criamos um formulário com dados. Na documentação da Django, verás isto a ser chamada como um *formulário vinculado* porque os dados estão *vinculados* ao formulário.
 
-With the form ready, the view checks if the data is valid. We'll talk about form validation in detail later
+Com o formulário pronto, a visão verifica se os dados são válidos. Falaremos sobre a validação de formulário em detalhe depois
 {{< web >}}
-in this article.
+neste artigo.
 {{< /web >}}
 {{< book >}}
-in this chapter.
+neste capítulo.
 {{< /book >}}
-In this instance, you can see that `is_valid` could return `False` if the form data contained "I am not an email address" in the `email` field, for instance.
+Neste exemplo, podemos ver que `is_valid` poderia retornar `False` se os dados do formulário contivessem "I am not an email address" no campo `email`, por exemplo.
 
-* When the form is valid, the view does the extra work represented by the comment and redirects to a new view that can show some kind of success message.
-* When the form is invalid, the view goes out of the `if` clause and calls `render`. Since the data is bound to the `form`, the contact form has enough information to show which form fields caused the errors that made the form invalid.
+* Quando o formulário é válido, a visão faz o trabalho adicional representado pelo comentário e redireciona para uma nova visão que pode mostrar algum tipo de mensagem de sucesso.
+* Quando o formulário é inválido, a visão sai da cláusula `if` e chama `render`. Já que os dados estão vinculados ao `form`, o formulário de contacto tem informação suficiente para mostrar quais campos de formulário causaram os erros que tornaram o formulário inválido.
 
-That's the core of form handling! The presented view is a common pattern for handling form views in Django. In fact, this view pattern is so common that Django provides a built-in view to implement what is done in the example named `FormView`:
+Este é o cerne da manipulação de formulário! A visão apresentada é um padrão comum para manipular as visões de formulário na Django. De fato, este padrão de visão é tão comum que a Django fornece uma visão embutida para implementar o que é feito no exemplo nomeada `FormView`:
 
 ```python
 # application/views.py
@@ -233,34 +232,34 @@ class ContactUs(FormView):
         )
 
     def form_valid(self, form):
-        # Do something with the form data
-        # like send an email.
+        # Fazer algo com os dados do formulário
+        # como enviar um correio-eletrónico.
         return super().form_valid(form)
 ```
 
-The `FormView` expects a form class and template name and provides some methods to override for the common places where your own application logic should live.
+A `FormView` espera uma classe de formulário e o nome de modelo de marcação e fornece alguns métodos à sobrepor para os lugares comuns onde a lógica da nossa própria aplicação deveria viver.
 
-## Form Fields
+## Campos de Formulário
 
-With the basics of form handling done, we can turn our attention to the kinds of fields that forms can use. The extensive list of fields is in {{< extlink "https://docs.djangoproject.com/en/4.1/ref/forms/fields/" "the Django documentation" >}}, and we will look at a few of the most common ones
+Com os fundamentos da manipulação de formulário prontos, podemos voltar a nossa atenção aos tipos de campos que os formulários podem usar. A extensa lista de campos está na {{< extlink "https://docs.djangoproject.com/en/4.1/ref/forms/fields/" "documentação da Django" >}}, e olharemos alguns dos mais comuns
 {{< web >}}
-in this article.
+neste artigo.
 {{< /web >}}
 {{< book >}}
-in this chapter.
+neste capítulo.
 {{< /book >}}
 
-The first thing to remember about Django form fields is that they convert HTML form data into native Python data types. If you examine the data of a form submission, you'll discover that each value is essentially a string by default. If Django did nothing for you, then you would constantly have to convert to the data types that you want. By working with form fields, that data conversion is automatically handled for you. For instance, if you choose a `BooleanField`, after the Django form is validated, that field value will be either `True` or `False`.
+A primeira coisa à lembrar sobre os campos de formulário da Django é que convertem dados de formulário de HTML em tipos de dados de Python nativos. Se examinarmos os dados duma submissão de formulário, descobriremos que cada valor é essencialmente uma sequência de caracteres por padrão. Se a Django não fizesse nada por nós, então teríamos de converter constantemente para os tipos de daos que queremos. Ao trabalhar com os campos de formulário, esta conversão de dados é automaticamente manipulada por nós. Por exemplo, se escolhermos um `BooleanField`, depois do formulário da Django ser validado, o valor deste campo será ou `True` ou `False`. 
 
-Another important item to know about fields is that they are associated with particular Django widgets. Widgets are the way to control what Django renders when you render a form. Each form field has a default widget type. Sticking with `BooleanField`, its default widget is a `CheckboxInput` which will render an `input` tag with a type of `checkbox` (i.e., your standard form checkbox).
+Um outro item importante a saber sobre os campos é que estão associados com os acessórios de Django particulares. Os acessórios são a maneira de controlar o que a Django desenha quando desenhamos um formulário. Cada campo de formulário tem um tipo de acessório padrão. Continuando com `BooleanField`, o seu acessório padrão é um `CheckboxInput` que desenhará um marcador `input` com um tipo de `checkbox` (por exemplo, nosso formulário de confirmação padrão).
 
-Fields are the critical intersection between the world of the browser and HTML and the Python world with all of its robust data types.
+Os campos são a interseção critica entre o mundo do navegador e a HTML, e o mundo da Python com todos os seus tipos de dados robustos.
 
-What fields are you most likely to reach for? And what do you need to set on those fields?
+Quais são os campos mais procurados? E o que precisamos de definir nesses campos?
 
-### CharField
+### `CharField`
 
-`CharField` is a real workhorse for Django forms. The `CharField` captures text input and uses a standard `input` tag with a type of `text`. If you want to collect more text, like in a feedback form, you can switch from the default `TextInput` widget to a `Textarea` widget. This will make your form render a `textarea` tag that will give far more space for any input:
+`CharField` é um verdadeiro cavalo de batalha para os formulários da Django. O `CharField` captura a entrada de texto e usa um marcador `input` padrão com um tipo de `text`. Se quisermos reunir mais texto, como num formulário de reação ou comentário, podemos mudar do acessório de `TextInput` padrão para um acessório de `Textarea`. Isto fará o nosso formulário desenhar um marcador `textarea` que dará muito mais espaço para qualquer entrada:
 
 ```python
 # application/forms.py
@@ -274,18 +273,17 @@ class FeedbackForm(forms.Form):
     )
 ```
 
-### EmailField
+### `EmailField`
 
-The `EmailField` is like a specialized version of the `CharField`. The field uses an `input` tag with a type of `email`. Many modern browsers can help to check that valid email addresses are provided. Also, when this field is validated within the framework, Django will attempt to validate the email address too in case the browser wasn't able to do it.
+O `EmailField` é como uma versão especializada do `CharField`. O campo usa um marcador de `input` com um tipo de `email`. Muitos navegadores modernos podem ajudar verificar que endereços de correio-eletrónico são fornecidos. Além disto, quando este campo é validado dentro da abstração, a Django também tentará validar o endereço de correio-eletrónico no caso do navegador não ter sido capaz de fazê-lo.
 
-### DateField
+### `DateField`
 
-A `DateField` is another field that is mostly like a `CharField`. The field even uses the `input` type of `text` when rendered. The difference with this field comes from the data type that the form will provide after it is validated. A `DateField` will convert {{< extlink "https://docs.djangoproject.com/en/4.1/ref/settings/#datetime-input-formats" "a variety of string formats" >}}
-into a Python `datetime.date` object.
+Um `DateField` é um outro campo que é na sua maioria como um `CharField`. O campo até usa o tipo de `input` de `text` quando desenhado. A diferença com este campo vem do tipo de dado que o formulário fornecerá depois de ser validado. Um `DateField` converterá {{< extlink "https://docs.djangoproject.com/en/4.1/ref/settings/#datetime-input-formats" "uma variedade de formatos de sequência de caracteres" >}} num objeto `datetime.date` da Python.
 
-### ChoiceField
+### `ChoiceField`
 
-A `ChoiceField` is useful when you want a user to make a choice from a list of options. For this field type, we must provide a list of choices that the user can pick from. Imagine that we want to ask users what their favorite meal of the day is. Here's a form that can do that:
+Um `ChoiceField` é útil quando queremos que um utilizador faça uma escolha a partir duma lista de opções. Para este tipo de campo, devemos fornecer uma lista de escolhas da qual o utilizador pode escolher uma ou mais. Suponha que queremos perguntar aos utilizadores qual é a sua refeição favorita do dia. Cá está um formulário que pode fazer isto: 
 
 ```python
 # application/forms.py
@@ -303,7 +301,7 @@ class SurveyForm(forms.Form):
     )
 ```
 
-This will contain a form with a `select` tag that looks like:
+Isto conterá um formulário com um marcador `select` que parece-se com:
 
 ```html
 <p>
@@ -316,29 +314,29 @@ This will contain a form with a `select` tag that looks like:
 </p>
 ```
 
-This handful of fields will deal with most form needs. Be sure to explore the full list of what is available to equip yourself with other beneficial types.
+Este punhado de campos lidarão com a maioria das necessidades do formulário. Certifica-te de explorar a lista completa do que está disponível para se equipar com outros tipos benéficos.
 
-Form fields share some common attributes for things that each field needs.
+Os campos do formulário partilham alguns atributos comuns para coisas que cada necessidade do campo.
 
-The `required` attribute is a boolean that specifies whether a field must have a value or not. For instance, it wouldn't make much sense if your site had a support form that you planned to use to contact people via email, and an `email` field on the form was optional.
+O atributo `required` é um booleano que especifica se um campo deve ter um valor ou não. Por exemplo, não faria muito sentido se a nossa aplicação tivesse um formulário de suporte que planeamos usar para contactar as pessoas através de correio-eletrónico, e um campo de `email` no formulário fosse opção.
 
-`label` sets what text is used for the `label` tag that is rendered with a form `input`. In the meal example, we could use the `label` attribute to change "Favorite meal" into "What is your favorite meal?" That would make a much better survey experience.
+O `label` define qual texto é usado para o marcador `label` que é desenhado com um `input` de formulário. No exemplo da refeição, poderíamos usar o atributo `label` para mudar "Favorite meal" para "What is your favorite meal?" Que tornaria uma experiência de inquérito muito melhor.
 
-Sometimes forms may not be clear and users need help. You can add a `help_text` attribute that will render additional text by your form field wrapped in a `span` tag with a `helptext` class if you want to style it with CSS.
+Algumas vezes os formulários podem não ser claros e os utilizadores precisam de ajuda. Nós podemos adicionar um atributo `help_text` que desenhará um texto adicional ao nosso campo de formulário envolvido num marcador `span` com uma classe `helptext` se quisermos estilizá-lo com a CSS.
 
-Because forms are one of the main ways that users will provide information to your application, the forms system is rich with features. You can learn a lot about Django by diving deeply into that portion of the documentation.
+Uma vez que os formulários são uma das maneiras principais que os utilizadores terão para fornecer informação à nossa aplicação, o sistema de formulário é rico em funcionalidades. Nós podemos aprender mais sobre a Django mergulhando profundamente nesta porção da documentação.
 
-Let's shift our focus to form validation since I've mentioned it a few times in passing now.
+Vamos mudar o nosso foco para validação de formulário uma vez que a mencionamos algumas vezes de passagem.
 
-## Validating Forms
+## Validando Formulários
 
-In the view example, I showed a form that calls the `is_valid` method. At a high level, we can understand what that method is doing; it's determining whether the form is valid or not.
+No exemplo da visão, mostramos um formulário que chama o método `is_valid`. Num alto nível, podemos entender o que este método está a fazer; está a determinar se o formulário é válido ou não.
 
-But what is `is_valid` actually doing? It does a lot!
+Mas o que é que `is_valid` faz realmente? Ele faz muita coisa!
 
-The method handles each of the fields. As we saw, fields can have a final data type (like with `BooleanField`) or an expected structure (like with `EmailField`). This process of converting data types and validating the field data is called cleaning. In fact, each field must have a `clean` method that the form will call when `is_valid` is called.
+O método lida com cada um dos campos. Conforme vimos, os campos têm um tipo de dado final (como com `BooleanField`) ou uma estrutura esperada (como com `EmailField`). Este processo de converter tipos de dados e validar os dados do campo é chamado de limpeza. De fato, cada campo de ter um método `clean` que o formulário chamará quando `is_valid` for chamado.
 
-When `is_valid` is `True`, the form's data will be in a dictionary named `cleaned_data` with keys that match the field names declared by the form. With the validated data, you access `cleaned_data` to do your work. For instance, if we had some kind of integration with a support ticket system, perhaps our `FeedbackForm` above is handled in the view like:
+Quando `is_valid` é `True`, os dados do formulário estarão num dicionário nomeado `cleaned_data` com chaves que correspondem aos nomes de campo declarado pelo formulário. Com os dados validados, podemos acessar `cleaned_data` para fazer o nosso trabalho. Por exemplo, se tivermos algum tipo de integração com sistema de bilhete de suporte, talvez o nosso `FeedbackForm` acima é manipulado na visão como:
 
 ```python
 if form.is_valid():
@@ -353,11 +351,11 @@ if form.is_valid():
     )
 ```
 
-When `is_valid` is `False`, Django will store the errors it found in an `errors` attribute. This attribute will be used when the form is re-rendered on the page (because, if you recall from the view example, the form view pattern sends a bound form back through a `render` call in the failure case).
+Quando `is_valid` é `False`, a Django armazenará os erros encontrados num atributo `errors`. O atributo será usado quando o formulário for redesenhado na página (porque, se nos lembrarmos do exemplo da visão, o padrão da visão do formulário devolve um formulário vinculado através duma chama de `render` no caso de fracasso).
 
-Once again, Django is doing a lot of heavy lifting for you to make working with forms easier. The system *also* permits developers to add custom validation logic.
+Uma vez mais, a Django está a fazer muito trabalho pesado por nós para tornar o trabalho com formulários mais fácil. O sistema *também* permite que os programadores adicionarem lógica de validação personalizada.
 
-If you have a form field, you can add customization by writing a method on the form class. The format of the method must match with the field name and prepend `clean_`. Let's imagine that we want a website for Bobs. In order to sign up for the website, your email address must have "bob" in it. We can write a clean method to check for that:
+Se tivermos um campo de formulário, podemos adicionar personalização escrevendo um método na classe de formulário. O formato do método deve corresponder ao nome do campo e prefixar `clean_`. Vamos supor que queremos uma aplicação para o Bobs. Para registar-se na aplicação de Web, o nosso endereço de correio-eletrónico deve incluir "bob". Nós podemos escrever um método de limpeza para verificar isto:
 
 ```python
 # application/forms.py
@@ -379,13 +377,13 @@ class SignUpForm(forms.Form):
         return email
 ```
 
-There are a few important points about this:
+Existem alguns pontos importantes sobre isto:
 
-* `clean_email` will only try to clean the `email` field.
-* If validation fails, your code should raise a `ValidationError`. Django will handle that and put the error in the right format in the `errors` attribute of the form.
-* If everything is good, be sure to return the cleaned data. That is part of the interface that Django expects for clean methods.
+* `clean_email` apenas tentará limpar o campo `email`.
+* Se a validação falhar, o nosso código deve levantar um `ValidationError`. A Django lidará com isto e colocará o erro no formato correto no atributo `erros` do formulário.
+* Se tudo estiver bem, devemos nos certificar de retornar os dados limpados. Esta é a parte da interface que a Django espera por métodos limpos.
 
-These `clean_<field name>` methods are hooks that let you include extra checking. This hook system gives you the perfect place to put validation logic for data that is specific to your application. But what about validating multiple pieces of data? This might happen when data has some kind of interrelationship. For instance, if you're putting together a genealogy website, you may have a form that records birth and death dates. You might want to check those dates:
+Estes métodos `clean_<field name>` são gatilhos que permitem-nos incluir verificação adicional. Este sistema de gatilho dá-nos o lugar perfeito para colocar a lógica de validação para os dados que é específica à nossa aplicação. Mas e se validássemos vários pedaços de dados? Isto pode acontecer quando os dados tiverem algum tipo de relacionamento entre si. Por exemplo, se estivermos a montar uma aplicação de genealogia, podemos ter um formulário que regista as datas de nascimento e falecimento. Nós podemos querer verificar estas datas:
 
 ```python
 # application/forms.py
@@ -412,36 +410,36 @@ class HistoricalPersonForm(forms.Form):
         return cleaned_data
 ```
 
-This method is similar to `clean_<field name>`, but we must be more careful. Individual field validations run first, but they may have failed! When clean methods fail, the form field is removed from `cleaned_data` so we can't do a direct key access. The clean method checks if the two dates are truthy and each has a value, then does the comparison between them.
+Este método é semelhante ao `clean_<field name>`, mas devemos ser mais cuidadosos. As validações de campos individuais executam primeiro, mas podem ter falhado! Quando os métodos de limpeza falharem, o campo do formulário é removido da `cleaned_data` então não podemos fazer um acesso de chave direto. O método de limpeza verifica se as duas datas são verdadeiras e se cada uma tem um valor, depois faz a comparação entre elas.
 
-Custom validation is a great feature to improve the quality of the data you collect from users of your application.
+A validação personalizada é uma excelente funcionalidade para melhorar a qualidade dos dados que coletamos dos utilizadores da nossa aplicação.
 
-## Summary
+## Sumário
 
-That's how forms make it possible to collect data from your users so your site can interact with them. We've seen:
+É como os formulário tornam possível coletar dados dos nossos utilizadores para que a nossa aplicação possa interagir com elas. Nós vimos:
 
-* Web forms and the `form` HTML tag
-* The `Form` class that Django uses to handle form data in Python
-* How forms are rendered to users by Django
-* Controlling what fields are in forms
-* How to do form validation
+* Formulários da Web e o marcador de HTML `form`
+* A classe `Form` que a Django usa para lidar com os dados de formulário na Python
+* Como os formulários são desenhados para os utilizadores pela Django
+* Como controlar quais campos estão nos formulários
+* Como fazer a validação de formulário.
 
-Now that we know how to collect data from users, how can we make the application hold onto that data for them?
+Agora que sabemos como coletar dados dos utilizadores, como podemos fazer a aplicação guardar estes dados para eles?
 {{< web >}}
-In the next article,
+No próximo artigo,
 {{< /web >}}
 {{< book >}}
-In the next chapter,
+No próximo capítulo,
 {{< /book >}}
-we will begin to store data in a database. We'll work with:
+nós começaremos a armazenar dados numa base de dados. Trabalharemos com:
 
-* How to set up a database for your project.
-* How Django uses special classes called models to keep data.
-* Running the commands that will prepare a database for the models you want to use.
-* Saving new information into the database.
-* Asking the database for information that we stored.
+* Como configurar uma base de dados para o nosso projeto.
+* Como a Django usa classes especiais chamadas de modelos de base de dados para preservar dos dados.
+* Como executar os comandos que prepararão uma base de dados para os modelos de base de dados que queremos usar.
+* Como guardar nova informação na base de dados.
+* Como perguntar a base de dados pela informação que guardamos.
 
 {{< web >}}
-If you'd like to follow along with the series, please feel free to sign up for my newsletter where I announce all of my new content. If you have other questions, you can reach me online on Twitter where I am {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+Se gostarias de seguir juntamente com a série, sinta-se a vontade para inscrever-se no meu boletim informativo onde anuncio todos os meus novos conteúdos. Se tiveres outras questões, podes contactar-me na Twitter onde sou o {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
 {{< /web >}}
 &nbsp;
