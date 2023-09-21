@@ -1,7 +1,7 @@
 ---
-title: "Store Data With Models"
+title: "Armazenar Dados com Modelos de Base de Dados"
 description: >-
-    In this article, we will see how to store data into a database with Django models. The article covers how models act as an interface to let your application store and fetch data.
+    Neste artigo, veremos como armazenar dados numa base de dados com os modelos de base de dados da Django. O artigo cobre como os modelos de base de dados atuam como uma interface para permitir a nossa aplicação armazenar e buscar os dados.
 image: img/django.png
 type: post
 categories:
@@ -15,20 +15,20 @@ tags:
 ---
 
 {{< web >}}
-In the previous [Understand Django]({{< ref "/understand-django/_index.pt.md" >}}) article, we encountered forms and how forms allow your application to receive data from users who use your site. In this article, you'll see how to take that data
+No artigo de [Entender a Django]({{< ref "/understand-django/2020-05-05-user-interaction-forms.pt.md" >}}) anterior, encontrámos os formulários e como os formulários permitem a nossa aplicação receber dados dos utilizadores que usam a nossa aplicação. Neste artigo, veremos como pegar nestes dados
 {{< /web >}}
 {{< book >}}
-In this chapter, you'll see how to take data
+Neste capítulo, veremos como pegar nestes dados
 {{< /book >}}
-and store it into a database so that your application can use that data or display it later.
+e armazená-los numa base de dados para que a nossa aplicação passa estes dados ou exibi-los depois.
 
 {{< understand-django-series-pt "models" >}}
 
-## Setting Up
+## Configuração
 
-Let's figure out where your data goes before getting deep into how to work with it. Django uses databases to store data. More specifically, Django uses *relational* databases. Covering relational databases would be a gigantic topic so you'll have to settle for a **very** abridged version.
+Vamos compreender onde os nossos dados vão antes de mergulhar em como trabalhar com eles. A Django usa as bases de dados para armazenar os dados. Mais especificamente, a Django usa as bases de dados *relacionais*. A cobertura de bases de dados *relacionais* tornaria o tópico gigantesco então termos de nos decidir por uma versão *muito* resumida.
 
-A relational database is like a collection of spreadsheets. Each spreadsheet is actually called a table. A table has a set of columns to track different pieces of data. Each row in the table would represent a related group. For instance, imagine we have an employee table for a company. The columns for an employee table might include a first name, last name, and job title. Each row would represent an individual employee:
+Uma base de dados relacional é como uma coleção de folhas de cálculo. Cada folha de cálculo é na realidade chamada duma tabela. Uma tabela tem um conjunto de colunas para rastrear diferentes pedaços de dados. Cada linha na tabela representaria um grupo relacionado. Por exemplo, suponhamos que temos uma tabela de empregado para uma empresa. As colunas para uma tabela de empregado podem incluir um primeiro nome, último nome e o título profissional. Cada linha representaria um empregado individual:
 
 ```text
 First name | Last name | Job title
@@ -38,11 +38,11 @@ John       | Smith     | Software Engineer
 Peggy      | Jones     | Software Engineer
 ```
 
-The "relational" part of a relational database comes into play because multiple tables can *relate* to each other. In our company example, the database could have a table of phone numbers that it uses to store the phone number of each employee.
+A parte "relacional" duma base de dados relacional entra em ação porque várias tabelas podem *relacionarem-se* umas às outras. No nosso exemplo de empresa, a base de dados poderia ter uma tabela de números de telefones que a usa para armazenar o número de telefone de cada empregado.
 
-Why not put the phone number in the same employee table? Well, what would happen if a company needed a cell phone number and home phone number? By having separate tables, we could support tracking multiple phone number types. There is a lot of power that comes from being able to separate these different kinds of data. We'll see the power of relational databases as we explore how Django exposes that power.
+Porquê não colocar o número de telefone na mesma tabela? Bem, o que aconteceria se uma empresa precisasse dum número telefone pessoal e número de telefone caseiro? Ter de separar as tabelas, poderíamos suportar rastrear vários tipos de número de telefone. Existe muito poder que vem da capacidade de separar estes diferentes tipos de dados. Veremos o poder das bases de dados relacionais a medida que explorarmos como a Django expõe este poder.
 
-Django uses a relational database so the framework must have some ability to set up that database. The database configuration is in the `DATABASES` setting in your `settings.py` file. After running `startproject`, you'll find:
+A Django usa uma base de dados relacional então a abstração deve ter alguma habilidade de definir esta base de dados. A configuração da base de dados está na definição `DATABASES` no nosso ficheiro `settings.py`. Depois de executar `startproject`, encontraremos:
 
 ```python
 DATABASES = {
@@ -53,33 +53,33 @@ DATABASES = {
 }
 ```
 
-Like we saw with the templates system, Django supports multiple databases. Unlike the template system, the database settings refer to each supported backend as an "engine" instead of "backend." The default database engine from `startproject` is set to use {{< extlink "https://www.sqlite.org/index.html" "SQLite" >}}. SQLite is a great starting choice because it fits an entire relational database into a single file which the settings name `db.sqlite3`. This choice of engine really lowers the barrier to starting with Django since new Django developers don't have to go download additional tools to try Django out.
+Como vimos com o sistema de modelos de marcação, a Django suporta várias bases de dados. Ao contrário do sistema de modelos de marcação, as definições da base de dados refere-se à cada backend suportado como um "motor" ao invés de "backend". O motor de base de dados padrão desde o `startproject` é definido para usar {{< extlink "https://www.sqlite.org/index.html" "SQLite" >}}. SQLite é uma excelente escolha inicial porque serve uma base de dados relacional inteira num único ficheiro o qual as definições nomeiam de `db.sqlite3`. Esta escolha de motor de fato baixa a barreira para começar com a Django visto que novos programadores de Django não têm de instalar ferramentas adicionais para experimentar a Django.
 
-SQLite is an amazing little database and probably the mostly widely used database in the world. The database exists in every smartphone you could think of. Even though SQLite is amazing, it's not a good fit for many scenarios where you'd want to use Django. For starters, the database only permits one user to write to it at a time. That's a huge problem if you're planning to make a site that serves many people simultaneously.
+SQLite é uma pequena base de dados fantástica e provavelmente a base de dados mais usada no mundo. A base de dados existe em todos os telemóveis inteligentes que possamos imaginar. Apesar da SQLite ser fantástica, não é uma boa opção para muitos cenários onde queremos usar a Django. Para começar, a base de dados apenas permitem que um utilizador escreva nela de cada vez. Isto é um grande problema se estivermos a planear criar uma aplicação que sirva muitas pessoas em simultâneo.
 
-Because SQLite is not the best fit for an application on the web, you'll likely need to switch to a different relational database. I'd recommend {{< extlink "https://www.postgresql.org/" "PostgreSQL" >}}. Postgres (as it is often "abbreviated" to) is a wildly popular, open source database that is very well supported. Combined with {{< extlink "https://www.psycopg.org/docs/" "psycopg2" >}} as the Django engine, you'll find that many places that can host your Django app will work well with Postgres.
+Uma vez que a SQLite não é a melhor opção para uma aplicação na Web, provavelmente teremos de mudar para uma base de dados relacional diferente. Eu recomendo {{< extlink "https://www.postgresql.org/" "PostgreSQL" >}}. Postgres (como frequentemente é "abreviada") é a base de dados mais popular de código-aberto que é muito bem suportada. Combinada com o {{< extlink "https://www.psycopg.org/docs/" "psycopg2" >}} como motor da Django, descobriremos que muitos lugares que podem hospedar a nossa aplicação de Django trabalharão bem com a Postgres.
 
-We can explore more database configuration
+Nós podemos explorar mais configurações de base de dados
 {{< web >}}
-in a future article
+num futuro artigo
 {{< /web >}}
 {{< book >}}
-in a future chapter
+num futuro capítulo
 {{< /book >}}
-on deployment. For now, while you're learning, SQLite is perfectly well suited for the task.
+sobre implementação em produção. Por agora, enquanto aprendemos, SQLite é perfeitamente adequada para a tarefa.
 
-## Modeling Your Data
+## Modelando os Nossos Dados
 
-Now that you have an idea of where Django will store your data, let's focus on *how* Django will store data.
+Agora que temos uma ideia de onde a Django armazenará os nossos dados, vamos focar em *como* a Django armazenará os dados.
 
-Django represents data for a database in Python classes called **models**. Django models are similar to the form classes that we saw
+A Django representa os dados para uma base de dados em classes da Python chamadas de **modelos** de base de dados. Os modelos de base de dados da Django são semelhantes às classes de formulário que vimos
 {{< web >}}
-in the last article.
+no artigo anterior.
 {{< /web >}}
 {{< book >}}
-in the last chapter.
+no capítulo anterior.
 {{< /book >}}
-A Django model declares the data that you want to store in the database as class level attributes, just like a form class. In fact, the types of fields are extremely similar to their form counterparts, and for good reason! We often want to save form data and store it so it makes sense for models to be similar to forms in structure. Let's look at an example:
+Um modelo de base de dados da Django declara os dados que queremos armazenar na base de dados como atributos de nível de classe, tal como uma classe de formulário. De fato, os tipos dos campos são extremamente semelhantes aos seus equivalentes de formulário, e por boa razão! Nós muitas vezes queremos guardar os dados do formulário e armazená-lo então faz sentido os modelos de base de dados serem semelhantes aos formulários em estrutura. Vamos olhar um exemplo:
 
 ```python
 # application/models.py
@@ -97,7 +97,7 @@ class Employee(models.Model):
     )
 ```
 
-This model class describes the pieces that we want to include in a database table. Each model class represents one database table. If we wanted the phone numbers that I mentioned earlier, we'd create a separate `PhoneNumber` class. Conventionally, we use a singular name instead of a plural when naming the class. We do that because each *row* in the table is represented as an object instance:
+Esta classe de modelo de base de dados descreve os pedaços que queremos incluir numa tabela de base de dados. Cada classe de modelo de base de dados representa uma tabela de base de dados. Se quisermos os número de telefone que mencionamos anteriormente, criaríamos uma classe `PhoneNumber` separada. De maneira convencional, usamos um nome singular ao invés dum plural quando nomeamos a classe. Nós fazemos isto porque cada *linha* na tabela é representada como uma instância de objeto:
 
 ```python
 >>> from application.models import Employee
@@ -109,24 +109,23 @@ This model class describes the pieces that we want to include in a database tabl
 'Tom'
 ```
 
-This example appears to create a new employee, but it's missing a key element. We haven't saved the `employee` instance to the database. We can do that with `employee.save()`, but, if you are following along and try to call that right now, it will fail with an error that says that the employee table doesn't exist.
+Este exemplo parece criar um novo empregado, mas falta-lhe um elemento chave. Nós não guardamos a instância de `employee` na base de dados. Nós podemos fazer isto com `employee.save()`, mas se estivermos a seguir o processo e tentarmos chamar este agora mesmo, falhará com um erro que diz que a tabela de `employee` não existe.
 
-Since the database is a tool that is external to Django, the database needs a bit of preparation before it can receive data from Django.
+Uma vez que a base de dados é uma ferramenta que é externa à Django, a base de dados precisa dum pouco de preparação antes de poder receber os dados da Django.
 
-## Preparing A Database With Migrations
+## Preparando uma Base de Dados com Migrações
 
-We now know that Django models are Python classes that map to database tables. Database tables don't magically appear. We need the ability to set up tables so that they will match the structure defined in the Python class. The tool Django provides to make Django models and a database sync up is called the migrations system.
+Nós agora sabemos que os modelos de base dados da Django são classes da Python que mapeiam às tabelas da base de dados. As tabelas da base de dados não aparecem magicamente. Nós precisamos da habilidade de configurar as tabelas para que correspondam a estrutura definida na classe de Python. A ferramenta que a Django fornece para sincronizar os modelos de base de dados da Django e uma base de dados é chamada de sistema de migrações.
 
-Migrations are Python files that describe the sequence of database operations that are needed to make a database match any model definitions that you have in your project.
+As migrações são ficheiros de Python que descrevem a sequência de opções de base de dados que são necessárias para fazer uma base de dados corresponder quaisquer definições de modelo de base de dados que tivermos no nosso projeto.
 
-Because Django works with many databases, these database operations are defined in Python files so that the operations can be abstract. By using abstract operations, the Django migration system can plug in the specific database commands for whatever database you're using. If you're starting out with SQLite, then moving to PostgreSQL when you're ready to put your application on the internet, then the migration system will do its best to smooth over the differences to minimize the amount of work you would need while making the transition.
+Uma vez que a Django trabalha com muitas bases de dados, estas operações de base de dados são definidas nos ficheiros de Python para que as opções possam ser abstratas. Ao usar opções abstratas, o sistema de migração da Django pode ligar os comandos de base de dados específicos para qualquer base de dados que estivermos a usar. Se começarmos com a SQLite, depois movemos para PostgreSQL quando estivermos prontos para colocar a nossa aplicação na internet, depois o sistema de migração fará o seu melhor para atenuar as diferenças, de mode a minimizar uma quantidade de trabalho desnecessário precisaríamos para efetuar a transição.
 
-Initially, you can get pretty far without understanding the internals of how migration files work. At the core level, you need to learn a couple of Django commands: `makemigrations`
-and `migrate`.
+Inicialmente, podemos ir muito longe sem compreender os aspetos internos de como os ficheiros de migração funcionam. Ao nível do núcleo, precisamos aprender um pouco de comandos da Django: `makemigrations` e `migrate`.
 
 ### `makemigrations`
 
-The `makemigrations` command will create any migration files if there are any pending model changes. To create our migration file for the `Employee` model, we can run:
+O comando `makemigrations` criará quaisquer ficheiros de migração se existir quaisquer mudanças de modelo de base de dados pendentes. Para criar o nosso ficheiro de migração para o modelo de base de dados `Employee`, podemos executar:
 
 ```bash
 (venv) $ ./manage.py makemigrations
@@ -135,18 +134,18 @@ Migrations for 'application':
     - Create model Employee
 ```
 
-The important thing to note is that we require a new migration when we make model changes that update any model fields. This includes:
+O que é importante notar é que necessitamos duma nova migração quando fazemos mudanças ao modelo de base de dados que atualizam quaisquer campos. Isto inclui:
 
-* Adding new models or new fields
-* Modifying existing fields
-* Deleting existing fields
-* Changing some model metadata and a few other edge cases
+* Adicionar novos modelos e campos de base de dados
+* Modificar campos existentes
+* Eliminar campos existentes
+* Mudar alguns metadados do modelo de base de dados e alguns outros casos extremos
 
-If you do not make a migration, you will likely encounter errors when fetching data from the database. This is because Django only builds queries based on what is defined in the Python code. The system assumes that the database is in the proper state. Django will try to query on database tables even if those tables don't exist yet!
+Se não fizermos uma migração, provavelmente encontraremos erros quando buscarmos dados da base de dados. Isto acontece porque a Django apenas constrói consultas baseada no que está definido no código da Python. O sistema assume que a base de dados está no estado apropriado. A Django tentará consultar as tabelas da base de dados mesmo se estas tabelas ainda não existirem!
 
 ### `migrate`
 
-The other command, `migrate`, takes migration files and applies them to a database. For example:
+O outro comando, `migrate`, pega os ficheiros de migração e aplica-os à base de dados. Por exemplo:
 
 ```bash
 (venv) $ ./manage.py migrate
@@ -173,29 +172,29 @@ Running migrations:
   Applying sessions.0001_initial... OK
 ```
 
-This is the output that happens when applying our new migration. What is all this stuff!?
+Esta é a saída que acontece quando aplicamos a nossa nova migração. O que é tudo isto? 
 
-The migration system is also used by built-in Django applications. In my sample project, I used `startproject` which includes a set of common applications in the `INSTALLED_APPS` list. We can observe that our sample `application` applied its migration, and the migrations from the other Django applications that we included are also applied.
+O sistema de migração também é usado por aplicações da Django embutidas. No nosso projeto de exemplo, usamos `startproject` que inclui um conjunto de aplicações comuns na lista `INSTALLED_APPS`. Nós podemos observar que a nossa `application` de exemplo aplicou a sua migração, e as migrações de outras aplicações da Django que incluímos também são aplicadas.
 
-If you run the `migrate` command again, you won't see the same output. That's because Django keeps tracks of which migrations were applied. The migration system will only execute any *unapplied* migrations.
+Se executarmos o comando `migrate` novamente, não veremos a mesma saída. Isto porque a Django rastreia quais migrações foram aplicadas. O sistema de migração apenas executarão quaisquer migrações *não aplicadas*.
 
-You can also limit which migrations to execute by providing a Django app name:
+Nós também podemos limitar quais migrações à executar fornecendo um nome de aplicação da Django:
 
 ```bash
 (venv) $ ./manage.py migrate application
 ```
 
-Those are the fundamentals of migrations. You can also use migrations to apply more complex operations like actions that are specific to your selected database. You can learn more about what Django migrations can do in the {{< extlink "https://docs.djangoproject.com/en/4.1/topics/migrations/" "Migrations documentation" >}}.
+Estes são os fundamentos de migrações. Nós também podemos usar migrações para aplicar operações mais complexas como ações que são específicas à nossa base de dados selecionada. Nós podemos aprender mais sobre o que as migrações da Django podem fazer na {{< extlink "https://docs.djangoproject.com/en/4.1/topics/migrations/" "documentação das Migrações" >}}.
 
-## Working With Models
+## Trabalhando com Modelos de Base de Dados
 
-After running migrations, your database will be prepared to communicate properly with Django.
+Depois de executar as migrações, a nossa base de dados estará preparada para comunicar-se apropriadamente com a Django.
 
-To create new rows in our new database tables, we can use a model's `save` method. When you save a model instance, Django will send a message to the database that effectively says "add this new data to this database table." These database "messages" are actually called **queries**.
+Para criar novas linhas nas nossas novas tabelas de base de dados, podemos usar um método `save` do modelo de base de dados. Quando guardamos uma instância de modelo de base de dados, a Django enviará uma mensagem à base de dados que efetivamente diz "adicionar este novo dado à esta tabela da base de dados". Estas "mensagens" da base de dados são na realidade chamadas de **consultas**.
 
-As I mentioned in the settings section, Django communicates with the database via a database engine. The database engine uses Structured Query Language (SQL) to communicate with the actual database. SQL is the common standard that Django's supported databases all "speak." Since Django uses SQL, that's why a message is named "query."
+Como mencionamos na seção de definições, a Django comunica-se com a base de dados através dum motor da base de dados. O motor da base de dados usa a Linguagem de Consulta Estruturada (SQL) para comunicar com a base de dados de verdade. SQL é o padrão comum que todas as bases de dados suportadas pela Django "falam". Desde a Django usa SQL, é por isto que uma mensagem é nomeada de "consulta".
 
-What does an SQL query look like? If we save our model example from earlier, it would look something like:
+Qual é o aspeto duma consulta de SQL? Se guardarmos o nosso anterior exemplo de modelo de base de dados, seria algo do género:
 
 ```sql
 INSERT INTO "application_employee"
@@ -204,29 +203,29 @@ VALUES
     ('Tom', 'Bombadil', 'Old Forest keeper')
 ```
 
-Note that this example is an `INSERT` query when using the SQLite engine. Like natural languages, SQL has a variety of dialects depending on the database that you select. The databases do their best to adhere to some standards, but each database has its quirks, and the job of the database engine is to even out those differences where possible.
+Nota que este exemplo é uma consulta `INSERT` quando usamos o motor da SQLite. Tal como línguas naturais, a SQL tem uma variedade de dialetos dependendo da base de dados que selecionarmos. As bases de dados fazem o seu melhor para aderirem à alguns padrões, mas cada base de dados tem suas peculiaridades, e o trabalho do motor de base de dados é nivelar essas diferenças sempre que possível.
 
-This is another area where Django does a ton of hard work on your behalf. The database engine translates your `save` call into the proper SQL query. SQL is a deep topic that we can't possibly cover fully
+Isto é uma outra área onde a Django faz uma tonelada de trabalho duro em nosso nome. O motor de base e dados traduz a nossa chamada de `save` em uma consulta de SQL apropriada. SQL é um tópico profundo que possivelmente não podemos cobrir completamente
 {{< web >}}
-in this article.
+neste artigo.
 {{< /web >}}
 {{< book >}}
-in this chapter.
+neste capítulo.
 {{< /book >}}
-Thankfully, we don't have to because of Django's ORM!
+Felizmente, não precisamos de o fazer por causa do ORM da Django!
 
-ORM stands for Object Relational Mapper. The job of an ORM is to map (or translate) from Python *objects* to a *relational* database. This means that we spend our time working in Python code, and we let Django figure out how to get and put data into the database.
+ORM significa "Object Relational Mapper" ou Mapeador Relacional de Objeto. O trabalho dum ORM é mapear (ou traduzir) de *objetos* da Python para uma base de dados *relacional*. Isto significa que passaremos o nosso tempo trabalhando no código Python, e deixaremos a Django descobrir como obter e colocar dados na base de dados.
 
-Using `save` on a model record is such a small example of the Django ORM. What else can we do? We can do things like:
+Usar `save` num registo de modelo é tanto um exemplo pequeno do ORM da Django. O que mais podemos fazer? Nós podemos fazer coisas como:
 
-* Get all rows from the database.
-* Get a filtered set of rows based on some filtering criteria.
-* Update a set of rows at the same time.
-* Delete rows from the database.
+* Receber todas as linhas da base de dados.
+* Receber um conjunto filtrado de linhas baseado em algum critério de filtragem.
+* Atualizar um conjunto de linhas ao mesmo tempo.
+* Eliminar lidas da base de dados.
 
-Most of these operations with the Django ORM work through a `Manager` class. Where our previous example showed how to manipulate a single row, a model manager has methods designed for interacting with multiple rows.
+Muitas destas operações com o ORM da Django funcionam através duma classe `Manager`. Onde o nosso anterior exemplo mostrou como manipular um única linha, um gestor de modelo de base de dados tem métodos desenhados para interagir com várias linhas.
 
-We can analyze our fictitious employee table. The manager for a model is attached to the model class as an attribute named `objects`. Let's see some code:
+Nós podemos analisar a nossa de empregado fictícia. O gestor para um modelo de base de dados está anexado à classe de modelo de base de dados como um atributo nomeado `objects`. Vamos ver algum código:
 
 ```python
 >>> from application.models import Employee
@@ -248,9 +247,9 @@ FROM "application_employee"
 WHERE "application_employee"."first_name" = Bob
 ```
 
-In this example, we're using the manager to filter to a subset of employees within the table. The `bobs` variable returned by the `filter` method is a `QuerySet`. As you might guess, it represents a set of rows that an SQL query will return. Whenever you have a queryset, you can print the query to see the exact SQL statement that Django will run on your behalf.
+Neste exemplo, estamos a usar o gestor para filtrar um subconjunto de empregados dentro da tabela. A variável `bobs` retornado pelo método `filter` é um `QuerySet`. Como podemos supor, este representa um conjunto de linhas que uma consulta de SQL retornará. Sempre que tivermos um conjunto de consulta, podemos imprimir a consulta para ver a declaração de SQL exata que a Django executará em nosso nome.
 
-What if you want to delete an employee record?:
+E se quisermos eliminar um registo de empregado?:
 
 ```python
 >>> from application.models import Employee
@@ -261,26 +260,26 @@ What if you want to delete an employee record?:
 (1, {'application.Employee': 1})
 ```
 
-A queryset can apply operations in bulk. In this case, the filter is sufficiently narrow that only one record was deleted, but it could have included more if the SQL query matched more database table rows.
+Um conjunto de consulta pode aplicar operações em massa. Neste caso, o filtro é suficientemente limitado que apenas um registo foi eliminado, mas poderia ter incluído mais se a consulta de SQL correspondesse mais linhas da tabela da base de dados.
 
-The `QuerySet` class has a variety of methods that are useful when working with tables. Some of the methods also have the interesting property of returning a new queryset. This is a beneficial capability when you need to apply additional logic for your query:
+A classe `QuerySet` tem uma variedade de métodos que são úteis quando trabalhamos com as tabelas. Alguns dos métodos também tém a propriedade interessante de retornar um novo conjunto de consulta. Isto é uma capacidade benéfica quando precisamos de aplicar lógica adicional para a nossa consulta:
 
 ```python
 from application.models import Employee
 
-# employees is a QuerySet of all rows!
+# employees é um conjunto de consulta de todas as linhas!
 employees = Employee.objects.all()
 
 if should_find_the_bobs:
-    # New queryset!
+    # Novo conjunto de consulta!
     employees = employees.filter(
         first_name='Bob'
     )
 ```
 
-Here are some other `QuerySet` methods that I use constantly:
+Cá estão alguns outros métodos de `QuerySet` que usamos constantemente:
 
-* `create` - As an alternative to creating a record instance and calling `save`, the manager can create a record directly:
+* `create` - Como uma alternativa para criar uma instância de registo e chamar `save`, o gestor pode criar um registo diretamente:
 
 ```python
 Employee.objects.create(
@@ -289,7 +288,7 @@ Employee.objects.create(
 )
 ```
 
-* `get` - Use this method when you want one *and exactly one* record. If your query doesn't match or will return multiple records, you'll get an exception:
+* `get` - Use este método quando quiseres um *e exatamente um* registo. Se a tua consulta não corresponder ou retornará vários registos, ou terás uma exceção:
 
 ```python
 the_bob = Employee.objects.get(
@@ -298,17 +297,17 @@ the_bob = Employee.objects.get(
 )
 
 Employee.objects.get(first_name='Bob')
-# Raises
+# Levanta
 # application.models.Employee.MultipleObjectsReturned
 
 Employee.objects.get(
     first_name='Bob',
     last_name='Sagat'
 )
-# Raises application.models.Employee.DoesNotExist
+# Levanta application.models.Employee.DoesNotExist
 ```
 
-* `exclude` - This method lets you exclude rows that may be part of your existing queryset:
+* `exclude` - Este método permite-te excluir linhas que podem ser parte do teu conjunto de consulta existente:
 
 ```python
 the_other_bobs = (
@@ -317,7 +316,7 @@ the_other_bobs = (
 )
 ```
 
-* `update` - With this method, you can update a group of rows in a single operation:
+* `update` - Com este método, podes atualizar um grupo de linhas numa única operação:
 
 ```python
 Employee.objects.filter(
@@ -325,21 +324,21 @@ Employee.objects.filter(
 ).update(first_name='Robert')
 ```
 
-* `exists` - Use this method if you want to check if rows exist in the database that match the condition you want to check:
+* `exists` - Use este método se quiseres verificar se existem linhas na base de dados que correspondem à condição que queres verificar:
 
 ```python
 has_bobs = Employee.objects.filter(
     first_name='Bob').exists()
 ```
 
-* `count` - Check how many rows match a condition. Because of how SQL works, note that this is more efficient than trying to use `len` on a queryset:
+* `count` - Verifica quais linhas correspondem uma condição: Por causa de como a SQL funciona, nota que isto é mais eficiente do que tentar usar `len` num conjunto de consultas:
 
 ```python
 how_many_bobs = Employee.objects.filter(
     first_name='Bob').count()
 ```
 
-* `none` - This returns an empty queryset for the model. How could this be useful? I use this when I need to protect certain data access:
+* `none` - Isto retorna um conjunto de consultas vazio para o modelo de base de dados. Como poderia isto ser útil? Nós usamos isto quando precisamos proteger certo acesso de dados:
 
 ```python
 employees = Employee.objects.all()
@@ -348,7 +347,7 @@ if not is_hr:
     employees = Employee.objects.none()
 ```
 
-* `first` / `last` - These methods will return an individual model instance if one matches. The methods use ordering on the models to get the desired result. We use `order_by` to tell how we want the results arranged:
+* `first` / `last` - Estes métodos retornarão uma instância de modelo de base de dados individual se existir uma correspondência. Os métodos usam a ordenação sobre os modelos de base de dados para obterem o resultado desejado. Nós usamos `order_by` para dizer como queremos que os resultados sejam organizados:
 
 ```python
 >>> a_bob = Employee.objects.filter(
@@ -358,32 +357,32 @@ if not is_hr:
 Ross
 ```
 
-An `order_by` operation can also reverse the order of the results. To do this, add a dash before the field name like `order_by('-last_name')`.
+Uma operação `order_by` também pode reverter a ordem dos resultados. Para fazer isto, adiciona um traço antes do nome do campo como `order_by('-last_name')`.
 
-With the knowledge of how you can interact with models, we can focus more closely on what data can be stored in models (and, thus, in your database).
+Com o conhecimento de como podemos interagir com os modelos de base de dados, podemos concentrar-nos mais nos dados que podem ser armazenados nos modelos de base de dados (e, assim, na nossa base de dados)
 
-## Types Of Model Data
+## Tipos de Dados do Modelo de Base de Dados
 
-The `Employee` table that I've used as the example
+A tabela `Employee` que usávamos como exemplo
 {{< web >}}
-for this article
+para este artigo
 {{< /web >}}
 {{< book >}}
-for this chapter
+para este capítulo
 {{< /book >}}
-only has three `CharField` fields on the model. The choice was deliberate because I wanted you to have a chance to absorb a bit about the Django ORM and working with querysets before seeing other data types.
+apenas tem três campos `CharField` no modelo de base de dados. A escolha foi deliberada porque queríamos que tivéssemos uma oportunidade de absorver um pouco sobre a ORM da Django e trabalhar com os conjuntos de consultas antes de ver outros tipos de dados.
 
 {{< web >}}
-We saw in the forms article
+Nós vimos no artigo de formulários
 {{< /web >}}
 {{< book >}}
-We saw in the forms chapter
+Nós vimos no capítulo de formulários
 {{< /book >}}
-that Django's form system includes a wide variety of form fields. If you look at the {{< extlink "https://docs.djangoproject.com/en/4.1/ref/forms/fields/" "Form fields" >}} reference and compare the list of types to those in the {{< extlink "https://docs.djangoproject.com/en/4.1/ref/models/fields/" "Model field reference" >}}, you can observe a lot of overlap.
+que o sistema de formulário da Django inclui uma vasta variedade de campos de formulário. Se olharmos na referência dos {{< extlink "https://docs.djangoproject.com/en/4.1/ref/forms/fields/" "campos de Formulário" >}} e compararmos a lista de tipos à aqueles na {{< extlink "https://docs.djangoproject.com/en/4.1/ref/models/fields/" "referência de campo do Modelo de Base de Dados" >}}, podemos observar uma grande sobreposição.
 
-Like their form counterparts, models have `CharField`, `BooleanField`, `DateField`, `DateTimeField`, and many other similar types. The field types share many common attributes. Most commonly, I think you will use or encounter the following attributes:
+Tal como os seus equivalentes do formulário, os modelos de base de dados têm `CharField`, `BooleanField`, `DateField`, `DateTimeField`, e muitos outros tipos semelhantes. Os tipos de campos partilham muitos atributos comuns. Mais comummente, eu penso que usarás ou encontrarás os seguintes atributos:
 
-* `default` - If you want to be able to create a model record without specifying certain values, then you can use `default`. The value can either be a literal value or callable function that produces a value:
+* `default` - Se quisermos ser capazes de criar um registo de modelo de base de dados sem especificar certos valores, então podemos usar `default`. O valor pode ou ser um valor literal ou fuma função chamável que produz um valor:
 
 ```python
 # application/models.py
@@ -401,14 +400,14 @@ class DungeonsAndDragonsCharacter(
         max_length=100,
         default='Conan'
     )
-    # Important: Pass the function,
-    # do not *call* the function!
+    # Importante: Passar a função,
+    # não *chamar* a função!
     strength = models.IntegerField(
         default=strength_generator
     )
 ```
 
-* `unique` - When a field value must be unique for all the rows in the database table, use `unique`. This is a good attribute for identifiers where you don't expect duplicates:
+* `unique` - Quando um valor de campo deve ser único para todas as linhas na tabela da base de dados, usamos `unique`. Isto é um bom atributo para identificadores onde não podemos esperar duplicados:
 
 ```python
 class ImprobableHero(models.Model):
@@ -417,38 +416,38 @@ class ImprobableHero(models.Model):
         unique=True
     )
 
-# There can be only one.
+# Só pode existir um.
 ImprobableHero.objects.create(
     name='Connor MacLeod'
 )
 ```
 
-* `null` - A relational database has the ability to store the absence of data. In the database, this value is thought of as `NULL`. Sometimes this is an important distinction versus a value that is empty. For instance, on a `Person` model, an integer field like `number_of_children` would mean very different things for a value of 0 versus a value of `NULL`. The former indicates that a person has no children while the latter indicates that the number of children is unknown. The presence of null conditions requires more checking in your code so Django defaults to making `null` be `False`. This means that a field does not allow `NULL`. Null values can be useful if needed, but I think its better to avoid them if you can and try to keep actual data about a field:
+* `null` - Uma base de dados relacional tem a habilidade de armazenar a ausência de dados. Na base de dados, este valor é considerado como `NULL`. Algumas vezes isto é uma distinção importante contra o valor que é vazio. Por exemplo, num modelo de base de dados `Person`, um campo de inteiro como `number_of_children` significaria muitas coisas diferentes para um valor de 0 contra um valor de `NULL`. O primeiro indica que um pessoa não tem filhos enquanto o segundo indica que o número de filhos é desconhecido. A presença de condições nulas exige mais verificação no nosso código, então o padrão da Django é fazer `null` ser `False`. Isto significa que um campo não permite `NULL`. Os valores nulos podem ser úteis se necessários, mas penso ser melhor evitá-los se puderes e tentar manter dados verdadeiros sobre um campo:
 
 ```python
 class Person(models.Model):
-    # This field would always have a value since it can't be null.
-    # Zero counts as a value and is not NULL.
+    # Este campo sempre teria um valor desde que não possa ser nulo.
+    # Zero conta como um valor e não é `NULL`.
     age = models.IntegerField()
-    # This field could be unknown and contain NULL.
-    # In Python, a NULL db value will appear as None.
+    # Este campo poderia ser desconhecido e conter `NULL`.
+    # Na Python, um valor de base de dados `NULL` aparecerá como `None`.
     weight = models.IntegerField(
         null=True
     )
 ```
 
 {{< web >}}
-* `blank` - The `blank` attribute is often used in conjunction with the `null` attribute. While the `null` attribute allows a database to store `NULL` for a field, `blank` allows *form validation* to permit an empty field. This is used by forms which are automatically generated by Django like in the Django administrator site which we'll talk about in the next article:
+* `blank` - O atributo `blank` é frequentemente usado em conjunto com o atributo `null`. Enquanto o atributo `null` permita uma base de dados armazenar `NULL` para um campo, `blank` permite a *validação de formulário* aceitar um campo vazio. Isto é usado pelos formulários que são automaticamente gerados pela Django como na aplicação de administração da Django que falaremos sobre no próximo artigo:
 {{< /web >}}
 {{< book >}}
-* `blank` - The `blank` attribute is often used in conjunction with the `null` attribute. While the `null` attribute allows a database to store `NULL` for a field, `blank` allows *form validation* to permit an empty field. This is used by forms which are automatically generated by Django like in the Django administrator site which we'll talk about in the next chapter:
+* `blank` - O atributo `blank` é frequentemente usado em conjunto com o atributo `null`. Enquanto o atributo `null` permita uma base de dados armazenar `NULL` para um campo, `blank` permite a *validação de formulário* aceitar um campo vazio. Isto é usado pelos formulários que são automaticamente gerados pela Django como na aplicação de administração da Django que falaremos sobre no próximo capítulo:
 {{< /book >}}
 
 ```python
 class Pet(models.Model):
-    # Not all pets have tails,
-    # so we want auto-generated forms
-    # to allow no value.
+    # Nem todos animais de estimação têm cauda
+    # então queremos formulários auto-gerados
+    # para permitirem a ausência deste valor.
     length_of_tail = models.IntegerField(
         null=True,
         blank=True
@@ -456,10 +455,10 @@ class Pet(models.Model):
 ```
 
 {{< web >}}
-* `choices` - We saw `choices` in the forms article as a technique for helping users pick the right value from a constrained set. `choices` can be set on the model. Django can do validation on the model that will ensure that only particular values are stored in a database field:
+* `choices` - Nós vimos `choices` no artigo de formulários como uma técnica para ajudar os utilizadores a escolherem o valor correto a partir dum conjunto restrito. `choices` pode ser definido no modelo de base de dados. A Django pode fazer a validação no modelo de base de dados que garantirá que apenas valores específicos são armazenados num campo da base de dados:
 {{< /web >}}
 {{< book >}}
-* `choices` - We saw `choices` in the forms chapter as a technique for helping users pick the right value from a constrained set. `choices` can be set on the model. Django can do validation on the model that will ensure that only particular values are stored in a database field:
+* `choices` - Nós vimos `choices` no capítulo de formulários como uma técnica para ajudar os utilizadores a escolherem o valor correto a partir dum conjunto restrito. `choices` pode ser definido no modelo de base de dados. A Django pode fazer a validação no modelo de base de dados que garantirá que apenas valores específicos são armazenados num campo da base de dados:
 {{< /book >}}
 
 ```python
@@ -477,7 +476,7 @@ class Car(models.Model):
     )
 ```
 
-* `help_text` - As applications get bigger or if you work on a large team with many people creating Django models, the need for documentation grows. Django permits help text that can be displayed with a field value in the Django administrator site. This help text is useful to remind your future self or educate a coworker:
+* `help_text` - À medida que as aplicação se tornam maiores ou se trabalharmos numa equipa grande com pessoas a criarem modelos de base de dados da Django, a necessidade de documentação cresce. A Django permite texto de ajuda que podem ser exibido com um valor de campo na aplicação do administrador da Django. Este texto de ajuda é útil para lembrar ao teu futuro eu ou educar um colega de trabalho:
 
 ```python
 class Policy(models.Model):
@@ -492,20 +491,20 @@ class Policy(models.Model):
     )
 ```
 
-Those are the attributes that I believe users are most likely to encounter. There are also a couple of important field types that require special attention: relational fields.
+Estes são os atributos que, na minha opinião os utilizadores têm mais probabilidade de encontrar. Também existem alguns tipos de campos importantes que exigem atenção especial: campos relacionais.
 
-## What Makes A Database "Relational?"
+## O Torna Uma Base de Dados "Relacional"?
 
-Relational databases have the ability to link different types of data together. We got a brief example of this earlier
+As bases de dados relacionais tem a habilidade de ligar diferentes tipos de dados entre si. Nós tivemos um breve exemplo disto anteriormente
 {{< web >}}
-in this article
+neste artigo
 {{< /web >}}
 {{< book >}}
-in this chapter
+neste capítulo
 {{< /book >}}
-when we considered an employee with multiple phone numbers.
+quando considerámos um empregado com vários número de telefone.
 
-An overly simplified model for an employee with multiple phone numbers might look like:
+Um modelo de base de dados demasiado simplificado para um empregado com vários números de telefone pode parecer-se com o seguinte:
 
 ```python
 # application/models.py
@@ -529,12 +528,12 @@ class Employee(models.Model):
     )
 ```
 
-This single table could hold a couple of numbers, but this solution has some deficiencies:
+Esta única tabela poderia conter alguns números, mas esta solução tem algumas deficiências:
 
-* What if an employee has more than two phone numbers? It's possible for a person to have multiple cell phones, a land line at their residence, a pager number, a fax number, and so on.
-* How can we know what type of phone number is in `phone_number_1` and `phone_number_2`? If you pull the employee record to try to call the individual and dial a fax number instead, you'd have a hard time talking to them.
+* E se um empregado tiver mais de dois números de telefone? É possível que uma pessoa tenha vários telemóveis, uma telefone fixo em casa, um número paginador, um número fax, assim por diante.
+* Como podemos saber que tipo de número de telefone está em `phone_number_1` e `phone_number_2`? Se puxarmos o registo do empregado para tentar telefonar ao indivíduo e, em vez disso, se marcar um número de fax, teremos dificuldade em falar com eles.
 
-Instead, what if we had two separate models?:
+Em vez disso, e se tivéssemos dois modelos de base de dados separados?:
 
 ```python
 # application/models.py
@@ -567,7 +566,8 @@ class PhoneNumber(models.Model):
     )
 ```
 
-We've got two separate tables. How can we link the tables so that an employee can have one, two, or two hundred phone numbers? For that, we can use the `ForeignKey` relational field type. Here is a slightly updated version of `PhoneNumber`:
+
+Temos duas tabelas separadas. Como podemos ligar as tabelas para que um empregado possa ter um, dois, ou duzentos números de telefone? para isto, podemos usar o tipo de campo relacional `ForeignKey`. Cá está uma versão ligeiramente separada da `PhoneNumber`:
 
 ```python
 ...
@@ -592,22 +592,23 @@ class PhoneNumber(models.Model):
     )
 ```
 
-This update says that every phone number must now be associated with an employee record. `on_delete` is a required attribute that determines what will happen when an employee record gets deleted. In this case, `CASCADE` means that deleting an employee row will cascade and delete any of the employee's related phone numbers too.
 
-The key to how this works lies in understanding *keys*. When you make a Django model, you get an extra field added to your model by the framework. This field is called an `AutoField`:
+Esta atualização diz que cada número de telefone agora deve ser associado a um registo de empregado. `on_delete` é um atributo obrigatório que determina o que acontecerá quando um registo de empregado for eliminado. Neste caso, `CASCADE` significa que a eliminação duma linha dum empregado será feita em cascata e eliminará também todos os números de telefone relacionados com o empregado.
+
+A chave para como isto funciona está em entender *chaves*. Quando criamos um modelo de base de dados da Django, recebemos um campo adicional adicionado ao nosso modelo pela abstração. Este campo é chamado de `AutoField`:
 
 ```python
-# This is what Django adds to your model.
+# Isto é o que a Django adiciona ao nosso modelo de base de dados.
 id = models.AutoField(primary_key=True)
 ```
 
-An `AutoField` adds a column to a database table that will assign each row in the table a unique integer. Each new row increments from the previous row and numbering starts at one. This number is the identifier for the row and is called the *primary key*.
+Um `AutoField` adiciona uma coluna à uma tabela de base de dados que atribuirá à cada linha na tabela um único inteiro. Cada nova linha incrementa a partir da linha anterior e a numeração começa em um. Este número é o identificador para a linha e é chamado de *chave primária*.
 
-If Tom Bombadil is the first employee in the table, then the row `id` value would be `1`.
+Se o Tom Bomdadil for o primeiro empregado na tabela, então o valor do `id` da linha seria `1`.
 
-Knowing about primary keys, we're equipped to understand foreign key fields. In the case of the `PhoneNumber.employee` foreign key field, any phone number row will store the value of some employee row's primary key. This is usually called a one to many relationship.
+Conhecendo às chaves primárias, estamos preparados para entender os campos de chave estrangeira. No caso do campo de chave estrangeira `PhoneNumber.employee`, qualquer linha de número de telefone armazenará o valor da chave primária de alguma linha de empregado. Isto normalmente é chamado dum relacionamento dum para muitos.
 
-A `ForeignKey` is a one to many relationship because multiple rows from a table (in this case, `PhoneNumber`) can reference a single row in another table, namely, `Employee`. In other words, an employee can have multiple phone numbers. If we wanted to get Tom's phone numbers, then one possible way would be:
+Uma `ForeignKey` é uma relação dum para muitos porque várias linhas duma tabela (neste caso, `PhoneNumber`) podem referenciar uma única linha numa outra tabela, nomeadamente, `Employee`. Em outras palavras, um empregado pode ter vários números de telefone. Se quiséssemos receber os números de telefone do Tom, então uma maneira possível seria:
 
 ```python
 tom = Employee.objects.get(
@@ -617,7 +618,7 @@ tom = Employee.objects.get(
 phone_numbers = PhoneNumber.objects.filter(employee=tom)
 ```
 
-The query for `phone_numbers` would be:
+A consulta para `phone_numbers` seria:
 
 ```sql
 SELECT
@@ -629,13 +630,13 @@ FROM "application_phonenumber"
 WHERE "application_phonenumber"."employee_id" = 1
 ```
 
-In the database, Django will store the table column for the foreign key as `employee_id`. The query is asking for all phone number rows that match when the employee ID is 1. Since primary keys have to be unique, that value of 1 can only match Tom Bombadil so the resulting rows will be phone numbers that are associated with that employee.
+Na base de dados, a Django armazenará a coluna de tabela para a chave estrangeira como `employee_id`. A consulta está a pedir por todas as linhas de números de telefone que correspondem quando o identificador do empregado for 1. Uma vez que as chaves primárias têm de ser únicas, este valor de 1 apenas pode corresponder a Tom Bomdadil assim as linhas resultantes serão os números de telefone que estão associados com este empregado.
 
-There is another relational field type that we should spend time on. That field is the `ManyToManyField`. As you might guess, this field is used when two types of data relate to each other in a many to many fashion.
+Existe um outro tipo de campo relacional sobre o qual devemos dedicar algum tempo. Este campo é o `ManyToManyField`. Como podemos imaginar, este campo é usado quando tipos de dados relacionam-se entre si duma maneira de muitos para muitos.
 
-Let's think about neighborhoods. Neighborhoods can have a variety of mixed residence types like houses, apartments, condominiums and so on, but to keep the example simpler, we'll assume that neighborhoods are composed of houses. Each house in a neighborhood is the home of one or more people.
+Vamos pensar sobre bairros. Os bairros podem ter uma variedade de tipos de residências misturadas como casas, apartamentos, condóminos e assim por diante, mas para manter o exemplo mais simples, assumiremos que os bairros são compostos de casas. Cada casa num bairro é a casa duma ou mais pessoas.
 
-What if we tried to model this with `ForeignKey` fields?:
+E se tentássemos modelar isto com campos de `ForeignKey`?:
 
 ```python
 # application/models.py
@@ -656,7 +657,7 @@ class House(models.Model):
     )
 ```
 
-This version shows a scenario where a house can only have a single resident. A person could be the resident of multiple houses, but those houses would be pretty lonely. What if we put the foreign key on the other side of the modeling relationship?:
+Esta versão mostra um cenário onde uma casa pode apenas ter um único morador. Uma pessoa poderia ser o morador de várias casas, mas estas casas seriam muito solitárias. E se colocássemos a chave estrangeira no outro lado da relação de modelação?:
 
 ```python
 # application/models.py
@@ -677,11 +678,11 @@ class Person(models.Model):
     )
 ```
 
-In this version, a house can have multiple residents, but a person can only belong to a single house.
+Nesta versão, uma casa pode ter vários moradores, mas uma pessoa apenas pode pertencer à uma única casa.
 
-Neither of these scenarios model the real world well. In the real world, houses can and do often hold multiple people. Simultaneously, many people in the world have a second house like a beach house or a summer cottage in the woods. Both sides of the model relationship can have many of the other side.
+Nenhum destes cenários representa bem o mundo real. No mundo real, as casas podem albergar e albergam muitas vezes várias pessoas. Simultaneamente, muitas pessoas no mundo têm uma segunda casa como uma casa de praia ou uma casa de campo de verão no bosque. Ambos lados do relacionamento do modelo de base de dados podem ter muitos do outro.
 
-With a `ManyToManyField`, you can add the field to either side. Here's the new modeling:
+Com um `ManyToManyField`, podemos adicionar o campo à ambos lados. Eis a nova modelação:
 
 ```python
 # application/models.py
@@ -701,14 +702,14 @@ class House(models.Model):
     )
 ```
 
-How does this work at the database level? We saw with foreign keys that one table can hold the primary key of another table's row in its own data. Unfortunately, a single database column cannot hold multiple foreign keys. That means that the modeling above does *not* add `residents` to the `House` table. Instead, the relationship is handled by adding a *new* database table. This new table contains the mapping between people and houses and stores rows that contain primary keys from each model.
+Como isto funciona ao nível da base de dados? Nós vimos com as chaves estrangeiras que uma tabela pode segurar a chave primária duma linha de outra tabela nos seus próprios dados. Infelizmente, uma única coluna de base de dados não pode segurar várias chaves estrangeiras. Isto significa que a modelação acima *não* adiciona `residents` à tabela `House`. Ao invés disto, a relação é manipulada adicionando uma *nova* tabela de base de dados. Esta nova tabela contém o mapeamento entre as pessoas e casas e armazena as linhas que contém chaves primárias a partir de cada modelo de base de dados.
 
-Let's think of an example to see what this looks like. Suppose there are three `Person` records with primary keys of 1, 2, and 3. Let's also suppose that there are three `House` records with primary keys of 97, 98, and 99. To prove that the many-to-many relationship works in both directions, we'll assume these conditions are true:
+Vamos pensar num exemplo para ver o que isto parece. Suponhamos que existem três registos de `Person` com chaves primárias de 1, 2, e 3. Vamos também supor que existem três registos de `House` com chaves primárias de 97, 98, e 99. Para provar que o relacionamento de muitos para muitos funciona em ambas direções, assumiremos que estas condições são verdadeiras:
 
-* People with primary keys of 1 and 2 reside in house 97.
-* The person with primary key 3 owns house 98 and 99.
+* Pessoas com chaves primárias de 1 e 2 residem na casa 97.
+* A pessoa com a chave primária 3 é dono da casa 98 e 99.
 
-The data in the new mapping table between `Person` and `House` would contain data like:
+Os dados na nova tabela de mapeamento entre `Person` e `House` conteria dados como:
 
 ```text
 Person | House
@@ -719,17 +720,17 @@ Person | House
 3      | 99
 ```
 
-Because of the joining table, Django is able to query either side of the table to get related houses or residents.
+Por causa da tabela de junção, a Django é capaz de consultar qualquer um dos lados da tabela para obter as casas ou os moradores relacionados.
 
-We can access the "many" side of each model using a queryset. `residents` will be a `ManyRelatedManager` and, like other managers, can provide querysets by using certain manager methods.
+Nós podemos acessar o lado "muito" de cada modelo de base de dados usando um conjunto de consulta. `residents` será um `ManyRelatedManager` e, tal como outros gestores, podemos fornecer conjuntos de consultas usando certos métodos de gestão.
 
-Getting the reverse direction is a little less obvious. Django will add another `ManyRelatedManager` to the `Person` model automatically. The name of that manager is the model name joined with `_set`. In this case, that name is `house_set`. You can also provide a `related_name` attribute to the `ManyToManyField` if you want a different name like if you wanted to call it `houses` instead:
+Obter a direção inversa é um pouco menos óbvios. A Django adicionará um outro `ManyRelatedManager` ao modelo de base de dados `Person` automaticamente. O nome deste gestor é o nome do modelo de base de dados combinado com `_set`. Neste caso, este nome é `house_set`. Nós também podemos fornecer um atributo `related_name` ao `ManyToManyField` se quisermos um nome diferente como se quiséssemos chamá-lo `houses`:
 
 ```python
 house = House.objects.get(
     address='123 Main St.'
 )
-# Note the use of `all()`!
+# Nota o uso de `all()`!
 for resident in house.residents.all():
     print(resident.name)
 
@@ -738,49 +739,49 @@ for house in person.house_set.all():
     print(house.address)
 ```
 
-Understanding the Django models fields of `ForeignKey` and `ManyToManyField` is an important step to modeling your problem domain well. By having these tools available to you, you can begin to create many of the complex data relationships that exist with real world problems.
+Entender os campos `ForeignKey` e `ManyToManyField` dos modelos de base de dados da Django é um importante passo para modelar bem o nosso domínio do problema. Ao ter estas ferramentas disponíveis para nós, podemos começar a criar muitos dos relacionamentos de dados complexos que existem com problemas do mundo real.
 
-## Summary
+## Sumário
 
 {{< web >}}
-In this article,
+Neste artigo,
 {{< /web >}}
 {{< book >}}
-In this chapter,
+Neste capítulo,
 {{< /book >}}
-we've explored:
+exploramos:
 
-* How to set up a database for your project.
-* How Django uses special classes called models to keep data.
-* Running the commands that will prepare a database for the models you want to use.
-* Saving new information into the database.
-* Asking the database for information that we stored.
-* Complex field types to model real world problems.
+* Como configurar uma base de dados para o nosso projeto.
+* Como a Django usa classes especiais chamadas de modelos de base de dados para preservar os dados.
+* Como executar os comandos que prepararão uma base de dados para os modelos de base de dados que queremos usar.
+* Como guardar uma nova informação na base de dados.
+* Como pedir da base de dados a informação que armazenamos
+* Tipos de campos complexos para modelar problemas do mundo real.
 
-With this ability to store data into a database, **you have all the core tools for building an interactive website for your users!**
+Com esta habilidade de armazenar dados numa base de dados, **temos todas ferramentas principais para construir uma aplicação interativa para os nossos utilizadores!**
 {{< web >}}
-In this series,
+Nesta série,
 {{< /web >}}
 {{< book >}}
-In this book,
+Neste livro,
 {{< /book >}}
-we have examined:
+examinamos:
 
-* URL handling
-* views to run your code and business logic
-* templates to display your user interface
-* forms to let users input and interact with your site
-* models to store data into a database for long term storage
+* A manipulação de URL
+* Visões para executar o nosso código e lógica de negócio
+* Modelos de marcação para exibir a nossa interface de utilizador
+* Formulários para deixar os utilizadores entrarem e interagirem com a nossa aplicação
+* Modelos de base de dados para armazenar dados numa base de dados para armazenamento de longo prazo
 
-This is the core set of features that most websites have. Since we've seen the core topics that make Django sites work, we're ready to focus our attention on some of the other amazing tools that set Django apart from the pack.
+Este é o conjunto principal de funcionalidades que a maioria das aplicações de Web têm. Já que vimos os tópicos principais que fazem as aplicações de Django funcionarem, estamos prontos para focar a nossa atenção sobre algumas das outras ferramentas fantásticas que definem a Django para além do pacote.
 
-First on the list is the built-in Django administrators site that lets you explore the data that you store in your database. We'll cover:
+A primeira na lista é aplicação do administradores da Django embutida que permite-nos explorar os dados que armazenamos na nossa base de dados. Nós cobriremos:
 
-* What the Django admin site is
-* How to make your models appear in the admin
-* How to create extra actions that your admin users can do
+* O que a aplicação de administração da Django é
+* Como fazer os nossos modelos de base de dados aparecerem na administração
+* Como criar ações adicionais que os utilizadores do administrador podem fazer
 
 {{< web >}}
-If you'd like to follow along with the series, please feel free to sign up for my newsletter where I announce all of my new content. If you have other questions, you can reach me online on Twitter where I am {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+Se gostarias de seguir juntamente com a série, sinta-se a vontade para inscrever-se no meu boletim informativo onde anuncio todos os meus novos conteúdos. Se tiveres outras questões, podes contactar-me na Twitter onde sou o {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
 {{< /web >}}
 &nbsp;
