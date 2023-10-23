@@ -488,7 +488,7 @@ the `ModelAdmin` has its own `ordering` attribute.
 
 *What's "meta?"*
 Aside from fields,
-a Django model can set extra infromation
+a Django model can set extra information
 about how to handle data.
 These extra options are the "meta" attributes
 of the model.

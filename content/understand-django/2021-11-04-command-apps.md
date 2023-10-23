@@ -492,7 +492,7 @@ This shell will vary based on your choice of database.
 For instance,
 when using PostgreSQL,
 `./manage.py dbshell`
-will start `{{< extlink "https://www.postgresql.org/docs/current/app-psql.html" "psql" >}}`.
+will start {{< extlink "https://www.postgresql.org/docs/current/app-psql.html" "psql" >}}.
 From this shell,
 you can execute SQL statements directly
 to inspect the state

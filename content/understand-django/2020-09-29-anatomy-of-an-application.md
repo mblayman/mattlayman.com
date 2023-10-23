@@ -255,7 +255,7 @@ in [Templates For User Interfaces]({{< ref "/understand-django/2020-04-02-templa
 in the templates chapter,
 {{< /book >}}
 but `templates` directories are commonly found
-in indvidual Django apps,
+in individual Django apps,
 especially for third party applications
 that you may pull into your project.
 
