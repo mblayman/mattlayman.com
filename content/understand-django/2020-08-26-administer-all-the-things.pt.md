@@ -1,7 +1,7 @@
 ---
-title: "Administer All The Things"
+title: "Administrador de Todas as Coisas"
 description: >-
-    This article will look at how maintainers of an application can manage their data through Django's built-in administrative tools. We will see how to build admin pages and customize the admin tools to help teams navigate their apps.
+    Este artigo olhará em como os responsáveis duma aplicação podem gerir os seus dados através das ferramentas administrativas embutidas da Django. Nós veremos como construir páginas de administração e personalizar as ferramentas de administração para ajudar as equipas a navegarem as suas aplicações.
 image: img/django.png
 type: post
 categories:
@@ -16,63 +16,63 @@ series: "Understand Django"
 ---
 
 {{< web >}}
-In the previous [Understand Django]({{< ref "/understand-django/_index.pt.md" >}}) article, we used models to see how Django stores data in a relational database.
+No anterior artigo da [Entendendo a Django]({{< ref "/understand-django/2020-06-25-store-data-with-models.pt.md" >}}), usamos os modelos de base de dados para ver como a Django armazena os dados numa base de dados relacional.
 {{< /web >}}
-We covered all the tools to bring your data to life in your application.
+Nós cobrimos todas as ferramentas para trazer os nossos dados à vida na nossa aplicação.
 {{< web >}}
-In this article,
+Neste artigo,
 {{< /web >}}
 {{< book >}}
-In this chapter,
+Neste capítulo,
 {{< /book >}}
-we will focus on the built-in tools that Django provides to help us manage that data.
+nos concentraremos nas ferramentas embutidas que a Django fornece para ajudar-nos a gerir aqueles dados.
 
 {{< understand-django-series-pt "admin" >}}
 
-## What Is The Django Admin?
+## O Que É A Administração da Django?
 
-When you run an application, you'll find data that needs special attention. Maybe you're creating a blog and need to create and edit tags or categories. Perhaps you have an online shop and need to manage your inventory. Whatever you're building, you'll probably have to manage *something*.
+Quando executamos uma aplicação, encontraremos dados que precisam de atenção especial. Talvez estejamos a criar um blogue e precisamos de criar e editar rótulos ou categorias. Talvez temos uma loja digital e precisamos de administrar o nosso inventário. O que quer que estejamos a construir, provavelmente teremos de gerir *algo*.
 
-How can you manage that data?:
+Como podemos gerir este dado?:
 
-* If you're a programmer, you can probably log into your server, fire up a Django management shell, and work with data directly using Python.
-* If you're not a programmer, well, I guess you're out of luck! **Nope, that's not true!**
+* Se formos programadores, provavelmente podemos registar no nosso servidor, disparar uma concha de gestão da Django, e trabalhar com o dado diretamente usando a Python.
+* Se não formos programadores, bem, eu acho que estamos sem sorte! **Não, isto não é verdade!**
 
-Django includes a web administrative interface that can help programmers and non-programmers alike. This administrative interface is usually called the Django admin, for short.
+A Django inclui uma interface administrativa que pode ajudar os programadores e não programadores da mesma maneira. Esta interface administrativa é normalmente chamada a administração da Django.
 
-Like so many other extensions in the Django ecosystem, the admin site is a Django application. The site is so commonly used that it is pre-configured when you run the `startproject` command.
+Tal como muitas outras extensões no ecossistema a Django, a página de administração é uma aplicação de Django. A página é tão comummente usada que é pré-configurada quando executamos o comando `startproject`.
 
-Before proceeding, I'd first like to make note of a security issue. When using `startproject`, Django will put the admin site at `/admin/` by default. **Change this**. The starter template conveniently sets up the admin site for you, but this default URL makes it easy for {{< extlink "https://en.wikipedia.org/wiki/Script_kiddie" "script kiddies" >}} to try to attack your admin site to gain access. Putting your admin site on a different URL *won't* fully protect your site (because you should never rely on "security through obscurity"), but it will help avoid a large amount of automated attacks.
+Antes de prosseguirmos, gostaria primeiro de salientar um problema de segurança. Quando usamos `startproject`, a Django colocará a página de administração em `/admin/` por padrão. **Mude isto**. O modelo de projeto de ponto de partida configura convenientemente a página de administração por nós, mas esta URL padrão torna fácil para os {{< extlink "https://en.wikipedia.org/wiki/Script_kiddie" "os aspirantes a piratas informáticos" >}} tentarem atacar o nosso local de administração para conseguirem acesso. Colocar a nossa página de administração numa URL diferente *não protegerá* completamente a nossa aplicação (porque nunca devemos depender da "segurança através da obscuridade"), mas ajudará a evitar uma grande quantidade de ataques automatizados.
 
-The Django admin gives you a quick ability to interact with your models. As you will see shortly, you can register a model with the admin site. Once the model is registered, you can use the site interface to perform CRUD operations on the data.
+A administração da Django dá-nos uma habilidade rápida de interagir com os nossos modelos de base de dados. Como veremos brevemente, podemos registar um modelo de base de dados com a página de administração. Assim que o modelo de base de dados estiver registado, podemos usar a interface da aplicação para realizar operações CRUD sobre os dados.
 
-CRUD is an acronym that describes the primary functions of many websites. The acronym stands for:
+CRUD é um acrónimo que descreve as funções primárias de muitas aplicações da Web. O acrónimo significa:
 
-* **Create** - A website can create data (i.e., insert data into the database)
-* **Read** - Users can see the data
-* **Update** - Data can be updated by users
-* **Delete** - A user can delete data from the system
+* **Create (Criar)** - Uma aplicação da Web pode criar dados (isto é, inserir dados numa base de dados)
+* **Read (Ler)** - Os utilizadores podem ver os dados
+* **Update (Atualizar)** - Os dados podem ser atualizados pelos utilizadores
+* **Delete (Eliminar)** - Um utilizador pode eliminar os dados do sistema
 
-If you think about the actions that you take on a website, most actions will fall into one of those four categories.
+Se pensarmos sobre as ações que podemos tomar numa aplicação da Web, a maioria das ações caiem numa destas quatro categorias.
 
-The admin site provides tools for doing all of those operations. There are a few main pages that you can navigate when working in a Django admin site that direct where the CRUD operations happen. These pages are available to you with very little effort on your part aside from the registration process that you'll see in the next section:
+A aplicação de administração fornece ferramentas para realizar todas estas operações. Existem algumas páginas principais que podemos navegar quando trabalhamos numa aplicação de administração da Django que dirigem onde as operações CRUD acontecem. Estas páginas estão disponíveis à nós com muito pouco esforço da nossa parte à parte do processo de registo que veremos na próxima seção:
 
-1. Admin index page - This page will show all the models, grouped by the Django application they originate from, that are registered with the admin.
-2. Model list page - The list page shows rows of data from a model (i.e., a database table). From this page, an administrator can perform actions on multiple database records like deleting a set of records in a single operation.
-3. Add model page - The admin provides a page where new model instances can be created using automatically generated forms based on the model's fields.
-4. Model change page - The change page lets you update an existing model instance (i.e., a database table row). From this page, you can also delete a model instance.
+1. Página do índice da administração - Está página mostra todos os modelos de base de dados, agrupados pela aplicação da Django de onde originaram-se, que estão registadas com a administração.
+2. Página da lista - A página de lista mostra as linhas de dados dum modelo de base de dados (isto é, uma tabela da base de dados). A parte desta página, um administrador pode realizar ações sobre vários registos da base de dados como eliminar um conjunto de registos numa única operação.
+3. Adicionar página de modelo de base de dados - A administração fornece uma página onde as novas instâncias de modelo de base de dados podem ser criados usando formulários gerados automaticamente baseados nos campos do modelo de base de dados.
+4. Página de mudança de modelo de base de dados - A página de mudança permite-nos atualizar uma instância de modelo de base de dados existente (isto é, uma linha da tabele da base de dados). A partir desta página, também podemos eliminar uma instância de modelo de base de dados.
 
-If you inspect this small set of pages, you'll notice that every part of the CRUD acronym can occur in this admin site. The power to create and destroy is in your hands. 😈
+Se inspecionarmos este pequeno conjunto de páginas, notaremos que todas as partes do acrónimo CRUD podem ocorrer nesta aplicação de administração. O poder de criar e destruir está nas nossas mãos. 😈
 
-Now that we understand what is in the admin site, let's focus on how to add your models to the admin.
+Agora que entendemos o que está na aplicação de administração, vamos focar-nos em como adicionar os nossos modelos de base de dados à administração.
 
-## Register A Model With The Admin
+## Registar Um Modelo de Base de Dados Com A Administração
 
-To make the admin site show your model data, we need to update `admin.py`. On a new application created with `startapp`, you'll find that the `admin.py` file is largely empty. We need to provide a bit of glue so that the admin knows about a model.
+Para fazer a aplicação de administração mostrar os nossos modelos de base de dados, precisamos de atualizar o `admin.py`. Numa nova aplicação criada com `startapp`, encontraremos este ficheiro `admin.py` que está em grande parte vazio. Nós precisamos fornecer um pouco de cola para que a administração reconhecer um modelo de base de dados.
 
-The admin site expects a `ModelAdmin` class for every model that you want to see displayed within the site.
+A aplicação de administração espera uma classe `ModelAdmin` para todos os modelos de base de dados que queremos ver exibido dentro da aplicação.
 
-Let's consider a crude modeling of a book:
+Vamos considerar uma modelagem rudimentar dum livro:
 
 ```python
 # application/models.py
@@ -87,7 +87,7 @@ class Book(models.Model):
     )
 ```
 
-Now we can create a `ModelAdmin` class for the `Book` model:
+Agora podemos criar uma classe `ModelAdmin` para o modelo de base de dados `Book`:
 
 ```python
 # application/admin.py
@@ -100,12 +100,12 @@ class BookAdmin(admin.ModelAdmin):
     pass
 ```
 
-There are a couple of important items to observe with this `admin.py` file:
+Existem alguns items importantes à observar com este ficheiro `admin.py`:
 
-1. The `BookAdmin` is a subclass of `admin.ModelAdmin`.
-2. The `BookAdmin` is registered with the admin site by using the `admin.register` decorator.
+1. O `BookAdmin` é uma subclasse de `admin.ModelAdmin`.
+2. O `BookAdmin` é registado com a aplicação de administração usando o decorador `admin.register`.
 
-You can also register an admin class by calling `register` after the class if you don't want to use a decorator:
+Nós também podemos registar uma classe de administração chamando `register` depois da classe se não quisermos usar um decorador:
 
 ```python
 # application/admin.py
@@ -119,11 +119,11 @@ class BookAdmin(admin.ModelAdmin):
 admin.site.register(Book, BookAdmin)
 ```
 
-Now that we have a model registered with the admin site, how do we view it? Fire up your trusty development server with `runserver` and visit the URL that used to be `/admin/` (because you did change to something different from `/admin/`, right? Right!?).
+Agora que temos um modelo de base de dados registado com a aplicação de administração, como o visualizamos? Disparamos o nosso servidor de desenvolvimento de confiança com `runserver` e visitamos a URL que costumava ser `/admin/` (porque mudamos para algo diferente de `/admin/`, certo? Certo!?).
 
-On this page, you'll encounter a login screen. We haven't worked through the authentication system yet, but, for now, we can understand that only user accounts that have a staff level permission can log in.
+Nesta página, nos depararemos com uma tela de início de sessão. Nós ainda não trabalhamos através do sistema de autenticação, mas, por agora, podemos entender que apenas contas de utilizador que têm um permissão de nível de pessoal pode iniciar a sessão.
 
-Django provides a command that will let us create a user account with staff level permission and all other permissions. Like Linux operating systems, the user account with all permissions is called a superuser. You can create a superuser account with the `createsuperuser` command:
+A Django fornece um comando que nos permitirá criar uma conta de utilizador com a permissão de nível de pessoal e todas outras permissões. Tal como os sistemas operativos baseados no Linux, a conta de utilizador com todas as permissões é chamada de um super utilizador. Nós podemos criar uma conta de super utilizador com o comando `createsuperuser`:
 
 ```bash
 $ ./manage.py createsuperuser
@@ -134,21 +134,21 @@ Password (again):
 Superuser created successfully.
 ```
 
-With a superuser account available, you're ready to log in to the admin site. Because you'll be using a superuser account, you will have permission to see every model that is registered with the admin site.
+Com uma conta de super utilizador disponível, estamos prontos para iniciar a sessão na aplicação de administração. Uma vez que usaremos uma conta de super utilizador, teremos a permissão de ver todos os modelos de base de dados que estão registados com a aplicação de administração.
 
-Once you've logged in, you can view the `Book` model's admin page. Poke around! Create a book with the "Add Book" button. View the list page. Edit the book. Delete the book. You can see that with a tiny amount of work on your part, Django gives you a full CRUD interface for interacting with your model.
+Assim que tivermos iniciado a sessão, podemos visualizar a página de administração do modelo de base de dados `Book`. Podemos vasculhar! Criar um livro com o botão "Add Book". Visualizar a página de lista. Editar o livro. Eliminar o livro. Nós podemos ver isto com uma quantidade muito pequena de trabalho da nossa parte, a Django dá-nos uma interface de CRUD completa para interagirmos com o nosso modelo de base de dados.
 
-We added the most simple `ModelAdmin` possible. The body of the class was a `pass` instead of any attributes. Django gives us a ton of options to let us control how our admin pages for `Book` will behave. Let's go on a tour of some commonly used admin attributes.
+Nós adicionamos o `ModelAdmin` mais simples possível. O corpo da classe era um `pass` ao invés de quaisquer atributos. A Django dá-nos uma tonelada de opções para permitir-nos controlar como as nossas páginas de administração para `Book` comportar-se-ão. Vamos avançar numa digressão de alguns atributos de administração comummente usados.
 
-## Customizing Your Admin
+## Personalizando A Nossa Administração
 
-Like many other parts of Django, the framework uses class level attributes to define the behavior of a class. Unlike forms and models where class level attributes are mostly fields that you're defining for yourself, `ModelAdmin` classes provide values for attributes that are well defined in the documentation. These attributes act as hooks that let you customize the behavior of your admin pages.
+Tal como muitas das outras partes da Django, a abstração usa atributos de nível de classe para definir o comportamento duma classe. Diferente dos formulários e modelos de base de dados onde os atributos de nível de classe são maioritariamente campos que estamos a definir para nós mesmos, as classes de `ModelAdmin` fornecem valores para os atributos que são bem definidos na documentação. Estes atributos agem como gatilhos que permitem-nos personalizar o comportamento das nossas páginas de administração.
 
-Making effective admin pages is primarily about using these attributes so that the `ModelAdmin` class will do what you want. As such, mastering the Django admin site is all about mastering the `ModelAdmin` options that are listed {{< extlink "https://docs.djangoproject.com/en/4.1/ref/contrib/admin/#modeladmin-options" "in the documentation" >}}. That list is long, but don't be discouraged! I think that you can get about 80% of the value out of the Django admin by knowing only a handful of the options.
+Tornar páginas de administração efetivas é primariamente sobre usar estes atributos para que a classe `ModelAdmin` faça o que queremos. Como tal, dominar a aplicação de administração da Django é todo sobre dominar as opções da `ModelAdmin` que são listadas {{< extlink "https://docs.djangoproject.com/en/4.1/ref/contrib/admin/#modeladmin-options" "na documentação" >}}. Esta lista é longa, mas não precisamos estar desanimados! Eu penso que podemos obter 80% do valor fora da administração da Django conhecendo apenas um punhado de opções.
 
-When you poked around on the `Book` pages, you probably noticed that the listing of books is quite bland. The default list looks something like a list of links that show `Book object (#)`. We can change the look and utility of this page with a few different settings.
+Quando vasculhamos sobre as páginas do `Book`, provavelmente notamos que a listagem dos livros é muito branda. A lista padrão parece-se com uma lista de ligações que mostra `Book object (#)`. Nós podemos mudar a aparência e utilidade desta página com alguns definições diferentes.
 
-Let's start with `list_display`. This `ModelAdmin` attribute controls which fields will appear on the list page. With our book model example, we could add the title to the page:
+Vamos começar com `list_display`. Este atributo da `ModelAdmin` controla quais campos aparecerão na página de lista. Com o nosso exemplo de modelo de base de dados de livro, poderíamos adicionar o título à página:
 
 ```python
 # application/admin.py
@@ -158,9 +158,9 @@ class BookAdmin(admin.ModelAdmin):
     list_display = ('id', 'title')
 ```
 
-Django will make whatever is listed first into the link that a user can click to view the admin detail page for a model record. In this example, I'm using the `id` field as the link, but I could have used a single element tuple of `('title',)` to make the page show only the titles with the titles being the links.
+A Django transformará tudo aquilo que estiver listado numa ligação que um utilizador pode clicar para visualizar a página de detalhe da administração para um registo de modelo de base de dados. Neste exemplo, estávamos a usar o campo `id` como ligação, mas poderíamos ter usado uma única tupla de elemento de `('title',)` para fazer a página mostrar apenas os títulos com os títulos sendo as ligações.
 
-Sometimes you will have a type of model where you only want to see a subset of the records. Suppose that the `Book` model has a category field:
+Algumas vezes teremos um tipo de modelo de base de dados onde apenas queremos ver um subconjunto de registos. Suponhamos que o modelo de base de dados `Book` tem um campo de categoria:
 
 ```python
 # application/models.py
@@ -174,7 +174,7 @@ class Book(models.Model):
         MYSTERY = 3
         NON_FICTION = 4
 
-    # ... title and author from before
+    # ... `title` e `author` de antes
 
     category = models.IntegerField(
         choices=Category.choices,
@@ -182,7 +182,7 @@ class Book(models.Model):
     )
 ```
 
-By using the `list_filter` attribute, we can give the admin list page the ability to filter to the category that we want:
+Com o uso do atributo `list_filter`, podemos dar a página de lista da administração a habilidade de filtrar à categoria que queremos:
 
 ```python
 # application/admin.py
@@ -193,9 +193,9 @@ class BookAdmin(admin.ModelAdmin):
     list_filter = ('category',)
 ```
 
-The option will put a sidebar on the right side of the admin page. In that sidebar, you would see the categories that I included in the `Category` choices class. If I click on the "Fantasy" link, then my browser will navigate to `/admin/application/book/?category__exact=2` and will only display database rows that have a matching category.
+A opção colocará uma barra lateral no lado direito da página de administração. Nesta barra lateral, veríamos as categorias que incluímos na classe de escolhas da `Category`. Se clicarmos sobre a ligação "Fantasy", então o nosso navegador navegará para `/admin/application/book/?category__exact=2` e apenas exibirá as linhas da base de dados que tiverem uma categoria correspondente.
 
-This isn't the only kind of filtering that the admin can do. We can also filter in time with the `date_hierarchy` field. Next, let's give the model a `published_date`:
+Este não é o único tipo de filtragem que a administração pode fazer. Nós também podemos filtrar o tempo com o campo `data_hierarchy`. A seguir, vamos dar ao modelo de base de dados um `published_date`:
 
 ```python
 # application/models.py
@@ -208,7 +208,7 @@ class Book(models.Model):
     )
 ```
 
-We can also change the `ModelAdmin` to use the new field:
+Nós também podemos mudar a `ModelAdmin` para usar o novo campo:
 
 ```python
 # application/admin.py
@@ -220,11 +220,11 @@ class BookAdmin(admin.ModelAdmin):
     list_filter = ("category",)
 ```
 
-By including the `date_hierarchy` attribute, the list page will contain some new user interface elements. Across the top of the page will be selectors to help filter down to the right time range. This is a very useful way to look through your database table.
+Com a inclusão do atributo `date_hierarchy`, a página de lista conterá alguns novos elementos de interface de utilizador. Sobre o cimo da página estarão seletores para ajudar a filtrar para o limite de tempo correto. Isto é uma maneira muito útil examinar cuidadosamente a nossa base de dados.
 
-We can still go further. Perhaps we want all of the books to be sorted by their titles. Even if the `ordering` attribute is not set on the model's meta options, the `ModelAdmin` has its own `ordering` attribute.
+Nós podemos continuar a avançar. Talvez queiramos que todos os livros sejam organizados pelo seus títulos. Mesmo se o atributo `ordering` não estiver definido nas opções de meta do modelo de base de dados, a `ModelAdmin` tem seu próprio atributo `ordering`.
 
-*What's "meta?"* Aside from fields, a Django model can set extra information about how to handle data. These extra options are the "meta" attributes of the model. A Django model adds meta info by including a nested `Meta` class on the model. Check out the {{< extlink "https://docs.djangoproject.com/en/4.1/ref/models/options/" "Model Meta options" >}} to see what other features are available to customize model behavior:
+*O que é "meta"?* À parte dos campos, um modelo de base de dados da Django pode definir informação adicional sobre como manipular os dados. Estas opções adicionais são os atributos de "meta" do modelo de base de dados. Um modelo de base de dados da Django adiciona informação de meta incluindo uma classe `Meta` encaixada no modelo de base de dados. Consulte as {{< extlink "https://docs.djangoproject.com/en/4.1/ref/models/options/" "opções de Meta do Modelo de Base de Dados" >}} para ver quais outras funcionalidades estão disponíveis para personalizar o comportamento do modelo de base de dados:
 
 ```python
 # application/admin.py
@@ -237,9 +237,9 @@ class BookAdmin(admin.ModelAdmin):
     ordering = ("title",)
 ```
 
-With this setting, all of the books on the page will be ordered by the title. The `ordering` attribute will add an appropriate `ORDER BY` clause to the database query via the admin-generated ORM `QuerySet`.
+Com esta definição, todos os livros na página serão ordenados pelo título. O atributo `ordering` adicionará uma clausula `ORDER BY` apropriada à consulta de base de dados através da `QuerySet` do mapeador relacional de objeto gerado pela administração.
 
-The final convenient list page option that I want to highlight is the `search_fields` option:
+A opção da página de lista conveniente final que queremos destacar é a opção `search_fields`:
 
 ```python
 # application/admin.py
@@ -253,9 +253,9 @@ class BookAdmin(admin.ModelAdmin):
     search_fields = ("author",)
 ```
 
-With this option, this list page will add a search bar to the top of the page. In the example, I added the ability to search based on the author of the book.
+Com esta opção, esta página de lista adicionará um barra de pesquisa no cimo da página. Neste exemplo, adicionamos a habilidade de pesquisar baseado no autor do livro.
 
-When you search, your resulting URL could look like `/admin/application/book/?q=tolkien`. Django will do a case insensitive search on the field. The `QuerySet` would be something like:
+Quando pesquisamos, a nossa URL resultante poderia parecer-se com `/admin/application/book/?q=tolkien`. A Django fará uma pesquisa insensível a caixa sobre o campo. A `QuerySet` seria algo como:
 
 ```python
 search_results = Book.objects.filter(
@@ -263,19 +263,19 @@ search_results = Book.objects.filter(
 )
 ```
 
-The results wouldn't compete well compared to a dedicated search engine, but getting a decent search feature for a single line of code is awesome!
+Os resultados não competiriam bem comparados à um motor de pesquisa dedicado, mas obter uma funcionalidade de pesquisa decente para uma única linha de código é fantástico!
 
-The `ModelAdmin` also includes some useful settings to modify the behavior of the detail page of particular database records.
+A `ModelAdmin` também inclui algumas definições úteis para modificar o comportamento da página de detalhe dos registos de base de dados em especial.
 
-For instance, let's assume that the `Book` model has a `ForeignKey` to track an editor:
+Por exemplo, vamos assumir que o modelo de base de dados `Book` tem uma `ForeignKey` para rastrear um editor:
 
 ```python
 # application/models.py
 from django.contrib.auth.models import User
 
 class Book(models.Model):
-    # ... title, author, category
-    # published_date from before
+    # ... `title`, `author`, `category`
+    # `published_date` de antes
 
     editor = models.ForeignKey(
         User,
@@ -285,9 +285,9 @@ class Book(models.Model):
     )
 ```
 
-On the admin page for an individual book, the `editor` field will be a dropdown by default. This field will include every `User` record in your application. If you have a popular site with thousands or millions of users, the page would be crushed under the weight of loading all those user records into that dropdown.
+Na página de administração para um livro particular, o campo `editor` será uma lista pendente por padrão. Este campo incluirá cada registo de `User` na nossa aplicação. Se tivermos um aplicação popular com milhares ou milhões de utilizadores, a página seria esmagada sob o peso de carregar todos estes registos de utilizador nesta lista pendente.
 
-Instead of having a useless page that you can't load, you can use `raw_id_fields`:
+No lugar de ter uma página inútil que não podemos carregar, podemos usar `raw_id_fields`:
 
 ```python
 # application/admin.py
@@ -302,24 +302,24 @@ class BookAdmin(admin.ModelAdmin):
     search_fields = ("author",)
 ```
 
-By using `raw_id_fields`, the admin changes from using a dropdown to using a basic text input which will display the foreign key of the user record. Seeing a foreign key number is visually less useful than seeing the actual name selected in a dropdown, but the `raw_id_fields` option adds two features to alleviate this:
+Com o uso de `raw_id_fields`, a administração muda de usar uma lista pendente para usar uma entrada de texto básica que exibirá a chave estrangeira do registo do utilizador. Ver um número de chave estrangeira é visualmente menos útil do que ver nome exato selecionado numa lista pendente, mas a opção `raw_id_fields` adiciona duas funcionalidades para aliviar isto:
 
-1. A search icon is present. If users click on the icon, a popup window appears to let the user search for a record in a dedicated selection interface.
-2. If the record already has a foreign key for the field, then the string representation of the record will display next to the icon.
+1. Um ícone de pesquisa é apresentado. Se os utilizadores clicarem sobre o ícone, uma janela sobreposta aparece para permitir o utilizador pesquisar por um registo numa interface de seleção dedicado.
+2. Se o registo já tem uma chave estrangeira para o campo, então a representação de sequência de caracteres do registo exibir-se-á próximo ao ícone.
 
-Another option that can be useful is the `prepopulated_fields` option. Back in our discussion of URLs, we talked about slug fields. Slugs are often used to make pleasant URLs for detail pages showing an individual model instance. Let's add a `SlugField` to the `Book` model:
+Uma outra opção que pode ser útil é a opção `prepopulated_fields`. De volta a nossa discussão de URLs, falamos sobre os campos de lesma. As lesmas são muitas vezes usadas para tornar as URLs agradáveis para as páginas de detalhe exibirem uma instância de modelo de base de dados em especial:
 
 ```python
 # application/models.py
 
 class Book(models.Model):
-    # ... title, author, category
-    # published_date, editor from before
+    # ... `title`, `author`, `category`
+    # `published_date`, `editor` de antes
 
     slug = models.SlugField()
 ```
 
-What is the benefit of `prepopulated_fields`? By using this option, we can instruct the admin site to populate the `slug` field based on the `title` of the book. Here's the update to the `ModelAdmin`:
+Qual é o benefício do `prepopulated_fields`? Com o uso desta opção, podemos instruir a aplicação de administração à povoar o campo `slug` baseado no `title` do livro. Eis a atualização à `ModelAdmin`:
 
 ```python
 # application/admin.py
@@ -335,11 +335,11 @@ class BookAdmin(admin.ModelAdmin):
     search_fields = ("author",)
 ```
 
-Now when we want to add a new book in the admin, Django will use some JavaScript to update the slug field dynamically as we type the title!
+Agora quando queremos adicionar um novo livro na administração, a Django usará algum JavaScript para atualizar o campo de lesma dinamicamente a medida que digitamos o título!
 
-To this point, every attribute that we've added to the admin is static configuration. What do you do if you want to vary how the admin pages behave based on something dynamic?
+Para este ponto, cada atributo que adicionamos à administração é uma configuração estática. O que nós fazemos se quisermos variar como as páginas de administração comportam-se baseado em algo dinâmico?
 
-Thankfully, the Django team thought of that too. All of the options that we've examined have an equivalent method you can override that is prefixed with `get_`. For instance, if we want to control what fields users see on the list page based on who they are, we would implement `get_list_display`. In that method, we would return a tuple based on the user's access level:
+Felizmente, a equipa da Django também pensou nisto. Todas as opções que examinamos têm um método equivalente que podemos sobrepor que está prefixado com `get_`. Por exemplo, se quisermos controlar quais campos os utilizadores vêm na página de lista baseado em quem são, implementaríamos `get_list_display`. Neste método, retornaríamos uma tupla baseada no nível de acesso do utilizador:
 
 ```python
 # application/admin.py
@@ -363,9 +363,9 @@ class BookAdmin(admin.ModelAdmin):
         return ('id', 'title')
 ```
 
-One final attribute to consider is called `inlines`. I don't reach for this option often, but it's a convenient way to see *other* models that are related to a particular model.
+Um atributo final à considerar é chamado de `inlines`. Não lidamos com esta opção muitas vezes, mas é uma maneira conveniente de ver *outros* modelos de base de dados que estão relacionados à um modelo de base de dados em especial.
 
-Suppose our sample application has reviews for books. We could add a model like:
+Suponhamos que a nossa aplicação de amostra tem criticas para os livros. Nós poderíamos adicionar um modelo de base de dados como:
 
 ```python
 # application/models.py
@@ -379,7 +379,7 @@ class Review(models.Model):
     comment = models.TextField()
 ```
 
-To show other models on a detail page, we need to create an inline class and include it with the `ModelAdmin`. The result looks like:
+Para mostrar os outros modelos de base de dados na página de detalhe, precisamos criar uma classe em linha e incluí-la com a `ModelAdmin`. O resultado parece-se com:
 
 ```python
 # application/admin.py
@@ -402,19 +402,19 @@ class BookAdmin(admin.ModelAdmin):
     search_fields = ("author",)
 ```
 
-By adding the inline class to the list of `inlines`, the detail page will show any reviews that are associated with a book. Additionally, you could create new reviews from the detail page since the admin will include a few blank forms by default.
+Com a adição da classe em linha à lista de `inlines`, a página de detalhe mostrará quaisquer criticas que estiverem associadas com um livro. Adicionalmente, poderíamos criar novas criticas a partir da página de detalhe uma vez que a administração incluirá alguns formulários em branco por padrão.
 
-We've covered many options of the `ModelAdmin` class that you can use to customize your admin experience with common functions that many admin tools require. **What about the *uncommon* functions?** For extra customization, we can use admin actions.
+Nós cobrimos muitas opções da classe `ModelAdmin` que podemos usar para personalizar a nossa experiência de administração com funções comuns que muitas ferramentas de administração exigem. **E as funções *incomuns*?** Para personalização adicional, podemos usar as ações de administração.
 
-## Taking Action In The Admin
+## Tomando Providências Na Administração
 
-When you want to do work related to specific records in your database, Django provides some techniques to customize your site and provide those capabilities. These customizations are called *actions* and they appear on the list page above the list of records.
+Quando queremos realizar trabalho relacionado à registos específicos na nossa base de dados, a Django fornece algumas técnicas para personalizar a nossa aplicação e fornecer estas capacidades. Estas personalizações são chamadas de *ações* e aparecem na página de lista acima da lista de registos.
 
-In the default admin site, there is an action that lets administrators delete records. If you select some rows with the checkboxes on the left hand side, select "Delete selected \<object type\>", then click "Go", you will be presented with a page that asks for confirmation about deleting the rows you picked.
+Na aplicação de administração padrão, existe uma ação que permite os administradores eliminar registos. Se selecionarmos algumas linhas com as caixas de confirmação à esquerda, selecionamos "Delete selected \<object type\>", depois clicamos em "Go", seremos presenteados com uma página que pedi a confirmação sobre eliminação das linhas que escolhemos.
 
-The same kind of flow could be applied for any actions that you want to perform on database records. We can do this by adding a method on our `ModelAdmin`.
+O mesmo tipo de fluxo poderia ser aplicado para quaisquer ações que quisermos realizar sobre os registos de base de dados. Nós podemos fazer isto adicionando um método na nossa `ModelAdmin`.
 
-The method must follow this interface:
+O método deve seguir esta interface:
 
 ```python
 @admin.register(MyModel)
@@ -426,15 +426,15 @@ class MyModelAdmin(admin.ModelAdmin):
             request: HttpRequest,
             queryset: QuerySet
         ) -> Optional[HttpResponse]:
-        # Do the work here.
+        # Fazer o trabalho neste bloco.
         ...
 ```
 
-The queryset will represent the set of model records that the user selected. If the method returns `None`, then the user will be returned to the same admin page. If the method returns an `HttpResponse`, then the user will see that response (which is what happens with the delete confirmation page of the delete action). Whatever you do between the method being called and the method returning is up to you.
+O conjunto de consulta representará o conjunto de registos de modelo de base de dados que utilizador selecionou. Se o método retornar `None`, então o utilizador será retornado à mesma página de administração. Se o método retornar um `HttpResponse`, então o utilizador verá esta resposta (que é o que acontece com a página de confirmação da eliminação da ação de eliminação). Tudo aquilo que fizermos entre o método sendo chamado e o método retornado é responsabilidade nossa.
 
-Maybe our sample book application could set a book to premiere on the site as an important new available title. In this hypothetical scenario, we might have code that unsets any older premiere book or sends out emails to people who have expressed interest when new premieres are announced.
+Possivelmente a nossa aplicação de livro de amostra poderia definir um livro para estrear na aplicação como um novo importante título disponível. Neste cenário hipotético, podemos ter código que desfaz a definição de qualquer livro de estreia mais antigo ou envia correios-eletrónicos às pessoas que expressaram interesse quando as novas estreias forem anunciada.
 
-For this scenario, we could add an action that would do these things.
+Para este cenário, poderíamos adicionar uma ação que faria estas coisas:
 
 ```python
 # application/admin.py
@@ -472,40 +472,41 @@ class BookAdmin(admin.ModelAdmin):
             update_premiere(book)
 ```
 
-Django will use the name of the method to set the label for the dropdown on the list page. In this case, the action label will be "Set premiere".
+A Django usará o nome do método para definir o rótulo para a lista pendente na página de lista. Neste caso, o rótulo da ação será "Set premiere".
 
-We were able to extend the admin and hook into the page's user interface by defining a method and declaring it as an action. This is a powerful system to give administrators control and allow them to operate in custom ways on the data in their applications.
+Nós fomos capazes de estender a administração e prender na interface do utilizador da página definindo um método e declarando-o como uma ação. Isto é um sistema poderoso para dar aos administradores controlo e permiti-los operar de maneiras personalizadas sobre os dados nas suas aplicações.
 
-## Summary
+## Sumário
 
 {{< web >}}
-In this article,
+Neste artigo,
 {{< /web >}}
 {{< book >}}
-In this chapter,
+Neste capítulo,
 {{< /book >}}
-we looked at the built-in Django administrator's site. This powerful extension gives us the ability to create, view, edit, and delete rows from database tables associated with your application's models.
+vimos a aplicação do administrador da Django embutida. Esta poderosa extensão dá-nos a habilidade de criar, visualizar, editar, e eliminar as linhas das tabelas da base de dados associada com os modelos de base de dados da nossa aplicação.
 
-We've covered:
+Nós cobrimos:
 
-* What the Django admin site is and how to set it up
-* How to make your models appear in the admin
-* How to customize your admin pages quickly with options provided by the `ModelAdmin` class
-* How to create extra actions that enable you to do work on your model records
+
+* O que a aplicação de administração da Django é e como a configurar
+* Como fazer os nossos modelos de base de dados aparecerem na administração
+* Como personalizar as nossas páginas de administração rapidamente com opções fornecidas pela classe `ModelAdmin`
+* Como criar ações adicionais que permitem-nos realizar trabalho sobre os nossos registos de modelo de base de dados
 
 {{< web >}}
-Next time we will cover
+Para a próxima cobriremos
 {{< /web >}}
 {{< book >}}
-In the next chapter we will cover
+No próximo capítulo cobriremos
 {{< /book >}}
-the anatomy of a Django application. A Django project is composed of many applications. We will explore:
+a anatomia duma aplicação de Django. Um projeto de Django é composto de várias aplicações. Nós exploraremos:
 
-* The conventional structure of a Django app
-* How Django identifies and loads applications
-* Why applications are crucial for the Django ecosystem
+* A estrutura convencional duma aplicação de Django
+* Como a Django identifica e carrega as aplicações
+* Porquê as aplicações são cruciais para o ecossistema da Django
 
 {{< web >}}
-If you'd like to follow along with the series, please feel free to sign up for my newsletter where I announce all of my new content. If you have other questions, you can reach me online on Twitter where I am {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+Se gostarias de seguir juntamente com a série, sinta-se a vontade para inscrever-se no meu boletim informativo onde anuncio todos os meus novos conteúdos. Se tiveres outras questões, podes contactar-me na Twitter onde sou o {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
 {{< /web >}}
 &nbsp;
