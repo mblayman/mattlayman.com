@@ -859,7 +859,12 @@ Knowing that,
 can you guess how this context processor works?
 
 If you guessed `AuthenticationMiddleware`,
+{{< web >}}
 you get a cookie! 🍪
+{{< /web >}}
+{{< book >}}
+you get a cookie!
+{{< /book >}}
 Since the middleware adds the `user`
 to the `request`,
 the context processor has the very trivial job

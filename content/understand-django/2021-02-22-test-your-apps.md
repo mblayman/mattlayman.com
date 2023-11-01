@@ -800,7 +800,12 @@ Why am I suggesting that you use `pytest`?
 
 I'm going to make a bold assertion:
 **pytest is better**.
+{{< web >}}
 (Did I just go meta there? Yes, I did. 😆)
+{{< /web >}}
+{{< book >}}
+(Did I just go meta there? Yes, I did.)
+{{< /book >}}
 
 I like a lot about Django's built-in test runner,
 but I keep coming back to pytest

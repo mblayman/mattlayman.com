@@ -703,7 +703,12 @@ That means that:
 reverse("blog_categories") == "/marketing/blog/categories/"
 ```
 
+{{< web >}}
 At least until you want to change it again. 😁
+{{< /web >}}
+{{< book >}}
+At least until you want to change it again.
+{{< /book >}}
 
 ## When Names Collide
 

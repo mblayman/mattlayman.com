@@ -215,6 +215,7 @@ How are the commands discovered?
 Let's say your project has an app named `application`.
 Django can find the command if you have the following packaging structure.
 
+{{< web >}}
 ```text
 application
 ├── __init__.py
@@ -227,6 +228,21 @@ application
 └── views.py
 ... Other typical Django app files
 ```
+{{< /web >}}
+{{< book >}}
+```text
+application
+    __init__.py
+    management
+        __init__.py
+        commands
+            __init__.py
+            custom_command.py
+    models.py
+    views.py
+... Other typical Django app files
+```
+{{< /book >}}
 
 With this structure, you could run:
 

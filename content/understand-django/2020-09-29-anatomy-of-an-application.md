@@ -116,6 +116,7 @@ Let's see what a default scaffold includes,
 then build it up
 with all the extras.
 
+{{< web >}}
 ```bash
 (venv) $ ./manage.py startapp movies
 (venv) $ tree movies
@@ -129,6 +130,22 @@ movies
 ├── tests.py
 └── views.py
 ```
+{{< /web >}}
+{{< book >}}
+```bash
+(venv) $ ./manage.py startapp movies
+(venv) $ tree movies
+movies
+    __init__.py
+    admin.py
+    apps.py
+    migrations
+        __init__.py
+    models.py
+    tests.py
+    views.py
+```
+{{< /book >}}
 
 `admin.py`:
 This file is where all your `ModelAdmin` classes live
@@ -314,6 +331,7 @@ on your own.
 Here's what our final sample tree
 would look like.
 
+{{< web >}}
 ```bash
 (venv) $ tree movies
 movies
@@ -353,6 +371,48 @@ movies
 ├── urls.py
 └── views.py
 ```
+{{< /web >}}
+{{< book >}}
+```bash
+(venv) $ tree movies
+movies
+    __init__.py
+    admin.py
+    apps.py
+    forms.py
+    locale
+        es
+            LC_MESSAGES
+                django.mo
+                django.po
+    management
+        __init__.py
+        commands
+            __init__.py
+            do_movie_stuff.py
+    managers.py
+    migrations
+        0001_initial.py
+        __init__.py
+    models.py
+    static
+        movies
+            moviereel.png
+    templates
+        movies
+            index.html
+            movie_detail.html
+    templatestags
+        __init__.py
+        movies_tags.py
+    tests
+        __init__.py
+        test_models.py
+        test_views.py
+    urls.py
+    views.py
+```
+{{< /book >}}
 
 ## Loading applications
 
@@ -493,7 +553,12 @@ when you need them.
 
 From my point of view,
 I think the Django philosophy is the right one
+{{< web >}}
 (shocking, isn't it!? 🤪).
+{{< /web >}}
+{{< book >}}
+(shocking, isn't it!?).
+{{< /book >}}
 The benefit of the Django philosophy is
 that you leverage the knowledge
 of people who have built web apps

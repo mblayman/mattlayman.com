@@ -167,7 +167,12 @@ If you inspect this small set of pages,
 you'll notice
 that every part of the CRUD acronym can occur
 in this admin site.
+{{< web >}}
 The power to create and destroy is in your hands. 😈
+{{< /web >}}
+{{< book >}}
+The power to create and destroy is in your hands.
+{{< /book >}}
 
 Now that we understand what is in the admin site,
 let's focus on how to add your models to the admin.

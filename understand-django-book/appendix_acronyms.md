@@ -1,3 +1,5 @@
+\appendix
+
 # Appendix A: Alphabet Soup
 
 The web is full of acronyms for different technologies, protocols, and concepts.
