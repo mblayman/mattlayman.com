@@ -675,7 +675,12 @@ urlpatterns = [
 This gives us `blog_categories`
 as an independent name
 from the route
+{{< web >}}
 of `/marketing/blog/categories/`.
+{{< /web >}}
+{{< book >}}
+of `/marketing/blog/ categories/`.
+{{< /book >}}
 To use that name,
 we need `reverse`
 as its counterpart.
