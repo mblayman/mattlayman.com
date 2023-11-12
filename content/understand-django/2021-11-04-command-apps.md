@@ -252,6 +252,7 @@ $ ./manage.py custom_command
 
 Notes:
 
+{{< web >}}
 * Django will create a command for a module found
     in `<app>/management/commands/<command name>.py`.
 * Don't forget the `__init__.py` files!
@@ -260,6 +261,17 @@ Notes:
 * The example uses `custom_command`,
     but you can name your command
     with whatever valid Python module name that you want.
+{{< /web >}}
+{{< book >}}
+* Django will create a command for a module found
+    in `<app>/management/ commands/<command name>.py`.
+* Don't forget the `__init__.py` files!
+    Django can only discover the commands
+    if `management` and `commands` are proper Python package directories.
+* The example uses `custom_command`,
+    but you can name your command
+    with whatever valid Python module name that you want.
+{{< /book >}}
 
 Unfortunately,
 we can't slap some Python code
@@ -354,6 +366,7 @@ I've simplified things a bit,
 so that you can ignore the details
 that are specific to my service.
 
+{{< web >}}
 ```python
 # application/management/commands/expire_trials.py
 
@@ -385,6 +398,45 @@ class Command(BaseCommand):
             f"Expired {count} trial(s)"
         )
 ```
+{{< /web >}}
+{{< book >}}
+```python
+# application/management/commands/expire_trials.py
+
+import datetime
+
+from django.core.management.base import BaseCommand
+from django.utils import timezone
+
+from application.models import Account
+
+
+class Command(BaseCommand):
+    help = (
+        "Expire any accounts that are TRIALING "
+        "beyond the trial days limit"
+    )
+
+    def handle(self, *args, **options):
+        self.stdout.write(
+            "Search for old trial accounts..."
+        )
+        # Give an extra day to be gracious
+        # and avoid customer complaints.
+        cutoff_days = 61
+        trial_cutoff = timezone.now() - datetime.timedelta(
+            days=cutoff_days)
+        expired_trials = Account.objects.filter(
+            status=Account.TRIALING, created__lt=trial_cutoff
+        )
+        count = expired_trials.update(
+            status=Account.TRIAL_EXPIRED
+        )
+        self.stdout.write(
+            f"Expired {count} trial(s)"
+        )
+```
+{{< /book >}}
 
 I configured the scheduler
 to run `python manage.py expire_trials`

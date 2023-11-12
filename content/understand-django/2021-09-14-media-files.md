@@ -336,7 +336,12 @@ The default is a storage class
 that will store files locally
 on the server
 that runs the app.
+{{< web >}}
 This is found at `django.core.files.storage.FileSystemStorage`.
+{{< /web >}}
+{{< book >}}
+This is found at `django.core.files.storage. FileSystemStorage`.
+{{< /book >}}
 The storage class uses a couple
 of important settings:
 `MEDIA_ROOT` and `MEDIA_URL`.

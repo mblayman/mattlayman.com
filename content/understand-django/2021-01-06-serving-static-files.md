@@ -254,7 +254,8 @@ Here's an example template to consider:
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="{% static "css/site.css" %}">
+  <link rel="stylesheet" type="text/css"
+    href="{% static "css/site.css" %}">
 </head>
 <body>
   <h1>Example of static template tag!</h1>

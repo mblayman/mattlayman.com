@@ -792,6 +792,7 @@ you'll see that we can make a protected view
 for an app
 by including this decorator.
 
+{{< web >}}
 ```python
 # application/views.py
 from django.contrib.auth.decorators import login_required
@@ -801,6 +802,20 @@ from django.http import HttpResponse
 def the_view(request):
     return HttpResponse('This view is only viewable to authenticated users.')
 ```
+{{< /web >}}
+{{< book >}}
+```python
+# application/views.py
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+
+@login_required
+def the_view(request):
+    return HttpResponse(
+        'This view is only viewable to authenticated users.'
+    )
+```
+{{< /book >}}
 
 Any unauthenticated user will be redirected automatically
 to the login page

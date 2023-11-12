@@ -550,7 +550,12 @@ of the book.
 
 When you search,
 your resulting URL could look
+{{< web >}}
 like `/admin/application/book/?q=tolkien`.
+{{< /web >}}
+{{< book >}}
+like `/admin/application/book/? q=tolkien`.
+{{< /book >}}
 Django will do a case insensitive search
 on the field.
 The `QuerySet` would be something like:

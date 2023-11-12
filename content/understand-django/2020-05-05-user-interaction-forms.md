@@ -251,6 +251,7 @@ If the template looks like:
 
 Then Django will render:
 
+{{< web >}}
 ```html
 <p><label for="id_name">Name:</label>
   <input type="text" name="name" maxlength="100" required id="id_name"></p>
@@ -260,6 +261,20 @@ Then Django will render:
   <input type="text" name="message" maxlength="1000" required id="id_message">
 </p>
 ```
+{{< /web >}}
+{{< book >}}
+```html
+<p><label for="id_name">Name:</label>
+  <input type="text" name="name" maxlength="100" required
+    id="id_name"></p>
+<p><label for="id_email">Email:</label>
+  <input type="email" name="email" required id="id_email"></p>
+<p><label for="id_message">Message:</label>
+  <input type="text" name="message" maxlength="1000" required
+    id="id_message">
+</p>
+```
+{{< /book >}}
 
 To make it possible to submit the form,
 we need to wrap this rendered output
