@@ -1,4 +1,5 @@
 {{ $post := .Get 0 }}
+
 <ol>
   {{- if eq $post "browser" -}}
   <li>From Browser To Django</li>
@@ -121,3 +122,14 @@
   {{- end -}}
 
 </ol>
+
+{{- if ne $post "none" -}}
+<a href="https://amzn.to/40FDZue" target="_blank"
+  class="cta w-full text-white text-sm bg-red-500 p-4 inline-block border-red-500">
+  <div class="mb-2 text-xl">Understand Django is available as a paperback or e-book for <span class="underline">$29.99</span>.</div>
+  <div class="mb-1">For those who are not financially able, this content will always remain <span class="italic">free</span> on this website.</div>
+  <div class="mb-2">If you would like to own a copy for yourself or would like to support my work, please consider purchasing the book format.</div>
+  <div class="text-base underline">Buy Understand Django Now</div>
+</a>
+{{- end -}}
+

@@ -532,6 +532,15 @@ video {
   color: rgb(99 179 237 / var(--tw-text-opacity));
 }
 
+.article-content a.cta {
+  border-width: 0px;
+}
+
+.article-content a.cta:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .article-content h2 {
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;

@@ -11,6 +11,12 @@
 .article-content a:hover {
   @apply text-blue-400;
 }
+.article-content a.cta {
+  @apply border-0;
+}
+.article-content a.cta:hover {
+  @apply text-white;
+}
 
 .article-content h2 {
   @apply mt-6 mb-2 text-3xl font-semibold;
