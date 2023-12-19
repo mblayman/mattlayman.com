@@ -9,18 +9,12 @@ hideNextPrev: true
 ---
 I’m Matt, a software creator. Here are things I do:
 
-## Consult on the Django web framework
 
-With over a decade of web development experience,
-I consult on the {{< extlink "https://www.djangoproject.com/" "Django" >}} web framework.
-If your team needs Django training,
-please reach out to me on {{< extlink "https://www.linkedin.com/in/mattlayman/" "LinkedIn" >}}.
+## Build apps on YouTube
 
-## Build apps on Twitch
-
-I'm regularly streaming on {{< extlink "https://www.twitch.tv/mblayman" "Twitch" >}}.
+I'm regularly streaming on {{< extlink "https://www.youtube.com/c/MattLayman/live" "YouTube" >}}.
 On most Wednesday nights at 9pm Eastern time,
-I'm streaming on Twitch
+I'm streaming on YouTube
 to build a Django application.
 My primary goal is to teach others how to build complex web projects
 and all the skills that they'll need to produce something
@@ -59,53 +53,20 @@ and I push hard to make sure
 that its citizens have the opportunity to learn
 about technology.
 
-## Open Source
-
-I enjoy spending time
-on many open source projects.
-These days I'm mostly working
-on Django apps,
-but I've maintained some open source projects
-and still work on some of them today.
-
-### Django REST Framework JSON API
-
-In 2017,
-I picked up the torch
-as the maintainer
-of the
-{{< extlink "https://github.com/django-json-api/django-rest-framework-json-api" "Django REST Framework JSON API" >}}
-package.
-This package translates
-Django REST Framework API output
-into the
-{{< extlink "http://jsonapi.org/" "JSON API" >}} format.
-
-### tappy
-
-Automated software testing is generally useful,
-and the
-{{< extlink "http://testanything.org/" "Test Anything Protocol (TAP)" >}}
-is a way to track those automated results.
-I wrote
-{{< extlink "https://github.com/python-tap" "a set of TAP generators for Python" >}}
-that hook in with Python's testing ecosystem.
-The core project is called `tappy`.
-
 ## Work
 
-<div class="flex flex-col sm:flex-row justify-between">
-  <div class="w-full sm:w-1/4 sm:mx-8 mb-8">
-    <img class='mx-auto' src='/about/dod.jpg' width='200' height='200'>
+<div class="flex flex-col sm:flex-row justify-between items-center">
+  <div class="w-full sm:w-1/3 sm:mx-8 mb-8">
+    <img class='mx-auto' src='/about/included.png'>
   </div>
-  <div class="w-full sm:w-3/4">
+  <div class="w-full sm:w-2/3">
     <p>
-I’m currently the software architect
-at {{< extlink "https://doctorondemand.com/" "Doctor on Demand" >}}.
-Doctor on Demand connects patients to doctors
+I’m currently a senior staff software engineer
+at {{< extlink "https://includedhealth.com/" "Included Health" >}}.
+Included Health connects patients to doctors
 with video calls
 to solve common health problems.
-I write code using Django
+I write code using Django (and Go)
 to make the patient experience
 as good as it can be.
     </p>
