@@ -88,6 +88,12 @@ that don't fit into your mental model yet.
 
 ### Readers are saying...
 
+> Whether you are new to Django or a seasoned developer, this book is a must-have for your library. For newer web developers, this book starts by covering basic web concepts including HTTP, DNS and the request/response cycle, and clearly explains how Django fits into the picture, then quickly gets you up to speed on many essential concepts such as views, templates, forms, and models. You can read this book from cover-to-cover in less than a day and have a very solid foundation to start building web apps in Django. Seasoned developers can dive right into the more advanced topics including user authentication and authorization, middleware, testing, and deployment. While the length of this book is relatively short, I find the depth of content to be remarkable!
+>
+> Much of my career over the past 25+ years has been focused on developing and supporting desktop applications. As I continue my journey into the world of web application development, this book has become my most valued resource to help bridge the gap.
+
+-Chad Lemmer
+
 > Although this could be a first book, it is far more useful to someone who has already worked with Django - then this book can be better appreciated for the tightly packed bits of extremely useful information. I found the "direct to the point" writing style refreshing. Each chapter gets down to the practical advice and techniques as quickly as possible.
 
 -Mike
