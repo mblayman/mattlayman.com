@@ -137,7 +137,7 @@ class Spider(CrawlSpider):
     # Opt-in to 404 errors
     handle_httpstatus_list = [404]
 
-    rules = [Rule(LinkExtractor(), callback="parse")]
+    rules = [Rule(LinkExtractor(), callback="parse", follow=True)]
 
     def parse(self, response):
         if response.status == 404:
