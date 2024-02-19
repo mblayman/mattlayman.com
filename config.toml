@@ -35,3 +35,5 @@ unsafe= true
         weight = 1
     [languages.es]
         weight = 2
+    [languages.pt]
+        weight = 2
