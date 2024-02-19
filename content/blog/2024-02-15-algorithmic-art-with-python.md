@@ -12,4 +12,4 @@ tags: ['Python', 'algorithmic', 'art', 'math']
 
 ---
 
-NOTE: The audio is a bit low. I did my best to boost the volume. Sorry for not dialing this in better during recording
+In this talk, we’re going to start from nothing and build out our own tools for making art in Python, no AI needed! We’ll show how Python’s expressiveness allows us to describe graphics elegantly and use that to make some unique art programmatically.
