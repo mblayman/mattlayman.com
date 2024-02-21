@@ -1186,6 +1186,7 @@ Choose the module name carefully
 because it is what we will load
 in the template later on.
 
+{{< web >}}
 ```txt
 application
 ├── templatetags
@@ -1196,6 +1197,19 @@ application
 ├── models.py
 └── views.py
 ```
+{{< /web >}}
+{{< book >}}
+```txt
+application
+    templatetags
+        __init__.py
+        custom_tags.py
+    __init__.py
+    ...
+    models.py
+    views.py
+```
+{{< /book >}}
 
 Next,
 we need to make our tag or filter

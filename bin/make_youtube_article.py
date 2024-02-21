@@ -27,7 +27,9 @@ class Video:
     def image_filename(self):
         _, extension = os.path.splitext(self.image_url)
         filename = self.youtube_id + extension
-        return constants.static_dir / "img" / str(self.published_at.year) / filename
+        img_year_dir = constants.static_dir / "img" / str(self.published_at.year)
+        img_year_dir.mkdir(exist_ok=True)
+        return img_year_dir / filename
 
 
 def main(url: str):

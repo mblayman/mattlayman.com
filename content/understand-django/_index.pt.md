@@ -25,4 +25,4 @@ O conteúdo constrói-se sobre si mesmo para aumentar o teu entendimento de como
 
 Vamos começar!
 
-{{< understand-django-series "none" >}}
+{{< understand-django-series-pt "none" >}}

@@ -525,7 +525,12 @@ from a security perspective.
 
 The security warnings that come
 from running the `check` command are defined
+{{< web >}}
 in `django.core.checks.security`.
+{{< /web >}}
+{{< book >}}
+in `django.core. checks.security`.
+{{< /book >}}
 A more readable version
 of the available security checks is
 on the

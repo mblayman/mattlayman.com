@@ -1,5 +1,8 @@
 .PHONY = tailwind css
 
+local:
+	heroku local
+
 tailwind:
 	cd themes/tailwind-site && npm run tailwind
 

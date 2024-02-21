@@ -1,3 +1,4 @@
+\frontmatter
 # Dedication
 
 *This book is dedicated to my wife and children.

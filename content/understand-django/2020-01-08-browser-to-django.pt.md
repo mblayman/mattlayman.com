@@ -166,7 +166,7 @@ Assim que o servidor de web enviar uma requisição, a Django precisa de retorna
 * Descrever o conjunto de URLs para os quais a Django reagirá.
 * Escrever o código que alimenta estas URLs e retornam a resposta.
 
-Existe uma tonelada para desempacotar nestas declarações assim exploraremos os tópicos individualmente  
+Existe uma tonelada para desempacotar nestas declarações assim exploraremos os tópicos individualmente
 {{< web >}}
 nos futuros artigos.
 {{< /web >}}
@@ -174,6 +174,7 @@ nos futuros artigos.
 nos futuros capítulos.
 {{< /book >}}
 Por agora, espero que tenhas uma ideia de como uma requisição sai do teu navegador para um máquina executando a Django. 
+
 {{< web >}}
 {{< figure src="/img/2020/request-response.jpg" caption="Vida de uma requisição de navegador" >}}
 {{< /web >}}
@@ -333,3 +334,5 @@ no próximo capítulo.
 {{< web >}}
 Até à próxima para falarmos sobre a criação de URLS e recursos!
 {{< /web >}}
+
+A tradução deste artigo para o português é cortesia de Nazaré Da Piedade.

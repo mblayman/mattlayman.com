@@ -470,7 +470,12 @@ of a view,
 this middleware would do that.
 The downside is that it wouldn't tell you *which* view is recorded.
 Hey, give me a break,
+{{< web >}}
 this is a silly example! 🤪
+{{< /web >}}
+{{< book >}}
+this is a silly example!
+{{< /book >}}
 
 Hopefully,
 you're beginning
@@ -698,7 +703,7 @@ that Django includes.
     We saw the example of checking for HTTPS earlier
     in this chapter.
     This middleware also handles things like XSS, HSTS,
-    and a bunch of other acronyms (😛)
+    and a bunch of other acronyms
     that will be seen
     with the future security topic.
 * `SessionMiddleware` - The session middleware manages

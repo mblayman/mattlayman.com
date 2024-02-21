@@ -532,6 +532,15 @@ video {
   color: rgb(99 179 237 / var(--tw-text-opacity));
 }
 
+.article-content a.cta {
+  border-width: 0px;
+}
+
+.article-content a.cta:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .article-content h2 {
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
@@ -925,6 +934,10 @@ aside {
   display: block;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .inline {
   display: inline;
 }
@@ -1070,6 +1083,11 @@ aside {
   border-color: rgb(190 227 248 / var(--tw-border-opacity));
 }
 
+.border-blue-700 {
+  --tw-border-opacity: 1;
+  border-color: rgb(43 108 176 / var(--tw-border-opacity));
+}
+
 .border-gray-100 {
   --tw-border-opacity: 1;
   border-color: rgb(247 250 252 / var(--tw-border-opacity));
@@ -1100,16 +1118,6 @@ aside {
   border-color: rgb(229 62 62 / var(--tw-border-opacity));
 }
 
-.border-blue-800 {
-  --tw-border-opacity: 1;
-  border-color: rgb(44 82 130 / var(--tw-border-opacity));
-}
-
-.border-blue-700 {
-  --tw-border-opacity: 1;
-  border-color: rgb(43 108 176 / var(--tw-border-opacity));
-}
-
 .bg-blue-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(235 248 255 / var(--tw-bg-opacity));
@@ -1118,6 +1126,11 @@ aside {
 .bg-blue-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(99 179 237 / var(--tw-bg-opacity));
+}
+
+.bg-blue-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(49 130 206 / var(--tw-bg-opacity));
 }
 
 .bg-gray-200 {
@@ -1143,31 +1156,6 @@ aside {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-blue-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(43 108 176 / var(--tw-bg-opacity));
-}
-
-.bg-blue-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(44 82 130 / var(--tw-bg-opacity));
-}
-
-.bg-blue-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(42 67 101 / var(--tw-bg-opacity));
-}
-
-.bg-blue-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(49 130 206 / var(--tw-bg-opacity));
-}
-
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(66 153 225 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-r {
@@ -1383,6 +1371,10 @@ aside {
   text-transform: uppercase;
 }
 
+.italic {
+  font-style: italic;
+}
+
 .leading-relaxed {
   line-height: 1.625;
 }
@@ -1536,10 +1528,6 @@ aside {
 
   .sm\:mt-4 {
     margin-top: 1rem;
-  }
-
-  .sm\:mt-0 {
-    margin-top: 0px;
   }
 
   .sm\:block {
