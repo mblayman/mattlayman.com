@@ -449,3 +449,5 @@ para o que uma visão é. A Django dá-nos opções muito ricas quando trabalham
 Se gostarias de seguir com a série, sinta-se livre para inscrever-se no meu boletim informativo onde anúncio todos os meus novos conteúdos. Se tiveres outras questões, podes contactar-me na Twitter onde sou {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
 {{< /web >}}
 &nbsp;
+
+A tradução deste artigo para o português é cortesia de Nazaré Da Piedade.
