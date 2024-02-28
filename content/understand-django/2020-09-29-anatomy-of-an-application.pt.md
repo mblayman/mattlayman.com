@@ -1,7 +1,7 @@
 ---
-title: "Anatomy Of An Application"
+title: "A Anatomia Duma Aplicação"
 description: >-
-    This article explores applications. Applications are core structural elements of a Django project. We will see the composition of an app and how to use them effectively.
+    Este artigo explora as aplicações. As aplicações são elementos estruturais fundamentais dum projeto de Django. Nós veremos a composição duma aplicação e como usá-las efetivamente.
 image: img/django.png
 type: post
 categories:
@@ -16,43 +16,43 @@ series: "Understand Django"
 ---
 
 {{< web >}}
-In the previous [Understand Django]({{< ref "/understand-django/_index.pt.md" >}}) article, we got deep into the Django administrators site. We saw what the site was and how to configure and customize it. In this article,
+No artigo anterior da série [Entendendo a Django]({{< ref "/understand-django/2020-08-26-administer-all-the-things.pt.md" >}}), mergulhamos no sítio dos administradores da Django. Nós vimos o que o sítio era e como configurá-lo e personalizá-lo. Neste artigo,
 {{< /web >}}
 {{< book >}}
-In this chapter,
+Neste capítulo,
 {{< /book >}}
-we will examine what goes into an application. Applications are core elements of a Django project.
+examinaremos o que acontece numa aplicação. As aplicações são os elementos fundamentais dum projeto de Django.
 
 {{< understand-django-series-pt "apps" >}}
 
-## What Is An Application?
+## O Que é uma Aplicação?
 
-Before getting to what a Django application **is**, we probably need to start with what it **is not** because the terminology is confusing. In the world of web development, developers may call a website a "web application."
+Antes de sabermos o que uma aplicação de Django **é**, provavelmente precisamos começar por o que esta **não é** porque a terminologia é confusa. No mundo do desenvolvimento da Web, os programadores podem chamar uma sítio da Web duma "aplicação da Web".
 
-In Django parlance, a "web application" is a Django *project*. All of the pieces that come together to make a website are a project. The primary components within the project are called *applications*. In other words, a Django project is built from one or more Django applications.
+No linguajar da Django, uma "aplicação da Web" é um *projeto* de Django. Todos os pedaços que reúnem-se para fazer um sítio da Web são um projeto. Os componentes primários dentro do projeto são chamados de *aplicações*. Em outras palavras, um projeto de Django é construído a partir duma ou mais aplicações.
 
-This situation is quite similar to Python packages. The software industry often describes the software unit as a "package." We think of `pip`, `npm`, or `apt` as "package" managers. This leads to a similar naming problem because Python also calls any directory with a `__init__.py` file a "package" as well.
+Esta situação é muito semelhante aos pacotes da Python. A industria de software muitas vezes descreve a unidade de software como um "pacote". Nós pensamos de `pip`, `npm`, ou `apt` como gestores de "pacote". Isto conduz a um problema de nomenclatura semelhante porque a Python também chama qualquer diretório com um ficheiro `__init__.py` de "pacote".
 
-In reality, the code that you download using pip is technically called a "{{< extlink "https://packaging.python.org/overview/" "distribution" >}}." Even though we colloquially talk about Python downloads from PyPI (Python Package Index) as packages, we're really talking about distributions, and a distribution is a unit that contains one or more Python packages.
+Na realidade, o código que descarregamos usando `pip` é tecnicamente chamado de "{{< extlink "https://packaging.python.org/overview/" "distribuição" >}}". Embora que coloquialmente falemos dos descarregamentos da PyPI (Python Package Index ou Índice de Pacote da Python) como pacotes, estamos realmente falando de distribuições, e uma distribuição é uma unidade que contém um ou mais pacotes de Python.
 
-Hopefully, you now understand the relationship of applications in Django.
+Com sorte, agora entendemos a relação das aplicações na Django.
 
-> Your "web application" is a Django **project** composed of one or more Django **applications**.
+> A nossa "aplicação da Web" é um **projeto** de Django composto por uma ou mais **aplicações** de Django.
 
-## Application Structure
+## Estrutura da Aplicação
 
-Let's look at a fully loaded Django application to see the fairly standard structure that you will encounter in Django projects.
+Olharemos para uma aplicação de Django completamente carregada para vermos a estrutura razoavelmente padronizada que encontraremos nos projetos de Django.
 
-An application usually tries to capture a core concept within your system.
+Uma aplicação usualmente tenta capturar um conceito fundamental dentro nosso sistema.
 {{< web >}}
-For this article,
+Para este artigo,
 {{< /web >}}
 {{< book >}}
-For this chapter,
+Para este capítulo,
 {{< /book >}}
-we will use movies as the concept we want to model.
+usaremos os filmes como o conceito que queremos modelar.
 
-Let's see what a default scaffold includes, then build it up with all the extras:
+Vamos ver o que uma estrutura do projeto padrão inclui, depois o desenvolveremos com todos os adicionais:
 
 ```bash
 (venv) $ ./manage.py startapp movies
@@ -68,93 +68,93 @@ movies
 └── views.py
 ```
 
-`admin.py`: This file is where all your `ModelAdmin` classes live to power how the movies app will appear in the Django admin.
+`admin.py`: Este ficheiro é onde todas as nossas classes de `ModelAdmin` vivem para alimentar como a aplicação de filmes aparecerá no administrador da Django.
 {{< web >}}
-You can learn more about the admin in [Administer All The Things]({{< ref "/understand-django/2020-08-26-administer-all-the-things.pt.md" >}}).
+Nós podemos aprender mais sobre o administrador no artigo [Administrar Tudo]({{< ref "/understand-django/2020-08-26-administer-all-the-things.pt.md" >}}).
 {{< /web >}}
 
-`apps.py`: This file is for the `AppConfig` of the application. We will discuss the `AppConfig` and how to use it
+`apps.py`: Este ficheiro é para a `AppConfig` da aplicação. Nós discutiremos a `AppConfig` e como usá-la
 {{< web >}}
-later in this article.
-{{< /web >}}
-{{< book >}}
-later in this chapter.
-{{< /book >}}
-
-`migrations`: This directory is where all database migrations are stored for the application. Any model changes for this app will generate a migration and create a numbered migration file in this directory.
-{{< web >}}
-More info about migrations is in [Store Data With Models]({{< ref "/understand-django/2020-06-25-store-data-with-models.pt.md" >}}).
-{{< /web >}}
-
-`models.py`: This file is the home for all the Django `Model` classes in the application. The models represent all your database data.
-{{< web >}}
-Learn more about models in [Store Data With Models]({{< ref "/understand-django/2020-06-25-store-data-with-models.pt.md" >}}).
-{{< /web >}}
-
-`tests.py`: This file is for automated tests. We'll cover automated tests in Django
-{{< web >}}
-in a future article.
+mais tarde neste artigo.
 {{< /web >}}
 {{< book >}}
-in a future chapter.
+mais tarde neste capítulo.
 {{< /book >}}
-For now, you can know that I *always* **delete** this file and replace it with a `tests` package. A `tests` package is superior because you can split out to more focused files like `test_models.py` to know where the appropriate tests are.
 
-`views.py`: This file is where Django view functions or classes go. Views are the glue code that connect your URL routes to your database models.
+`migrations`: Este diretório é onde todas as migrações da base de dados são armazenadas para a aplicação. Quaisquer mudanças do modelo para esta aplicação gerará uma migração e criará um ficheiro de migração numerado neste diretório.
 {{< web >}}
-I wrote about views in [Views On Views]({{< ref "/understand-django/2020-03-03-views-on-views.pt.md" >}}).
+Nós podemos encontrar mais informações sobre as migrações no artigo [Armazenar Dados com os Modelos de Base de Dados]({{< ref "/understand-django/2020-06-25-store-data-with-models.pt.md" >}}).
 {{< /web >}}
 
-That's everything that comes with a generated app, but what other files are missing that you will commonly see in a Django application?
-
-`urls.py`: This file is often used to create routes that logically group all movie related functionality. The `urls.py` file would power all the routes in something like `www.mysite.com/movies/`.
+`models.py`: Este ficheiro é o lar para todas as classes de `Model` da Django na aplicação. Os modelos representam todos os dados da nossa base de dados.
 {{< web >}}
-Information on URLs is in [URLs Lead The Way]({{< ref "/understand-django/2020-01-22-urls-lead-way.pt.md" >}}).
+Nós podemos aprender mais sobre os modelos de base dados no artigo [Armazenar Dados com os Modelos de Base de Dados]({{< ref "/understand-django/2020-06-25-store-data-with-models.pt.md" >}}).
 {{< /web >}}
 
-`forms.py`: When you use Django `Form` classes to interact with users, this is the file where forms are stored.
+`tests.py`: Este ficheiro é para os testes automatizados. Nós cobriremos testes automatizados na Django
 {{< web >}}
-You can discover more on forms in [User Interaction With Forms]({{< ref "/understand-django/2020-05-05-user-interaction-forms.pt.md" >}}).
-{{< /web >}}
-
-`templatetags`: This directory is a Python package that would include a module like `movies_tags.py` where you'd define any custom template tags to use when rendering your templates.
-{{< web >}}
-Custom tags are a topic in [Templates For User Interfaces]({{< ref "/understand-django/2020-04-02-templates-user-interfaces.pt.md" >}}).
-{{< /web >}}
-
-`templates`: This directory can store templates that the application will render. I personally prefer using a project-wide `templates` directory as discussed
-{{< web >}}
-in [Templates For User Interfaces]({{< ref "/understand-django/2020-04-02-templates-user-interfaces.pt.md" >}}),
+num artigo futuro.
 {{< /web >}}
 {{< book >}}
-in the templates chapter,
+num capítulo futuro.
 {{< /book >}}
-but `templates` directories are commonly found in individual Django apps, especially for third party applications that you may pull into your project.
+Por agora, posso dizer que *sempre* **elimino** este ficheiro e o substituo por um pacote `tests`. Um pacote `tests` é superior porque podemos separar em ficheiros mais focados como `test_models.py` para sabermos onde os testes apropriados estão.
 
-`static`: For static files that you want to display, such as images, you can use the `static` directory. We'll discuss static files more
+`views.py`: Este ficheiro é onde as funções ou classes de visão da Django vão. As visões são os códigos de colagem que conectam as rotas do nosso localizador de recurso uniforme aos nossos modelos de base de dados.
 {{< web >}}
-in a future article.
+Eu escrevi sobre as visões no artigo [Visões Sobre Visões]({{< ref "/understand-django/2020-03-03-views-on-views.pt.md" >}}).
+{{< /web >}}
+
+Isto é tudo que vem com uma aplicação gerada, mas quais são os outros ficheiros em falta que comummente veremos numa aplicação de Django?
+
+`urls.py`: Este ficheiro é muitas vezes usado para criar rotas que agrupam logicamente todas funcionalidades relacionadas ao filme. O ficheiro `urls.py` alimentaria todas as rotas em algo como `www.mysite.com/movies/`.
+{{< web >}}
+Nós podemos encontrar informação sobre os Localizadores de Recurso Uniforme no artigo [URLs Guiam o Caminho]({{< ref "/understand-django/2020-01-22-urls-lead-way.pt.md" >}}).
+{{< /web >}}
+
+`forms.py`; Quando usamos as classes de `Form` da Django para interagirmos com os utilizadores, este é o ficheiro onde os formulários são armazenados.
+{{< web >}}
+Nós podemos descobrir mais sobre os formulários no artigo [Interação do Utilizador com Formulários]({{< ref "/understand-django/2020-05-05-user-interaction-forms.pt.md" >}}).
+{{< /web >}}
+
+`templatetags`: Este diretório é um pacote da Python que incluiria um módulo como `movies_tags.py`, onde definiríamos quaisquer marcadores personalizados do modelo de marcação a usar quando desenharmos os nossos modelos de marcação de hipertexto.
+{{< web >}}
+Os marcadores personalizados são um tópico no [Modelos de Marcação para as Interfaces do Utilizador]({{< ref "/understand-django/2020-04-02-templates-user-interfaces.pt.md" >}}).
+{{< /web >}}
+
+`templates`: Este diretório pode armazenar os modelos de marcação de hipertexto que a aplicação desenhará. Eu pessoalmente prefiro usar um diretório `templates` para o projeto inteiro conforme discutido
+{{< web >}}
+no artigo [Modelos de Marcação para as Interfaces do Utilizador]({{< ref "/understand-django/2020-04-02-templates-user-interfaces.pt.md" >}}),
 {{< /web >}}
 {{< book >}}
-in a future chapter.
+no capítulo dos modelos de marcação de hipertexto,
 {{< /book >}}
+mas diretórios de `templates` são comummente encontrados dentro das aplicações individuais da Django, especialmente para aplicações de terceiros que podemos puxar para dentro do nosso projeto.
 
-`management`: Users can extend Django with custom commands that can be called via `manage.py`. Those commands are stored in this package. Custom commands are a future topic
+`static`: Para os ficheiros estáticos que queremos exibir, tais como imagens, podemos usar o diretório `static`. Nós discutiremos mais os ficheiros estáticos
 {{< web >}}
-in this series.
+num artigo futuro.
 {{< /web >}}
 {{< book >}}
-in this book.
+num capítulo futuro.
 {{< /book >}}
 
-`locale`: When doing translations and internationalization, the translation files must have a home. That's the purpose of the `locale` directory.
-
-`managers.py`: This file is not always used, but if your application has a lot of custom managers, then you may want to separate them from your models in this file.
+`management`: Os utilizadores podem estender a Django com comandos personalizados que podem ser chamados através do `manage.py`. Estes comandos são armazenados neste pacote. Os comandos personalizados são um tópico futuro
 {{< web >}}
-Managers are a topic in [Store Data With Models]({{< ref "/understand-django/2020-06-25-store-data-with-models.pt.md" >}}).
+nesta série.
+{{< /web >}}
+{{< book >}}
+neste livro.
+{{< /book >}}
+
+`locale`: Quando fazemos traduções e internacionalização, os ficheiros de tradução devem ter uma casa. Este é o propósito do diretório `locale`.
+
+`managers.py`: Este ficheiro nem sempre é usado, mas se a nossa aplicação tiver muitos administradores personalizados, então podemos querer separá-los dos nossos modelos neste ficheiro.
+{{< web >}}
+Os administradores são um tópico no artigo [Armazenar Dados com os Modelos de Base de Dados]({{< ref "/understand-django/2020-06-25-store-data-with-models.pt.md" >}}).
 {{< /web >}}
 
-Most applications will *not* have all of these pieces, but this should give you an idea of what things are when you are exploring Django apps in the wild on your own. Here's what our final sample tree would look like:
+A maioria das aplicações *não* terão todos estes pedaços, mas isto deve dar-nos uma ideia do que são quando estivermos explorando as aplicações da Django na natureza por conta própria. Eis como a nossa árvore de amostra se pareceria:
 
 ```bash
 (venv) $ tree movies
@@ -196,86 +196,85 @@ movies
 └── views.py
 ```
 
-## Loading applications
+## Carregando as Aplicações
 
-We've now seen what's in a Django application and have an idea of an app's composition. How does Django load applications?
+Já vimos o que está numa aplicação de Django e temos uma ideia da composição duma aplicação. Como é que a Django carrega as aplicações?
 
-Django does *not* do automatic discovery of Django applications within your project. If you want Django to include an app in your project, you *must* add the app to your `INSTALLED_APPS` list in the settings file.
+A Django *não* faz a descoberta automática das aplicações de Django dentro do nosso projeto. Se quisermos que a Django inclua uma aplicação no nosso projeto, *devemos* adicionar a aplicação à nossa lista de `INSTALLED_APPS` no ficheiro definições.
 
-This is a good example of Django following the Python ethos of favoring explicit over implicit. By being explicit, your project is not in danger of including apps that you don't expect. That might seem silly for apps that you write yourself, but you'll be thankful that's the case when some third party package in your virtual environment happens to have a Django app that you don't want in your project.
+Este é um bom exemplo da Django seguindo o espírito da Python de favorecer o explícito sobre o implícito. Ao sermos explícitos, o nosso projeto não arrisca-se a incluir aplicações que não esperamos. Isto pode parecer ridículo para aplicações que nós mesmos escrevemos, mas ficaremos gratos se algum pacote de terceiros no nosso ambiente virtual tiver uma aplicação de Django que não queremos no nosso projeto.
 
-On startup, when an application is in `INSTALLED_APPS`, Django will look for an `AppConfig` class. This class is stored in `apps.py` from the `startapp` command and contains metadata about the application.
+Na inicialização, quando uma aplicação estiver na `INSTALLED_APPS`, a Django procurará por uma classe de `AppConfig`. Esta classe é armazenada no `apps.py` a partir do comando `startapp` e contém metadados sobre a aplicação.
 
-When Django starts, it will initialize the system by doing the following:
+Quando a Django inicia, esta inicializará o sistema fazendo o seguinte:
 
-* Load the settings
-* Configure logging (a topic we'll explore in the future)
-* Initialize an application registry
-* Import each package from the `INSTALLED_APPS`
-* Import a models module for each application
-* Invoke the `ready` method of every `AppConfig` discovered
+* Carregar as definições
+* Configurar o registo (um tópico que exploraremos no futuro)
+* Inicializar um registo de aplicação
+* Importar cada pacote da `INSTALLED_APPS`
+* Importar um módulo de modelos de base de dados para cada aplicação
+* Invocar o método `ready` de cada `AppConfig` descoberta
 
-The `ready` method is a useful hook for taking action at startup. Since models are already loaded by the time the method is called, it's a safe place to interact with Django.
+O método `ready` é uma função gatilho útil para tomar ações na inicialização. Já que os modelos de base de dados já estão carregados no momento em que o método é chamado, é um lugar seguro para interagir com a Django.
 
-If you attempt to run setup code before Django is ready, and you try to do something like use the ORM to interact with database data, you'll probably get an `AppRegistryNotReady` exception. Most apps won't directly need to run startup code, but knowing about the `ready` hook is a useful piece of knowledge to keep in your back pocket.
+Se tentarmos executar o código de configuração antes que a Django esteja pronta, e tentarmos fazer algo como usar o mapeamento de objeto-relacional para interagir com os dados da base de dados, provavelmente receberemos uma exceção de `AppRegistryNotReady`. A maioria das aplicações não precisará executar o código de inicialização, mas saber sobre o gatilho `ready` é uma pedaço útil de conhecimento para manter no bolso de trás.
 
-## Ecosystem Applications
+## Aplicações do Ecossistema
 
-An application is an important tool for grouping the different logical components in your project, but apps also serve another purpose. Apps are the basis for most of the 3rd party extensions in the Django ecosystem.
+Uma aplicação é uma ferramenta importante para agrupar os diferentes componentes lógicos do nosso projeto, mas as aplicações também têm outro objetivo. As aplicações são a base para a maioria das extensões de terceiros no ecossistema da Django.
 
-A big reason to use Django is that the framework takes a "batteries included" approach. Most of the tools that you need to build a website are baked directly into the framework. This is a vastly different approach compared to {{< extlink "https://flask.palletsprojects.com/en/2.2.x/" "Flask" >}}
-which provides a relatively small API and depends heavily on third party libraries.
+Uma grande razão para usar a Django é que a abstração tem uma abordagem de "baterias incluídas". A maioria das ferramentas que precisamos para construir um sítio da Web estão diretamente integrada na abstração. Esta é uma abordagem muito diferente em comparação com a {{< extlink "https://flask.palletsprojects.com/en/2.2.x/" "Flask" >}}, que fornece uma interface de programação de aplicação relativamente pequena e depende muito de bibliotecas de terceiros.
 
-Even though Django includes most of the major pieces for a web application, the framework doesn't include *everything*. When you want to include more features, Django apps fill in the gaps.
+Embora a Django inclua a maioria das peças principais para uma aplicação da Web, a abstração não inclui *tudo*. Quando queremos incluir mais funcionalidades, as aplicações da Django preenchem as lacunas.
 
-Before you go out to PyPI, we need look no further than the `django.contrib` package, a collection of "contributed" applications provided by Django itself. When you run the `startproject` command, Django will include a variety of built-in applications that perform different functions. If you don't need some of the functionality, you can opt out by removing the app from your list in `INSTALLED_APPS`.
+Antes de irmos para o PyPI, não precisamos ir além do pacote `django.contrib`, uma coleção de aplicações "contribuídas" fornecidas pela propria Django. Quando executamos o comando `startproject`, a Django incluirá uma variedade de aplicações embutidas que executam diferentes funções. Se não precisarmos de alguma funcionalidade, podemos optar por não usá-la, removendo a aplicação da nossa lista em `INSTALLED_APPS`.
 
-I think this is the big difference in philosophy behind the framework. Some developers like to start from an extremely minimal kernel of functionality and build it up based on their needs. Django's philosophy seems to be that you start with an opinionated baseline and pare down what you don't require. Django doesn't expect that you'll use every feature in every app, but many of the features that you'll want are at the ready when you need them.
+Eu penso que está é a grande diferença de filosofia por trás da abstração. Alguns programadores gostam de começar com um núcleo de funcionalidade extremamente mínimo e construí-lo com base nas suas necessidades. A filosofia da Django parece ser que começamos com uma linha de base opinada e reduzimos o que não é necessário. A Django não espera que usaremos todas as funcionalidades em todas as aplicações, mas muitas das funcionalidades que desejaremos estarão prontas quando precisarmos delas.
 
-From my point of view, I think the Django philosophy is the right one (shocking, isn't it!? 🤪). The benefit of the Django philosophy is that you leverage the knowledge of people who have built web apps for a very long time. Not only do you leverage that knowledge, you benefit from the polishing applied by the Django developers to integrate the different major systems into a consistent whole. What you're left with is a framework that feels like it belongs together, and I think that is a positive impact on your productivity.
+Do meu ponto de vista, acho que a filosofia da Django é a correta (chocante, não é? 🤪). A vantagem da filosofia da Django é que se aproveita o conhecimento de pessoas que construíram aplicações da Web durante muito tempo. Não só aproveita esse conhecimento, como também beneficia o polimento aplicação pelos programadores da Django para integrar os diferentes sistemas importantes num todo consistente. O que nos resta é uma abstração que parece pertencer ao mesmo ambiente, e penso que isso tem um impacto positivo na nossa produtividade.
 
-When you build from a minimal kernel and work up, you depend on knowing everything that's required to put something on the web. That means that you know all the pieces and how to bolt them together. But most people *don't* know all the pieces (because there are so many!).
+Quando construímos a partir dum núcleo mínimo e trabalhamos para cima, dependemos de saber tudo o que é necessário para colocar algo na Web. Isto significa que conhecemos todas as peças e sabemos como aparafusá-las. Mas a maioria das pessoas *não* conhece todas as peças (porque são muitas!).
 
-If you start minimally and don't know the pieces, you'll learn along the way, but what happens when you encounter a new concept that doesn't fit into your original mental model? For instance, security is a critical part that can destroy your mental model when you learn of a class of vulnerabilities that can restrict what is possible to do safely. When you follow this building from scratch approach, I think the final result will naturally be your own custom framework. If that's your thing, awesome. Go for it. For me, I want a framework that is a commodity and commonly understood by many people.
+Se começarmos minimamente e não conhecermos as peças, aprenderemos ao longo do caminho, mas o que acontece quando nos deparamos com um novo conceito que não se enquadra no nosso modelo mental original? Por exemplo, a segurança é uma parte crítica que pode destruir o nosso modelo mental quando tomamos conhecimento duma classe de vulnerabilidades que podem restringir o que é possível fazer com segurança. Quando seguimos esta abordagem de construir a partir do zero, penso que o resultado será naturalmente a nossa própria abstração personalizada. Se este é o caso de alguns, ótimo. Façam-no. Para mim, quero uma abstração que seja um bem de consumo e que seja comummente compreendida por muitas pessoas.
 
-Ok, so, what does this have to do with Django apps? Apps are contained and reusable modules. Because they have a fairly standard structure, a project can integrate a new app quickly. This means you can leverage the knowledge and experience (read: battle scars) of other web developers. The apps all play by the same rules so you, as the developer, spend less time gluing the app into your project and more time benefiting from what it does.
+Muito bem, então, o que isto tem a haver com as aplicações da Django? As aplicações são módulos independentes e reutilizáveis. Uma vez que têm uma estrutura razoavelmente padronizada, um projeto pode integrar rapidamente uma nova aplicação. Isto significa que podemos tirar partido do conhecimento e experiência (leia-se: cicatrizes de batalha) de outros programadores da Web. Todas as aplicações obedecem às mesmas regras, pelo que nós, enquanto programadores, passamos menos tempo a integrar a aplicação ao nosso projeto e mais tempo a beneficiar-se do que esta faz.
 
-I think this standard structure also makes it easier to experiment with new apps. When I need some new functionality, I will often check {{< extlink "https://djangopackages.org/" "Django Packages" >}} to look for apps that could meet my needs. In my experience, adding a new app is, in many cases, little more than installing the package, adding the app to the `INSTALLED_APPS` list, and putting an `include` in my `urls.py` file. Some packages require more configuration than that, but I think that the integration cost is low enough for me to experiment rapidly and back out my decision if I discover that an app won't do what I need.
+Eu penso que esta estrutura padrão também facilita a experimentação de novas aplicações. Quando preciso de alguma nova funcionalidade, vou muitas vezes consultar os {{< extlink "https://djangopackages.org/" "Pacotes da Django" >}} para procurar por aplicações que satisfaçam as minhas necessidades. Na minha experiência, adicionar uma nova aplicação é, em muitos casos, pouco mias do que instalar o pacote, adicionar a aplicação à lista `INSTALLED_APPS` e colocar uma `include` no meu ficheiro `urls.py`. Alguns pacotes exigem mais configurações do que isso, mas penso que o custo de integração é suficientemente baixo para que eu possa experimentar rapidamente e desistir da minha decisão se descobrir que uma aplicação não faz o que preciso.
 
-All in all, Django applications make working with the Django ecosystem a more enjoyable experience.
+Em suma, as aplicações da Django tornam o trabalho com o ecossistema da Django uma experiência mais agradável.
 
-## Summary
+## Sumário
 
 {{< web >}}
-In this article,
+Neste artigo,
 {{< /web >}}
 {{< book >}}
-In this chapter,
+Neste capítulo,
 {{< /book >}}
-we studied
-Django applications.
+estudámos
+as aplicações da Django.
 
-We saw:
+Nós vimos:
 
-* What a Django application is
-* How a Django application is structured
-* How the Django ecosystem benefits from a common format that creates reusable components
+* O que é uma aplicação de Django
+* Como uma aplicação da Django é estruturada
+* Como o ecossistema da Django beneficia-se dum formato comum que cria componentes reutilizáveis
 
 {{< web >}}
-Next time we will look into authentication
+Da próxima vez, estudaremos a autenticação
 {{< /web >}}
 {{< book >}}
-Next, we will look into authentication
+A seguir, estudaremos a autenticação
 {{< /book >}}
-in Django.
+na Django.
 
-We will study:
+Nós estudaremos:
 
-* How users are created and managed
-* How to deal with permissions for users
-* How to work with users in your views and templates
+* Como são criados e geridos os utilizadores
+* Como lidar com as permissões dos utilizadores
+* Como trabalhar com utilizadores nas nossas visões e modelos de marcação
 
 {{< web >}}
-If you'd like to follow along with the series, please feel free to sign up for my newsletter where I announce all of my new content. If you have other questions, you can reach me online on Twitter where I am {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+Se gostarias de seguir juntamente com a série, sinta-se a vontade para inscrever-se no meu boletim informativo onde anuncio todos os meus novos conteúdos. Se tiveres outras questões, podes contactar-me na Twitter onde sou o {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
 {{< /web >}}
 &nbsp;
