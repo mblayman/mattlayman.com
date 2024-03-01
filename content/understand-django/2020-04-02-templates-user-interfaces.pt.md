@@ -191,7 +191,9 @@ Os modelos de marcação da Django também tentam ser flexíveis com os tipos de
 
 A linguagem de modelo de marcação fundamental também inclui algumas palavras-chave de lógica de programação padrão usando *marcadores*. Os marcadores do modelo de marcação parecem-se com `{% some_tag %}` ao passo que as variáveis do modelo de marcação parecem-se com `{{ some_variable }}`. As variáveis estão destinadas a serem espaço reservados à preencher, mas os marcadores oferecem mais poder.
 
-Nós podemos começar com dois marcadores fundamentais, `if` e `for`. O marcador `if` é para lidar com lógica condicional que o teu modelo de marcação pudesse precisar:
+Nós podemos começar com dois marcadores fundamentais, `if` e `for`.
+
+O marcador `if` é para lidar com lógica condicional que o teu modelo de marcação pudesse precisar:
 
 {{< web >}}
 ```django
@@ -707,8 +709,8 @@ O primeiro passo é colocar os marcadores na localização correta. Para fazer i
 ```txt
 application
 ├── templatetags
-│   ├── __init__.py
-│   └── custom_tags.py
+│   ├── __init__.py
+│   └── custom_tags.py
 ├── __init__.py
 ├── ...
 ├── models.py
@@ -828,3 +830,5 @@ examinaremos como os utilizadores podem enviar os dados à uma aplicação de Dj
 Se gostarias de seguir com a série, sinta-se livre para inscrever-se no meu boletim informativo onde anúncio todos os meus novos conteúdos. Se tiveres outras questões, podes contactar-me na Twitter onde sou {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
 {{< /web >}}
 &nbsp;
+
+A tradução deste artigo para o português é cortesia de Nazaré Da Piedade.
