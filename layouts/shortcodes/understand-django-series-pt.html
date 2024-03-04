@@ -24,4 +24,10 @@
   <li><a href="{{ ref . "/understand-django/2020-04-02-templates-user-interfaces.pt.md" }}">Modelos de Marcação para as Interfaces de Utilizador</a></li>
   {{- end -}}
 
+  {{- if eq $post "forms" -}}
+  <li>Interação do Utilizador com os Formulários</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2020-05-05-user-interaction-forms.pt.md" }}">Interação do Utilizador com os Formulários</a></li>
+  {{- end -}}
+
 </ol>
