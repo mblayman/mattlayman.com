@@ -30,4 +30,10 @@
   <li><a href="{{ ref . "/understand-django/2020-05-05-user-interaction-forms.pt.md" }}">Interação do Utilizador com os Formulários</a></li>
   {{- end -}}
 
+  {{- if eq $post "models" -}}
+  <li>Armazenar Dados com Modelos de Base de Dados</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2020-06-25-store-data-with-models.pt.md" }}">Armazenar Dados com Modelos de Base de Dados</a></li>
+  {{- end -}}
+
 </ol>
