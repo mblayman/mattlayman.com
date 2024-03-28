@@ -62,7 +62,7 @@ movies
 ├── admin.py
 ├── apps.py
 ├── migrations
-│   └── __init__.py
+│   └── __init__.py
 ├── models.py
 ├── tests.py
 └── views.py
@@ -164,34 +164,34 @@ movies
 ├── apps.py
 ├── forms.py
 ├── locale
-│   └── es
-│       └── LC_MESSAGES
-│           ├── django.mo
-│           └── django.po
+│   └── es
+│       └── LC_MESSAGES
+│           ├── django.mo
+│           └── django.po
 ├── management
-│   ├── __init__.py
-│   └── commands
-│       ├── __init__.py
-│       └── do_movie_stuff.py
+│   ├── __init__.py
+│   └── commands
+│       ├── __init__.py
+│       └── do_movie_stuff.py
 ├── managers.py
 ├── migrations
-│   ├── 0001_initial.py
-│   └── __init__.py
+│   ├── 0001_initial.py
+│   └── __init__.py
 ├── models.py
 ├── static
-│   └── movies
-│       └── moviereel.png
+│   └── movies
+│       └── moviereel.png
 ├── templates
-│   └── movies
-│       ├── index.html
-│       └── movie_detail.html
+│   └── movies
+│       ├── index.html
+│       └── movie_detail.html
 ├── templatestags
-│   ├── __init__.py
-│   └── movies_tags.py
+│   ├── __init__.py
+│   └── movies_tags.py
 ├── tests
-│   ├── __init__.py
-│   ├── test_models.py
-│   └── test_views.py
+│   ├── __init__.py
+│   ├── test_models.py
+│   └── test_views.py
 ├── urls.py
 └── views.py
 ```
@@ -278,3 +278,5 @@ Nós estudaremos:
 Se gostarias de seguir juntamente com a série, sinta-se a vontade para inscrever-se no meu boletim informativo onde anuncio todos os meus novos conteúdos. Se tiveres outras questões, podes contactar-me na Twitter onde sou o {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
 {{< /web >}}
 &nbsp;
+
+A tradução deste artigo para o português é cortesia de Nazaré Da Piedade.

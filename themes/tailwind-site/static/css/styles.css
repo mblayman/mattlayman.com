@@ -922,6 +922,10 @@ aside {
   margin-right: 1rem;
 }
 
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
 .mt-4 {
   margin-top: 1rem;
 }
@@ -1520,6 +1524,10 @@ aside {
 
   .sm\:mb-4 {
     margin-bottom: 1rem;
+  }
+
+  .sm\:mr-3 {
+    margin-right: 0.75rem;
   }
 
   .sm\:mr-4 {

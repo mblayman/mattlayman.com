@@ -42,4 +42,10 @@
   <li><a href="{{ ref . "/understand-django/2020-08-26-administer-all-the-things.pt.md" }}">Administrador de Todas as Coisas</a></li>
   {{- end -}}
 
+  {{- if eq $post "apps" -}}
+  <li>A Anatomia Duma Aplicação</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2020-09-29-anatomy-of-an-application.md" }}">A Anatomia Duma Aplicação</a></li>
+  {{- end -}}
+
 </ol>
