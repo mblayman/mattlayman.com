@@ -1,7 +1,7 @@
 ---
-title: "User Authentication"
+title: "Autenticação do Utilizador"
 description: >-
-    Our focus in this Understand Django article is how to manage users in your Django application. We'll study Django's built-in user authentication system.
+    O nosso foco neste artigo Entendendo a Django é como gerir os utilizadores na nossa aplicação de Django. Estudaremos o sistema de autenticação de utilizadores embutido da Django.
 image: img/django.png
 type: post
 categories:
@@ -12,128 +12,129 @@ tags:
  - Django
  - authentication
  - authorization
+ - autenticação
+ - autorização
 series: "Understand Django"
 
 ---
 
 {{< web >}}
-In the previous [Understand Django]({{< ref "/understand-django/_index.pt.md" >}}) article, we learned about the structure of a Django *application* and how apps are the core components of a Django project. In this article,
+No artigo anterior da [Entenda a Django]({{< ref "/understand-django/2020-09-29-anatomy-of-an-application.pt.md" >}}), nós aprendemos sobre a estrutura duma *aplicação* da Django e como as aplicações são os componentes centrais de um projeto de Django. Neste artigo,
 {{< /web >}}
 {{< book >}}
-In this chapter,
+Neste capítulo,
 {{< /book >}}
-we're going to dig into Django's built-in user authentication system. We'll see how Django makes your life easier by giving you tools to help your web application interact with the users of your site.
+nos aprofundaremos no sistema de autenticação do utilizador embutido na Django. Veremos como a Django facilita a nossa vida, dando-nos ferramentas para ajudar a nossa aplicação da Web a interagir com os utilizadores da nossa aplicação da Web.
 
 {{< understand-django-series-pt "auth" >}}
 
-## Authentication And Authorization
+## Autenticação e Autorização
 
-We need to start with some terms before we begin our study. When your project interacts with users, there are two primary aspects tightly coupled to users that we must consider.
+Nós precisamos de começar com alguns termos antes de iniciarmos o nosso estudo. Quando o nosso projeto interage com os utilizadores, existem dois aspetos primordiais, fortemente ligados aos utilizadores, que devemos ter em conta.
 
-*Authentication*: When a user tries to prove that they are who they say they are, that is authentication. A user will typically authenticate with your site via some login form or using a social provider like Google to verify their identity.
+*Autenticação*: Quando um utilizador tenta provar que é quem diz ser, isto é autenticação. Normalmente, um utilizador autenticar-se-á no na nossa aplicação da Web através de um formulário de início de sessão ou utilizando um fornecedor social como Google para verificar a sua identidade.
 
-> Authentication can only prove that {{< extlink "https://en.wikipedia.org/wiki/The_Important_Book" "you are you" >}}.
+> A autenticação só pode provar que {{< extlink "https://en.wikipedia.org/wiki/The_Important_Book" "somos nós" >}}.
 
-*Authorization*: What is a user allowed to do? Authorization answers that question. We use authorization to determine what permissions or groups a user belongs to, so that we can scope what a user can do on the site.
+*Autorização*: O que é que um utilizador pode fazer? A autorização responde a essa pergunta. Nós usamos a autorização para determinar as permissões ou grupos a que um utilizador pertence, de modo a podermos definir o que um utilizador pode fazer na aplicação da Web.
 
-> Authorization determines what you can do.
+> A autorização determina o que podemos fazer.
 
-The Django auth system covers both of these topics. Sometimes the software industry will shorten authentication to "authn" and authorization to "authz," but I think those labels are fairly silly and confusing. I will call out topics by their full name and refer to the entire Django system as "auth."
+O sistema de autenticação da Django cobre ambos os tópicos. Por vezes, a indústria de software encurtará a autenticação como "authn" e autorização como "authz", mas penso que esses rótulos são bastante disparatados e confusos. Eu chamarei os tópicos pelo seu nome completo e me referirei a todo o sistema da Django como "auth".
 
-## Setup
+## Configuração
 
-If you used the `startproject` command to begin your project, then, congratulations, you're done and can move on!
+Se utilizámos o comando `startproject` para iniciar o nosso projeto, então, parabéns, já terminámos e podemos seguir!
 
-The auth features in Django require a couple of built-in Django applications and a couple of middleware classes.
+As funcionalidades de autenticação na Django exigem um par de aplicações de Django embutidas e um par de classes de intermediários.
 
-The Django apps are:
+As aplicações de Django são:
 
-* `django.contrib.auth` and
-* `django.contrib.contenttypes` (which the `auth` app depends on)
+* `django.contrib.auth` e
+* `django.contrib.contenttypes` (da qual a aplicação `auth` depende)
 
-The middleware classes are:
+As classes de intermediários são:
 
-* `SessionMiddleware` to store data about a user in a session
-* `AuthenticationMiddleware` to associate users with requests
+* `SessionMiddleware` para armazenar dados sobre um utilizador numa sessão
+* `AuthenticationMiddleware` para associar utilizadores com as requisições
 
-Middleware and sessions are both future topics so consider them internal details that you can ignore for now.
+Os intermediários e as sessões são tópicos futuros, pelo que temos de considerá-los detalhes internos que podemos ignorar por agora.
 
-The Django docs provide additional context about these prerequisites so check out the {{< extlink "https://docs.djangoproject.com/en/4.1/topics/auth/#installation" "auth topic installation section" >}} for more details.
+A documentação da Django fornece contexto adicional sobre estes pré-requisitos, então precisamos consultar a {{< extlink "https://docs.djangoproject.com/en/4.1/topics/auth/#installation" "secção de instalação do tópico de autenticação" >}} por mais detalhes.
 
-## Who Authenticates?
+## Quem Autentica?
 
-If your site is going to have any level of personalization for anyone who uses it, then we need some way to track identity.
+Se a nossa aplicação da Web terá algum nível de personalização para quem a usa, então precisamos de alguma maneira de rastrear a identidade.
 
-In the Django auth system, identity is tracked with a `User` model. This model stores information that you'd likely want to associate with anyone who uses your site. The model includes:
+No sistema de autenticação da Django, a identidade é rastreada com um modelo de base de dados `User`. Este modelo de base de dados armazena informações que nós provavelmente queremos associar com qualquer um que use a nossa aplicação da Web. O modelo inclui:
 
-* name fields,
-* email address,
-* datetime fields for when a user joins or logs in to your site,
-* boolean fields for some coarse permissions that are very commonly needed,
-* and password data.
+* campos de nome,
+* endereço de correio eletrónico,
+* campos de data e hora para quando um utilizador se junta ou inicia sessão na nossa aplicação,
+* compos booleanos para algumas permissões gerais que são muito comummente necessárias,
+* e dados da palavra-passe.
 
-The `User` model is a critically important model in many systems. Unless you're creating a website that is entirely public data and has no need to factor in identity, then you will probably use the `User` model heavily.
+O modelo de base de dados `User` é um modelo extremamente importante em muitos sistemas. A não ser que estejamos criando uma aplicação da Web que seja inteiramente de dados públicos e que não tenha necessidade de ter em conta a identidade, então provavelmente utilizaremos fortemente o modelo `User`.
 
-Even if you *don't* expect your site's visitors to identify in some fashion, you'll still probably benefit from the `User` model because it is integrated with the Django admin site. I mentioned
+Mesmo que *não* esperemos que os visitantes da nossa aplicação se identifiquem de alguma maneira, provavelmente ainda nos beneficiaremos do modelo `User` porque este está integrado com a aplicação de administração da Django. Eu mencionei
 {{< web >}}
-in [Administer All The Things]({{< ref "/understand-django/2020-08-26-administer-all-the-things.pt.md" >}})
+no [Administrar Tudo]({{< ref "/understand-django/2020-08-26-administer-all-the-things.pt.md" >}})
 {{< /web >}}
 {{< book >}}
-in the Administer All The Things chapter
+no capítulo Administrar Tudo
 {{< /book >}}
-that we needed a user with certain permissions to access the admin, but we glossed over the details of what that meant.
+que precisávamos dum utilizador com determinadas permissões para acessar ao administrador, mas não nos apercebemos dos detalhes do que isso significava.
 
-The admin will only permit users with the `is_staff` attribute set to `True`. `is_staff` is one of the boolean fields that I listed as included in the default `User` model implementation.
+O administrador só permitirá utilizadores com o atributo `is_staff` definido como `True`. `is_staff` é um dos campos booleanos que listei como incluídos na implementação padrão do modelo de base de dados `User`.
 
-Now we have an understanding that the `User` model is a very important model in a Django site. At minimum, the model is important as you use the Django admin, but it can also be very important for the people that come to your site.
+Agora entendemos que o modelo de base de dados `User` é um modelo muito importante numa aplicação de Django. No mínimo, o modelo é importante porque usamos o administrador da Django, mas também pode ser muito importante para as pessoas que chegam a nossa aplicação.
 
-Next, let's look a bit deeper at authentication and how that works in conjunction with the `User` model.
+A seguir, analisaremos um pouco mais a autenticação e como esta funciona em conjunto com o modelo de base de dados `User`.
 
-## Authenticating With Passwords
+## Autenticação Com Palavras-Passe
 
-Like many other websites that you've used, Django's built-in auth system authenticates users with passwords.
+Como muitas outras aplicações da Web que usamos, o sistema de autenticação embutido da Django autentica os utilizadores com as palavras-passe.
 
-When a user wants to authenticate, the user must log in to the site. Django includes a `LoginView` class-based view that can handle the appropriate steps. The `LoginView` is a form view that:
+Quando um utilizador quer autenticar-se, o utilizador deve iniciar a sessão na aplicação. A Django inclui uma visão baseada em classe `LoginView` que pode manipular os passos apropriados. A `LoginView` é um visão de formulário que: 
 
-* Collects the `username` and `password` from the user
-* Calls the `django.contrib.auth.authenticate` function with the `username` and `password` to confirm that the user is who they claim to be
-* Redirects to either a path that is set as the value of the `next` parameter in the URL's querystring or `settings.LOGIN_REDIRECT_URL` if the `next` parameter isn't set
-* Or, if authentication failed, re-renders the form page with appropriate error messages
+* Recolhe o `username` e a `password` do utilizador
+* Chama a função `django.contrib.auth.authenticate` com o `username` e a `password` para confirmar que o utilizador é quem diz ser
+* Redireciona para um caminho definido como valor do parâmetro `next` na sequência de caracteres de consulta do localizador uniforme de recurso ou para `settings.LOGIN_REDIRECT_URL` se o parâmetro `next` não estiver definido
+* Ou, se a autenticação falhar, apresenta novamente a página do formulário com as mensagens de erro apropriadas.
 
-How does the `authenticate` function work? The `authenticate` function delegates the responsibility of deciding if the user's credentials are valid to an *authentication backend*.
+Como a função `authenticate` funciona? A função `authenticate` delega a responsabilidade de decidir se as credenciais do utilizador são válidas a um *backend de autenticação*.
 
-Like we have seen with templates and with databases, the auth system has swappable backends. With different backend options, you can have multiple ways of authenticating. The `authenticate` function will loop through any auth backends that are set in the `AUTHENTICATION_BACKENDS` list setting. Each backend can do one of three things:
+Tal como vimos com os modelos de marcação e com as bases de dados, o sistema de autenticação tem backends substituíveis. Com diferentes opções de backend, podemos ter várias maneiras de autenticar. A função `authenticate` percorrerá todos os backends de autenticação definidos na definição da lista `AUTHENTICATION_BACKENDS`. Cada backend pode fazer uma de três coisas:
 
-* Authenticate correctly with the user and return a `User` instance.
-* Not authenticate and return `None`. In this case, the next backend is tried.
-* Not authenticate and raise a `PermissionDenied` exception. In this case, no other backends are tried.
+* Autenticar corretamente com o utilizador e retornar uma instância de `User`.
+* Não autenticar e retornar `None`. Neste caso, o backend seguinte é tentado.
+* Não autenticar e levantar uma exceção `PermissionDenied`. Neste caso, nenhum outro backend é tentado.
 
-You could add a backend to that setting that lets people authenticate with their social media accounts ({{< extlink "https://django-allauth.readthedocs.io/en/latest/" "django-allauth" >}}
-is a great option to do exactly that). You might be in a corporate setting and need Single Sign-On (SSO) for your company. There are backend options that enable that too.
+Poderíamos adicionar um backend a esta definição que permite que as pessoas se autentiquem com suas contas de media social ({{< extlink "https://django-allauth.readthedocs.io/en/latest/" "django-allauth" >}} é uma opção para fazer exatamente isto). Podemos estar num ambiente corporativo e precisar dum único início de sessão para nossa empresa. Existem opções de backend que também permitem isto.
 
-Although there are many options, we'll focus on the built-in backend included with the auth system. The default backend is called the `ModelBackend` and it is in the `django.contrib.auth.backends` module.
+Embora existam muitas opções, iremos concentrar-nos no backend embutido incluído com o sistema de autenticação. O backend padrão é chamado de `ModelBackend` e é está no módulo `django.contrib.auth.backends`.
 
-The `ModelBackend` is named as it is because it uses the `User` model to authenticate. Given a `username` and `password` from the user, the backend compares the provided data to any existing `User` records.
+O `ModelBackend` tem este nome porque usa o modelo de base de dados `User` para autenticar. Dado um `username` e `password` do utilizador, o backend compara os dados fornecidos com quaisquer registos de `User` existentes.
 
-The `authenticate` function calls the `authenticate` *method* that exists on the `ModelBackend`. The backend does a lookup of a `User` record based on the given `username` passed to the method by the `authenticate` function. If the user record exists, the backend calls `user.check_password(password)` where `password` is the actual password that is supplied by the person who submitted the POST to the `LoginView`.
+A função `authenticate` chama o *método* `authenticate` que existe no `ModelBackend`. O backend pesquisa por um registo de `User` baseado no `username` passado ao método pela função `authenticate`. Se o registo do utilizador existir, o backend chama `user.check_password(password)` onde `password` é a palavra-passe real fornecida pela pessoa que submeteu o pedido a `LoginView`.
 
-Django doesn't store actual passwords. To do so would be a major weakness in the framework because any leak of the database would leak all users' passwords. And that's totally not cool. Instead, the `password` field on the `User` model stores a *hash* of the password.
+A Django não armazena palavras-passe reais. Fazer isto seria uma grande fraqueza na abstração porque qualquer violação da base de dados faria com que todas as palavras-passe dos utilizadores fossem divulgadas. E isto não é nada bom. Neste caso, o campo `password` no modelo de base de dados `User` armazena um *baralho* da palavra-passe.
 
-Maybe you've never encountered hashing before. A hash is a computed value that is generated by running input data through a special function. The details of the computation is a very deep topic, especially when considering security, but the important thing to know about hashes is that you can't reverse the computation.
+Talvez nunca tenhamos encontrado o baralhamento antes. Um baralho é um valor calculado que é gerado pela execução de dados de entrada através duma função especial. Os detalhes do cálculo são um tópico muito profundo, especialmente quando considera-se a segurança, mas o que é importante saber sobre baralhos é que não podemos reverter o cálculo.
 
-In other words, if you generated a hash from `mysekretpassword`, then you wouldn't be able to take the hash value and figure out that the original input was `myseckretpassword`.
+Por outras palavras, se gerássemos um baralho a partir de `mysekretpassword`, não poderíamos pegar no valor do baralho e descobrir que a entrada original era `mysekretpassword`.
 
-Why is this useful? By computing hashes, Django can safely store that computed value without compromising a user's password. When a user wants to authenticate with a site, the user submits a password, Django computes the hash on that submitted value and *compares it to the hash stored in the database.* If the hashes match, then the site can conclude that the user sent the correct password. Only the password's hash would match the hash stored in the `User` model.
+Por que isto é útil? Ao calcular os baralhos, a Django pode armazenar com segurança este valor calculado sem comprometer a palavra-passe dum utilizador. Quando um utilizador deseja autenticar-se numa aplicação, o utilizador submete uma palavra-passe, a Django calcula o baralho desse valor submetido e *compara-o com o baralho armazenado na base de dados*. Se os baralhos corresponderem-se, então a aplicação pode concluir que o utilizador enviou uma palavra-passe correta. Somente o baralho da palavra-passe corresponderia ao baralho armazenado no modelo de base de dados `User`.
 
-Hashing is a fascinating subject. If you want to learn more about the guts of how Django manages hashes, I would suggest reading the {{< extlink "https://docs.djangoproject.com/en/4.1/topics/auth/passwords/" "Password management in Django" >}} docs to see the details.
+O baralhamento é um assunto fascinante. Se quisermos estudar mais sobre os fundamentos de como a Django gere os baralhos, sugeriria a leitura da {{< extlink "https://docs.djangoproject.com/en/4.1/topics/auth/passwords/" "gestão de palavra-passe na documentação da Django" >}} para conhecermos os detalhes.
 
-## Authentication Views
+## Visões de Autenticação
 
-That's a lot of stuff to do for authentication!
+É muita coisa a fazer por autenticação!
 
-Is Django going to expect you to call the `authenticate` function and wire together all the views yourself? No!
+Será que a Django esperará que chamemos a função `authenticate` e conectemos todas as visões nós mesmos? Não!
 
-I mentioned the `LoginView` earlier, but that's not the only view that Django provides to make authentication manageable. You can add the set of views with a single `include`:
+Eu mencionei a `LoginView` anteriormente, mas esta não é a única visão que Django fornece para tornar a autenticação manipulável. Nós podemos adicionar o conjunto de visões com um único `include`:
 
 ```python
 # project/urls.py
@@ -149,40 +150,39 @@ urlpatterns = [
 ]
 ```
 
-This set includes a variety of features.
+Este conjunto inclui uma variedade de funcionalidades.
 
-* A login view
-* A logout view
-* Views to change a password
-* Views to reset a password
+* Uma visão de início de sessão
+* Uma visão de termino de sessão
+* Visões para alterar uma palavra-passe
+* Visões para redefinir uma palavra-passe
 
-If you choose to add this set, your job is to override the built-in templates to match the styling of your site. For example, to customize the logout view, you would create a file named `registration/logged_out.html` in your templates directory. The {{< extlink "https://docs.djangoproject.com/en/4.1/topics/auth/default/#all-authentication-views" "All authentication views" >}} documentation provides information about each view and the name of each template to override. Note that you *must* provide a template for the login view as the framework does not supply a default template for that view.
+Se optarmos por adicionar este conjunto, o nosso trabalho é sobrepor os modelos de marcação embutidos para corresponderem ao estilo da nossa aplicação. Por exemplo, para personalizar a visão de termino de sessão, criaríamos um ficheiro chamado `registration/logged_out.html` no nosso diretório de modelos de marcação. A documentação de {{< extlink "https://docs.djangoproject.com/en/4.1/topics/auth/default/#all-authentication-views" "todas visões de autenticação" >}} fornece informações sobre cada visão e o nome de cada modelo de marcação a sobrepor. Notemos que devemos fornecer um modelo para a visão de início de sessão, uma vez que a abstração não fornece um modelo predefinido para esta visão.
 
-If you have more complex needs for your site, you might want to consider some external Django applications that exist in the ecosystem. I personally like {{< extlink "https://django-allauth.readthedocs.io/en/latest/" "django-allauth" >}}.
-The project is very customizable and provides a path to add social authentication to sign up with your social media platform of choice. I also like `django-allauth` because it includes sign up flows that you don't have to build yourself. The application is definitely worth checking out.
+Se tivermos necessidades mais complexas para a nossa aplicação da Web, podemos querer considerar algumas aplicações de Django externas que existem no ecossistema. Pessoalmente, gosto da {{< extlink "https://django-allauth.readthedocs.io/en/latest/" "django-allauth" >}}. O projeto é muito personalizável e fornece um caminho para adicionar autenticação social para se registar com a nossa plataforma de rede social de escolha. Eu também gosto da `django-allauth` porque esta inclui fluxos de registo que não temos que construir nós mesmos. A aplicação definitivamente vale a pena ser conferida.
 
-We've now seen how Django authenticates users to a website with the `User` model, the `authenticate` function, and the built-in authentication backend, `ModelBackend`. We've also seen how Django provides views to assist with login, logout, and password management.
+Já vimos como a Django autentica os utilizadores duma aplicação da Web com o modelo de base de dados `User`, a função `authenticate`, e o backend de autenticação embutido, e o `ModelBackend`. Também vimos como a Django fornece visões para auxiliar com o início de sessão, termino de sessão, e gestão de palavras-passe.
 
-Once a user is authenticated, what is that user allowed to do? We'll see that next as we explore authorization in Django.
+Uma vez que um utilizador estiver autenticado, o que é que este utilizador pode fazer? Nós veremos isto a seguir quando explorarmos autorização na Django.
 
-## What's Allowed?
+## O Que é Permitido?
 
-### Authorization From User Attributes
+### Autorização a partir dos Atributos do Utilizador
 
-Django has multiple ways to let you control what a user is allowed to do on your site.
+A Django tem várias maneiras de nos permitir controlar o que um utilizador pode fazer na nossa aplicação.
 
-The simplest form of checking on a user is to check if the site has identified the user or not. Before a user is authenticated by logging in, that user is anonymous. In fact, the Django auth system has a special class to represent this kind of anonymous user. Sticking to the principle of least surprise, the class is called `AnonymousUser`.
+A maneira mais simples de verificar um utilizador é verificar se a aplicação identificou ou não o utilizador. Antes de um utilizador ser autenticado através do início de sessão, este utilizador é anónimo. De fato, o sistema de autenticação da Django tem uma classe especial para representar este tipo de utilizador anónimo. Seguindo o princípio da menor surpresa, a classe chama-se `AnonymousUser`.
 
-The `User` model includes an `is_authenticated` attribute. Predictably, users that have authenticated will return `True` for `is_authenticated` while `AnonymousUser` instances return `False` for the same attribute.
+O modelo de base de dados `User` inclui um atributo `is_authenticated`. Previsivelmente, os utilizadores que se autenticaram retornarão `True` para `is_authenticated` enquanto as instâncias de `AnonymousUser` retornarão `False` para o mesmo atributo.
 
-Django provides a `login_required` decorator that can use this `is_authenticated` information. The decorator will gate any view that needs a user to be authenticated.
+A Django fornece um decorador `login_required` que pode usar esta informação de `is_authenticated`. O decorador bloqueará qualquer visão que precise que um utilizador esteja autenticado.
 
-This may be the appropriate level of authorization check if you have an application that restricts who is allowed to log in. For instance, if you're running a Software as a Service (SaaS) application that requires users to pay a subscription to use the product, then you may have sufficient authorization checking by checking `is_authenticated`. In that scenario, if your application only permits users with an active subscription (or a trial subscription) to log in, `login_required` will guard against any non-paying users from using your product.
+Este pode ser o nível apropriado de verificação de autorização se tivermos uma aplicação que restrinja quem tem permissão para iniciar sessão. Por exemplo, se estivermos executando uma aplicação “Software as a Service (SaaS)” que exige que os utilizadores paguem uma subscrição para usarem o produto, então podemos ter uma verificação de autorização suficiente ao verificar `is_authenticated`. Neste cenário, se a nossa aplicação apenas permitir que os utilizadores com uma subscrição ativa (ou uma subscrição de avaliação) iniciem sessão, `login_required` impedirá que qualquer utilizador não pagante use o nosso produto.
 
-There are other boolean values on the `User` model that you can use for authorization checking:
+Existem outros valores booleanos no modelo de base de dados `User` que podemos usar para verificação de autorização:
 
-* `is_staff` is a boolean to decide whether a user is a staff member or not. By default, this boolean is `False`. Only staff-level users are allowed to use the built-in Django admin site. You can also use the `staff_member_required` decorator if you have views that should only be used by members of your team with that permission.
-* `is_superuser` is a special flag to indicate a user that should have access to everything. This "superuser" concept is very similar to the superuser that is present in Linux permission systems. There's no special decorator for this boolean, but you could use the `user_passes_test` decorator if you had very private views that you needed to protect:
+* `is_staff` é um booleano para decidir se um utilizador é ou não um membro da equipa. Por padrão, este booleano é `False`. Só os utilizadores ao nível do pessoal estão autorizados a usarem a aplicação de administração da Django embutida. Também podemos usar o decorador `staff_member_required` se tivermos visões que só devem ser usadas por membros da nossa equipa com esta permissão.
+* `is_superuser` é um indicador especial para indicar um utilizador que deve ter acesso a tudo. Este conceito de “superuser” é muito semelhante ao super utilizador que está presente nos sistemas de permissão de Linux. Não existe um decorador especial para este booleano, mas poderíamos usar o decorador `user_passes_test` se tivéssemos visões muito privadas que precisássemos proteger:
 
 ```python
 from django.contrib.admin.views.decorators import (
@@ -209,28 +209,28 @@ def special_view(request):
     )
 ```
 
-The `user_passes_test` decorator behaves much like `login_required`, but it accepts a callable that receives a user object and returns a boolean. If the boolean value is `True`, the request is permitted and the user gets the response. If the boolean value is `False`, the user will be redirected to the login page.
+O decorador `user_passes_test` comporta-se de maneira muito parecida com `login_required`, mas aceita um invocável que recebe um objeto de utilizador e retorna um booleano. Se o valor booleano for `True`, a requisição é permitida e o utilizador recebe a resposta. Se o valor booleano for `False`, o utilizador será redirecionado à página de início de sessão.
 
-### Authorization From Permissions And Groups
+### Autorização de Permissões e Grupos
 
-The first set of checks that we looked at is data that is stored with a `User` model record. While that works well for some cases that apply to many sites, what about authorization that depends on what your application does?
+O primeiro conjunto de verificações que analisámos são os dados armazenados com um registo do modelo de base de dados `User`.  Embora isto funcione bem para alguns casos que se aplicam a muitas aplicações, o que dizer da autorização que depende do que a nossa aplicação faz?
 
-Django comes with a flexible permission system that can let your application control who can see what. The permission system includes some convenient auto-created permissions as well as the ability to make custom permission for whatever purpose. These permission records are `Permission` model instances from `django.contrib.auth.models`.
+A Django vem com um sistema de permissões flexível que permite à nossa aplicação controlar quem pode ver o quê. O sistema de permissões inclui algumas permissões convenientes criadas automaticamente, bem como a capacidade de criar permissões personalizadas para qualquer finalidade. Estes registos de permissões são instâncias do modelo de base de dados `Permission` de `django.contrib.auth.models`.
 
-Any time you create a new model, Django will create an additional set of permissions. These auto-created permissions map to the Create, Read, Update, and Delete (CRUD) operations that you can expect to use in the Django admin. For instance, if you have a `pizzas` app and create a `Topping` model, Django would create the following permissions:
+Sempre que criarmos um modelo de base de dados, a Django criará um conjunto adicional de permissões. Estas permissões auto-criadas mapeiam as operações Criar (Create), Ler (Read), Atualizar (Update), e Eliminar (Delete) (CRUD) que podemos esperar usar na administração da Django. Por exemplo, se tivermos uma aplicação `pizzas` e criarmos um modelo de base de dados `Topping`, a Django criaria as seguintes permissões:
 
-* `pizzas.add_topping` for Create
-* `pizzas.view_topping` for Read
-* `pizzas.change_topping` for Update
-* `pizzas.delete_topping` for Delete
+* `pizzas.add_topping` para Criar (Create)
+* `pizzas.view_topping` para Ler (Read)
+* `pizzas.change_topping` para Atualizar (Update)
+* `pizzas.delete_topping` para Eliminar (Delete)
 
-A big reason to create these permissions is to aid your development *and* add control to the Django admin. Staff-level users (i.e., `user.is_staff == True`) in your application have no permissions to start with. This is a safe default so that any new staff member cannot access all of the data in your system unless you grant them more permissions as you gain trust in them.
+Uma grande razão para criar estas permissões é para auxiliar o nosso desenvolvimento *e* adicionar controlo ao administrador da Django. Os utilizadores de nível de pessoal (isto é, `user.is_staff == True`) na nossa aplicação, não têm permissões para começar. Isto é um padrão seguro para que qualquer novo membro do pessoal não possa acessar a todos os dados do nosso sistema, e menos que lhes concedamos mais permissões à medida que ganhamos confiança neles.
 
-When a staff user logs into the Django admin, they will initially see very little. As permissions are granted to the user's account, the Django admin will reveal additional information corresponding to the selected permissions. Although permissions are often granted through the `User` admin page, you can add permissions to a user through code. The `User` model has a `ManyToManyField` called `user_permissions` that associates user instances to particular permissions.
+Quando utilizadores do pessoal iniciarem a sessão no administrador da Django, inicialmente verão muito pouco. À medida que as permissões são concedidas à conta do utilizador, o administrador da Django revelará informação adicional correspondente às permissões selecionadas. Embora as permissões sejam frequentemente concedidas através da página de administração de `User`, podemos adicionar permissões a um utilizador por código. O modelo de base de dados `User` possui um campo `ManyToManyField` chamado `user_permissions` que associa instâncias de utilizadores a permissões particulares.
 
-Continuing with the pizza application example, perhaps you work with a chef for your pizza app. Your chef may need the ability to control any new toppings that should be available to customers, but you probably don't want the chef to be able to delete orders from the application's history.
+Continuando com o exemplo da aplicação de pizas, talvez trabalhemos com um chefe para a nossa aplicação de pizas. O nosso chefe pode precisar de controlar quaisquer novas coberturas que devam estar disponíveis aos clientes, mas provavelmente não queremos que o chefe possa eliminar encomendas do histórico da aplicação.
 
-For the chef, you'd grant the `pizzas.add_topping`, `pizzas.view_topping`, and `pizzas.change_topping` permissions, but you'd leave out `orders.delete_order`:
+Para o chefe, concederíamos as permissões `pizzas.add_topping`, `pizzas.view_topping` e `pizzas.change_topping`, mas deixaríamos de fora `orders.delete_order`:
 
 ```python
 from django.contrib.auth.models import (
@@ -253,15 +253,15 @@ chef = User.objects.get(id=42)
 chef.user_permissions.add(permission)
 ```
 
-We haven't covered the `contenttypes` app so this code may look unusual to you, but the auth system uses content types as a way to reference models generically when handling permissions. You can learn more about content types and their uses at {{< extlink "https://docs.djangoproject.com/en/4.1/ref/contrib/contenttypes/" "the contenttypes framework" >}} documentation. The important point to observe from the example is that permissions behave like any other Django model.
+Nós não cobrimos a aplicação `contenttypes`, então este código pode parecer incomum para nós, mas o sistema de autenticação usa tipos de conteúdo como uma maneira de referenciar modelos de base de dados genericamente ao lidar com permissões. Podemos saber mais sobre os tipos de conteúdo e os seus usos na documentação da {{< extlink "https://docs.djangoproject.com/en/4.1/ref/contrib/contenttypes/" "abstração contenttypes" >}}. O ponto importante a ser observado a partir do exemplo é que as permissões se comportam como qualquer outro modelo de base de dados da Django.
 
-Adding permissions to individual users is a nice feature for a small team, but if your team grows, it could devolve into a nightmare.
+Adicionar permissões a utilizadores individuais é uma boa funcionalidade para um equipa pequena, mas se a nossa equipa crescer, pode tornar-se num pesadelo.
 
-Let's suppose that your application is wildly successful, and you need to hire a large support staff to help with customer issues. If your support team needs to view certain models in your system, it would be a total pain if you had to manage that per staff member.
+Suponhamos que a nossa aplicação tem enorme sucesso e que precisamos de controlar uma grande equipa de apoio para ajudar a resolver os problemas dos clientes. Se a nossa equipa de apoio necessitar de visualizar determinados modelos de base de dados no nosso sistema, seria uma grande chatice se tivéssemos de gerir isto por membro do pessoal.
 
-Django has an ability to create groups to alleviate this problem. The `Group` model is the intersection between a set of permissions and a set of users. Thus, you could create a group like "Support Team," assign all the permissions that such a team should have, and include all your support staff on that team. Now, any time that the support staff members require a new permission, it can be added once to the group.
+A Django consegue criar grupos para aliviar este problema. O modelo de base de dados `Group` é a intersecção entre um conjunto de permissões e um conjunto de utilizadores. Assim, podemos criar um grupo como "Support Team,", atribuir todas as permissões que esta equipa deve ter e incluir todo o nosso pessoal de apoio nesta equipa. Agora, sempre que os membros da equipa de apoio necessitarem duma nova permissão, esta pode ser adicionada imediatamente ao grupo.
 
-A user's groups are tracked with another `ManyToManyField` called `groups`:
+Os grupos de um utilizador são controlados com um outro campo `ManyToManyField` chamado `groups`:
 
 ```python
 from django.contrib.auth.models import (
@@ -277,9 +277,9 @@ support_sally = User.objects.get(
 support_sally.groups.add(support_team)
 ```
 
-In addition to the built-in permissions that Django creates and the group management system, you can create additional permissions for your own purposes.
+Para além das permissões embutidas que a Django cria e do sistema de gestão de grupos, podemos criar permissões adicionais para os nossos próprios fins.
 
-Let's give our chef permission to bake pizzas in our imaginary app:
+Daremos permissão ao nosso chefe para cozer pizas na nossa aplicação imaginária:
 
 ```python
 from django.contrib.auth.models import (
@@ -303,7 +303,7 @@ chef = User.objects.get(id=42)
 chef.user_permissions.add(permission)
 ```
 
-To check on the permission in our code, you can use the `has_perm` method on the `User` model. `has_perm` expects an application label and the permission codename joined together by a period:
+Para verificar a permissão no nosso código, podemos usar o método `has_perm` no modelo de base de dados `User`. `has_perm` espera um rótulo de aplicação e o nome de código da permissão unidos por um ponto:
 
 ```python
 >>> chef = User.objects.get(id=42)
@@ -311,7 +311,7 @@ To check on the permission in our code, you can use the `has_perm` method on the
 True
 ```
 
-You can also use a decorator on a view to check a permission as well. The decorator will check the `request.user` for the proper permission:
+Podemos também usar um decorador numa visão para verificar uma permissão também. O decorador verificará a `request.user` para a permissão correta:
 
 ```python
 # pizzas/views.py
@@ -320,18 +320,18 @@ from django.contrib.auth.decorators import permission_required
 
 @permission_required('pizzas.can_bake')
 def bake_pizza(request):
-    # Time to bake the pizza
-    # if you're allowed.
+    # Hora de cozer a piza
+    # se lhe for permitido.
     ...
 ```
 
-## Working With Users In Views And Templates
+## Trabalhar com Utilizadores Nas Visões e Modelos de Marcação
 
-Now we've discussed how to authenticate users and how to check their authorization. How do we *interact* with users in your application code?
+Já falámos sobre como autenticar utilizadores e como verificar a sua autorização. Como *interagimos* com os utilizadores no nosso código de aplicação?
 
-The first way is inside of views. Part of configuring the auth system is to include the `AuthenticationMiddleware` in `django.contrib.auth.middleware`.
+A primeira maneira é dentro das visões. Parte da configuração do sistema de autenticação é incluir o `AuthenticationMiddleware` em `django.contrib.auth.middleware`.
 
-This middleware has one job in request processing: add a `user` attribute to the `request` that the view will receive. This middleware gives us very clean and convenient access to the user record:
+Este intermediário tem uma função no processamento de requisições: adicionar um atributo `user` ao `request` que a visão receberá. Este intermediário dá-nos um acesso muito limpo e conveniente ao registo do utilizador:
 
 ```python
 # application/views.py
@@ -349,24 +349,24 @@ def my_view(request):
         )
 ```
 
-The `AuthenticationMiddleware` is what makes it possible for the decorators
+O `AuthenticationMiddleware` é o que possibilita os decoradores
 {{< web >}}
-that I've described in this article
+que descrevi neste artigo
 {{< /web >}}
 {{< book >}}
-that I've described in this chapter
+que descrevi neste capítulo
 {{< /book >}}
-(i.e., `login_required`, `user_passes_test`, and `permission_required`) to work. Each of the decorators finds the `user` record as an attribute attached to the `request`.
+(isto é, `login_required`, `user_passes_test`, e `permission_required`) funcionarem. Cada um dos decoradores encontra o registo `user` como um atributo anexado ao `request`.
 
-How about templates? If you had to add a user to a view's context for every view, that would be tedious.
+E quanto aos modelos de marcação? Se tivéssemos de adicionar um utilizador ao contexto duma visão para cada visão, isto seria aborrecido.
 
-Thankfully, there is a context processor named `auth` that lets you avoid that pain (the processor is in `django.contrib.auth.context_processors`). The context processor will add a `user` to the context of every view when processing a request.
+Felizmente, existe um processador de contexto chamado `auth` que nos permite evitar esta dor (o processador está em `django.contrib.auth.context_processors`). O processador de contexto adicionará um `user` ao contexto de cada visão ao processar uma requisição.
 
-Recall that a context processor is a function that receives a `request` object and returns a dictionary that will be merged into the context. Knowing that, can you guess how this context processor works?
+É necessário relembrar que um processador de contexto é uma função que recebe um objeto `request` e retorna um dicionário que será combinado no contexto. Sabendo isto, podemos adivinhar como funciona este processador de contexto?
 
-If you guessed `AuthenticationMiddleware`, you get a cookie! 🍪 Since the middleware adds the `user` to the `request`, the context processor has the very trivial job of creating a dictionary like `{'user': request.user}`. There's a bit more to the actual implementation, and you can check out the {{< extlink "https://github.com/django/django/blob/4.1/django/contrib/auth/context_processors.py#L49" "Django source code" >}} if you want to see those details.
+Se nossa resposta for `AuthenticationMiddleware`, recebemos um biscoito (cookie)! 🍪 Uma vez que o intermediário adiciona o `user` ao `request`, o processador de contexto tem a tarefa muito simples de criar um dicionário como `{'user': request.user}`. Há um pouco mais sobre a implementação real, e podemos consultar o {{< extlink "https://github.com/django/django/blob/4.1/django/contrib/auth/context_processors.py#L49" "código-fonte da Django" >}} se quisermos ver estes detalhes.
 
-What does this look like in practice? We've actually seen this already! One of the examples from the explanation of templates used the `user` context variable. Here's the example again so you don't need to jump back:
+O que isto parece na prática? Na verdade, já vimos isto! Um dos exemplos da explicação dos modelos de marcação utilizou a variável de contexto `user`. Eis o exemplo novamente para não termos de retroceder:
 
 {{< web >}}
 ```django
@@ -383,42 +383,42 @@ What does this look like in practice? We've actually seen this already! One of t
 ```
 {{< /book >}}
 
-If you decide to use Django's permissions, you can also take advantage of the `perms` context variable in your templates. This variable is supplied by the `auth` context processor as well and gives your template access to the permissions of the `user` in a concise manner. The {{< extlink "https://docs.djangoproject.com/en/4.1/topics/auth/default/#permissions" "Django docs" >}} include some good examples of how the `perms` variable can be used.
+Se decidirmos usar as permissões da Django, também podemos aproveitar a variável de contexto `perms` nos nossos modelos de marcação. Esta variável é também fornecida pelo processador de contexto `auth` e dá ao nosso modelo de marcação acesso às permissões do `user` concisamente. A {{< extlink "https://docs.djangoproject.com/en/4.1/topics/auth/default/#permissions" "documentação da Django" >}} inclui alguns bons exemplos de como a variável `perms` pode ser usada.
 
-Now you've seen how Django leverages the auth middleware to make users easily accessible to your views and templates.
+Já vimos como a Django influencia o intermediário de autenticação para tornar os utilizadores facilmente acessíveis às nossas visões e modelos de marcação.
 
-## Summary
+## Sumário
 
 {{< web >}}
-In this article,
+Neste artigo,
 {{< /web >}}
 {{< book >}}
-In this chapter,
+Neste capítulo,
 {{< /book >}}
-we got into Django's built-in user auth system.
+entramos no sistema de autenticação de utilizador embutido da Django.
 
-We learned about:
+Estudamos sobre:
 
-* How auth is set up
-* What the `User` model is
-* How authentication works
-* Django's built-in views for making a login system
-* What levels of authorization are available
-* How to access users in views and templates
+* Como a autenticação é configurada
+* Como a autenticação funciona
+* O que o modelo de base de dados `User` é
+* Visões embutidas da Django para criação de um sistema de início de sessão
+* Quais níveis de autorização estão disponíveis
+* Como acessar os utilizadores nas visões e modelos de marcação
 
 {{< web >}}
-Next time we'll study middleware
+Da próxima vez, estudaremos o intermediário
 {{< /web >}}
 {{< book >}}
-In the next chapter, we'll study middleware
+No próximo capítulo, estudaremos o intermediário
 {{< /book >}}
-in Django. As the name implies, middleware is some code that exists in the "middle" of the request and response process. We will learn about:
+na Django. Conforme o nome implica, intermediário é algum código que existe no "meio" do processo da requisição e da resposta. Estudaremos sobre:
 
-* The mental model for considering middleware
-* How to write your own middleware
-* Some of the middleware classes that come with Django
+* O modelo mental para consideração do intermediário
+* Como escrever o nosso próprio intermediário
+* Algumas das classes de intermediário que vêm com a Django.
 
 {{< web >}}
-If you'd like to follow along with the series, please feel free to sign up for my newsletter where I announce all of my new content. If you have other questions, you can reach me online on Twitter where I am {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+Se gostarias de seguir juntamente com a série, sinta-se a vontade para inscrever-se no meu boletim informativo onde anuncio todos os meus novos conteúdos. Se tiveres outras questões, podes contactar-me na Twitter onde sou o {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
 {{< /web >}}
 &nbsp;
