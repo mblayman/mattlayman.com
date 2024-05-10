@@ -48,4 +48,10 @@
   <li><a href="{{ ref . "/understand-django/2020-09-29-anatomy-of-an-application.md" }}">A Anatomia Duma Aplicação</a></li>
   {{- end -}}
 
+  {{- if eq $post "auth" -}}
+  <li>Autenticação do Utilizador</li>
+  {{- else -}}
+  <li><a href="{{ ref . "/understand-django/2020-11-04-user-authentication.pt.md" }}">Autenticação do Utilizador</a></li>
+  {{- end -}}
+
 </ol>
