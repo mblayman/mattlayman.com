@@ -32,8 +32,7 @@ to go live
 and how to prepare your Django project
 for the internet.
 
-Listen at {{< extlink "https://open.spotify.com/episode/5ZFl9yvSuiiIXVrpFdl38x" "Spotify" >}}
-or with the player below.
+Listen at {{< extlink "https://open.spotify.com/episode/5ZFl9yvSuiiIXVrpFdl38x" "Spotify" >}}.
 
 ## Last Episode
 

@@ -40,8 +40,7 @@ You'll see how Django handles those kinds
 of files
 and how to deal with them safely.
 
-Listen at {{< extlink "https://open.spotify.com/episode/697jZu1rTGzYzmfMHaKW6E" "Spotify" >}}
-or with the player below.
+Listen at {{< extlink "https://open.spotify.com/episode/697jZu1rTGzYzmfMHaKW6E" "Spotify" >}}.
 
 ## Last Episode
 

@@ -31,8 +31,7 @@ but they have little to do with Python code.
 We'll see what they are
 and what they do.
 
-Listen at {{< extlink "https://open.spotify.com/episode/1Tn41YfkWh3ffvBpZB8c49" "Spotify" >}}
-or with the player below.
+Listen at {{< extlink "https://open.spotify.com/episode/1Tn41YfkWh3ffvBpZB8c49" "Spotify" >}}.
 
 ## Last Episode
 

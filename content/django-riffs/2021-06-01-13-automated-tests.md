@@ -34,8 +34,7 @@ We're digging into automated testing
 and how to write tests
 for your Django apps.
 
-Listen at {{< extlink "https://open.spotify.com/episode/5Ruzpnuhejt2W4N2uAPuQr" "Spotify" >}}
-or with the player below.
+Listen at {{< extlink "https://open.spotify.com/episode/5Ruzpnuhejt2W4N2uAPuQr" "Spotify" >}}.
 
 ## Last Episode
 

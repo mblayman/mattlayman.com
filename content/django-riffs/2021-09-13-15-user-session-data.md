@@ -34,8 +34,7 @@ for visitors
 to your site.
 This category of data is called *session* data.
 
-Listen at {{< extlink "https://open.spotify.com/episode/6lUub9mrEKOJDnvpYqqAop" "Spotify" >}}
-or with the player below.
+Listen at {{< extlink "https://open.spotify.com/episode/6lUub9mrEKOJDnvpYqqAop" "Spotify" >}}.
 
 ## Last Episode
 

@@ -32,8 +32,7 @@ What are the common techniques
 to make this easier to handle?
 Let's find out!
 
-Listen at {{< extlink "https://open.spotify.com/episode/5jYVhLg90B720l0fpcF2TS" "Spotify" >}}
-or with the player below.
+Listen at {{< extlink "https://open.spotify.com/episode/5jYVhLg90B720l0fpcF2TS" "Spotify" >}}.
 
 ## Last Episode
 
