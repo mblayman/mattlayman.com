@@ -23,8 +23,6 @@ tags:
 
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fv259R38gqc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 For Python Frederick's September presentation,
 I presented on Python testing.
 In the presentation,
@@ -33,6 +31,8 @@ of the features
 of pytest
 that went beyond the basics
 that we explored in March.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fv259R38gqc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 The recording from the talk is available
 on YouTube.

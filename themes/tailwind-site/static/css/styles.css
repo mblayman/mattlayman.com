@@ -890,6 +890,16 @@ aside {
   margin-bottom: 2rem;
 }
 
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 .-mt-20 {
   margin-top: -5rem;
 }
@@ -1022,6 +1032,10 @@ aside {
   flex-grow: 1;
 }
 
+.list-disc {
+  list-style-type: disc;
+}
+
 .appearance-none {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -1085,6 +1099,11 @@ aside {
 .border-blue-200 {
   --tw-border-opacity: 1;
   border-color: rgb(190 227 248 / var(--tw-border-opacity));
+}
+
+.border-blue-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(99 179 237 / var(--tw-border-opacity));
 }
 
 .border-blue-700 {
@@ -1480,6 +1499,16 @@ aside {
   color: rgb(45 55 72 / var(--tw-text-opacity));
 }
 
+.hover\:text-blue-200:hover {
+  --tw-text-opacity: 1;
+  color: rgb(190 227 248 / var(--tw-text-opacity));
+}
+
+.hover\:text-blue-400:hover {
+  --tw-text-opacity: 1;
+  color: rgb(99 179 237 / var(--tw-text-opacity));
+}
+
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
@@ -1512,6 +1541,11 @@ aside {
   .sm\:my-8 {
     margin-top: 2rem;
     margin-bottom: 2rem;
+  }
+
+  .sm\:mx-4 {
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .sm\:-mt-20 {

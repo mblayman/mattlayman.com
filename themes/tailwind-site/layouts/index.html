@@ -59,12 +59,23 @@
   </div>
 </div>
 
-<h1 class="font-light tracking-wide text-xl border-b-2 border-red-600 my-2 sm:my-8">Recent</h1>
+<h2 class="font-light tracking-wide text-xl border-b-2 border-red-600 my-2 sm:my-8">Recent</h2>
 
 {{ $paginator := .Paginate (where .Site.RegularPages.ByDate.Reverse "Type" "post") }}
 {{ partial "articles-list" $paginator }}
 
 {{ partial "paginator" . }}
+
+<h2 class="font-light tracking-wide text-xl border-b-2 border-red-600 my-8">All Articles</h2>
+
+<ul class="mx-4 sm:mx-4 list-disc">
+  {{ range where .Site.RegularPages "Type" "==" "post" }}
+      <li class="mb-2">
+        <a class="border-b border-blue-200 hover:text-blue-400" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </li>
+  {{ end }}
+</ul>
+
 {{ end }}
 
 {{ define "grid" }}mx-auto w-full sm:w-2/3{{ end }}
