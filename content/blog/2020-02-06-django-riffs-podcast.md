@@ -25,7 +25,7 @@ and my goal is to help beginners learn
 how to use {{< extlink "https://www.djangoproject.com/" "Django" >}}.
 You can find the show on
 {{< extlink "https://open.spotify.com/show/1RtdveQIz5m5MqLKPWbhnD" "Spotify" >}}
-or check Apple Music
+or check Apple Podcasts
 or wherever you get podcasts.
 
 Each episode of the podcast will be a topical exploration
