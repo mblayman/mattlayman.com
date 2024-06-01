@@ -29,7 +29,7 @@ to see what you can learn too!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/R733F2emni4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Our presenter was {{< extlink "https://twitter.com/pierson_pat/" "Patrick Pierson" >}}.
+Our presenter was {{< extlink "https://x.com/pierson_pat/" "Patrick Pierson" >}}.
 Patrick works for IronNet Cybersecurity as a Senior Software Engineer.
 He uses Python daily to deploy AWS resources and test the IronNet platform.
 He is also the organizer of {{< extlink "https://www.meetup.com/AWS-Frederick-Meetup/" "AWS Frederick" >}}.

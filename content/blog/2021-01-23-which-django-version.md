@@ -113,6 +113,6 @@ on your journey to becoming a Django dev.
 
 Subscribe to my [newsletter]({{< ref "/newsletter.md" >}})
 and follow me
-{{< extlink "https://twitter.com/mblayman" "on Twitter" >}}
+{{< extlink "https://x.com/mblayman" "on X" >}}
 to learn more about Django
 as I release new content.

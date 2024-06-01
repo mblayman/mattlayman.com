@@ -419,7 +419,7 @@ na Django. Conforme o nome implica, intermediário é algum código que existe n
 * Algumas das classes de intermediário que vêm com a Django.
 
 {{< web >}}
-Se gostarias de seguir juntamente com a série, sinta-se a vontade para inscrever-se no meu boletim informativo onde anuncio todos os meus novos conteúdos. Se tiveres outras questões, podes contactar-me na Twitter onde sou o {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+Se gostarias de seguir juntamente com a série, sinta-se a vontade para inscrever-se no meu boletim informativo onde anuncio todos os meus novos conteúdos. Se tiveres outras questões, podes contactar-me na X onde sou o {{< extlink "https://x.com/mblayman" "@mblayman" >}}.
 {{< /web >}}
 &nbsp;
 

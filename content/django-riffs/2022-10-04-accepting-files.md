@@ -40,12 +40,8 @@ You'll see how Django handles those kinds
 of files
 and how to deal with them safely.
 
-Listen at {{< extlink "https://djangoriffs.com/episodes/accepting-files" "djangoriffs.com" >}}
+Listen at {{< extlink "https://open.spotify.com/episode/697jZu1rTGzYzmfMHaKW6E" "Spotify" >}}
 or with the player below.
-
-<div class="h-48">
-<iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/7c13d5d7-312b-4179-8415-f9a0ce465bfc?dark=false"></iframe>
-</div>
 
 ## Last Episode
 
@@ -349,13 +345,13 @@ Commands are the code
 that you can run with `./manage.py`.
 
 You can follow the show
-on {{< extlink "https://djangoriffs.com" "djangoriffs.com" >}}.
+on {{< extlink "https://open.spotify.com/show/1RtdveQIz5m5MqLKPWbhnD" "Spotify" >}}.
 Or follow me or the show
-on Twitter
+on X
 at
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}
 or
-{{< extlink "https://twitter.com/djangoriffs" "@djangoriffs" >}}.
+{{< extlink "https://x.com/djangoriffs" "@djangoriffs" >}}.
 
 Please rate or review
 on Apple Podcasts, Spotify,

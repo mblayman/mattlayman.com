@@ -275,7 +275,7 @@ Nós estudaremos:
 * Como trabalhar com utilizadores nas nossas visões e modelos de marcação
 
 {{< web >}}
-Se gostarias de seguir juntamente com a série, sinta-se a vontade para inscrever-se no meu boletim informativo onde anuncio todos os meus novos conteúdos. Se tiveres outras questões, podes contactar-me na Twitter onde sou o {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+Se gostarias de seguir juntamente com a série, sinta-se a vontade para inscrever-se no meu boletim informativo onde anuncio todos os meus novos conteúdos. Se tiveres outras questões, podes contactar-me na X onde sou o {{< extlink "https://x.com/mblayman" "@mblayman" >}}.
 {{< /web >}}
 &nbsp;
 

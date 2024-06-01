@@ -1266,13 +1266,13 @@ up for tonight.
 
 If this is something that if
 you found this useful you can share it
-out on Twitter I will also post this to
+out on X I will also post this to
 YouTube like I do regularly so if you
 want to refer back to anything that I
 said, you are certainly welcome to do
 that. If you found this useful, I'd
 love to hear from you, find out
-what you liked about it. I'm on Twitter
+what you liked about it. I'm on X
 as mblayman. I'm also on GitHub. I'm also
 on a bunch of place in the places as mblayman
 so look for me around. I

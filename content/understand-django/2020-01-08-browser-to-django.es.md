@@ -211,8 +211,8 @@ En el próximo artículo, nuestro enfoque estará en aquellas URL a las que resp
 * Cómo extraer información de las URL que puede usar
 * El código que devuelve las respuestas
 
-Si desea seguir la serie, no dude en suscribirse a mi boletín informativo donde anuncio todo mi contenido nuevo. Si tiene otras preguntas, puede comunicarse conmigo en línea en Twitter, donde soy
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+Si desea seguir la serie, no dude en suscribirse a mi boletín informativo donde anuncio todo mi contenido nuevo. Si tiene otras preguntas, puede comunicarse conmigo en línea en X, donde soy
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}.
 
 Finalmente, hay un tema extra más...
 

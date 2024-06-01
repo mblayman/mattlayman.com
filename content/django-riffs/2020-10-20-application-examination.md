@@ -29,7 +29,7 @@ of a Django application.
 Applications are the core components
 that make up a Django project.
 
-Listen at {{< extlink "https://djangoriffs.com/episodes/application-examination" "djangoriffs.com" >}}.
+Listen at {{< extlink "https://open.spotify.com/episode/1nykiskgPUEFAnKdaVsU5j" "Spotify" >}}.
 
 ## Last Episode
 
@@ -336,13 +336,13 @@ to manage users and their permissions
 in your web app.
 
 You can follow the show
-on {{< extlink "https://djangoriffs.com" "djangoriffs.com" >}}.
+on {{< extlink "https://open.spotify.com/show/1RtdveQIz5m5MqLKPWbhnD" "Spotify" >}}.
 Or follow me or the show
-on Twitter
+on X
 at
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}
 or
-{{< extlink "https://twitter.com/djangoriffs" "@djangoriffs" >}}.
+{{< extlink "https://x.com/djangoriffs" "@djangoriffs" >}}.
 
 Please rate or review
 on Apple Podcasts, Spotify,

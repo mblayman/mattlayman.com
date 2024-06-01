@@ -760,8 +760,8 @@ for my newsletter
 where I publish all new things first.
 If you have other questions,
 you can reach me online
-on Twitter
+on X
 where I am
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}.
 {{< /web >}}
 &nbsp;

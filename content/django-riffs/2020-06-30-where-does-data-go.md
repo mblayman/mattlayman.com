@@ -27,7 +27,7 @@ we will learn about storing data
 and how Django manages data
 using models.
 
-Listen at {{< extlink "https://djangoriffs.com/episodes/where-does-data-go" "djangoriffs.com" >}}.
+Listen at {{< extlink "https://open.spotify.com/episode/1zFFGYGhMwDEgquMeUU2vn" "Spotify" >}}.
 
 ## Last Episode
 
@@ -259,13 +259,13 @@ to save and fetch data
 for your application.
 
 You can follow the show
-on {{< extlink "https://djangoriffs.com" "djangoriffs.com" >}}.
+on {{< extlink "https://open.spotify.com/show/1RtdveQIz5m5MqLKPWbhnD" "Spotify" >}}.
 Or follow me or the show
-on Twitter
+on X
 at
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}
 or
-{{< extlink "https://twitter.com/djangoriffs" "@djangoriffs" >}}.
+{{< extlink "https://x.com/djangoriffs" "@djangoriffs" >}}.
 
 Please rate or review
 on Apple Podcasts, Spotify,

@@ -33,7 +33,7 @@ how you can configure it,
 and how you can customize it
 to serve your needs.
 
-Listen at {{< extlink "https://djangoriffs.com/episodes/administering-your-app" "djangoriffs.com" >}}.
+Listen at {{< extlink "https://open.spotify.com/episode/3Fr7GFl875s0H5IHXpRWpf" "Spotify" >}}.
 
 ## Last Episode
 
@@ -577,13 +577,13 @@ of many applications
 and we will dig into what an application looks like.
 
 You can follow the show
-on {{< extlink "https://djangoriffs.com" "djangoriffs.com" >}}.
+on {{< extlink "https://open.spotify.com/show/1RtdveQIz5m5MqLKPWbhnD" "Spotify" >}}.
 Or follow me or the show
-on Twitter
+on X
 at
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}
 or
-{{< extlink "https://twitter.com/djangoriffs" "@djangoriffs" >}}.
+{{< extlink "https://x.com/djangoriffs" "@djangoriffs" >}}.
 
 Please rate or review
 on Apple Podcasts, Spotify,

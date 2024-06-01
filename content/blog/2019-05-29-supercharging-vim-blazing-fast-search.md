@@ -372,7 +372,7 @@ While clever,
 that's a lot of work for a find and replace.
 
 At PyCon this year,
-{{< extlink "https://twitter.com/mattboehm" "Matt Boehm" >}}
+{{< extlink "https://x.com/mattboehm" "Matt Boehm" >}}
 blew my mind
 at a Vim open space
 when he introduced the group
@@ -466,7 +466,7 @@ that Vim might struggle with out-of-the-box.
 If you liked this article
 and learned something along the way,
 would you do me a favor
-and share it on Twitter
+and share it on X
 or your favorite social media
 so that other have the chance to learn something too?
 Also, please check out my other articles

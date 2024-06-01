@@ -1,11 +1,11 @@
 ---
-title: Open Graph, Twitter cards, and plugins... Oh My!
+title: Open Graph, X cards, and plugins... Oh My!
 description: >-
   Social media is a huge part of how people share news
   with each other
   on the internet.
   This post looks into how to make your content appear richer
-  on sites like Facebook and Twitter.
+  on sites like Facebook and X.
 image: img/2017/og.png
 type: post
 aliases:
@@ -15,12 +15,12 @@ categories:
 tags:
  - Open Graph
  - Facebook
- - Twitter
+ - X
 
 ---
 
 Facebook recently reported having 1.86 billion monthly active users.
-Twitter clocks in at 313 million montly active users.
+X clocks in at 313 million monthly active users.
 Like them or not,
 social media sites are extremely popular channels
 for people to learn about the world around them.
@@ -36,9 +36,9 @@ that these sites can discover
 when scanning your pages.
 Facebook's metadata format is called
 {{< extlink "http://ogp.me/" "Open Graph" >}}
-and Twitter describes their metadata as
-{{< extlink "https://dev.twitter.com/cards/overview" "cards" >}}.
-**This post will cover Open Graph and Twitter cards
+and X describes their metadata as
+{{< extlink "https://dev.x.com/cards/overview" "cards" >}}.
+**This post will cover Open Graph and X cards
 and how I incorporated them
 into this site.**
 My interest in this subject is as a blogger,
@@ -59,11 +59,11 @@ and break it down.
 <meta property="og:image"
   content="http://www.mattlayman.com/2017/og.png" />
 <meta property="og:title"
-  content="Open Graph, Twitter cards, and plugins... Oh My!" />
+  content="Open Graph, X cards, and plugins... Oh My!" />
 <meta property="og:description"
   content="Social media is a huge part of how people share news with each
            other on the internet. This post looks into how to make your
-           content appear richer on sites like Facebook and Twitter." />
+           content appear richer on sites like Facebook and X." />
 ```
 
 All of these meta tags are added to the `head` portion
@@ -79,11 +79,11 @@ but this minimum amount will provide a full looking styling
 when your content shows
 on Facebook.
 
-## Twitter cards
+## X cards
 
-Twitter cards aren't nearly so granular
+X cards aren't nearly so granular
 as Open Graph content.
-For a Twitter card,
+For a X card,
 the `summary` type is a good fit
 for a blog post.
 
@@ -95,23 +95,23 @@ for a blog post.
 <meta name="twitter:image"
   content="http://www.mattlayman.com/2017/og.png" />
 <meta name="twitter:title"
-  content="Open Graph, Twitter cards, and plugins... Oh My!" />
+  content="Open Graph, X cards, and plugins... Oh My!" />
 <meta name="twitter:description"
   content="Social media is a huge part of how people share news with each
            other on the internet. This post looks into how to make your
-           content appear richer on sites like Facebook and Twitter." />
+           content appear richer on sites like Facebook and X." />
 ```
 
 Like its Open Graph brethren,
-Twitter card meta tags are placed
+X card meta tags are placed
 in the `head` section.
 You can see immediately
 there is a striking similarity
-between Open Graph and Twitter cards
+between Open Graph and X cards
 when you have content
 like a blog post.
 The only noticable differences are
-the absence of a `url` for Twitter cards
+the absence of a `url` for X cards
 and a `twitter:site` property
 in its place.
 
@@ -142,7 +142,7 @@ with functionality that I wanted
 while avoiding functionality
 that I had no need for.
 This system enabled me
-to integrate Open Graph and Twitter cards.
+to integrate Open Graph and X cards.
 
 handroll {{< extlink "http://handroll.readthedocs.io/en/latest/extensions.html" "extensions" >}}
 operate on well defined signals

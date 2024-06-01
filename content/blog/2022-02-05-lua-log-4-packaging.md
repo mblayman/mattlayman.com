@@ -303,5 +303,5 @@ I'll report back when I've figured some of this stuff out.
 
 Thanks for reading!
 Have questions?
-Let me know on Twitter at
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+Let me know on X at
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}.

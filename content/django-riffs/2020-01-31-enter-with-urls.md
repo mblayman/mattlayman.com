@@ -31,7 +31,7 @@ how to build them in Django,
 and the functions Django provides
 to work with URLs.
 
-Listen at {{< extlink "https://djangoriffs.com/episodes/enter-with-urls" "djangoriffs.com" >}}.
+Listen at {{< extlink "https://open.spotify.com/episode/0k7fpDbuAEUp2I8Rnm3yep" "Spotify" >}}.
 
 ## What's a URL?
 
@@ -276,13 +276,13 @@ the different kinds of views,
 and tools to help build them.
 
 You can follow the show
-on {{< extlink "https://djangoriffs.com" "djangoriffs.com" >}}.
+on {{< extlink "https://open.spotify.com/show/1RtdveQIz5m5MqLKPWbhnD" "Spotify" >}}.
 Or follow me or the show
-on Twitter
+on X
 at
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}
 or
-{{< extlink "https://twitter.com/djangoriffs" "@djangoriffs" >}}.
+{{< extlink "https://x.com/djangoriffs" "@djangoriffs" >}}.
 
 Please rate or review
 on iTunes, Spotify,

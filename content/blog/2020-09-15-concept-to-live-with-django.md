@@ -437,6 +437,6 @@ I hope you learned a bit from our experience.
 
 If you have questions
 or enjoyed this article,
-please feel free to message me on Twitter
-at {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+please feel free to message me on X
+at {{< extlink "https://x.com/mblayman" "@mblayman" >}}
 or share if you think others might be interested too.

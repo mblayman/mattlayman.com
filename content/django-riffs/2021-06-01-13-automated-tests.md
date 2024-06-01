@@ -34,12 +34,8 @@ We're digging into automated testing
 and how to write tests
 for your Django apps.
 
-Listen at {{< extlink "https://djangoriffs.com/episodes/automated-tests" "djangoriffs.com" >}}
+Listen at {{< extlink "https://open.spotify.com/episode/5Ruzpnuhejt2W4N2uAPuQr" "Spotify" >}}
 or with the player below.
-
-<div class="h-48">
-<iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/65d9efe2-dd0c-41c5-87f2-6e91e51ef86c?dark=false"></iframe>
-</div>
 
 ## Last Episode
 
@@ -594,13 +590,13 @@ This is the topic of deployment,
 and we'll see the details next time.
 
 You can follow the show
-on {{< extlink "https://djangoriffs.com" "djangoriffs.com" >}}.
+on {{< extlink "https://open.spotify.com/show/1RtdveQIz5m5MqLKPWbhnD" "Spotify" >}}.
 Or follow me or the show
-on Twitter
+on X
 at
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}
 or
-{{< extlink "https://twitter.com/djangoriffs" "@djangoriffs" >}}.
+{{< extlink "https://x.com/djangoriffs" "@djangoriffs" >}}.
 
 Please rate or review
 on Apple Podcasts, Spotify,

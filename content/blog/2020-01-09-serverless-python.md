@@ -34,7 +34,7 @@ on YouTube.
 Questions?
 Feel free
 to mention me
-on Twitter
-at {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+on X
+at {{< extlink "https://x.com/mblayman" "@mblayman" >}}
 so I can try to respond
 to your question.

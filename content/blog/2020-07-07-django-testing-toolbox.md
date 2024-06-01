@@ -449,8 +449,8 @@ Good luck testing!
 
 If you have questions
 or enjoyed this article,
-please feel free to message me on Twitter
-at {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+please feel free to message me on X
+at {{< extlink "https://x.com/mblayman" "@mblayman" >}}
 or share if you think others might be interested too.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1vBesOFURek" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

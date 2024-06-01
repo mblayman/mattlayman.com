@@ -827,7 +827,7 @@ examinaremos como os utilizadores podem enviar os dados à uma aplicação de Dj
 * Como fazer a validação de formulário
 
 {{< web >}}
-Se gostarias de seguir com a série, sinta-se livre para inscrever-se no meu boletim informativo onde anúncio todos os meus novos conteúdos. Se tiveres outras questões, podes contactar-me na Twitter onde sou {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+Se gostarias de seguir com a série, sinta-se livre para inscrever-se no meu boletim informativo onde anúncio todos os meus novos conteúdos. Se tiveres outras questões, podes contactar-me na X onde sou {{< extlink "https://x.com/mblayman" "@mblayman" >}}.
 {{< /web >}}
 &nbsp;
 

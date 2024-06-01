@@ -213,7 +213,7 @@ In my initial implementation,
 I goofed up and put the most abstract functions first
 and failed to notice
 that other modules did the opposite.
-{{< extlink "https://twitter.com/codewithanthony" "Anthony" >}},
+{{< extlink "https://x.com/codewithanthony" "Anthony" >}},
 pre-commit's maintainer, pointed out the difference
 in the review,
 and I was happy to correct my mistake.
@@ -230,5 +230,5 @@ mission accomplished.
 
 Thanks for reading!
 Chat with me about this
-{{< extlink "https://twitter.com/mblayman" "on Twitter" >}}!
+{{< extlink "https://x.com/mblayman" "on X" >}}!
 I'm curious what you think.

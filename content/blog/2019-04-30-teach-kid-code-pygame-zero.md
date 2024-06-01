@@ -102,7 +102,7 @@ of {{< extlink "https://talkpython.fm/episodes/show/184/teaching-python-with-bbc
 that helped re-enforce my belief
 that Scratch was not the path to take.
 In the episode,
-Michael interviewed {{< extlink "https://twitter.com/ntoll" "Nicolas Tollervey" >}}
+Michael interviewed {{< extlink "https://x.com/ntoll" "Nicolas Tollervey" >}}
 about Teaching Python with the BBC micro:bit.
 
 Nicholas made an awesome point
@@ -446,7 +446,7 @@ It's an example of the {{< extlink "http://www.gameprogrammingpatterns.com/updat
     It is available to read for free online,
     and I loved it so much
     that I bought it on Amazon
-    to support the author, {{< extlink "https://twitter.com/munificentbob" "Bob Nystrom" >}}.
+    to support the author, {{< extlink "https://x.com/munificentbob" "Bob Nystrom" >}}.
 
 I used the idea of a filmstrip
 to illustrate the concept.
@@ -763,7 +763,7 @@ I think the world could use more makers.
 
 If you've enjoyed this article,
 would you mind
-sharing it on Twitter
+sharing it on X
 or your favorite social media
 so that others have the chance to learn something too?
 **Thanks for reading!**
