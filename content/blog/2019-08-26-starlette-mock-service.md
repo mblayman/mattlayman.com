@@ -121,7 +121,7 @@ in the {{< extlink "https://www.starlette.io/" "Starlette" >}} documentation:
 
 Starlette is a web framework developed
 by the author of {{< extlink "https://www.django-rest-framework.org/" "Django REST Framework (DRF)" >}},
-{{< extlink "https://twitter.com/_tomchristie" "Tom Christie" >}}.
+{{< extlink "https://x.com/_tomchristie" "Tom Christie" >}}.
 DRF is such a solid project.
 Sharing the same creator bolstered my confidence
 that Starlette will be a well designed piece of software.
@@ -488,7 +488,7 @@ in the {{< extlink "https://www.techempower.com/benchmarks/#section=data-r18&hw=
 I hope you enjoyed looking at some async programming
 in Python.
 If you have any questions,
-please share on Twitter
-and reach me at {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+please share on X
+and reach me at {{< extlink "https://x.com/mblayman" "@mblayman" >}}.
 
 Thanks for reading!

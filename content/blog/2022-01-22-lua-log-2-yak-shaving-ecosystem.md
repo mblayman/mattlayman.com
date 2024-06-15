@@ -289,7 +289,7 @@ the diff for that change is not huge,
 but I'm grateful
 for all the help
 that the maintainer,
-{{< extlink "https://twitter.com/codewithanthony" "Anthony Sottile" >}},
+{{< extlink "https://x.com/codewithanthony" "Anthony Sottile" >}},
 provided while working through the change set.
 The process of figuring out package isolation
 with Luarock trees,
@@ -349,5 +349,5 @@ as a build out my web framework.
 
 Thanks for reading!
 Have questions?
-Let me know on Twitter at
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+Let me know on X at
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}.

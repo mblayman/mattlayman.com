@@ -23,9 +23,9 @@ I've started a podcast!
 The podcast is called Django Riffs,
 and my goal is to help beginners learn
 how to use {{< extlink "https://www.djangoproject.com/" "Django" >}}.
-You can find the show at
-{{< extlink "https://djangoriffs.com/" "djangoriffs.com" >}}
-or check iTunes, Spotify,
+You can find the show on
+{{< extlink "https://open.spotify.com/show/1RtdveQIz5m5MqLKPWbhnD" "Spotify" >}}
+or check Apple Podcasts
 or wherever you get podcasts.
 
 Each episode of the podcast will be a topical exploration
@@ -65,13 +65,13 @@ of weeks if I can.
 
 If you would like,
 you can follow the show
-on {{< extlink "https://djangoriffs.com" "djangoriffs.com" >}}.
+on {{< extlink "https://open.spotify.com/show/1RtdveQIz5m5MqLKPWbhnD" "Spotify" >}}.
 Or follow me or the show
-on Twitter
+on X
 at
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}
 or
-{{< extlink "https://twitter.com/djangoriffs" "@djangoriffs" >}}.
+{{< extlink "https://x.com/djangoriffs" "@djangoriffs" >}}.
 
 I hope you enjoy this.
 Please feel free to reach out to me

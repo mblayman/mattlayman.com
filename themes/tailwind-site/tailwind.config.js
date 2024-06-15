@@ -1,6 +1,7 @@
 module.exports = {
   content: [
     './layouts/**/*.html',
+    './themes/tailwind-site/layouts/**/*.html',
     '../../content/about.md',
   ],
   theme: {

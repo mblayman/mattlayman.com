@@ -152,11 +152,11 @@ Are you ready to start?
 I like to help developers be equipped to be physically and mentally healthy. What are the big things that you struggle with to stay healthy?
 Let me know!
 I'm happy to help support you on your journey.
-Feel free to message me on {{< extlink "https://twitter.com/mblayman" "Twitter" >}}.
+Feel free to message me on {{< extlink "https://x.com/mblayman" "X" >}}.
 
 If you've enjoyed this article,
 would you mind
-sharing it on Twitter
+sharing it on X
 or your favorite social media
 so that others have the chance to learn something too?
 **Thanks for reading!**

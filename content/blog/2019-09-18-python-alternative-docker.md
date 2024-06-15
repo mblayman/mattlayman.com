@@ -578,7 +578,7 @@ that is located in a `myapp/main.py` file
 in the project.
 
 **Update:**
-{{< extlink "https://twitter.com/LorenCarvalho" "@LorenCarvalho" >}},
+{{< extlink "https://x.com/LorenCarvalho" "@LorenCarvalho" >}},
 author of Shiv,
 messaged me
 to say
@@ -841,6 +841,6 @@ if you want to.
 
 If you have questions
 or enjoyed this article,
-please feel free to message me on Twitter
-at {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+please feel free to message me on X
+at {{< extlink "https://x.com/mblayman" "@mblayman" >}}
 or share if others might be interested too.

@@ -32,12 +32,7 @@ to go live
 and how to prepare your Django project
 for the internet.
 
-Listen at {{< extlink "https://djangoriffs.com/episodes/go-live-deployment" "djangoriffs.com" >}}
-or with the player below.
-
-<div class="h-48">
-<iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/4722c9c1-9725-4a9d-92f8-8054ff0b8234?dark=false"></iframe>
-</div>
+Listen at {{< extlink "https://open.spotify.com/episode/5ZFl9yvSuiiIXVrpFdl38x" "Spotify" >}}.
 
 ## Last Episode
 
@@ -466,13 +461,13 @@ to most Django apps
 and what that data is used for.
 
 You can follow the show
-on {{< extlink "https://djangoriffs.com" "djangoriffs.com" >}}.
+on {{< extlink "https://open.spotify.com/show/1RtdveQIz5m5MqLKPWbhnD" "Spotify" >}}.
 Or follow me or the show
-on Twitter
+on X
 at
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}
 or
-{{< extlink "https://twitter.com/djangoriffs" "@djangoriffs" >}}.
+{{< extlink "https://x.com/djangoriffs" "@djangoriffs" >}}.
 
 Please rate or review
 on Apple Podcasts, Spotify,

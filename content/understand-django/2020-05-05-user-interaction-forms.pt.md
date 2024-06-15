@@ -440,7 +440,7 @@ nós começaremos a armazenar dados numa base de dados. Trabalharemos com:
 * Como perguntar a base de dados pela informação que guardamos.
 
 {{< web >}}
-Se gostarias de seguir juntamente com a série, sinta-se a vontade para inscrever-se no meu boletim informativo onde anuncio todos os meus novos conteúdos. Se tiveres outras questões, podes contactar-me na Twitter onde sou o {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+Se gostarias de seguir juntamente com a série, sinta-se a vontade para inscrever-se no meu boletim informativo onde anuncio todos os meus novos conteúdos. Se tiveres outras questões, podes contactar-me na X onde sou o {{< extlink "https://x.com/mblayman" "@mblayman" >}}.
 {{< /web >}}
 &nbsp;
 

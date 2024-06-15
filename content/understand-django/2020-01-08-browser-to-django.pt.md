@@ -216,7 +216,7 @@ No próximo artigo, o nosso foco será nestas URLs para as quais a nossa aplica�
 * Como agrupar conjuntos de URLs relacionadas.
 * Como extrair informação das URLs que possa ser usada pelo código que retorna respostas.
 
-Se gostarias de seguir com a série, podes inscrever-te no meu boletim informativo onde anuncio todos os novos conteúdo. Se tiveres outras questões, podes contactar-me online na Twitter onde sou o {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+Se gostarias de seguir com a série, podes inscrever-te no meu boletim informativo onde anuncio todos os novos conteúdo. Se tiveres outras questões, podes contactar-me online na X onde sou o {{< extlink "https://x.com/mblayman" "@mblayman" >}}.
 {{< /web >}}
 
 Finalmente, existe mais um tópico de bónus...

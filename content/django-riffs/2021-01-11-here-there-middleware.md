@@ -32,11 +32,7 @@ In the process,
 you'll see why middleware is useful
 and how you can work with it.
 
-Listen at {{< extlink "https://djangoriffs.com/episodes/here-there-middleware" "djangoriffs.com" >}}.
-
-<div class="h-48">
-<iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/f203aa15-5ff9-4bec-b89c-2a34c4bde844?dark=false"></iframe>
-</div>
+Listen at {{< extlink "https://open.spotify.com/episode/7rCA8h8kaZvjgONd9zkRX2" "Spotify" >}}.
 
 ## Last Episode
 
@@ -418,13 +414,13 @@ with those kinds of files
 in your project.
 
 You can follow the show
-on {{< extlink "https://djangoriffs.com" "djangoriffs.com" >}}.
+on {{< extlink "https://open.spotify.com/show/1RtdveQIz5m5MqLKPWbhnD" "Spotify" >}}.
 Or follow me or the show
-on Twitter
+on X
 at
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}
 or
-{{< extlink "https://twitter.com/djangoriffs" "@djangoriffs" >}}.
+{{< extlink "https://x.com/djangoriffs" "@djangoriffs" >}}.
 
 Please rate or review
 on Apple Podcasts, Spotify,

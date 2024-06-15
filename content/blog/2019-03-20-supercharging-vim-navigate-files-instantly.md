@@ -467,7 +467,7 @@ I can only wonder why. 😉
 If you liked this article
 and learned something along the way,
 would you do me a favor
-and share it on Twitter
+and share it on X
 or your favorite social media
 so that other have the chance to learn something too?
 **Thanks for reading!**

@@ -1118,11 +1118,11 @@ for developing software.
 
 If you found this useful,
 please share it with others
-on Twitter or whatever social media you enjoy
+on X or whatever social media you enjoy
 so they can benefit too.
 
 I'd love to read your thoughts
 or try to answer your questions.
-You can follow me on Twitter
+You can follow me on X
 or tweet at me at
-{{< extlink "https://twitter.com/mblayman" "mblayman" >}}.
+{{< extlink "https://x.com/mblayman" "mblayman" >}}.

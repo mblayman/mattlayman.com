@@ -34,12 +34,7 @@ for visitors
 to your site.
 This category of data is called *session* data.
 
-Listen at {{< extlink "https://djangoriffs.com/episodes/user-session-data" "djangoriffs.com" >}}
-or with the player below.
-
-<div class="h-48">
-<iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/f1618e33-7219-491d-9cd7-9794b539b67a?dark=false"></iframe>
-</div>
+Listen at {{< extlink "https://open.spotify.com/episode/6lUub9mrEKOJDnvpYqqAop" "Spotify" >}}.
 
 ## Last Episode
 
@@ -342,13 +337,13 @@ and there are a variety of techniques
 that make settings more manageable.
 
 You can follow the show
-on {{< extlink "https://djangoriffs.com" "djangoriffs.com" >}}.
+on {{< extlink "https://open.spotify.com/show/1RtdveQIz5m5MqLKPWbhnD" "Spotify" >}}.
 Or follow me or the show
-on Twitter
+on X
 at
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}
 or
-{{< extlink "https://twitter.com/djangoriffs" "@djangoriffs" >}}.
+{{< extlink "https://x.com/djangoriffs" "@djangoriffs" >}}.
 
 Please rate or review
 on Apple Podcasts, Spotify,

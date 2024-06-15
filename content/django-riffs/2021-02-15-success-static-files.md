@@ -31,12 +31,7 @@ but they have little to do with Python code.
 We'll see what they are
 and what they do.
 
-Listen at {{< extlink "https://djangoriffs.com/episodes/success-static-files" "djangoriffs.com" >}}
-or with the player below.
-
-<div class="h-48">
-<iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/56a7effd-6f6c-4390-a4b4-0374be7e4fd0?dark=false"></iframe>
-</div>
+Listen at {{< extlink "https://open.spotify.com/episode/1Tn41YfkWh3ffvBpZB8c49" "Spotify" >}}.
 
 ## Last Episode
 
@@ -533,13 +528,13 @@ We'll see how automated tests can provide you the peace of mind
 that your application works as you expect.
 
 You can follow the show
-on {{< extlink "https://djangoriffs.com" "djangoriffs.com" >}}.
+on {{< extlink "https://open.spotify.com/show/1RtdveQIz5m5MqLKPWbhnD" "Spotify" >}}.
 Or follow me or the show
-on Twitter
+on X
 at
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}
 or
-{{< extlink "https://twitter.com/djangoriffs" "@djangoriffs" >}}.
+{{< extlink "https://x.com/djangoriffs" "@djangoriffs" >}}.
 
 Please rate or review
 on Apple Podcasts, Spotify,

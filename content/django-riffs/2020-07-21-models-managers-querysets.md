@@ -27,7 +27,7 @@ we will explore more about models
 and how to interact with data
 in your database.
 
-Listen at {{< extlink "https://djangoriffs.com/episodes/models-managers-querysets" "djangoriffs.com" >}}.
+Listen at {{< extlink "https://open.spotify.com/episode/3H3nSzypuqr29PxreVcpee" "Spotify" >}}.
 
 ## Last Episode
 
@@ -617,13 +617,13 @@ administrative tools
 and look at the Django admin site.
 
 You can follow the show
-on {{< extlink "https://djangoriffs.com" "djangoriffs.com" >}}.
+on {{< extlink "https://open.spotify.com/show/1RtdveQIz5m5MqLKPWbhnD" "Spotify" >}}.
 Or follow me or the show
-on Twitter
+on X
 at
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}
 or
-{{< extlink "https://twitter.com/djangoriffs" "@djangoriffs" >}}.
+{{< extlink "https://x.com/djangoriffs" "@djangoriffs" >}}.
 
 Please rate or review
 on Apple Podcasts, Spotify,

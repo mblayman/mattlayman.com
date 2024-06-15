@@ -1442,8 +1442,8 @@ for my newsletter
 where I announce all of my new content.
 If you have other questions,
 you can reach me online
-on Twitter
+on X
 where I am
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}.
 {{< /web >}}
 &nbsp;

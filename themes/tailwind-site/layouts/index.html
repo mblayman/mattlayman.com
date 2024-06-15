@@ -2,7 +2,7 @@
 
 <div class="flex flex-col sm:flex-row mb-4 sm:mt-4 py-4 bg-gray-200">
   <div class="w-full sm:w-2/5">
-    <div class="bg-white rounded-full p-1 h-56 w-56 shadow-xl mx-auto mb-8 sm:mb-0">
+    <div class="bg-white rounded-full p-1 h-44 w-44 shadow-xl mx-auto mb-8 sm:mb-0">
       <img src="{{ .Site.Params.authorAvatar | absURL }}" class="rounded-full">
     </div>
   </div>
@@ -13,7 +13,7 @@
     <p class="mb-2 font-extralight text-md">
       I am a Senior Staff Software Engineer at Included Health.
     </p>
-    <p class="mb-8 font-extralight text-md">
+    <p class="mb-4 font-extralight text-md">
       I like to teach others about writing good software
       while streaming on YouTube
       and am committed to helping my local community grow its tech skills
@@ -23,19 +23,17 @@
 </div>
 
 <div class="w-full flex flex-col-reverse sm:flex-row justify-center mb-4">
-  <div class="w-full sm:w-2/3">
-      <div class="px-4 py-8 mx-auto w-full flex flex-col font-extralight text-md">
+  <div class="w-full sm:w-3/4">
+      <div class="px-4 py-0 sm:py-2 mx-auto w-full flex flex-col font-extralight text-md">
         <h2 class="font-semibold text-2xl tracking-wide pb-4">Want to learn Django from top to bottom?</h2>
         <p class="mb-4">
-          My book, Understand Django, will walk you through the Django web framework.
-        </p>
-        <p class="mb-4">
+          <i>Understand Django will walk you through the Django web framework.</i>
           We start from the top at an exploration of the browser and the layers
           that make the internet work, then dig deep down through the framework
           to reveal how you can make web applications using Django.
         </p>
         <p class="mb-4">
-          By the time you finish reading Understand Django,
+          By the time you finish reading this book,
           you'll have a much deeper knowledge of how web applications work
           and, specifically,
           how <i>Python-based</i> web applications are built.
@@ -54,19 +52,30 @@
         </p>
       </div>
   </div>
-  <div class="w-full sm:w-1/3">
+  <div class="w-full sm:w-1/4">
     <a href="{{ "understand-django/" | absURL }}">
       <img src="/img/understand-django-cover.png">
     </a>
   </div>
 </div>
 
-<h1 class="font-light tracking-wide text-xl border-b-2 border-red-600 my-2 sm:my-8">Recent</h1>
+<h2 class="font-light tracking-wide text-xl border-b-2 border-red-600 my-2 sm:my-8">Recent</h2>
 
 {{ $paginator := .Paginate (where .Site.RegularPages.ByDate.Reverse "Type" "post") }}
 {{ partial "articles-list" $paginator }}
 
 {{ partial "paginator" . }}
+
+<h2 class="font-light tracking-wide text-xl border-b-2 border-red-600 my-8">All Articles</h2>
+
+<ul class="mx-4 sm:mx-4 list-disc">
+  {{ range where .Site.RegularPages "Type" "==" "post" }}
+      <li class="mb-2">
+        <a class="border-b border-blue-200 hover:text-blue-400" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </li>
+  {{ end }}
+</ul>
+
 {{ end }}
 
 {{ define "grid" }}mx-auto w-full sm:w-2/3{{ end }}

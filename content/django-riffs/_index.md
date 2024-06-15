@@ -25,5 +25,5 @@ with the knowledge
 to build a web app
 of your own.
 
-Episodes are available at
-{{< extlink "https://djangoriffs.com/" "djangoriffs.com" >}}.
+Episodes are available on
+{{< extlink "https://open.spotify.com/show/1RtdveQIz5m5MqLKPWbhnD" "Spotify" >}}.

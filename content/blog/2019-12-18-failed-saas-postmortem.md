@@ -240,7 +240,7 @@ I wasted so many nights updating small packages
 for zero benefit.
 To make the issue worse,
 some of these minor updates would break things
-(because {{< extlink "https://twitter.com/dhh/status/1015206151384952834" "SemVer is a lie" >}}).
+(because {{< extlink "https://x.com/dhh/status/1015206151384952834" "SemVer is a lie" >}}).
 Upgrading these packages was a treadmill
 that got me nowhere.
 That brings me to lesson two:
@@ -525,6 +525,6 @@ to {{< extlink "https://www.youtube.com/c/MattLayman/live" "streaming on YouTube
 
 If you have questions
 or enjoyed this article,
-please feel free to message me on Twitter
-at {{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+please feel free to message me on X
+at {{< extlink "https://x.com/mblayman" "@mblayman" >}}
 or share if others might be interested too.

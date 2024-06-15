@@ -103,13 +103,13 @@ That's a lot of work to run some tests.
 Shouldn't it be **easier** to run a single test
 rather than harder?
 
-As {{< extlink "https://twitter.com/raymondh" "Raymond Hettinger" >}} is prone to say:
+As {{< extlink "https://x.com/raymondh" "Raymond Hettinger" >}} is prone to say:
 *There must be a better way!*
 
 ## Testing *inside* Vim with `vim-test`
 
 My former co-worker at Storybird,
-{{< extlink "https://twitter.com/benjohnson" "Ben Johnson" >}},
+{{< extlink "https://x.com/benjohnson" "Ben Johnson" >}},
 introduced me to a Vim plugin called
 {{< extlink "https://github.com/janko-m/vim-test" "vim-test" >}}.
 This plugin dramatically changed my relationship

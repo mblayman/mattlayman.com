@@ -34,7 +34,7 @@ a podcast for learning web application development
 in Python
 using the Django web framework.
 
-Listen at {{< extlink "https://djangoriffs.com/episodes/get-to-know-django" "djangoriffs.com" >}}.
+Listen at {{< extlink "https://open.spotify.com/episode/6eO8tVxMwZ3dHRSyyzkh7c" "Spotify" >}}.
 
 ## Who Is This For?
 
@@ -207,13 +207,13 @@ and how to build them
 into your application.
 
 You can follow the show
-on {{< extlink "https://djangoriffs.com" "djangoriffs.com" >}}.
+on {{< extlink "https://open.spotify.com/show/1RtdveQIz5m5MqLKPWbhnD" "Spotify" >}}.
 Or follow me or the show
-on Twitter
+on X
 at
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}
 or
-{{< extlink "https://twitter.com/djangoriffs" "@djangoriffs" >}}.
+{{< extlink "https://x.com/djangoriffs" "@djangoriffs" >}}.
 
 Please rate or review
 on iTunes, Spotify,

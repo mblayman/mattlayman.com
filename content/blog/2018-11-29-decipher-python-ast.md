@@ -341,9 +341,9 @@ its minimal API is quite memorable
 and you can analyze code quickly.
 
 If you found this useful,
-would you mind sharing this on Twitter
+would you mind sharing this on X
 or your favorite social media site?
 I like chatting with people
 about these kinds of topics
 so feel free to tweet me at
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}.
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}.

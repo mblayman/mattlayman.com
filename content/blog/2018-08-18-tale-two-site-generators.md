@@ -63,7 +63,7 @@ handroll has all sorts of features that I've needed for my site. Features like:
 * Markdown, reStructuredText, and Textile support
 * A development server that does incremental build updates
 * Blog plugin to generate feeds and listing pages
-* OpenGraph and Twitter metadata plugins
+* OpenGraph and X metadata plugins
 * {{< extlink "http://jinja.pocoo.org/docs/2.10/" "Jinja2" >}} templating
 * Sass support
 * A plugin and extension system with well documented extension points

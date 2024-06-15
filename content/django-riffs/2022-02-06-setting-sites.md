@@ -32,12 +32,7 @@ What are the common techniques
 to make this easier to handle?
 Let's find out!
 
-Listen at {{< extlink "https://djangoriffs.com/episodes/setting-your-sites" "djangoriffs.com" >}}
-or with the player below.
-
-<div class="h-48">
-<iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/c7b96314-c43e-4293-a598-109b2fb773d0?dark=false"></iframe>
-</div>
+Listen at {{< extlink "https://open.spotify.com/episode/5jYVhLg90B720l0fpcF2TS" "Spotify" >}}.
 
 ## Last Episode
 
@@ -500,13 +495,13 @@ Where does that data go?
 We'll answer those kinds of questions next time.
 
 You can follow the show
-on {{< extlink "https://djangoriffs.com" "djangoriffs.com" >}}.
+on {{< extlink "https://open.spotify.com/show/1RtdveQIz5m5MqLKPWbhnD" "Spotify" >}}.
 Or follow me or the show
-on Twitter
+on X
 at
-{{< extlink "https://twitter.com/mblayman" "@mblayman" >}}
+{{< extlink "https://x.com/mblayman" "@mblayman" >}}
 or
-{{< extlink "https://twitter.com/djangoriffs" "@djangoriffs" >}}.
+{{< extlink "https://x.com/djangoriffs" "@djangoriffs" >}}.
 
 Please rate or review
 on Apple Podcasts, Spotify,
