@@ -8,11 +8,11 @@ description: >-
   of building a Software as a Service
   using Python, the Django web framework,
   and other packages from the Django ecosystem.
-  The stream runs on Wednesday at 9pm ET.
+  The stream runs on Thursday at 9pm ET.
 
 ---
 
-On Wednesdays
+On Thursdays
 at 9pm Eastern Time,
 I develop a Software as a Service (SaaS)
 on {{< extlink "https://www.twitch.tv/mblayman" "Twitch" >}}.

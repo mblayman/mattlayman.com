@@ -13,7 +13,7 @@ I’m Matt, a software creator. Here are things I do:
 ## Build apps on YouTube
 
 I'm regularly streaming on {{< extlink "https://www.youtube.com/c/MattLayman/live" "YouTube" >}}.
-On most Wednesday nights at 9pm Eastern time,
+On most Thursday nights at 9pm Eastern time,
 I'm streaming on YouTube
 to build a Django application.
 My primary goal is to teach others how to build complex web projects
