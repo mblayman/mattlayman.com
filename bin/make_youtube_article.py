@@ -95,7 +95,8 @@ def generate_article(video):
 
 def slugify(title):
     parts = title.split(" ")
-    parts = [part for part in parts if part != "-" and part != "/"]
+    # Replace any slashes *within* a word (e.g., `ci/cd`)
+    parts = [part.replace("/", "-") for part in parts if part != "-" and part != "/"]
     title = "-".join(parts)
     title = title.replace("#", "")
     return title.lower()
