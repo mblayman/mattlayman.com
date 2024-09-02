@@ -101,7 +101,13 @@
       </script>
 
       {{ if eq .Kind "page" }}
-        <div class="border border-red-600 p-4 bg-red-500 text-white">
+        <div class="mt-4">
+          <a href="{{ "understand-django/" | absURL }}" class="hover:underline">
+            <img src="/img/understand-django-cover.png">
+          </a>
+        </div>
+
+        <div class="border border-red-600 mt-8 p-4 bg-red-500 text-white">
           <a href="https://www.patreon.com/mblayman" target="_blank" rel="noopener">
             <img class="px-4" src="{{ "img/patreon.png" | absURL }}">
           </a>
@@ -114,27 +120,6 @@
           </p>
           <p class="text-sm font-serif text-gray-100">
             Check out my <a class="underline" href="{{ "superheroes/" | absURL }}">Patreon Superhero supporters</a>!
-          <p>
-        </div>
-
-        <div class="mt-8">
-          <a href="{{ "understand-django/" | absURL }}" class="hover:underline">
-            <img src="/img/understand-django-cover.png">
-          </a>
-        </div>
-
-        <div class="border border-green-800 p-4 bg-white mt-8">
-          <a href="https://open.spotify.com/show/1RtdveQIz5m5MqLKPWbhnD" target="_blank" rel="noopener">
-            <img src="{{ "img/django-riffs-banner.png" | absURL }}">
-          </a>
-          <p class="mt-4 mb-2 text-sm font-serif">
-            Django Riffs is my podcast devoted entirely
-            to learning the Django web framework.
-            Give it a listen!
-          </p>
-          <p class="text-sm font-serif">
-            All the shows are
-            on the <a class="underline" href="{{ "django-riffs/" | absURL }}">Show Notes</a> page.
           <p>
         </div>
 
@@ -160,7 +145,7 @@
               <h2 class="text-lg text-grey-800 font-semibold">If you enjoyed this article, you may also be interested in&hellip;</h2>
               {{ range . }}
               <h3 class="text-base text-blue-500 pt-4"><a class="hover:underline" href="{{ .Permalink }}">{{ .Title }}</a></h3>
-              <p class="text-sm text-gray-600">{{ .Description | markdownify }}</p>
+              <p class="text-sm text-gray-600">{{ .Description | markdownify | truncate 150 }}</p>
               {{ end }}
             </div>
           </div>
