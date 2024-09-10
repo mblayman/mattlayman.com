@@ -217,8 +217,7 @@ Example:
 ## all
 
 `all` returns `True` if all elements in something list-like (such as a 
-list or tuple) are "truthy." If any element is false or if the list is 
-empty, it returns `False`.
+list or tuple) are "truthy" or if the list is empty, in which case there is no element to disprove the check. If any element is "falsy", it returns `False`.
 
 Example:
 
