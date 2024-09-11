@@ -217,8 +217,8 @@ Example:
 ## all
 
 `all` returns `True` if all elements in something list-like (such as a 
-list or tuple) are "truthy." If any element is false or if the list is 
-empty, it returns `False`.
+list or tuple) are "truthy" or if the list is empty.
+If any element is false, it returns `False`.
 
 Example:
 
@@ -228,6 +228,8 @@ True
 >>> all([True, False, True])
 False
 >>> all([1, 2, 3])
+True
+>>> all([])
 True
 ```
 
