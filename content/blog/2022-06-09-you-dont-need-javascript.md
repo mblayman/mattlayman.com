@@ -3,7 +3,7 @@ title: "You Don't Need JavaScript"
 description: "What If I Told You... You Don't Need JavaScript. This talk explores why #JavaScript is not good fit for most web apps. I then show how most web apps can do dynamic things using htmx. I provide examples using #Django, #Flask, #RubyOnRails, and #Laravel."
 image: img/2022/bbkPxxxCV6M.jpg
 video: https://www.youtube.com/embed/bbkPxxxCV6M
-type: post
+type: video
 categories:
  - YouTube
  - Python

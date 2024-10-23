@@ -8,9 +8,9 @@
 </div>
 
 
-<h1 class="text-center text-black text-4xl font-semibold tracking-wide pt-4 pb-8 sm:pt-2 sm:pb-4">{{ .Title }}</h1>
+<h1 class="text-center text-black text-4xl font-semibold tracking-wide pt-4 pb-0 sm:pt-2 sm:pb-4 sm:px-20">{{ .Title }}</h1>
 
-<div class="article-content mx-auto mt-8 pb-8 sm:px-20">
+<div class="article-content mx-auto mt-8 pb-0 sm:pb-8 sm:px-20">
   <iframe width="560" height="315" src="{{ .Params.video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
   <h1 class="text-center text-black text-4xl font-semibold tracking-wide pt-4 pb-8 sm:pt-2 sm:pb-4">Notes</h1>
@@ -26,17 +26,21 @@
   {{ end }}
 </div>
 
-<div class="flex flex-col sm:flex-row">
+{{ if not .Params.hideNextPrev }}
+<div class="flex flex-col">
   {{ with .NextInSection }}
+    <h1 class="font-light tracking-wide text-xl border-b-2 border-red-600 sm:m-2">Newer</h1>
     <div class="flex-1 px-0 py-2 sm:p-2">
       {{ partial "article-card" (dict "context" . ) }}
     </div>
   {{ end }}
   {{ with .PrevInSection }}
+    <h1 class="font-light tracking-wide text-xl border-b-2 border-red-600 sm:m-2">Older</h1>
     <div class="flex-1 px-0 py-2 sm:p-2">
       {{ partial "article-card" (dict "context" . ) }}
     </div>
   {{ end }}
 </div>
+{{ end }}
 
 {{ end }}

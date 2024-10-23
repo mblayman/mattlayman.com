@@ -3,7 +3,7 @@ title: "Teacher Checklist Editing - Building SaaS with Python and Django #141"
 description: "In this episode, I returned to the teacher checklist feature and started work on the edit page that will allow users to customize what they see on the checklist."
 image: img/2022/96YwsWiqSAw.jpg
 video: https://www.youtube.com/embed/96YwsWiqSAw
-type: post
+type: video
 categories:
  - YouTube
  - Python

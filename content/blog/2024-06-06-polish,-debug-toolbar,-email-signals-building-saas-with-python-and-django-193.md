@@ -3,7 +3,7 @@ title: "Polish, Debug Toolbar, Email Signals - Building SaaS with Python and Dja
 description: "In this episode, we first added the Django debug toolbar to aid future troubleshooting. Then, following some PR cleanup, I added django-denied as the authorization framework for the site. With those two packages integrated, I did some polishing work and began the effort to send prompts immediately following email verification."
 image: img/2024/HMv5N6pzQDg.jpg
 video: https://www.youtube.com/embed/HMv5N6pzQDg
-type: post
+type: video
 categories:
  - YouTube
  - Python

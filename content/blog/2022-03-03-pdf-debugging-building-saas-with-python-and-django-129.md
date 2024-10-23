@@ -3,7 +3,7 @@ title: "PDF Debugging - Building SaaS with Python and Django #129"
 description: "In this episode, I debugged the static file handling that my homeschool application is using when it generates PDF reports."
 image: img/2022/CcC0zgXIg_w.jpg
 video: https://www.youtube.com/embed/CcC0zgXIg_w
-type: post
+type: video
 categories:
  - YouTube
  - Python

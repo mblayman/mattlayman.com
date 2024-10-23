@@ -3,7 +3,7 @@ title: "Cryptography in Python"
 description: "Cryptography underpins virtually all of modern data security, including everything from safe online shopping to secure password storage. But it's also famous for being difficult to understand and easy to mess up!"
 image: img/2022/qT7iV74WbGs.jpg
 video: https://www.youtube.com/embed/qT7iV74WbGs
-type: post
+type: video
 categories:
  - YouTube
  - Python

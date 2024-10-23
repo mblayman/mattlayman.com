@@ -1,0 +1,7 @@
+<div class="articles-grid">
+  {{ range $index, $post := .Pages }}
+    <div class="article-{{ add $index 1 }}">
+      {{ partial "article-card" (dict "context" . "index" $index) }}
+    </div>
+  {{ end }}
+</div>
