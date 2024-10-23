@@ -1,5 +1,5 @@
 ---
-title: "DNS Strikes Back - Building SaaS with Python and Django #172"
+title: "DNS Strikes Back - Building SaaS #172"
 description: "In this episode, we returned to our DNS configuration from the previous stream and worked on testing email from end to end on the production site. On the stream, we spent a lot of time looking through SendGrid documentation, digging into layers of DNS, and troubleshooting the challenges that can arise when getting a site online."
 image: img/2023/eLvLH--zxdQ.jpg
 video: https://www.youtube.com/embed/eLvLH--zxdQ

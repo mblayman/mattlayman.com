@@ -1,5 +1,5 @@
 ---
-title: "Completing Account Deactivation on Building SaaS with Python and Django"
+title: "Completing Account Deactivation on Building SaaS"
 description: >-
   In the latest episode
   of Building SaaS with Python and Django,
