@@ -79,7 +79,7 @@ def generate_article(video):
 
     title = slugify(video.title)
     filename = f"{video.published_at:%Y-%m-%d}-{title}.md"
-    filepath = constants.root / "content" / "blog" / filename
+    filepath = constants.root / "content" / "videos" / filename
     with open(filepath, "w") as f:
         short_description = video.description.split("\n")[0]
         mapping = {
