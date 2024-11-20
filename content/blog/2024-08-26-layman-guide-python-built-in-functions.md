@@ -536,6 +536,9 @@ Example:
 the object and the name of the attribute as a string. If the attribute does not 
 exist, it raises an `AttributeError`.
 
+Normally, you do not need to use `delattr` unless you need to do something dynamic.
+Instead, you could use `del` and do something like `del example.an_attribute`.
+
 Example:
 
 ```python
@@ -792,6 +795,9 @@ frozenset({3, 4})
 
 `getattr` retrieves the value of an attribute from an object. If the attribute does 
 not exist, it can return a default value if provided; otherwise, it raises an `AttributeError`.
+
+Normally, you do not need to use `getattr` unless you need to do something dynamic.
+Instead, you can access the attribute directly like `example.an_attribute`.
 
 Example:
 
@@ -1471,6 +1477,9 @@ set()
 `setattr` sets the value of an attribute on an object.
 If the attribute does not already exist, it is created.
 You provide the object, the name of the attribute, and the value to set.
+
+Normally, you do not need to use `setattr` unless you need to do something dynamic.
+Instead, you can set the attribute directly like `example.an_attribute = 20`.
 
 Example:
 
