@@ -15,7 +15,7 @@ tags:
 
 ---
 <style>
-svg { border: 1px solid #dedede; }
+svg.demo { border: 1px solid #dedede; }
 
 .axis path, .axis line {
   fill: none;
@@ -42,7 +42,7 @@ Let's take:
 
 And make:
 
-<svg id="area" />
+<svg class="demo" id="area" />
 
 D3.js is mindbending, and I find the examples on the D3.js wiki to be too
 little explanation with too much going on. In this example, I will show
