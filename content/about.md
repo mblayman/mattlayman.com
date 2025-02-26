@@ -36,12 +36,12 @@ and foster a love of tech
 among my fellow citizens.
 
 * I started
-  {{< extlink "https://www.pythonfrederick.org/" "Python Frederick" >}}
+  {{< extlink "https://python-frederick.github.io/" "Python Frederick" >}}
   in 2015
   and continue to organize it
   (with some fantastic co-organizers).
 * I helped coordinate the city's first
-  {{< extlink "https://www.hackfrederick.com/" "Hackathon" >}}.
+  {{< extlink "https://github.com/hackfrederick/" "Hackathon" >}}.
 * Through my efforts
   on a team of tech volunteers,
   we earned Frederick a finalist spot
