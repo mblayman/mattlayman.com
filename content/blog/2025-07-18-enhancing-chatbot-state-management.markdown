@@ -206,4 +206,4 @@ The triumph? The chatbot now feels *alive*. It can ask, “Is your name Jane and
 
 This coding session was a blast—part detective work, part creative engineering. By expanding the state, revamping the human assistance tool, and navigating LangGraph’s quirks, I gave the chatbot a memory upgrade that makes it more reliable and user-friendly. The shell commands and Git commit tell a story of iterative progress, from testing with `uv run` to sealing the deal with a well-crafted commit.
 
-Want to try something similar? Grab LangGraph, play with state management, and see how far you can push your chatbot. Got questions or cool tweaks? Drop them in the comments!
+Want to try something similar? Grab LangGraph, play with state management, and see how far you can push your chatbot.
