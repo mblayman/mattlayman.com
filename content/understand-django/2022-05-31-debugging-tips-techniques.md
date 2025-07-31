@@ -753,12 +753,7 @@ made writing this book worth it.
 > Thank you for reading!
 
 {{< web >}}
-If you'd like to see more content
-like this series,
-please feel free to sign up
-for my newsletter
-where I publish all new things first.
-If you have other questions,
+If you have questions,
 you can reach me online
 on X
 where I am

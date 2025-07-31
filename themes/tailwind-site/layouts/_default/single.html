@@ -33,14 +33,6 @@
 
 </div>
 
-<div class="mx-auto pb-8 sm:px-20">
-  {{ if eq .Params.type "post" }}
-    <div class="hidden sm:block">
-      {{ partial "newsletter-form" . }}
-    </div>
-  {{ end }}
-</div>
-
 {{ if not .Params.hideNextPrev }}
 <div class="flex flex-col">
   {{ with .NextInSection }}
@@ -58,6 +50,4 @@
 </div>
 {{ end }}
 
-{{/* Add MailChimp form*/}}
-<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us19.list-manage.com","uuid":"874a48ddf96f615fc1695f646","lid":"618f049eb0"}) })</script>
 {{ end }}

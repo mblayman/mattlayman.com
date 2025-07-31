@@ -534,12 +534,7 @@ You'll learn about:
 * Extra commands from the community that are useful extensions for apps
 
 {{< web >}}
-If you'd like to follow along
-with the series,
-please feel free to sign up
-for my newsletter
-where I announce all of my new content.
-If you have other questions,
+If you have questions,
 you can reach me online
 on X
 where I am
