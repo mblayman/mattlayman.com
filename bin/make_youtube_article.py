@@ -53,6 +53,7 @@ def get_video(video_id):
         print(snippet["thumbnails"])
         raise Exception("Failed to find a size")
 
+    print(snippet["title"])
     return Video(
         video_id,
         snippet["title"],
