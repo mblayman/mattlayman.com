@@ -19,3 +19,6 @@ node_modules/
 
 # Hugo
 .hugo_build.lock
+
+# Lua
+.rocks
