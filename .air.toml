@@ -6,7 +6,7 @@ tmp_dir = "tmp"
 
 [build]
   args_bin = []
-  cmd = "echo 'Nothing to build'"
+  cmd = "true"
   delay = 1000
   entrypoint = ["nibiru", "app.entry:app"]
   exclude_dir = ["assets", "tmp", "vendor", "testdata"]
@@ -37,7 +37,7 @@ tmp_dir = "tmp"
   watcher = "cyan"
 
 [log]
-  main_only = false
+  main_only = true
   silent = false
   time = false
 
