@@ -1,5 +1,8 @@
 .PHONY = tailwind css
 
+new-local:
+	air
+
 local:
 	heroku local
 
