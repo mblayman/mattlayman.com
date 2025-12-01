@@ -1,13 +1,10 @@
 local Application = require("nibiru.application")
-local http = require("nibiru.http")
 local Route = require("nibiru.route")
 
-local function index()
-    return http.ok("home")
-end
+local resp = require("app.responders")
 
 local routes = {
-    Route("/", index),
+    Route("/", resp.index),
 }
 
 return Application(routes)
