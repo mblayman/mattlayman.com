@@ -5,7 +5,7 @@ local Route = require("nibiru.route")
 local resp = require("app.responders")
 
 function up(request)
-    return http.ok("")
+    return http.ok("ok")
 end
 
 local routes = {
