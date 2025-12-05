@@ -7,7 +7,7 @@ image: mblayman/mattlayman
 # Deploy to these servers.
 servers:
   web:
-    - 165.22.43.103
+    - 178.128.132.8
   # job:
   #   hosts:
   #     - 192.168.0.1
