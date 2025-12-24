@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Matt Layman</title>
+    <style>
+      .content {
+        max-width: 65ch;
+      }
+    </style>
   </head>
   <body>
-    {% block content %}{% endblock %}
+    <div class="content">
+      {% block content %}{% endblock %}
+    </div>
   </body>
 </html>
