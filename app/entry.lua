@@ -10,7 +10,7 @@ local blog_resp = require("app.blog.responders")
 local routes = {
     Route("/", resp.index),
     Route("/up", resp.up),
-    Route("/blog/{slug:string}", blog_resp.entry),
+    Route("/blog/{slug:string}", blog_resp.entry, "blog_entry"),
 }
 
 return Application(routes)

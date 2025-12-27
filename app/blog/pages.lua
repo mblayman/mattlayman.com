@@ -3,6 +3,8 @@ local path = require("nibiru.path")
 
 local pages = {}
 
+local cached_sorted_pages = nil
+
 -- Loads all markdown pages from the pages/blog directory.
 -- Parses each file, validates frontmatter (slug, title, date required),
 -- and stores them in the pages table indexed by slug.
@@ -51,12 +53,26 @@ local function load()
         end
 
         parsed.filename = file
-        local slug = parsed.frontmatter.slug
+        -- Flatten frontmatter fields to the page level
+        for key, value in pairs(parsed.frontmatter) do
+            parsed[key] = value
+        end
+        local slug = parsed.slug
         if pages[slug] then
             error("Duplicate slug: " .. slug)
         end
         pages[slug] = parsed
     end
+
+    -- Create cached sorted list by date descending
+    local sorted = {}
+    for _, page in pairs(pages) do
+        table.insert(sorted, page)
+    end
+    table.sort(sorted, function(a, b)
+        return a.date > b.date
+    end)
+    cached_sorted_pages = sorted
 end
 
 -- Retrieves a page by its slug from the loaded pages.
@@ -66,7 +82,14 @@ local function get(slug)
     return pages[slug]
 end
 
+-- Retrieves all pages sorted by date in descending order.
+-- @return The cached sorted list of pages.
+local function list_by_date()
+    return cached_sorted_pages
+end
+
 return {
     load = load,
     get = get,
+    list_by_date = list_by_date,
 }

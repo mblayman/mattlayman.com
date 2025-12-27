@@ -2,4 +2,7 @@
 
 {% block content %}
   <h1>Matt Layman's website index</h1>
+  {% for page in pages %}
+    <p><a href="{{ route("blog_entry", page.slug ) }}">{{ page.title }}</a></p>
+  {% endfor %}
 {% endblock %}
