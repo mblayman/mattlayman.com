@@ -22,4 +22,4 @@ RUN apk add --no-cache lua5.4 lua5.4-libs
 COPY --from=builder /srv /srv
 WORKDIR /srv
 
-CMD ["/srv/rocks/bin/nibiru", "app.entry:app"]
+CMD ["/srv/rocks/bin/nibiru", "run", "app.entry:app"]
