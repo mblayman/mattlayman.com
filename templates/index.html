@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Matt Layman's website index</h1>
+  <h1>Matt Layman's website</h1>
+  <h2>Articles</h2>
+  <ul>
   {% for page in pages %}
-    <p><a href="{{ route("blog_entry", page.slug ) }}">{{ page.title }}</a></p>
+    <li><a href="{{ route("blog_entry", page.slug ) }}">{{ page.title }}</a></li>
   {% endfor %}
+  </ul>
 {% endblock %}

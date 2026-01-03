@@ -3,6 +3,6 @@
 {% block content %}
 <h1>{{ frontmatter.title }}</h1>
 {{ html }}
-<p>{{ frontmatter.date }}</p>
-<p>{{ filename }}</p>
+<hr>
+<p>published: {{ frontmatter.date }}, <a href="https://github.com/mblayman/mattlayman.com/blob/main/pages/blog/{{ filename }}">source file</a></p>
 {% endblock %}
