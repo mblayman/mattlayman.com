@@ -3,15 +3,80 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Matt Layman</title>
+    <meta name="color-scheme" content="dark light">
+    <title>{% block title %}Matt Layman{% endblock %}</title>
     <style>
+      :root {
+          --bg-color: white;
+          --bg-code: #e6e6e6;
+          --text-color: black;
+          --link-color: oklch(48.8% 0.243 264.376);
+          --link-hover: oklch(70.7% 0.165 254.624);
+
+          font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+
+      @media (prefers-color-scheme: dark) {
+          :root {
+              --bg-color: #121212;
+              --bg-code: #242424;
+              --text-color: white;
+              --link-color: oklch(62.3% 0.214 259.815);
+              --link-hover: oklch(70.7% 0.165 254.624);
+          }
+      }
+
+      body {
+          background-color: var(--bg-color);
+          color: var(--text-color);
+          margin: 1em;
+      }
+
+      a {
+        color: var(--link-color);
+      }
+      a:hover {
+        color: var(--link-hover);
+      }
+
+      hr {
+        border-width: 0.5px;
+      }
+
+      pre {
+        overflow-x: auto;
+        white-space: pre;
+        overflow-wrap: normal;
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+
+        background-color: var(--bg-code);
+        padding: 0.5rem;
+        scrollbar-gutter: stable;
+      }
+
+      pre code {
+        display: block;
+        padding: 0;
+        margin: 0;
+
+        white-space: inherit;
+        overflow-wrap: inherit;
+        font: inherit;
+      }
+
+      code {
+        background-color: var(--bg-code);
+      }
+
       .content {
-        max-width: 65ch;
+        max-width: 68ch;
       }
     </style>
   </head>
   <body>
-    <div><a href="/">Index</a></div>
+    <div><a href="/">mattlayman.com</a></div>
     <div class="content">
       {% block content %}{% endblock %}
     </div>

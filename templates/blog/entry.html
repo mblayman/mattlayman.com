@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 
+{% block title %}{{ title }} &middot; Matt Layman {% endblock %}
+
 {% block content %}
-<h1>{{ frontmatter.title }}</h1>
+<h1>{{ title }}</h1>
 {{ html }}
 <hr>
-<p>published: {{ frontmatter.date }}, <a href="https://github.com/mblayman/mattlayman.com/blob/main/pages/blog/{{ filename }}">source file</a></p>
+<p>published: {{ date }}, <a href="https://github.com/mblayman/mattlayman.com/blob/main/pages/blog/{{ filename }}">source file</a></p>
 {% endblock %}
