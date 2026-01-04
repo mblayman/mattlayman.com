@@ -7,8 +7,9 @@
     <title>{% block title %}Matt Layman{% endblock %}</title>
     <style>
       :root {
-          --bg-color: white;
-          --bg-code: #e6e6e6;
+          --accent-color: oklch(64.6% 0.222 41.116);
+          --bg-color: oklch(98.5% 0.001 106.423);
+          --bg-code: oklch(92.3% 0.003 48.717);
           --text-color: black;
           --link-color: oklch(48.8% 0.243 264.376);
           --link-hover: oklch(70.7% 0.165 254.624);
@@ -18,8 +19,9 @@
 
       @media (prefers-color-scheme: dark) {
           :root {
-              --bg-color: #121212;
-              --bg-code: #242424;
+              --accent-color: oklch(75% 0.183 55.934);
+              --bg-color: oklch(14.7% 0.004 49.25);
+              --bg-code: oklch(26.8% 0.007 34.298);
               --text-color: white;
               --link-color: oklch(62.3% 0.214 259.815);
               --link-hover: oklch(70.7% 0.165 254.624);
@@ -40,7 +42,12 @@
       }
 
       hr {
+        border-color: var(--accent-color);
         border-width: 0.5px;
+      }
+
+      li::marker {
+        color: var(--accent-color);
       }
 
       pre {
