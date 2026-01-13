@@ -224,4 +224,4 @@ I will explain how to use other types of data and how to make stacked
 area charts. Stay tuned!
 
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src='/2015/area.js'></script>
+<script src='/static/2015/area.js'></script>
