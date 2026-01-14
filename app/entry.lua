@@ -1,6 +1,7 @@
 local Application = require("nibiru.application")
 local Route = require("nibiru.route")
 
+require("app.template_functions")
 local blog_pages = require("app.blog.pages")
 blog_pages.load()
 
