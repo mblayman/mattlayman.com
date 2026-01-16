@@ -81,7 +81,7 @@ aside {
   float: right;
   width: 280px;
   margin: 0 -360px 0 0;
-  padding: 1em;
+  padding: 0 0 0 1rem;
   clear: right;
 }
 
