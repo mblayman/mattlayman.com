@@ -73,4 +73,24 @@ header a:hover {
   background-color: var(--bg-color);
   max-width: 68ch;
   padding: 1em;
+  display: flow-root;
+}
+
+aside {
+  background-color: var(--bg-color);
+  float: right;
+  width: 280px;
+  margin: 0 -360px 0 0;
+  padding: 1em;
+  clear: right;
+}
+
+/* Mobile reset */
+@media (max-width: 900px) {
+  aside {
+    float: none;
+    width: auto;
+    margin: 0 0 0 1rem;
+    border-left: 4px solid var(--accent-color);
+  }
 }
