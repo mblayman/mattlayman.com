@@ -29,11 +29,14 @@
       }
     </style>
     <link rel="stylesheet" type="text/css" href="/static/site.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/prism-light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" type="text/css" href="/static/css/prism-dark.css" media="(prefers-color-scheme: dark)">
   </head>
   <body>
     <header><h3><a href="/">mattlayman.com</a><h3></header>
     <div class="content">
       {% block content %}{% endblock %}
     </div>
+    <script src="/static/js/prism.js"></script>
   </body>
 </html>
