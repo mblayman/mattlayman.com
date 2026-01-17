@@ -58,6 +58,11 @@ code {
   background-color: var(--bg-code);
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 header {
   padding: 0 1em;
 }
