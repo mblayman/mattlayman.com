@@ -76,7 +76,7 @@ header a:hover {
 
 .content {
   background-color: var(--bg-color);
-  max-width: 68ch;
+  max-width: 76ch;
   padding: 1em;
   display: flow-root;
 }
@@ -86,7 +86,7 @@ aside {
   float: right;
   width: 280px;
   margin: 0 -360px 0 0;
-  padding: 0 0 0 1rem;
+  padding: 0 1rem;
   clear: right;
 }
 
@@ -95,7 +95,13 @@ aside {
   aside {
     float: none;
     width: auto;
-    margin: 0 0 0 1rem;
+    margin: 0;
+    padding: 0 0 0 1rem;
     border-left: 4px solid var(--accent-color);
+  }
+
+  blockquote {
+    margin: 0;
+    padding: 0 0 0 1rem;
   }
 }
