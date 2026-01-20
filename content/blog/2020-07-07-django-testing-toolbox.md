@@ -289,7 +289,7 @@ You should probably have a separate settings file
 for your testing configuration.
 Here's {{< extlink "https://github.com/mblayman/homeschool/blob/ff59a73113b69a02aae3babaf200b2330593355b/project/testing_settings.py" "an example" >}}
 from my
-[Building SaaS]({{< ref "/building-saas/_index.md" >}}) project.
+Building SaaS project.
 
 Unless you need specific functionality
 from a certain database,

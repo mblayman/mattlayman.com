@@ -472,7 +472,7 @@ I started to share my efforts
 on College Conductor live.
 
 Over a year later,
-I have [streamed nearly 40 lessons]({{< ref "/building-saas/_index.md" >}})
+I have streamed nearly 40 lessons
 in an episodic format
 to teach people about Django
 and building real projects.
