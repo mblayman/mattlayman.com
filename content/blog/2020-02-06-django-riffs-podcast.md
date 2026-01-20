@@ -45,14 +45,14 @@ With this launch announcement,
 I am releasing the first two episodes.
 
 * The first episode,
-    [Get To Know Django]({{< ref "/django-riffs/2020-01-30-get-to-know-django.md" >}}),
+    Get To Know Django,
     gets us situated
     with where Django exists
     in the context
     of the internet
     and web application development.
 * In the second episode,
-    [Enter With URLs]({{< ref "/django-riffs/2020-01-31-enter-with-urls.md" >}}),
+    Enter With URLs,
     we start our exploration
     of Django's features
     by focusing on how Django sets up URLs.
