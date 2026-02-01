@@ -21,7 +21,6 @@ series: "Understand Django"
 
 ---
 
-{{< web >}}
 In the previous
 [Understand Django](/blog/understand-django)
 article,
@@ -39,7 +38,6 @@ Now we're going to learn more
 about middleware
 and its function
 within a Django project.
-{{< /web >}}
 
 1. [From Browser To Django](/understand-django/browser-to-django)
 2. [URLs Lead The Way](/understand-django/urls-lead-way)
@@ -121,7 +119,6 @@ If you're a visual learner
 who didn't find my gobstopper analogy helpful,
 then I hope this picture will be more illustrative.
 
-{{< web >}}
 ```text
                +--------- SecurityMiddleware --------------+
                |+-------- SessionMiddleware --------------+|
@@ -134,7 +131,6 @@ then I hope this picture will be more illustrative.
 HttpRequest =================> view function ==================> HttpResponse
                |||||||                               |||||||
 ```
-{{< /web >}}
 
 How does Django make this layering work?
 When you start Django
@@ -160,10 +156,8 @@ file is located in your project,
 Adjust accordingly for your needs.
 
 Remember way back
-{{< web >}}
 in the first article
 of the series
-{{< /web >}}
 that WSGI stands
 for the Web Server Gateway Interface
 and is the common layer
@@ -176,11 +170,9 @@ imported from `django.core.wsgi`.
 
 `get_wsgi_application` does two things:
 
-{{< web >}}
 * Calls `django.setup` which does all the startup configuration
     that we saw in the last article
 * Returns a `WSGIHandler` instance
-{{< /web >}}
 
 As you might guess,
 the `WSGIHandler` is designed
@@ -209,7 +201,6 @@ to pass through each middleware.
 Aside from building the middleware chain,
 `load_middleware` must do some other important configuration.
 
-{{< web >}}
 * The method handles synchronous and asynchronous middleware.
     As Django increases its support
     of async development,
@@ -221,7 +212,6 @@ Aside from building the middleware chain,
     based on the presence
     of various hook methods.
     We'll discuss those hooks later in this article.
-{{< /web >}}
 
 That explains middleware's structure
 and how all the middleware interacts
@@ -239,12 +229,10 @@ for code that we want to execute globally
 for our Django project.
 
 For instance,
-{{< web >}}
 think back to our last article
 on
 [User Authentication]({{< ref "/understand-django/2020-11-04-user-authentication.md" >}}).
 In that article,
-{{< /web >}}
 we observed
 that Django's auth system is dependent
 on the `AuthenticationMiddleware`.
@@ -443,9 +431,7 @@ of a view,
 this middleware would do that.
 The downside is that it wouldn't tell you *which* view is recorded.
 Hey, give me a break,
-{{< web >}}
 this is a silly example! 🤪
-{{< /web >}}
 
 Hopefully,
 you're beginning
@@ -573,7 +559,6 @@ I'll describe what I think are the most common
 or useful middleware classes
 that Django includes.
 
-{{< web >}}
 * `AuthenticationMiddleware` - We've already encountered this middleware
     in the exploration of the auth system.
     The job of this middleware is
@@ -627,7 +612,6 @@ that Django includes.
     Sessions are crucial
     for many parts of Django
     like user auth.
-{{< /web >}}
 
 As you can see
 from this incomplete list,
@@ -652,9 +636,7 @@ for your toolbelt.
 
 ## Summary
 
-{{< web >}}
 In this article,
-{{< /web >}}
 we saw Django's middleware system.
 
 We discussed:
@@ -663,9 +645,7 @@ We discussed:
 * How to write your own middleware
 * Some of the middleware classes that come with Django
 
-{{< web >}}
 Next time we'll dig into static files.
-{{< /web >}}
 Static files are all the images,
 JavaScript,
 CSS,
@@ -680,11 +660,9 @@ We need to understand:
     when deploying your site
     to the internet
 
-{{< web >}}
 If you have questions,
 you can reach me online
 on X
 where I am
 [@mblayman](https://x.com/mblayman).
-{{< /web >}}
 &nbsp;

@@ -22,17 +22,13 @@ series: "Understand Django"
 ---
 
 In the last
-{{< web >}}
 [Understand Django](/blog/understand-django)
 article,
-{{< /web >}}
 we dug into file management.
 We saw how Django handles user uploaded files
 and how to deal with them safely.
 
-{{< web >}}
 With this article,
-{{< /web >}}
 you'll learn about commands.
 Commands are the way to execute scripts
 that interact with your Django app.
@@ -136,9 +132,7 @@ Django gives us a tool to run commands
 before we've even started our project.
 That tool is the `django-admin` script.
 We saw it all the way back
-{{< web >}}
 in the first article
-{{< /web >}}
 where I provided a short set
 of setup instructions
 to get you started
@@ -146,9 +140,7 @@ if you've never used Django before.
 
 After you've started a project,
 your code will have a `manage.py` file,
-{{< web >}}
 and the commands you've seen in most articles are in the form of:
-{{< /web >}}
 
 ```bash
 $ ./manage.py some_command
@@ -223,7 +215,6 @@ How are the commands discovered?
 Let's say your project has an app named `application`.
 Django can find the command if you have the following packaging structure.
 
-{{< web >}}
 ```text
 application
 ├── __init__.py
@@ -236,7 +227,6 @@ application
 └── views.py
 ... Other typical Django app files
 ```
-{{< /web >}}
 
 With this structure, you could run:
 
@@ -246,7 +236,6 @@ $ ./manage.py custom_command
 
 Notes:
 
-{{< web >}}
 * Django will create a command for a module found
     in `<app>/management/commands/<command name>.py`.
 * Don't forget the `__init__.py` files!
@@ -255,7 +244,6 @@ Notes:
 * The example uses `custom_command`,
     but you can name your command
     with whatever valid Python module name that you want.
-{{< /web >}}
 
 Unfortunately,
 we can't slap some Python code
@@ -350,7 +338,6 @@ I've simplified things a bit,
 so that you can ignore the details
 that are specific to my service.
 
-{{< web >}}
 ```python
 # application/management/commands/expire_trials.py
 
@@ -382,7 +369,6 @@ class Command(BaseCommand):
             f"Expired {count} trial(s)"
         )
 ```
-{{< /web >}}
 
 I configured the scheduler
 to run `python manage.py expire_trials`
@@ -471,9 +457,7 @@ of complex background processing.
 Django is full of
 [useful commands](https://docs.djangoproject.com/en/4.1/ref/django-admin/)
 that you can use for all kinds of purposes.
-{{< web >}}
 Thus far in this series,
-{{< /web >}}
 we've discussed a bunch of them, including:
 
 * `check` - Checks that your project is in good shape.
@@ -677,9 +661,7 @@ You should definitely check out django-extensions.
 
 ## Summary
 
-{{< web >}}
 In this article,
-{{< /web >}}
 you saw Django commands.
 We covered:
 
@@ -688,9 +670,7 @@ We covered:
 * How to create your own custom command and how to test it
 * Useful commands from the core framework and the django-extensions package
 
-{{< web >}}
 In the next article,
-{{< /web >}}
 we're going to look into performance.
 You'll learn about:
 
@@ -698,11 +678,9 @@ You'll learn about:
 * Ways to optimize your database queries
 * How to apply caching to save processing
 
-{{< web >}}
 If you have questions,
 you can reach me online
 on X
 where I am
 [@mblayman](https://x.com/mblayman).
-{{< /web >}}
 &nbsp;

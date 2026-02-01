@@ -24,7 +24,6 @@ tags:
 
 ---
 
-{{< web >}}
 In the previous
 [Understand Django](/blog/understand-django)
 article,
@@ -33,13 +32,10 @@ to produce a user interface.
 That's fine
 if you only need to display a user interface,
 but what do you do
-{{< /web >}}
 if you need your site
 to interact with users?
 You use Django's form system!
-{{< web >}}
 In this article,
-{{< /web >}}
 we'll focus
 on how to work with web forms
 using the Django form system.
@@ -252,15 +248,12 @@ This method will use paragraph tags instead
 for the form elements.
 If the template looks like:
 
-{{< web >}}
 ```django
 {{ form.as_p }}
 ```
-{{< /web >}}
 
 Then Django will render:
 
-{{< web >}}
 ```html
 <p><label for="id_name">Name:</label>
   <input type="text" name="name" maxlength="100" required id="id_name"></p>
@@ -270,7 +263,6 @@ Then Django will render:
   <input type="text" name="message" maxlength="1000" required id="id_message">
 </p>
 ```
-{{< /web >}}
 
 To make it possible to submit the form,
 we need to wrap this rendered output
@@ -289,15 +281,12 @@ that Django includes to make it harder
 for malicious actors
 to tamper with your form's data.
 We'll talk more about security
-{{< web >}}
 in a future article.
-{{< /web >}}
 For now,
 sprinkle the token into your forms
 with Django's built-in template tag
 and everything should work.
 
-{{< web >}}
 ```django
 <form action="{% url "some-form-url" %}" method="POST">
     {% csrf_token %}
@@ -307,7 +296,6 @@ and everything should work.
         value="Send the form!"></p>
 </form>
 ```
-{{< /web >}}
 
 That's how a form gets displayed.
 Now let's look at a view that handles the form properly.
@@ -377,9 +365,7 @@ The form submission data is stored
 in `request.POST`,
 which is a dictionary-like object
 that we first encountered
-{{< web >}}
 in the views article.
-{{< /web >}}
 By passing `request.POST`
 to the form's constructor,
 we create a form with data.
@@ -391,9 +377,7 @@ With the form ready,
 the view checks if the data is valid.
 We'll talk about form validation
 in detail later
-{{< web >}}
 in this article.
-{{< /web >}}
 In this instance,
 you can see that `is_valid` could return `False`
 if the form data contained "I am not an email address"
@@ -461,9 +445,7 @@ The extensive list of fields is
 in [the Django documentation](https://docs.djangoproject.com/en/4.1/ref/forms/fields/),
 and we will look at a few
 of the most common ones
-{{< web >}}
 in this article.
-{{< /web >}}
 
 The first thing to remember about Django form fields is
 that they convert HTML form data
@@ -843,9 +825,7 @@ Now that we know how to collect data
 from users,
 how can we make the application hold onto that data
 for them?
-{{< web >}}
 In the next article,
-{{< /web >}}
 we will begin to store data
 in a database.
 We'll work with:
@@ -857,11 +837,9 @@ We'll work with:
 * Saving new information into the database.
 * Asking the database for information that we stored.
 
-{{< web >}}
 If you have questions,
 you can reach me online
 on X
 where I am
 [@mblayman](https://x.com/mblayman).
-{{< /web >}}
 &nbsp;

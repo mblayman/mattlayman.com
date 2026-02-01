@@ -24,17 +24,13 @@ series: "Understand Django"
 ---
 
 In the last
-{{< web >}}
 [Understand Django](/blog/understand-django)
 article,
-{{< /web >}}
 we learned about where apps slow down.
 We explored techniques that help sites handle the load
 and provide a fast experience for users.
 
-{{< web >}}
 With this article,
-{{< /web >}}
 we will look at security.
 How does a Django site stay safe
 on the big, bad internet?
@@ -66,14 +62,10 @@ Let's find out.
 I have a confession to make.
 Of all the topics
 that I've covered about Django
-{{< web >}}
 in this series,
-{{< /web >}}
 *this is my least favorite one.*
-{{< web >}}
 Perhaps that's why I've pushed the subject
 so far into this list of articles.
-{{< /web >}}
 
 I have a very hard time getting excited about security
 because it feels like a pure cost to me.
@@ -141,13 +133,9 @@ and the problems they address.
 
 ### CSRF
 
-{{< web >}}
 In a number of these Understand Django articles,
-{{< /web >}}
 I have discussed CSRF briefly.
-{{< web >}}
 In the forms article,
-{{< /web >}}
 I did some hand waving and stated
 that you need a CSRF token
 for security reasons
@@ -180,7 +168,6 @@ A CSRF token works by including a generated value
 that gets submitted along with the form.
 The template looks like:
 
-{{< web >}}
 ```django
 <form method="POST">
   {% csrf_token %}
@@ -188,7 +175,6 @@ The template looks like:
   <input type="submit">
 </form>
 ```
-{{< /web >}}
 
 When this renders,
 the result would be something like:
@@ -479,9 +465,7 @@ but you don't need to be prepared
 to go to black hat conventions
 in order to work on the web.
 
-{{< web >}}
 Before finishing up this security article,
-{{< /web >}}
 let's look at what Django provides
 so that you can be less of a security expert
 and use the knowledge
@@ -497,9 +481,7 @@ on the
 Aside from the content outlined
 on the security page,
 we can return to the check command
-{{< web >}}
 discussed in previous articles.
-{{< /web >}}
 Recall that Django includes a `check` command
 that can check your site's configuration
 before you deploy a site live.
@@ -515,9 +497,7 @@ from a security perspective.
 
 The security warnings that come
 from running the `check` command are defined
-{{< web >}}
 in `django.core.checks.security`.
-{{< /web >}}
 A more readable version
 of the available security checks is
 on the
@@ -568,9 +548,7 @@ and may cause people to leave your site forever.
 
 ## Summary
 
-{{< web >}}
 In this article,
-{{< /web >}}
 we explored security topics
 and how they relate to Django.
 We covered:
@@ -582,10 +560,8 @@ We covered:
 * The security checks and information available
     from the `check` command
 
-{{< web >}}
 In the *last* article
 of the Understand Django series,
-{{< /web >}}
 we'll get into debugging.
 You'll learn about:
 
@@ -593,11 +569,9 @@ You'll learn about:
 * Browser tools
 * Strategies for finding and fixing problems
 
-{{< web >}}
 If you have questions,
 you can reach me online
 on X
 where I am
 [@mblayman](https://x.com/mblayman).
-{{< /web >}}
 &nbsp;

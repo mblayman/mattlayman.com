@@ -21,7 +21,6 @@ tags:
 
 ---
 
-{{< web >}}
 In the last article
 in the
 [Understand Django](/blog/understand-django)
@@ -29,11 +28,8 @@ series,
 we saw how a user's browser request goes
 from their browser
 to Django's "front door."
-{{< /web >}}
 Now it's time to look
-{{< web >}}
 at how Django processes those requests.
-{{< /web >}}
 
 An HTTP request coming
 from a browser
@@ -278,21 +274,17 @@ because it is matched first.
 That means there's a lesson
 to remember here:
 
-{{< web >}}
 > When including `path` entries that match
     on ranges of values
     with converters (like the years example above),
     be sure to put them **after** the more specific entries.
-{{< /web >}}
 
 ## An Abbreviated View Of Views
 
 What do converters do with this extra data?
 That's hard to explain
 without touching on views.
-{{< web >}}
 The next article will cover views
-{{< /web >}}
 in far more depth,
 but here's a primer.
 
@@ -482,9 +474,7 @@ instead of using the slug converter (i.e., `<slug:slug>`).
 
 Congratulations!
 This is definitely the hardest section
-{{< web >}}
 of this article.
-{{< /web >}}
 If you understood what we did
 with `re_path`,
 the rest of this should feel very comfortable.
@@ -680,9 +670,7 @@ urlpatterns = [
 This gives us `blog_categories`
 as an independent name
 from the route
-{{< web >}}
 of `/marketing/blog/categories/`.
-{{< /web >}}
 To use that name,
 we need `reverse`
 as its counterpart.
@@ -710,9 +698,7 @@ That means that:
 reverse("blog_categories") == "/marketing/blog/categories/"
 ```
 
-{{< web >}}
 At least until you want to change it again. 😁
-{{< /web >}}
 
 ## When Names Collide
 
@@ -852,11 +838,9 @@ we've seen how to:
 * Refer to a URL by its `name`.
 * Put related names together in a namespace.
 
-{{< web >}}
 In the next article,
 we'll dig into views.
 This article only gave the briefest definition
-{{< /web >}}
 to what a view is.
 Django gives us very rich options
 when working with views.
@@ -867,11 +851,9 @@ We're going to explore:
 * Some built-in supporting views
 * Decorators that supercharge views.
 
-{{< web >}}
 If you have questions,
 you can reach me online
 on X
 where I am
 [@mblayman](https://x.com/mblayman).
-{{< /web >}}
 &nbsp;

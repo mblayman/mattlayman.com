@@ -23,10 +23,8 @@ series: "Understand Django"
 ---
 
 In the previous
-{{< web >}}
 [Understand Django](/blog/understand-django)
 article,
-{{< /web >}}
 we looked at automated testing
 and how writing tests
 to check your Django project
@@ -43,9 +41,7 @@ to *deploy* a Django project.
 Deployment is the act
 of making your application live
 to your audience,
-{{< web >}}
 and this article explains the actions
-{{< /web >}}
 you should consider
 to deploy effectively.
 
@@ -188,9 +184,7 @@ $ gunicorn project.wsgi --workers 2
 The only other option you may require is an option
 to handle where logging data goes.
 I haven't covered logging in depth yet,
-{{< web >}}
 but recall from previous articles
-{{< /web >}}
 that logging allows you to record information
 about what your application is doing
 while it's running.
@@ -307,11 +301,9 @@ Django has a few preconditions
 that it expects
 before running your application
 in a live setting.
-{{< web >}}
 If you've read the previous articles,
 then you've actually seen most
 of these preconditions by now,
-{{< /web >}}
 but we'll group them together in this section
 so you can see the complete picture.
 
@@ -329,9 +321,7 @@ then you may need to specify
 which settings module
 Django should use when running.
 
-{{< web >}}
 In a future article,
-{{< /web >}}
 we'll focus on how to manage your settings modules.
 At that time,
 you'll see how using some particular techniques diminish the need
@@ -344,9 +334,7 @@ The next important precondition
 for your app is keeping your database
 in sync using migrations.
 As mentioned
-{{< web >}}
 in the models article,
-{{< /web >}}
 we make migrations
 when making model changes.
 These migrations generate instructions
@@ -395,9 +383,7 @@ for the application.
 Another precondition needed
 for your app
 is static files.
-{{< web >}}
 We saw in the static files article
-{{< /web >}}
 that Django looks
 for static files
 in a single directory
@@ -459,11 +445,8 @@ $ ./manage.py check --deploy --fail-level WARNING
 
 On a little sample project
 that I created,
-{{< web >}}
 the (slightly reformatted for the article) output looks like:
-{{< /web >}}
 
-{{< web >}}
 ```bash
 $ ./manage.py check --deploy --fail-level WARNING
 SystemCheckError: System check identified some issues:
@@ -490,7 +473,6 @@ WARNINGS:
 
 System check identified 6 issues (0 silenced).
 ```
-{{< /web >}}
 
 The items reported by the checklist are often about settings
 that could be configured better.
@@ -537,9 +519,7 @@ with a reverse proxy
 like Nginx
 (this was one of the configurations
 that I mentioned
-{{< web >}}
 in the static files article).
-{{< /web >}}
 If HSTS is handled elsewhere,
 you could set the `SILENCED_SYSTEM_CHECKS` setting
 to tell Django
@@ -754,9 +734,7 @@ that you fixed their problem immediately.
 
 ## Summary
 
-{{< web >}}
 In this article,
-{{< /web >}}
 we learned the things
 to consider when deploying a site
 to the internet.
@@ -771,9 +749,7 @@ We examined:
     with the proper security guards
 * Monitoring your application for errors
 
-{{< web >}}
 In the next article,
-{{< /web >}}
 we'll look at Django's tools
 for managing shorter term user data
 like authentication info
@@ -788,11 +764,9 @@ You'll learn about:
 * Ways that Django uses sessions
 * How to use sessions in your apps
 
-{{< web >}}
 If you have questions,
 you can reach me online
 on X
 where I am
 [@mblayman](https://x.com/mblayman).
-{{< /web >}}
 &nbsp;

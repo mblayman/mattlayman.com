@@ -25,10 +25,8 @@ series: "Understand Django"
 ---
 
 In the last
-{{< web >}}
 [Understand Django](/blog/understand-django)
 article,
-{{< /web >}}
 you learned about Django settings
 and how to manage the configuration
 of your application.
@@ -37,9 +35,7 @@ to help you
 define settings
 effectively.
 
-{{< web >}}
 With this article,
-{{< /web >}}
 we're going to dig into file management.
 Unlike the static files
 that you create for the app yourself,
@@ -74,9 +70,7 @@ and how to deal with them safely.
 
 ## Files In Django Models
 
-{{< web >}}
 As we saw in the models article,
-{{< /web >}}
 model fields in a Django model map
 to a column in a database table.
 When you want to access the *data*
@@ -347,9 +341,7 @@ The default is a storage class
 that will store files locally
 on the server
 that runs the app.
-{{< web >}}
 This is found at `django.core.files.storage.FileSystemStorage`.
-{{< /web >}}
 The storage class uses a couple
 of important settings:
 `MEDIA_ROOT` and `MEDIA_URL`.
@@ -397,11 +389,9 @@ This is the path that we can reference
 in templates.
 An image tag template fragment would look like:
 
-{{< web >}}
 ```django
 <img src="{{ profile.picture.url }}">
 ```
-{{< /web >}}
 
 The Django documentation shows how file storage is a specific interface.
 `FileSystemStorage` happens to be included
@@ -508,9 +498,7 @@ as an alternative to the `FileSystemStorage`.
 
 ## Summary
 
-{{< web >}}
 In this article,
-{{< /web >}}
 you learned about Django file management.
 We covered:
 
@@ -518,9 +506,7 @@ We covered:
 * How the files are managed in Django
 * A Python package that can store files in various cloud services
 
-{{< web >}}
 In the next article,
-{{< /web >}}
 let's explore commands.
 Commands are the code
 that you can run with `./manage.py`.
@@ -530,11 +516,9 @@ You'll learn about:
 * How to build custom commands
 * Extra commands from the community that are useful extensions for apps
 
-{{< web >}}
 If you have questions,
 you can reach me online
 on X
 where I am
 [@mblayman](https://x.com/mblayman).
-{{< /web >}}
 &nbsp;

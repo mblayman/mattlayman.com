@@ -20,7 +20,6 @@ series: "Understand Django"
 
 ---
 
-{{< web >}}
 In the previous
 [Understand Django](/blog/understand-django)
 article,
@@ -29,7 +28,6 @@ of a Django *application*
 and how apps are the core components
 of a Django project.
 In this article,
-{{< /web >}}
 we're going to dig into Django's built-in user authentication system.
 We'll see how Django makes your life easier
 by giving you tools
@@ -179,9 +177,7 @@ from the `User` model
 because it is integrated
 with the Django admin site.
 I mentioned
-{{< web >}}
 in [Administer All The Things]({{< ref "/understand-django/2020-08-26-administer-all-the-things.md" >}})
-{{< /web >}}
 that we needed a user
 with certain permissions
 to access the admin,
@@ -837,9 +833,7 @@ def my_view(request):
 
 The `AuthenticationMiddleware` is what makes it possible
 for the decorators
-{{< web >}}
 that I've described in this article
-{{< /web >}}
 (i.e., `login_required`, `user_passes_test`, and `permission_required`)
 to work.
 Each of the decorators finds the `user` record
@@ -870,9 +864,7 @@ Knowing that,
 can you guess how this context processor works?
 
 If you guessed `AuthenticationMiddleware`,
-{{< web >}}
 you get a cookie! 🍪
-{{< /web >}}
 Since the middleware adds the `user`
 to the `request`,
 the context processor has the very trivial job
@@ -889,13 +881,11 @@ One of the examples from the explanation
 of templates used the `user` context variable.
 Here's the example again so you don't need to jump back.
 
-{{< web >}}
 ```django
 {% if user.is_authenticated %}
     <h1>Welcome, {{ user.username }}</h1>
 {% endif %}
 ```
-{{< /web >}}
 
 If you decide to use Django's permissions,
 you can also take advantage of the `perms` context variable
@@ -913,9 +903,7 @@ to your views and templates.
 
 ## Summary
 
-{{< web >}}
 In this article,
-{{< /web >}}
 we got into Django's built-in user auth system.
 
 We learned about:
@@ -927,9 +915,7 @@ We learned about:
 * What levels of authorization are available
 * How to access users in views and templates
 
-{{< web >}}
 Next time we'll study middleware
-{{< /web >}}
 in Django.
 As the name implies,
 middleware is some code
@@ -942,11 +928,9 @@ We will learn about:
 * How to write your own middleware
 * Some of the middleware classes that come with Django
 
-{{< web >}}
 If you have questions,
 you can reach me online
 on X
 where I am
 [@mblayman](https://x.com/mblayman).
-{{< /web >}}
 &nbsp;

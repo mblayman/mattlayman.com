@@ -21,7 +21,6 @@ series: "Understand Django"
 
 ---
 
-{{< web >}}
 In the previous
 [Understand Django](/blog/understand-django)
 article,
@@ -30,7 +29,6 @@ into the Django administrators site.
 We saw what the site was
 and how to configure and customize it.
 In this article,
-{{< /web >}}
 we will examine what goes into an application.
 Applications are core elements
 of a Django project.
@@ -120,9 +118,7 @@ in Django projects.
 An application usually tries
 to capture a core concept
 within your system.
-{{< web >}}
 For this article,
-{{< /web >}}
 we will use movies
 as the concept we want to model.
 
@@ -130,7 +126,6 @@ Let's see what a default scaffold includes,
 then build it up
 with all the extras.
 
-{{< web >}}
 ```bash
 (venv) $ ./manage.py startapp movies
 (venv) $ tree movies
@@ -144,25 +139,20 @@ movies
 ├── tests.py
 └── views.py
 ```
-{{< /web >}}
 
 `admin.py`:
 This file is where all your `ModelAdmin` classes live
 to power how the movies app will appear
 in the Django admin.
-{{< web >}}
 You can learn more about the admin
 in [Administer All The Things]({{< ref "/understand-django/2020-08-26-administer-all-the-things.md" >}}).
-{{< /web >}}
 
 `apps.py`:
 This file is for the `AppConfig`
 of the application.
 We will discuss the `AppConfig`
 and how to use it
-{{< web >}}
 later in this article.
-{{< /web >}}
 
 `migrations`:
 This directory is where all database migrations are stored
@@ -170,28 +160,22 @@ for the application.
 Any model changes for this app will generate a migration
 and create a numbered migration file
 in this directory.
-{{< web >}}
 More info about migrations is
 in [Store Data With Models]({{< ref "/understand-django/2020-06-25-store-data-with-models.md" >}}).
-{{< /web >}}
 
 `models.py`:
 This file is the home
 for all the Django `Model` classes
 in the application.
 The models represent all your database data.
-{{< web >}}
 Learn more about models
 in [Store Data With Models]({{< ref "/understand-django/2020-06-25-store-data-with-models.md" >}}).
-{{< /web >}}
 
 `tests.py`:
 This file is for automated tests.
 We'll cover automated tests
 in Django
-{{< web >}}
 in a future article.
-{{< /web >}}
 For now,
 you can know that I *always* **delete** this file
 and replace it with a `tests` package.
@@ -205,10 +189,8 @@ This file is where Django view functions or classes go.
 Views are the glue code
 that connect your URL routes
 to your database models.
-{{< web >}}
 I wrote about views
 in [Views On Views]({{< ref "/understand-django/2020-03-03-views-on-views.md" >}}).
-{{< /web >}}
 
 That's everything
 that comes
@@ -225,21 +207,17 @@ all movie related functionality.
 The `urls.py` file would power all the routes
 in something
 like `www.mysite.com/movies/`.
-{{< web >}}
 Information
 on URLs is
 in [URLs Lead The Way]({{< ref "/understand-django/2020-01-22-urls-lead-way.md" >}}).
-{{< /web >}}
 
 `forms.py`:
 When you use Django `Form` classes
 to interact with users,
 this is the file
 where forms are stored.
-{{< web >}}
 You can discover more on forms
 in [User Interaction With Forms]({{< ref "/understand-django/2020-05-05-user-interaction-forms.md" >}}).
-{{< /web >}}
 
 `templatetags`:
 This directory is a Python package
@@ -247,10 +225,8 @@ that would include a module
 like `movies_tags.py`
 where you'd define any custom template tags
 to use when rendering your templates.
-{{< web >}}
 Custom tags are a topic
 in [Templates For User Interfaces]({{< ref "/understand-django/2020-04-02-templates-user-interfaces.md" >}}).
-{{< /web >}}
 
 `templates`:
 This directory can store templates
@@ -258,9 +234,7 @@ that the application will render.
 I personally prefer
 using a project-wide `templates` directory
 as discussed
-{{< web >}}
 in [Templates For User Interfaces]({{< ref "/understand-django/2020-04-02-templates-user-interfaces.md" >}}),
-{{< /web >}}
 but `templates` directories are commonly found
 in individual Django apps,
 especially for third party applications
@@ -272,9 +246,7 @@ that you want to display,
 such as images,
 you can use the `static` directory.
 We'll discuss static files more
-{{< web >}}
 in a future article.
-{{< /web >}}
 
 `management`:
 Users can extend Django
@@ -283,9 +255,7 @@ that can be called via `manage.py`.
 Those commands are stored
 in this package.
 Custom commands are a future topic
-{{< web >}}
 in this series.
-{{< /web >}}
 
 `locale`:
 When doing translations and internationalization,
@@ -301,10 +271,8 @@ then you may want
 to separate them
 from your models
 in this file.
-{{< web >}}
 Managers are a topic
 in [Store Data With Models]({{< ref "/understand-django/2020-06-25-store-data-with-models.md" >}}).
-{{< /web >}}
 
 Most applications will *not* have all
 of these pieces,
@@ -315,7 +283,6 @@ on your own.
 Here's what our final sample tree
 would look like.
 
-{{< web >}}
 ```bash
 (venv) $ tree movies
 movies
@@ -355,7 +322,6 @@ movies
 ├── urls.py
 └── views.py
 ```
-{{< /web >}}
 
 ## Loading applications
 
@@ -496,9 +462,7 @@ when you need them.
 
 From my point of view,
 I think the Django philosophy is the right one
-{{< web >}}
 (shocking, isn't it!? 🤪).
-{{< /web >}}
 The benefit of the Django philosophy is
 that you leverage the knowledge
 of people who have built web apps
@@ -598,9 +562,7 @@ a more enjoyable experience.
 
 ## Summary
 
-{{< web >}}
 In this article,
-{{< /web >}}
 we studied
 Django applications.
 
@@ -612,9 +574,7 @@ We saw:
     from a common format
     that creates reusable components
 
-{{< web >}}
 Next time we will look into authentication
-{{< /web >}}
 in Django.
 We will study:
 
@@ -622,11 +582,9 @@ We will study:
 * How to deal with permissions for users
 * How to work with users in your views and templates
 
-{{< web >}}
 If you have questions,
 you can reach me online
 on X
 where I am
 [@mblayman](https://x.com/mblayman).
-{{< /web >}}
 &nbsp;

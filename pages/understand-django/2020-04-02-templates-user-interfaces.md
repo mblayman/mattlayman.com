@@ -22,7 +22,6 @@ tags:
 
 ---
 
-{{< web >}}
 In the previous
 [Understand Django](/blog/understand-django)
 article,
@@ -30,7 +29,6 @@ we looked at the fundamentals
 of using views in Django.
 This article will focus
 on templates.
-{{< /web >}}
 Templates are your primary tool
 in a Django project
 for generating a user interface.
@@ -164,9 +162,7 @@ Each backend can accept a variety
 of options.
 `startproject` sets a number of context processors.
 We'll come back to context processors later
-{{< web >}}
 in this article.
-{{< /web >}}
 
 With your templates set up,
 you're ready to go!
@@ -231,9 +227,7 @@ about this example.
 
 This idea of mixing context and static layout is the core concept
 of working with templates.
-{{< web >}}
 The rest of this article builds
-{{< /web >}}
 on this root concept
 and shows what else is possible
 in the Django template language.
@@ -258,9 +252,7 @@ but it includes a forward slash.
 <p>This is a paragraph example.</p>
 ```
 
-{{< web >}}
 From the last article,
-{{< /web >}}
 you may recall seeing the `TemplateView`.
 In those examples,
 we provided a template name,
@@ -390,13 +382,11 @@ with two core tags, `if` and `for`.
 The `if` tag is for handling conditional logic
 that your template might need.
 
-{{< web >}}
 ```django
 {% if user.is_authenticated %}
     <h1>Welcome, {{ user.username }}</h1>
 {% endif %}
 ```
-{{< /web >}}
 
 This example will only include this welcome message HTML header tag
 when the user is logged in
@@ -416,7 +406,6 @@ there are also `else` and `elif` tags
 that are accepted inside
 of an `if`/`endif` pair.
 
-{{< web >}}
 ```django
 {% if user.is_authenticated %}
     <h1>Welcome, {{ user.username }}</h1>
@@ -424,7 +413,6 @@ of an `if`/`endif` pair.
     <h1>Welcome, guest</h1>
 {% endif %}
 ```
-{{< /web >}}
 
 In this case, only one of the header tags will render
 depending on whether the user is authenticated or not.
@@ -436,7 +424,6 @@ A `for` loop
 in Django templates
 behaves as you might expect.
 
-{{< web >}}
 ```django
 <p>Prices:</p>
 <ul>
@@ -445,7 +432,6 @@ behaves as you might expect.
 {% endfor %}
 </ul>
 ```
-{{< /web >}}
 
 Django will loop over iterables
 like lists
@@ -485,14 +471,12 @@ like `first` and `last`
 that you can use to make templates behave differently
 on certain loop iterations.
 
-{{< web >}}
 ```django
 Counting:
 {% for number in first_three_numbers %}
     {{ number }}{% if forloop.last %} is last!{% endif %}
 {% endfor %}
 ```
-{{< /web >}}
 
 This example would produce:
 
@@ -662,7 +646,6 @@ Django helps you avoid this scenario entirely
 with a few tags.
 Let's make a new template called `base.html`.
 
-{{< web >}}
 ```django
 <!DOCTYPE html>
 <html>
@@ -674,13 +657,11 @@ Let's make a new template called `base.html`.
     </body>
 </html>
 ```
-{{< /web >}}
 
 We've created a reusable template with the `block` tag!
 We can fix up our homepage
 to use this new template.
 
-{{< web >}}
 ```django
 {% extends "base.html" %}
 
@@ -688,7 +669,6 @@ to use this new template.
     <h1>Hello from the Home page</h1>
 {% endblock %}
 ```
-{{< /web >}}
 
 This new version of the homepage *extends* the base template.
 All the template had to do was define its own version
@@ -743,7 +723,6 @@ is now harder.
 We can decompose the template
 into smaller pieces.
 
-{{< web >}}
 ```django
 <!DOCTYPE html>
 <html>
@@ -755,7 +734,6 @@ into smaller pieces.
     {% include "footer.html" %}
 </html>
 ```
-{{< /web >}}
 
 The `include` tag can move those extra pieces around.
 By providing a good name for your templates,
@@ -790,9 +768,7 @@ of what is available.
 One of the most used built-in tags
 aside from what we've already covered
 is the `url` tag.
-{{< web >}}
 Recall from the article
-{{< /web >}}
 on URLs
 that you can get the URL
 to a named view
@@ -825,11 +801,9 @@ Instead,
 our template can directly create the proper URL.
 Here's what `a_template.html` might look like instead:
 
-{{< web >}}
 ```django
 <a href="{% url "a_named_view" %}">Go to a named view</a>
 ```
-{{< /web >}}
 
 The `url` tag is the template equivalent
 of the `reverse` function.
@@ -850,11 +824,9 @@ you can tell your template how to display the current time.
 Want to add a current copyright year to your website?
 No problem!
 
-{{< web >}}
 ```django
 &copy; {% now "Y" %} Your Company LLC.
 ```
-{{< /web >}}
 
 One final built-in tag to consider is the `spaceless` tag.
 HTML is *partially* sensitive to whitespace.
@@ -879,7 +851,6 @@ when working with CSS.
 Knowing that the whitespace can affect layout,
 we can use `spaceless` like so:
 
-{{< web >}}
 ```django
 {% spaceless %}
 <ul class="navigation">
@@ -888,7 +859,6 @@ we can use `spaceless` like so:
 </ul>
 {% endspaceless %}
 ```
-{{< /web >}}
 
 This neat little template tag will remove all the spaces
 between HTML tags
@@ -902,9 +872,7 @@ By removing the extra space,
 you may get a more consistent experience
 with your CSS styling
 and save yourself some frustration.
-{{< web >}}
 (I had to trim the output to fit better on the screen.)
-{{< /web >}}
 
 There is another kind of built-in
 that we have not looked at yet.
@@ -914,11 +882,9 @@ in your templates.
 The filter syntax is a bit interesting.
 It looks like:
 
-{{< web >}}
 ```django
 Here's a filter example: {{ a_variable|some_filter:"filter arguments" }}
 ```
-{{< /web >}}
 
 The important element is the pipe character directly
 after a variable.
@@ -940,11 +906,9 @@ The `date` [documentation](https://docs.djangoproject.com/en/4.1/ref/templates/b
 what options you can use
 to modify the format.
 
-{{< web >}}
 ```django
 {{ a_datetime|date:"Y-m-d" }}
 ```
-{{< /web >}}
 
 If `a_datetime` was an instance of April Fools' Day,
 then it could return a string like `2020-04-01`.
@@ -960,11 +924,9 @@ with an empty string.
 The example below outputs "Nothing to see here"
 if the variable was Falsy.
 
-{{< web >}}
 ```django
 {{ a_variable|default:"Nothing to see here." }}
 ```
-{{< /web >}}
 
 Falsy is a concept in Python
 that describes anything
@@ -980,9 +942,7 @@ It is the Django template equivalent to the `len` function.
 
 I like the `linebreaks` filter a lot.
 If you create a form
-{{< web >}}
 (which we'll explore in the next article)
-{{< /web >}}
 and accept a text area field where the user is allowed
 to provide newlines,
 then the `linebreaks` filter allows you
@@ -1001,11 +961,9 @@ let's consider two more.
 for the times when your text considers counts
 of things. Consider a count of items.
 
-{{< web >}}
 ```django
 {{ count_items }} item{{ count_items|pluralize }}
 ```
-{{< /web >}}
 
 The `pluralize` filter will do the right thing
 if there are zero, one, or more items
@@ -1031,11 +989,9 @@ and a person's attendance is one
 of those three values.
 Our template might look like:
 
-{{< web >}}
 ```django
 {{ user.name }} has {{ user_accepted|yesno:"accepted,declined,not RSVPed" }}.
 ```
-{{< /web >}}
 
 Depending on the value of `user_accepted`,
 the template will display something meaningful
@@ -1074,7 +1030,6 @@ Choose the module name carefully
 because it is what we will load
 in the template later on.
 
-{{< web >}}
 ```txt
 application
 ├── templatetags
@@ -1085,7 +1040,6 @@ application
 ├── models.py
 └── views.py
 ```
-{{< /web >}}
 
 Next,
 we need to make our tag or filter
@@ -1118,13 +1072,11 @@ we must load our tags module
 into the template
 with the `load` tag.
 
-{{< web >}}
 ```django
 {% load custom_tags %}
 
 {{ message|add_pizzazz }}
 ```
-{{< /web >}}
 
 If our message was "You got a perfect score!",
 then our template should show the message
@@ -1158,13 +1110,11 @@ def champion_welcome(name, level):
 
 We can load the custom tags and use our tag like any other built-in tag.
 
-{{< web >}}
 ```django
 {% load custom_tags %}
 
 {% champion_welcome "He-Man" 50 %}
 ```
-{{< /web >}}
 
 This silly welcome tag will respond
 to multiple input variables
@@ -1198,9 +1148,7 @@ We've looked at:
 * Built-in tags and filters available to templates
 * Customizing templates with your own code extensions
 
-{{< web >}}
 In the next article,
-{{< /web >}}
 we are going to examine
 how users can send data to a Django application
 with HTML forms.
@@ -1213,11 +1161,9 @@ We're going to see:
 * How forms are rendered to users by Django
 * How to do form validation
 
-{{< web >}}
 If you have questions,
 you can reach me online
 on X
 where I am
 [@mblayman](https://x.com/mblayman).
-{{< /web >}}
 &nbsp;

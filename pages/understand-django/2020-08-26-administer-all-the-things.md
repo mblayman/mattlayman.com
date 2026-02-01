@@ -23,20 +23,16 @@ series: "Understand Django"
 
 ---
 
-{{< web >}}
 In the previous
 [Understand Django](/blog/understand-django)
 article,
 we used models
 to see how Django stores data
 in a relational database.
-{{< /web >}}
 We covered all the tools
 to bring your data to life
 in your application.
-{{< web >}}
 In this article,
-{{< /web >}}
 we will focus
 on the built-in tools
 that Django provides
@@ -184,9 +180,7 @@ If you inspect this small set of pages,
 you'll notice
 that every part of the CRUD acronym can occur
 in this admin site.
-{{< web >}}
 The power to create and destroy is in your hands. 😈
-{{< /web >}}
 
 Now that we understand what is in the admin site,
 let's focus on how to add your models to the admin.
@@ -564,9 +558,7 @@ of the book.
 
 When you search,
 your resulting URL could look
-{{< web >}}
 like `/admin/application/book/?q=tolkien`.
-{{< /web >}}
 Django will do a case insensitive search
 on the field.
 The `QuerySet` would be something like:
@@ -973,9 +965,7 @@ in their applications.
 
 ## Summary
 
-{{< web >}}
 In this article,
-{{< /web >}}
 we looked
 at the built-in Django administrator's site.
 This powerful extension gives us the ability
@@ -995,9 +985,7 @@ We've covered:
     that enable you to do work
     on your model records
 
-{{< web >}}
 Next time we will cover
-{{< /web >}}
 the anatomy
 of a Django application.
 A Django project is composed
@@ -1008,11 +996,9 @@ We will explore:
 * How Django identifies and loads applications
 * Why applications are crucial for the Django ecosystem
 
-{{< web >}}
 If you have questions,
 you can reach me online
 on X
 where I am
 [@mblayman](https://x.com/mblayman).
-{{< /web >}}
 &nbsp;

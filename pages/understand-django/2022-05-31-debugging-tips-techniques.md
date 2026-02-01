@@ -22,21 +22,15 @@ series: "Understand Django"
 ---
 
 In the last
-{{< web >}}
 [Understand Django](/blog/understand-django)
 article,
-{{< /web >}}
 we looked at security.
 How does a Django site stay safe
 on the big, bad internet?
-{{< web >}}
 The article explored some core elements
-{{< /web >}}
 for making a Django app more secure.
 
-{{< web >}}
 With this article,
-{{< /web >}}
 we will investigate problem solving techniques
 for Django apps.
 The goal is to equip you with tools
@@ -117,11 +111,9 @@ about what happened in the first place.
 
 What are the sources of this data?
 
-{{< web >}}
 * Error monitoring services like Rollbar or Sentry can be a fantastic source
     of data.
 * Log data, which we'll discuss later in this article, can be another excellent source.
-{{< /web >}}
 
 Error monitoring services help show what happened.
 These services will collect tracebacks of Python exceptions
@@ -625,9 +617,7 @@ as you think about how to debug your apps.
 
 ## Summary
 
-{{< web >}}
 In this article,
-{{< /web >}}
 we saw debugging tips, tools, and techniques
 to make you a bug crushing machine
 in Django.
@@ -643,42 +633,28 @@ We discussed:
 * Logging and the ability to see a history
     of activity in your application
 
-{{< web >}}
 That's the end of this series!
-{{< /web >}}
 Can you believe there are still more topics
-{{< web >}}
 that this series could cover?
-{{< /web >}}
 Django has so much available that,
-{{< web >}}
 even after twenty articles,
-{{< /web >}}
 I've not covered everything.
 But this is the end
 of the line for me.
 
-{{< web >}}
 I knew when I started this series
-{{< /web >}}
 that I was going to cover a huge number
 of topics.
 What I didn't know when I started this in January of 2020
 is how wacky the world would be.
-{{< web >}}
 I thought that I might produce an article every other week
-{{< /web >}}
 and be done in less than a year.
 *How wrong I was!*
 More than two years later,
 I'm writing the words
-{{< web >}}
 of this last article.
-{{< /web >}}
 
-{{< web >}}
 As I wrap up this series,
-{{< /web >}}
 my hope is that you,
 dear reader,
 have come to understand Django better.
@@ -703,15 +679,11 @@ to making something so useful
 for others
 (for *free* in most cases!).
 
-{{< web >}}
 I would like to conclude this series
-{{< /web >}}
 by thanking all of you readers out there.
 Along this lengthy journey,
 so many of you have reached out
-{{< web >}}
 and told me how this series has helped you grow
-{{< /web >}}
 as a Django developer.
 I'm hopeful that developers have used these words
 to learn and create websites
@@ -719,17 +691,13 @@ that help their own communities.
 Knowing that I've impacted some of you
 and, by extension, the communities
 that you've helped,
-{{< web >}}
 made writing this series worth it.
-{{< /web >}}
 
 > Thank you for reading!
 
-{{< web >}}
 If you have questions,
 you can reach me online
 on X
 where I am
 [@mblayman](https://x.com/mblayman).
-{{< /web >}}
 &nbsp;

@@ -22,7 +22,6 @@ tags:
 
 ---
 
-{{< web >}}
 In the previous
 [Understand Django](/blog/understand-django)
 article,
@@ -34,7 +33,6 @@ who use your site.
 In this article,
 you'll see how to take
 that data
-{{< /web >}}
 and store it
 into a database
 so that your application can use that data
@@ -182,9 +180,7 @@ that can host your Django app will work well
 with Postgres.
 
 We can explore more database configuration
-{{< web >}}
 in a future article
-{{< /web >}}
 on deployment.
 For now,
 while you're learning,
@@ -204,9 +200,7 @@ called **models**.
 Django models are similar
 to the form classes
 that we saw
-{{< web >}}
 in the last article.
-{{< /web >}}
 A Django model declares the data
 that you want to store
 in the database
@@ -508,9 +502,7 @@ The database engine translates your `save` call
 into the proper SQL query.
 SQL is a deep topic
 that we can't possibly cover fully
-{{< web >}}
 in this article.
-{{< /web >}}
 Thankfully,
 we don't have to
 because of Django's ORM!
@@ -744,9 +736,7 @@ in models
 
 The `Employee` table that I've used
 as the example
-{{< web >}}
 for this article
-{{< /web >}}
 only has three `CharField` fields
 on the model.
 The choice was deliberate
@@ -756,9 +746,7 @@ to absorb a bit about the Django ORM
 and working with querysets
 before seeing other data types.
 
-{{< web >}}
 We saw in the forms article
-{{< /web >}}
 that Django's form system
 includes a wide variety
 of form fields.
@@ -864,7 +852,6 @@ class Person(models.Model):
     )
 ```
 
-{{< web >}}
 * `blank` - The `blank` attribute is often used
     in conjunction with the `null` attribute.
     While the `null` attribute allows a database
@@ -877,7 +864,6 @@ class Person(models.Model):
     by Django
     like in the Django administrator site
     which we'll talk about in the next article.
-{{< /web >}}
 
 ```python
 class Pet(models.Model):
@@ -890,7 +876,6 @@ class Pet(models.Model):
     )
 ```
 
-{{< web >}}
 * `choices` - We saw `choices`
     in the forms article
     as a technique
@@ -902,7 +887,6 @@ class Pet(models.Model):
     that will ensure
     that only particular values are stored
     in a database field.
-{{< /web >}}
 
 ```python
 class Car(models.Model):
@@ -958,9 +942,7 @@ to link different types
 of data together.
 We got a brief example
 of this earlier
-{{< web >}}
 in this article
-{{< /web >}}
 when we considered
 an employee
 with multiple phone numbers.
@@ -1350,9 +1332,7 @@ with real world problems.
 
 ## Summary
 
-{{< web >}}
 In this article,
-{{< /web >}}
 we've explored:
 
 * How to set up a database for your project.
@@ -1368,9 +1348,7 @@ into a database,
 **you have all the core tools
 for building an interactive website
 for your users!**
-{{< web >}}
 In this series,
-{{< /web >}}
 we have examined:
 
 * URL handling
@@ -1399,11 +1377,9 @@ We'll cover:
 * How to make your models appear in the admin
 * How to create extra actions that your admin users can do
 
-{{< web >}}
 If you have questions,
 you can reach me online
 on X
 where I am
 [@mblayman](https://x.com/mblayman).
-{{< /web >}}
 &nbsp;

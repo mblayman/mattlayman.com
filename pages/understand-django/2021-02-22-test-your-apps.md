@@ -24,10 +24,8 @@ series: "Understand Django"
 ---
 
 In the previous
-{{< web >}}
 [Understand Django](/blog/understand-django)
 article,
-{{< /web >}}
 we saw how static files
 like CSS, JavaScript, and images
 can be incorporated
@@ -318,9 +316,7 @@ with testing your web app
 to verify its correctness.
 I brought all of this up because,
 if you're going to learn more about testing
-{{< web >}}
 after this article,
-{{< /web >}}
 I caution you
 to avoid getting sucked
 into this definition trap.
@@ -331,9 +327,7 @@ in Django.
 These definitions are imperfect
 (as are *any* definitions),
 but they should help frame the discussion
-{{< web >}}
 in this article.
-{{< /web >}}
 
 * **Unit tests** - Tests that check individual units
     within a Django project like a model method
@@ -678,9 +672,7 @@ My definition of an integration test
 in Django
 is a test
 that uses Django's test `Client`.
-{{< web >}}
 In previous articles,
-{{< /web >}}
 I've only mentioned what a client is in passing.
 In the context
 of a web application,
@@ -808,9 +800,7 @@ Why am I suggesting that you use `pytest`?
 
 I'm going to make a bold assertion:
 **pytest is better**.
-{{< web >}}
 (Did I just go meta there? Yes, I did. 😆)
-{{< /web >}}
 
 I like a lot about Django's built-in test runner,
 but I keep coming back to pytest
@@ -1097,9 +1087,7 @@ to your test tools.
 
 ## Summary
 
-{{< web >}}
 In this article,
-{{< /web >}}
 we explored tests
 with Django projects.
 We focused on:
@@ -1109,9 +1097,7 @@ We focused on:
     to a Django app
 * What tools you can use to make testing easier
 
-{{< web >}}
 Next time,
-{{< /web >}}
 we will dig into deployment.
 Deployment is getting your project
 into the environment
@@ -1131,11 +1117,9 @@ you'll want to know about:
     with the proper security guards
 * Monitoring your application for errors
 
-{{< web >}}
 If you have questions,
 you can reach me online
 on X
 where I am
 [@mblayman](https://x.com/mblayman).
-{{< /web >}}
 &nbsp;

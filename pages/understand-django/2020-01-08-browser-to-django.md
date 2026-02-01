@@ -31,12 +31,10 @@ You might be new to Python,
 new to web development,
 or new to programming.
 
-{{< web >}}
 This new series,
 [Understand Django](/understand-django/),
 will show you what Django is all about.
 Throughout this series,
-{{< /web >}}
 I will reveal how Django is a powerful tool
 that can unlock the potential
 of anyone interested
@@ -98,9 +96,7 @@ How do websites work?
 I'm not going
 to be able to walk
 through all the details,
-{{< web >}}
 but this post
-{{< /web >}}
 will lay down the breadcrumbs
 to build your understanding.
 We'll look at the way your web browser requests data
@@ -473,9 +469,7 @@ That format is the [Web Server Gateway Interface](https://wsgi.readthedocs.io/en
 or WSGI
 (which is often pronounced "wiz-gee").
 
-{{< web >}}
 ![Web Server Gateway Interface](/static/img/2020/wsgi.jpg)
-{{< /web >}}
 
 WSGI enables common web servers
 like
@@ -511,22 +505,16 @@ That means you must:
 There is a ton
 to unpack in those two statements
 so we will explore individual topics
-{{< web >}}
 in future articles.
-{{< /web >}}
 By now,
 I hope you have an idea
 of how a request gets
 from your browser
 to a machine running Django.
 
-{{< web >}}
 ![Life of a browser request](/static/img/2020/request-response.jpg)
-{{< /web >}}
 
-{{< web >}}
 This article is relatively free
-{{< /web >}}
 of code examples,
 and for good reason.
 There are already enough concepts
@@ -534,9 +522,7 @@ to wrestle with
 and I didn't want to add code complexity
 on top of it.
 Writing that code will be the focus
-{{< web >}}
 of this article series
-{{< /web >}}
 so we can answer questions like:
 
 * How do we build web pages
@@ -559,14 +545,11 @@ to make a full web application
 for the internet.
 This "batteries-included" philosophy is what makes Django so powerful.
 The same philosophy can also make Django seem overwhelming.
-{{< web >}}
 My goal in this series is to introduce piece after piece
-{{< /web >}}
 to build your understanding of Django
 so you can get productive and get going
 on your own web application.
 
-{{< web >}}
 In the next article,
 our focus is going to be
 on those URLs
@@ -584,16 +567,13 @@ you can reach me online
 on X
 where I am
 [@mblayman](https://x.com/mblayman).
-{{< /web >}}
 
 Finally,
 there is one more bonus topic...
 
 ## Getting Django Set Up
 
-{{< web >}}
 In the series,
-{{< /web >}}
 we'll be looking at plenty of code examples,
 but we won't be setting up Django from scratch each time.
 The following setup instructions will help you get started
@@ -622,9 +602,7 @@ I'll try to give pointers
 and highlight differences when I can.
 
 We need a place to put our work.
-{{< web >}}
 Since this series is called "Understand Django,"
-{{< /web >}}
 I'm going to use that name.
 You can name your project differently if you prefer.
 
@@ -798,9 +776,7 @@ INSTALLED_APPS = [
 That's as far as we need to go
 to get started
 with our code examples
-{{< web >}}
 in the next article.
-{{< /web >}}
 `application` will be our reference app.
 The code in future topics is not a tutorial,
 but I will use `application` on occasion
@@ -811,7 +787,5 @@ that can run locally
 for testing
 and is configured
 with its first app.
-{{< web >}}
 See you soon
 to talk about making URLs and resources!
-{{< /web >}}

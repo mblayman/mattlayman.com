@@ -22,10 +22,8 @@ series: "Understand Django"
 ---
 
 In the previous
-{{< web >}}
 [Understand Django](/blog/understand-django)
 article,
-{{< /web >}}
 I described how Django gives us tools
 to run code
 for any request
@@ -204,9 +202,7 @@ so that searching for a file is a search
 through a single file tree.
 We'll look more at how this happens
 in the deployment section later
-{{< web >}}
 in this article.
-{{< /web >}}
 
 Once we set `STATIC_ROOT`,
 Django will have the desired output location
@@ -248,7 +244,6 @@ for a static file for your site.
 
 Here's an example template to consider:
 
-{{< web >}}
 ```django
 {% load static %}
 <!DOCTYPE html>
@@ -261,7 +256,6 @@ Here's an example template to consider:
 </body>
 </html>
 ```
-{{< /web >}}
 
 In this example,
 I'm assuming that there is a `css` directory
@@ -361,9 +355,7 @@ for wider use
 on the internet.
 On its own,
 deployment is a large topic
-{{< web >}}
 that we'll cover in a future article,
-{{< /web >}}
 but we'll focus
 on static files deployment issues next.
 
@@ -735,9 +727,7 @@ one such reverse proxy
 that you can consider is
 [Nginx](https://www.nginx.com/).
 The configuration of Nginx is beyond the scope
-{{< web >}}
 of this series,
-{{< /web >}}
 but there are plenty
 of solid tutorials
 that will show how to configure a Django app
@@ -745,9 +735,7 @@ with Nginx.
 
 ## Summary
 
-{{< web >}}
 In this article,
-{{< /web >}}
 we covered static files.
 
 We looked at:
@@ -758,9 +746,7 @@ We looked at:
     when deploying your site
     to the internet
 
-{{< web >}}
 Looking ahead to the next article,
-{{< /web >}}
 we will learn about automated testing
 for your Django applications.
 Testing is one of my favorite topics
@@ -773,11 +759,9 @@ We'll cover:
     to a Django app
 * What tools can you use to make testing easier
 
-{{< web >}}
 If you have questions,
 you can reach me online
 on X
 where I am
 [@mblayman](https://x.com/mblayman).
-{{< /web >}}
 &nbsp;

@@ -23,7 +23,6 @@ tags:
 
 ---
 
-{{< web >}}
 In the previous
 [Understand Django](/blog/understand-django)
 article,
@@ -35,7 +34,6 @@ to describe the outside interface
 to the internet
 for your project.
 In this article,
-{{< /web >}}
 we'll examine the core building block
 that makes those URLs work:
 the Django view.
@@ -120,9 +118,7 @@ def hello_world(request):
 Adding the `hello_world` view
 to a URL configuration
 which we learned about
-{{< web >}}
 in the last article,
-{{< /web >}}
 you could visit a browser
 at the URL
 and find the text "Hello World"
@@ -193,7 +189,6 @@ name=Science
 &friday=on
 ```
 
-{{< web >}}
 This example is from a side project
 that uses school data.
 I have trimmed some lines out
@@ -201,7 +196,6 @@ of the request so it will fit better
 on the screen,
 and I did some slight reformatting
 to make the content a bit clearer.
-{{< /web >}}
 &nbsp;
 
 When Django receives a request like this,
@@ -256,9 +250,7 @@ This makes the objects great candidates
 for extra features that you may require.
 For instance,
 if you need user management
-{{< web >}}
 (which we will explore in a future article),
-{{< /web >}}
 there is code
 that can attach a `request.user` attribute
 to represent a user
@@ -343,9 +335,7 @@ The most common function is `render`.
 `render` is a tool
 for working with templates.
 Templates are the topic
-{{< web >}}
 of the next article,
-{{< /web >}}
 but here is a sneak peek.
 
 You could write a view
@@ -419,9 +409,7 @@ And we would have another file named `template.html` containing:
 </html>
 ```
 
-{{< web >}}
 The important part for this article is not about the templates themselves.
-{{< /web >}}
 What's worth noting is that `render`
 loads the content from `template.html`,
 gets the output,
@@ -535,11 +523,9 @@ to the full framework so far.
 I won't exhaustively cover all the class-based views
 because there are many.
 Also,
-{{< web >}}
 if you're joining this article series
 from the beginning
 and have never done Django before,
-{{< /web >}}
 then there will still be holes
 in your knowledge
 (which we will plug together!),
@@ -606,9 +592,7 @@ urlpatterns = [
 
 ### TemplateView
 
-{{< web >}}
 Earlier in the article,
-{{< /web >}}
 we briefly saw how to separate web page layout
 from the logic needed
 to build a page
@@ -631,9 +615,7 @@ class HomeView(TemplateView):
 
 We will look at template views
 in greater detail
-{{< web >}}
 in the next article
-{{< /web >}}
 when we dive into templates.
 
 ### Other View Classes
@@ -661,9 +643,7 @@ Django has views that will:
 As we continue to explore Django,
 We will discuss these views
 when their related topic (like forms) is the primary subject
-{{< web >}}
 of an article.
-{{< /web >}}
 For now,
 when you're developing your own views,
 try to remember that Django probably has a class-based view
@@ -784,7 +764,6 @@ you'll see that we can make a protected view
 for an app
 by including this decorator.
 
-{{< web >}}
 ```python
 # application/views.py
 from django.contrib.auth.decorators import login_required
@@ -794,7 +773,6 @@ from django.http import HttpResponse
 def the_view(request):
     return HttpResponse('This view is only viewable to authenticated users.')
 ```
-{{< /web >}}
 
 Any unauthenticated user will be redirected automatically
 to the login page
@@ -922,9 +900,7 @@ We've looked at:
 * Some built-in supporting views
 * Decorators and mixins that supercharge views.
 
-{{< web >}}
 In the next article,
-{{< /web >}}
 we'll see how views can mix static layout
 with the dynamic data we provide
 by using templates.
@@ -939,11 +915,9 @@ We're going to see:
 * Built-in functions available to templates
 * Customizing templates with your own code extensions
 
-{{< web >}}
 If you have questions,
 you can reach me online
 on X
 where I am
 [@mblayman](https://x.com/mblayman).
-{{< /web >}}
 &nbsp;
