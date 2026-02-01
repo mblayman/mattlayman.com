@@ -22,7 +22,7 @@ series: "Understand Django"
 ---
 
 In the last
-[Understand Django](/blog/understand-django)
+[Understand Django](/understand-django/about)
 article,
 we looked at security.
 How does a Django site stay safe

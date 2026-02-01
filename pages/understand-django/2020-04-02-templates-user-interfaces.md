@@ -23,7 +23,7 @@ tags:
 ---
 
 In the previous
-[Understand Django](/blog/understand-django)
+[Understand Django](/understand-django/about)
 article,
 we looked at the fundamentals
 of using views in Django.

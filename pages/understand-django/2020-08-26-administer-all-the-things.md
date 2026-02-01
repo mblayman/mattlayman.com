@@ -24,7 +24,7 @@ series: "Understand Django"
 ---
 
 In the previous
-[Understand Django](/blog/understand-django)
+[Understand Django](/understand-django/about)
 article,
 we used models
 to see how Django stores data

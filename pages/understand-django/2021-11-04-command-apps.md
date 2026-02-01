@@ -22,7 +22,7 @@ series: "Understand Django"
 ---
 
 In the last
-[Understand Django](/blog/understand-django)
+[Understand Django](/understand-django/about)
 article,
 we dug into file management.
 We saw how Django handles user uploaded files

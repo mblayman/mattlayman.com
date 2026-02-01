@@ -21,7 +21,7 @@ series: "Understand Django"
 ---
 
 In the previous
-[Understand Django](/blog/understand-django)
+[Understand Django](/understand-django/about)
 article,
 we learned about the structure
 of a Django *application*
@@ -177,7 +177,7 @@ from the `User` model
 because it is integrated
 with the Django admin site.
 I mentioned
-in [Administer All The Things]({{< ref "/understand-django/2020-08-26-administer-all-the-things.md" >}})
+in [Administer All The Things](/understand-django/administer-all-the-things)
 that we needed a user
 with certain permissions
 to access the admin,

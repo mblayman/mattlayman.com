@@ -32,7 +32,7 @@ new to web development,
 or new to programming.
 
 This new series,
-[Understand Django](/understand-django/),
+[Understand Django](/understand-django/about),
 will show you what Django is all about.
 Throughout this series,
 I will reveal how Django is a powerful tool
@@ -135,7 +135,7 @@ even if you didn't know them by name.
 
 * [https://en.wikipedia.org/](https://en.wikipedia.org/)
 * [https://www.djangoproject.com/](https://www.djangoproject.com/)
-* [https://www.mattlayman.com/img/django.png](https://www.mattlayman.com/img/django.png)
+* [https://www.mattlayman.com/static/img/django.png](https://www.mattlayman.com/static/img/django.png)
 
 These are all examples
 of URLs.

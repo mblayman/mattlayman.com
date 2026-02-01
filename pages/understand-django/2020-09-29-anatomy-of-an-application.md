@@ -22,7 +22,7 @@ series: "Understand Django"
 ---
 
 In the previous
-[Understand Django](/blog/understand-django)
+[Understand Django](/understand-django/about)
 article,
 we got deep
 into the Django administrators site.
@@ -145,7 +145,7 @@ This file is where all your `ModelAdmin` classes live
 to power how the movies app will appear
 in the Django admin.
 You can learn more about the admin
-in [Administer All The Things]({{< ref "/understand-django/2020-08-26-administer-all-the-things.md" >}}).
+in [Administer All The Things](/understand-django/administer-all-the-things).
 
 `apps.py`:
 This file is for the `AppConfig`
@@ -161,7 +161,7 @@ Any model changes for this app will generate a migration
 and create a numbered migration file
 in this directory.
 More info about migrations is
-in [Store Data With Models]({{< ref "/understand-django/2020-06-25-store-data-with-models.md" >}}).
+in [Store Data With Models](/understand-django/store-data-with-models).
 
 `models.py`:
 This file is the home
@@ -169,7 +169,7 @@ for all the Django `Model` classes
 in the application.
 The models represent all your database data.
 Learn more about models
-in [Store Data With Models]({{< ref "/understand-django/2020-06-25-store-data-with-models.md" >}}).
+in [Store Data With Models](/understand-django/store-data-with-models).
 
 `tests.py`:
 This file is for automated tests.
@@ -190,7 +190,7 @@ Views are the glue code
 that connect your URL routes
 to your database models.
 I wrote about views
-in [Views On Views]({{< ref "/understand-django/2020-03-03-views-on-views.md" >}}).
+in [Views On Views](/understand-django/views-on-views).
 
 That's everything
 that comes
@@ -209,7 +209,7 @@ in something
 like `www.mysite.com/movies/`.
 Information
 on URLs is
-in [URLs Lead The Way]({{< ref "/understand-django/2020-01-22-urls-lead-way.md" >}}).
+in [URLs Lead The Way](/understand-django/urls-lead-way).
 
 `forms.py`:
 When you use Django `Form` classes
@@ -217,7 +217,7 @@ to interact with users,
 this is the file
 where forms are stored.
 You can discover more on forms
-in [User Interaction With Forms]({{< ref "/understand-django/2020-05-05-user-interaction-forms.md" >}}).
+in [User Interaction With Forms](/understand-django/user-interaction-forms).
 
 `templatetags`:
 This directory is a Python package
@@ -226,7 +226,7 @@ like `movies_tags.py`
 where you'd define any custom template tags
 to use when rendering your templates.
 Custom tags are a topic
-in [Templates For User Interfaces]({{< ref "/understand-django/2020-04-02-templates-user-interfaces.md" >}}).
+in [Templates For User Interfaces](/understand-django/templates-user-interfaces).
 
 `templates`:
 This directory can store templates
@@ -234,7 +234,7 @@ that the application will render.
 I personally prefer
 using a project-wide `templates` directory
 as discussed
-in [Templates For User Interfaces]({{< ref "/understand-django/2020-04-02-templates-user-interfaces.md" >}}),
+in [Templates For User Interfaces](/understand-django/templates-user-interfaces),
 but `templates` directories are commonly found
 in individual Django apps,
 especially for third party applications
@@ -272,7 +272,7 @@ to separate them
 from your models
 in this file.
 Managers are a topic
-in [Store Data With Models]({{< ref "/understand-django/2020-06-25-store-data-with-models.md" >}}).
+in [Store Data With Models](/understand-django/store-data-with-models).
 
 Most applications will *not* have all
 of these pieces,

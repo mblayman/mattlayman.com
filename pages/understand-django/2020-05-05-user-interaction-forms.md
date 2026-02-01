@@ -25,7 +25,7 @@ tags:
 ---
 
 In the previous
-[Understand Django](/blog/understand-django)
+[Understand Django](/understand-django/about)
 article,
 we saw how Django templates work
 to produce a user interface.

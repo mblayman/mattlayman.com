@@ -25,7 +25,7 @@ series: "Understand Django"
 ---
 
 In the last
-[Understand Django](/blog/understand-django)
+[Understand Django](/understand-django/about)
 article,
 you learned about Django settings
 and how to manage the configuration

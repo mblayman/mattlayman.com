@@ -23,7 +23,7 @@ series: "Understand Django"
 ---
 
 In the previous
-[Understand Django](/blog/understand-django)
+[Understand Django](/understand-django/about)
 article,
 we looked at automated testing
 and how writing tests

@@ -24,7 +24,7 @@ series: "Understand Django"
 ---
 
 In the last
-[Understand Django](/blog/understand-django)
+[Understand Django](/understand-django/about)
 article,
 we learned about where apps slow down.
 We explored techniques that help sites handle the load

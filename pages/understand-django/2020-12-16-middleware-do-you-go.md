@@ -22,7 +22,7 @@ series: "Understand Django"
 ---
 
 In the previous
-[Understand Django](/blog/understand-django)
+[Understand Django](/understand-django/about)
 article,
 we covered the built-in auth system.
 That article gave you a chance
@@ -231,7 +231,7 @@ for our Django project.
 For instance,
 think back to our last article
 on
-[User Authentication]({{< ref "/understand-django/2020-11-04-user-authentication.md" >}}).
+[User Authentication](/understand-django/user-authentication).
 In that article,
 we observed
 that Django's auth system is dependent

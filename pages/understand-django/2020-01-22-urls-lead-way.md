@@ -23,7 +23,7 @@ tags:
 
 In the last article
 in the
-[Understand Django](/blog/understand-django)
+[Understand Django](/understand-django/about)
 series,
 we saw how a user's browser request goes
 from their browser

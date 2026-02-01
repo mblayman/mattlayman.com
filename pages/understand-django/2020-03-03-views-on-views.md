@@ -24,7 +24,7 @@ tags:
 ---
 
 In the previous
-[Understand Django](/blog/understand-django)
+[Understand Django](/understand-django/about)
 article,
 I covered URLs
 and the variety
