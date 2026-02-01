@@ -29,9 +29,6 @@ In the last
 [Understand Django](/blog/understand-django)
 article,
 {{< /web >}}
-{{< book >}}
-chapter,
-{{< /book >}}
 you learned about Django settings
 and how to manage the configuration
 of your application.
@@ -43,9 +40,6 @@ effectively.
 {{< web >}}
 With this article,
 {{< /web >}}
-{{< book >}}
-With this chapter,
-{{< /book >}}
 we're going to dig into file management.
 Unlike the static files
 that you create for the app yourself,
@@ -83,9 +77,6 @@ and how to deal with them safely.
 {{< web >}}
 As we saw in the models article,
 {{< /web >}}
-{{< book >}}
-As we saw in the models chapter,
-{{< /book >}}
 model fields in a Django model map
 to a column in a database table.
 When you want to access the *data*
@@ -359,9 +350,6 @@ that runs the app.
 {{< web >}}
 This is found at `django.core.files.storage.FileSystemStorage`.
 {{< /web >}}
-{{< book >}}
-This is found at `django.core.files.storage. FileSystemStorage`.
-{{< /book >}}
 The storage class uses a couple
 of important settings:
 `MEDIA_ROOT` and `MEDIA_URL`.
@@ -414,11 +402,6 @@ An image tag template fragment would look like:
 <img src="{{ profile.picture.url }}">
 ```
 {{< /web >}}
-{{< book >}}
-```djangotemplate
-<img src="{{ profile.picture.url }}">
-```
-{{< /book >}}
 
 The Django documentation shows how file storage is a specific interface.
 `FileSystemStorage` happens to be included
@@ -528,9 +511,6 @@ as an alternative to the `FileSystemStorage`.
 {{< web >}}
 In this article,
 {{< /web >}}
-{{< book >}}
-In this chapter,
-{{< /book >}}
 you learned about Django file management.
 We covered:
 
@@ -541,9 +521,6 @@ We covered:
 {{< web >}}
 In the next article,
 {{< /web >}}
-{{< book >}}
-In the next chapter,
-{{< /book >}}
 let's explore commands.
 Commands are the code
 that you can run with `./manage.py`.

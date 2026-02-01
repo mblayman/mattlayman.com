@@ -26,9 +26,6 @@ In the previous
 [Understand Django](/blog/understand-django)
 article,
 {{< /web >}}
-{{< book >}}
-chapter,
-{{< /book >}}
 I described how Django gives us tools
 to run code
 for any request
@@ -210,9 +207,6 @@ in the deployment section later
 {{< web >}}
 in this article.
 {{< /web >}}
-{{< book >}}
-in this chapter.
-{{< /book >}}
 
 Once we set `STATIC_ROOT`,
 Django will have the desired output location
@@ -268,21 +262,6 @@ Here's an example template to consider:
 </html>
 ```
 {{< /web >}}
-{{< book >}}
-```djangotemplate
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-  <link rel="stylesheet" type="text/css"
-    href="{% static "css/site.css" %}">
-</head>
-<body>
-  <h1>Example of static template tag!</h1>
-</body>
-</html>
-```
-{{< /book >}}
 
 In this example,
 I'm assuming that there is a `css` directory
@@ -385,9 +364,6 @@ deployment is a large topic
 {{< web >}}
 that we'll cover in a future article,
 {{< /web >}}
-{{< book >}}
-that we'll cover in a future chapter,
-{{< /book >}}
 but we'll focus
 on static files deployment issues next.
 
@@ -762,9 +738,6 @@ The configuration of Nginx is beyond the scope
 {{< web >}}
 of this series,
 {{< /web >}}
-{{< book >}}
-of this book,
-{{< /book >}}
 but there are plenty
 of solid tutorials
 that will show how to configure a Django app
@@ -775,9 +748,6 @@ with Nginx.
 {{< web >}}
 In this article,
 {{< /web >}}
-{{< book >}}
-In this chapter,
-{{< /book >}}
 we covered static files.
 
 We looked at:
@@ -791,9 +761,6 @@ We looked at:
 {{< web >}}
 Looking ahead to the next article,
 {{< /web >}}
-{{< book >}}
-In the next chapter,
-{{< /book >}}
 we will learn about automated testing
 for your Django applications.
 Testing is one of my favorite topics

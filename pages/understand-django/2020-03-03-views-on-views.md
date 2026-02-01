@@ -36,10 +36,6 @@ to the internet
 for your project.
 In this article,
 {{< /web >}}
-{{< book >}}
-Now that we have a grasp
-on URLs in Django,
-{{< /book >}}
 we'll examine the core building block
 that makes those URLs work:
 the Django view.
@@ -127,9 +123,6 @@ which we learned about
 {{< web >}}
 in the last article,
 {{< /web >}}
-{{< book >}}
-in the last chapter,
-{{< /book >}}
 you could visit a browser
 at the URL
 and find the text "Hello World"
@@ -266,9 +259,6 @@ if you need user management
 {{< web >}}
 (which we will explore in a future article),
 {{< /web >}}
-{{< book >}}
-(which we will explore in a future chapter),
-{{< /book >}}
 there is code
 that can attach a `request.user` attribute
 to represent a user
@@ -356,9 +346,6 @@ Templates are the topic
 {{< web >}}
 of the next article,
 {{< /web >}}
-{{< book >}}
-of the next chapter,
-{{< /book >}}
 but here is a sneak peek.
 
 You could write a view
@@ -435,9 +422,6 @@ And we would have another file named `template.html` containing:
 {{< web >}}
 The important part for this article is not about the templates themselves.
 {{< /web >}}
-{{< book >}}
-The important part for this chapter is not about the templates themselves.
-{{< /book >}}
 What's worth noting is that `render`
 loads the content from `template.html`,
 gets the output,
@@ -556,9 +540,6 @@ if you're joining this article series
 from the beginning
 and have never done Django before,
 {{< /web >}}
-{{< book >}}
-if you have never done Django before,
-{{< /book >}}
 then there will still be holes
 in your knowledge
 (which we will plug together!),
@@ -628,9 +609,6 @@ urlpatterns = [
 {{< web >}}
 Earlier in the article,
 {{< /web >}}
-{{< book >}}
-Earlier in the chapter,
-{{< /book >}}
 we briefly saw how to separate web page layout
 from the logic needed
 to build a page
@@ -656,9 +634,6 @@ in greater detail
 {{< web >}}
 in the next article
 {{< /web >}}
-{{< book >}}
-in the next chapter
-{{< /book >}}
 when we dive into templates.
 
 ### Other View Classes
@@ -689,9 +664,6 @@ when their related topic (like forms) is the primary subject
 {{< web >}}
 of an article.
 {{< /web >}}
-{{< book >}}
-of a chapter.
-{{< /book >}}
 For now,
 when you're developing your own views,
 try to remember that Django probably has a class-based view
@@ -823,19 +795,6 @@ def the_view(request):
     return HttpResponse('This view is only viewable to authenticated users.')
 ```
 {{< /web >}}
-{{< book >}}
-```python
-# application/views.py
-from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
-
-@login_required
-def the_view(request):
-    return HttpResponse(
-        'This view is only viewable to authenticated users.'
-    )
-```
-{{< /book >}}
 
 Any unauthenticated user will be redirected automatically
 to the login page
@@ -966,9 +925,6 @@ We've looked at:
 {{< web >}}
 In the next article,
 {{< /web >}}
-{{< book >}}
-In the next chapter,
-{{< /book >}}
 we'll see how views can mix static layout
 with the dynamic data we provide
 by using templates.

@@ -37,11 +37,6 @@ This new series,
 will show you what Django is all about.
 Throughout this series,
 {{< /web >}}
-{{< book >}}
-This book
-will show you what Django is all about.
-In the following chapters,
-{{< /book >}}
 I will reveal how Django is a powerful tool
 that can unlock the potential
 of anyone interested
@@ -106,9 +101,6 @@ through all the details,
 {{< web >}}
 but this post
 {{< /web >}}
-{{< book >}}
-but this chapter
-{{< /book >}}
 will lay down the breadcrumbs
 to build your understanding.
 We'll look at the way your web browser requests data
@@ -522,9 +514,6 @@ so we will explore individual topics
 {{< web >}}
 in future articles.
 {{< /web >}}
-{{< book >}}
-in future chapters.
-{{< /book >}}
 By now,
 I hope you have an idea
 of how a request gets
@@ -538,9 +527,6 @@ to a machine running Django.
 {{< web >}}
 This article is relatively free
 {{< /web >}}
-{{< book >}}
-This chapter is relatively free
-{{< /book >}}
 of code examples,
 and for good reason.
 There are already enough concepts
@@ -551,9 +537,6 @@ Writing that code will be the focus
 {{< web >}}
 of this article series
 {{< /web >}}
-{{< book >}}
-of this book
-{{< /book >}}
 so we can answer questions like:
 
 * How do we build web pages
@@ -579,9 +562,6 @@ The same philosophy can also make Django seem overwhelming.
 {{< web >}}
 My goal in this series is to introduce piece after piece
 {{< /web >}}
-{{< book >}}
-My goal in this book is to introduce piece after piece
-{{< /book >}}
 to build your understanding of Django
 so you can get productive and get going
 on your own web application.
@@ -614,9 +594,6 @@ there is one more bonus topic...
 {{< web >}}
 In the series,
 {{< /web >}}
-{{< book >}}
-In the book,
-{{< /book >}}
 we'll be looking at plenty of code examples,
 but we won't be setting up Django from scratch each time.
 The following setup instructions will help you get started
@@ -648,9 +625,6 @@ We need a place to put our work.
 {{< web >}}
 Since this series is called "Understand Django,"
 {{< /web >}}
-{{< book >}}
-Since this book is called "Understand Django,"
-{{< /book >}}
 I'm going to use that name.
 You can name your project differently if you prefer.
 
@@ -827,9 +801,6 @@ with our code examples
 {{< web >}}
 in the next article.
 {{< /web >}}
-{{< book >}}
-in the next chapter.
-{{< /book >}}
 `application` will be our reference app.
 The code in future topics is not a tutorial,
 but I will use `application` on occasion

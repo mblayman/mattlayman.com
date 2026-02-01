@@ -26,9 +26,6 @@ In the last
 [Understand Django](/blog/understand-django)
 article,
 {{< /web >}}
-{{< book >}}
-chapter,
-{{< /book >}}
 we dug into file management.
 We saw how Django handles user uploaded files
 and how to deal with them safely.
@@ -36,9 +33,6 @@ and how to deal with them safely.
 {{< web >}}
 With this article,
 {{< /web >}}
-{{< book >}}
-With this chapter,
-{{< /book >}}
 you'll learn about commands.
 Commands are the way to execute scripts
 that interact with your Django app.
@@ -145,9 +139,6 @@ We saw it all the way back
 {{< web >}}
 in the first article
 {{< /web >}}
-{{< book >}}
-in the first chapter
-{{< /book >}}
 where I provided a short set
 of setup instructions
 to get you started
@@ -158,9 +149,6 @@ your code will have a `manage.py` file,
 {{< web >}}
 and the commands you've seen in most articles are in the form of:
 {{< /web >}}
-{{< book >}}
-and the commands you've seen in most chapters are in the form of:
-{{< /book >}}
 
 ```bash
 $ ./manage.py some_command
@@ -249,20 +237,6 @@ application
 ... Other typical Django app files
 ```
 {{< /web >}}
-{{< book >}}
-```text
-application
-    __init__.py
-    management
-        __init__.py
-        commands
-            __init__.py
-            custom_command.py
-    models.py
-    views.py
-... Other typical Django app files
-```
-{{< /book >}}
 
 With this structure, you could run:
 
@@ -282,16 +256,6 @@ Notes:
     but you can name your command
     with whatever valid Python module name that you want.
 {{< /web >}}
-{{< book >}}
-* Django will create a command for a module found
-    in `<app>/management/ commands/<command name>.py`.
-* Don't forget the `__init__.py` files!
-    Django can only discover the commands
-    if `management` and `commands` are proper Python package directories.
-* The example uses `custom_command`,
-    but you can name your command
-    with whatever valid Python module name that you want.
-{{< /book >}}
 
 Unfortunately,
 we can't slap some Python code
@@ -419,44 +383,6 @@ class Command(BaseCommand):
         )
 ```
 {{< /web >}}
-{{< book >}}
-```python
-# application/management/commands/expire_trials.py
-
-import datetime
-
-from django.core.management.base import BaseCommand
-from django.utils import timezone
-
-from application.models import Account
-
-
-class Command(BaseCommand):
-    help = (
-        "Expire any accounts that are TRIALING "
-        "beyond the trial days limit"
-    )
-
-    def handle(self, *args, **options):
-        self.stdout.write(
-            "Search for old trial accounts..."
-        )
-        # Give an extra day to be gracious
-        # and avoid customer complaints.
-        cutoff_days = 61
-        trial_cutoff = timezone.now() - datetime.timedelta(
-            days=cutoff_days)
-        expired_trials = Account.objects.filter(
-            status=Account.TRIALING, created__lt=trial_cutoff
-        )
-        count = expired_trials.update(
-            status=Account.TRIAL_EXPIRED
-        )
-        self.stdout.write(
-            f"Expired {count} trial(s)"
-        )
-```
-{{< /book >}}
 
 I configured the scheduler
 to run `python manage.py expire_trials`
@@ -548,9 +474,6 @@ that you can use for all kinds of purposes.
 {{< web >}}
 Thus far in this series,
 {{< /web >}}
-{{< book >}}
-Thus far in this book,
-{{< /book >}}
 we've discussed a bunch of them, including:
 
 * `check` - Checks that your project is in good shape.
@@ -757,9 +680,6 @@ You should definitely check out django-extensions.
 {{< web >}}
 In this article,
 {{< /web >}}
-{{< book >}}
-In this chapter,
-{{< /book >}}
 you saw Django commands.
 We covered:
 
@@ -771,9 +691,6 @@ We covered:
 {{< web >}}
 In the next article,
 {{< /web >}}
-{{< book >}}
-In the next chapter,
-{{< /book >}}
 we're going to look into performance.
 You'll learn about:
 

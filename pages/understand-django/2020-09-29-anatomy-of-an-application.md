@@ -31,9 +31,6 @@ We saw what the site was
 and how to configure and customize it.
 In this article,
 {{< /web >}}
-{{< book >}}
-In this chapter,
-{{< /book >}}
 we will examine what goes into an application.
 Applications are core elements
 of a Django project.
@@ -126,9 +123,6 @@ within your system.
 {{< web >}}
 For this article,
 {{< /web >}}
-{{< book >}}
-For this chapter,
-{{< /book >}}
 we will use movies
 as the concept we want to model.
 
@@ -151,21 +145,6 @@ movies
 └── views.py
 ```
 {{< /web >}}
-{{< book >}}
-```bash
-(venv) $ ./manage.py startapp movies
-(venv) $ tree movies
-movies
-    __init__.py
-    admin.py
-    apps.py
-    migrations
-        __init__.py
-    models.py
-    tests.py
-    views.py
-```
-{{< /book >}}
 
 `admin.py`:
 This file is where all your `ModelAdmin` classes live
@@ -184,9 +163,6 @@ and how to use it
 {{< web >}}
 later in this article.
 {{< /web >}}
-{{< book >}}
-later in this chapter.
-{{< /book >}}
 
 `migrations`:
 This directory is where all database migrations are stored
@@ -216,9 +192,6 @@ in Django
 {{< web >}}
 in a future article.
 {{< /web >}}
-{{< book >}}
-in a future chapter.
-{{< /book >}}
 For now,
 you can know that I *always* **delete** this file
 and replace it with a `tests` package.
@@ -288,9 +261,6 @@ as discussed
 {{< web >}}
 in [Templates For User Interfaces]({{< ref "/understand-django/2020-04-02-templates-user-interfaces.md" >}}),
 {{< /web >}}
-{{< book >}}
-in the templates chapter,
-{{< /book >}}
 but `templates` directories are commonly found
 in individual Django apps,
 especially for third party applications
@@ -305,9 +275,6 @@ We'll discuss static files more
 {{< web >}}
 in a future article.
 {{< /web >}}
-{{< book >}}
-in a future chapter.
-{{< /book >}}
 
 `management`:
 Users can extend Django
@@ -319,9 +286,6 @@ Custom commands are a future topic
 {{< web >}}
 in this series.
 {{< /web >}}
-{{< book >}}
-in this book.
-{{< /book >}}
 
 `locale`:
 When doing translations and internationalization,
@@ -392,47 +356,6 @@ movies
 └── views.py
 ```
 {{< /web >}}
-{{< book >}}
-```bash
-(venv) $ tree movies
-movies
-    __init__.py
-    admin.py
-    apps.py
-    forms.py
-    locale
-        es
-            LC_MESSAGES
-                django.mo
-                django.po
-    management
-        __init__.py
-        commands
-            __init__.py
-            do_movie_stuff.py
-    managers.py
-    migrations
-        0001_initial.py
-        __init__.py
-    models.py
-    static
-        movies
-            moviereel.png
-    templates
-        movies
-            index.html
-            movie_detail.html
-    templatestags
-        __init__.py
-        movies_tags.py
-    tests
-        __init__.py
-        test_models.py
-        test_views.py
-    urls.py
-    views.py
-```
-{{< /book >}}
 
 ## Loading applications
 
@@ -576,9 +499,6 @@ I think the Django philosophy is the right one
 {{< web >}}
 (shocking, isn't it!? 🤪).
 {{< /web >}}
-{{< book >}}
-(shocking, isn't it!?).
-{{< /book >}}
 The benefit of the Django philosophy is
 that you leverage the knowledge
 of people who have built web apps
@@ -681,9 +601,6 @@ a more enjoyable experience.
 {{< web >}}
 In this article,
 {{< /web >}}
-{{< book >}}
-In this chapter,
-{{< /book >}}
 we studied
 Django applications.
 
@@ -698,9 +615,6 @@ We saw:
 {{< web >}}
 Next time we will look into authentication
 {{< /web >}}
-{{< book >}}
-Next, we will look into authentication
-{{< /book >}}
 in Django.
 We will study:
 

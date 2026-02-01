@@ -30,9 +30,6 @@ and how apps are the core components
 of a Django project.
 In this article,
 {{< /web >}}
-{{< book >}}
-In this chapter,
-{{< /book >}}
 we're going to dig into Django's built-in user authentication system.
 We'll see how Django makes your life easier
 by giving you tools
@@ -185,9 +182,6 @@ I mentioned
 {{< web >}}
 in [Administer All The Things]({{< ref "/understand-django/2020-08-26-administer-all-the-things.md" >}})
 {{< /web >}}
-{{< book >}}
-in the Administer All The Things chapter
-{{< /book >}}
 that we needed a user
 with certain permissions
 to access the admin,
@@ -846,9 +840,6 @@ for the decorators
 {{< web >}}
 that I've described in this article
 {{< /web >}}
-{{< book >}}
-that I've described in this chapter
-{{< /book >}}
 (i.e., `login_required`, `user_passes_test`, and `permission_required`)
 to work.
 Each of the decorators finds the `user` record
@@ -882,9 +873,6 @@ If you guessed `AuthenticationMiddleware`,
 {{< web >}}
 you get a cookie! 🍪
 {{< /web >}}
-{{< book >}}
-you get a cookie!
-{{< /book >}}
 Since the middleware adds the `user`
 to the `request`,
 the context processor has the very trivial job
@@ -908,13 +896,6 @@ Here's the example again so you don't need to jump back.
 {% endif %}
 ```
 {{< /web >}}
-{{< book >}}
-```djangotemplate
-{% if user.is_authenticated %}
-    <h1>Welcome, {{ user.username }}</h1>
-{% endif %}
-```
-{{< /book >}}
 
 If you decide to use Django's permissions,
 you can also take advantage of the `perms` context variable
@@ -935,9 +916,6 @@ to your views and templates.
 {{< web >}}
 In this article,
 {{< /web >}}
-{{< book >}}
-In this chapter,
-{{< /book >}}
 we got into Django's built-in user auth system.
 
 We learned about:
@@ -952,9 +930,6 @@ We learned about:
 {{< web >}}
 Next time we'll study middleware
 {{< /web >}}
-{{< book >}}
-In the next chapter, we'll study middleware
-{{< /book >}}
 in Django.
 As the name implies,
 middleware is some code

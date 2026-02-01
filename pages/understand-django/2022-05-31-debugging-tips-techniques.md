@@ -26,26 +26,17 @@ In the last
 [Understand Django](/blog/understand-django)
 article,
 {{< /web >}}
-{{< book >}}
-chapter,
-{{< /book >}}
 we looked at security.
 How does a Django site stay safe
 on the big, bad internet?
 {{< web >}}
 The article explored some core elements
 {{< /web >}}
-{{< book >}}
-The chapter explored some core elements
-{{< /book >}}
 for making a Django app more secure.
 
 {{< web >}}
 With this article,
 {{< /web >}}
-{{< book >}}
-With this chapter,
-{{< /book >}}
 we will investigate problem solving techniques
 for Django apps.
 The goal is to equip you with tools
@@ -131,11 +122,6 @@ What are the sources of this data?
     of data.
 * Log data, which we'll discuss later in this article, can be another excellent source.
 {{< /web >}}
-{{< book >}}
-* Error monitoring services like Rollbar or Sentry can be a fantastic source
-    of data.
-* Log data, which we'll discuss later in this chapter, can be another excellent source.
-{{< /book >}}
 
 Error monitoring services help show what happened.
 These services will collect tracebacks of Python exceptions
@@ -642,9 +628,6 @@ as you think about how to debug your apps.
 {{< web >}}
 In this article,
 {{< /web >}}
-{{< book >}}
-In this chapter,
-{{< /book >}}
 we saw debugging tips, tools, and techniques
 to make you a bug crushing machine
 in Django.
@@ -663,23 +646,14 @@ We discussed:
 {{< web >}}
 That's the end of this series!
 {{< /web >}}
-{{< book >}}
-That's the end of this book!
-{{< /book >}}
 Can you believe there are still more topics
 {{< web >}}
 that this series could cover?
 {{< /web >}}
-{{< book >}}
-that this book could cover?
-{{< /book >}}
 Django has so much available that,
 {{< web >}}
 even after twenty articles,
 {{< /web >}}
-{{< book >}}
-even after all these chapters,
-{{< /book >}}
 I've not covered everything.
 But this is the end
 of the line for me.
@@ -687,9 +661,6 @@ of the line for me.
 {{< web >}}
 I knew when I started this series
 {{< /web >}}
-{{< book >}}
-I knew when I started this book
-{{< /book >}}
 that I was going to cover a huge number
 of topics.
 What I didn't know when I started this in January of 2020
@@ -697,9 +668,6 @@ is how wacky the world would be.
 {{< web >}}
 I thought that I might produce an article every other week
 {{< /web >}}
-{{< book >}}
-I thought that I might produce a chapter every other week
-{{< /book >}}
 and be done in less than a year.
 *How wrong I was!*
 More than two years later,
@@ -707,16 +675,10 @@ I'm writing the words
 {{< web >}}
 of this last article.
 {{< /web >}}
-{{< book >}}
-of this last chapter.
-{{< /book >}}
 
 {{< web >}}
 As I wrap up this series,
 {{< /web >}}
-{{< book >}}
-As I wrap up this book,
-{{< /book >}}
 my hope is that you,
 dear reader,
 have come to understand Django better.
@@ -744,18 +706,12 @@ for others
 {{< web >}}
 I would like to conclude this series
 {{< /web >}}
-{{< book >}}
-I would like to conclude this book
-{{< /book >}}
 by thanking all of you readers out there.
 Along this lengthy journey,
 so many of you have reached out
 {{< web >}}
 and told me how this series has helped you grow
 {{< /web >}}
-{{< book >}}
-and told me how this book has helped you grow
-{{< /book >}}
 as a Django developer.
 I'm hopeful that developers have used these words
 to learn and create websites
@@ -766,9 +722,6 @@ that you've helped,
 {{< web >}}
 made writing this series worth it.
 {{< /web >}}
-{{< book >}}
-made writing this book worth it.
-{{< /book >}}
 
 > Thank you for reading!
 

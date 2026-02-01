@@ -27,9 +27,6 @@ In the previous
 [Understand Django](/blog/understand-django)
 article,
 {{< /web >}}
-{{< book >}}
-chapter,
-{{< /book >}}
 we looked at automated testing
 and how writing tests
 to check your Django project
@@ -49,9 +46,6 @@ to your audience,
 {{< web >}}
 and this article explains the actions
 {{< /web >}}
-{{< book >}}
-and this chapter explains the actions
-{{< /book >}}
 you should consider
 to deploy effectively.
 
@@ -197,9 +191,6 @@ I haven't covered logging in depth yet,
 {{< web >}}
 but recall from previous articles
 {{< /web >}}
-{{< book >}}
-but recall from previous chapters
-{{< /book >}}
 that logging allows you to record information
 about what your application is doing
 while it's running.
@@ -321,11 +312,6 @@ If you've read the previous articles,
 then you've actually seen most
 of these preconditions by now,
 {{< /web >}}
-{{< book >}}
-You've seen most
-of these preconditions by now
-in earlier chapters,
-{{< /book >}}
 but we'll group them together in this section
 so you can see the complete picture.
 
@@ -346,9 +332,6 @@ Django should use when running.
 {{< web >}}
 In a future article,
 {{< /web >}}
-{{< book >}}
-In a future chapter,
-{{< /book >}}
 we'll focus on how to manage your settings modules.
 At that time,
 you'll see how using some particular techniques diminish the need
@@ -364,9 +347,6 @@ As mentioned
 {{< web >}}
 in the models article,
 {{< /web >}}
-{{< book >}}
-in the models chapter,
-{{< /book >}}
 we make migrations
 when making model changes.
 These migrations generate instructions
@@ -418,9 +398,6 @@ is static files.
 {{< web >}}
 We saw in the static files article
 {{< /web >}}
-{{< book >}}
-We saw in the static files chapter
-{{< /book >}}
 that Django looks
 for static files
 in a single directory
@@ -485,9 +462,6 @@ that I created,
 {{< web >}}
 the (slightly reformatted for the article) output looks like:
 {{< /web >}}
-{{< book >}}
-the output looks like:
-{{< /book >}}
 
 {{< web >}}
 ```bash
@@ -517,38 +491,6 @@ WARNINGS:
 System check identified 6 issues (0 silenced).
 ```
 {{< /web >}}
-{{< book >}}
-```bash
-$ ./manage.py check --deploy --fail-level WARNING
-SystemCheckError: System check identified some issues:
-
-WARNINGS:
-?: (security.W004) You have not set a value for the
-  SECURE_HSTS_SECONDS setting. If your entire site is served only
-  over SSL, you may want to consider setting a value and enabling
-  HTTP Strict Transport Security. Be sure to read the documentation
-  first; enabling HSTS carelessly can cause serious, irreversible
-  problems.
-?: (security.W008) Your SECURE_SSL_REDIRECT setting is not set to
-  True. Unless your site should be available over both SSL and
-  non-SSL connections, you may want to either set this setting True
-  or configure a load balancer or reverse-proxy server to redirect
-  all connections to HTTPS.
-?: (security.W012) SESSION_COOKIE_SECURE is not set to True. Using
-  a secure-only session cookie makes it more difficult for network
-  traffic sniffers to hijack user sessions.
-?: (security.W016) You have
-  'django.middleware.csrf.CsrfViewMiddleware' in your MIDDLEWARE,
-  but you have not set CSRF_COOKIE_SECURE to True. Using a
-  secure-only CSRF cookie makes it more difficult for network
-  traffic sniffers to steal the CSRF token.
-?: (security.W018) You should not have DEBUG set to True in
-  deployment.
-?: (security.W020) ALLOWED_HOSTS must not be empty in deployment.
-
-System check identified 6 issues (0 silenced).
-```
-{{< /book >}}
 
 The items reported by the checklist are often about settings
 that could be configured better.
@@ -598,9 +540,6 @@ that I mentioned
 {{< web >}}
 in the static files article).
 {{< /web >}}
-{{< book >}}
-in the static files chapter).
-{{< /book >}}
 If HSTS is handled elsewhere,
 you could set the `SILENCED_SYSTEM_CHECKS` setting
 to tell Django
@@ -818,9 +757,6 @@ that you fixed their problem immediately.
 {{< web >}}
 In this article,
 {{< /web >}}
-{{< book >}}
-In this chapter,
-{{< /book >}}
 we learned the things
 to consider when deploying a site
 to the internet.
@@ -838,9 +774,6 @@ We examined:
 {{< web >}}
 In the next article,
 {{< /web >}}
-{{< book >}}
-In the next chapter,
-{{< /book >}}
 we'll look at Django's tools
 for managing shorter term user data
 like authentication info

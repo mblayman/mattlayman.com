@@ -34,9 +34,6 @@ Now it's time to look
 {{< web >}}
 at how Django processes those requests.
 {{< /web >}}
-{{< book >}}
-at how Django processes a user's browser requests.
-{{< /book >}}
 
 An HTTP request coming
 from a browser
@@ -287,12 +284,6 @@ to remember here:
     with converters (like the years example above),
     be sure to put them **after** the more specific entries.
 {{< /web >}}
-{{< book >}}
-When including `path` entries that match
-    on ranges of values
-    with converters (like the years example above),
-    be sure to put them **after** the more specific entries.
-{{< /book >}}
 
 ## An Abbreviated View Of Views
 
@@ -302,9 +293,6 @@ without touching on views.
 {{< web >}}
 The next article will cover views
 {{< /web >}}
-{{< book >}}
-The next chapter will cover views
-{{< /book >}}
 in far more depth,
 but here's a primer.
 
@@ -497,9 +485,6 @@ This is definitely the hardest section
 {{< web >}}
 of this article.
 {{< /web >}}
-{{< book >}}
-of this chapter.
-{{< /book >}}
 If you understood what we did
 with `re_path`,
 the rest of this should feel very comfortable.
@@ -698,9 +683,6 @@ from the route
 {{< web >}}
 of `/marketing/blog/categories/`.
 {{< /web >}}
-{{< book >}}
-of `/marketing/blog/ categories/`.
-{{< /book >}}
 To use that name,
 we need `reverse`
 as its counterpart.
@@ -731,9 +713,6 @@ reverse("blog_categories") == "/marketing/blog/categories/"
 {{< web >}}
 At least until you want to change it again. 😁
 {{< /web >}}
-{{< book >}}
-At least until you want to change it again.
-{{< /book >}}
 
 ## When Names Collide
 
@@ -878,11 +857,6 @@ In the next article,
 we'll dig into views.
 This article only gave the briefest definition
 {{< /web >}}
-{{< book >}}
-In the next chapter,
-we'll dig into views.
-This chapter only gave the briefest definition
-{{< /book >}}
 to what a view is.
 Django gives us very rich options
 when working with views.

@@ -35,10 +35,6 @@ In this article,
 you'll see how to take
 that data
 {{< /web >}}
-{{< book >}}
-In this chapter,
-you'll see how to take data
-{{< /book >}}
 and store it
 into a database
 so that your application can use that data
@@ -189,9 +185,6 @@ We can explore more database configuration
 {{< web >}}
 in a future article
 {{< /web >}}
-{{< book >}}
-in a future chapter
-{{< /book >}}
 on deployment.
 For now,
 while you're learning,
@@ -214,9 +207,6 @@ that we saw
 {{< web >}}
 in the last article.
 {{< /web >}}
-{{< book >}}
-in the last chapter.
-{{< /book >}}
 A Django model declares the data
 that you want to store
 in the database
@@ -521,9 +511,6 @@ that we can't possibly cover fully
 {{< web >}}
 in this article.
 {{< /web >}}
-{{< book >}}
-in this chapter.
-{{< /book >}}
 Thankfully,
 we don't have to
 because of Django's ORM!
@@ -760,9 +747,6 @@ as the example
 {{< web >}}
 for this article
 {{< /web >}}
-{{< book >}}
-for this chapter
-{{< /book >}}
 only has three `CharField` fields
 on the model.
 The choice was deliberate
@@ -775,9 +759,6 @@ before seeing other data types.
 {{< web >}}
 We saw in the forms article
 {{< /web >}}
-{{< book >}}
-We saw in the forms chapter
-{{< /book >}}
 that Django's form system
 includes a wide variety
 of form fields.
@@ -897,20 +878,6 @@ class Person(models.Model):
     like in the Django administrator site
     which we'll talk about in the next article.
 {{< /web >}}
-{{< book >}}
-* `blank` - The `blank` attribute is often used
-    in conjunction with the `null` attribute.
-    While the `null` attribute allows a database
-    to store `NULL`
-    for a field,
-    `blank` allows *form validation*
-    to permit an empty field.
-    This is used by forms
-    which are automatically generated
-    by Django
-    like in the Django administrator site
-    which we'll talk about in the next chapter.
-{{< /book >}}
 
 ```python
 class Pet(models.Model):
@@ -936,19 +903,6 @@ class Pet(models.Model):
     that only particular values are stored
     in a database field.
 {{< /web >}}
-{{< book >}}
-* `choices` - We saw `choices`
-    in the forms chapter
-    as a technique
-    for helping users pick the right value
-    from a constrained set.
-    `choices` can be set on the model.
-    Django can do validation
-    on the model
-    that will ensure
-    that only particular values are stored
-    in a database field.
-{{< /book >}}
 
 ```python
 class Car(models.Model):
@@ -1007,9 +961,6 @@ of this earlier
 {{< web >}}
 in this article
 {{< /web >}}
-{{< book >}}
-in this chapter
-{{< /book >}}
 when we considered
 an employee
 with multiple phone numbers.
@@ -1402,9 +1353,6 @@ with real world problems.
 {{< web >}}
 In this article,
 {{< /web >}}
-{{< book >}}
-In this chapter,
-{{< /book >}}
 we've explored:
 
 * How to set up a database for your project.
@@ -1423,9 +1371,6 @@ for your users!**
 {{< web >}}
 In this series,
 {{< /web >}}
-{{< book >}}
-In this book,
-{{< /book >}}
 we have examined:
 
 * URL handling

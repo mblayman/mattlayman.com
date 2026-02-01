@@ -34,18 +34,12 @@ That's fine
 if you only need to display a user interface,
 but what do you do
 {{< /web >}}
-{{< book >}}
-What do you do
-{{< /book >}}
 if you need your site
 to interact with users?
 You use Django's form system!
 {{< web >}}
 In this article,
 {{< /web >}}
-{{< book >}}
-In this chapter,
-{{< /book >}}
 we'll focus
 on how to work with web forms
 using the Django form system.
@@ -263,11 +257,6 @@ If the template looks like:
 {{ form.as_p }}
 ```
 {{< /web >}}
-{{< book >}}
-```djangotemplate
-{{ form.as_p }}
-```
-{{< /book >}}
 
 Then Django will render:
 
@@ -282,19 +271,6 @@ Then Django will render:
 </p>
 ```
 {{< /web >}}
-{{< book >}}
-```html
-<p><label for="id_name">Name:</label>
-  <input type="text" name="name" maxlength="100" required
-    id="id_name"></p>
-<p><label for="id_email">Email:</label>
-  <input type="email" name="email" required id="id_email"></p>
-<p><label for="id_message">Message:</label>
-  <input type="text" name="message" maxlength="1000" required
-    id="id_message">
-</p>
-```
-{{< /book >}}
 
 To make it possible to submit the form,
 we need to wrap this rendered output
@@ -316,9 +292,6 @@ We'll talk more about security
 {{< web >}}
 in a future article.
 {{< /web >}}
-{{< book >}}
-in a future chapter.
-{{< /book >}}
 For now,
 sprinkle the token into your forms
 with Django's built-in template tag
@@ -335,17 +308,6 @@ and everything should work.
 </form>
 ```
 {{< /web >}}
-{{< book >}}
-```djangotemplate
-<form action="{% url "some-form-url" %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <p><input
-        type="submit"
-        value="Send the form!"></p>
-</form>
-```
-{{< /book >}}
 
 That's how a form gets displayed.
 Now let's look at a view that handles the form properly.
@@ -418,9 +380,6 @@ that we first encountered
 {{< web >}}
 in the views article.
 {{< /web >}}
-{{< book >}}
-in the views chapter.
-{{< /book >}}
 By passing `request.POST`
 to the form's constructor,
 we create a form with data.
@@ -435,9 +394,6 @@ in detail later
 {{< web >}}
 in this article.
 {{< /web >}}
-{{< book >}}
-in this chapter.
-{{< /book >}}
 In this instance,
 you can see that `is_valid` could return `False`
 if the form data contained "I am not an email address"
@@ -508,9 +464,6 @@ of the most common ones
 {{< web >}}
 in this article.
 {{< /web >}}
-{{< book >}}
-in this chapter.
-{{< /book >}}
 
 The first thing to remember about Django form fields is
 that they convert HTML form data
@@ -893,9 +846,6 @@ for them?
 {{< web >}}
 In the next article,
 {{< /web >}}
-{{< book >}}
-In the next chapter,
-{{< /book >}}
 we will begin to store data
 in a database.
 We'll work with:

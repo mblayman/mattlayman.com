@@ -37,9 +37,6 @@ in your application.
 {{< web >}}
 In this article,
 {{< /web >}}
-{{< book >}}
-In this chapter,
-{{< /book >}}
 we will focus
 on the built-in tools
 that Django provides
@@ -190,9 +187,6 @@ in this admin site.
 {{< web >}}
 The power to create and destroy is in your hands. 😈
 {{< /web >}}
-{{< book >}}
-The power to create and destroy is in your hands.
-{{< /book >}}
 
 Now that we understand what is in the admin site,
 let's focus on how to add your models to the admin.
@@ -573,9 +567,6 @@ your resulting URL could look
 {{< web >}}
 like `/admin/application/book/?q=tolkien`.
 {{< /web >}}
-{{< book >}}
-like `/admin/application/book/? q=tolkien`.
-{{< /book >}}
 Django will do a case insensitive search
 on the field.
 The `QuerySet` would be something like:
@@ -985,9 +976,6 @@ in their applications.
 {{< web >}}
 In this article,
 {{< /web >}}
-{{< book >}}
-In this chapter,
-{{< /book >}}
 we looked
 at the built-in Django administrator's site.
 This powerful extension gives us the ability
@@ -1010,9 +998,6 @@ We've covered:
 {{< web >}}
 Next time we will cover
 {{< /web >}}
-{{< book >}}
-In the next chapter we will cover
-{{< /book >}}
 the anatomy
 of a Django application.
 A Django project is composed

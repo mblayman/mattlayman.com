@@ -28,9 +28,6 @@ In the last
 [Understand Django](/blog/understand-django)
 article,
 {{< /web >}}
-{{< book >}}
-chapter,
-{{< /book >}}
 we learned about where apps slow down.
 We explored techniques that help sites handle the load
 and provide a fast experience for users.
@@ -38,9 +35,6 @@ and provide a fast experience for users.
 {{< web >}}
 With this article,
 {{< /web >}}
-{{< book >}}
-With this chapter,
-{{< /book >}}
 we will look at security.
 How does a Django site stay safe
 on the big, bad internet?
@@ -75,9 +69,6 @@ that I've covered about Django
 {{< web >}}
 in this series,
 {{< /web >}}
-{{< book >}}
-in this book,
-{{< /book >}}
 *this is my least favorite one.*
 {{< web >}}
 Perhaps that's why I've pushed the subject
@@ -153,16 +144,10 @@ and the problems they address.
 {{< web >}}
 In a number of these Understand Django articles,
 {{< /web >}}
-{{< book >}}
-In a number of these chapters,
-{{< /book >}}
 I have discussed CSRF briefly.
 {{< web >}}
 In the forms article,
 {{< /web >}}
-{{< book >}}
-In the forms chapter,
-{{< /book >}}
 I did some hand waving and stated
 that you need a CSRF token
 for security reasons
@@ -204,15 +189,6 @@ The template looks like:
 </form>
 ```
 {{< /web >}}
-{{< book >}}
-```djangotemplate
-<form method="POST">
-  {% csrf_token %}
-  <input name="myvalue">
-  <input type="submit">
-</form>
-```
-{{< /book >}}
 
 When this renders,
 the result would be something like:
@@ -506,9 +482,6 @@ in order to work on the web.
 {{< web >}}
 Before finishing up this security article,
 {{< /web >}}
-{{< book >}}
-Before finishing up this security chapter,
-{{< /book >}}
 let's look at what Django provides
 so that you can be less of a security expert
 and use the knowledge
@@ -527,9 +500,6 @@ we can return to the check command
 {{< web >}}
 discussed in previous articles.
 {{< /web >}}
-{{< book >}}
-discussed in previous chapters.
-{{< /book >}}
 Recall that Django includes a `check` command
 that can check your site's configuration
 before you deploy a site live.
@@ -548,9 +518,6 @@ from running the `check` command are defined
 {{< web >}}
 in `django.core.checks.security`.
 {{< /web >}}
-{{< book >}}
-in `django.core. checks.security`.
-{{< /book >}}
 A more readable version
 of the available security checks is
 on the
@@ -604,9 +571,6 @@ and may cause people to leave your site forever.
 {{< web >}}
 In this article,
 {{< /web >}}
-{{< book >}}
-In this chapter,
-{{< /book >}}
 we explored security topics
 and how they relate to Django.
 We covered:
@@ -622,9 +586,6 @@ We covered:
 In the *last* article
 of the Understand Django series,
 {{< /web >}}
-{{< book >}}
-In the *last* chapter,
-{{< /book >}}
 we'll get into debugging.
 You'll learn about:
 

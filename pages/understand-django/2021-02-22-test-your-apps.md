@@ -28,9 +28,6 @@ In the previous
 [Understand Django](/blog/understand-django)
 article,
 {{< /web >}}
-{{< book >}}
-chapter,
-{{< /book >}}
 we saw how static files
 like CSS, JavaScript, and images
 can be incorporated
@@ -324,9 +321,6 @@ if you're going to learn more about testing
 {{< web >}}
 after this article,
 {{< /web >}}
-{{< book >}}
-after this chapter,
-{{< /book >}}
 I caution you
 to avoid getting sucked
 into this definition trap.
@@ -340,9 +334,6 @@ but they should help frame the discussion
 {{< web >}}
 in this article.
 {{< /web >}}
-{{< book >}}
-in this chapter.
-{{< /book >}}
 
 * **Unit tests** - Tests that check individual units
     within a Django project like a model method
@@ -690,9 +681,6 @@ that uses Django's test `Client`.
 {{< web >}}
 In previous articles,
 {{< /web >}}
-{{< book >}}
-In previous chapters,
-{{< /book >}}
 I've only mentioned what a client is in passing.
 In the context
 of a web application,
@@ -823,9 +811,6 @@ I'm going to make a bold assertion:
 {{< web >}}
 (Did I just go meta there? Yes, I did. 😆)
 {{< /web >}}
-{{< book >}}
-(Did I just go meta there? Yes, I did.)
-{{< /book >}}
 
 I like a lot about Django's built-in test runner,
 but I keep coming back to pytest
@@ -1115,9 +1100,6 @@ to your test tools.
 {{< web >}}
 In this article,
 {{< /web >}}
-{{< book >}}
-In this chapter,
-{{< /book >}}
 we explored tests
 with Django projects.
 We focused on:
@@ -1130,9 +1112,6 @@ We focused on:
 {{< web >}}
 Next time,
 {{< /web >}}
-{{< book >}}
-In the next chapter,
-{{< /book >}}
 we will dig into deployment.
 Deployment is getting your project
 into the environment
