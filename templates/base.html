@@ -31,12 +31,44 @@
     <link rel="stylesheet" type="text/css" href="/static/site.css">
     <link rel="stylesheet" type="text/css" href="/static/css/prism-light.css" media="(prefers-color-scheme: light)">
     <link rel="stylesheet" type="text/css" href="/static/css/prism-dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="shortcut icon" href="/static/favicon.ico">
   </head>
   <body>
     <header><h3><a href="/">mattlayman.com</a><h3></header>
     <div class="content">
       {% block content %}{% endblock %}
     </div>
+    </div>
+    <footer class="bio-footer">
+      <div class="bio-content">
+        <div class="bio-text">
+          <h4>Matt Layman</h4>
+          <p>I am a Senior Staff Software Engineer at Included Health.</p>
+          <p>I like to teach others about writing good software while streaming on YouTube and am committed to helping my local community grow its tech skills by volunteering as a meetup organizer for Python Frederick.</p>
+          <div class="social-links">
+            <a href="https://x.com/mblayman" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" role="img" aria-labelledby="aiyeb2rdmhda9egxm66krjege66ig85v" class="octicon social-icon"><title id="aiyeb2rdmhda9egxm66krjege66ig85v">X</title>
+                <g clip-path="url(#clip0_1668_3024)">
+                  <path d="M9.52217 6.77143L15.4785 0H14.0671L8.89516 5.87954L4.76437 0H0L6.24656 8.8909L0 15.9918H1.41155L6.87321 9.78279L11.2356 15.9918H16L9.52183 6.77143H9.52217ZM7.58887 8.96923L6.95596 8.0839L1.92015 1.03921H4.0882L8.15216 6.7245L8.78507 7.60983L14.0677 14.9998H11.8997L7.58887 8.96957V8.96923Z" fill="currentColor"></path>
+                </g>
+              </svg>
+            </a>
+            <a href="https://github.com/mblayman" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-labelledby="github-title" class="social-icon"><title id="github-title">GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+            </a>
+            <a href="https://www.youtube.com/c/MattLayman" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="-35.20005 -41.33325 305.0671 247.9995" role="img" aria-labelledby="youtube-title" class="social-icon">
+                <title id="youtube-title">YouTube</title><path d="M93.333 117.559V47.775l61.334 34.893zm136.43-91.742c-2.699-10.162-10.651-18.165-20.747-20.881C190.716 0 117.333 0 117.333 0S43.951 0 25.651 4.936C15.555 7.652 7.603 15.655 4.904 25.817 0 44.236 0 82.667 0 82.667s0 38.429 4.904 56.849c2.699 10.163 10.65 18.165 20.747 20.883 18.3 4.934 91.682 4.934 91.682 4.934s73.383 0 91.683-4.934c10.096-2.718 18.048-10.72 20.747-20.883 4.904-18.42 4.904-56.85 4.904-56.85s0-38.43-4.904-56.849" fill="currentColor"/>
+              </svg>
+            </a>
+            <a href="https://linkedin.com/in/mattlayman/" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 50 512 512" role="img" aria-labelledby="linkedin-title" class="social-icon"><title id="linkedin-title">LinkedIn</title><path d="M150.65,100.682c0,27.992-22.508,50.683-50.273,50.683c-27.765,0-50.273-22.691-50.273-50.683 C50.104,72.691,72.612,50,100.377,50C128.143,50,150.65,72.691,150.65,100.682z M143.294,187.333H58.277V462h85.017V187.333z M279.195,187.333h-81.541V462h81.541c0,0,0-101.877,0-144.181c0-38.624,17.779-61.615,51.807-61.615 c31.268,0,46.289,22.071,46.289,61.615c0,39.545,0,144.181,0,144.181h84.605c0,0,0-100.344,0-173.915 s-41.689-109.131-99.934-109.131s-82.768,45.369-82.768,45.369V187.333z"></path></svg>
+            </a>
+          </div>
+        </div>
+        <img src="/static/img/me.jpg" alt="Matt Layman" class="bio-headshot">
+      </div>
+    </footer>
     <script src="/static/js/prism.js"></script>
   </body>
 </html>

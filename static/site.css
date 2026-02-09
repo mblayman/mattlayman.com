@@ -90,6 +90,80 @@ aside {
   clear: right;
 }
 
+.bio-footer {
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--accent-color);
+  padding: 2rem 1rem;
+}
+
+.bio-content {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  max-width: 76ch;
+  margin: 0 auto;
+}
+
+.bio-text {
+  flex: 1;
+}
+
+.bio-text h4 {
+  margin: 0 0 1rem 0;
+  color: var(--text-color);
+}
+
+.bio-text p {
+  margin: 0.5rem 0;
+  color: var(--text-color);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.social-icon.octicon {
+  transform: translateY(2px);
+}
+
+.social-links a:hover .social-icon {
+  color: var(--link-color);
+}
+
+.bio-headshot {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .bio-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .bio-headshot {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 /* Mobile reset */
 @media (max-width: 900px) {
   aside {
