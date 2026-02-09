@@ -1,16 +1,5 @@
-.PHONY = tailwind css
-
-new-local:
-	air
-
 local:
-	heroku local
-
-tailwind:
-	cd themes/tailwind-site && npm run tailwind
-
-css:
-	cd themes/tailwind-site && npm run css
+	air
 
 deps:
 	luarocks install --tree .rocks \
