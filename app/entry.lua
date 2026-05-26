@@ -10,6 +10,14 @@ local ud_resp = require("app.understand_django.responders")
 local routes = {
     Route("/", resp.index),
     Route("/up", resp.up),
+    Route(
+        "/workos-developer-experience-engineer",
+        resp.workos_developer_experience_engineer
+    ),
+    Route(
+        "/workos-product-engineer-pipes-vault",
+        resp.workos_product_engineer_pipes_vault
+    ),
     Route("/blog/{slug:string}", blog_resp.entry, "blog_entry"),
     Route(
         "/understand-django/{slug:string}",

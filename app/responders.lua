@@ -13,4 +13,12 @@ function responders.up()
     return http.ok("ok")
 end
 
+function responders.workos_developer_experience_engineer(request)
+    return render("workos-developer-experience-engineer.html")
+end
+
+function responders.workos_product_engineer_pipes_vault(request)
+    return render("workos-product-engineer-pipes-vault.html")
+end
+
 return responders
