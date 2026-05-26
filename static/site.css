@@ -1,5 +1,9 @@
 :root {
-  font-family: ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Newsreader", Georgia, "Times New Roman", ui-serif, serif;
+  --font-display: "Orbitron", system-ui, sans-serif;
+  --font-accent: "IBM Plex Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+
+  font-family: var(--font-body);
 }
 
 body {
@@ -51,11 +55,12 @@ pre code {
 
   white-space: inherit;
   overflow-wrap: inherit;
-  font: inherit;
+  font-family: var(--font-accent);
 }
 
 code {
   background-color: var(--bg-code);
+  font-family: var(--font-accent);
 }
 
 img {
@@ -193,16 +198,16 @@ aside {
 }
 
 .home :is(.home-hero, .home-book) {
-  border-left: 5px solid var(--accent-color);
-  padding: clamp(1rem, 3vw, 1.75rem) 0 clamp(1rem, 3vw, 1.75rem) clamp(1rem, 3vw, 1.75rem);
+  border-left: 3px solid var(--accent-color);
+  padding: clamp(1rem, 3vw, 1.75rem) 0 clamp(1.75rem, 4vw, 2.5rem) clamp(1rem, 3vw, 1.75rem);
 }
 
 .home :is(.home-hero, .home-book)::before {
   content: "";
   position: absolute;
-  inset: 0 auto 0 5px;
+  inset: 0 auto 0 3px;
   z-index: -1;
-  width: min(100% - 5px, 40rem);
+  width: min(100% - 3px, 40rem);
   pointer-events: none;
   background: linear-gradient(90deg, color-mix(in oklab, var(--bg-color) 94%, var(--text-color) 6%), var(--bg-color) 68%, transparent);
 }
@@ -210,9 +215,9 @@ aside {
 .home :is(.home-hero, .home-book)::after {
   content: "";
   position: absolute;
-  inset: 0 auto 0 -5px;
+  inset: 0 auto 0 -3px;
   z-index: -2;
-  width: 0.85rem;
+  width: 0.55rem;
   pointer-events: none;
   background: var(--accent-color);
   box-shadow: 0 0 0.85rem color-mix(in oklab, var(--accent-color) 28%, transparent);
@@ -222,7 +227,7 @@ aside {
 .home-book h2,
 .home-articles h2 {
   margin: 0 0 0.9rem;
-  font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
+  font-family: var(--font-display);
   letter-spacing: -0.04em;
   line-height: 0.96;
   text-wrap: balance;
@@ -260,6 +265,7 @@ aside {
 .home-inline-link,
 .home-button,
 .home-articles__list a {
+  font-family: var(--font-accent);
   transition:
     transform 160ms ease,
     box-shadow 160ms ease,
@@ -274,6 +280,7 @@ aside {
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
+  font-size: 0.9rem;
   border: 1px solid color-mix(in oklab, var(--accent-color) 35%, var(--bg-color));
   background: color-mix(in oklab, var(--bg-color) 88%, var(--accent-color) 12%);
   color: var(--text-color);
@@ -350,8 +357,11 @@ aside {
   border: 1px solid color-mix(in oklab, var(--accent-color) 45%, var(--bg-color));
   background: color-mix(in oklab, var(--bg-color) 82%, var(--accent-color) 18%);
   color: var(--text-color);
+  font-size: 0.95rem;
   font-weight: 700;
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   box-shadow: 0.55rem 0.55rem 0 color-mix(in oklab, var(--accent-color) 22%, transparent);
 }
 
@@ -382,6 +392,7 @@ aside {
   display: block;
   padding: 0.75rem 0.35rem;
   color: var(--text-color);
+  font-size: 0.95rem;
   text-decoration: none;
 }
 
@@ -395,5 +406,17 @@ aside {
   .home-book__layout {
     grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
     align-items: start;
+  }
+}
+
+@media (max-width: 45.999rem) {
+  .home :is(.home-hero, .home-book) {
+    margin-inline: -1rem;
+    padding: 1rem 1rem 1.9rem;
+  }
+
+  .home :is(.home-hero, .home-book)::before {
+    inset-inline-start: 3px;
+    width: calc(100% - 3px);
   }
 }
