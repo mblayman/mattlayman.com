@@ -81,7 +81,7 @@ header a:hover {
 
 .content {
   background-color: var(--bg-color);
-  max-width: 76ch;
+  max-width: 84ch;
   padding: 1em;
   display: flow-root;
 }
@@ -193,8 +193,55 @@ aside {
   padding: clamp(0.25rem, 2vw, 1rem) 0;
 }
 
+.home::before,
+.home::after {
+  content: "";
+  position: absolute;
+  inset: -1rem;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.home::before {
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--text-color) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--text-color) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(color-mix(in oklab, var(--accent-color) 10%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--accent-color) 8%, transparent) 1px, transparent 1px);
+  background-size: 2rem 2rem, 2rem 2rem, 8rem 8rem, 8rem 8rem;
+  mask-image: linear-gradient(to bottom, black 0 72%, transparent 100%);
+  opacity: 0.42;
+}
+
+.home::after {
+  background-image: radial-gradient(color-mix(in oklab, var(--text-color) 18%, transparent) 0.6px, transparent 0.8px);
+  background-size: 5px 5px;
+  mix-blend-mode: multiply;
+  opacity: 0.18;
+}
+
 .home :is(.home-hero, .home-book, .home-articles) {
   position: relative;
+  background-image:
+    linear-gradient(var(--accent-color), var(--accent-color)),
+    linear-gradient(var(--accent-color), var(--accent-color)),
+    linear-gradient(var(--accent-color), var(--accent-color)),
+    linear-gradient(var(--accent-color), var(--accent-color));
+  background-position:
+    left top,
+    left top,
+    right bottom,
+    right bottom;
+  background-repeat: no-repeat;
+  background-size:
+    1.25rem 1px,
+    1px 1.25rem,
+    1.25rem 1px,
+    1px 1.25rem;
+}
+
+.home :is(.home-hero, .home-book, .home-articles)::selection {
+  background: color-mix(in oklab, var(--accent-color) 30%, transparent);
 }
 
 .home :is(.home-hero, .home-book) {
@@ -234,19 +281,22 @@ aside {
 }
 
 .home-hero h1 {
-  font-size: clamp(3rem, 9vw, 5.75rem);
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
   color: var(--text-color);
   text-shadow: 0 0 30px color-mix(in oklab, var(--accent-color) 18%, transparent);
+  letter-spacing: 0.02em;
 }
 
 .home-book h2,
 .home-articles h2 {
   font-size: clamp(1.6rem, 4vw, 2.4rem);
+  letter-spacing: 0.02em;
 }
 
 .home-hero p,
 .home-book p,
 .home-articles li {
+  font-size: clamp(1.05rem, 1.25vw, 1.1rem);
   line-height: 1.68;
 }
 
@@ -373,27 +423,38 @@ aside {
 
 .home-articles {
   border-top: 1px solid color-mix(in oklab, var(--accent-color) 40%, var(--bg-color));
+  border-left: 1px solid color-mix(in oklab, var(--accent-color) 24%, var(--bg-color));
   padding-top: clamp(1.25rem, 4vw, 2rem);
+  padding-left: clamp(1rem, 3vw, 1.75rem);
 }
 
 .home-articles__list {
   list-style: none;
   margin: 1.25rem 0 0;
   padding: 0;
-  border-top: 1px solid color-mix(in oklab, var(--text-color) 12%, transparent);
 }
 
 .home-articles__list li {
   margin: 0;
-  border-bottom: 1px solid color-mix(in oklab, var(--text-color) 10%, transparent);
 }
 
 .home-articles__list a {
   display: block;
+  position: relative;
   padding: 0.75rem 0.35rem;
   color: var(--text-color);
-  font-size: 0.95rem;
+  font-size: clamp(1.05rem, 1.2vw, 1.05rem);
   text-decoration: none;
+}
+
+.home-articles__list a::before {
+  content: "";
+  position: absolute;
+  left: -0.85rem;
+  top: 50%;
+  width: 0.45rem;
+  height: 1px;
+  background: color-mix(in oklab, var(--accent-color) 55%, transparent);
 }
 
 .home-articles__list a:hover {
@@ -413,6 +474,11 @@ aside {
   .home :is(.home-hero, .home-book) {
     margin-inline: -1rem;
     padding: 1rem 1rem 1.9rem;
+  }
+
+  .home-articles {
+    margin-inline: -1rem;
+    padding-inline: 1rem;
   }
 
   .home :is(.home-hero, .home-book)::before {
