@@ -136,7 +136,7 @@ aside {
 }
 
 .social-icon.octicon {
-  transform: translateY(2px);
+  transform: translate(2px, 2px);
 }
 
 .social-links a:hover .social-icon {
@@ -177,5 +177,223 @@ aside {
   blockquote {
     margin: 0;
     padding: 0 0 0 1rem;
+  }
+}
+
+.home {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  padding: clamp(0.25rem, 2vw, 1rem) 0;
+}
+
+.home :is(.home-hero, .home-book, .home-articles) {
+  position: relative;
+}
+
+.home :is(.home-hero, .home-book) {
+  border-left: 5px solid var(--accent-color);
+  padding: clamp(1rem, 3vw, 1.75rem) 0 clamp(1rem, 3vw, 1.75rem) clamp(1rem, 3vw, 1.75rem);
+}
+
+.home :is(.home-hero, .home-book)::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 5px;
+  z-index: -1;
+  width: min(100% - 5px, 40rem);
+  pointer-events: none;
+  background: linear-gradient(90deg, color-mix(in oklab, var(--bg-color) 94%, var(--text-color) 6%), var(--bg-color) 68%, transparent);
+}
+
+.home :is(.home-hero, .home-book)::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 -5px;
+  z-index: -2;
+  width: 0.85rem;
+  pointer-events: none;
+  background: var(--accent-color);
+  box-shadow: 0 0 0.85rem color-mix(in oklab, var(--accent-color) 28%, transparent);
+}
+
+.home-hero h1,
+.home-book h2,
+.home-articles h2 {
+  margin: 0 0 0.9rem;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
+  letter-spacing: -0.04em;
+  line-height: 0.96;
+  text-wrap: balance;
+}
+
+.home-hero h1 {
+  font-size: clamp(3rem, 9vw, 5.75rem);
+  color: var(--text-color);
+  text-shadow: 0 0 30px color-mix(in oklab, var(--accent-color) 18%, transparent);
+}
+
+.home-book h2,
+.home-articles h2 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+}
+
+.home-hero p,
+.home-book p,
+.home-articles li {
+  line-height: 1.68;
+}
+
+.home-hero p {
+  max-width: 62ch;
+}
+
+.home-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.35rem;
+}
+
+.home-social-links a,
+.home-inline-link,
+.home-button,
+.home-articles__list a {
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.home-social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid color-mix(in oklab, var(--accent-color) 35%, var(--bg-color));
+  background: color-mix(in oklab, var(--bg-color) 88%, var(--accent-color) 12%);
+  color: var(--text-color);
+  box-shadow: 0.35rem 0.35rem 0 color-mix(in oklab, var(--accent-color) 20%, transparent);
+}
+
+.home-social-links a:hover {
+  transform: translate(-2px, -2px);
+  color: var(--link-color);
+  box-shadow: 0.5rem 0.5rem 0 color-mix(in oklab, var(--link-color) 24%, transparent);
+}
+
+.home-social-links a:focus-visible,
+.home-inline-link:focus-visible,
+.home-button:focus-visible,
+.home-articles__list a:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 4px;
+}
+
+.home-book__layout {
+  display: grid;
+  gap: clamp(1.6rem, 4vw, 2.25rem);
+  margin-top: 1.35rem;
+}
+
+.home-book__cover {
+  justify-self: start;
+  padding: 0.55rem;
+  border: 1px solid color-mix(in oklab, var(--accent-color) 30%, var(--bg-color));
+  background:
+    linear-gradient(135deg, color-mix(in oklab, var(--bg-color) 86%, var(--accent-color) 14%), color-mix(in oklab, var(--bg-color) 96%, var(--link-color) 4%));
+  box-shadow: 0.55rem 0.55rem 0 color-mix(in oklab, var(--accent-color) 18%, transparent);
+}
+
+.home-book__cover img {
+  display: block;
+}
+
+.home-book__copy {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.home-book__copy p {
+  margin: 0;
+}
+
+.home-book__actions {
+  margin-bottom: 0;
+  padding-top: 0.15rem;
+}
+
+.home-book__buy-copy {
+  padding-top: 0.35rem;
+}
+
+.home-inline-link {
+  color: var(--link-color);
+  font-weight: 700;
+}
+
+.home-inline-link:hover {
+  color: var(--link-hover);
+}
+
+.home-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin-top: 0.1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid color-mix(in oklab, var(--accent-color) 45%, var(--bg-color));
+  background: color-mix(in oklab, var(--bg-color) 82%, var(--accent-color) 18%);
+  color: var(--text-color);
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0.55rem 0.55rem 0 color-mix(in oklab, var(--accent-color) 22%, transparent);
+}
+
+.home-button:hover {
+  transform: translate(-2px, -2px);
+  color: var(--text-color);
+  box-shadow: 0.7rem 0.7rem 0 color-mix(in oklab, var(--link-color) 24%, transparent);
+}
+
+.home-articles {
+  border-top: 1px solid color-mix(in oklab, var(--accent-color) 40%, var(--bg-color));
+  padding-top: clamp(1.25rem, 4vw, 2rem);
+}
+
+.home-articles__list {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  border-top: 1px solid color-mix(in oklab, var(--text-color) 12%, transparent);
+}
+
+.home-articles__list li {
+  margin: 0;
+  border-bottom: 1px solid color-mix(in oklab, var(--text-color) 10%, transparent);
+}
+
+.home-articles__list a {
+  display: block;
+  padding: 0.75rem 0.35rem;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.home-articles__list a:hover {
+  color: var(--link-color);
+  background: linear-gradient(90deg, color-mix(in oklab, var(--accent-color) 12%, transparent), transparent 72%);
+  transform: translateX(0.35rem);
+}
+
+@media (min-width: 46rem) {
+  .home-book__layout {
+    grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+    align-items: start;
   }
 }
